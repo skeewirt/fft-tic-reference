@@ -1,0 +1,67 @@
+{
+  "kind": "program",
+  "plural": "programs",
+  "title": "Shader programs",
+  "singular": "Shader program",
+  "description": "Engine shader programs: a selector and program index resolved to its vertex and pixel shader, and the passes that use it.",
+  "key": "name",
+  "pages": true,
+  "template": "program.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "selector": {
+      "type": "string",
+      "label": "Selector"
+    },
+    "program": {
+      "type": "int",
+      "label": "Program index"
+    },
+    "shaders": {
+      "type": "refs",
+      "to": "shader",
+      "label": "Shaders",
+      "inverse": {
+        "name": "in_programs",
+        "label": "Used in programs"
+      }
+    },
+    "used_by": {
+      "type": "refs",
+      "to": "function",
+      "label": "Applied by",
+      "inverse": {
+        "name": "applies_programs",
+        "label": "Applies shader programs"
+      }
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "selector",
+    "program",
+    "summary"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "kind": "function",
+  "plural": "functions",
+  "title": "Functions",
+  "singular": "Function",
+  "description": "Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.",
+  "key": "name",
+  "pages": true,
+  "template": "function.md",
+  "symbols": "functions.json",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "addr": {
+      "type": "addr",
+      "required": true,
+      "label": "Address"
+    },
+    "area": {
+      "type": "area",
+      "required": true
+    },
+    "proto": {
+      "type": "code",
+      "required": true,
+      "label": "Prototype"
+    },
+    "callers": {
+      "type": "string",
+      "label": "Callers (as recorded)"
+    },
+    "callees": {
+      "type": "string",
+      "label": "Callees (as recorded)"
+    },
+    "dispatch_id": {
+      "type": "string",
+      "label": "Dispatch ID"
+    },
+    "proposed_name": {
+      "type": "string",
+      "label": "Proposed name"
+    },
+    "purpose": {
+      "type": "md",
+      "required": true
+    },
+    "behavior": {
+      "type": "tagged",
+      "required": true
+    },
+    "calculation": {
+      "type": "md"
+    },
+    "notes": {
+      "type": "md"
+    },
+    "open_questions": {
+      "type": "md"
+    },
+    "calls": {
+      "type": "refs",
+      "to": "function",
+      "inverse": {
+        "name": "called_by",
+        "label": "Called by"
+      }
+    },
+    "reads": {
+      "type": "refs",
+      "inverse": {
+        "name": "read_by",
+        "label": "Read by"
+      }
+    },
+    "writes": {
+      "type": "refs",
+      "inverse": {
+        "name": "written_by",
+        "label": "Written by"
+      }
+    }
+  },
+  "index": [
+    "name",
+    "addr",
+    "area",
+    "purpose"
+  ]
+}

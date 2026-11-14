@@ -1,0 +1,89 @@
+{
+  "kind": "registry",
+  "plural": "registries",
+  "title": "Registries",
+  "singular": "Registry",
+  "description": "Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning.",
+  "key": "name",
+  "pages": true,
+  "template": "registry.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "lookup": {
+      "type": "refs",
+      "to": "function",
+      "label": "Resolved by",
+      "inverse": {
+        "name": "resolves",
+        "label": "Resolves registries"
+      }
+    },
+    "storage": {
+      "type": "refs",
+      "label": "Values stored in",
+      "inverse": {
+        "name": "registries",
+        "label": "Indexed by registries"
+      }
+    },
+    "members": {
+      "type": "members",
+      "key": "name",
+      "label": "Entries",
+      "columns": [
+        {
+          "field": "id",
+          "label": "Id",
+          "type": "int"
+        },
+        {
+          "field": "name",
+          "label": "Name",
+          "type": "code"
+        },
+        {
+          "field": "value",
+          "label": "Value",
+          "type": "code"
+        },
+        {
+          "field": "conf",
+          "label": "Conf",
+          "type": "conf"
+        },
+        {
+          "field": "text",
+          "label": "Meaning",
+          "type": "string"
+        }
+      ]
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "area",
+    "summary"
+  ]
+}

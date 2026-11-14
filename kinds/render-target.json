@@ -1,0 +1,54 @@
+{
+  "kind": "render-target",
+  "plural": "render-targets",
+  "title": "Render targets",
+  "singular": "Render target",
+  "description": "GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame.",
+  "key": "name",
+  "pages": true,
+  "template": "render-target.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "index": {
+      "type": "string",
+      "label": "Index"
+    },
+    "size": {
+      "type": "string",
+      "label": "Size"
+    },
+    "format": {
+      "type": "code",
+      "label": "Format"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "index",
+    "size",
+    "format",
+    "summary"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "builds": {
+    "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+      "file_name": "FFT_enhanced.exe",
+      "file_size": 12158720,
+      "image_base": "0x140000000"
+    }
+  },
+  "current": "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5",
+  "schema": 1
+}

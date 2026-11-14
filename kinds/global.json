@@ -1,0 +1,60 @@
+{
+  "kind": "global",
+  "plural": "globals",
+  "title": "Globals",
+  "singular": "Global",
+  "description": "Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json).",
+  "key": "name",
+  "pages": true,
+  "template": "global.md",
+  "symbols": "globals.json",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "addr": {
+      "type": "addr",
+      "required": true,
+      "label": "Address"
+    },
+    "area": {
+      "type": "area"
+    },
+    "type": {
+      "type": "code",
+      "label": "Type"
+    },
+    "instance_of": {
+      "type": "refs",
+      "to": "struct",
+      "label": "Points to / is a",
+      "inverse": {
+        "name": "instances",
+        "label": "Global instances"
+      }
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "addr",
+    "type",
+    "summary"
+  ]
+}

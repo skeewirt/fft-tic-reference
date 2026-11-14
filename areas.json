@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "about": "Area pages group objects of every kind by game subsystem. A record's 'area' label is matched against 'labels' (case-insensitive); 'prefixes' route records by name first (checked before labels); 'overrides' pin single records ('kind:Name' -> slug).",
+  "areas": [
+    {
+      "slug": "ability-data",
+      "title": "Ability data",
+      "blurb": "Ability NXD row accessor, JP cost, aux header and the ability action records.",
+      "labels": [
+        "ability data"
+      ]
+    },
+    {
+      "slug": "app-startup",
+      "title": "Application and startup",
+      "blurb": "Entry, frame loop, message pump, clock, exception handling and the startup debug/capture gates.",
+      "labels": [
+        "application"
+      ]
+    },
+    {
+      "slug": "battle",
+      "title": "Battle",
+      "blurb": "Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.",
+      "labels": [
+        "battle turns",
+        "battle unit table",
+        "battle action application",
+        "battle action execution",
+        "battle status effects",
+        "battle ui",
+        "battle ui / unit status panel",
+        "battle presentation / effects",
+        "battle presentation / scene tasks",
+        "battle presentation / animation",
+        "battle presentation (scene task)",
+        "battle ai",
+        "battle ai / preview",
+        "battle ai evaluate",
+        "battle ability list",
+        "battle action check",
+        "battle action data",
+        "battle action resolution",
+        "battle calc targets",
+        "battle item list",
+        "battle range",
+        "battle result / learn",
+        "battle status",
+        "learn / battle result"
+      ]
+    },
+    {
+      "slug": "data",
+      "title": "Data access",
+      "blurb": "NXD table accessors, the table registry and other game-data lookups.",
+      "labels": [
+        "data",
+        "game data",
+        "ui text",
+        "text"
+      ]
+    },
+    {
+      "slug": "display",
+      "title": "Display",
+      "blurb": "Video/window state and resize handling.",
+      "labels": [
+        "display"
+      ]
+    },
+    {
+      "slug": "errands",
+      "title": "Errands",
+      "blurb": "The timed dispatch system: records, scoring, rewards, start and finish.",
+      "labels": [
+        "errands",
+        "errand ui"
+      ]
+    },
+    {
+      "slug": "event-commands",
+      "title": "Event commands",
+      "blurb": "The 4-byte command language: the handlers EventCmd_Run calls through its class table.",
+      "labels": [],
+      "prefixes": [
+        "EventCmd_"
+      ]
+    },
+    {
+      "slug": "event-system",
+      "title": "Event system",
+      "blurb": "The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.",
+      "labels": [
+        "event system / unit data",
+        "event system"
+      ]
+    },
+    {
+      "slug": "formulas",
+      "title": "Battle formulas",
+      "blurb": "The battle formula functions, dispatched by formula id.",
+      "labels": [
+        "battle formulas"
+      ]
+    },
+    {
+      "slug": "graphics",
+      "title": "Graphics",
+      "blurb": "The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.",
+      "labels": [
+        "graphics",
+        "render",
+        "render / blur"
+      ]
+    },
+    {
+      "slug": "input",
+      "title": "Input",
+      "blurb": "Pointer polling and input state.",
+      "labels": [
+        "input / system",
+        "input"
+      ]
+    },
+    {
+      "slug": "items",
+      "title": "Items and shops",
+      "blurb": "Item records and categories, and the shops.",
+      "labels": [
+        "item data",
+        "items",
+        "shops"
+      ]
+    },
+    {
+      "slug": "job-data",
+      "title": "Job data",
+      "blurb": "Job table accessors, job records, skillsets, learning and job icon paths.",
+      "labels": [
+        "job data"
+      ]
+    },
+    {
+      "slug": "job-list",
+      "title": "Job list and unlock",
+      "blurb": "JobList_*, Job_*, Party_* and unlock/mask pages.",
+      "labels": [
+        "job list",
+        "unlock",
+        "job list / unlock"
+      ]
+    },
+    {
+      "slug": "job-tree",
+      "title": "Job tree",
+      "blurb": "The Job Tree screen: JobTree_* and JobRecord_* pages.",
+      "labels": [
+        "job tree",
+        "job tree ui",
+        "job tree / learn ui"
+      ]
+    },
+    {
+      "slug": "math",
+      "title": "Math",
+      "blurb": "Matrix and conversion helpers.",
+      "labels": [
+        "math"
+      ]
+    },
+    {
+      "slug": "resource",
+      "title": "Resource",
+      "blurb": "Pack entry lookup, file reading and inflation.",
+      "labels": [
+        "resource",
+        "io"
+      ]
+    },
+    {
+      "slug": "save-data",
+      "title": "Save data",
+      "blurb": "The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.",
+      "labels": [
+        "save data"
+      ]
+    },
+    {
+      "slug": "ui-framework",
+      "title": "UI framework",
+      "blurb": "GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.",
+      "labels": [
+        "ui system",
+        "render / ui",
+        "ui"
+      ]
+    },
+    {
+      "slug": "unit-data",
+      "title": "Unit data",
+      "blurb": "Unit save, work and party records, stat and growth computation, egg hatching and scripted battle entries.",
+      "labels": [
+        "unit data"
+      ]
+    },
+    {
+      "slug": "unit-rendering",
+      "title": "Unit rendering",
+      "blurb": "Unit preview, sprite records, CharaRender/CharaSlot, palettes and renderer pages.",
+      "labels": [
+        "sprites",
+        "unit sprites"
+      ]
+    }
+  ],
+  "overrides": {
+    "function:Rgb555ToRgba8888": "unit-rendering",
+    "struct:JobRecord": "job-tree",
+    "struct:JobTreePanel": "job-tree",
+    "struct:JobTreeAddon": "job-tree",
+    "struct:GUINode": "ui-framework"
+  }
+}

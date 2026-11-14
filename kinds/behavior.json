@@ -1,0 +1,52 @@
+{
+  "kind": "behavior",
+  "plural": "behaviors",
+  "title": "Observed behaviours",
+  "singular": "Observed behaviour",
+  "description": "Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.",
+  "key": "name",
+  "pages": true,
+  "template": "behavior.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "scope": {
+      "type": "string",
+      "label": "Scope"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "affects": {
+      "type": "refs",
+      "label": "Affects",
+      "inverse": {
+        "name": "behaviors",
+        "label": "Observed behaviours"
+      }
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "scope",
+    "summary"
+  ]
+}

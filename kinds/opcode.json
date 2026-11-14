@@ -1,0 +1,81 @@
+{
+  "kind": "opcode",
+  "plural": "opcodes",
+  "title": "Event opcodes",
+  "singular": "Opcode",
+  "description": "The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation.",
+  "key": "op",
+  "pages": false,
+  "fields": {
+    "op": {
+      "type": "name",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "operand_bytes": {
+      "type": "data"
+    },
+    "operand_bytes_enhanced": {
+      "type": "data"
+    },
+    "variable_length": {
+      "type": "data"
+    },
+    "operands": {
+      "type": "data"
+    },
+    "effect": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "data"
+    },
+    "starts_task": {
+      "type": "refs",
+      "to": "function",
+      "inverse": {
+        "name": "started_by_opcode",
+        "label": "Started by event opcodes"
+      }
+    },
+    "reads_vars": {
+      "type": "data"
+    },
+    "writes_vars": {
+      "type": "data"
+    },
+    "calls": {
+      "type": "refs",
+      "to": "function",
+      "inverse": {
+        "name": "called_by_opcode",
+        "label": "Called by event opcodes"
+      }
+    },
+    "explicit_case": {
+      "type": "data"
+    },
+    "where": {
+      "type": "data"
+    },
+    "conf": {
+      "type": "conf",
+      "required": true
+    },
+    "evidence": {
+      "type": "data"
+    },
+    "build": {
+      "type": "data"
+    }
+  },
+  "index": [
+    "op",
+    "name",
+    "operand_bytes",
+    "conf",
+    "effect"
+  ]
+}

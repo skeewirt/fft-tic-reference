@@ -1,0 +1,197 @@
+# Globals
+
+Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json).
+
+189 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
+
+| Name | Address | Type | Summary |
+|---|---|---|---|
+| [dword_143D1AC68](dword_143D1AC68.md) | `0x143D1AC68` | `int32` | Running price accumulator of an Outfitter equip visit: a positive charge for equipment bought or applied during the visit, added to gil and zeroed by the commit handler. |
+| [g_AbilityAnim](g_AbilityAnim.md) | `0x140672DA0` | `battle action data` | 454 x 3 bytes (ability ids 0..453, .rdata): charge / cast effect type, motion, battle text; indexed by the scene object's effect word (+0x142, +0x18C). |
+| [g_AbilityEffectNumber](g_AbilityEffectNumber.md) | `0x140683500` | `battle action data` | 454 x s16 (ability ids 0..453): effect number, -1 = none. |
+| [g_AbilityKind1_ItemByAbility](g_AbilityKind1_ItemByAbility.md) | `0x140785E18` | `uint8[14]` | The Item-command table: 14 bytes, ability 368 + i maps to item 240 + i (items 240..253). |
+| [g_AbilityKind2_ThrowCategory](g_AbilityKind2_ThrowCategory.md) | `0x140789290` | `uint8[12]` | The Throw table: 12 equip-category bytes, ability 382 + i maps to one category. |
+| [g_AbilityMpCost](g_AbilityMpCost.md) | `0x1407B078E` | `uint8` | The MP cost of the action being started or previewed: the action row's cost byte, halved for a unit with the halving passive; zero when no cost applies. |
+| [g_ActionItemIdByte](g_ActionItemIdByte.md) | `0x1407B077E` | `uint8` | The item-id byte the battle action resolver leaves for the item formulas: the item id's low byte plus 0x10, so the formulas rebuild the id by adding 0xF0. |
+| [g_AiCommandTable](g_AiCommandTable.md) | `0x141872598` | `AiCommandEntry[16][34]` | The AI's candidate action table: 16 rows (one per AI unit) of 34 four-byte entries; each entry is an ability word and the command (skillset) byte it came from. |
+| [g_Application](g_Application.md) | `0x140C6AD30` | `object *` | Application object passed to App_RunFrame, Game_Main and the application vfuncs. |
+| [g_BattleActingUnit](g_BattleActingUnit.md) | `0x14186AF68` | `ptr` | Pointer to the unit record the current battle action is worked out on: the TARGET of the action (the unit hit), although the name says acting; its byte at +0x97 carries the reaction flags and its byte at +0x61 the ite... |
+| [g_BattleActionBlock](g_BattleActionBlock.md) | `0x14186AF70` | `ActionResult *` | Pointer to the result block of the current action on its target: unit +0x1BE of the target's slot (the formula handlers' R). |
+| [g_BattleCasterResult](g_BattleCasterResult.md) | `0x14186AF60` | `ActionResult *` | Pointer to the caster's own result block of the action being resolved: a static ActionResult at 0x14186AFC0, apart from the unit records. |
+| [g_BattleCasterUnit](g_BattleCasterUnit.md) | `0x14186AF78` | `uint8 *` | Pointer to the unit record of the one who does the action, as the formula handlers read it: the entry of g_PreviewUnitTable chosen by byte 0 of the request. |
+| [g_BattleCommandBytes](g_BattleCommandBytes.md) | `0x140D40838` | `uint8[8]` | The battle command menu's byte list for the unit whose menu is open: the command (skillset) byte of each row, 0xFF-terminated. |
+| [g_BattleCommandBytesB](g_BattleCommandBytesB.md) | `0x14184B2C0` | `uint8[8]` | The second copy of the battle command menu's byte list, built by the same builder for the other command menu (BattleCommand_BuildUnitList), 0xFF-terminated. |
+| [g_BattleCommandKinds](g_BattleCommandKinds.md) | `0x14184A9A8` | `uint8[8]` | The command kind of each entry of the byte list just built: g_CommandKind[command byte] & 0x0F. |
+| [g_BattleCommandRequest](g_BattleCommandRequest.md) | `0x142FD35A0` | `uint8[20]` | The twenty-byte battle command request: the command byte at +1, the chosen 16-bit value at +2 and +8 (kept equal), and the ability word at +6. |
+| [g_BattleContextGate](g_BattleContextGate.md) | `0x14186AF80` | `uint32` | Battle context gate: while it is non-zero the reaction and secondary-action paths refuse to run, which is how those actions avoid refunding or repeating. |
+| [g_BattleControl](g_BattleControl.md) | `0x143CD9EF0` | `BattleControl *` | Singleton ffto::Game::Battle::BattleControl (vtable 0x140714058); BattleControl_FrameUpdate is its per-frame update; its destructor clears the fast-forward level and mode. |
+| [g_BattleEntrySource](g_BattleEntrySource.md) | `0x141856930` | `unit data` | 16 bytes: dword +0 the battle key (set from scene variable 50 by sub_1403044EC, read by Battle_GetEntryBlock and Battle_BuildEntryUnits as the OverrideEntryData key), qword +8 the base of the loaded entry data (640 by... |
+| [g_BattleLineAbility](g_BattleLineAbility.md) | `0x142FD3590` | `uint32` | The ability, cut to 9 bits, that the battle-line task turns into a text id (0xA800 OR the ability) when a unit speaks a line for an action. |
+| [g_BattleMapSize](g_BattleMapSize.md) | `0x140C6AD6A` | `uint8[2]` | Battle map width (byte 0) and height (byte 1) in tiles; every range builder bounds its loops by them. |
+| [g_BattleMapWords](g_BattleMapWords.md) | `0x140D3F950` | `uint16[]` | The runtime per-map word table. |
+| [g_BattleMsgObject](g_BattleMsgObject.md) | `0x143CDA388` | `ptr` | Pointer to the battle message object. |
+| [g_BattleMsgQueue](g_BattleMsgQueue.md) | `0x142FCF870` | `uint8[256]` | The deferred battle message queue: sixteen entries of sixteen bytes (id byte, unit byte, qword value). |
+| [g_BattleMsgQueueCount](g_BattleMsgQueueCount.md) | `0x142FCF864` | `int` | The number of entries in the deferred battle message queue, at most sixteen. |
+| [g_BattleRangeMarks](g_BattleRangeMarks.md) | `0x1418004E0` | `uint8[2560]` | Range-mark array: 512 records of 5 bytes, index x + y * width + 256 * layer (layer 1 at +0x500). |
+| [g_BattleState](g_BattleState.md) | `0x140C6B1CC` | `int` | The battle state word the battle state machine switches on. |
+| [g_BattleStateGate](g_BattleStateGate.md) | `0x14186AF9C` | `uint32` | Battle state word that suspends the reaction helper while it is non-zero. |
+| [g_BattleTileTable](g_BattleTileTable.md) | `0x140D8DCB0` | `uint8[4096]` | The battle map tile table: 512 records of 8 bytes (flags and movement cost), filled by the map setup from the packed level record and read by the map code. |
+| [g_BattleUnitTable](g_BattleUnitTable.md) | `0x141853CE0` | `uint8[10752]` | The live battle unit table: 21 records of 512 bytes. |
+| [g_BitReaderCursor](g_BitReaderCursor.md) | `0x140906AAC` | `int` | current bit index (7..0) |
+| [g_BitReaderPtr](g_BitReaderPtr.md) | `0x143C49BF8` | `ptr` | current byte pointer for BitStream_ReadBits |
+| [g_BitReaderReset](g_BitReaderReset.md) | `0x142FF3CA7` | `flag` | set to 1 to restart BitStream_ReadBits at bit 7 of the first byte |
+| [g_CharaRectSizeTable](g_CharaRectSizeTable.md) | `0x140673940` | `uint16[]` | Width and height of a frame rectangle by its size code, in 8-pixel units (width at 2 * code, height at 2 * code + 4 words): read by CharaRender_DrawFrame. |
+| [g_CharaRenderer](g_CharaRenderer.md) | `0x143CC96B8` | `CharaRenderer *` | The unit sprite renderer: 36-byte job records at +0 (4096, count +147456), sub-objects at +148080 .. +148144 (+148128 LUT manager, +148136 target state, +148144 config: size 256, ground (128, 192), scale 2.0f, then 25... |
+| [g_CharaRenderMgr](g_CharaRenderMgr.md) | `0x143CD9DC0` | `CharaRenderMgr *` | UI-side manager of the unit render slots: 112-byte slot entries at +14920 (slot id = panel + 80 for the job tree). |
+| [g_ChargeMotionPairs](g_ChargeMotionPairs.md) | `0x1406735A8` | `battle action data` | 2 bytes per charge type of g_AbilityAnim: +0 the motion sub_140206C14 sets, +1 the motion BattleAnim_SetChargeMotion sets (each + 1; 0 = none) |
+| [g_ClockProvider](g_ClockProvider.md) | `0x143CD9BC8` | `object *` | Clock provider read by Time_GetTimestamp; its vtable +8 and +16 supply the counter and divisor (I). |
+| [g_ClutFadeStep32](g_ClutFadeStep32.md) | `0x1406821F0` | `int8[63][32]` | Step table of the 32-step palette fade, same layout. |
+| [g_ClutFadeStep8](g_ClutFadeStep8.md) | `0x140681FE0` | `int8[63][8]` | Step table of the 8-step palette fade: row = distance + 31, entry = how far the channel moves on that step; the entries of a row add up to the distance. |
+| [g_ClutImage](g_ClutImage.md) | `0x140C73B70` | `uint16[14][256]` | The palette manager's final image: 14 rows of 256 colours (16 rows of 16 per bank), uploaded to the emulated video memory at x 0, y 494 by ClutManager_Upload. |
+| [g_ClutManager](g_ClutManager.md) | `0x140C6B320` | `uint32[2] + ClutBank[14]` | The palette manager: two dirty dwords (final image changed; upload done), then 14 banks of 2450 bytes from +8 (ClutBank). |
+| [g_CMesIdTable](g_CMesIdTable.md) | `0x143CDA340` | `ptr` | The cached result of the NXD registry lookup for table 172, the battle message text table. |
+| [g_CommandKind](g_CommandKind.md) | `0x14067E010` | `uint8[256]` | Command id to command kind, one byte per row: 256 stock rows indexed by the command (skillset) byte. |
+| [g_ConfigData](g_ConfigData.md) | `0x140C69690` | `void *` | The loaded config object; the settings record of ConfigSettings_Serialize starts 16 bytes in: byte +55 forwardEnabledType (0 enable, 1 disable, 2 disable in story scenes), byte +59 enableEventKeepAuto. |
+| [g_CurrentActionBlock](g_CurrentActionBlock.md) | `0x1418716A0` | `uint8[?]` | The current-action block Action_BuildCurrentAction fills for the AI and the action preview: command at +0, packed action word at +2, item id at +6, flags at +0x10 and the ability aux flags further in. |
+| [g_CurrentEffectNumber](g_CurrentEffectNumber.md) | `0x141D330BC` | `battle action data` | s16: the battle effect now loaded or running (-1 = none, 0..511 after the 0x1FF mask). |
+| [g_CurrentSpawnEntry](g_CurrentSpawnEntry.md) | `0x1411A3868` | `unit data` | Pointer to the spawn entry being built: set by Battle_PlaceEntryUnits and sub_1402841D0 before each Unit_BuildFromRecord; Unit_ApplySpawnRecord copies its bytes +33..+39 into unit +407..+413, and Battle_PlaceEntryUnit... |
+| [g_DefaultSamplerWord](g_DefaultSamplerWord.md) | `0x141D8BC7C` | `uint32` | Default sampler word every render context is reset to (masked with 0x7FFFFFFF). |
+| [g_DialogueFaceSlot0](g_DialogueFaceSlot0.md) | `0x142FF9EDC` | `int32[3]` | Dialogue face slot values 0..2 (0x142FF9EDC, EE0, EE4): unmapped portrait codes; Unit_GetSpriteSetId writes slot 0 with the save-record branch's code; read by the event and dialogue face windows. |
+| [g_EffectFileBase](g_EffectFileBase.md) | `0x143740220` | `battle action data` | 512 pointers, all set to unk_1418A2E00 by EffectFile_ResetBasePointers: the loaded effect file's address, indexed by effect number (one shared buffer, so one resident effect) |
+| [g_EffectFileTableA](g_EffectFileTableA.md) | `0x1406739C0` | `battle action data` | 512 rows x 8 bytes (file number, size in bytes), indexed by effect number; the table used with the English pack (effect 260 = file 1133, size 45056). |
+| [g_EffectFileTableB](g_EffectFileTableB.md) | `0x1406749C0` | `battle action data` | 512 x 8 bytes, same shape as g_EffectFileTableA with every file number one lower (the other language flag). |
+| [g_EffectNumberPseudo](g_EffectNumberPseudo.md) | `0x1406834B0` | `battle action data` | 37 x s16: effect numbers 0x1C2..0x1E6 of the effect words 512..548 (event-script effects; 512 is also the action result's sentinel) |
+| [g_EquipCandidates](g_EquipCandidates.md) | `0x141876C64` | `uint16[5]` | The five candidate equipment words of the equip screen's preview; filled by the picker or zeroed, then read by the caller after the call. |
+| [g_EquipOrderGroup](g_EquipOrderGroup.md) | `0x140D407BA` | `uint8` | The equip screen's order-group byte; cleared when the player picks a row, so the list order follows the chosen row. |
+| [g_EquipScreenInitFlag](g_EquipScreenInitFlag.md) | `0x14184A643` | `uint8` | One-shot setup byte of the equip screen's row-selection path. |
+| [g_EquipSet](g_EquipSet.md) | `0x141876C40` | `?` | The equip-set structure the preview picker fills and passes to sub_140287354 together with the candidate buffer and the unit's live equipment words. |
+| [g_ErrandActive](g_ErrandActive.md) | `0x1411A71A0` | `uint8[8][9]` | The eight active errand slot records, nine bytes each: flags, errand id, town and the three dispatched unit ids. |
+| [g_ErrandActiveCount](g_ErrandActiveCount.md) | `0x140D407B2` | `errands` | uint8: how many of the eight g_ErrandActive slots are in use. |
+| [g_ErrandBoardList](g_ErrandBoardList.md) | `0x140D498F0` | `errands` | uint16[128]: the tavern board list: an entry is a kind in the top 5 bits and an 11-bit id (an errand is errand - 0x3000 = 0xD000 + errand; 0xB800 is another kind, sub_1403456D4). |
+| [g_ErrandDelay](g_ErrandDelay.md) | `0x1411A7140` | `uint8[96]` | The per-errand delay byte, one per errand id 0..95, saved with the game. |
+| [g_ErrandFinishDay](g_ErrandFinishDay.md) | `0x1411A70D0` | `errands` | uint8[108]: the finish date of each errand as 9 bits (day 5 bits, month 4 bits) at bit 9 * errand: 96 x 9 bits = 108 bytes (DateBits_Store9), saved with the game (world save field mouke_finishday). |
+| [g_ErrandNewFlags](g_ErrandNewFlags.md) | `0x1411A7319` | `errands` | uint8[96][2]: per errand two flags (is new, is new arrival) of the tavern board menu, saved in ffto_world bar.mouke.menu_new. |
+| [g_EventControl](g_EventControl.md) | `0x143CD9FD0` | `EventControl *` | Singleton ffto::Game::Event::EventControl: the event pause overlay state machine; +8 state 0 off / 1 running / 2 paused / 3 skip chosen (record EventControl). |
+| [g_EventKeepAutoLatch](g_EventKeepAutoLatch.md) | `0x140C6AD73` | `uint8` | 1 after auto-advance was switched on with action 91 while the setting enableEventKeepAuto is on; EventControl_RunningTick then switches auto on again in the next event; 0 after auto is switched off. |
+| [g_EventScriptActive](g_EventScriptActive.md) | `0x142FF9EC0` | `uint32[2]` | Low dword: 1 while EventScript_Run runs a script (set at its start, 0x14023A8DE; cleared at both ends 0x14023EDD0 / 0x14023F29E, by sub_14023F324, sub_140210AF0, Video_RefreshState and sub_1402D3918); EventControl_Upd... |
+| [g_EventScriptBuffer](g_EventScriptBuffer.md) | `0x140D3CD50` | `uint8[10240]` | The 0x2800-byte event-script file image the script loader fills and the event interpreter runs. |
+| [g_EventSkipEnabled](g_EventSkipEnabled.md) | `0x142E7FB3C` | `uint32` | Event skip master switch; its only writer, VideoState_InitDefaults, stores 1. |
+| [g_EventSkipFlags](g_EventSkipFlags.md) | `0x142FF9E4C` | `uint32[2]` | Low dword 'allowed': 1 only on the event-viewer paths (sub_1402D2578, sub_1402D28C8 write both dwords 1); when 1, EventScript_LoadCurrent arms every event. |
+| [g_EventSkipOnce](g_EventSkipOnce.md) | `0x142FF9EBC` | `uint32` | 0 = the script may be skipped, 1 = skippable once, 2 = no (more) skip: EventScript_Run sets 0 or 1 at its start (1 when EventId byte +36 is set, when the battle's NXD 96 row has byte +147, +148 or +149 set, or for eve... |
+| [g_EventSkipVeto](g_EventSkipVeto.md) | `0x142FF9E54` | `uint32` | Low dword: 1 while Battle_InitScene builds a battle (set at 0x1402C8A1B, cleared at 0x1402C9F36); 0 from sub_140210AF0, Video_RefreshState, sub_1402D3918. |
+| [g_EventViewerChained](g_EventViewerChained.md) | `0x141849E10` | `uint32` | Written by the event-viewer paths as (sub_14033D840(event) != -1), cleared by sub_140236378 and EventScript_Run; EventSkip_IsViewerEvent needs 0 (I: meaning from the writers only). |
+| [g_EventWorkPtr](g_EventWorkPtr.md) | `0x14078DCE8` | `ptr` | Pointer to the event work block at 0x140D40060; the event tasks reach their work area through it. |
+| [g_ExceptionFilterDepth](g_ExceptionFilterDepth.md) | `0x142C8B964` | `int` | Counter incremented/decremented by TopLevelExceptionFilter around the crash dialog. |
+| [g_FaceDisplayMode](g_FaceDisplayMode.md) | `0x142FF9ED8` | `int32` | Face display mode word: when (mode & ~2) is 0 the face readers map a portrait code through SpriteId_ToShape, else they use the raw code; written 0 then 2 by sub_140210AF0 (battle setup), 0 by Video_RefreshState and su... |
+| [g_FaceG2dEntryByFace](g_FaceG2dEntryByFace.md) | `0x140714EA0` | `int32[206]` | g2d (pack) entry number per face number 0..205 for the HD layer (row 0 -1, rows 155..158 -1); four readers, each bounding the face with 0xCD. |
+| [g_FastForwardMultipliers](g_FastForwardMultipliers.md) | `0x140672018` | `int32[3]` | Game steps per displayed frame by fast-forward level: 1, 3, 5 (GlobalWork_GetSpeedMultiplier). |
+| [g_FastForwardStateTable](g_FastForwardStateTable.md) | `0x142FCF730` | `uint8[256]` | Per battle state (index g_BattleState): non-zero = fast-forward allowed. |
+| [g_FormulaBlock](g_FormulaBlock.md) | `0x1407B0770` | `uint8[16]` | The block the action resolver and the formula handlers share, 0x48 bytes from 0x1407B0770: the request's action type, the ability being worked out (the word at +8, address 0x1407B0778), the weapon or item word, the in... |
+| [g_FrameTimestamp](g_FrameTimestamp.md) | `0x143CD9B68` | `int64 (1/300000 s)` | Latest accepted frame timestamp, written by App_RunFrame and read by the frame limiter. |
+| [g_GlobalWork](g_GlobalWork.md) | `0x143CD9DD0` | `GlobalWork *` | Singleton ffto::Game::GlobalWork (136 bytes, vtable 0x140713EA8, created by sub_1400B532C): fast-forward level +0x58, frame step +0x5C, fast-forward mode +0x60 (record GlobalWork). |
+| [g_GraphicsLevel](g_GraphicsLevel.md) | `0x142C81554` | `float` | Graphics level; Unit_GetSpriteSetId's save-record branch and the battle palette upload test it against 2.0 (I: 2.0 and up = enhanced graphics). |
+| [g_GUIActorTable](g_GUIActorTable.md) | `0x143CDA290` | `GUIActorTable *` | Owner (addon) lookup by id; GUIOwners_PostEvent resolves every node owner id here and calls the owner's vtable slot 2. |
+| [g_GUICore](g_GUICore.md) | `0x143CDAA98` | `GUICore *` | The UI core singleton: widget list +24..+32, handler list +56..+64, event queue +80, screen-to-UI layer transforms +216 (144 B each), pointer x/y ints +1880/+1884, hover key +1920, focus key +1968. |
+| [g_GUIFontSlots](g_GUIFontSlots.md) | `0x143CDA288` | `FontSlot[18]` | Per-UIFontType render slots (16 B each): byte +145 'loaded', signed byte at 16*(id+9) = renderer font slot. |
+| [g_GUIFontTable](g_GUIFontTable.md) | `0x143CDAA48` | `GUIFontTable *` | Singleton font table: UIFontSet rows (80 B each) at +16..+24; +40 flag selects the alternate nominal-size float. |
+| [g_HdFaceSlotValues](g_HdFaceSlotValues.md) | `0x142E7FCAC` | `int32[]` | HD-layer face slot values (stride 4 dwords per slot); Unit_GetSpriteSetId writes [0]; sub_14041D670 and sub_14041DAA4 read [4 * slot]. |
+| [g_HdSheetEntryBySlot](g_HdSheetEntryBySlot.md) | `0x142E7FE6C` | `int32[30]` | HD sheet first-entry numbers per sheet slot; unit slots 20 to 28 follow pool index 0 to 8 and index 29 belongs to pool index 9; -1 means not set. |
+| [g_HdSheetGroups](g_HdSheetGroups.md) | `0x142EA63E0` | `HdSheetGroup[20]` | The battle HD layer's 20 sheet groups (21144 bytes each): one sheet entry and up to 128 textures per group. |
+| [g_HdSlotClut](g_HdSlotClut.md) | `0x143CC9CB0` | `uint16[379]` | Palette id of each single-texture slot of the battle HD layer. |
+| [g_HdSlotEntry](g_HdSlotEntry.md) | `0x143CC96C0` | `int32[379]` | Sheet entry of each single-texture slot of the battle HD layer (-1 none): the cache key of HdLayer_BuildTextures with g_HdSlotClut. |
+| [g_HelpIdSlot](g_HelpIdSlot.md) | `0x1418736B4` | `int32` | The item help-id slot of the shop detail panel: 0x6800 plus the per-item help word when the table word is non-zero, -1 when the item has no help. |
+| [g_InputModule](g_InputModule.md) | `0x143CD9EE8` | `void *` | The UI input module: a copy of the device state at +8, 256 action rows of 48 bytes at +1360 (record InputActionRow), the context mask at +13720. |
+| [g_InventoryCounts](g_InventoryCounts.md) | `0x1411A7C00` | `uint8[261]` | The party's inventory: one count per item id 0..260, saved with the game. |
+| [g_InventorySnapshot](g_InventorySnapshot.md) | `0x143C52740` | `uint8[261]` | Inventory counts plus every item worn by a used roster entry, built by sub_140396174 (261 counts). |
+| [g_ItemAttributeTable](g_ItemAttributeTable.md) | `0x14080FEA0` | `uint8[85][26]` | The equipment attribute records: 85 rows of 26 bytes, selected by the item record attribute index. |
+| [g_ItemNewFlags](g_ItemNewFlags.md) | `0x1411A7810` | `uint8[261][2]` | Two flag bytes per item id 0..260, set at a new game; I: the shop 'new item' badges (byte 1 cleared when the item is first sold, byte 0 when it is first obtained). |
+| [g_ItemShopMask](g_ItemShopMask.md) | `0x14067F890` | `uint8[512]` | Which shops sell which item: two bytes per item id 0..0xFF, a mask word whose bit for shop s is 0x8000 >> s. |
+| [g_JobAbilityPairList](g_JobAbilityPairList.md) | `0x142E93E40` | `job data` | 146 entries of 8 bytes (word 0 = job, word 1 = skillset or ability id, words 2..3 unused by the producers); a list ends at the entry whose word 1 is 0xFFFF. sub_14000E114 initialises all 146 (0, 0xFFFF). |
+| [g_JobListSelectedEntry](g_JobListSelectedEntry.md) | `0x143C51880` | `job list` | int16: the list entry the job screen last chose; read by JobList_IsSelectedEntryUnflagged and JobScreen_UpdateState; stock code stores a cell index there |
+| [g_JobNeedLevelRows](g_JobNeedLevelRows.md) | `0x14067F390` | `data` | 12 B/row; row r = requirement for job index r+1 (nibble-packed required job levels). |
+| [g_JobTable](g_JobTable.md) | `0x140785E30` | `uint8[174][49]` | The stock job table: 174 rows of 49 bytes. |
+| [g_LanguageInfo](g_LanguageInfo.md) | `0x143CD9B10` | `LanguageInfo *` | +8 = language code: 0 Japanese, 1 English, 2 French, 3 German, 4 Simplified Chinese, 5 Traditional Chinese, 6 Korean. |
+| [g_ListAlias](g_ListAlias.md) | `0x14184A9B0` | `uint8 *` | A second published alias of the list object, written by the task functions that open a list (the command task, the event runner and others). |
+| [g_ListObject](g_ListObject.md) | `0x1418716A0` | `uint8[1024]` | The static list object: u16 cell words at +0 (stride 2), a property word array at +0xA4, the bare-id array at +0x148 and five byte arrays after it. |
+| [g_ListObjectPtr](g_ListObjectPtr.md) | `0x141871698` | `uint8 *` | The published pointer to the static list object. |
+| [g_ListSelectedRow](g_ListSelectedRow.md) | `0x141876B50` | `uint16` | The list gadget's selected-row word as bound by the shop screens. |
+| [g_ListSelectedRowIndex](g_ListSelectedRowIndex.md) | `0x141876B54` | `uint16` | The selected row index the shop row helpers read; the shop list entry at that row is the one they price, count and copy. |
+| [g_LookPool](g_LookPool.md) | `0x140D005A0` | `LookPoolRecord[15]` | The 15 look pool records (stride 0x32D6); byte +0 is the claim, byte +1 the sprite low byte. |
+| [g_LookPoolFaceValue](g_LookPoolFaceValue.md) | `0x1437A59E0` | `int32[10]` | Battle face value per look pool record 0..9: sub_14026E838 stores the scene unit's sprite byte; cleared to -1 by sub_140210AF0, saved and restored by sub_140304BEC; ten readers use it as a face number behind the 0xCD ... |
+| [g_LookQueueCount](g_LookQueueCount.md) | `0x141856720` | `int32` | Number of entries in the look load queue (at most 16); the entries start at 0x141856728 (LookQueueEntry). |
+| [g_MenuList](g_MenuList.md) | `0x141811470` | `uint16[256]` | The display list shared by the shop and the equip screens: up to 256 packed words, 0xFFFF-terminated, rebuilt whenever a screen opens and never saved. |
+| [g_MessageArgBlock](g_MessageArgBlock.md) | `0x140783210` | `uint32[16]` | The current-message argument vector: 0x40 bytes, sixteen dwords. |
+| [g_MessageDescriptor](g_MessageDescriptor.md) | `0x140783210` | `uint8[?]` | The current battle message descriptor: the message word at +0, the item id at +4 and the text id at +8. |
+| [g_MonsterFaceIndexByJob](g_MonsterFaceIndexByJob.md) | `0x1407154F0` | `int32[48]` | Face record index per monster job 94..141 (values 62 to 77, three jobs per family); Unit_GetFaceIndex reads it through the virtual base 0x140715378, 392 bytes inside the HD sheet entry table before it (2026-11-08). |
+| [g_MoveBlockers](g_MoveBlockers.md) | `0x141882680` | `uint8[112]` | Up to 16 entries of 7 bytes, one per other unit on the map (record MoveBlockerRecord); an unused entry has id 0xFF. |
+| [g_MoveRangeScratch](g_MoveRangeScratch.md) | `0x141882600` | `uint8[128]` | Scratch block of the move-range builder, filled by Battle_MoveRangeSetup: Jump, horizontal jump, Move, the unit's tile, movement mode and flags, body height (record MoveRangeScratch). |
+| [g_MoveRangeTileCount](g_MoveRangeTileCount.md) | `0x1418827B0` | `uint16` | Number of tiles the last move-range build lit (Battle_MoveRange_Commit). |
+| [g_MoveTerrainCost](g_MoveTerrainCost.md) | `0x141882700` | `uint8[64]` | Movement cost per terrain type for the unit being built (0xFF = cannot enter), copied by Battle_MoveRangeSetup from one of the six sets of g_MoveTerrainCostSets and adjusted for weather and abilities. |
+| [g_MoveTerrainCostSets](g_MoveTerrainCostSets.md) | `0x14067F5B0` | `uint8[6][64]` | Six constant cost sets by terrain type: walking, open (Fly / Teleport), float, water (two modes), one more water mode, lava walking. |
+| [g_MoveTileFlags](g_MoveTileFlags.md) | `0x141882880` | `uint8[512]` | Per-tile flag byte of the move-range builder: 0x01 frontier, 0x02 one-axis slope, 0x04 occupied, 0x08 unit that can be stepped onto, 0x10 standable, 0x20 mountable ally, 0x40 steep, 0x80 blocked. |
+| [g_MovieControl](g_MovieControl.md) | `0x143CDA078` | `MovieControl *` | ffto::Game::Movie::MovieControl (32 bytes, created by Movie_Start when null): movie pause state +8 (0..3) and the skippable byte +25 (record MovieControl). |
+| [g_MovieRequestId](g_MovieRequestId.md) | `0x142E7FB04` | `int32` | MovieData id of the movie to play, -1 none: Boot_UpdateVideo passes it to Movie_Start; Video_RefreshState resets it to -1; the opening tasks test it (I: 'requested / playing movie' from those uses). |
+| [g_PartyCount](g_PartyCount.md) | `0x140D407BB` | `byte` | number of party members considered by Job_IsLockedForParty |
+| [g_PartyUnits](g_PartyUnits.md) | `0x141800F50` | `data` | qword_141800F50[]: pointers to party unit records (unlock bitfield at unit+120, job levels at +202) |
+| [g_PoachCount](g_PoachCount.md) | `0x1411A7A1A` | `uint8[97]` | Poach count per type, 97 bytes based at the badge block plus 522; the poach add routine clamps each byte to 99. |
+| [g_PoachDirty](g_PoachDirty.md) | `0x1411A7283` | `uint8` | Byte the poach badge routine sets to record that a type's new flag changed, so the den screen refreshes. |
+| [g_PoachersDenStock](g_PoachersDenStock.md) | `0x1411A7700` | `uint8[261]` | Poachers' Den stock: one count per item id 0..260 (PoachersDen_AddStock adds to it, clamped 0..255); the shop list builder Shop_BuildItemList lists the ids with stock when the shop id is 100 or above. |
+| [g_PoachNewFlags](g_PoachNewFlags.md) | `0x1411A7B3D` | `uint16[97]` | Two new-flag bytes per poach type at the badge block plus 813; a new game fills them with 0x0101 and the badge routine clears the high byte. |
+| [g_PoachOrder](g_PoachOrder.md) | `0x1411A7A7B` | `uint8[97]` | The player-visible order of collected poach types, 97 bytes at the badge block plus 619; maintained together with the sort list. |
+| [g_PoachSort](g_PoachSort.md) | `0x1411A7ADC` | `uint8[97]` | The user reordering of the poach types, 97 bytes at the badge block plus 716. |
+| [g_PoolFrameBuffers](g_PoolFrameBuffers.md) | `0x1411A3788` | `void *[8]` | Frame buffer pointers of the look pool records from 9 up: sub_14026E838 stores 0x1437ADF4C + (pool - 7) * 0x8000 at entry pool - 7 (entries 2..7 for pools 9..14) and the 4 KB block base 0x1437B5F4C at entry 1 (qword_1... |
+| [g_PortraitCodeA](g_PortraitCodeA.md) | `0x140680070` | `uint16[211]` | Copy A of the portrait code words (one of six identical copies), read by PartyUnit_BuildJobRecord. |
+| [g_PortraitCodeD](g_PortraitCodeD.md) | `0x140681A90` | `uint16[211]` | Copy D of the portrait code words, read by EventMessage_Scripted (the speaker's portrait). |
+| [g_PortraitCodeE](g_PortraitCodeE.md) | `0x1406829F0` | `uint16[211]` | Copy E of the portrait code words, read by sub_140300768 and sub_140300D74. |
+| [g_PortraitCodeF](g_PortraitCodeF.md) | `0x140683A70` | `uint16[211]` | Copy F of the portrait code words (one of six identical copies), read by sub_14032AB3C. |
+| [g_PostBattleCalc](g_PostBattleCalc.md) | `0x143CDA750` | `PostBattleCalc *` | Pointer to the PostBattleCalc object of the running battle: 106 per-formula post-processing rows. |
+| [g_PreviewUnitTable](g_PreviewUnitTable.md) | `0x141853CE0` | `data` | 21 x 512 bytes; +0 marker, +3 job, +6 flags (0x40 female), +399 shape, +400 palette, +508 name id |
+| [g_ReactionGateTable](g_ReactionGateTable.md) | `0x14067F730` | `uint8[32]` | One byte per reaction id 422..453: the reaction executor refuses (returns 0 at once) an id whose byte has 1 in its low two bits. |
+| [g_RenderDevice](g_RenderDevice.md) | `0x140C696A8` | `RenderDevice *` | The render device: name-to-slot tables for constant buffers (+5056), textures (+5064) and samplers (+5072), the render-context array (+4984, stride 6032, count +5088) and the command-memory pool counters (+5144..+5152). |
+| [g_Renderer](g_Renderer.md) | `0x143CDA098` | `Renderer *` | The renderer object: output size (+6568 / +6572), the render-target table (+20832, 40 B per target), the per-type target and slot tables (+23736, +24224) and the UI manager (+37936). |
+| [g_RuntimeJobList](g_RuntimeJobList.md) | `0x143C51890` | `data` | uint16[48]: job id (low 13 bits) \| 0x2000 locked \| 0x4000 released by another member (mode 3) / current (mode 2); 0xFFFF ends it. |
+| [g_RuntimeJobListLen](g_RuntimeJobListLen.md) | `0x143C510D8` | `data` | int16 length of g_RuntimeJobList (signed compares in the fill loop) |
+| [g_SaveAutoSlot](g_SaveAutoSlot.md) | `0x142E75DF8` | `uint8[40164]` | The auto-slot record, one 0x9CE4-byte slot. |
+| [g_SaveBattleSnapshot](g_SaveBattleSnapshot.md) | `0x1408167A0` | `uint8[668112]` | The battle snapshot buffer: 668,112 bytes of sparse live battle state (unit table, tile table, scene-task records, action state) captured for a kind-1 resume payload. |
+| [g_SaveCheckpointCopy](g_SaveCheckpointCopy.md) | `0x142E80450` | `uint8[72564]` | The checkpoint copy: 40,164 bytes of slot record whose unit area (offset 0x518) is overwritten with the live unit save data by the checkpoint writer sub_1402CEEE8, followed by further live fields. |
+| [g_SaveRequestManager](g_SaveRequestManager.md) | `0x140C69698` | `void *` | The save-data request object the slot, settings and PNG code queues work on. |
+| [g_SaveSlotCache](g_SaveSlotCache.md) | `0x142C8B970` | `uint8[2008200]` | The fifty-slot image in memory: 50 records of 0x9CE4 bytes, the same bytes the PNG container carries. |
+| [g_SaveWorkCurrent](g_SaveWorkCurrent.md) | `0x142C81C80` | `uint8[40164]` | The live work copy of the running game, one 0x9CE4-byte slot record. |
+| [g_SaveYoxPage](g_SaveYoxPage.md) | `0x142FF9F90` | `uint8[1048576]` | The 1 MB 16-bit image page carried after a battle snapshot. |
+| [g_SceneIdWord](g_SceneIdWord.md) | `0x141848BB0` | `uint16` | Scene id word; Unit_GetSpriteSetId and SceneUnit_EntryById take the selector branch (scene unit entries) when it is 21, 43, 44 or 51. |
+| [g_SceneTaskSlots](g_SceneTaskSlots.md) | `0x14114B150` | `uint8[1512]` | Nine scene-task data records of 0xA8 bytes, parsed from u16 token streams during the battle map setup and captured in a kind-1 snapshot. |
+| [g_SceneUnitSlots](g_SceneUnitSlots.md) | `0x140D30038` | `SceneUnitSlot[16]` | The 16 scene-unit records (stride 0x548); the in-use dword is 8 bytes before each. |
+| [g_ScreenFade](g_ScreenFade.md) | `0x142FF9E08` | `uint64` | The fade and skip state: the low dword is the fade alpha, the high dword the skip state (0 none, 1 requested, 2 skipping). |
+| [g_SelectedShopIndex](g_SelectedShopIndex.md) | `0x141811684` | `uint16` | The selected shop number the shop screens pass to Shop_BuildItemList and sub_1402D7640. |
+| [g_SelectedUnitIndex](g_SelectedUnitIndex.md) | `0x141811428` | `uint16` | The selected unit index the item, shop and equip screens read as their unit argument (sub_140287D9C, sub_1402D7640, sub_1403331F8, sub_140333FE0, sub_140366FE0). |
+| [g_SellScreenActive](g_SellScreenActive.md) | `0x141874A14` | `uint16` | Non-zero while the sell screen owns a list; the row price helper returns 0 without reading the list while it is zero. |
+| [g_ShopModeGate](g_ShopModeGate.md) | `0x1407D453C` | `uint32` | Global mode word that gates the shop and den badge refresh; the badge routine runs only while it is non-zero. |
+| [g_ShopOrderGroup](g_ShopOrderGroup.md) | `0x140D408E7` | `uint8` | The buy and sell screens' current order-group byte; cleared when a screen's list is first bound so the list starts in its default order. |
+| [g_ShopRowCallbacks](g_ShopRowCallbacks.md) | `0x141876AD0` | `ptr[?]` | The buy screen's row handler table (0x141876AD0 through 0x141876B00): one handler per row column, filled at first entry to the screen. |
+| [g_ShopScreenInitFlag](g_ShopScreenInitFlag.md) | `0x14184A641` | `uint8` | One-shot setup byte of the buy and sell screens: the first entry builds the rows, later entries keep the existing list and scroll position. |
+| [g_SkipRequestSource](g_SkipRequestSource.md) | `0x142FF9EF4` | `uint64` | The skip-request source: its high dword is copied into the fade/skip state by the event runner. |
+| [g_SnapshotLookPool](g_SnapshotLookPool.md) | `0x140822E00` | `LookPoolRecord[15]` | The look pool's copy in the battle snapshot region (0x2FA8A bytes, 15 records); Battle_RestoreSceneVars copies it back to g_LookPool. |
+| [g_StatusGroupMasks](g_StatusGroupMasks.md) | `0x1411A6A70` | `uint8[10][5]` | The ten party-wide status group masks, five bytes each: a group test ANDs these bytes against the unit status bytes at +0x61..+0x65. |
+| [g_StatusGuestMask](g_StatusGuestMask.md) | `0x1406829E4` | `battle status effects` | 5 bytes (the values 0xEF 0x00 0x31 0x79 0xE2): the statuses a unit whose +0x1B4 byte is negative (a guest or special unit) can still receive. |
+| [g_StatusIconFlags](g_StatusIconFlags.md) | `0x1406735D0` | `uint32[]` | The per-status flag words the status panel update reads: index status+1, no bound check. |
+| [g_StatusIconTileX](g_StatusIconTileX.md) | `0x143D1B588` | `uint16` | Tile x of the status/item icon the status screen last set, copied from the icon state. |
+| [g_StatusIconTileY](g_StatusIconTileY.md) | `0x143D1B58A` | `uint16` | Tile y of the status/item icon the status screen last set, copied from the icon state. |
+| [g_StatusIconWord](g_StatusIconWord.md) | `0x143D1B590` | `uint16` | The packed page-and-palette word of the status/item icon the status screen last set. |
+| [g_TextCommandSlot](g_TextCommandSlot.md) | `0x140D40940` | `ptr` | The callback slot the battle text command installs: sub_140243390 is stored here and every branch of the text dispatcher calls it. |
+| [g_TextPoolTable](g_TextPoolTable.md) | `0x140D40990` | `char *[32]` | The thirty-two text-pool pointers the generic decoder indexes by a text id's five kind bits. |
+| [g_TextureTable](g_TextureTable.md) | `0x143CD9F20` | `TextureTable *` | Engine texture table: handle -> texture object at +8 + 8 * handle (unit sheets, LUTs). |
+| [g_TurnList](g_TurnList.md) | `0x140D40490` | `battle action data` | 40 x 4 bytes: byte 0 = unit (bits 0..4, 31 = end) \| 0x20 command 18 \| 0x40 pending action \| 0x80 ability bit 8; byte 1 = ability low byte; word +2 = time. |
+| [g_UIChosenItemId](g_UIChosenItemId.md) | `0x143C518F0` | `uint16` | The 16-bit UI field that holds the item id the player picked in the shop list. |
+| [g_UIDataModule](g_UIDataModule.md) | `0x143CD9F10` | `UIDataModule *` | UI tunables created at 0x1400E1D30: +16 float 1.0, +20 float 1000.0, +24 float 0.4 = the hand cursor's per-frame follow factor (no other writer found). |
+| [g_UINameTable](g_UINameTable.md) | `0x143CDA2A0` | `UI system` | pointer to the interned UI name table (127 buckets of 16-byte slots, refcounted); used by UIName_Intern / UIName_ReleaseKey and 958 callers |
+| [g_UnitEquipOverride](g_UnitEquipOverride.md) | `0x14184A680` | `uint16[]` | Five override equipment words per unit, ten bytes per unit index: when the pair is non-zero the equip pickers use it in place of the unit record's own hand words. |
+| [g_UnitImageAspectOn](g_UnitImageAspectOn.md) | `0x142E7FCA0` | `int` | 1 after VideoState_InitDefaults (the normal case): selects the 1.1408199 width factor in Video_OnResize / Video_RefreshState. |
+| [g_UnitImageAspectX](g_UnitImageAspectX.md) | `0x1407DC468` | `float` | Pixel aspect factor applied to the WIDTH of the unit image node: 1.0, or 1.1408199 while g_UnitImageAspectOn is non-zero. |
+| [g_UnitLookPoolIndex](g_UnitLookPoolIndex.md) | `0x140822D58` | `int32[21]` | Look pool index of each battle unit by its unit index (+444): written by sub_14026EB74 when it builds the unit's scene unit, read back by it on the resume path (load mode 1) and by sub_1401D46B0; inside the battle sna... |
+| [g_UnitSaveData](g_UnitSaveData.md) | `0x1411A7D10` | `data` | 54 x 600 bytes; builder sub_140275C70 -> sub_140275B84 -> sub_140276758 |
+| [g_UnitSceneSlotIndex](g_UnitSceneSlotIndex.md) | `0x140822DAC` | `int32[21]` | Scene-unit slot of each battle unit by its unit index (+444), -1 none: written by sub_14026EB74 (a slot taken by another unit clears that unit's entry) and sub_14026A048, cleared by sub_140210AF0, read on the resume p... |
+| [g_UserSituation](g_UserSituation.md) | `0x143CD9DE0` | `event system` | pointer to the situation store UserSituation_TestCheck reads: a bank flag byte at +16 (bit 0), flag bytes at +72 / +152, dword counters at +24 / +104. |
+| [g_ZeroPair](g_ZeroPair.md) | `0x143D12018` | `int32[2]` | A pair of zeros in uninitialised data (no writer; the database shows -1 for it because the bytes are not stored in the file, but the running game reads 0, live 2026-10-30). |
+| [qword_141801100](qword_141801100.md) | `0x141801100` | `PartyUnitB *` | Pointer to a 640-byte scratch party record (unk_143749CA0). |
+| [xmmword_141876E90](xmmword_141876E90.md) | `0x141876E90` | `EquipPanelBlock` | The field equip screens' 64-byte copy of the selected party record bytes +0x30..+0x6F; its hand words at +0x24 are a raw copy of g_PartyUnits +0x54..+0x5C. |
+| [xmmword_141D3B880](xmmword_141D3B880.md) | `0x141D3B880` | `EquipPanelBlock` | The battle module's copy of the same 64-byte record slice (+0x30..+0x6F), with its five hand words at +0x24; read by the battle panel sub_140399A64. |

@@ -1,0 +1,530 @@
+{
+ "formulas": [
+  {
+   "id": 1,
+   "name": "Formula_01_NormalAttack",
+   "old_size": 5,
+   "title": "Normal Attack"
+  },
+  {
+   "id": 8,
+   "name": "Formula_08_BlackMagickSummonDamage",
+   "old_size": 126,
+   "title": "Black Magick / Summon Damage"
+  },
+  {
+   "id": 9,
+   "name": "Formula_09_Gravity",
+   "old_size": 117,
+   "title": "Gravity"
+  },
+  {
+   "id": 10,
+   "name": "Formula_10_FaithBasedStatus",
+   "old_size": 32,
+   "title": "Faith-Based Status"
+  },
+  {
+   "id": 11,
+   "name": "Formula_11_FaithBasedBuff",
+   "old_size": 88,
+   "title": "Faith-Based Buff"
+  },
+  {
+   "id": 12,
+   "name": "Formula_12_MagicalHealing",
+   "old_size": 70,
+   "title": "Magical Healing"
+  },
+  {
+   "id": 13,
+   "name": "Formula_13_RaiseRevive",
+   "old_size": 146,
+   "title": "Raise / Revive"
+  },
+  {
+   "id": 14,
+   "name": "Formula_14_DeathInstantKill",
+   "old_size": 262,
+   "title": "Death / Instant Kill"
+  },
+  {
+   "id": 15,
+   "name": "Formula_15_MPDrainMagical",
+   "old_size": 85,
+   "title": "MP Drain (Magical)"
+  },
+  {
+   "id": 16,
+   "name": "Formula_16_HPDrainMagical",
+   "old_size": 81,
+   "title": "HP Drain (Magical)"
+  },
+  {
+   "id": 18,
+   "name": "Formula_18_Quick",
+   "old_size": 86,
+   "title": "Quick"
+  },
+  {
+   "id": 20,
+   "name": "Formula_20_GolemShield",
+   "old_size": 175,
+   "title": "Golem Shield"
+  },
+  {
+   "id": 21,
+   "name": "Formula_21_Return",
+   "old_size": 42,
+   "title": "Return"
+  },
+  {
+   "id": 22,
+   "name": "Formula_22_Disempower",
+   "old_size": 53,
+   "title": "Disempower"
+  },
+  {
+   "id": 23,
+   "name": "Formula_23_Gravija",
+   "old_size": 72,
+   "title": "Gravija"
+  },
+  {
+   "id": 26,
+   "name": "Formula_26_StatSap",
+   "old_size": 121,
+   "title": "Stat Sap"
+  },
+  {
+   "id": 27,
+   "name": "Formula_27_Magicksap",
+   "old_size": 76,
+   "title": "Magicksap"
+  },
+  {
+   "id": 28,
+   "name": "Formula_28_BardSongs",
+   "old_size": 212,
+   "title": "Bard Songs"
+  },
+  {
+   "id": 29,
+   "name": "Formula_29_DancerDances",
+   "old_size": 203,
+   "title": "Dancer Dances"
+  },
+  {
+   "id": 30,
+   "name": "Formula_30_IaidoHeaven",
+   "old_size": 23,
+   "title": "Iaido Heaven"
+  },
+  {
+   "id": 31,
+   "name": "Formula_31_IaidoNether",
+   "old_size": 294,
+   "title": "Iaido Nether"
+  },
+  {
+   "id": 32,
+   "name": "Formula_32_DrawOutDamage",
+   "old_size": 50,
+   "title": "Draw Out (Damage)"
+  },
+  {
+   "id": 33,
+   "name": "Formula_33_DrawOutDamageStatus",
+   "old_size": 98,
+   "title": "Draw Out (Damage + Status)"
+  },
+  {
+   "id": 34,
+   "name": "Formula_34_DrawOutBuff",
+   "old_size": 18,
+   "title": "Draw Out (Buff)"
+  },
+  {
+   "id": 35,
+   "name": "Formula_35_DrawOutHeal",
+   "old_size": 55,
+   "title": "Draw Out (Heal)"
+  },
+  {
+   "id": 36,
+   "name": "Formula_36_Geomancy",
+   "old_size": 63,
+   "title": "Geomancy"
+  },
+  {
+   "id": 37,
+   "name": "Formula_37_RendEquipment",
+   "old_size": null,
+   "title": "Rend Equipment"
+  },
+  {
+   "id": 38,
+   "name": "Formula_38_StealEquipment",
+   "old_size": 204,
+   "title": "Steal Equipment"
+  },
+  {
+   "id": 39,
+   "name": "Formula_39_StealGil",
+   "old_size": 94,
+   "title": "Steal Gil"
+  },
+  {
+   "id": 40,
+   "name": "Formula_40_StealEXP",
+   "old_size": 270,
+   "title": "Steal EXP"
+  },
+  {
+   "id": 41,
+   "name": "Formula_41_StealHeartCharm",
+   "old_size": 121,
+   "title": "Steal Heart / Charm"
+  },
+  {
+   "id": 42,
+   "name": "Formula_42_Speechcraft",
+   "old_size": null,
+   "title": "Speechcraft"
+  },
+  {
+   "id": 43,
+   "name": "Formula_43_RendStats",
+   "old_size": 82,
+   "title": "Rend Stats"
+  },
+  {
+   "id": 44,
+   "name": "Formula_44_RendMP",
+   "old_size": 122,
+   "title": "Rend MP"
+  },
+  {
+   "id": 45,
+   "name": "Formula_45_HolySword",
+   "old_size": 5,
+   "title": "Holy Sword"
+  },
+  {
+   "id": 46,
+   "name": "Formula_46_DarkSwordCrush",
+   "old_size": 299,
+   "title": "Dark Sword (Crush)"
+  },
+  {
+   "id": 47,
+   "name": "Formula_47_DuskbladeMPDrain",
+   "old_size": 70,
+   "title": "Duskblade (MP Drain)"
+  },
+  {
+   "id": 48,
+   "name": "Formula_48_ShadowbladeHPDrain",
+   "old_size": 5,
+   "title": "Shadowblade (HP Drain)"
+  },
+  {
+   "id": 49,
+   "name": "Formula_49_MonkPhysicalAveraged",
+   "old_size": null,
+   "title": "Monk Physical (Averaged)"
+  },
+  {
+   "id": 50,
+   "name": "Formula_50_PummelRandomHits",
+   "old_size": 159,
+   "title": "Pummel (Random Hits)"
+  },
+  {
+   "id": 51,
+   "name": "Formula_51_Purification",
+   "old_size": 83,
+   "title": "Purification"
+  },
+  {
+   "id": 52,
+   "name": "Formula_52_Chakra",
+   "old_size": 95,
+   "title": "Chakra"
+  },
+  {
+   "id": 53,
+   "name": "Formula_53_Revive",
+   "old_size": 136,
+   "title": "Revive"
+  },
+  {
+   "id": 54,
+   "name": "Formula_54_FocusAccumulate",
+   "old_size": 24,
+   "title": "Focus / Accumulate"
+  },
+  {
+   "id": 55,
+   "name": "Formula_55_RushBasicPhysical",
+   "old_size": 5,
+   "title": "Rush / Basic Physical"
+  },
+  {
+   "id": 56,
+   "name": "Formula_56_StatusOnlyApplication",
+   "old_size": 5,
+   "title": "Status-Only Application"
+  },
+  {
+   "id": 57,
+   "name": "Formula_57_Tailwind",
+   "old_size": null,
+   "title": "Tailwind"
+  },
+  {
+   "id": 58,
+   "name": "Formula_58_Steel",
+   "old_size": null,
+   "title": "Steel"
+  },
+  {
+   "id": 59,
+   "name": "Formula_59_Shout",
+   "old_size": 40,
+   "title": "Shout"
+  },
+  {
+   "id": 60,
+   "name": "Formula_60_Chant",
+   "old_size": 58,
+   "title": "Chant"
+  },
+  {
+   "id": 61,
+   "name": "Formula_61_MagicStatusOnly",
+   "old_size": 32,
+   "title": "Magic Status-Only"
+  },
+  {
+   "id": 62,
+   "name": "Formula_62_ReduceTo1HP",
+   "old_size": 43,
+   "title": "Reduce to 1 HP"
+  },
+  {
+   "id": 63,
+   "name": "Formula_63_AimedShotSpeedBased",
+   "old_size": 73,
+   "title": "Aimed Shot (Speed-Based)"
+  },
+  {
+   "id": 64,
+   "name": "Formula_64_SealEvil",
+   "old_size": 102,
+   "title": "Seal Evil"
+  },
+  {
+   "id": 65,
+   "name": "Formula_65_CelestialStasis",
+   "old_size": 85,
+   "title": "Celestial Stasis"
+  },
+  {
+   "id": 66,
+   "name": "Formula_66_ConstructPhysical",
+   "old_size": 111,
+   "title": "Construct Physical"
+  },
+  {
+   "id": 67,
+   "name": "Formula_67_MissingHPDamage",
+   "old_size": 31,
+   "title": "Missing HP Damage"
+  },
+  {
+   "id": 68,
+   "name": "Formula_68_CurrentMPDamage",
+   "old_size": 27,
+   "title": "Current MP Damage"
+  },
+  {
+   "id": 69,
+   "name": "Formula_69_MissingHPAlt",
+   "old_size": 31,
+   "title": "Missing HP (alt)"
+  },
+  {
+   "id": 71,
+   "name": "Formula_71_HPDrain",
+   "old_size": 67,
+   "title": "HP Drain"
+  },
+  {
+   "id": 76,
+   "name": "Formula_76_MagicHealSimplified",
+   "old_size": 60,
+   "title": "Magic Heal (Simplified)"
+  },
+  {
+   "id": 77,
+   "name": "Formula_77_PhysicalHPDrain",
+   "old_size": 113,
+   "title": "Physical HP Drain"
+  },
+  {
+   "id": 78,
+   "name": "Formula_78_MAYPhysicalFullChain",
+   "old_size": 55,
+   "title": "MA × Y Physical (Full Chain)"
+  },
+  {
+   "id": 79,
+   "name": "Formula_79_PhysicalMissingHP",
+   "old_size": 89,
+   "title": "Physical + Missing HP"
+  },
+  {
+   "id": 80,
+   "name": "Formula_80_PhysicalStatus",
+   "old_size": 64,
+   "title": "Physical + Status"
+  },
+  {
+   "id": 81,
+   "name": "Formula_81_MonsterBuffHealMagicHitStatus",
+   "old_size": null,
+   "title": "Monster Buff/Heal (Magic Hit → Status)"
+  },
+  {
+   "id": 82,
+   "name": "Formula_82_SelfDestructHPBasedDamage",
+   "old_size": null,
+   "title": "Self-Destruct (HP-Based Damage)"
+  },
+  {
+   "id": 83,
+   "name": "Formula_83_MonsterHPDamageMagicChain",
+   "old_size": null,
+   "title": "Monster % HP Damage (Magic Chain)"
+  },
+  {
+   "id": 84,
+   "name": "Formula_84_MPRestorationMagicBased",
+   "old_size": null,
+   "title": "MP Restoration (Magic-Based)"
+  },
+  {
+   "id": 85,
+   "name": "Formula_85_PeckPhysicalHitPADrain",
+   "old_size": null,
+   "title": "Peck (Physical Hit → PA Drain)"
+  },
+  {
+   "id": 86,
+   "name": "Formula_86_BeamPhysicalHitMADrain",
+   "old_size": null,
+   "title": "Beam (Physical Hit → MA Drain)"
+  },
+  {
+   "id": 87,
+   "name": "Formula_87_BequeathBaconSelfSacrifice",
+   "old_size": null,
+   "title": "Bequeath Bacon (Self-Sacrifice)"
+  },
+  {
+   "id": 88,
+   "name": "Formula_88_MalboroSporesMagicHitRecruitment",
+   "old_size": null,
+   "title": "Malboro Spores (Magic Hit → Recruitment)"
+  },
+  {
+   "id": 89,
+   "name": "Formula_89_LevelDrainPhysicalHitLevelSteal",
+   "old_size": null,
+   "title": "Level Drain (Physical Hit → Level Steal)"
+  },
+  {
+   "id": 90,
+   "name": "Formula_90_DragonSCharmSpeciesGatedStatus",
+   "old_size": null,
+   "title": "Dragon's Charm (Species-Gated Status)"
+  },
+  {
+   "id": 91,
+   "name": "Formula_91_DragonSGiftSpeciesGatedHPMPGift",
+   "old_size": null,
+   "title": "Dragon's Gift (Species-Gated HP/MP Gift)"
+  },
+  {
+   "id": 92,
+   "name": "Formula_92_DragonSMightSpeciesGatedAllStatBoost",
+   "old_size": null,
+   "title": "Dragon's Might (Species-Gated All-Stat Boost)"
+  },
+  {
+   "id": 93,
+   "name": "Formula_93_DragonSSpeedSpeciesGatedAllBuff",
+   "old_size": null,
+   "title": "Dragon's Speed (Species-Gated All-Buff)"
+  },
+  {
+   "id": 94,
+   "name": "Formula_94_TriElementReDispatchesToF30",
+   "old_size": null,
+   "title": "Tri-Element (re-dispatches to F30)"
+  },
+  {
+   "id": 95,
+   "name": "Formula_95_NanoflareReDispatchesToF30",
+   "old_size": null,
+   "title": "Nanoflare (re-dispatches to F30)"
+  },
+  {
+   "id": 97,
+   "name": "Formula_97_MagicBasedBraveModify",
+   "old_size": null,
+   "title": "Magic-Based Brave Modify"
+  },
+  {
+   "id": 98,
+   "name": "Formula_98_PhysicalBasedBraveModify",
+   "old_size": null,
+   "title": "Physical-Based Brave Modify"
+  },
+  {
+   "id": 102,
+   "name": "Formula_102_WotLPhysical80MPDrain",
+   "old_size": null,
+   "title": "WotL Physical (80% + MP Drain)"
+  },
+  {
+   "id": 103,
+   "name": "Formula_103_WotLHolySwordAlias",
+   "old_size": null,
+   "title": "WotL Holy Sword (alias)"
+  },
+  {
+   "id": 104,
+   "name": "Formula_104_WotLDistanceScaledPhysical",
+   "old_size": null,
+   "title": "WotL Distance-Scaled Physical"
+  },
+  {
+   "id": 105,
+   "name": "Formula_105_WotLLevelScaledPhysical",
+   "old_size": null,
+   "title": "WotL Level-Scaled Physical"
+  },
+  {
+   "id": 106,
+   "name": "Formula_106_ReDispatchChainFormula",
+   "old_size": null,
+   "title": "Re-Dispatch (Chain Formula)"
+  }
+ ],
+ "schema": 1,
+ "source": "Old TIC formula research (87 documented formulas)",
+ "table_base_rva": "0x682bd0",
+ "table_index": "formula_id - 1"
+}

@@ -1,0 +1,85 @@
+{
+  "kind": "format",
+  "plural": "formats",
+  "title": "File formats",
+  "singular": "File format",
+  "description": "Layouts of the game's file formats (described, never copied): headers, records, string pools.",
+  "key": "name",
+  "pages": true,
+  "template": "format.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "extension": {
+      "type": "code",
+      "label": "Extension"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "readers": {
+      "type": "refs",
+      "to": "function",
+      "label": "Read by",
+      "inverse": {
+        "name": "reads_formats",
+        "label": "Reads file formats"
+      }
+    },
+    "members": {
+      "type": "members",
+      "key": "name",
+      "label": "Layout",
+      "columns": [
+        {
+          "field": "offset",
+          "label": "Offset",
+          "type": "string"
+        },
+        {
+          "field": "name",
+          "label": "Part",
+          "type": "string"
+        },
+        {
+          "field": "type",
+          "label": "Type",
+          "type": "code"
+        },
+        {
+          "field": "conf",
+          "label": "Conf",
+          "type": "conf"
+        },
+        {
+          "field": "text",
+          "label": "Meaning",
+          "type": "string"
+        }
+      ]
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "extension",
+    "summary"
+  ]
+}

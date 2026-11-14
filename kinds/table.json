@@ -1,0 +1,82 @@
+{
+  "kind": "table",
+  "plural": "tables",
+  "title": "Tables",
+  "singular": "Table",
+  "description": "Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents.",
+  "key": "name",
+  "pages": true,
+  "template": "table.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "storage": {
+      "type": "string",
+      "label": "Storage",
+      "required": true
+    },
+    "table_id": {
+      "type": "int",
+      "label": "NXD table id"
+    },
+    "address": {
+      "type": "addr",
+      "label": "Address"
+    },
+    "rows": {
+      "type": "string",
+      "label": "Rows"
+    },
+    "keys": {
+      "type": "string",
+      "label": "Keyed by"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "accessors": {
+      "type": "refs",
+      "to": "function",
+      "label": "Read by",
+      "inverse": {
+        "name": "reads_tables",
+        "label": "Reads tables"
+      }
+    },
+    "data_in": {
+      "type": "refs",
+      "label": "Held in",
+      "inverse": {
+        "name": "tables",
+        "label": "Described by tables"
+      }
+    },
+    "row_layout": {
+      "type": "refs",
+      "label": "Row layout",
+      "inverse": {
+        "name": "tables",
+        "label": "Described by tables"
+      }
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": ["name", "storage", "table_id", "rows", "summary"]
+}

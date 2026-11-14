@@ -1,0 +1,71 @@
+{
+  "kind": "flow",
+  "plural": "flows",
+  "title": "Flows",
+  "singular": "Flow",
+  "description": "Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters.",
+  "key": "name",
+  "pages": true,
+  "template": "flow.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "members": {
+      "type": "members",
+      "key": "step",
+      "label": "Steps",
+      "columns": [
+        {
+          "field": "step",
+          "label": "Step",
+          "type": "string"
+        },
+        {
+          "field": "ref",
+          "label": "Where",
+          "type": "ref",
+          "inverse": {
+            "name": "in_flows",
+            "label": "Appears in flows"
+          }
+        },
+        {
+          "field": "conf",
+          "label": "Conf",
+          "type": "conf"
+        },
+        {
+          "field": "text",
+          "label": "What happens",
+          "type": "string"
+        }
+      ]
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "area",
+    "summary"
+  ]
+}

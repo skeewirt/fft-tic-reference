@@ -1,0 +1,30 @@
+# EventCmd_JumpIfClearB
+
+- **Address:** `0x1402F2228`
+- **Area:** [Event commands](../areas/event-commands.md)
+- **Prototype:** `__int64 EventCmd_JumpIfClearB(void)`
+- **Callers:** EventCmd_Run through the class table, class 20
+- **Callees:** none
+
+Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
+
+## Purpose
+
+Class 20: jumps to the byte 10 target when the bit for byte 9 is clear in flag table B (dword_140D4CC28).
+
+## Behavior
+
+- V: argument layout: byte 9 is the bit index; byte 10 is the jump value; byte 11 is not read.
+- V: the entry is a two-instruction stub: it sets ecx to 0 and jumps to the body at 0x1402F21DC shared with class 19.
+- V: tests bit (byte 9 & 31) of dword_140D4CC28[byte 9 >> 5], as in class 19.
+- V: when the bit is clear, it sets bit 1 (2, jump pending), writes byte 10 (zero-extended) to the word at offset 14 of xmmword_141862440, the word EventCmd_Run reads back as the jump value, and returns byte 10.
+- V: when the bit is set, it sets bit 2 (4, continue) and returns the table dword that was read.
+- V: the shared body compares the tested bit with ecx and takes the jump when they are equal: ecx is 1 for class 19 and 0 for class 20.
+
+## Notes
+
+The decompiler shows only the stub; the behavior was read from the disassembly of the shared body. The IDA name is still EventCmd_JumpIfClearB; no rename was made.
+
+## Open questions
+
+Same open questions as class 19.

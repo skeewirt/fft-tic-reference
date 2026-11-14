@@ -1,0 +1,77 @@
+{
+  "kind": "struct",
+  "plural": "structs",
+  "title": "Structures",
+  "singular": "Structure",
+  "description": "Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.",
+  "key": "name",
+  "pages": true,
+  "template": "struct.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "size": {
+      "type": "int",
+      "label": "Size (bytes)"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "members": {
+      "type": "members",
+      "key": "name",
+      "label": "Fields",
+      "columns": [
+        {
+          "field": "offset",
+          "label": "Offset",
+          "type": "hex"
+        },
+        {
+          "field": "name",
+          "label": "Field",
+          "type": "string"
+        },
+        {
+          "field": "type",
+          "label": "Type",
+          "type": "code"
+        },
+        {
+          "field": "conf",
+          "label": "Conf",
+          "type": "conf"
+        },
+        {
+          "field": "text",
+          "label": "Meaning",
+          "type": "string"
+        }
+      ]
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "size",
+    "area",
+    "summary"
+  ]
+}

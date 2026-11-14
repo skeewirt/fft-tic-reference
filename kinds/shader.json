@@ -1,0 +1,93 @@
+{
+  "kind": "shader",
+  "plural": "shaders",
+  "title": "Shaders",
+  "singular": "Shader",
+  "description": "GPU shader programs from the game's technique files: stage, interface, bindings and what they compute (in words; no bytecode).",
+  "key": "name",
+  "pages": true,
+  "template": "shader.md",
+  "fields": {
+    "name": {
+      "type": "name",
+      "required": true
+    },
+    "area": {
+      "type": "area"
+    },
+    "stage": {
+      "type": "string",
+      "required": true
+    },
+    "file": {
+      "type": "string",
+      "label": "Technique file"
+    },
+    "offset": {
+      "type": "code",
+      "label": "Offset in file"
+    },
+    "hash": {
+      "type": "code",
+      "label": "DXBC hash"
+    },
+    "summary": {
+      "type": "md",
+      "required": true
+    },
+    "members": {
+      "type": "members",
+      "key": "name",
+      "label": "Interface and bindings",
+      "columns": [
+        {
+          "field": "slot",
+          "label": "Slot",
+          "type": "code"
+        },
+        {
+          "field": "name",
+          "label": "Name",
+          "type": "code"
+        },
+        {
+          "field": "ref",
+          "label": "Bound to",
+          "type": "ref",
+          "inverse": {
+            "name": "bound_in_shaders",
+            "label": "Bound in shaders"
+          }
+        },
+        {
+          "field": "conf",
+          "label": "Conf",
+          "type": "conf"
+        },
+        {
+          "field": "text",
+          "label": "Use",
+          "type": "string"
+        }
+      ]
+    },
+    "behavior": {
+      "type": "tagged",
+      "label": "Behavior"
+    },
+    "notes": {
+      "type": "md",
+      "label": "Notes"
+    },
+    "open_questions": {
+      "type": "md",
+      "label": "Open questions"
+    }
+  },
+  "index": [
+    "name",
+    "stage",
+    "file",
+    "summary"
+  ]
+}
