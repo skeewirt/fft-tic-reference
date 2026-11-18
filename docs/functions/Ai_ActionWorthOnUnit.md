@@ -17,6 +17,9 @@ Tells the AI whether the action in g_AiCurrentAction is worth trying on unit `sl
 - V: 0 when the unit will still be Jumping (5) when the action resolves; when it will still have Reflect (38) and the action has hint bit +14 0x40 (the self test only), or Atheist (33) and hint bit +14 0x04 (I: reflectable and faith-based actions); when status 31 will last and the action lacks hint bit +11 0x01.
 - V: an action that adds statuses (g_AiCurrentAction +13 bit 0x10): for each of the five status bytes, the action's bits (+8..+12) that the unit does not have (+0x61..+0x65) and is not immune to (the 5 bytes at +0x5C) make it worth it (with exceptions per byte: some statuses only when other conditions hold).
 - V: an action that removes statuses (cancel mode): the bits the unit has (+0x61..) and that are not innate (the 5 bytes at +0x57) make it worth it; for statuses 24 and up only when Ai_StatusLastsTurns says they will not wear off before the action resolves.
+- V: the turns passed to Ai_StatusLastsTurns are g_AiCurrentAction +1 (also compared with the unit's own ticks to its next turn, from KO counter +7, CT +65 and CT gain +64); I: the ticks until the action resolves. A removable timed status whose countdown is below that number is dropped from the cancel test.
+- V: in the cancel test, statuses 34, 36 and 37 are also dropped when sub_14038E2AC(unit) is greater than their countdown byte.
+- V: the add test (hint bit +13 0x10) has no wear-off check: a status the unit has is never worth adding again, whatever its countdown.
 - V: so only the 40 statuses of the five status bytes enter this test.
 - V: when the unit is the acting unit and the action id is below 368, an action whose AbilityAction record +4 has bit 0x01 is not worth it (the id gate at 0x14038B3DD).
 - V: the random pass of hint bit +13 0x08 steps the game xorshift state (xmmword_1408E5FC8).
