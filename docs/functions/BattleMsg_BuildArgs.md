@@ -20,6 +20,8 @@ Fills the format-argument vector for a message descriptor: selects the message i
 - V: the item name is copied into a 256-byte stack buffer with a 255-byte cap before it is pushed.
 - V: arguments are pushed through FormatArgs_Push; the pushed record carries a type dword at offset 256 (4 for a string argument, 1 for an integer argument).
 - V: message ids 10141 and 10145 and above push the actor name and a status or ability value read through sub_1402B89F8.
+- V: message 3062 (C_Mes_Id_Sample "<string=lstr0>'s <lowerall=<jobname(lnum1, lnum2)>> job level increased!", the job level-up banner): pushes the unit's name (rec+12), then the unit's job byte (+3 of the g_BattleUnitTable record named by rec[1]; loaded at 0x1400F7C6B) as lnum1, then lnum2 from the flags +6: 0 when the byte is negative (its top bit set), else 1 when bit 0x40 is set, else 2.
+- V (seen live 2026-11-17): the banner read "Ramza's knight job level increased!" for a unit whose job byte was 76 (Knight).
 - ?: the other message-id cases and what they push were not read.
 - I: a 0 return means no argument was pushed, which makes BattleMsg_FillArgs use its stored argument set instead.
 - I: the 11-bit mask on the kind-4 id is the item text-id field, not the item store; kind 9 carries the item id without that mask.
@@ -34,8 +36,8 @@ Fills the format-argument vector for a message descriptor: selects the message i
 
 ## Notes
 
-The name is ours (IDB: sub_1400F79D0). The record layout is known only at the offsets named above. The function is 0x7F9 bytes (about 2 KB) and has one direct caller, BattleMsg_FillArgs (0x1401EC074). Read for the item-name argument only, as part of the text-id research; the full switch was not classified.
+The name is ours (IDB: sub_1400F79D0). The record layout is known only at the offsets named above. The function is 0x7F9 bytes (about 2 KB) and has one direct caller, BattleMsg_FillArgs (0x1401EC074).
 
 ## Open questions
 
-What the cases other than 10098, 10141 and 10145+ push; what rec[4193], rec[133], rec[263] and the rec[134..] range hold; whether every case uses the same 0/1 return convention; whether kind 9 is reserved for the item-use record and kind 4 for another item message.
+What the cases other than 3062, 10098, 10141 and 10145+ push; what rec[4193], rec[133], rec[263] and the rec[134..] range hold; whether every case uses the same 0/1 return convention; whether kind 9 is reserved for the item-use record and kind 4 for another item message.
