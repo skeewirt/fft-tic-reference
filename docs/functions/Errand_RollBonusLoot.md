@@ -27,6 +27,7 @@ On a successful errand (grade 0) picks a treasure or a random bonus and adds its
 ## Referenced by
 
 - Called by: [Errand_ComputeRewards](Errand_ComputeRewards.md)
+- Reads tables: [ErrandBlob](../tables/ErrandBlob.md)
 
 ## Notes
 

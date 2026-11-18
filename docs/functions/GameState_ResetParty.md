@@ -29,6 +29,10 @@ Resets the party-wide item state for a new game or a partial reset: the roster m
 - Calls: [EventVar_Write](EventVar_Write.md), [GameState_ResetJobFlags](GameState_ResetJobFlags.md)
 - Writes: [g_InventoryCounts](../globals/g_InventoryCounts.md), [g_PoachersDenStock](../globals/g_PoachersDenStock.md), [g_ItemNewFlags](../globals/g_ItemNewFlags.md), [g_UnitSaveData](../globals/g_UnitSaveData.md), [g_PoachCount](../globals/g_PoachCount.md), [g_PoachOrder](../globals/g_PoachOrder.md), [g_PoachSort](../globals/g_PoachSort.md), [g_PoachNewFlags](../globals/g_PoachNewFlags.md)
 
+## Referenced by
+
+- Observed behaviours: [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md)
+
 ## Notes
 
 - V: the badge block and the poach arrays fill the 1007 written bytes from 0x1411A7810 up to the inventory at 0x1411A7C00; one byte between the last flag word and the inventory is not written.

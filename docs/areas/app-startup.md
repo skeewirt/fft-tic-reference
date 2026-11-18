@@ -2,12 +2,13 @@
 
 Entry, frame loop, message pump, clock, exception handling and the startup debug/capture gates.
 
-Functions: 16, Structures: 1, Globals: 2, Observed behaviours: 2, Tables: 1.
+Functions: 17, Structures: 2, Globals: 2, Observed behaviours: 4, Tables: 2.
 
-## Functions (16)
+## Functions (17)
 
 | Name | Address | Purpose |
 |---|---|---|
+| [App_LaunchClassic](../functions/App_LaunchClassic.md) | `0x1401DDB5C` | Starts the Classic executable and ends this one. |
 | [App_ProcessMessages](../functions/App_ProcessMessages.md) | `0x14002F728` | Drains up to ten Win32 messages per call. |
 | [App_RunFrame](../functions/App_RunFrame.md) | `0x14002A1F0` | One iteration of the game's application loop: frame pacing, the debug/capture gate, Steam callbacks, the UI/render/audio update chain and the secondary frame-rate wait. |
 | [Cursor_Apply](../functions/Cursor_Apply.md) | `0x14001DC14` | Makes the cursor table's current entry the OS cursor, or hides the cursor. |
@@ -25,11 +26,12 @@ Functions: 16, Structures: 1, Globals: 2, Observed behaviours: 2, Tables: 1.
 | [TopLevelExceptionFilter](../functions/TopLevelExceptionFilter.md) | `0x14002EAE0` | The unhandled-exception filter installed by Startup_InstallExceptionHandling. |
 | [WorldMap_UpdateFastForward](../functions/WorldMap_UpdateFastForward.md) | `0x14015C0DC` | On the world map (mode 3) sets the fast-forward level to 1 while action 89 is held, else 0. |
 
-## Structures (1)
+## Structures (2)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [GlobalWork](../structs/GlobalWork.md) | 136 | ffto::Game::GlobalWork (vtable 0x140713EA8), the singleton at g_GlobalWork. |
+| [ImportSlotRow](../structs/ImportSlotRow.md) | 8 | One row of SteamApiImportSlots. |
 
 ## Globals (2)
 
@@ -38,15 +40,18 @@ Functions: 16, Structures: 1, Globals: 2, Observed behaviours: 2, Tables: 1.
 | [g_FastForwardMultipliers](../globals/g_FastForwardMultipliers.md) | `0x140672018` | `int32[3]` | Game steps per displayed frame by fast-forward level: 1, 3, 5 (GlobalWork_GetSpeedMultiplier). |
 | [g_GlobalWork](../globals/g_GlobalWork.md) | `0x143CD9DD0` | `GlobalWork *` | Singleton ffto::Game::GlobalWork (136 bytes, vtable 0x140713EA8, created by sub_1400B532C): fast-forward level +0x58, frame step +0x5C, fast-forward mode +0x60 (record GlobalWork). |
 
-## Observed behaviours (2)
+## Observed behaviours (4)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [AFaultInAGameTaskFreezesTheGame](../behaviors/AFaultInAGameTaskFreezesTheGame.md) | engine | Game logic runs in task threads that the main thread hands control to each frame (GameTasks_RunFrameSteps waits on them). |
 | [FastForwardState](../behaviors/FastForwardState.md) | battle, event scripts (story scenes, battle dialogue) and the world map, enhanced edition | How the fast-forward hold and the dialogue auto-advance toggle become state, how to read 'fast-forward is active now' from memory with no input, what gates a hold, and what the state changes. |
+| [QuitLoopExit](../behaviors/QuitLoopExit.md) | how the quit request ends the main loop | Game_Main runs App_RunFrame in a loop and leaves it when it returns 0; App_RunFrame returns whether the quit request byte is 0. |
+| [QuitRequest](../behaviors/QuitRequest.md) | how the game ends itself or hands over to the Classic executable | The quit request byte of the application object and every path that sets it. |
 
-## Tables (1)
+## Tables (2)
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
 | [FastForwardMultipliers](../tables/FastForwardMultipliers.md) | Executable (constant) |  | 3 entries of 4 bytes | Game steps per displayed frame by fast-forward level: 1, 3, 5 (GlobalWork_GetSpeedMultiplier). |
+| [SteamApiImportSlots](../tables/SteamApiImportSlots.md) | Executable |  | 11 rows of 8 bytes (the tail of the import table) | Import address slots of eleven functions of the Steam API library (find or create user interface, unregister call result, context init, get user handle, restart app if necessary, API init, register / unregister callba... |

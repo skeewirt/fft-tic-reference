@@ -27,6 +27,7 @@ Reads the Enhanced parameter row of the current effect from the RefinedVFXTextur
 ## Referenced by
 
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
+- Reads tables: [NxdDataRefinedVFXCameraControl](../tables/NxdDataRefinedVFXCameraControl.md), [NxdDataRefinedVFXTexture](../tables/NxdDataRefinedVFXTexture.md)
 
 ## Notes
 

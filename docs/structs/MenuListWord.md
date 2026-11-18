@@ -30,7 +30,7 @@ One entry of g_MenuList, the array the shop, equip, item and ability screens reu
 
 ## Referenced by
 
-- Observed behaviours: [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md)
+- Observed behaviours: [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md), [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md)
 
 ## Notes
 

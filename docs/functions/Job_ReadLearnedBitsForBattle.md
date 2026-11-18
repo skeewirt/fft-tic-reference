@@ -20,6 +20,10 @@ Walks the skillset of a work record's current job and tests each slot's learned 
 
 - Calls: [Job_IdToIndex](Job_IdToIndex.md), [Skillset_GetAbility](Skillset_GetAbility.md)
 
+## Referenced by
+
+- Observed behaviours: [JobArrayAccessesPutTheRecordPointerInTheIndexRegister](../behaviors/JobArrayAccessesPutTheRecordPointerInTheIndexRegister.md), [JobArraysInThePartyRecordHoldStockIndicesOnly](../behaviors/JobArraysInThePartyRecordHoldStockIndicesOnly.md)
+
 ## Notes
 
 None.

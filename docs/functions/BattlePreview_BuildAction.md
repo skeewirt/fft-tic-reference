@@ -33,6 +33,7 @@ Builds the battle preview block for the action a unit is about to take: the prev
 
 - Called by: [Battle_PreviewUnitAction](Battle_PreviewUnitAction.md), [Battle_ResolveReaction](Battle_ResolveReaction.md)
 - Observed behaviours: [FormulaHandlersChooseTheirEffectByAbilityId](../behaviors/FormulaHandlersChooseTheirEffectByAbilityId.md)
+- Reads tables: [CommandKind](../tables/CommandKind.md)
 
 ## Notes
 

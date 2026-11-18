@@ -24,7 +24,7 @@ Moves the GUI focus (and with it the finger cursor) onto a node, or clears the f
 
 ## Referenced by
 
-- Called by: [GUIList_SetCount](GUIList_SetCount.md), [JobChangeAddon_SetState](JobChangeAddon_SetState.md), [JobTree_HandleInput](JobTree_HandleInput.md), [JobTree_OnEvent](JobTree_OnEvent.md), [JobTree_OnFocusChange](JobTree_OnFocusChange.md), [ListScroll_Step](ListScroll_Step.md), [TabBar_Select](TabBar_Select.md), [sub_1400F5674](sub_1400F5674.md), [sub_1400F5B0C](sub_1400F5B0C.md), [sub_1400F5BCC](sub_1400F5BCC.md), [sub_140131068](sub_140131068.md), [sub_1401365AC](sub_1401365AC.md), [sub_140197BCC](sub_140197BCC.md), [sub_1403358FC](sub_1403358FC.md), [sub_1403456D4](sub_1403456D4.md)
+- Called by: [GUIList_SetCount](GUIList_SetCount.md), [JobChangeAddon_SetState](JobChangeAddon_SetState.md), [JobTree_HandleInput](JobTree_HandleInput.md), [JobTree_OnEvent](JobTree_OnEvent.md), [JobTree_OnFocusChange](JobTree_OnFocusChange.md), [ListScroll_Step](ListScroll_Step.md), [TabBar_Select](TabBar_Select.md), [TitleMenu_FocusCurrent](TitleMenu_FocusCurrent.md), [TitleMenu_MoveCursor](TitleMenu_MoveCursor.md), [sub_1400F5674](sub_1400F5674.md), [sub_1400F5B0C](sub_1400F5B0C.md), [sub_1400F5BCC](sub_1400F5BCC.md), [sub_140131068](sub_140131068.md), [sub_1401365AC](sub_1401365AC.md), [sub_140197BCC](sub_140197BCC.md), [sub_1403358FC](sub_1403358FC.md), [sub_1403456D4](sub_1403456D4.md)
 - Observed behaviours: [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md)
 
 ## Notes

@@ -24,6 +24,11 @@ Initialises the first task group: points its task table, variable store and even
 - Reads: [g_LanguageInfo](../globals/g_LanguageInfo.md)
 - Writes: [g_EventScriptBuffer](../globals/g_EventScriptBuffer.md), [g_EventWorkPtr](../globals/g_EventWorkPtr.md)
 
+## Referenced by
+
+- Called by: [LegacyMenu_InitWorld](LegacyMenu_InitWorld.md)
+- Reads tables: [EventMenuNodesDefault](../tables/EventMenuNodesDefault.md), [EventMenuNodesLanguage0](../tables/EventMenuNodesLanguage0.md), [EventMenuNodesLanguage2](../tables/EventMenuNodesLanguage2.md), [EventMenuNodesLanguage3](../tables/EventMenuNodesLanguage3.md)
+
 ## Notes
 
 SceneTasks_Init points the second task group at the same event buffer and variable store, which is why both groups see the same variables.

@@ -25,6 +25,7 @@ Copies the fields of a save unit record A into the work record C. It defines the
 ## Referenced by
 
 - Called by: [UnitWork_BuildFromSave](UnitWork_BuildFromSave.md), [sub_140275EF4](sub_140275EF4.md)
+- Reads tables: [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes
 

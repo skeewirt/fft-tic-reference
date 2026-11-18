@@ -35,6 +35,7 @@ The dialogue-window task: it shows an event message in a speech window, pages th
 ## Referenced by
 
 - Observed behaviours: [StoryChoiceBalloon](../behaviors/StoryChoiceBalloon.md)
+- Reads tables: [PowersOfTen](../tables/PowersOfTen.md)
 - Started by event opcodes: [0x10](../opcodes/README.md)
 
 ## Notes

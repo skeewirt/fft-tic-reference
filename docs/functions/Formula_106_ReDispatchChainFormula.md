@@ -34,10 +34,11 @@ Then applies post-dispatch modifiers.
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Observed behaviours: [FormulaIdsPastTheByte](../behaviors/FormulaIdsPastTheByte.md)
+- Reads tables: [FormulaHandlers](../tables/FormulaHandlers.md)
 
 ## Notes
 
-Its load of the formula registry address (off_140682BD0, at 0x14030D72B) is the second reference to the formula registry (J8 counted only the dispatcher's). The re-dispatch index (byte_1407B07AA - 1) is not clamped, unlike the dispatcher's (0x140309DAC).
+Its load of the formula registry address (off_140682BD0, at 0x14030D72B) is the second reference to the formula registry. The re-dispatch index (byte_1407B07AA - 1) is not clamped, unlike the dispatcher's (0x140309DAC).
 
 Address and size are current-build values from `symbols/functions.json`. The calculation was verified by decompiling the current function; the earlier formula research was used only as a starting point.
 

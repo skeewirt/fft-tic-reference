@@ -14,9 +14,9 @@ The load half of the field-schema walker: for each descriptor of a schema it loo
 
 ## Behavior
 
-- V (J7, decompile): when the node is absent it records error 0x96090007 and continues with the next descriptor, leaving the record field untouched; nodes that no descriptor names are never looked at.
+- V (decompile): when the node is absent it records error 0x96090007 and continues with the next descriptor, leaving the record field untouched; nodes that no descriptor names are never looked at.
 - V: the return value is discarded by FieldSchema_Run.
-- V (J7): so a build with more descriptors loads a vanilla save, and extra nodes are ignored.
+- V: so a save that lacks a node still loads (the field keeps its value), and nodes no descriptor names are ignored.
 
 ## Notes
 

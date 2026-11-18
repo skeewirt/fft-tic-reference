@@ -23,10 +23,11 @@ Advances the slot's classic SEQ animation by one command and, for a frame comman
 ## Referenced by
 
 - Called by: [CharaRenderer_Update](CharaRenderer_Update.md), [CharaSlot_SetParams](CharaSlot_SetParams.md)
+- Observed behaviours: [UnitMovementAnimationTables](../behaviors/UnitMovementAnimationTables.md)
 
 ## Notes
 
-The renderer runs the classic game's SEQ/SHP bytecode (battle_type1_seq/shp) on the CPU.
+This renderer (the menus and the job tree) reads its steps from the per-class movement tables through CharaAnim_ReadStep, not from the classic animation file; those tables hold movement animations only (see UnitMovementAnimationTables).
 
 ## Open questions
 

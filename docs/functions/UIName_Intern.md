@@ -24,6 +24,10 @@ Interns a UI name string: finds or adds it in the name table and fills `outKey` 
 
 - Calls: [sub_14002620C](sub_14002620C.md)
 
+## Referenced by
+
+- Called by: [UiNames_InstallCoreNames](UiNames_InstallCoreNames.md)
+
 ## Notes
 
 The table is the global g_UINameTable (qword_143CDA2A0, 127 buckets). Release with UIName_ReleaseKey.

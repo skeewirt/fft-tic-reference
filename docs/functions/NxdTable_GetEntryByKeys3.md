@@ -24,7 +24,7 @@ The row entry of (key1, key2, key3) in a triple-keyed table: the binary search o
 ## Referenced by
 
 - Appears in flows: [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md)
-- Called by: [NxdTable_GetEntryByKeysIndex3](NxdTable_GetEntryByKeysIndex3.md), [sub_1402FB7C8](sub_1402FB7C8.md)
+- Called by: [MapMesh_FindNodeRows](MapMesh_FindNodeRows.md), [MapTextures_NameOfFrame](MapTextures_NameOfFrame.md), [MapTextures_SlotVariantCode](MapTextures_SlotVariantCode.md), [NxdTable_GetEntryByKeysIndex3](NxdTable_GetEntryByKeysIndex3.md), [ScenarioSetup_ApplyRecord](ScenarioSetup_ApplyRecord.md), [SettlementEvent_EvaluateConditions](SettlementEvent_EvaluateConditions.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Open questions

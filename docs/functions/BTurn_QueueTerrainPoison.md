@@ -20,6 +20,10 @@ Queues Poison for a unit that stands on a harmful terrain tile and passes the fi
 - V: otherwise sets the pending-add byte at block +32 to 0x80 (Poison, id 24), runs Status_FilterPendingSets(0) and returns 0 when the filter leaves nothing; else sets the result flag at block +39 to 8 and returns 1.
 - I: bit 0x80 of that table is the poisonous terrain flag (it is the only gate on the tile).
 
+## Referenced by
+
+- Reads tables: [TerrainProperties](../tables/TerrainProperties.md)
+
 ## Notes
 
 Name is ours. The terrain flag table at 0x14067F750 is reached through an image-base-relative address built in the code, so the address does not appear as an operand.

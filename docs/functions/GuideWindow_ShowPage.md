@@ -22,6 +22,10 @@ Shows one page of an in-game guide: the GuidePage-en row (guide, page) gives the
 
 - Calls: [UITable_GetRowByKeys](UITable_GetRowByKeys.md), [UITable_GetRowCount](UITable_GetRowCount.md), [GUITextNode_SetTextExpandedTemp](GUITextNode_SetTextExpandedTemp.md), [GuiImage_SetIconById](GuiImage_SetIconById.md), [GUINode_FindState](GUINode_FindState.md), [GUINode_PlayState](GUINode_PlayState.md)
 
+## Referenced by
+
+- Reads tables: [NxdDataGuidePage](../tables/NxdDataGuidePage.md)
+
 ## Notes
 
 The page number is used as key2, and the page count is the set's record count: a guide's pages must be keys 0..n-1.

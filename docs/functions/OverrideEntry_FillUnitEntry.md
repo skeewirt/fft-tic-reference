@@ -29,6 +29,7 @@ Copies one OverrideEntryData row into a 40-byte unit entry of a scripted battle:
 
 - Called by: [OverrideEntry_LoadBattleEntries](OverrideEntry_LoadBattleEntries.md)
 - Observed behaviours: [SpawnedUnitsCarryAOneByteJob](../behaviors/SpawnedUnitsCarryAOneByteJob.md)
+- Reads tables: [NxdDataCharaControlId](../tables/NxdDataCharaControlId.md)
 
 ## Notes
 

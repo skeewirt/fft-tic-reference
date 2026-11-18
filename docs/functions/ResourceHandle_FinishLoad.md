@@ -27,6 +27,7 @@ Ends a load: releases the reader, sets the final state, tags a localised file, a
 
 - Appears in flows: [NxdTableLoad](../flows/NxdTableLoad.md)
 - Called by: [ResourceHandle_LoadNow](ResourceHandle_LoadNow.md)
+- Observed behaviours: [TextLanguage](../behaviors/TextLanguage.md)
 
 ## Notes
 

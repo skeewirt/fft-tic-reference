@@ -19,6 +19,7 @@ Maps a job id to the face (portrait) record index of a generic unit.
 ## Referenced by
 
 - Called by: [Unit_GetFaceIndex](Unit_GetFaceIndex.md)
+- Reads tables: [PartyFaceIndex](../tables/PartyFaceIndex.md), [PartyFaceRecords](../tables/PartyFaceRecords.md)
 
 ## Open questions
 

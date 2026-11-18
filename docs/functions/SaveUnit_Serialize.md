@@ -23,6 +23,10 @@ Describes one saved unit (character) record: it builds a table of 108 field desc
 
 - Calls: [FieldSchema_Run](FieldSchema_Run.md)
 
+## Referenced by
+
+- Reads tables: [SaveFieldDescriptorLists](../tables/SaveFieldDescriptorLists.md)
+
 ## Notes
 
 The 23 job-point and total-job-point fields line up with the 23 job slots

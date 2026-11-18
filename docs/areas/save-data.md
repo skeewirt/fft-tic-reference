@@ -2,9 +2,9 @@
 
 The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.
 
-Functions: 140, Structures: 3, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 4.
+Functions: 138, Structures: 12, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10.
 
-## Functions (140)
+## Functions (138)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -126,8 +126,6 @@ Functions: 140, Structures: 3, Globals: 8, File formats: 4, Flows: 3, Observed b
 | [sub_140183C38](../functions/sub_140183C38.md) | `0x140183C38` | The save-confirmation handler: it writes the chosen slot from live state, then updates the screen and plays the confirmation cue. |
 | [sub_140183DD4](../functions/sub_140183DD4.md) | `0x140183DD4` | Deletes one manual save slot: it fills the slot's 40,164-byte work copy with the empty pattern, copies it into the cache and marks the cache dirty. |
 | [sub_14018403C](../functions/sub_14018403C.md) | `0x14018403C` | The load-screen setup callback: in mode 0 it reads the whole manual-save container, and in mode 1 it advances the screen when there is something to show. |
-| [sub_1401C2D60](../functions/sub_1401C2D60.md) | `0x1401C2D60` | The save/load screen's main state machine: it builds the slot list from the container, then loads, confirms or cancels according to the screen's state word. |
-| [sub_1401C34B4](../functions/sub_1401C34B4.md) | `0x1401C34B4` | Decides which save lists the load screen may build: it probes the enhanced and classic containers, falls back to the autosave area, and enables the matching list modes. |
 | [sub_1401E7EF8](../functions/sub_1401E7EF8.md) | `0x1401E7EF8` | Probes the SYSTEM save area for `settings.sav` while the title and continue paths set themselves up, and applies what it reads. |
 | [sub_140217EF8](../functions/sub_140217EF8.md) | `0x140217EF8` | Builds one resume payload in scratch memory: header, work copy or battle snapshot, and the YOX image page. |
 | [sub_1402181EC](../functions/sub_1402181EC.md) | `0x1402181EC` | Materialises a resume payload: it copies the body back into the live buffers, restores the control words and inflates the image page. |
@@ -149,11 +147,20 @@ Functions: 140, Structures: 3, Globals: 8, File formats: 4, Flows: 3, Observed b
 | [sub_1402CF768](../functions/sub_1402CF768.md) | `0x1402CF768` | The reverse of the slot-record builder: it takes the work copy and writes its sections back into live state, including the ten item order lists. |
 | [sub_140327004](../functions/sub_140327004.md) | `0x140327004` | Moves the ten item order lists between a work record and the live arrays, in either direction. |
 
-## Structures (3)
+## Structures (12)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [BattleSnapshot](../structs/BattleSnapshot.md) | 668112 | The 668,112-byte battle image a kind-1 resume entry carries, as the capture builds it in g_BattleState: a battle context, five blocks (A..E), the 21 x 512-byte unit records and 3,000 more bytes of scene-task state. |
+| [ClassicLoadWindowDefaultRecord](../structs/ClassicLoadWindowDefaultRecord.md) |  | One row of the ClassicLoadWindowDefault table. |
+| [ClassicSaveListLanguage0Record](../structs/ClassicSaveListLanguage0Record.md) | 176 | One row of the ClassicSaveListLanguage0 table. |
+| [ClassicSaveWindowALanguage0Record](../structs/ClassicSaveWindowALanguage0Record.md) |  | One row of the ClassicSaveWindowALanguage0 table. |
+| [ClassicSaveWindowAOtherLanguagesRecord](../structs/ClassicSaveWindowAOtherLanguagesRecord.md) |  | One row of the ClassicSaveWindowAOtherLanguages table. |
+| [ClassicSaveWindowBLanguage0Record](../structs/ClassicSaveWindowBLanguage0Record.md) |  | One row of the ClassicSaveWindowBLanguage0 table. |
+| [ClassicSaveWindowBOtherLanguagesRecord](../structs/ClassicSaveWindowBOtherLanguagesRecord.md) |  | One row of the ClassicSaveWindowBOtherLanguages table. |
+| [SaveEquipSet](../structs/SaveEquipSet.md) | 88 | One saved equipment set of a unit (three per unit record). |
+| [SaveErrorMessage](../structs/SaveErrorMessage.md) | 8 | One row of the SaveErrorMessages table. |
+| [SaveFieldDescriptor](../structs/SaveFieldDescriptor.md) | 88 | One field of a saved record, as the save walker reads it (built on the stack by each schema function). |
 | [SaveManager](../structs/SaveManager.md) |  | The two singletons the save path runs on, with the fields it uses: the save-I/O state object that holds the frame step's command and sub-state, and the save manager object that holds the 50-slot image the `fftsave.bin... |
 | [SaveRequestRecord](../structs/SaveRequestRecord.md) | 328 | One queued file request of the save container manager: the consumer object, the entry name, the delivery buffer and its status. |
 
@@ -187,7 +194,7 @@ Functions: 140, Structures: 3, Globals: 8, File formats: 4, Flows: 3, Observed b
 | [AutoSaveWrite](../flows/AutoSaveWrite.md) | Where a resume entry comes from and when it is written: the per-frame flush turns dirty group buffers into named entries, stamps each with a CRC, and one write kick sends the whole container. |
 | [SaveFrameStep](../flows/SaveFrameStep.md) | How a manual save or load reaches the file: the save screen changes a command, and one frame step does the work once per frame, blocking that frame while the container is read or written. |
 
-## Observed behaviours (4)
+## Observed behaviours (5)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -195,3 +202,19 @@ Functions: 140, Structures: 3, Globals: 8, File formats: 4, Flows: 3, Observed b
 | [BattleLoadWritesThePartyBackToTheSaveRecords](../behaviors/BattleLoadWritesThePartyBackToTheSaveRecords.md) | loading a story battle from the world map | While a battle loads, the game writes every party work record back into its save record (PartyUnit_WriteBackToSave once per party slot, 0 to 6 with a party of seven). |
 | [CheckpointCopyHoldsTheLiveUnitRecords](../behaviors/CheckpointCopyHoldsTheLiveUnitRecords.md) | the checkpoint copy of the slot record (g_SaveCheckpointCopy) | The checkpoint writer packs the party into the work copy, copies the work copy to the checkpoint copy, and then overwrites the checkpoint copy's unit area with the live unit records. |
 | [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md) | resuming a battle from an autosave: where the live unit records come from | A battle resumed from an autosave gets its live unit records (g_UnitSaveData) from the battle snapshot region through Battle_RestoreSceneVars, and SaveWork_UnpackToLive does not run for it: the resume entry unpacks on... |
+| [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md) | a manual save's slot card | The slot card's job byte (slot image +274) is the low byte of the leader's 16-bit party job word: SaveWork_PackFromParty picks the first party unit whose marker (+114) is 1..3 and passes its word +36 to SaveWork_PackF... |
+
+## Tables (10)
+
+| Name | Storage | NXD table id | Rows | Summary |
+|---|---|---|---|---|
+| [ClassicLoadWindowDefault](../tables/ClassicLoadWindowDefault.md) | Executable (initialised data, written at run time) |  | ? | Window template and live fields of the classic load menu, one of three language variants. |
+| [ClassicSaveListLanguage0](../tables/ClassicSaveListLanguage0.md) | Executable (initialised data, written at run time) |  | 1 rows of 176 bytes | Template and cursor of the classic save list, language 0 variant. |
+| [ClassicSaveWindowALanguage0](../tables/ClassicSaveWindowALanguage0.md) | Executable (initialised data) |  | 1 bytes | Classic save / load menu window template A, language 0. |
+| [ClassicSaveWindowAOtherLanguages](../tables/ClassicSaveWindowAOtherLanguages.md) | Executable (initialised data) |  | 1 bytes | Classic save / load menu window template A, other languages. |
+| [ClassicSaveWindowBLanguage0](../tables/ClassicSaveWindowBLanguage0.md) | Executable (initialised data) |  | 1 bytes | Classic save / load menu window template B, language 0. |
+| [ClassicSaveWindowBOtherLanguages](../tables/ClassicSaveWindowBOtherLanguages.md) | Executable (initialised data) |  | 1 bytes | Classic save / load menu window template B, other languages. |
+| [ResumeKindNames](../tables/ResumeKindNames.md) | Executable |  | 4 rows of 8 bytes (the run continues with two more string pointers) | Short names of the four kinds of a resume (suspend) save entry: main, world, attack, fturn. |
+| [SaveErrorMessages](../tables/SaveErrorMessages.md) | Executable |  | 48 rows of 8 bytes | Result code of the save-data layer to message number for the save and load screens. |
+| [SaveFieldDescriptorLists](../tables/SaveFieldDescriptorLists.md) | Executable (built on the stack by code) |  | 11 / 108 / 76 / 2 descriptors of 88 bytes | The save schema: every saved record type has a function that builds an array of 88-byte field descriptors on the stack and hands it to FieldSchema_Run. |
+| [UnitSaveSlots](../tables/UnitSaveSlots.md) | Executable (filled at run time) |  | 54 records of 600 bytes | The live unit save table: the units as the save keeps them. |

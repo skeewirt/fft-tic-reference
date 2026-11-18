@@ -29,6 +29,7 @@ Fills a 256-colour palette (16 palettes of 16 colours) for a sprite shape from t
 ## Referenced by
 
 - Observed behaviours: [CharShapeKeyByteSites](../behaviors/CharShapeKeyByteSites.md), [EnhancedDrawsHdSheetsWithTheClassicFilePalette](../behaviors/EnhancedDrawsHdSheetsWithTheClassicFilePalette.md), [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md), [SpriteSheetPortraitAndPartFiles](../behaviors/SpriteSheetPortraitAndPartFiles.md), [SpriteSheetsAndClassicFilesByNumber](../behaviors/SpriteSheetsAndClassicFilesByNumber.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md), [SpriteTablesEndAtSprite169](../behaviors/SpriteTablesEndAtSprite169.md)
+- Reads tables: [SpriteClassicFilesByShape](../tables/SpriteClassicFilesByShape.md), [SpriteClassicFilesByShapeB](../tables/SpriteClassicFilesByShapeB.md)
 - Resolves registries: [SpriteNumberTables](../registries/SpriteNumberTables.md)
 
 ## Notes

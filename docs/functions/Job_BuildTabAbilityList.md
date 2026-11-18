@@ -24,6 +24,7 @@ The tab-filtered ability list of a job's skillset (its JobTable row byte 0), or 
 ## Referenced by
 
 - Called by: [JobScreen_BuildJobTabRows](JobScreen_BuildJobTabRows.md), [JobScreen_BuildLearnableList](JobScreen_BuildLearnableList.md)
+- Reads tables: [JobTable](../tables/JobTable.md)
 
 ## Notes
 

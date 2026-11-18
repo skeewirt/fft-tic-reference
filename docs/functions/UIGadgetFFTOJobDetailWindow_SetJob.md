@@ -19,13 +19,17 @@ Fills the job detail window for one job record: the name / level texts, the job 
 - V (rec+103 == 0): text ids are set to 3882 (binding 0, w+176), 1021 (binding 1, w+280) and 1023 (binding 3, w+488); binding 2 (w+384) gets 1022 when rec+68 (level) < 8, otherwise its string is emptied, its id is 80 and the text is set to '--' (and its pointer slot is 0). The binding pointers w+664 = binding 0, +672 = binding 3, +680 = binding 1, +688 = binding 2 (or 0).
 - V: then JobTreePanel_FillTexts(w+24, w+648, rec, 0) fills the level texts from the record, and sub_14029BCD4(w+496, rec+92, 0) sets the job icon.
 - V (node w+40): stops 'Hide' / 'Show' and plays 'Show' when rec+101 != 0 else 'Hide' (state +104 = 1, GUINode_PlayState). Node w+64: plays 'ShowNext' (found by FindState). Node w+72: sub_1400F638C(node, rec+102, 0, 0, 0) = show / hide that node (Show / Hide states, animated).
-- V (innate abilities, only when node w+32 exists): the job id rec+72 (>= 0xAE is replaced by a dummy pointer) indexes g_JobTable (0x140785E30, 49-byte rows): the pointer used is row + 1 = the four u16 innate ability ids (J2-exe 'JobTable' layout). For j = 0..3: stops state 'Sp<j>' on node w+32; when the id != 0: sets the ability name string into the name node at w+704+16*k (k = count of non-zero ids so far, AbilityTable_GetRow(id): string at row + *(int)(row+8) + 8; the node's text-id dword +248 is cleared and its dirty byte +316 set first) and plays 'Good' or 'Bad' on the node at w+696+16*k ('Good' when the ability row's dword +48 equals 2, else 'Bad'); k += 1. Empty ids are skipped, so the shown abilities are packed.
+- V (innate abilities, only when node w+32 exists): the job id rec+72 (>= 0xAE is replaced by a dummy pointer) indexes g_JobTable (0x140785E30, 49-byte rows): the pointer used is row + 1 = the four u16 innate ability ids (the JobTable layout). For j = 0..3: stops state 'Sp<j>' on node w+32; when the id != 0: sets the ability name string into the name node at w+704+16*k (k = count of non-zero ids so far, AbilityTable_GetRow(id): string at row + *(int)(row+8) + 8; the node's text-id dword +248 is cleared and its dirty byte +316 set first) and plays 'Good' or 'Bad' on the node at w+696+16*k ('Good' when the ability row's dword +48 equals 2, else 'Bad'); k += 1. Empty ids are skipped, so the shown abilities are packed.
 - V: after the loop plays state 'Sp<k>' on node w+32 (k = number of shown innate abilities, 0..4), then calls virtual +64 of the window (a1, rec) (UIGadgetFFTOJobDetailWindowWithButton slot 8 = sub_1402A7C38 passes the job id and a flag as text arguments).
 
 ## State touched
 
 - Calls: [GUITextNode_SetTextById](GUITextNode_SetTextById.md), [JobTreePanel_FillTexts](JobTreePanel_FillTexts.md), [sub_14029BCD4](sub_14029BCD4.md), [UIName_Key](UIName_Key.md), [GUINode_StopState](GUINode_StopState.md), [GUINode_FindState](GUINode_FindState.md), [GUINode_PlayState](GUINode_PlayState.md), [Str_Format](Str_Format.md), [AbilityTable_GetRow](AbilityTable_GetRow.md), [GUITextNode_SetString](GUITextNode_SetString.md)
 - Reads: [g_UINameTable](../globals/g_UINameTable.md)
+
+## Referenced by
+
+- Reads tables: [JobTable](../tables/JobTable.md)
 
 ## Notes
 

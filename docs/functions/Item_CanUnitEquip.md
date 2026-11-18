@@ -39,10 +39,6 @@ game special-cases.
 
 - Called by: [Inventory_BuildEquipList](Inventory_BuildEquipList.md), [Shop_BuildItemList](Shop_BuildItemList.md), [UnitWork_BuildForSlot](UnitWork_BuildForSlot.md), [sub_140288788](sub_140288788.md), [sub_1402C20F0](sub_1402C20F0.md)
 
-## Notes
-
-- I: This is the function the item takeover has to keep data-driven if the reserved-id special case is to survive.
-
 ## Open questions
 
 None recorded.

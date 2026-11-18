@@ -21,7 +21,7 @@ Looks up the Job row, then the JobType table (id 0xC8) row, and stores an icon i
 ## Referenced by
 
 - Called by: [JobChange_FillUnitEntry](JobChange_FillUnitEntry.md), [sub_1402C185C](sub_1402C185C.md)
-- Observed behaviours: [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md)
+- Observed behaviours: [JobCardComesFromTheJobTypeRow](../behaviors/JobCardComesFromTheJobTypeRow.md), [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md)
 
 ## Notes
 

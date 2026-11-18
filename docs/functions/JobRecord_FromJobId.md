@@ -21,6 +21,7 @@ Builds the 148-byte job record used by the job tree and job-change screens from 
 - V: if the key also carries a total-points array (+24), rec+84 is the points still needed for the next level (a threshold lookup for level+1 minus the stored total); level 8 or above, and job 161, give 0x20000000.
 - V: rec+76 and rec+80 are 16-bit values read from the key's arrays at +16 and +24 indexed by the job index.
 - I: the two arrays are most likely the unit's current and total job points.
+- V: the level is read through [array pointer + index / 2] with the pointer in the second address register (0x1400FBE09) and no bound check on the index (behavior JobArrayAccessesPutTheRecordPointerInTheIndexRegister).
 
 ## State touched
 
@@ -30,7 +31,7 @@ Builds the 148-byte job record used by the job tree and job-change screens from 
 ## Referenced by
 
 - Called by: [BattleCommand_BuildScreen](BattleCommand_BuildScreen.md), [BattleUnit_BuildJobRecord](BattleUnit_BuildJobRecord.md), [JobScreen_ShowJobAbilities](JobScreen_ShowJobAbilities.md), [UnitInfo_FillFromBattleUnit](UnitInfo_FillFromBattleUnit.md), [sub_14022F868](sub_14022F868.md), [sub_1402C185C](sub_1402C185C.md), [sub_140367AA0](sub_140367AA0.md)
-- Observed behaviours: [BattlePanelsNameTheJobByte](../behaviors/BattlePanelsNameTheJobByte.md)
+- Observed behaviours: [BattleCommandHeaderTakesTheUnitsJobByte](../behaviors/BattleCommandHeaderTakesTheUnitsJobByte.md), [BattlePanelsNameTheJobByte](../behaviors/BattlePanelsNameTheJobByte.md), [JobArrayAccessesPutTheRecordPointerInTheIndexRegister](../behaviors/JobArrayAccessesPutTheRecordPointerInTheIndexRegister.md), [JobArraysInThePartyRecordHoldStockIndicesOnly](../behaviors/JobArraysInThePartyRecordHoldStockIndicesOnly.md), [JobLevelZeroDrawsDashesAndGreysChangeJob](../behaviors/JobLevelZeroDrawsDashesAndGreysChangeJob.md)
 
 ## Notes
 

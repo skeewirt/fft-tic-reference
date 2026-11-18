@@ -25,7 +25,7 @@ The task started by event opcode 0x49: runs the instructions after 0x49 up to 0x
 
 ## State touched
 
-- Calls: [SceneVar_Read](SceneVar_Read.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [SceneTask_Terminate](SceneTask_Terminate.md), [EventScript_InstructionLength](EventScript_InstructionLength.md), [sub_1402FB7C8](sub_1402FB7C8.md), [sub_140300D74](sub_140300D74.md), [sub_140300768](sub_140300768.md), [ScenePreview_FindEntry](ScenePreview_FindEntry.md), [ScenePreview_SlotOfIndex](ScenePreview_SlotOfIndex.md), [ScenePreview_ShowEntry](ScenePreview_ShowEntry.md), [ScenePreview_ClaimForUnit](ScenePreview_ClaimForUnit.md)
+- Calls: [SceneVar_Read](SceneVar_Read.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [SceneTask_Terminate](SceneTask_Terminate.md), [EventScript_InstructionLength](EventScript_InstructionLength.md), [sub_140300D74](sub_140300D74.md), [sub_140300768](sub_140300768.md), [ScenePreview_FindEntry](ScenePreview_FindEntry.md), [ScenePreview_SlotOfIndex](ScenePreview_SlotOfIndex.md), [ScenePreview_ShowEntry](ScenePreview_ShowEntry.md), [ScenePreview_ClaimForUnit](ScenePreview_ClaimForUnit.md)
 
 ## Referenced by
 

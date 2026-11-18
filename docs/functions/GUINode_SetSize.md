@@ -20,7 +20,7 @@ Sets node size (+64 / +68), marks the node dirty, invalidates resolved pins and,
 
 ## Referenced by
 
-- Called by: [GUIComponentScrollBar_StepKnob](GUIComponentScrollBar_StepKnob.md), [GUIComponent_LoadProps](GUIComponent_LoadProps.md), [GUIComponent_SetAllocatedSize](GUIComponent_SetAllocatedSize.md), [UIGadgetFFTOVScrollText_Refit](UIGadgetFFTOVScrollText_Refit.md), [sub_14013D844](sub_14013D844.md)
+- Called by: [GUIComponentScrollBar_StepKnob](GUIComponentScrollBar_StepKnob.md), [GUIComponent_LoadProps](GUIComponent_LoadProps.md), [GUIComponent_SetAllocatedSize](GUIComponent_SetAllocatedSize.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [UIGadgetFFTOVScrollText_Refit](UIGadgetFFTOVScrollText_Refit.md)
 
 ## Notes
 

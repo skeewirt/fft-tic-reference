@@ -48,8 +48,10 @@ story-progress gate, a menu-category filter and an optional equipment check, and
 
 ## Referenced by
 
+- Appears in flows: [ItemMenuListLifecycle](../flows/ItemMenuListLifecycle.md)
 - Called by: [sub_140287D9C](sub_140287D9C.md), [sub_1402D7640](sub_1402D7640.md), [sub_14036A9D8](sub_14036A9D8.md), [sub_14036C3EC](sub_14036C3EC.md), [sub_14036E5DC](sub_14036E5DC.md)
-- Observed behaviours: [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md)
+- Observed behaviours: [EquipListsDropRowsAUnitCannotEquip](../behaviors/EquipListsDropRowsAUnitCannotEquip.md), [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md), [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md)
+- Reads tables: [ItemShopMask](../tables/ItemShopMask.md)
 
 ## Notes
 

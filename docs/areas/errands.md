@@ -2,7 +2,7 @@
 
 The timed dispatch system: records, scoring, rewards, start and finish.
 
-Functions: 25, Structures: 1, Globals: 2, Observed behaviours: 2, Tables: 2.
+Functions: 25, Structures: 9, Globals: 2, Observed behaviours: 2, Tables: 11.
 
 ## Functions (25)
 
@@ -34,11 +34,19 @@ Functions: 25, Structures: 1, Globals: 2, Observed behaviours: 2, Tables: 2.
 | [Tavern_TopInput](../functions/Tavern_TopInput.md) | `0x1402D5210` | The tavern top screen's input step: rumors, errands, or leave. |
 | [TownMenu_BuildItems](../functions/TownMenu_BuildItems.md) | `0x1403449B0` | Lists the town menu items of a settlement (Outfitter, Tavern, Warriors' Guild, Poachers' Den). |
 
-## Structures (1)
+## Structures (9)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [ErrandActiveSlot](../structs/ErrandActiveSlot.md) | 9 | One of the eight active errand slots at g_ErrandActive (9 bytes each, count g_ErrandActiveCount): a dispatch in progress or back, its errand, its days, the town it left from and up to three units. |
+| [ErrandBlobLayout](../structs/ErrandBlobLayout.md) | 2768 | Layout of the errand data block: a header of sub-table offsets followed by the errand records and the scoring and reward tables. |
+| [ErrandJobFitRow](../structs/ErrandJobFitRow.md) | 22 | Job fit scores of one errand category or type row. |
+| [ErrandMilestoneRow](../structs/ErrandMilestoneRow.md) | 1 | One treasure milestone. |
+| [ErrandRecordRow](../structs/ErrandRecordRow.md) | 23 | One errand record in the errand data block. |
+| [NxdDataProfitBonusItemRow](../structs/NxdDataProfitBonusItemRow.md) | 12 | One row of the nxd.profit_bonus_item table (English text table; the other languages share the layout). |
+| [NxdDataProfitClientNameRow](../structs/NxdDataProfitClientNameRow.md) | 8 | One row of the nxd.profit_client_name table (English text table; the other languages share the layout). |
+| [NxdDataProfitRow](../structs/NxdDataProfitRow.md) | 40 | One row of the nxd.profit table (English text table; the other languages share the layout). |
+| [NxdDataProfitTypeRow](../structs/NxdDataProfitTypeRow.md) | 20 | One row of the nxd.profit_type table (data table). |
 
 ## Globals (2)
 
@@ -54,9 +62,18 @@ Functions: 25, Structures: 1, Globals: 2, Observed behaviours: 2, Tables: 2.
 | [ErrandStateIsSpreadOverFiveStores](../behaviors/ErrandStateIsSpreadOverFiveStores.md) | engine | An errand is an index 0..95 into five stores: its 23-byte record, a 4-bit state nibble in the event variables (864 + id), a delay byte, 9 bits of finish date and two new flags, plus the eight active slots that name it... |
 | [TavernErrandsOpenAtSituationCounter450](../behaviors/TavernErrandsOpenAtSituationCounter450.md) | engine | The tavern's errand row is open only when UserSituation 3220 holds: situation counter 0 (the dword at g_UserSituation +24, or +104 with the bank bit) is at least 450, which event opcode 0xE9 raises with the story. |
 
-## Tables (2)
+## Tables (11)
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
 | [ErrandActive](../tables/ErrandActive.md) | Executable memory (saved with the game) |  | 8 rows of 9 entries of 1 byte | The eight active errand slot records, nine bytes each: flags, errand id, town and the three dispatched unit ids. |
+| [ErrandBlob](../tables/ErrandBlob.md) | Executable |  | 1 block of 2768 bytes | The errand data block: 96 errand records and every table the errand scoring and rewards read. |
 | [ErrandDelay](../tables/ErrandDelay.md) | Executable memory (saved with the game) |  | 96 entries of 1 byte | The per-errand delay byte, one per errand id 0..95, saved with the game. |
+| [ErrandJobFitCategory](../tables/ErrandJobFitCategory.md) | Executable |  | 8 rows of 22 bytes | Score a unit adds for the errand category by job column. |
+| [ErrandJobFitType](../tables/ErrandJobFitType.md) | Executable |  | 3 rows of 22 bytes | Second score of a unit by errand type and job column; column 22 of the last row reads two padding bytes. |
+| [ErrandTreasureMilestones](../tables/ErrandTreasureMilestones.md) | Executable |  | 8 rows of 1 byte | Treasure-count milestones of the artefact pool (rising from 1 to 31); event variables 801.. are the counters. |
+| [ErrandTreasureMilestones2](../tables/ErrandTreasureMilestones2.md) | Executable |  | 8 rows of 1 byte | Treasure-count milestones of the second pool (rising from 1 to 16). |
+| [NxdDataProfit](../tables/NxdDataProfit.md) | NXD file | 182 | 96 rows of 40 bytes, text in 7 languages | Errand definitions (96): title, client name link and parameters. |
+| [NxdDataProfitBonusItem](../tables/NxdDataProfitBonusItem.md) | NXD file | 242 | 8 rows of 12 bytes, text in 7 languages | Errand bonus item names (8). |
+| [NxdDataProfitClientName](../tables/NxdDataProfitClientName.md) | NXD file | 193 | 85 rows of 8 bytes, text in 7 languages | Errand client names (85). |
+| [NxdDataProfitType](../tables/NxdDataProfitType.md) | NXD file | 243 | 8 rows of 20 bytes | Errand types (8) with three bonus item links. |

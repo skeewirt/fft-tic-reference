@@ -22,6 +22,7 @@ Writes the sprite record fields and derives the pose id from the slot argument.
 
 - Called by: [PreviewUnit_BuildRecord](PreviewUnit_BuildRecord.md), [SceneUnit_FillSpriteRecord](SceneUnit_FillSpriteRecord.md)
 - Observed behaviours: [SpriteNumberStoreWidths](../behaviors/SpriteNumberStoreWidths.md)
+- Reads tables: [SpriteDirection16MirrorFlags](../tables/SpriteDirection16MirrorFlags.md), [SpriteDirectionTables](../tables/SpriteDirectionTables.md)
 
 ## Notes
 

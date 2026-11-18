@@ -13,7 +13,9 @@ The loaded config object; the settings record of ConfigSettings_Serialize starts
 
 ## Referenced by
 
+- Observed behaviours: [SettingsCloseSavesSystemFile](../behaviors/SettingsCloseSavesSystemFile.md)
 - Read by: [EventControl_RunningTick](../functions/EventControl_RunningTick.md), [GlobalWork_GetFastForwardMode](../functions/GlobalWork_GetFastForwardMode.md)
+- Written by: [UIAddonFFTOConfig_OnClose](../functions/UIAddonFFTOConfig_OnClose.md)
 
 ## Open questions
 

@@ -6,6 +6,7 @@
 - **NXD table id:** 46
 - **Keyed by:** job id
 - **Read by:** [JobTable_GetRow](../functions/JobTable_GetRow.md), [NxdTable_GetRowById](../functions/NxdTable_GetRowById.md)
+- **Row layout:** [NxdDataJobRow](../structs/NxdDataJobRow.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

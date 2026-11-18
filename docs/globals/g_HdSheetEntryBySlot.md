@@ -13,8 +13,8 @@ HD sheet first-entry numbers per sheet slot; unit slots 20 to 28 follow pool ind
 ## Referenced by
 
 - Described by tables: [HdSheetEntryBySlot](../tables/HdSheetEntryBySlot.md)
-- Observed behaviours: [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md)
-- Written by: [sub_14026EB74](../functions/sub_14026EB74.md)
+- Observed behaviours: [HdSheetFromSlotColoursFromRecord](../behaviors/HdSheetFromSlotColoursFromRecord.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md)
+- Written by: [SceneUnit_BuildFromQueueEntry](../functions/SceneUnit_BuildFromQueueEntry.md)
 
 ## Open questions
 

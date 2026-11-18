@@ -26,6 +26,10 @@ FrequentUtilRenderer set-up: loads shader/FrequentUtil.tec, creates six small co
 
 - Reads: [g_RenderDevice](../globals/g_RenderDevice.md)
 
+## Referenced by
+
+- Reads tables: [GfxBlueNoiseTexturePaths](../tables/GfxBlueNoiseTexturePaths.md)
+
 ## Notes
 
 Proposed name: FrequentUtilRenderer_CreateResources. Companion of SDFFontRenderer_CreateResources (sub_1403A87EC); both are called from sub_1403A143C (0x1403A1764 / 0x1403A1774).

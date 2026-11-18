@@ -23,6 +23,10 @@ Describes one saved equipment set: name, item, ability, job and a double-hand fl
 
 - Calls: [FieldSchema_Run](FieldSchema_Run.md)
 
+## Referenced by
+
+- Reads tables: [SaveFieldDescriptorLists](../tables/SaveFieldDescriptorLists.md)
+
 ## Notes
 
 A record schema for the save and config files; see FieldSchema_Run for how descriptors are walked.

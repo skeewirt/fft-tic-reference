@@ -32,7 +32,7 @@ The 32 text-id kinds: the 5 bits of a text id, their base (kind x 0x800) and the
 | <a id="ability_name"></a>14 | `ability_name` | `0x7000` | V | Ability name; the decoder answers it from the ability name source sub_140332B48(2), not from the pool table. |
 | <a id="job_help"></a>15 | `job_help` | `0x7800` | I | Job and command help (I: from the functions that add 0x7800 to a stored index); pool 15. |
 | <a id="kind_16"></a>16 | `kind_16` | `0x8000` | ? | Pool base 0x8000; no producer identified. |
-| <a id="kind_17"></a>17 | `kind_17` | `0x8800` | ? | Pool base 0x8800; add sites exist in sub_1402D2578, Errand_ShowResultUnit, sub_140373BB0 and sub_140373DE8 (not classified); role not established. |
+| <a id="kind_17"></a>17 | `kind_17` | `0x8800` | ? | Pool base 0x8800; add sites exist in EventViewer_EntryPage, Errand_ShowResultUnit, sub_140373BB0 and sub_140373DE8 (not classified); role not established. |
 | <a id="kind_18"></a>18 | `kind_18` | `0x9000` | ? | Pool base 0x9000; add sites exist in sub_14036A294 and sub_140371550 (not classified); role not established. |
 | <a id="help_alt"></a>19 | `help_alt` | `0x9800` | V | Skillset help: 0x9800 + set id, built at sub_140301ED8 (0x1403020F1), sub_140366ABC (0x140366D1F) and sub_140366FE0 (0x1403671A3; it also adds 0x7800 for the job help); pool 19, 227 stock strings, the index masked with 0x7FF by sub_140226208. |
 | <a id="kind_20"></a>20 | `kind_20` | `0xA000` | ? | Pool base 0xA000; no producer identified. |

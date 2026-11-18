@@ -31,6 +31,7 @@ When an event script starts, restores auto-advance and fast-forward from the pre
 ## Referenced by
 
 - Observed behaviours: [FastForwardState](../behaviors/FastForwardState.md)
+- Reads tables: [NxdDataEventId](../tables/NxdDataEventId.md)
 
 ## Open questions
 

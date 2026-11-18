@@ -18,7 +18,7 @@ The tavern top screen's input step: rumors, errands, or leave.
 
 ## State touched
 
-- Calls: [Input_TestAction](Input_TestAction.md), [Errand_BuildBoard](Errand_BuildBoard.md), [sub_14036EE50](sub_14036EE50.md)
+- Calls: [Input_TestAction](Input_TestAction.md), [sub_14034004C](sub_14034004C.md), [Errand_BuildBoard](Errand_BuildBoard.md), [sub_14036EE50](sub_14036EE50.md)
 
 ## Notes
 

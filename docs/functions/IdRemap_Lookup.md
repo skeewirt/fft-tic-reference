@@ -24,6 +24,7 @@ Remaps an id above 0xA7 through the 406-row table `g_IdRemapPairs` (7 pairs of t
 
 - Called by: [SoundCue_Play](SoundCue_Play.md)
 - Observed behaviours: [SoundCuesAreRemappedBeforeTheyPlay](../behaviors/SoundCuesAreRemappedBeforeTheyPlay.md)
+- Reads tables: [IdRemapPairs](../tables/IdRemapPairs.md)
 
 ## Notes
 

@@ -30,6 +30,10 @@ Builds the classic UI atlas bundle once per process from five game textures, inc
   setter's page constants.
 - ?: who frees the buffer and the object at shutdown.
 
+## Referenced by
+
+- Reads tables: [ItemScreenPalette](../tables/ItemScreenPalette.md)
+
 ## Notes
 
 - V: whole body read (0x404 is the body size). The repo also holds the matching item CLUT file, 512 bytes, in the extracted pack.

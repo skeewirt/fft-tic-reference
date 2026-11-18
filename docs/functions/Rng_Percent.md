@@ -21,7 +21,7 @@ Draws a battle random number and tells whether it reaches a threshold on a given
 
 ## Referenced by
 
-- Called by: [Formula_BardDancerGate](Formula_BardDancerGate.md), [Formula_ChanceRoll](Formula_ChanceRoll.md), [Formula_DrawOutGate](Formula_DrawOutGate.md), [Formula_EvadeByteRoll](Formula_EvadeByteRoll.md), [Formula_StatusChance19](Formula_StatusChance19.md), [Unit_TryLearnAbility](Unit_TryLearnAbility.md), [sub_140271EFC](sub_140271EFC.md), [sub_14030BE18](sub_14030BE18.md), [sub_14030BE68](sub_14030BE68.md), [sub_14030CD08](sub_14030CD08.md)
+- Called by: [Formula_BardDancerGate](Formula_BardDancerGate.md), [Formula_ChanceRoll](Formula_ChanceRoll.md), [Formula_DrawOutGate](Formula_DrawOutGate.md), [Formula_EvadeByteRoll](Formula_EvadeByteRoll.md), [Formula_StatusChance19](Formula_StatusChance19.md), [MoveFind_TakeItem](MoveFind_TakeItem.md), [Unit_TryLearnAbility](Unit_TryLearnAbility.md), [sub_140271EFC](sub_140271EFC.md), [sub_14030BE18](sub_14030BE18.md), [sub_14030BE68](sub_14030BE68.md), [sub_14030CD08](sub_14030CD08.md)
 
 ## Notes
 

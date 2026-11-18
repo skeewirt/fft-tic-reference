@@ -31,6 +31,7 @@ Builds a new unit's job state in its work record from a spawn record: job levels
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
 - Called by: [Unit_BuildFromRecord](Unit_BuildFromRecord.md)
 - Observed behaviours: [NewUnitsGetStartingJpInEveryJob](../behaviors/NewUnitsGetStartingJpInEveryJob.md), [SpawnedUnitsCarryAOneByteJob](../behaviors/SpawnedUnitsCarryAOneByteJob.md)
+- Reads tables: [SkillsetTableSpecial](../tables/SkillsetTableSpecial.md)
 
 ## Notes
 

@@ -25,6 +25,10 @@ Runs a transition check over the scene group tables and, in one case, writes sce
 
 - Calls: [SceneVar_Write](SceneVar_Write.md)
 
+## Referenced by
+
+- Reads tables: [TriggerConditionArgCounts](../tables/TriggerConditionArgCounts.md)
+
 ## Notes
 
 Its return value is not read by EventScript_Run; only its side effects matter there.

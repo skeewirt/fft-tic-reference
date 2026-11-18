@@ -23,6 +23,7 @@ Sets one situation counter and tells the registered listeners.
 
 ## Referenced by
 
+- Called by: [TavernMenu_OnCommand](TavernMenu_OnCommand.md)
 - Observed behaviours: [TavernErrandsOpenAtSituationCounter450](../behaviors/TavernErrandsOpenAtSituationCounter450.md)
 
 ## Notes

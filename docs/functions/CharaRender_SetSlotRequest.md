@@ -27,6 +27,7 @@ Writes one unit-preview request (slot id, shape, palette, pose, flags) into the 
 
 - Called by: [CharaRender_RegisterSlot](CharaRender_RegisterSlot.md), [JobChangeAddon_SetState](JobChangeAddon_SetState.md), [sub_140132DC8](sub_140132DC8.md), [sub_140132E1C](sub_140132E1C.md)
 - Observed behaviours: [SpriteNumberStoreWidths](../behaviors/SpriteNumberStoreWidths.md)
+- Reads tables: [SpriteLookAttributes](../tables/SpriteLookAttributes.md)
 
 ## Open questions
 

@@ -3,7 +3,7 @@
 - **Address:** `0x1402B2098`
 - **Area:** [Event commands](../areas/event-commands.md)
 - **Prototype:** `void EventCmd_UiDispatch(int id)`
-- **Callers:** sub_140210AF0, EventChannel_BindStepTask, sub_14024C068, sub_1402F109C, EventCmd_SetIdPrefixed, sub_1403044EC, sub_14030476C
+- **Callers:** sub_140210AF0, EventChannel_BindStepTask, sub_14024C068, sub_1402F109C, EventCmd_SetIdPrefixed, BattleLoad_StepFresh, sub_14030476C
 - **Callees:** sub_1402BA8E8, sub_1401D80A8
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

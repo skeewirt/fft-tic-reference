@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed behaviours: 20, Tables: 14.
+Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 43, Tables: 89.
 
-## Functions (251)
+## Functions (300)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -12,6 +12,7 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 | [Action_PickTargetEquipment](../functions/Action_PickTargetEquipment.md) | `0x1403065C4` | Chooses which equipment slot a steal or break action aims at, from the target unit's hand and body slots, and reports the chosen slot and item to the action builder. |
 | [Action_SetWeaponItem](../functions/Action_SetWeaponItem.md) | `0x1403098CC` | Fills the weapon item id of a battle action from the acting unit's equipped weapon, with 255 standing for empty hands and zero written for an empty or out-of-range id. |
 | [Ai_StatusLastsTurns](../functions/Ai_StatusLastsTurns.md) | `0x14038BAB4` | Tells the battle AI whether a unit has a status and will still have it after the given number of its turns. |
+| [BannerWord_Draw](../functions/BannerWord_Draw.md) | `0x140227AD8` | Builds the gradient quads of one banner word image from its run of sprite cells. |
 | [Battle_AITurnPrepare](../functions/Battle_AITurnPrepare.md) | `0x14031F534` | Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one AI turn. |
 | [Battle_AITurnRun](../functions/Battle_AITurnRun.md) | `0x14038A468` | Drives AI-controlled turns: loops the turn engine, consumes its action codes, decides and executes the unit's action, and restores the engine state when the AI cannot act. |
 | [Battle_ApplyActionResult](../functions/Battle_ApplyActionResult.md) | `0x14030A488` | Applies the pending action result of one unit to that unit: HP/MP damage and healing, stat changes, Brave/Faith changes, EXP/level changes, status sets/clears and the death check. |
@@ -62,10 +63,18 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 | [BattleAction_RunScript](../functions/BattleAction_RunScript.md) | `0x140234B3C` | The driver task for the battle presentation programs: reads the current script id from scene block 1, starts up to four sub-tasks defined by that script's 64-byte record, waits for them and repeats, then ends. |
 | [BattleAction_StartScript](../functions/BattleAction_StartScript.md) | `0x140234A94` | Starts one of the seven battle presentation programs (the "scene script" table) and records the acting unit and target for the tasks that program starts. |
 | [BattleAnim_SelectMotion](../functions/BattleAnim_SelectMotion.md) | `0x140269988` | Chooses the battle motion (animation id) for an ability: weapon attack, cast/ranged special, or a fixed motion from the per-ability table, then starts it on the unit. |
+| [BattleAnim_SelectWeaponMotion](../functions/BattleAnim_SelectWeaponMotion.md) | `0x140269790` | Chooses the motion of a plain weapon attack from the attacker's weapon animation type and, for some types, from how high the target stands, then starts it. |
+| [BattleAnim_StartMotion](../functions/BattleAnim_StartMotion.md) | `0x140268E04` | Starts a motion on a battle unit's scene object: stores the animation number and the facing value the unit's animation will use. |
 | [BattleCommand_BuildMenu](../functions/BattleCommand_BuildMenu.md) | `0x1402EAD14` | The battle command task: it reads the cell text of the command menu, starts the list and screen tasks, and runs the menu until the unit action is chosen. |
 | [BattleCommand_BuildScreen](../functions/BattleCommand_BuildScreen.md) | `0x1402E600C` | Builds the battle command/ability screen: the unit panels, the job record, the ability list entries and the equip detail panel the player navigates during a turn. |
 | [BattleCommand_BuildUnitList](../functions/BattleCommand_BuildUnitList.md) | `0x1402EB174` | Builds the command list for the active unit: it asks the list builder for the commands, resolves their text and writes the cell words the menu reads. |
+| [BattleCommand_CommitCursor](../functions/BattleCommand_CommitCursor.md) | `0x1402EB874` | Closes a battle command list: normalises its entries and stores the cursor row. |
+| [BattleCommand_StoreCursorRow](../functions/BattleCommand_StoreCursorRow.md) | `0x1402EB828` | Remembers the cursor row of the current battle command menu for the acting unit. |
 | [BattleControl_FrameUpdate](../functions/BattleControl_FrameUpdate.md) | `0x1401EA110` | Per-frame update of the battle control object; its first part sets the fast-forward level in battle straight from the held buttons. |
+| [BattleLabel_ShowReactionSignal](../functions/BattleLabel_ShowReactionSignal.md) | `0x14014BFFC` | Draws a plain text label (a BattleSignal title) over a unit, in the TextReaction node. |
+| [BattleLabel_ShowStatusSignal](../functions/BattleLabel_ShowStatusSignal.md) | `0x14014B87C` | Draws a styled status label over a unit: the BattleSignal row's title with the icon of the status that names the row. |
+| [BattleMenu_ConfirmRow](../functions/BattleMenu_ConfirmRow.md) | `0x140237B18` | Acts on a confirmed battle command menu row: picks the follow-up screen code and starts the scene task that shows it. |
+| [BattleMenu_RunStep](../functions/BattleMenu_RunStep.md) | `0x1402381C4` | Runs one step of the battle menu step table: sets the current menu and starts the step's task. |
 | [BattleMsg_Dispatch](../functions/BattleMsg_Dispatch.md) | `0x1402387C4` | Fills the battle message record from an event: it switches on the message kind, writes the kind and id of the record entries, starts the message scene task and resets the action-list widget state. |
 | [BattleMsg_ResolveEntry](../functions/BattleMsg_ResolveEntry.md) | `0x1401EBBF4` | Renders one battle message record entry: reads its kind and id, resolves the text for that kind and returns the entry's text buffer. |
 | [BattleMsg_SetCellText](../functions/BattleMsg_SetCellText.md) | `0x1402EBA70` | Reads a 2-byte word from the published unit list and writes it as the message id, with the fixed kind 6, into the battle message object the HUD draws. |
@@ -106,14 +115,53 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 | [EffectFile_GetTrackRow](../functions/EffectFile_GetTrackRow.md) | `0x1402742CC` | Returns the two numbers that locate the data file of one battle effect: its file number in the game pack and its size in bytes. |
 | [EffectFile_ResetBasePointers](../functions/EffectFile_ResetBasePointers.md) | `0x1402741BC` | Points every entry of the 512-slot effect base array at the one shared effect buffer. |
 | [EffectFile_UploadTexture](../functions/EffectFile_UploadTexture.md) | `0x1402741E0` | Registers the two palettes and copies the picture stored at the end of the loaded effect file into the 1024 by 512 video page. |
+| [EffectFlash_Start](../functions/EffectFlash_Start.md) | `0x140313F34` | Sequence kind 4 handler: the screen flash effect that tints the view with an element colour. |
 | [EffectNxd_HasFlag24](../functions/EffectNxd_HasFlag24.md) | `0x1400D2AB8` | Reports whether the RefinedVFXTexture row of an effect has its byte at +24 set. |
 | [EffectNxd_HasFlag25](../functions/EffectNxd_HasFlag25.md) | `0x1400D2B4C` | Reports whether the RefinedVFXTexture row of an effect has its byte at +25 set. |
 | [EffectNxd_HasFlag28](../functions/EffectNxd_HasFlag28.md) | `0x1400D2BE0` | Reports whether the RefinedVFXTexture row of an effect has its byte at +28 set. |
 | [EffectNxd_LoadRow](../functions/EffectNxd_LoadRow.md) | `0x1400D258C` | Reads the Enhanced parameter row of the current effect from the RefinedVFXTexture table (id 202) and applies it to the effect renderer and to the loaded effect data. |
+| [EffectPalette_Step](../functions/EffectPalette_Step.md) | `0x140315620` | Sequence kind 18 handler: a full screen palette effect that starts from six seed colours. |
+| [EffectScript_OpCallCallback](../functions/EffectScript_OpCallCallback.md) | `0x14031AC98` | Effect script opcode: runs one effect callback at once. |
+| [EffectScript_OpSetCallback](../functions/EffectScript_OpSetCallback.md) | `0x14031AC30` | Effect script opcode: attaches one of the effect callbacks to a live callback slot. |
+| [EffectScript_Run](../functions/EffectScript_Run.md) | `0x14031D658` | Runs the opcodes of one effect script until it yields or ends. |
+| [EffectSequence_Run](../functions/EffectSequence_Run.md) | `0x14031A3DC` | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
+| [EffectSprites_Spawn](../functions/EffectSprites_Spawn.md) | `0x140313210` | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
 | [EventUnitStatus_DispatchActiveIcons](../functions/EventUnitStatus_DispatchActiveIcons.md) | `0x140241080` | For one preview unit of an event scene, sends the status icon updater a message for every status the unit currently has. |
 | [EventUnitStatus_SaveAndHide](../functions/EventUnitStatus_SaveAndHide.md) | `0x140241128` | For an event scene, saves the status state of a unit into the event unit store and clears the statuses the scene must not show. |
 | [ItemAction_SetAmount](../functions/ItemAction_SetAmount.md) | `0x140306BD0` | The formula handler for the MP-restoring consumables: it rebuilds the used item's id, reads that item's chemist row and writes the item's amount into the battle result block. |
 | [Job_ReadLearnedBitsForBattle](../functions/Job_ReadLearnedBitsForBattle.md) | `0x14020D190` | Walks the skillset of a work record's current job and tests each slot's learned bit (3 bytes at C +162 + 3*index). |
+| [Map_LoadBattleData](../functions/Map_LoadBattleData.md) | `0x140251584` | Loads the per-map data of a battle map: its Move-Find row, its draw-index lists and its 4096-byte map block. |
+| [MapAnim_Load](../functions/MapAnim_Load.md) | `0x1400C6D64` | Reads the map's anim file when the RefinedBgAnim rows ask for one. |
+| [MapAnim_ReadRows](../functions/MapAnim_ReadRows.md) | `0x1400C795C` | Copies the RefinedBgAnim rows of a map into the anim set's per-entry table; returns 0 when any row's kind is 0. |
+| [MapBlock_ApplyLayerCommand](../functions/MapBlock_ApplyLayerCommand.md) | `0x1402523B0` | Applies one layer's records of the loaded map block to the draw tables and, for layer 0 in the enhanced graphics mode, starts the map mesh, texture and anim loads. |
+| [MapBlock_RunCommand](../functions/MapBlock_RunCommand.md) | `0x1402509E8` | Runs one command record of the loaded map block (layers, camera, palettes, lights) and dispatches the layer commands to MapBlock_ApplyLayerCommand. |
+| [MapDrawLists_Load](../functions/MapDrawLists_Load.md) | `0x140249CB8` | Fills the two map draw-index bitsets from the per-map index lists of the current battle map. |
+| [MapMesh_ApplyPolygonRows](../functions/MapMesh_ApplyPolygonRows.md) | `0x1400C9DCC` | Rebuilds the per-polygon override arrays from the RefinedBgMeshPolygon rows of the loaded map whenever the battle state value or the loaded map changed. |
+| [MapMesh_FindNodeRows](../functions/MapMesh_FindNodeRows.md) | `0x1400D5934` | Finds the RefinedBgMeshNode rows of one map and variation: a pointer to the first row and the row count (0, 0 when there are none). |
+| [MapMesh_InitNodeFlags](../functions/MapMesh_InitNodeFlags.md) | `0x1400C89F0` | Sets the 32 node slots of the mesh set to their start flags from the node rows, marks the nodes the mesh references, and applies the per-map stock offsets. |
+| [MapMesh_Load](../functions/MapMesh_Load.md) | `0x1400C7F54` | Reads the map's mesh file into the mesh set and sets up its node rows; 0 = built, 1 = nothing built. |
+| [MapMesh_Reset](../functions/MapMesh_Reset.md) | `0x1400CA258` | Clears the mesh set: node arrays, layer data and counts. |
+| [MapMesh_StockNodeOffset](../functions/MapMesh_StockNodeOffset.md) | `0x1400C8D94` | A hard-coded list of position offsets for single nodes of nine stock maps; 0 for every other map and node. |
+| [MapRenderer_ApplyMapRow](../functions/MapRenderer_ApplyMapRow.md) | `0x1400D5374` | Tears down a mesh set that belongs to another map or variation, then applies the chosen variation of the map's Map row to the renderer's post-effect settings. |
+| [MapRenderer_ReuseLoadedMesh](../functions/MapRenderer_ReuseLoadedMesh.md) | `0x1400D55C4` | Re-runs the node setup of an already loaded mesh set (a second battle on the same map). |
+| [MapRow_SelectVariation](../functions/MapRow_SelectVariation.md) | `0x140254B8C` | Chooses which variation struct of a map's Map row applies now, and a kind code, from four scene variables. |
+| [MapTextures_LoadMapSlots](../functions/MapTextures_LoadMapSlots.md) | `0x1400CA690` | Requests the map's colour and lighting textures from the RefinedBgTexture rows, deduplicating equal names. |
+| [MapTextures_LoadSystemSlots](../functions/MapTextures_LoadSystemSlots.md) | `0x1400CA47C` | Requests the 8 system textures of the map: names from RefinedBgSystemTexture, default colour table when there is none. |
+| [MapTextures_NameOfFrame](../functions/MapTextures_NameOfFrame.md) | `0x1400CAA54` | Builds the file name of one frame of one slot of the map's textures; null when there is none. |
+| [MapTextures_Reset](../functions/MapTextures_Reset.md) | `0x1400CA95C` | Releases every map and system texture of the texture set and sets its id fields to none. |
+| [MapTextures_SlotVariantCode](../functions/MapTextures_SlotVariantCode.md) | `0x1400CACDC` | Returns the per-variation integer of a texture row minus one (0 when the entry is 0 or the row is absent). |
+| [MessageWindow_OpenMode0](../functions/MessageWindow_OpenMode0.md) | `0x1402E092C` | Opens the legacy unit info message window for the acting unit with level and experience (mode 0). |
+| [MessageWindow_OpenMode1](../functions/MessageWindow_OpenMode1.md) | `0x1402E09DC` | Opens the legacy unit info message window for the acting unit with the hit chance, after a preview of the action (mode 1). |
+| [MessageWindow_OpenMode2](../functions/MessageWindow_OpenMode2.md) | `0x1402E0C2C` | Opens the legacy unit info message window for the target unit with the hit chance (mode 2). |
+| [MessageWindow_OpenMode3](../functions/MessageWindow_OpenMode3.md) | `0x1402E098C` | Opens the legacy unit info message window for the target unit with level and experience (mode 3). |
+| [MoveFind_ApplyTrap](../functions/MoveFind_ApplyTrap.md) | `0x14030C39C` | Applies the trap of a unit's tile to the unit as an action result. |
+| [MoveFind_ProbeTile](../functions/MoveFind_ProbeTile.md) | `0x140271D80` | Reports what a battle tile hides: another unit, a Move-Find item not yet taken and a trap kind. |
+| [MoveFind_TakeItem](../functions/MoveFind_TakeItem.md) | `0x140271CA8` | Gives a unit the Move-Find item of its tile: rolls common against rare by Brave and marks the tile taken. |
+| [ResultLabel_QueueFromUnit](../functions/ResultLabel_QueueFromUnit.md) | `0x14026801C` | Fills a unit's label task from the unit's action-result block: which number and text labels to show, and the queue of status labels (BattleSignal ids) for the statuses the action added or removed. |
+| [ResultLabel_ShowNext](../functions/ResultLabel_ShowNext.md) | `0x140266A68` | Shows the next pending label over a unit: a number (HP / MP / stat change), a fixed text, or the next queued status label. |
+| [Scenario_CheckBattleRecord](../functions/Scenario_CheckBattleRecord.md) | `0x14020DFA8` | Finds the scenario setup record of the current event and lets the battle set-up continue only for a battle record. |
+| [StatsPanel_Build](../functions/StatsPanel_Build.md) | `0x14022AC18` | Builds the detailed stats panel (display script 6): draws its numbers into VRAM and places its sprite cells. |
+| [StatsScreen_Task](../functions/StatsScreen_Task.md) | `0x1402E1890` | Task of the legacy stats screen: builds its eighteen cell primitives and the stat number strips, then waits for a close. |
 | [Status_ListCategory](../functions/Status_ListCategory.md) | `0x1400FAAB4` | Returns the list category of a status from its UIStatusEffect text row: 1 a gain, 2 an ailment, anything else not listed. |
 | [Status_ListSortKey](../functions/Status_ListSortKey.md) | `0x1400FAB3C` | Returns the sort key of a status in the Status screen lists, from its UIStatusEffect text row. |
 | [StatusList_BuildFromResultBlock](../functions/StatusList_BuildFromResultBlock.md) | `0x1402791FC` | Lists the statuses a result block adds and removes, as one byte per status, sorted by display priority. |
@@ -159,8 +207,6 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 | [sub_140237FA4](../functions/sub_140237FA4.md) | `0x140237FA4` | Commits the highlighted command-list cell into the selection message words. |
 | [sub_140238444](../functions/sub_140238444.md) | `0x140238444` | Posts the action-name banner for a unit, with a job-pair special case. |
 | [sub_140248E08](../functions/sub_140248E08.md) | `0x140248E08` | Converts a packed map record into the runtime battle tile table. |
-| [sub_1402509E8](../functions/sub_1402509E8.md) | `0x1402509E8` | The battle map setup task: it fills the tile table and the nine scene-task data records the battle snapshot captures. |
-| [sub_1402523B0](../functions/sub_1402523B0.md) | `0x1402523B0` | Parses a scene task's u16 token stream into its 0xA8-byte data record. |
 | [sub_140269554](../functions/sub_140269554.md) | `0x140269554` | Picks the weapon animation for a battle action from the item in the unit's weapon slot and its record category. |
 | [sub_140269BBC](../functions/sub_140269BBC.md) | `0x140269BBC` | Applies the action's look word to the acting unit's scene object. |
 | [sub_14026A508](../functions/sub_14026A508.md) | `0x14026A508` | Decides whether an action's effect word means no ability, treating both 0 and 512 as empty. |
@@ -257,33 +303,83 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 | [Unit_ReinitStatusCountdowns](../functions/Unit_ReinitStatusCountdowns.md) | `0x140278600` | Re-initialises the countdown bytes of a unit after its innate status set has been rebuilt: it merges the saved innate status bytes into the effective set and starts a duration for every battle-applied status that has ... |
 | [Unit_SetChargeStateBits](../functions/Unit_SetChargeStateBits.md) | `0x140279370` | Sets which of the four action states Readying, Jumping, Evading, Performing (statuses 4..7) a unit is in, and the charge counter that goes with it. |
 | [UnitInfo_FillFromBattleUnit](../functions/UnitInfo_FillFromBattleUnit.md) | `0x1402CBCA0` | Fills the unit information record a battle panel draws (the deployment carousel's unit card, an event's unit preview) from a battle unit record: its job line, face, level, HP / MP / CT, Brave and Faith. |
+| [UnitPage_Task](../functions/UnitPage_Task.md) | `0x1402FAA28` | Task of the legacy unit page: builds the cells and the fifteen number fields of the unit page. |
+| [UnitPanel_FillEffectLine](../functions/UnitPanel_FillEffectLine.md) | `0x140227CF8` | Fills the effect line of the unit status panel (the panel beside the action preview and the AI's target panel) from the current target's result block: damage, recovery, a stat change, or the statuses the action would ... |
+| [UnitPanel_SetSignalList](../functions/UnitPanel_SetSignalList.md) | `0x14010A284` | Turns a status list (ids, bit 0x80 = removed) into the panel's list of BattleSignal ids. |
 | [UnitPanel_SetStatusBytes](../functions/UnitPanel_SetStatusBytes.md) | `0x14010A42C` | Fills a battle unit panel's status byte list (the icons on the panel) from a five-byte status set. |
 | [VramPage_CopyRect](../functions/VramPage_CopyRect.md) | `0x14025FA60` | Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPage) and marks that area for upload. |
 
-## Structures (18)
+## Structures (65)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [ActionEntryWord](../structs/ActionEntryWord.md) | 2 | The 16-bit word of a four-byte action entry (the AI and preview form): the action id in bits 0..9 and the acting unit slot in bits 10..15. |
 | [ActionResult](../structs/ActionResult.md) | 48 | The result of one action on one target, filled by the formula handler and read by the result applier, the preview and the messages. |
 | [AiCommandEntry](../structs/AiCommandEntry.md) | 4 | One candidate action of the AI's command table: the ability word (id \| unit slot << 10), the command (skillset) byte it comes from and a flag byte. |
+| [BannerWordRange](../structs/BannerWordRange.md) | 4 | One row of the BannerWordRanges table. |
+| [BattleMenuRowScreenCode](../structs/BattleMenuRowScreenCode.md) | 1 | One row of the BattleMenuRowScreenCodes table. |
+| [BattleMenuStepRow](../structs/BattleMenuStepRow.md) | 32 | One row of the command menu step tables (same shape as the stock menu step table). |
 | [BattleMsgDescriptor](../structs/BattleMsgDescriptor.md) | 16 | The 4-dword descriptor the banner takes: class, subtype, kind and a message word. |
 | [BattleMsgEntry](../structs/BattleMsgEntry.md) | 524 | One slot of the battle message store: the kind, the kind-dependent argument, a message id and a 512-byte text buffer. |
 | [BattleMsgRecord](../structs/BattleMsgRecord.md) |  | The record the message object holds at +8: the values the argument filler reads for a message. |
 | [BattlePanelHandWord](../structs/BattlePanelHandWord.md) | 2 | One hand word as the flag-aware panels read it: the item id in bits 0..8 and a two-bit value in bits 14..15. |
 | [BattleRangeMarkRecord](../structs/BattleRangeMarkRecord.md) | 5 | One record of g_BattleRangeMarks, parallel to BattleTileRecord (512 records, layer 1 at +0x500). |
 | [BattleTileRecord](../structs/BattleTileRecord.md) | 8 | One tile of the battle map in g_BattleTileTable: 256 records per layer, two layers (layer 1 at +0x800), index x + y * width. |
+| [CommandKindMessageOffset](../structs/CommandKindMessageOffset.md) | 1 | One row of the CommandKindMessageOffsets table. |
+| [CommandKindParam](../structs/CommandKindParam.md) | 4 | One row of the CommandKindParams table. |
+| [CornerColour](../structs/CornerColour.md) | 4 | One row of the BannerWordColours table. |
 | [CrystalRollResult](../structs/CrystalRollResult.md) | 1393 | The block Unit_RollAbilityLearning fills at dword_1411A6AB0 (1393 bytes, the next data starts at 0x1411A7024) when a unit stops on a crystal or chest. |
+| [EffectBlendWeightsRow](../structs/EffectBlendWeightsRow.md) | 7 | One row of the EffectBlendWeights table. |
+| [EffectFileLocatorRow](../structs/EffectFileLocatorRow.md) | 8 | One row of EffectFileLocatorsLangOther. |
+| [EffectFlashProfilesRow](../structs/EffectFlashProfilesRow.md) | 14 | One row of the EffectFlashProfiles table. |
+| [EffectKindRecordsRow](../structs/EffectKindRecordsRow.md) | 4 | One row of the EffectKindRecords table. |
+| [EffectLabelRectRow](../structs/EffectLabelRectRow.md) | 4 | One row of BattleEffectLabelRectsLang0. |
+| [EffectNumberPseudoRow](../structs/EffectNumberPseudoRow.md) | 2 | One row of the EffectNumberPseudo table. |
+| [EffectPaletteSeedsRow](../structs/EffectPaletteSeedsRow.md) | 3 | One row of the EffectPaletteSeeds table. |
+| [EffectSpriteSpawnRecordsRow](../structs/EffectSpriteSpawnRecordsRow.md) | 46 | One row of the EffectSpriteSpawnRecords table. |
+| [ElementColoursRow](../structs/ElementColoursRow.md) | 3 | One row of the ElementColours table. |
+| [ElementMaskOrderRow](../structs/ElementMaskOrderRow.md) | 1 | One row of the ElementMaskOrder table. |
 | [EquipPanelBlock](../structs/EquipPanelBlock.md) | 64 | A 64-byte copy of a party or battle record's bytes +0x30..+0x6F, kept at 0x141876E90 for the field equip screens and at 0x141D3B880 for the battle panels. |
 | [FormatArgRecord](../structs/FormatArgRecord.md) | 264 | One argument of a formatted UI text string: a 256-byte text area and a type dword at +0x100. |
 | [FormulaBlock](../structs/FormulaBlock.md) | 72 | The state of the one action being resolved: Battle_ResolveAction fills it per target and every formula handler reads and writes it. |
 | [ItemListCells](../structs/ItemListCells.md) |  | The static item-list cell store: 82 two-byte cells (kind tag in bits 15..11, id in bits 10..0) and the parallel per-cell arrays beside them. |
+| [LayoutPointer](../structs/LayoutPointer.md) | 8 | One row of the StatusPanelLayoutsLanguage0 table. |
+| [MenuCursorDefault](../structs/MenuCursorDefault.md) | 16 | One row of the MenuCursorDefaults table. |
 | [MoveBlockerRecord](../structs/MoveBlockerRecord.md) | 7 | One entry of g_MoveBlockers: another unit on the map as the move-range builder sees it. |
+| [MoveFindRow](../structs/MoveFindRow.md) | 24 | One row of the MoveFindItems table. |
 | [MoveRangeScratch](../structs/MoveRangeScratch.md) | 128 | The move-range builder's scratch block at g_MoveRangeScratch, filled by Battle_MoveRangeSetup from the unit record. |
+| [NxdDataBattleEventOpcodeRow](../structs/NxdDataBattleEventOpcodeRow.md) | 8 | One row of the nxd.battle_event_opcode table (data table). |
+| [NxdDataBattleObjectiveRow](../structs/NxdDataBattleObjectiveRow.md) | 16 | One row of the nxd.battle_objective table (English text table; the other languages share the layout). |
+| [NxdDataBattleRow](../structs/NxdDataBattleRow.md) | 4 | One row of the nxd.battle table (data table). |
+| [NxdDataBattleSignalRow](../structs/NxdDataBattleSignalRow.md) | 16 | One row of the nxd.battle_signal table (English text table; the other languages share the layout). |
+| [NxdDataC_Mes_Id_SampleRow](../structs/NxdDataC_Mes_Id_SampleRow.md) | 24 | One row of the nxd.battle_message_text table (English text table; the other languages share the layout). |
+| [NxdDataContinuousBattleTimelineRow](../structs/NxdDataContinuousBattleTimelineRow.md) | 8 | One row of the nxd.continuous_battle_timeline table (data table). |
+| [NxdDataContinuousSortieConfirmRow](../structs/NxdDataContinuousSortieConfirmRow.md) | 108 | One row of the nxd.continuous_sortie_confirm table (data table). |
+| [NxdDataEntryAreaRow](../structs/NxdDataEntryAreaRow.md) | 8 | One row of the nxd.entry_area table (data table). |
+| [NxdDataEntryNoRow](../structs/NxdDataEntryNoRow.md) | 28 | One row of the nxd.entry_no table (data table). |
+| [NxdDataGameModeTypesRow](../structs/NxdDataGameModeTypesRow.md) | 24 | One row of the nxd.game_mode_types table (data table). |
+| [NxdDataMapRow](../structs/NxdDataMapRow.md) | 32 | One row of the nxd.map table (data table). |
+| [NxdDataMapVariationEventRow](../structs/NxdDataMapVariationEventRow.md) | 20 | One row of the nxd.map_variation_event table (data table). |
+| [NxdDataMapVariationRandomBattleRow](../structs/NxdDataMapVariationRandomBattleRow.md) | 8 | One row of the nxd.map_variation_random_battle table (data table). |
+| [NxdDataOverrideEntryDataRow](../structs/NxdDataOverrideEntryDataRow.md) | 160 | One row of the nxd.override_entry_data table (data table). |
+| [NxdDataPauseRow](../structs/NxdDataPauseRow.md) | 24 | One row of the nxd.pause table (data table). |
+| [NxdDataSortieConfirmRow](../structs/NxdDataSortieConfirmRow.md) | 48 | One row of the nxd.sortie_confirm table (data table). |
+| [PaletteCyclePair](../structs/PaletteCyclePair.md) | 4 | One row of the EquipPanelPaletteCycle table. |
+| [PaletteIdWord](../structs/PaletteIdWord.md) | 2 | One row of the StatusPanelPaletteIds table. |
+| [PopupBounceStep](../structs/PopupBounceStep.md) | 2 | One row of the PopupBounceCurve table. |
 | [PostBattleCalc](../structs/PostBattleCalc.md) | 3400 | The per-formula post-processing object of a battle: a virtual function table pointer and 106 rows of 32 bytes, one per formula id, that sub_14030A11C runs after a formula handler. |
 | [PostBattleCalcRow](../structs/PostBattleCalcRow.md) | 32 | One row of PostBattleCalc: an entry thunk, its argument, and the callback the thunk jumps to. |
+| [RangeRowMasksRow](../structs/RangeRowMasksRow.md) | 2 | One row of the RangeRowMasks table. |
+| [ScriptedActorPresetsRow](../structs/ScriptedActorPresetsRow.md) | 8 | One row of the ScriptedActorPresets table. |
+| [StatusIconFlagMaskRow](../structs/StatusIconFlagMaskRow.md) | 4 | One row of BattleStatusIconFlagMasks. |
+| [StatusPanelFrameLine](../structs/StatusPanelFrameLine.md) | 7 | One row of the StatusPanelFrameLines table. |
+| [StatusPropertyRow](../structs/StatusPropertyRow.md) | 16 | Properties of one status. |
+| [SurfacePairConstant](../structs/SurfacePairConstant.md) | 2 | One row of the SurfacePairConstants table. |
+| [TerrainPropertiesRow](../structs/TerrainPropertiesRow.md) | 1 | One byte of a TerrainProperties block (two blocks of 64). |
+| [UiNumberField](../structs/UiNumberField.md) | 32 | One row of the StatusNumbersActorA table and the tables that share its shape. |
+| [WeaponHitSoundCuesRow](../structs/WeaponHitSoundCuesRow.md) | 1 | One row of BattleWeaponHitSoundCues. |
 
-## Globals (42)
+## Globals (48)
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
@@ -301,7 +397,9 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 | [g_BattleContextGate](../globals/g_BattleContextGate.md) | `0x14186AF80` | `uint32` | Battle context gate: while it is non-zero the reaction and secondary-action paths refuse to run, which is how those actions avoid refunding or repeating. |
 | [g_BattleControl](../globals/g_BattleControl.md) | `0x143CD9EF0` | `BattleControl *` | Singleton ffto::Game::Battle::BattleControl (vtable 0x140714058); BattleControl_FrameUpdate is its per-frame update; its destructor clears the fast-forward level and mode. |
 | [g_BattleLineAbility](../globals/g_BattleLineAbility.md) | `0x142FD3590` | `uint32` | The ability, cut to 9 bits, that the battle-line task turns into a text id (0xA800 OR the ability) when a unit speaks a line for an action. |
-| [g_BattleMapWords](../globals/g_BattleMapWords.md) | `0x140D3F950` | `uint16[]` | The runtime per-map word table. |
+| [g_BattleMapId](../globals/g_BattleMapId.md) | `0x140D3A838` | `int` | 32-bit battle map id: set from scene variable 51 or from the signed event words 0x140D40924 / 0x140D40928, passed to the map task (BattleLoad_StepFresh, the load task) and copied whole by the battle capture; the battl... |
+| [g_BattleMapWords](../globals/g_BattleMapWords.md) | `0x140D3F950` | `uint16[]` | The runtime per-EVENT word table (887 words): one word per story event number, built by ScenarioSetup_ApplyRecord from the scenario setup records at every scene start; the battle message, skip and event code read it b... |
+| [g_BattleModeFlag](../globals/g_BattleModeFlag.md) | `0x141853C08` | `int` | 32-bit mode global the main loop sets around battles and the scene start; 1 while a random-encounter battle loads (seen live: 0 on the world map, 1 at the title card and deployment); MapRow_SelectVariation takes its r... |
 | [g_BattleMsgObject](../globals/g_BattleMsgObject.md) | `0x143CDA388` | `ptr` | Pointer to the battle message object. |
 | [g_BattleMsgQueue](../globals/g_BattleMsgQueue.md) | `0x142FCF870` | `uint8[256]` | The deferred battle message queue: sixteen entries of sixteen bytes (id byte, unit byte, qword value). |
 | [g_BattleMsgQueueCount](../globals/g_BattleMsgQueueCount.md) | `0x142FCF864` | `int` | The number of entries in the deferred battle message queue, at most sixteen. |
@@ -312,10 +410,14 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 | [g_CMesIdTable](../globals/g_CMesIdTable.md) | `0x143CDA340` | `ptr` | The cached result of the NXD registry lookup for table 172, the battle message text table. |
 | [g_CommandKind](../globals/g_CommandKind.md) | `0x14067E010` | `uint8[256]` | Command id to command kind, one byte per row: 256 stock rows indexed by the command (skillset) byte. |
 | [g_CurrentActionBlock](../globals/g_CurrentActionBlock.md) | `0x1418716A0` | `uint8[?]` | The current-action block Action_BuildCurrentAction fills for the AI and the action preview: command at +0, packed action word at +2, item id at +6, flags at +0x10 and the ability aux flags further in. |
+| [g_CurrentMapId](../globals/g_CurrentMapId.md) | `0x140784478` | `int` | 32-bit id of the map being loaded or in play, stored by the map load task before it calls Map_LoadBattleData; MapResource_Read indexes the per-map resource pointer tables with it; 0x77777777 means no map; the other re... |
 | [g_FastForwardStateTable](../globals/g_FastForwardStateTable.md) | `0x142FCF730` | `uint8[256]` | Per battle state (index g_BattleState): non-zero = fast-forward allowed. |
 | [g_FormulaBlock](../globals/g_FormulaBlock.md) | `0x1407B0770` | `uint8[16]` | The block the action resolver and the formula handlers share, 0x48 bytes from 0x1407B0770: the request's action type, the ability being worked out (the word at +8, address 0x1407B0778), the weapon or item word, the in... |
+| [g_LoadedMapId](../globals/g_LoadedMapId.md) | `0x142FF9EB8` | `int` | 32-bit id of the map the loader last accepted (a map with a block); read by the battle setup and the scene update, which compare it with stock map numbers; cleared by the scene reset |
 | [g_MessageDescriptor](../globals/g_MessageDescriptor.md) | `0x140783210` | `uint8[?]` | The current battle message descriptor: the message word at +0, the item id at +4 and the text id at +8. |
 | [g_MoveBlockers](../globals/g_MoveBlockers.md) | `0x141882680` | `uint8[112]` | Up to 16 entries of 7 bytes, one per other unit on the map (record MoveBlockerRecord); an unused entry has id 0xFF. |
+| [g_MoveFindTakenBits](../globals/g_MoveFindTakenBits.md) | `0x1411A7680` | `data` | uint8[128]: taken bits of the Move-Find hidden tiles, four per map, two maps per byte, byte = scene variable 51 / 2, bit 0x80 >> (tile slot + 4 x (id & 1)); saved and restored whole; directly followed by g_PoachersDen... |
+| [g_MoveFindWorkingRow](../globals/g_MoveFindWorkingRow.md) | `0x140D8DC90` | `data` | 24 bytes: the Move-Find row of the loaded map (four hidden tiles of 6 bytes), copied from the table by Map_LoadBattleData and saved with the battle capture |
 | [g_MoveRangeScratch](../globals/g_MoveRangeScratch.md) | `0x141882600` | `uint8[128]` | Scratch block of the move-range builder, filled by Battle_MoveRangeSetup: Jump, horizontal jump, Move, the unit's tile, movement mode and flags, body height (record MoveRangeScratch). |
 | [g_MoveRangeTileCount](../globals/g_MoveRangeTileCount.md) | `0x1418827B0` | `uint16` | Number of tiles the last move-range build lit (Battle_MoveRange_Commit). |
 | [g_MoveTerrainCost](../globals/g_MoveTerrainCost.md) | `0x141882700` | `uint8[64]` | Movement cost per terrain type for the unit being built (0xFF = cannot enter), copied by Battle_MoveRangeSetup from one of the six sets of g_MoveTerrainCostSets and adjusted for weather and abilities. |
@@ -336,54 +438,154 @@ Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed b
 |---|---|
 | [BattleMsgKindBase](../registries/BattleMsgKindBase.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
 
-## Flows (3)
+## Flows (5)
 
 | Name | Summary |
 |---|---|
 | [BattleMessageBanner](../flows/BattleMessageBanner.md) | How a message descriptor becomes text in the battle's centre banner: a battle handler calls the banner function, which resolves the descriptor to a message id and a template, fills the format arguments, sets the text ... |
 | [CrystalAbilityLearning](../flows/CrystalAbilityLearning.md) | A unit that stops on a Crystal or Chest unit's tile triggers a roll of the abilities the dead unit had learned in jobs the picker has unlocked, a window where a player-controlled unit chooses between learning them and... |
 | [EquipPanelBlockFill](../flows/EquipPanelBlockFill.md) | How the five hand words travel from a unit record to the two panel blocks and what the two flag-aware panels do with them. |
+| [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
+| [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (20)
+## Observed behaviours (43)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [AbilityAboveStockBoundaryHasNoMpCheckOrCost](../behaviors/AbilityAboveStockBoundaryHasNoMpCheckOrCost.md) | engine (action start and preview) | The MP check and payment (sub_1402828E4) and its preview twin (sub_14030B1A0) only look at ids up to 0x16F (367): an ability id above that boundary pays no MP, has no MP check and shows no cost. |
+| [AFailedMeshLoadSkipsEveryLaterRendererStep](../behaviors/AFailedMeshLoadSkipsEveryLaterRendererStep.md) | engine (map renderer) | When MapMesh_Load returns anything but 0 (missing file, oversize, wrong header, ids 15 and 33) the texture, system-texture and anim steps are not run and the mesh set's loaded-id field stays at none; the map block's t... |
 | [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md) | engine (battle action result) | At the end of Battle_ApplyActionResult the unit held in g_BattleActingUnit is tested for passive reactions in a fixed order; the first one present goes to a Brave-roll helper, and the reaction executor then handles on... |
 | [AttackWeaponReach](../behaviors/AttackWeaponReach.md) | battle: the tiles the Attack command can target, from the equipped weapon or bare hands | Which tiles a unit's basic Attack can target: one weapon is chosen, its flag byte picks one of four shapes (strike, lunge, direct, arc), heights are compared in half-steps, the unit's own tile and some flagged tiles a... |
 | [BattleCommandMenuCarriesSetsAsBytes](../behaviors/BattleCommandMenuCarriesSetsAsBytes.md) | engine | The battle command menu works with skillset ids as single bytes at every step: the unit's two set bytes, the byte lists the menu builders write, the kind array, the AI's command table and the command byte of the 20-by... |
 | [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md) | engine | A battle effect is one self-contained file per effect number (0..511): EffectFile_GetTrackRow gives its pack file and size, the loader reads it into one shared buffer and the effect runs from offsets inside the file. |
+| [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md) | engine (battle unit entries) | The entry key (variable 50) selects 16 entries of 40 bytes: keys 1..127 read from file 224, 128..255 from 225, 256..383 from 226, 384..511 from 227 (81,920 bytes each, 128 keys), and keys 512..591 from file 892 (51,20... |
 | [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md) | a battle resumed from one autosave and driven by the same scripted input in two runs | A battle can be forked only at a save point: the autosave restores the world work copy and a battle image, but not the random stream, the frame counters, the input state or the thread/GPU state. |
+| [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md) | engine (battle map id storage) | The battle map id travels as a 32-bit global (0x140D3A838) set from scene variable 51 or from one of two signed 16-bit event words (-1 means none); the current-map global used for resources is another 32-bit global (0... |
 | [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md) | engine | Unit_ChangeBattleStat changes PA / MA / Speed at the base +0x38..+0x3A with the totals +0x3E..+0x40; Move / Jump are at +0x42 / +0x43; the Haste / Slow CT step is in phase 0 of Battle_TurnEngine; Protect and Shell sca... |
+| [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md) | battle unit +0x1B5 | Battle unit byte +0x1B5 (437): 1 placed on the field, 0 not placed (benched), 0xFF an empty slot. |
+| [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md) | engine (battle unit table, random battle start) | In a random battle the unit table holds up to nine enemy rows from the start, but only the rows with the slot byte (+0x01) equal to their own slot and the on-field byte (+0x1B5) equal to 1 stand on the field; the othe... |
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
+| [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md) | The 106 ability formula handlers and the blocks they call | What a formula handler may assume and has to leave behind, read from the stock handlers and from Battle_ResolveAction: the frame it is called in, how it says 'no effect', which result fields go together, why it must n... |
 | [FormulaPostHooksAreKeyedByFormulaId](../behaviors/FormulaPostHooksAreKeyedByFormulaId.md) | engine | After a formula handler runs, sub_14030A11C looks the formula byte up in a 106-row hook table (PostBattleCalc) and runs the row's callback, if any: twelve formulas have an Undead rule there. |
+| [HitLabelsAndThePanelEffectLineAreSeparateLists](../behaviors/HitLabelsAndThePanelEffectLineAreSeparateLists.md) | engine | The status label over a unit hit by an action and the effect line of the unit status panel are two different lists. |
 | [KoLeavesSomeStatusesOnTheUnit](../behaviors/KoLeavesSomeStatusesOnTheUnit.md) | engine | KO does not end every status: its property row (status 2) cancels the action states 4..7, Confusion, Vampire, Float, Invisibility, Berserk, Critical and every status 23..39, and leaves Undead, Stone, Traitor, Blindnes... |
+| [MapDrawListRowsAreSearchedLinearlyToABoundOfFifty](../behaviors/MapDrawListRowsAreSearchedLinearlyToABoundOfFifty.md) | engine (battle map draw lists) | MapDrawLists_Load clears two 513-byte bitsets, then searches the 50 rows of the draw-list table for the row whose 16-bit map id equals the loaded map and sets, for each 0xFFFF-terminated list the row points at, the bi... |
+| [MapLoaderIndexesThreeTablesByASixteenBitMapId](../behaviors/MapLoaderIndexesThreeTablesByASixteenBitMapId.md) | engine (battle map load) | Map_LoadBattleData takes the battle map id as a 16-bit value and uses it, with no bound, as the row of three tables: the Move-Find rows (24 bytes), the map-block file numbers of the two text-language copies (4 bytes),... |
+| [MapMeshAndAnimFilesCarryTheirOwnMapId](../behaviors/MapMeshAndAnimFilesCarryTheirOwnMapId.md) | engine (map mesh and anim files) | The mesh file and the anim file of a battle map hold the map id in their header, and the loaders refuse a file whose id is not the one requested. |
+| [MapRendererTableRowFallbacks](../behaviors/MapRendererTableRowFallbacks.md) | engine (map renderer tables) | What each renderer table gives the build when a map has no row: nodes get default flags (visible), polygon overrides do nothing, system textures use the stock default file, map textures are an empty set, the anim file... |
+| [MapResourceFilesAreFileNumberAndSizePairsPerMap](../behaviors/MapResourceFilesAreFileNumberAndSizePairsPerMap.md) | engine (battle map resources) | MapResource_Read reads one resource file of the current map: a request record either carries a file number and a size itself, or carries the marker value 0xFEEDBACC (as a 32-bit number) and a pair number, which select... |
+| [MapTextureRowsAreReadOnlyForMapIdsUpToOneTwentySeven](../behaviors/MapTextureRowsAreReadOnlyForMapIdsUpToOneTwentySeven.md) | engine (map texture set) | The loader of the map's colour and lighting textures reads the RefinedBgTexture rows only when the map id is 127 or less; for a larger id it requests no map texture at all. |
+| [MapTextureRowsPairEveryNameWithAFrameCount](../behaviors/MapTextureRowsPairEveryNameWithAFrameCount.md) | engine (map texture rows) | A RefinedBgTexture row has two name lists and, beside each, a list of frame counts stored as plain signed 32-bit integers. |
+| [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md) | engine (Move-Find state) | Which hidden tiles of a map have been taken is kept as four bits per map, two maps per byte, in a 128-byte array indexed by scene variable 51 (the current map id): map ids 0..255 fit, and the bytes after the array bel... |
 | [MoveRangeRules](../behaviors/MoveRangeRules.md) | battle: the tiles lit when the Move command opens (and the same builder for the AI and for another unit's range) | Which tiles a unit can stop on: a budget of Move + 1 spreads from its tile by steps and straight jumps under height, headroom, terrain-cost and occupancy rules; a final pass keeps the tiles it may stop on. |
+| [PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId](../behaviors/PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId.md) | engine (battle title card, pause menu, save list) | The title card, the objective header of the pause menu and the place label of the save list all show the place name belonging to the loaded map id's Map row, and a mid-battle autosave resumes the battle on the saved id. |
+| [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md) | engine (battle HUD, save list, title card) | The battle's place text reads the place-name id at row +8 of the Map row of variable 51; the save list reads row +12 (else +8) of the Map row of the low byte of the map id for a battle save, and the Town row of the lo... |
+| [PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows](../behaviors/PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows.md) | engine (battle deployment) | The origin of the player's deployment grid comes from a 12-byte-row table of 768 rows in the executable (row number in the u16 at +10), indexed by the deployment area ids in variables 53 and 54 with no bound check; th... |
 | [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md) | engine | Poison and Regen change HP when the turn of the unit ends: Battle_TurnEngine phase 19 writes max HP / 8 as damage (Poison) or as a heal (Regen, only when not poisoned) into the result block of the unit, which the game... |
+| [PseudoEffectWordIsASixteenBitEventOperand](../behaviors/PseudoEffectWordIsASixteenBitEventOperand.md) | engine (effect selection) | An effect word of 512 or more selects a row of the 37-word pseudo effect table (row = word - 512, row 0 when 37 or more) and the effect number is masked to 9 bits; event command class 0x18 sets the word, which the eve... |
+| [RandomBattleModeSelectsTheLightingVariantOfAMapsTextures](../behaviors/RandomBattleModeSelectsTheLightingVariantOfAMapsTextures.md) | engine (map variation, map textures) | A battle started from a random encounter runs MapRow_SelectVariation in its 'random battle' branch, which always yields a kind code from 1 to 6, and the name builder then reads the second name array of each texture ro... |
+| [RandomEncounterRowByte22IsTheBattleMapId](../behaviors/RandomEncounterRowByte22IsTheBattleMapId.md) | engine (random battle start) | A random battle at a battleground takes its battle map from byte 22 of the encounter row, not from a scenario setup record: the row's byte 22 becomes variable 51 when the world-map screen ends, the chosen formation by... |
+| [ScenarioSetupRecordFeedsTheBattleSceneVariables](../behaviors/ScenarioSetupRecordFeedsTheBattleSceneVariables.md) | engine (scene entry of an event or battle) | When a scene starts, the routine that applies the scenario setup record finds the record of the current event number (scene variable 39) in the 24-byte table of 887 records and writes the scene variables the battle lo... |
 | [SpawnRecordPassiveWords](../behaviors/SpawnRecordPassiveWords.md) | engine | A battle spawn record's reaction / support / movement word below 0x1FE names an ability and 0x1FE or above asks for a random one of the unit's skillset slots 16..21. |
 | [StatusBitWritersAndTheRemovalPath](../behaviors/StatusBitWritersAndTheRemovalPath.md) | engine | The effective set +0x61 of a unit is written at the end of a fixed group of functions; the applied set is written only from the pending sets, from its own saved copy or derived from +0x61; the game removes a status on... |
 | [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md) | engine | A unit's statuses are 40-bit sets (status s = bit 0x80 >> (s & 7) of byte s >> 3) kept in eight regions of the battle unit record: innate a, innate b, the effective set, the applied set, the pending add and remove pai... |
 | [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md) | engine | The status pipeline (Battle_StatusResolve) runs a filter, a refresh and an apply loop over the status ids in order; the inflict copy of a result is read only by formula 56; the battle task clears the unit table at its... |
 | [StatusScreenReadersAndIconPath](../behaviors/StatusScreenReadersAndIconPath.md) | engine | The battle Status screen lists a unit's statuses in two dword lists (gains, ailments) and reads each one's name, category, sort key and caption from its UIStatusEffect row (key id + 1); the icon path s_%03d is formatt... |
+| [StatusVisualMasks](../behaviors/StatusVisualMasks.md) | scene unit status visuals | A scene unit carries set and clear masks for status visuals; SceneUnit_ApplyStatusVisuals applies them and redraws the pose, and a scene unit build zeroes the words. |
 | [TurnOrderEntryKeepsNineBitsOfTheAbility](../behaviors/TurnOrderEntryKeepsNineBitsOfTheAbility.md) | engine | A turn-order entry keeps 9 bits of the pending ability (byte 1 plus bit 7 of byte 0 for 256), so the combat timeline names an ability of 512 or more by the stock ability 256 + its low byte (512 = Vengeance). |
 | [UsableAbilityListLearnedBitGroup](../behaviors/UsableAbilityListLearnedBitGroup.md) | engine | The usable-ability list reads a unit's learned bits per job group. |
 
-## Tables (14)
+## Tables (89)
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
+| [BannerWordCells](../tables/BannerWordCells.md) | Executable (initialised data) |  | 204 rows of 12 bytes | Sprite cells that build the 64 banner word images. |
+| [BannerWordColours](../tables/BannerWordColours.md) | Executable (initialised data) |  | 4 rows of 4 bytes | Corner colours of the banner word gradient. |
+| [BannerWordRanges](../tables/BannerWordRanges.md) | Executable |  | 65 rows of 4 bytes | For each of 64 banner word images, which run of sprite cells builds it. |
+| [BattleEffectLabelRectsLang0](../tables/BattleEffectLabelRectsLang0.md) | Executable |  | 60 rows of 4 bytes | Texture rectangles of the effect label pictures for text language 0. |
+| [BattleEffectLabelRectsLang1](../tables/BattleEffectLabelRectsLang1.md) | Executable |  | 60 rows of 4 bytes | Texture rectangles of the effect label pictures for text language 1. |
+| [BattleEffectLabelRectsLang2](../tables/BattleEffectLabelRectsLang2.md) | Executable |  | 60 rows of 4 bytes | Texture rectangles of the effect label pictures for text language 2. |
+| [BattleEffectLabelRectsLang3](../tables/BattleEffectLabelRectsLang3.md) | Executable |  | 60 rows of 4 bytes | Texture rectangles of the effect label pictures for text language 3. |
+| [BattleMenuRowScreenCodes](../tables/BattleMenuRowScreenCodes.md) | Executable |  | 24 rows of 1 bytes | Per battle-menu row id, the screen or message code its confirm opens. |
+| [BattleStatusIconFlagMasks](../tables/BattleStatusIconFlagMasks.md) | Executable |  | 40 rows of 4 bytes (42 to the next symbol) | Per status id the bit mask that marks the status on the battle scene object (drawing side). |
 | [BattleTiles](../tables/BattleTiles.md) | Executable (filled at run time) |  | 512 records of 8 bytes | The battle map tile table: flags and movement cost per tile, filled by the map setup from the map's level record. |
 | [BattleUnits](../tables/BattleUnits.md) | Executable (filled at run time) |  | 21 records of 512 bytes | The live battle unit table: hit points, magic points, tile, facing, charge time and action words. |
+| [BattleWeaponHitSoundCues](../tables/BattleWeaponHitSoundCues.md) | Executable |  | 3 rows of 32 bytes | Sound cue (+1) played when an attack effect hits, per weapon type, in three variants. |
 | [C_Mes_Id_Sample](../tables/C_Mes_Id_Sample.md) | NXD file | 172 |  | The battle message text table: CMesId_GetText reads one row by message id and the registry result is cached in g_CMesIdTable. |
-| [CommandKind](../tables/CommandKind.md) | Executable (constant) |  | 256 entries of 1 byte | Command id to command kind: index 6 is 1 (Item), index 20 is 2 (Throw), and the battle range and action builders switch on the value. |
+| [CommandKindMessageOffsets](../tables/CommandKindMessageOffsets.md) | Executable |  | 24 rows of 1 bytes | Offset of the screen / message code of each battle command kind (code = 0x1000 + offset). |
+| [CommandKindParams](../tables/CommandKindParams.md) | Executable (initialised data) |  | 16 rows of 4 bytes | Two small values for each battle command kind; the same 16 rows sit in front of the stock menu step table. |
+| [CommandMenuSteps](../tables/CommandMenuSteps.md) | Executable (initialised data) |  | 61 rows of 32 bytes | The 61 rows of the stock battle menu step table with the task pointer of the command menu task. |
+| [EffectBlendWeights](../tables/EffectBlendWeights.md) | Executable |  | 5 rows of 7 bytes | Four ramps of seven 0..255 blend weights for the flash effect and a fifth row listing five palette slots. |
+| [EffectFileLocatorsLang0](../tables/EffectFileLocatorsLang0.md) | Executable |  | 512 rows of 8 bytes | Pack file number and size of every battle effect file (text language 0). |
+| [EffectFileLocatorsLangOther](../tables/EffectFileLocatorsLangOther.md) | Executable |  | 512 rows of 8 bytes | Pack file number and size of every battle effect file (text language 1, 2 or 3 (and when no language record exists)). |
+| [EffectFlashProfiles](../tables/EffectFlashProfiles.md) | Executable |  | 4 rows of 14 bytes | Seven parameter words per screen flash profile (timing and strength values; the high byte of the last word picks a blend weight row). |
+| [EffectKindRecords](../tables/EffectKindRecords.md) | Executable |  | 22 rows of 4 bytes | One row per effect kind: the sequence handler kind that runs it and a parameter word. |
+| [EffectNumberPseudo](../tables/EffectNumberPseudo.md) | Executable |  | 37 rows of 2 bytes | Effect number per pseudo effect word. |
+| [EffectPaletteSeeds](../tables/EffectPaletteSeeds.md) | Executable |  | 6 rows of 3 bytes | Six 5-bit RGB colours packed into the effect palette at the start of the palette effect. |
+| [EffectSpriteSpawnRecords](../tables/EffectSpriteSpawnRecords.md) | Executable |  | 12 rows of 46 bytes | One record per effect sprite group: sprite definition index, frame window, live limit, parameter block and the number of sprites to create. |
+| [ElementColours](../tables/ElementColours.md) | Executable |  | 9 rows of 3 bytes | RGB tint per element for effect flashes. |
+| [ElementMaskOrder](../tables/ElementMaskOrder.md) | Executable |  | 9 rows of 1 byte | The element bit mask of each element slot of ElementColours: 0 (none), then the bits 0x80, 0x04, 0x08, 0x10, 0x02, 0x01, 0x20, 0x40. |
+| [EquipPanelCellsLanguage0A](../tables/EquipPanelCellsLanguage0A.md) | Executable (initialised data, written at run time) |  | 19 rows of 12 bytes | Sprite cells of the equipment / ability status panel, language 0, variant a. |
+| [EquipPanelCellsLanguage0B](../tables/EquipPanelCellsLanguage0B.md) | Executable (initialised data, written at run time) |  | 19 rows of 12 bytes | Equipment panel cells, language 0, variant b. |
+| [EquipPanelCellsLanguage2A](../tables/EquipPanelCellsLanguage2A.md) | Executable (initialised data, written at run time) |  | 19 rows of 12 bytes | Equipment panel cells, language 2, variant a. |
+| [EquipPanelCellsLanguage2B](../tables/EquipPanelCellsLanguage2B.md) | Executable (initialised data, written at run time) |  | 19 rows of 12 bytes | Equipment panel cells, language 2, variant b. |
+| [EquipPanelCellsLanguage3A](../tables/EquipPanelCellsLanguage3A.md) | Executable (initialised data, written at run time) |  | 19 rows of 12 bytes | Equipment panel cells, language 3, variant a. |
+| [EquipPanelCellsLanguage3B](../tables/EquipPanelCellsLanguage3B.md) | Executable (initialised data, written at run time) |  | 19 rows of 12 bytes | Equipment panel cells, language 3, variant b. |
+| [EquipPanelPaletteCycle](../tables/EquipPanelPaletteCycle.md) | Executable (initialised data) |  | 19 rows of 4 bytes | Two-phase palette ids of the 19 equipment panel cells (a blinking highlight). |
+| [EventUnitNumbersA](../tables/EventUnitNumbersA.md) | Executable (initialised data) |  | 10 rows of 32 bytes | Number fields (hp, hpmax, mp, mpmax, wt, wtmax, at, atmax, level, exp) of the legacy dialogue unit panel, first unit. |
+| [EventUnitNumbersB](../tables/EventUnitNumbersB.md) | Executable (initialised data) |  | 10 rows of 32 bytes | Number fields of the legacy dialogue unit panel, second unit. |
 | [FastForwardStates](../tables/FastForwardStates.md) | Executable (filled at run time) |  | 256 bytes | Whether fast-forward is allowed in each battle state; filled from the GameModeTypes NXD table. |
 | [GameModeTypes](../tables/GameModeTypes.md) | NXD file | 88 |  | Per game-mode flags. |
+| [MenuCursorDefaults](../tables/MenuCursorDefaults.md) | Executable (initialised data) |  | 31 rows of 16 bytes | Menu numbers with a pointer to the default record of each battle command menu. |
 | [MoveBlockers](../tables/MoveBlockers.md) | Executable (filled at run time) |  | 112 entries of 1 byte | Up to 16 entries of 7 bytes, one per other unit on the map (record MoveBlockerRecord); an unused entry has id 0xFF. |
+| [MoveFindItems](../tables/MoveFindItems.md) | Executable (initialised data, written at run time) |  | 128 rows of 24 bytes | Move-Find Item and trap data: per map, up to four hidden tiles with a trap kind and a common and a rare item. |
 | [MoveTerrainCost](../tables/MoveTerrainCost.md) | Executable (filled at run time) |  | 64 entries of 1 byte | Movement cost per terrain type for the unit being built (0xFF = cannot enter), copied by Battle_MoveRangeSetup from one of the six sets of g_MoveTerrainCostSets and adjusted for weather and abilities. |
 | [MoveTerrainCostSets](../tables/MoveTerrainCostSets.md) | Executable (constant) |  | 6 rows of 64 entries of 1 byte | Six constant cost sets by terrain type: walking, open (Fly / Teleport), float, water (two modes), one more water mode, lava walking. |
 | [MoveTileFlags](../tables/MoveTileFlags.md) | Executable (filled at run time) |  | 512 entries of 1 byte | Per-tile flag byte of the move-range builder: 0x01 frontier, 0x02 one-axis slope, 0x04 occupied, 0x08 unit that can be stepped onto, 0x10 standable, 0x20 mountable ally, 0x40 steep, 0x80 blocked. |
+| [NxdDataBattle](../tables/NxdDataBattle.md) | NXD file | 83 | 713 rows of 4 bytes | Index of battle ids: the rows carry no data column besides the DLC gate; other tables key off these ids. |
+| [NxdDataBattleEventOpcode](../tables/NxdDataBattleEventOpcode.md) | NXD file | 221 | 40 rows of 8 bytes | Index of the battle event opcode numbers (40 rows); rows carry only a designer comment slot. |
+| [NxdDataBattleObjective](../tables/NxdDataBattleObjective.md) | NXD file | 47 | 69 rows of 16 bytes, text in 7 languages | Win-condition captions shown in the battle system menu, with a flag marking protect-the-unit objectives. |
+| [NxdDataBattleSignal](../tables/NxdDataBattleSignal.md) | NXD file | 214 | 71 rows of 16 bytes, text in 7 languages | Short in-battle banner texts (titles) with a flag for evasion messages. |
+| [NxdDataContinuousBattleTimeline](../tables/NxdDataContinuousBattleTimeline.md) | NXD file | 231 | 46 rows of 8 bytes | Timeline steps for chained battles (46 rows). |
+| [NxdDataContinuousSortieConfirm](../tables/NxdDataContinuousSortieConfirm.md) | NXD file | 230 | 27 rows of 108 bytes | Sortie confirmation parameters for chained battles, keyed by battle and part. |
+| [NxdDataEntryArea](../tables/NxdDataEntryArea.md) | NXD file | 244 | 2519 rows of 8 bytes | Deployment areas: per battle and slot, a position value. |
+| [NxdDataEntryNo](../tables/NxdDataEntryNo.md) | NXD file | 109 | 512 rows of 28 bytes | Per entry number (512): link to the sortie confirmation row plus parameters. |
+| [NxdDataMap](../tables/NxdDataMap.md) | NXD file | 60 | 129 rows of 32 bytes | Per map (129): parameters; map content lives in map files. |
+| [NxdDataMapVariationEvent](../tables/NxdDataMapVariationEvent.md) | NXD file | 207 | 14 rows of 20 bytes | Map variations tied to events (14). |
+| [NxdDataMapVariationRandomBattle](../tables/NxdDataMapVariationRandomBattle.md) | NXD file | 208 | 7 rows of 8 bytes | Map variations for random battles (7). |
+| [NxdDataOverrideEntryData](../tables/NxdDataOverrideEntryData.md) | NXD file | 96 | 516 rows of 160 bytes | Per-battle unit entry overrides (516 rows, keyed by battle and slot): sprite, job, skills, gear, level and facing. |
+| [NxdDataPause](../tables/NxdDataPause.md) | NXD file | 282 | 13 rows of 24 bytes | Pause overlay settings (13) with a sound event link. |
+| [NxdDataSortieConfirm](../tables/NxdDataSortieConfirm.md) | NXD file | 54 | 375 rows of 48 bytes | Sortie confirmation screens (375): map link, UI text keys for event, max units and threat rating. |
+| [PopupBounceCurve](../tables/PopupBounceCurve.md) | Executable |  | 13 rows of 2 bytes | Arc of offsets for a bouncing pop-up over 13 frames. |
+| [RangeRowMasks](../tables/RangeRowMasks.md) | Executable |  | 8 rows of 2 bytes | Bit-run masks (a triangle) used to build the diamond of the range overlay; 8 distances. |
 | [ReactionGates](../tables/ReactionGates.md) | Executable |  | 32 bytes | One byte per reaction id: the reaction executor refuses an id whose byte has 1 in its low two bits. |
 | [SceneTaskSlots](../tables/SceneTaskSlots.md) | Executable (filled at run time) |  | 1512 entries of 1 byte | Nine scene-task data records of 0xA8 bytes, parsed from u16 token streams during the battle map setup and captured in a kind-1 snapshot. |
+| [ScriptedActorPresets](../tables/ScriptedActorPresets.md) | Executable |  | 6 rows of 8 bytes | Scripted unit presets of one scene: a null-terminated list of 6 record pointers copied into the sprite palette and pose tables. |
+| [StatsNumbersLive](../tables/StatsNumbersLive.md) | Executable (initialised data) |  | 8 rows of 32 bytes | Eight stat number fields (At, Atmagic, Def, Defmgc, Ar, Armagic, Av, Avmagic) of a legacy screen. |
+| [StatsNumbersUnitA](../tables/StatsNumbersUnitA.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Fifteen number fields of the legacy unit page, variant a. |
+| [StatsNumbersUnitB](../tables/StatsNumbersUnitB.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Fifteen number fields of the legacy unit page, variant b (two labels differ). |
+| [StatsPanelCellsDefault](../tables/StatsPanelCellsDefault.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Detailed stats panel cells, language 1 / default. |
+| [StatsPanelCellsLanguage0](../tables/StatsPanelCellsLanguage0.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Sprite cells of the detailed stats panel (Move, Jump, weapon power, At / Def / Ar / Av), language 0. |
+| [StatsPanelCellsLanguage2](../tables/StatsPanelCellsLanguage2.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Detailed stats panel cells, language 2. |
+| [StatsPanelCellsLanguage3](../tables/StatsPanelCellsLanguage3.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Detailed stats panel cells, language 3. |
+| [StatsPanelNumbers](../tables/StatsPanelNumbers.md) | Executable (initialised data) |  | 8 rows of 32 bytes | Number fields of the detailed stats panel (attack, defence, evasion pairs). |
 | [StatusGroupMasks](../tables/StatusGroupMasks.md) | Executable (constant) |  | 10 rows of 5 entries of 1 byte | The ten party-wide status group masks, five bytes each: a group test ANDs these bytes against the unit status bytes at +0x61..+0x65. |
 | [StatusIconFlags](../tables/StatusIconFlags.md) | Executable (constant) |  |  | The per-status flag words the status panel update reads: index status+1, no bound check. |
+| [StatusNumbersActorA](../tables/StatusNumbersActorA.md) | Executable (initialised data, written at run time) |  | 7 rows of 32 bytes | Number fields of the acting unit's status panel (variant A). |
+| [StatusNumbersActorB](../tables/StatusNumbersActorB.md) | Executable (initialised data) |  | 6 rows of 32 bytes | Number fields of the acting unit's status panel (variant B, no AT). |
+| [StatusNumbersTargetA](../tables/StatusNumbersTargetA.md) | Executable (initialised data, written at run time) |  | 7 rows of 32 bytes | Number fields of the target unit's status panel (variant A). |
+| [StatusNumbersTargetB](../tables/StatusNumbersTargetB.md) | Executable (initialised data) |  | 8 rows of 32 bytes | Number fields of the target unit's status panel with the hit chance (variant B). |
+| [StatusPanelFrameLines](../tables/StatusPanelFrameLines.md) | Executable |  | 8 rows of 7 bytes | Eight one-pixel shaded border lines of the battle status panel (light and dark pairs). |
+| [StatusPanelLayoutsDefault](../tables/StatusPanelLayoutsDefault.md) | Executable (initialised data) |  | 8 rows of 8 bytes | Per status panel kind, its layout block, for text languages 1 and every language that has no table of its own. |
+| [StatusPanelLayoutsLanguage0](../tables/StatusPanelLayoutsLanguage0.md) | Executable (initialised data) |  | 8 rows of 8 bytes | Per status panel kind, its layout block, language 0. |
+| [StatusPanelLayoutsLanguage2](../tables/StatusPanelLayoutsLanguage2.md) | Executable (initialised data) |  | 8 rows of 8 bytes | Per status panel kind, its layout block, text language 2. |
+| [StatusPanelLayoutsLanguage3](../tables/StatusPanelLayoutsLanguage3.md) | Executable (initialised data) |  | 8 rows of 8 bytes | Per status panel kind, its layout block, text language 3. |
+| [StatusPanelPaletteIds](../tables/StatusPanelPaletteIds.md) | Executable (initialised data) |  | 22 rows of 2 bytes | Palette ids of the battle status panel parts. |
+| [StatusProperties](../tables/StatusProperties.md) | Executable |  | 40 rows of 16 bytes | Per status: priority, countdown, group flags, the statuses it cancels and the statuses that block it. |
+| [SurfacePairConstants](../tables/SurfacePairConstants.md) | Executable |  | 63 rows of 2 bytes | Per surface type, two bytes that are 25 everywhere; their two destination words have no other reader. |
+| [TerrainProperties](../tables/TerrainProperties.md) | Executable |  | 2 blocks of 64 bytes | Two 64-byte blocks indexed by terrain type: the ability id the terrain gives and a flag byte whose bit 0x80 marks harmful terrain. |
+| [UnitStatusNumbersMode0](../tables/UnitStatusNumbersMode0.md) | Executable (initialised data) |  | 10 rows of 32 bytes | Number fields of the legacy unit info message window, actor with level and experience. |
+| [UnitStatusNumbersMode1](../tables/UnitStatusNumbersMode1.md) | Executable (initialised data) |  | 8 rows of 32 bytes | Number fields of the legacy unit info message window, actor with hit chance. |
+| [UnitStatusNumbersMode2](../tables/UnitStatusNumbersMode2.md) | Executable (initialised data) |  | 8 rows of 32 bytes | Number fields of the legacy unit info message window, target with hit chance. |
+| [UnitStatusNumbersMode3](../tables/UnitStatusNumbersMode3.md) | Executable (initialised data) |  | 10 rows of 32 bytes | Number fields of the legacy unit info message window, target with level and experience. |

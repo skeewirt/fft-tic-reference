@@ -90,7 +90,7 @@ Functions: 69, Structures: 3, Globals: 5, Registries: 1, Observed behaviours: 2,
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
-| [g_BattleEntrySource](../globals/g_BattleEntrySource.md) | `0x141856930` | `unit data` | 16 bytes: dword +0 the battle key (set from scene variable 50 by sub_1403044EC, read by Battle_GetEntryBlock and Battle_BuildEntryUnits as the OverrideEntryData key), qword +8 the base of the loaded entry data (640 by... |
+| [g_BattleEntrySource](../globals/g_BattleEntrySource.md) | `0x141856930` | `unit data` | 16 bytes: dword +0 the battle key (set from scene variable 50 by BattleLoad_StepFresh, read by Battle_GetEntryBlock and Battle_BuildEntryUnits as the OverrideEntryData key), qword +8 the base of the loaded entry data ... |
 | [g_CurrentSpawnEntry](../globals/g_CurrentSpawnEntry.md) | `0x1411A3868` | `unit data` | Pointer to the spawn entry being built: set by Battle_PlaceEntryUnits and sub_1402841D0 before each Unit_BuildFromRecord; Unit_ApplySpawnRecord copies its bytes +33..+39 into unit +407..+413, and Battle_PlaceEntryUnit... |
 | [g_UnitEquipOverride](../globals/g_UnitEquipOverride.md) | `0x14184A680` | `uint16[]` | Five override equipment words per unit, ten bytes per unit index: when the pair is non-zero the equip pickers use it in place of the unit record's own hand words. |
 | [g_UnitSaveData](../globals/g_UnitSaveData.md) | `0x1411A7D10` | `data` | 54 x 600 bytes; builder sub_140275C70 -> sub_140275B84 -> sub_140276758 |

@@ -14,13 +14,14 @@ Reverse of SaveWork_PackFromLive: copies the save work copy into the live arrays
 
 ## Behavior
 
-- V (J9): 600-byte copy loops in both directions, so every byte of the unit record (including the 38 bytes the field schema calls unsaved) is persisted by the flat save.
+- V: 600-byte copy loops in both directions, so every byte of the unit record (including the 38 bytes the field schema calls unsaved) is persisted by the flat save.
 - V: one of its callers (sub_1402D03D8) reaches it through a tail jmp at 0x1402D0444.
 
 ## Referenced by
 
 - Called by: [SaveSlot_LoadToLive](SaveSlot_LoadToLive.md), [Save_ResumeCheckpoint](Save_ResumeCheckpoint.md), [sub_14021A030](sub_14021A030.md)
-- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md)
+- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md), [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md), [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md), [TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage](../behaviors/TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage.md)
+- Reads tables: [UnitJobFlags](../tables/UnitJobFlags.md), [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes
 

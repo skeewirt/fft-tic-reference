@@ -3,7 +3,7 @@
 - **Address:** `0x1402F7964`
 - **Area:** [Graphics](../areas/graphics.md)
 - **Prototype:** `void ClutManager_Upload(void)`
-- **Callers:** sub_140210AF0, sub_1403044EC, sub_14030476C
+- **Callers:** sub_140210AF0, BattleLoad_StepFresh, sub_14030476C
 - **Callees:** sub_14025FA60, sub_14025FE14
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

@@ -29,6 +29,7 @@ Per-step upkeep of monster eggs over the 54 save slots: counts down existing egg
 ## Referenced by
 
 - Called by: [sub_1402CCEE0](sub_1402CCEE0.md)
+- Reads tables: [NxdDataEgg](../tables/NxdDataEgg.md)
 
 ## Notes
 

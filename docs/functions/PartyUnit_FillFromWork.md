@@ -34,7 +34,7 @@ at record B +0x54..+0x5C come from work +0x0E..+0x1A and are zeroed when the ful
 ## Referenced by
 
 - Called by: [PartyUnit_ReloadEquipment](PartyUnit_ReloadEquipment.md), [PartyUnit_WriteBackToSave](PartyUnit_WriteBackToSave.md), [UnitWork_BuildForSlot](UnitWork_BuildForSlot.md)
-- Observed behaviours: [CombatSetJobBytesAreOnlyCopied](../behaviors/CombatSetJobBytesAreOnlyCopied.md), [JobChangeReachesTheSaveRecordOnlyThroughWriteBack](../behaviors/JobChangeReachesTheSaveRecordOnlyThroughWriteBack.md), [PartyJobWordIsSixteenBits](../behaviors/PartyJobWordIsSixteenBits.md)
+- Observed behaviours: [CombatSetJobBytesAreOnlyCopied](../behaviors/CombatSetJobBytesAreOnlyCopied.md), [JobArraysInThePartyRecordHoldStockIndicesOnly](../behaviors/JobArraysInThePartyRecordHoldStockIndicesOnly.md), [JobChangeReachesTheSaveRecordOnlyThroughWriteBack](../behaviors/JobChangeReachesTheSaveRecordOnlyThroughWriteBack.md), [PartyJobWordIsSixteenBits](../behaviors/PartyJobWordIsSixteenBits.md), [PartyWriteBackCopiesSecondarySetAndReactionLowByteInOneLoop](../behaviors/PartyWriteBackCopiesSecondarySetAndReactionLowByteInOneLoop.md)
 
 ## Notes
 

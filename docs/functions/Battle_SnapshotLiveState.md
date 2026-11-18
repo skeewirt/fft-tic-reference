@@ -32,7 +32,7 @@ Captures or restores the live save state the battle image carries: the item stor
 ## Referenced by
 
 - Called by: [Battle_RestoreSceneVars](Battle_RestoreSceneVars.md), [Battle_SaveCapture](Battle_SaveCapture.md)
-- Observed behaviours: [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md)
+- Observed behaviours: [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md), [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md)
 
 ## Notes
 

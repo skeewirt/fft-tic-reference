@@ -2,15 +2,17 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3.
+Functions: 195, Structures: 28, Globals: 5, Observed behaviours: 18, Tables: 29.
 
-## Functions (162)
+## Functions (195)
 
 | Name | Address | Purpose |
 |---|---|---|
+| [BannerWords_FillQuads](../functions/BannerWords_FillQuads.md) | `0x1402DF154` | Fills the gradient quads of one banner (a row of word cells) from the legacy banner tables. |
 | [EventAngle_Quantize](../functions/EventAngle_Quantize.md) | `0x140240408` | Stores a copy of an angle rounded down to a multiple of 4096 in a global, for angles from -16384 to 16383. |
 | [EventBlock_ApplyOperands](../functions/EventBlock_ApplyOperands.md) | `0x1402355E0` | The callback installed by opcode 0x28: resolves the unit named by its operands and gives it a 128-byte block, a doubled count and a fixed value, using a block helper. |
 | [EventCamera_MoveTask](../functions/EventCamera_MoveTask.md) | `0x1402401A8` | The task started by event opcode 0x1B: moves the camera from its current state to six target values over a number of frames. |
+| [EventChain_Find](../functions/EventChain_Find.md) | `0x14033D840` | Looks an event number up in a 9-entry table of chained events and records the entry's two bytes. |
 | [EventChannel_BindStepTask](../functions/EventChannel_BindStepTask.md) | `0x1402421AC` | The task started by event opcode 0x6B: releases a keyed object, binds or selects its channel, then runs the same frame loop as opcode 0x6A. |
 | [EventChannel_StepTask](../functions/EventChannel_StepTask.md) | `0x14024223C` | The task started by event opcode 0x6A: runs a per-frame refresh of a keyed object's channel for a set number of frames, then releases or keeps the key. |
 | [EventCharaSprite_SetTable256Entry](../functions/EventCharaSprite_SetTable256Entry.md) | `0x1400D1B74` | Loads a table-256 entry into a sub-object of the unit sprite renderer and sets how long the change takes. |
@@ -28,8 +30,10 @@ Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3.
 | [EventControl_UpdateGuide](../functions/EventControl_UpdateGuide.md) | `0x1401DBD54` | Chooses the button guide shown under an event: 503 while fast-forward is held or running, 504 in auto-advance, otherwise 501 / 506 for five seconds after an input. |
 | [EventCounter_Task](../functions/EventCounter_Task.md) | `0x14023FA9C` | The task started by event opcode 0x41: runs without returning on its own, adding to the shared 16-bit counter on a repeating frame cycle until the skip test ends it. |
 | [EventDataLoad_Poll](../functions/EventDataLoad_Poll.md) | `0x140274324` | A state machine that starts a table-selected game data read for the current track index and reports busy until the read and a timed delay have finished; it is the busy test that opcode 0x8A waits on, through MultiStr_... |
+| [EventEffect_Start](../functions/EventEffect_Start.md) | `0x140273708` | Starts the effect an event script asked for: builds a small request record, fills its flag bytes and calls Effect_SelectForAbility with the effect word. |
 | [EventEndSlate_ShowTask](../functions/EventEndSlate_ShowTask.md) | `0x14021EB40` | The task started by event opcode 0xEC: adds the end-slate UI add-on, plays its language-keyed state and its Show state, waits until the state ends or the skip test passes, then removes the add-on. |
 | [EventFlagWait_Task](../functions/EventFlagWait_Task.md) | `0x14023589C` | The task started by event opcode 0x8B: waits frame by frame until the global dword_140CDB824 becomes zero, then ends. |
+| [EventLookSet_Select](../functions/EventLookSet_Select.md) | `0x1402459E0` | Makes one of the eight generic look sets the active pool for an event's placeholder actors. |
 | [EventMapTitle_DrawSweep](../functions/EventMapTitle_DrawSweep.md) | `0x140302318` | Builds four 184-byte map-title draw records for one sweep value into a 736-byte buffer and links them into the draw list; the layout argument (0 or 1) chooses the record variant and the link order. |
 | [EventMapTitle_LoadTexture](../functions/EventMapTitle_LoadTexture.md) | `0x140302B68` | Loads the map-title texture file chosen by scene variable 51 (maptitle_%03d.tex) into a 10,240-byte buffer, unless the enhanced-build test says it is not needed; the 0x91 handler calls it before starting the sweep task. |
 | [EventMapTitle_SweepTask](../functions/EventMapTitle_SweepTask.md) | `0x14030299C` | The task started by event opcode 0x91: runs three sweeps of a 0-to-255 value over frames (up, hold at 255, sweep again with the second layout), one draw and one frame per value, using the operand 3 step, and ends earl... |
@@ -68,6 +72,7 @@ Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3.
 | [EventSkip_IsViewerEvent](../functions/EventSkip_IsViewerEvent.md) | `0x1402397F8` | The second way an event becomes skippable: event variable 508 set (an event started from a viewer path), with the event number outside 410..425 and a blocking flag clear. |
 | [EventSoundEntry_Append](../functions/EventSoundEntry_Append.md) | `0x1401D7AF8` | The body of opcode 0xA6: looks the id up in data table 280 and then, through a value in that row, in data table 279; when both rows are valid it creates a 56-byte sound resource that carries the id and appends it to t... |
 | [EventSoundEntry_SetStateById](../functions/EventSoundEntry_SetStateById.md) | `0x1401D7CF0` | The body of opcode 0xA7: for every entry in the sound object's entry list whose id equals the operand, stops its resource if one is held, and sets the entry's state byte to 4. |
+| [EventSoundGroup_Play](../functions/EventSoundGroup_Play.md) | `0x1402F1868` | Plays the four sound effects of one event sound group. |
 | [EventSprite_LoadTask](../functions/EventSprite_LoadTask.md) | `0x140233EA0` | The task started by event opcode 0x58: loads the sprite data for an event character into memory for one of two display sides, then ends. |
 | [EventState_MoveTask](../functions/EventState_MoveTask.md) | `0x14023F520` | The task started by event opcode 0x19: moves up to seven state-block values toward the operand targets over the operand step count, then writes the final values and ends. |
 | [EventStateTrack_RunTask](../functions/EventStateTrack_RunTask.md) | `0x140234E04` | The task started by event opcode 0x1D: turns the 0x19 instructions of the block up to the next 0x1E into seven piecewise tracks, one per state value, and plays them frame by frame until the last track ends or the skip... |
@@ -93,9 +98,16 @@ Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3.
 | [EventVar_Read](../functions/EventVar_Read.md) | `0x1402E9898` | Reads one event variable by index. |
 | [EventVar_ResolveSlot](../functions/EventVar_ResolveSlot.md) | `0x1402EC298` | Maps an event variable index to the address of the dword in the store that holds it. |
 | [EventVar_Write](../functions/EventVar_Write.md) | `0x1402E9918` | Writes one event variable by index. |
+| [EventViewer_BuildList](../functions/EventViewer_BuildList.md) | `0x1402D1FD8` | Builds the list of replayable story events: for each of 78 positions, one event variable decides whether the entry is listed. |
+| [EventViewer_EntryPage](../functions/EventViewer_EntryPage.md) | `0x1402D2578` | The page of one replayable story event (page kind 30): shows the entry's text and, on the confirm, replays the event; on cancel it rebuilds the list. |
+| [EventViewer_IsHidden](../functions/EventViewer_IsHidden.md) | `0x1402D1F90` | Says whether an unlock variable of the story event list is hidden: such entries are never listed. |
+| [EventViewer_ListInput](../functions/EventViewer_ListInput.md) | `0x1402D22A8` | Input handler of the story event list (page kind 29): confirms an entry, cancels, or scrolls. |
+| [EventViewer_OpenEntry](../functions/EventViewer_OpenEntry.md) | `0x1402D2468` | Opens the page of one story event list entry: stores the entry index and sets the entry's text. |
 | [EventVoice_PlayTask](../functions/EventVoice_PlayTask.md) | `0x140221488` | The task started by event opcode 0xC2 when the enhanced flag is set: starts a table entry for its id, keeps it in the list while it is present, and stops it when the object or the skip test says so. |
 | [GameData_ReadSectors](../functions/GameData_ReadSectors.md) | `0x1402F40C4` | The game's general data read entry point, expressed in the original disc layout: it reads a run of 2048-byte sectors of one kind of game file, and sends event scripts (kind 17) to EventScript_LoadFile. |
 | [IdRemap_Lookup](../functions/IdRemap_Lookup.md) | `0x1402BA9C8` | Remaps an id above 0xA7 through the 406-row table `g_IdRemapPairs` (7 pairs of two dwords per row, 56 bytes); returns the replacement, or the id itself when it is not in the table. |
+| [MusicSlot_FetchRecord](../functions/MusicSlot_FetchRecord.md) | `0x1402B1F08` | Activates an event sound slot: loads its sound id and the three record dwords into the music state. |
+| [ScenarioSetup_ApplyRecord](../functions/ScenarioSetup_ApplyRecord.md) | `0x1402FB7C8` | At a scene start, applies the scenario setup record of the scene's event to the scene variables and rebuilds the per-event word table; in the mid-event refresh it only re-reads two scene bytes through the event's link. |
 | [SceneCallback_Dispatch](../functions/SceneCallback_Dispatch.md) | `0x1402F7D1C` | Calls the callback in the global function pointer `qword_140D40940` for modes 0 to 6. |
 | [SceneGroup_ResolveId](../functions/SceneGroup_ResolveId.md) | `0x140240888` | Reads an operand id and decides whether it names one unit or a group: ids 1 to 255 are resolved to a unit id, and ids 0 and 256 and up select a group mode for SceneUnit_TestGroupMember. |
 | [SceneGroup_SetFlag04](../functions/SceneGroup_SetFlag04.md) | `0x140241F54` | The shared body of opcodes 0x6C and 0x6D: sets or clears bit 0x04 of byte +143 of each unit selected by the operand. |
@@ -110,6 +122,7 @@ Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3.
 | [ScenePreview_IndexOfSlot](../functions/ScenePreview_IndexOfSlot.md) | `0x140273064` | Returns the preview index of the object in a slot: byte +444 of the object's preview data, or -1 when the slot has no object or no preview data. |
 | [ScenePreview_ShowEntry](../functions/ScenePreview_ShowEntry.md) | `0x14027313C` | Shows the preview-table entry for a slot: clears the preview globals, claims the entry and queues a draw entry built from the record's fields. |
 | [ScenePreview_SlotOfIndex](../functions/ScenePreview_SlotOfIndex.md) | `0x140273090` | The reverse of ScenePreview_IndexOfSlot: finds the object whose preview index is the given value and returns its slot number. |
+| [SceneState_Reset](../functions/SceneState_Reset.md) | `0x1402D3918` | Resets the shared scene state before a legacy scene and installs its menu node arrays. |
 | [SceneTask_FindFree](../functions/SceneTask_FindFree.md) | `0x1402424DC` | Finds a free slot in the second task table for a task that the caller is about to start with SceneTask_Start. |
 | [SceneTask_FindTag](../functions/SceneTask_FindTag.md) | `0x140242588` | Finds a running task in the second table by its tag. |
 | [SceneTask_Start](../functions/SceneTask_Start.md) | `0x1402F7DE4` | Starts a task in the second task table: resets the slot's block, marks it runnable and records its entry function so its thread begins there. |
@@ -139,43 +152,90 @@ Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3.
 | [SceneVar_Read](../functions/SceneVar_Read.md) | `0x1402332D8` | Reads one event variable by index through the second task group's copy of the variable system. |
 | [SceneVar_ResolveSlot](../functions/SceneVar_ResolveSlot.md) | `0x140242984` | Maps an event variable index to the address of its dword in the second task group's variable store. |
 | [SceneVar_Write](../functions/SceneVar_Write.md) | `0x140233368` | Writes one event variable by index through the second task group's copy of the variable system. |
+| [ScreenTaskSet_Run](../functions/ScreenTaskSet_Run.md) | `0x1402E9FBC` | Keeps the window tasks of one legacy screen set running; never returns. |
+| [SettlementEvent_EvaluateConditions](../functions/SettlementEvent_EvaluateConditions.md) | `0x140343AF8` | Evaluates the condition lists of one row of the settlement event data table (table 199) and reports whether the settlement's event may start. |
 | [SoundCue_Play](../functions/SoundCue_Play.md) | `0x1402BAA30` | Plays a sound cue on the first free sound channel of 13..19: remaps the cue with IdRemap_Lookup, drops it when the result is above 0x2B1, and returns the channel used or -1. |
 | [sub_1401365AC](../functions/sub_1401365AC.md) | `0x1401365AC` | Gives the input focus to one of the two option nodes of a choice window: the node the message window task calls "the cursor line" while a story choice waits. |
 | [sub_140136654](../functions/sub_140136654.md) | `0x140136654` | Shows the finger cursor over the focused option of a choice window once the window's nodes are all built. |
+| [sub_1401D9174](../functions/sub_1401D9174.md) | `0x1401D9174` | Starts a background music transition: looks the transition up in the BGMTransition table and binds the music id of the sound entry it names to slot 1. |
 | [sub_1401DEC14](../functions/sub_1401DEC14.md) | `0x1401DEC14` | Walks the inline text of an event instruction: it steps byte by byte, handles the three control codes it knows, measures each text run and advances to the next instruction. |
 | [sub_1401DF120](../functions/sub_1401DF120.md) | `0x1401DF120` | Answers whether a text needs two or more lines at a given width: it decodes the text, measures it and divides the measurement by the width. |
 | [sub_1401E1618](../functions/sub_1401E1618.md) | `0x1401E1618` | One step of the event command task: it starts the task, runs one queued command per step, and tears the task down when the script ends. |
 | [sub_14024138C](../functions/sub_14024138C.md) | `0x14024138C` | Applies or clears a status on a preview unit from an event command, then refreshes the unit's status display. |
+| [sub_1402BAB78](../functions/sub_1402BAB78.md) | `0x1402BAB78` | Applies the pending music request: starts the requested track, stops the current one, and runs the pending fade. |
 | [sub_1402C6514](../functions/sub_1402C6514.md) | `0x1402C6514` | One of the scene-task bodies event opcode 0x78 starts (mode 5): it places the units of the scene, shows their speech balloons and unit markers, and runs until the task is stopped. |
 | [sub_1402C72B8](../functions/sub_1402C72B8.md) | `0x1402C72B8` | One of the scene-task bodies event opcode 0x78 starts (mode 6): a unit-display scene that also drives the desertion marker, built on the same balloon and unit-marker task skeleton as mode 5. |
 | [sub_1402DF374](../functions/sub_1402DF374.md) | `0x1402DF374` | Builds and runs an event message scene: it resolves the message text, places the speaking units and their sprites, and waits frame by frame until the message ends. |
+| [sub_1402F2500](../functions/sub_1402F2500.md) | `0x1402F2500` | Records the music sound id a command script asked for: frees the old slot, binds the id to a slot and stores the id with the slot in the 16-bit word of the command state. |
 | [sub_1402F2C70](../functions/sub_1402F2C70.md) | `0x1402F2C70` | Dispatches one of the six scene text commands: the command number picks a branch and the branch forwards the remaining arguments to the handler whose address sits in the slot at 0x14184B3B0. |
 | [sub_1402F8684](../functions/sub_1402F8684.md) | `0x1402F8684` | Scene task that carries out one scripted scene instruction: it registers a task record, waits frames, and builds the sprites and text the instruction asks for. |
-| [sub_1402FB7C8](../functions/sub_1402FB7C8.md) | `0x1402FB7C8` | Fills battle snapshot block B from game-data table rows and repairs the live save arrays from it; it is the only writer of that block. |
 | [sub_140300768](../functions/sub_140300768.md) | `0x140300768` | Event unit-block task that paints one scene unit: it reads the shape byte of the unit's job row and drives the sprite and text setup. |
 | [sub_140300D74](../functions/sub_140300D74.md) | `0x140300D74` | Second event unit-block painter: the same job-row read as sub_140300768 plus sector reads from the game data files. |
 | [sub_1403015A4](../functions/sub_1403015A4.md) | `0x1403015A4` | Builds an event or message record from a text id, choosing a different id range depending on the text id's kind. |
 | [sub_140301ED8](../functions/sub_140301ED8.md) | `0x140301ED8` | Builds the text of an event message. |
 | [sub_140338A28](../functions/sub_140338A28.md) | `0x140338A28` | Second scene-instruction task of the same family as sub_1402F8684: it registers a task slot, runs a frame loop and builds sprites and text. |
 | [sub_14033F8C0](../functions/sub_14033F8C0.md) | `0x14033F8C0` | Event task that opens a UI panel: it drops the pending input bit, reads the panel selector and starts the panel task with a fixed text id. |
+| [sub_14033FDAC](../functions/sub_14033FDAC.md) | `0x14033FDAC` | Pushes one entry (a kind and a 32-bit parameter) onto the 16-entry audio command queue, draining the queue first when it is full. |
+| [sub_14033FE00](../functions/sub_14033FE00.md) | `0x14033FE00` | Services the 16-entry audio command queue: takes the oldest entry and carries out its kind (play music, release a slot, fades and waits). |
+| [sub_14034004C](../functions/sub_14034004C.md) | `0x14034004C` | Pushes a 'play this music' command onto the audio command queue. |
 | [sub_1403456D4](../functions/sub_1403456D4.md) | `0x1403456D4` | Event task that runs a scripted message window: it resolves the message, waits for the player's input and writes the outcome to the event variables. |
 | [sub_140371550](../functions/sub_140371550.md) | `0x140371550` | Paints a three-cell text line: it resolves a message through the text table and writes the three u16 cells at 0x14078D9C0. |
 | [sub_140372F9C](../functions/sub_140372F9C.md) | `0x140372F9C` | Runs one pass of a script: it walks the instruction stream, calls EventCmd_Run for each command and advances the cursor. |
 | [sub_140373BB0](../functions/sub_140373BB0.md) | `0x140373BB0` | Builds the 0x8800 text row used by the script layer: it writes the row's cells and hands them to the layout helpers. |
 | [sub_140373DE8](../functions/sub_140373DE8.md) | `0x140373DE8` | Second builder for the 0x8800 text row: it computes the ids and passes them to the text dispatcher sub_1402F2C70. |
+| [sub_140375AD0](../functions/sub_140375AD0.md) | `0x140375AD0` | Builds the second tavern list: 64 positions, each with a four-bit progress variable; a position with a nonzero variable gets an entry. |
+| [sub_140375CD0](../functions/sub_140375CD0.md) | `0x140375CD0` | Input handler of the second tavern list (page kind 31): confirm opens the entry's page, cancel goes back. |
+| [sub_140375E7C](../functions/sub_140375E7C.md) | `0x140375E7C` | Opens the page of one entry of the second tavern list: loads the data block of the entry's group of 16 positions and starts page kind 32. |
+| [sub_140376040](../functions/sub_140376040.md) | `0x140376040` | Page of one entry of the second tavern list (page kind 32): portrait, profile text and a counter of how often the position's date has passed. |
 | [sub_14037D4BC](../functions/sub_14037D4BC.md) | `0x14037D4BC` | Builds a 0xC800 text row: it writes the row descriptor and calls the layout helpers for the cells. |
 | [sub_14037E1E8](../functions/sub_14037E1E8.md) | `0x14037E1E8` | Opening-sequence step that builds a 0xB800 text row and advances the opening script. |
 | [sub_1403980AC](../functions/sub_1403980AC.md) | `0x1403980AC` | Third scene-instruction task of the sub_1402F8684 family: it registers a task slot, runs a frame loop and builds sprites and text. |
 | [sub_14039DA58](../functions/sub_14039DA58.md) | `0x14039DA58` | Advances the calendar held in event variables 0x67 (year), 0x2E (month) and 0x2F (day) by a number of days and updates the 64 date-keyed bytes and records beside it. |
+| [Tavern_HasNewEntries](../functions/Tavern_HasNewEntries.md) | `0x140344B68` | I: tells whether the tavern has an entry still marked new (rumours and errands), for the marker of the town menu. |
+| [TavernMenu_OnCommand](../functions/TavernMenu_OnCommand.md) | `0x14019D548` | I: the tavern screens' command handler: marks a rumour or an errand as read, takes a quest rumour, and forwards the other commands of the tavern pages. |
+| [TavernRumour_IsAvailable](../functions/TavernRumour_IsAvailable.md) | `0x14036F53C` | Answers whether rumour `id` may be listed in the tavern of `town`. |
+| [TavernRumours_BuildList](../functions/TavernRumours_BuildList.md) | `0x14036EE50` | Builds the tavern's Rumors list: walks rumour ids 0..63, keeps the ones the current town may show, and pushes each into the list widget with its new marker. |
 | [UserSituation_IsMet](../functions/UserSituation_IsMet.md) | `0x1400FF8A4` | Answers whether a UserSituation condition (nxd table 90, keyed by situation and entry) holds; the UI asks it to show or lock features. |
 | [UserSituation_SetValue](../functions/UserSituation_SetValue.md) | `0x1400FF660` | Sets one situation counter and tells the registered listeners. |
 | [UserSituation_TestCheck](../functions/UserSituation_TestCheck.md) | `0x1400FFAF0` | One check of a UserSituation row against the situation store (qword_143CD9DE0): a flag byte, a counter compare or a scene variable. |
+| [WorldEncounter_Roll](../functions/WorldEncounter_Roll.md) | `0x140248BE4` | Decides whether a random battle starts at a battleground and which formation it uses. |
+| [WorldMap_InitLocations](../functions/WorldMap_InitLocations.md) | `0x14033EC0C` | Sets up the world-map screen: the sprite piece list, the location markers and the road markers. |
+| [WorldRoads_BuildMarkers](../functions/WorldRoads_BuildMarkers.md) | `0x140341788` | Builds the drawable marker points of every open road on the world map. |
+| [WorldRoute_Search](../functions/WorldRoute_Search.md) | `0x1402471FC` | Recursive shortest-route search over the open world-map roads; keeps the best road list. |
+| [WorldWeather_Update](../functions/WorldWeather_Update.md) | `0x140304330` | Updates the world map weather level when the calendar advances. |
 
-## Structures (1)
+## Structures (28)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
+| [BufferPointer](../structs/BufferPointer.md) | 8 | One row of the EventWorkBufferPointers table. |
+| [CalendarDateRow](../structs/CalendarDateRow.md) | 2 | One row of CalendarTrackedDates. |
 | [EventControl](../structs/EventControl.md) | 64 | ffto::Game::Event::EventControl (vtable 0x140713658), the singleton at g_EventControl: the event-script pause overlay and its hold-to-skip. |
+| [EventGenericLookSet](../structs/EventGenericLookSet.md) | 32 | One row of the EventGenericLookSets table. |
+| [EventOperandLengthRow](../structs/EventOperandLengthRow.md) | 1 | Operand length of one opcode. |
+| [EventPanelRow](../structs/EventPanelRow.md) | 56 | One row of the EventPanelRows tables. |
+| [EventSideYaw](../structs/EventSideYaw.md) | 2 | One row of the EventSideYawTargets table. |
+| [EventSoundGroup](../structs/EventSoundGroup.md) | 4 | One row of the EventSoundGroups table: four sound effect numbers played together. |
+| [EventViewerEntry](../structs/EventViewerEntry.md) | 2 | One row of the EventViewerList table. |
+| [FaceShapeId](../structs/FaceShapeId.md) | 4 | One row of the FaceSlotShapeIds table. |
+| [LocationMarker](../structs/LocationMarker.md) | 8 | One row of the LocationMarkerOffsets table. |
+| [MusicSlotRecordsRow](../structs/MusicSlotRecordsRow.md) | 12 | One row of the MusicSlotRecords table. |
+| [NxdDataEnhancedBattleEventRow](../structs/NxdDataEnhancedBattleEventRow.md) | 40 | One row of the nxd.enhanced_battle_event table (data table). |
+| [NxdDataEnhancedWorldEventRow](../structs/NxdDataEnhancedWorldEventRow.md) | 32 | One row of the nxd.enhanced_world_event table (data table). |
+| [NxdDataEventCharaDrawRow](../structs/NxdDataEventCharaDrawRow.md) | 20 | One row of the nxd.event_chara_draw table (data table). |
+| [NxdDataEventFlagRow](../structs/NxdDataEventFlagRow.md) | 8 | One row of the nxd.event_flag table (data table). |
+| [NxdDataEventIdRow](../structs/NxdDataEventIdRow.md) | 44 | One row of the nxd.event_id table (data table). |
+| [NxdDataGameFlagRow](../structs/NxdDataGameFlagRow.md) | 8 | One row of the nxd.game_flag table (data table). |
+| [NxdDataScenarioIdRow](../structs/NxdDataScenarioIdRow.md) | 16 | One row of the nxd.scenario_id table (data table). |
+| [PoseCodeFlag](../structs/PoseCodeFlag.md) | 1 | One row of the EventPoseCodeFlags table. |
+| [RandomEncounterRow](../structs/RandomEncounterRow.md) | 24 | One row of the RandomEncounters table. |
+| [RoadPointListPointer](../structs/RoadPointListPointer.md) | 8 | One row of the RoadPointLists table. |
+| [ScenarioSetupRow](../structs/ScenarioSetupRow.md) | 24 | One row of the ScenarioSetup table: the scene setup of one story event, keyed by the event number; read field by field by ScenarioSetup_ApplyRecord (scene variables) and turned into the per-event word. |
+| [SettlementEventPick](../structs/SettlementEventPick.md) | 10 | One row of the SettlementEventPicks table. |
+| [SpritePieceTemplate](../structs/SpritePieceTemplate.md) | 24 | One row of the WorldMapSpritePieceTemplates table. |
+| [TownMenuKind](../structs/TownMenuKind.md) | 4 | One row of the TownMenuKindBySettlement table. |
+| [TriggerConditionArgCount](../structs/TriggerConditionArgCount.md) | 1 | One row of the TriggerConditionArgCounts table. |
+| [WorldMapRoad](../structs/WorldMapRoad.md) | 8 | One row of the WorldMapRoads table. |
 
 ## Globals (5)
 
@@ -187,10 +247,59 @@ Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3.
 | [g_ScreenFade](../globals/g_ScreenFade.md) | `0x142FF9E08` | `uint64` | The fade and skip state: the low dword is the fade alpha, the high dword the skip state (0 none, 1 requested, 2 skipping). |
 | [g_SkipRequestSource](../globals/g_SkipRequestSource.md) | `0x142FF9EF4` | `uint64` | The skip-request source: its high dword is copied into the fade/skip state by the event runner. |
 
-## Observed behaviours (3)
+## Observed behaviours (18)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md) | engine (event script load, EventId table) | When the current event changes and skipping is enabled, EventScript_LoadCurrent looks up the EventId row (data table 156) of the event number and reads its byte +32 without testing the lookup result: an event number w... |
+| [EventSoundGroupAndMusicSlotOperandWidths](../behaviors/EventSoundGroupAndMusicSlotOperandWidths.md) | engine (event sound commands) | The event sound group number reaches the player as a byte of a command record (class 44), as the replay of that byte from a word of the command state, or as the value of event variable 93 (a 32-bit cell); the music sl... |
+| [MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero](../behaviors/MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero.md) | engine (event command state) | The 16-bit word at 0x14186246A (the music id and slot of the command state) is addressed by eighteen instructions in seven functions; six of them only clear it or test it for nonzero, twelve read the id or the slot or... |
+| [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md) | engine (music requests) | The music sound id (1-based; the file is `sound/music/music_%05u.sab` of id minus one) reaches the music player by four routes with different widths: a command byte, a 16-bit state word shared with the slot number, a ... |
+| [MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord](../behaviors/MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord.md) | engine (audio command queue, kind 1) | Every stock producer of a kind 1 (play music) entry of the audio command queue passes either a small constant or the 16-bit command word of the command state; no stock parameter has a bit above 0x2FF set, so bits 12 a... |
+| [MusicTrackFilesAreOpenedByNameThroughTheFileManager](../behaviors/MusicTrackFilesAreOpenedByNameThroughTheFileManager.md) | engine (music) | A music change queued on the audio command queue ends in EventMusic_LoadTrack, which builds the file name sound/music/music_NNNNN.sab from the track number (the music id minus 1) and opens it through the game's file m... |
+| [RumourNewFlagsAreIndexedByTheLowByteOfTheId](../behaviors/RumourNewFlagsAreIndexedByTheLowByteOfTheId.md) | engine (tavern rumours) | Every reader and the writer of the rumour new flags guards the index with a test of the LOW BYTE of the id (taken as a signed byte, it must be 0..63, and that byte is the index), so an id whose low byte is 0..63 index... |
+| [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md) | engine (scenario setup, battle capture) | The scenario setup records are turned into one 16-bit word per EVENT NUMBER (an 887-word array indexed by scene variable 39); a word holds a 10-bit link to another record by event number plus flag bits, and the battle... |
 | [SceneSkipState](../behaviors/SceneSkipState.md) | every skippable story scene: event scripts (world map, town, battle) and movies | Whether the scene on screen can be skipped with the pause overlay + hold, and which kind of scene it is, read from memory without any input. |
+| [ScreenMusicComesFromBGMTransitionRows](../behaviors/ScreenMusicComesFromBGMTransitionRows.md) | engine (music) | Screens such as the title's play-mode page, the save and load list and the tavern start their music through sub_1401D9174 with a BGMTransition row number: the row names a SoundEnhanced row, whose Unknown10 is the musi... |
 | [SoundCuesAreRemappedBeforeTheyPlay](../behaviors/SoundCuesAreRemappedBeforeTheyPlay.md) | engine | Every sound cue goes through SoundCue_Play, which first remaps it with IdRemap_Lookup (table g_IdRemapPairs, 406 rows of 7 from/to pairs) and drops any result above 0x2B1. |
 | [StoryChoiceBalloon](../behaviors/StoryChoiceBalloon.md) | story scenes: a dialogue balloon with several selectable lines | A choice balloon is an ordinary message whose text contains the control code 0xFB (options start on this line) and 0xFC (run the choice). |
+| [StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences](../behaviors/StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences.md) | engine (tavern list pages, story event list) | A list of replayable story events has 78 entries: 64 plain ones that read event variables 444 to 507 and 14 special ones that read 427 to 440 (only 430, 433 and 440 can be listed); a listed entry is a 16-bit text refe... |
+| [TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable](../behaviors/TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable.md) | engine (tavern rumours) | The tavern's Rumors list holds the nxd Gossip rows whose ids pass an availability test: ids 0..63 are walked; an id is listed when its Gossip row exists, its condition is met, and either its Gossip flag is set or the ... |
+| [TodaysCalendarDateIsHeldInEventVariables46And47](../behaviors/TodaysCalendarDateIsHeldInEventVariables46And47.md) | engine (calendar) | The calendar's current month and day are event variables 46 (month 1..12) and 47 (day). |
+| [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md) | engine (calendar counters) | Outside the two counting loops, the 64 counter bytes are moved only by sequences of four 16-byte moves: the save pack and unpack, the checkpoint writer and reader, the battle capture's errand-state copy in both direct... |
+| [TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage](../behaviors/TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage.md) | engine (calendar counters, second tavern list) | Each of 64 tracked date slots owns one counter byte (cap 99) in a 64-byte block; the daily calendar tick and the jump by N days count a slot when its date is reached; the page of the second tavern list prints the coun... |
+| [TrackedDateLoopsVisitEverySlotBelowTheirBoundAndTheJumpAddsTheYearsToEachOne](../behaviors/TrackedDateLoopsVisitEverySlotBelowTheirBoundAndTheJumpAddsTheYearsToEachOne.md) | engine (calendar counters) | The daily tick and the jump by N days walk the slots from 1 (the tick) or 0 (the jump) up to a bound of 64 and treat every slot they visit alike: the tick counts a slot whose pair equals today, the jump adds the whole... |
+
+## Tables (29)
+
+| Name | Storage | NXD table id | Rows | Summary |
+|---|---|---|---|---|
+| [CalendarTrackedDates](../tables/CalendarTrackedDates.md) | Executable |  | 64 rows of 2 bytes | Month and day of 63 tracked dates; slot 0 is the player's date from event variables 95 and 96. |
+| [EventCommandHandlers](../tables/EventCommandHandlers.md) | Executable |  | 54 rows of 8 bytes | Handler registry read by EventCmd_Run: one function pointer per event command. |
+| [EventGenericLookSets](../tables/EventGenericLookSets.md) | Executable |  | 8 rows of 32 bytes | Eight sets of generic sprite sheets that event scenes give to their placeholder actors. |
+| [EventOperandLengths](../tables/EventOperandLengths.md) | Executable |  | 256 rows of 1 byte | Operand byte count of every event script opcode; the instruction length reader and three other event functions use it. |
+| [EventPanelRowsDefault](../tables/EventPanelRowsDefault.md) | Executable (initialised data) |  | 14 rows of 56 bytes | Event panel rows used by the 0x7D event task, for every language except language 0. |
+| [EventPanelRowsLanguage0](../tables/EventPanelRowsLanguage0.md) | Executable (initialised data) |  | 14 rows of 56 bytes | Event panel rows for language 0. |
+| [EventPoseCodeFlags](../tables/EventPoseCodeFlags.md) | Executable |  | 83 rows of 1 bytes | Small per-code values read by an event unit block step. |
+| [EventSideYawTargets](../tables/EventSideYawTargets.md) | Executable |  | 4 rows of 2 bytes | The four facing yaw angles an event turn command may snap to. |
+| [EventSoundGroups](../tables/EventSoundGroups.md) | Executable |  | 56 rows of 4 bytes | Four sound effect numbers per group, played together by one event command. |
+| [EventViewerList](../tables/EventViewerList.md) | Executable (initialised data) |  | 88 rows of 2 bytes | Story event numbers of the scenes in the replay list. |
+| [EventWorkBufferPointers](../tables/EventWorkBufferPointers.md) | Executable (initialised data) |  | 8 rows of 8 bytes | Descriptor {flags, count, 8 buffer pointers} of event work buffers. |
+| [FaceSlotShapeIds](../tables/FaceSlotShapeIds.md) | Executable |  | 82 rows of 4 bytes | Sprite shape number for each dialogue face slot below 0x52. |
+| [LocationMarkerOffsets](../tables/LocationMarkerOffsets.md) | Executable |  | 48 rows of 8 bytes | Per world-map location slot, a small position and kind record used to build its marker. |
+| [MusicSlotRecords](../tables/MusicSlotRecords.md) | Executable |  | 101 rows of 12 bytes (extent of the object) | Per event sound id: an enable flag and two numbers loaded into the music state when the slot is activated. |
+| [NxdDataEnhancedBattleEvent](../tables/NxdDataEnhancedBattleEvent.md) | NXD file | 163 | 2274 rows of 40 bytes | Battle event scripting rows keyed by battle, step and sub-step: event type and character control id with other parameters. |
+| [NxdDataEnhancedWorldEvent](../tables/NxdDataEnhancedWorldEvent.md) | NXD file | 199 | 540 rows of 32 bytes | World-map event rows keyed by event, step and sub-step: event type and parameters. |
+| [NxdDataEventCharaDraw](../tables/NxdDataEventCharaDraw.md) | NXD file | 234 | 24 rows of 20 bytes | Event character draw settings keyed by event and slot; a character control id and parameters. |
+| [NxdDataEventFlag](../tables/NxdDataEventFlag.md) | NXD file | 219 | 1024 rows of 8 bytes | Index of 1024 event flag slots; rows carry only a designer comment slot. |
+| [NxdDataEventId](../tables/NxdDataEventId.md) | NXD file | 156 | 887 rows of 44 bytes | Per story event (887): sortie confirm link, sound state parameter and parameters. |
+| [NxdDataGameFlag](../tables/NxdDataGameFlag.md) | NXD file | 91 | 32 rows of 8 bytes | Index of 32 game flags. |
+| [NxdDataScenarioId](../tables/NxdDataScenarioId.md) | NXD file | 59 | 350 rows of 16 bytes | Scenario ids (350) with arrays of the event ids that belong to each. |
+| [RandomEncounters](../tables/RandomEncounters.md) | Executable (initialised data) |  | 57 rows of 24 bytes | Random encounters: per battleground and arrival road, the chance and formations by story progress. |
+| [RoadPointLists](../tables/RoadPointLists.md) | Executable |  | 48 rows of 8 bytes | Per road, the list of way points that gets drawn once the road is open. |
+| [ScenarioSetup](../tables/ScenarioSetup.md) | Executable (initialised data) |  | 887 rows of 24 bytes | Per story event / scenario: its scene setup record (map and battle settings). |
+| [SettlementEventPicks](../tables/SettlementEventPicks.md) | Executable (initialised data) |  | 11 rows of 10 bytes | Per settlement, which scene numbers a settlement event may pick (each of four values listed twice, so each has weight 2 of 8). |
+| [SpritePieceTemplates](../tables/SpritePieceTemplates.md) | Executable (initialised data) |  | 221 rows of 24 bytes | Sprite piece templates of the world-map objects: thirteen sets of 17 pieces. |
+| [TownMenuKindBySettlement](../tables/TownMenuKindBySettlement.md) | Executable |  | 44 rows of 4 bytes | Per settlement, whether it offers the three-row town menu (Outfitter, Tavern, Warriors' Guild). |
+| [TriggerConditionArgCounts](../tables/TriggerConditionArgCounts.md) | Executable |  | 40 rows of 1 bytes | Argument count per trigger-condition opcode of the battle event condition lists. |
+| [WorldMapRoads](../tables/WorldMapRoads.md) | Executable |  | 51 rows of 8 bytes | The 51 world-map roads: their two end locations, travel cost and drawn way points; event variable 556 + n opens road n. |

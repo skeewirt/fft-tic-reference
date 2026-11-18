@@ -20,6 +20,10 @@ Class 38 handler. Clears bit 0 of the high dword of qword_140D49558, loads the p
 - V: sets bit 2 (value 4, continue), then stores the low byte of ecx into byte 10 of xmmword_141862460 (0x14186246A). The callee leaves ecx unchanged, and ecx was cleared to 0 before the call, so this stores 0.
 - I: the stored 0 clears the low byte of the word at 0x14186246A that class 39 and class 49 test; the high byte there (0x14186246B) is the signed slot index and is not touched.
 
+## Referenced by
+
+- Observed behaviours: [MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero](../behaviors/MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero.md), [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md)
+
 ## Notes
 
 The first argument is 0 here, so dword 2 of the block is 0. Status bit meanings are the EventCmd_Run loop rules.

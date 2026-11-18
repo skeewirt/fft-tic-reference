@@ -3,7 +3,7 @@
 - **Address:** `0x1403EFF08`
 - **Area:** [UI framework](../areas/ui-framework.md)
 - **Prototype:** `char GUINode_UpdateColourAndMatrix(GUINode *node, char force)`
-- **Callers:** GUINode_UpdateSubtree (sub_1403F08C0) for every child and for the node itself; a dozen screen code paths call it directly (sub_14013D758, sub_14015CB04, sub_1401F36A0, sub_1402AD0DC, sub_1402EE84C, sub_1403F2FDC)
+- **Callers:** GUINode_UpdateSubtree (sub_1403F08C0) for every child and for the node itself; a dozen screen code paths call it directly (GuideBar_Layout, sub_14015CB04, sub_1401F36A0, sub_1402AD0DC, sub_1402EE84C, sub_1403F2FDC)
 - **Callees:** sub_1403D9570 (named colour lookup), GUINode_BuildLocalMatrix (sub_1403F0270), Matrix2x3_Multiply
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -28,7 +28,7 @@ Per-node update that every node of every kind goes through each frame: resolves 
 
 ## Referenced by
 
-- Called by: [GUINode_UpdateSubtree](GUINode_UpdateSubtree.md), [sub_14013D758](sub_14013D758.md), [sub_14013D844](sub_14013D844.md), [sub_14013DD70](sub_14013DD70.md)
+- Called by: [GUINode_UpdateSubtree](GUINode_UpdateSubtree.md), [GuideBar_Layout](GuideBar_Layout.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [sub_14013DD70](sub_14013DD70.md)
 - Observed behaviours: [JobTreeViewControl](../behaviors/JobTreeViewControl.md)
 
 ## Notes

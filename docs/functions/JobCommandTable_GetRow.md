@@ -28,4 +28,4 @@ The command's ability list is not in this row (nor in any nxd table).
 
 ## Open questions
 
-Where the skillset membership lives (J2).
+Where the skillset membership lives.

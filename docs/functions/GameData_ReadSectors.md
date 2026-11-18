@@ -30,9 +30,9 @@ The game's general data read entry point, expressed in the original disc layout:
 
 ## Referenced by
 
-- Called by: [CharaPalette_LoadClassic](CharaPalette_LoadClassic.md), [CharaPalette_ReloadForShape](CharaPalette_ReloadForShape.md), [EventDataLoad_Poll](EventDataLoad_Poll.md), [EventScript_LoadIntoBuffer](EventScript_LoadIntoBuffer.md), [EventSprite_LoadTask](EventSprite_LoadTask.md), [Save_BootClear](Save_BootClear.md), [TextKind25_LoadPool](TextKind25_LoadPool.md), [sub_140300D74](sub_140300D74.md)
+- Called by: [CharaPalette_LoadClassic](CharaPalette_LoadClassic.md), [CharaPalette_ReloadForShape](CharaPalette_ReloadForShape.md), [EventDataLoad_Poll](EventDataLoad_Poll.md), [EventScript_LoadIntoBuffer](EventScript_LoadIntoBuffer.md), [EventSprite_LoadTask](EventSprite_LoadTask.md), [MapResource_Read](MapResource_Read.md), [Map_LoadBattleData](Map_LoadBattleData.md), [Save_BootClear](Save_BootClear.md), [TextKind25_LoadPool](TextKind25_LoadPool.md), [sub_140300D74](sub_140300D74.md)
 - Called by event opcodes: [0x50](../opcodes/README.md)
-- Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md), [EnhancedDrawsHdSheetsWithTheClassicFilePalette](../behaviors/EnhancedDrawsHdSheetsWithTheClassicFilePalette.md), [SpriteSheetPortraitAndPartFiles](../behaviors/SpriteSheetPortraitAndPartFiles.md), [SpriteSheetsAndClassicFilesByNumber](../behaviors/SpriteSheetsAndClassicFilesByNumber.md)
+- Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md), [ClassicSpriteFilesByNumber](../behaviors/ClassicSpriteFilesByNumber.md), [EnhancedDrawsHdSheetsWithTheClassicFilePalette](../behaviors/EnhancedDrawsHdSheetsWithTheClassicFilePalette.md), [MapLoaderIndexesThreeTablesByASixteenBitMapId](../behaviors/MapLoaderIndexesThreeTablesByASixteenBitMapId.md), [MapResourceFilesAreFileNumberAndSizePairsPerMap](../behaviors/MapResourceFilesAreFileNumberAndSizePairsPerMap.md), [SpriteSheetPortraitAndPartFiles](../behaviors/SpriteSheetPortraitAndPartFiles.md), [SpriteSheetsAndClassicFilesByNumber](../behaviors/SpriteSheetsAndClassicFilesByNumber.md)
 - Reads file formats: [SpriteSheetEntries](../formats/SpriteSheetEntries.md)
 
 ## Notes

@@ -28,6 +28,7 @@ Looks up the shape's row in the CharShape table and, if the row names a colour-o
 
 - Called by: [CharaPalette_LoadClassic](CharaPalette_LoadClassic.md), [sub_14026E838](sub_14026E838.md)
 - Observed behaviours: [CharShapeKeyByteSites](../behaviors/CharShapeKeyByteSites.md), [CharShapeRowMissingFaultsTheFormation](../behaviors/CharShapeRowMissingFaultsTheFormation.md), [CharShapeRowsANewLookNeeds](../behaviors/CharShapeRowsANewLookNeeds.md), [SpriteNumberStoreWidths](../behaviors/SpriteNumberStoreWidths.md)
+- Reads tables: [NxdDataCharShape](../tables/NxdDataCharShape.md)
 
 ## Notes
 

@@ -17,6 +17,10 @@ Builds a party record B from a work record C alone (the per-job arrays come from
 - V: copies the unlock mask byte-swapped (C +159..161 -> B +120..122), learned bits, levels, JP and total JP in 16-byte blocks.
 - V: fixes JP and total JP of the current job to at least the value it already had (two compares per word).
 
+## Referenced by
+
+- Observed behaviours: [BattleRosterCopiesCarryTheBattleSlotAt44](../behaviors/BattleRosterCopiesCarryTheBattleSlotAt44.md)
+
 ## Open questions
 
 None recorded.

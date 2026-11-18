@@ -21,6 +21,10 @@ Lists the town menu items of a settlement (Outfitter, Tavern, Warriors' Guild, P
 
 - Calls: [EventVar_Read](EventVar_Read.md), [UITable_GetRowByKey](UITable_GetRowByKey.md)
 
+## Referenced by
+
+- Reads tables: [TownMenuKindBySettlement](../tables/TownMenuKindBySettlement.md)
+
 ## Notes
 
 Name is ours (was sub_1403449B0). The errand board is a tavern row, not a town menu item (BarTop_Setup).

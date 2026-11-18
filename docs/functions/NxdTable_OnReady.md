@@ -25,6 +25,7 @@ Marks a table usable after its file loaded: state +12 = 2 when the load status (
 
 - Appears in flows: [NxdTableLoad](../flows/NxdTableLoad.md)
 - Called by: [NxdHandle_OnReady](NxdHandle_OnReady.md)
+- Observed behaviours: [NxdTableRebinding](../behaviors/NxdTableRebinding.md)
 
 ## Notes
 

@@ -23,7 +23,7 @@ The number of leaves (key3 rows) of child (key1, key2) of a triple-keyed table, 
 
 ## Referenced by
 
-- Called by: [sub_1402FB7C8](sub_1402FB7C8.md)
+- Called by: [ScenarioSetup_ApplyRecord](ScenarioSetup_ApplyRecord.md)
 
 ## Open questions
 

@@ -28,6 +28,10 @@ Rebuilds the five item order lists and the derived menu state after a load or a 
 - Calls: [UnitWork_BuildForSlot](UnitWork_BuildForSlot.md), [ItemOrder_SyncGroup](ItemOrder_SyncGroup.md)
 - Reads: [g_InventoryCounts](../globals/g_InventoryCounts.md)
 
+## Referenced by
+
+- Called by: [ClassicPartyMenu_Run](ClassicPartyMenu_Run.md)
+
 ## Notes
 
 Whole function read (436 bytes). The five sync calls are the ItemOrder_SyncGroup call sites.

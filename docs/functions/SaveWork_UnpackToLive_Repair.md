@@ -14,7 +14,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Behavior
 
-- I (J9, decompile): reads `g_JobTable[49 * job]` and calls Skillset_GetAbility while copying.
+- I (decompile): reads `g_JobTable[49 * job]` and calls Skillset_GetAbility while copying.
 - V: one caller; Skillset_GetAbility is in the callee list, which supports the skillset-based ability repair. The load path that needs it is not established.
 
 ## State touched
@@ -23,7 +23,8 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Referenced by
 
-- Called by: [sub_1402FB7C8](sub_1402FB7C8.md)
+- Called by: [ScenarioSetup_ApplyRecord](ScenarioSetup_ApplyRecord.md)
+- Reads tables: [JobTable](../tables/JobTable.md)
 
 ## Notes
 

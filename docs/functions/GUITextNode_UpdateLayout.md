@@ -24,6 +24,10 @@ Per-frame update of a text node: when its font is loaded (and its icons are, for
 - Calls: [GUITextLayout_IconsReady](GUITextLayout_IconsReady.md), [UIText_Get](UIText_Get.md), [GUITextNode_SetTextExpandedTemp](GUITextNode_SetTextExpandedTemp.md), [GUINode_IsAncestorDirty](GUINode_IsAncestorDirty.md), [GUITextNode_Layout](GUITextNode_Layout.md)
 - Reads: [g_GUICore](../globals/g_GUICore.md), [g_GUIFontSlots](../globals/g_GUIFontSlots.md)
 
+## Referenced by
+
+- Observed behaviours: [GUITextNodeStringSource](../behaviors/GUITextNodeStringSource.md)
+
 ## Notes
 
 The name is ours (IDB: sub_1403F1234). Consequence for the Job Tree: text nodes re-expand and re-lay-out on every update while their font is loaded; hover does not trigger it specially.

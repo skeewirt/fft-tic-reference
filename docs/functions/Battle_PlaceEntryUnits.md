@@ -29,6 +29,7 @@ Builds battle unit i (g_PreviewUnitTable + 512 x i) from entry i for the 16 entr
 
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
 - Called by: [Battle_BuildEntryUnits](Battle_BuildEntryUnits.md)
+- Observed behaviours: [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md), [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md)
 
 ## Notes
 

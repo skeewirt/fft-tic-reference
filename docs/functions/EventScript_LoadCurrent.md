@@ -28,6 +28,8 @@ Loads the event the game is currently on, if it is not already loaded.
 
 - Called by: [EventScript_TaskMain](EventScript_TaskMain.md)
 - Called by event opcodes: [0xDB](../opcodes/README.md), [0xE3](../opcodes/README.md)
+- Observed behaviours: [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md)
+- Reads tables: [NxdDataEventId](../tables/NxdDataEventId.md)
 
 ## Notes
 

@@ -26,6 +26,7 @@ Loads a table-256 entry into a sub-object of the unit sprite renderer and sets h
 ## Referenced by
 
 - Called by event opcodes: [0xCB](../opcodes/README.md)
+- Reads tables: [NxdDataPostEffectGlare](../tables/NxdDataPostEffectGlare.md)
 
 ## Notes
 

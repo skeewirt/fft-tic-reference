@@ -2,11 +2,14 @@
 
 Layouts of the game's file formats (described, never copied): headers, records, string pools.
 
-13 records. Format of a record: [kinds/format.json](../../kinds/format.json). Data: [data/formats.jsonl](../../data/formats.jsonl).
+18 records. Format of a record: [kinds/format.json](../../kinds/format.json). Data: [data/formats.jsonl](../../data/formats.jsonl).
 
 | Name | Extension | Summary |
 |---|---|---|
 | [BattleResumeImage](BattleResumeImage.md) | `.sav` | The payload of a resume entry of `autoenhanced.png`. |
+| [ConfigCategoryTable](ConfigCategoryTable.md) | `.nxd` | `configcategory.nxd` (nxd 249): the tabs of the settings screens; `ConfigItemIds` are the rows of a tab and `NameUIId` its title. |
+| [ConfigItemTable](ConfigItemTable.md) | `.nxd` | `configitem.nxd` (nxd 250): one row per setting of the settings screens. |
+| [ConfigScreenLayout](ConfigScreenLayout.md) | `.uib` | `ffto_config_enhanced_ver02.uib` and `ffto_config_parts.uib` (pack 0008): the layout of the settings screen and its row, switch, select and slider parts. |
 | [ItemHelpToken](ItemHelpToken.md) |  | The 0x6800-tagged text id that asks for an item's help string: kind 13, index = item id. |
 | [ItemIconPath](ItemIconPath.md) | `.utexpt with .tex` | The two per-item picture paths: a detail picture (Icon table row 12) and a list picture (row 13), both formatted from the item id and both texture-parts URIs. |
 | [ManualSaveEntry](ManualSaveEntry.md) | `.bin` | The `fftsave.bin` entry of `enhanced.png` (and of `classic.png`): one flat image of the 50-slot save cache, 50 x 40,164 bytes behind a 16-byte header. |
@@ -19,3 +22,5 @@ Layouts of the game's file formats (described, never copied): headers, records, 
 | [tec](tec.md) | `.tec` | Shader technique file (for example uirender.tec): the DXBC shader containers of a technique, its programs, sampler presets and the binding tables that tie each shader's registers to engine names. |
 | [TextId](TextId.md) |  | A 16-bit text id in two fields: the top 5 bits select one of 32 string pools, the low 11 bits index the strings inside that pool. |
 | [TexturePartFile](TexturePartFile.md) | `.utexpt` | The part file that names the texture a UI image part shows (ui/ffto/icon/<kind>/textureparts/<name>.utexpt). |
+| [TitleMenuLayout](TitleMenuLayout.md) | `.uib` | `ui/ffto/title/ffto_title_enhanced.uib` (pack 0008), the layout of the Enhanced title menu: nine components, of which `Menu` carries the row layouts the add-on plays by name. |
+| [TitleScreenLayout](TitleScreenLayout.md) | `.uib` | `ffto_title_enhanced.uib` (pack 0008): the title screen behind the menu: backdrop, logo, version, copyright and the `Menu` component with its six buttons. |

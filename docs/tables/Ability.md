@@ -6,6 +6,7 @@
 - **NXD table id:** 39
 - **Keyed by:** ability id
 - **Read by:** [AbilityTable_GetRow](../functions/AbilityTable_GetRow.md), [NxdTable_GetRowById](../functions/NxdTable_GetRowById.md), [UIText_ResolveCategoryRow](../functions/UIText_ResolveCategoryRow.md)
+- **Row layout:** [NxdDataAbilityRow](../structs/NxdDataAbilityRow.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

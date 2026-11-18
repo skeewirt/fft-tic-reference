@@ -23,7 +23,7 @@ Hands control from the calling event task back to the scheduler and sleeps until
 
 ## Referenced by
 
-- Called by: [EventCmd_SetBackdrop](EventCmd_SetBackdrop.md), [EventTask_WaitFrame](EventTask_WaitFrame.md), [Save_BootClear](Save_BootClear.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md)
+- Called by: [EventCmd_SetBackdrop](EventCmd_SetBackdrop.md), [EventTask_WaitFrame](EventTask_WaitFrame.md), [Opening_LoadMessageSprites](Opening_LoadMessageSprites.md), [Save_BootClear](Save_BootClear.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md)
 
 ## Notes
 

@@ -2,7 +2,7 @@
 
 Unit preview, sprite records, CharaRender/CharaSlot, palettes and renderer pages.
 
-Functions: 38.
+Functions: 38, Structures: 17, Tables: 20.
 
 ## Functions (38)
 
@@ -46,3 +46,50 @@ Functions: 38.
 | [Unit_BuildPreviewSpriteRecord](../functions/Unit_BuildPreviewSpriteRecord.md) | `0x1402C1D40` | Builds the sprite record for a party unit's preview. |
 | [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md) | `0x1402C06D4` | Resolves a unit's sprite number for the event and scene code. |
 | [Unit_ResolvePreviewShape](../functions/Unit_ResolvePreviewShape.md) | `0x140278EDC` | Returns the sprite shape id for a unit/job pair (and a palette byte for special units). |
+
+## Structures (17)
+
+| Name | Size (bytes) | Summary |
+|---|---|---|
+| [HdTextureId](../structs/HdTextureId.md) | 4 | One row of the EventSpriteHdTextures table and the tables that share its shape. |
+| [NxdDataCharaColorSkinRow](../structs/NxdDataCharaColorSkinRow.md) | 12 | One row of the nxd.chara_color_skin table (data table). |
+| [NxdDataCharaControlIdRow](../structs/NxdDataCharaControlIdRow.md) | 12 | One row of the nxd.chara_control_id table (data table). |
+| [NxdDataCharacterSortInfoRow](../structs/NxdDataCharacterSortInfoRow.md) | 8 | One row of the nxd.character_sort_info table (data table). |
+| [NxdDataCharaNameRow](../structs/NxdDataCharaNameRow.md) | 24 | One row of the nxd.chara_name table (English text table; the other languages share the layout). |
+| [NxdDataCharaPartsDrawParamRow](../structs/NxdDataCharaPartsDrawParamRow.md) | 12 | One row of the nxd.chara_parts_draw_param table (data table). |
+| [NxdDataCharaRow](../structs/NxdDataCharaRow.md) | 8 | One row of the nxd.chara table (data table). |
+| [NxdDataCharaZodiacStoneCLUTRow](../structs/NxdDataCharaZodiacStoneCLUTRow.md) | 16 | One row of the nxd.chara_zodiac_stone_clut table (data table). |
+| [NxdDataCharCLUTRow](../structs/NxdDataCharCLUTRow.md) | 24 | One row of the nxd.char_clut table (data table). |
+| [NxdDataCharMouseCollisionRow](../structs/NxdDataCharMouseCollisionRow.md) | 20 | One row of the nxd.char_mouse_collision table (data table). |
+| [NxdDataCharShapeLUTParamRow](../structs/NxdDataCharShapeLUTParamRow.md) | 20 | One row of the nxd.char_shape_lut_param table (data table). |
+| [NxdDataCharShapeRow](../structs/NxdDataCharShapeRow.md) | 48 | One row of the nxd.char_shape table (data table). |
+| [NxdDataCharShapeShadowSizeRow](../structs/NxdDataCharShapeShadowSizeRow.md) | 12 | One row of the nxd.char_shape_shadow_size table (data table). |
+| [NxdDataCharTacticalViewParamRow](../structs/NxdDataCharTacticalViewParamRow.md) | 32 | One row of the nxd.char_tactical_view_param table (data table). |
+| [SectorAndSize](../structs/SectorAndSize.md) | 8 | One row of the BattleSpriteFilesLanguage0 table and the tables that share its shape. |
+| [SpriteDirectionFlag](../structs/SpriteDirectionFlag.md) | 2 | One row of the SpriteDirection16MirrorFlags table. |
+| [SpritePaletteLimit](../structs/SpritePaletteLimit.md) | 1 | One row of the SpritePaletteLimits table. |
+
+## Tables (20)
+
+| Name | Storage | NXD table id | Rows | Summary |
+|---|---|---|---|---|
+| [BattleSpriteFilesLanguage0](../tables/BattleSpriteFilesLanguage0.md) | Executable (initialised data) |  | 170 rows of 8 bytes | Where each battle sprite sheet's data is, for text language 0. |
+| [BattleSpriteFilesOtherLanguages](../tables/BattleSpriteFilesOtherLanguages.md) | Executable (initialised data) |  | 170 rows of 8 bytes | Where each battle sprite sheet's data is, for text languages other than 0. |
+| [BattleSpriteHdTextures](../tables/BattleSpriteHdTextures.md) | Executable |  | 170 rows of 4 bytes (172 to the next symbol) | Per battle sprite sheet, its HD texture id. |
+| [EventSpriteHdTextures](../tables/EventSpriteHdTextures.md) | Executable |  | 144 rows of 4 bytes | Per event character sprite, its HD texture id. |
+| [NxdDataChara](../tables/NxdDataChara.md) | NXD file | 274 | 131 rows of 8 bytes | Index of 131 character ids with one flag column. |
+| [NxdDataCharaColorSkin](../tables/NxdDataCharaColorSkin.md) | NXD file | 276 | 5 rows of 12 bytes | Skin colour variants gated by a story-progress condition (UserSituation link). |
+| [NxdDataCharaControlId](../tables/NxdDataCharaControlId.md) | NXD file | 218 | 87 rows of 12 bytes | Maps character control ids (up to 1006) to a character number. |
+| [NxdDataCharacterSortInfo](../tables/NxdDataCharacterSortInfo.md) | NXD file | 44 | 19 rows of 8 bytes | Sort order data of characters for list screens. |
+| [NxdDataCharaName](../tables/NxdDataCharaName.md) | NXD file | 93 | 1024 rows of 24 bytes, text in 7 languages | Character names (1024 ids), a typed reference column and a generic-unit flag. |
+| [NxdDataCharaPartsDrawParam](../tables/NxdDataCharaPartsDrawParam.md) | NXD file | 305 | 2 rows of 12 bytes | Two rows of part-draw switches. |
+| [NxdDataCharaZodiacStoneCLUT](../tables/NxdDataCharaZodiacStoneCLUT.md) | NXD file | 302 | 25 rows of 16 bytes | Palette byte blobs for the 25 zodiac stone looks. |
+| [NxdDataCharCLUT](../tables/NxdDataCharCLUT.md) | NXD file | 210 | 16 rows of 24 bytes | Character palette (colour lookup) definitions: a byte blob of colours per palette id and variant, plus a skin colour link. |
+| [NxdDataCharMouseCollision](../tables/NxdDataCharMouseCollision.md) | NXD file | 334 | 36 rows of 20 bytes | Mouse pick boxes of characters: three size floats per shape id. |
+| [NxdDataCharShape](../tables/NxdDataCharShape.md) | NXD file | 174 | 159 rows of 48 bytes | Per body shape: links to shadow size, palette and palette-parameter rows, and a height value. |
+| [NxdDataCharShapeLUTParam](../tables/NxdDataCharShapeLUTParam.md) | NXD file | 217 | 24 rows of 20 bytes | Shape palette parameters: two floats and two shorts per row. |
+| [NxdDataCharShapeShadowSize](../tables/NxdDataCharShapeShadowSize.md) | NXD file | 176 | 12 rows of 12 bytes | Twelve shadow sizes (a float per row). |
+| [NxdDataCharTacticalViewParam](../tables/NxdDataCharTacticalViewParam.md) | NXD file | 292 | 6 rows of 32 bytes | Tactical-camera view parameters as float arrays per view and variant. |
+| [SpecialSheetHdTextures](../tables/SpecialSheetHdTextures.md) | Executable |  | 119 rows of 4 bytes (121 to the next symbol) | HD texture ids for the per-ability sheets of sprite sheet 0x9A. Verdict: engine-data. |
+| [SpriteDirection16MirrorFlags](../tables/SpriteDirection16MirrorFlags.md) | Executable |  | 16 rows of 2 bytes | Which of 16 facing directions draw a sprite mirrored. |
+| [SpritePaletteLimits](../tables/SpritePaletteLimits.md) | Executable |  | 208 rows of 1 bytes | Per sprite sheet, the highest palette number its units may use. |

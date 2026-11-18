@@ -27,6 +27,7 @@ Paused frame of the event overlay: accepts the completed hold as a skip (state 3
 ## Referenced by
 
 - Called by: [EventControl_Update](EventControl_Update.md)
+- Reads tables: [NxdDataEventId](../tables/NxdDataEventId.md)
 
 ## Open questions
 

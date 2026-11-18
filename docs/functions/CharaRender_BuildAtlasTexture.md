@@ -31,6 +31,7 @@ Builds the unit's atlas texture: loads the shape's sprite file from the FFT pack
 - Called by: [CharaRender_DrawFrame](CharaRender_DrawFrame.md)
 - Observed behaviours: [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md), [SixteenColourLimitIsTwoCpuBuilders](../behaviors/SixteenColourLimitIsTwoCpuBuilders.md), [SpriteNumberStoreWidths](../behaviors/SpriteNumberStoreWidths.md), [SpriteSheetPortraitAndPartFiles](../behaviors/SpriteSheetPortraitAndPartFiles.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md)
 - Reads file formats: [SpriteSheetEntries](../formats/SpriteSheetEntries.md)
+- Reads tables: [SpriteHdEntryByShape](../tables/SpriteHdEntryByShape.md)
 - Resolves registries: [SpriteNumberTables](../registries/SpriteNumberTables.md)
 
 ## Notes

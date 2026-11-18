@@ -23,6 +23,7 @@ Updates the held-button auto-repeat state used while the event system runs; only
 ## Referenced by
 
 - Called by: [EventTask_Terminate](EventTask_Terminate.md), [EventTask_WaitFrame](EventTask_WaitFrame.md)
+- Reads tables: [KeyRepeatPresets](../tables/KeyRepeatPresets.md)
 
 ## Notes
 

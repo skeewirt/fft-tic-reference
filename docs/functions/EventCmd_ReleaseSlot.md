@@ -19,6 +19,10 @@ Class 49 handler: when the 16-bit word at 0x14186246A is non-zero, releases the 
 - V: when the word is zero, none of these steps run.
 - V: sets bit 2 (value 4) of the status word (continue).
 
+## Referenced by
+
+- Observed behaviours: [MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero](../behaviors/MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero.md), [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md)
+
 ## Notes
 
 Return value: the slot index when the word is non-zero, otherwise whatever the return register held on entry. The word at 0x14186246A and the signed byte at 0x14186246B overlap (the byte is the high byte of the word). Class 38 writes 0 to the low byte; class 53 does not write these bytes.

@@ -23,9 +23,13 @@ Describes the saved job-new record: which jobs the player has not yet looked at,
 
 - Calls: [FieldSchema_Run](FieldSchema_Run.md)
 
+## Referenced by
+
+- Reads tables: [SaveFieldDescriptorLists](../tables/SaveFieldDescriptorLists.md), [UnitJobFlags](../tables/UnitJobFlags.md)
+
 ## Notes
 
-- Correction (J7 report): `job_new` has count 21 (not 125); `disable_flag` at +21 has count 125.
+- Correction: `job_new` has count 21 (not 125); `disable_flag` at +21 has count 125.
 
 ## Open questions
 

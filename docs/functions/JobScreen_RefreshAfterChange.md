@@ -40,7 +40,7 @@ the 0x141876E90 panel block and the 0x141876C80 tail record, then rebuilds the j
 
 - Appears in flows: [EquipPanelBlockFill](../flows/EquipPanelBlockFill.md)
 - Called by: [JobScreen_UpdateState](JobScreen_UpdateState.md), [sub_1402D67C8](sub_1402D67C8.md), [sub_1403331F8](sub_1403331F8.md), [sub_140333338](sub_140333338.md), [sub_140366ABC](sub_140366ABC.md), [sub_140366FE0](sub_140366FE0.md), [sub_14036AC74](sub_14036AC74.md), [sub_14036B71C](sub_14036B71C.md)
-- Observed behaviours: [CombatSetJobBytesAreOnlyCopied](../behaviors/CombatSetJobBytesAreOnlyCopied.md)
+- Observed behaviours: [BattleRosterCopiesCarryTheBattleSlotAt44](../behaviors/BattleRosterCopiesCarryTheBattleSlotAt44.md), [CombatSetJobBytesAreOnlyCopied](../behaviors/CombatSetJobBytesAreOnlyCopied.md)
 
 ## Notes
 

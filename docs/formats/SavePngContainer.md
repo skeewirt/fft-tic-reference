@@ -29,7 +29,7 @@ A game save file: an ordinary PNG whose private `ffTo` chunk carries a `UMIF` co
 - V: the scramble is its own inverse: 8-byte blocks are XORed with one 64-bit key, a 4-byte tail with the key's low half, and 2- and 1-byte tails with complement-and-mask rules (SaveData_Scramble).
 - V: the stored stream is raw deflate with the zlib header left out; the inflater writes a header with the dictionary flag, applies the 32 KB dictionary and checks the deflate stream's own Adler-32.
 - V: the entry's own version decides the payload layout (14 for the manual slot image, 0 for the settings block, 17 for a resume entry); the container carries no version of its own.
-- V: the container writer re-reads the file it is about to replace, keeps every entry it was not asked to queue, rebuilds the whole container and writes it, so an outside entry survives a vanilla save.
+- V: the container writer re-reads the file it is about to replace, keeps every entry it was not asked to queue, rebuilds the whole container and writes it, so an entry the game was not asked to write survives its save.
 - V: the folder is created by the game at boot and the file is found by area name in the profile's save folder; a missing area file is treated as no save data, not as an error.
 
 ## Notes

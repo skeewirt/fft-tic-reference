@@ -35,6 +35,7 @@ zero written for an empty or out-of-range id.
 ## Referenced by
 
 - Called by: [Battle_ResolveAction](Battle_ResolveAction.md), [Battle_ResolveTargets](Battle_ResolveTargets.md), [sub_1403099B0](sub_1403099B0.md)
+- Reads tables: [CommandKind](../tables/CommandKind.md)
 
 ## Notes
 

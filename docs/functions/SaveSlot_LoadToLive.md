@@ -3,7 +3,7 @@
 - **Address:** `0x1400C45A0`
 - **Area:** [Save data](../areas/save-data.md)
 - **Prototype:** `uint8_t *SaveSlot_LoadToLive(int64_t mgr, int slot)`
-- **Callers:** sub_1401839E4, sub_1401C2D60
+- **Callers:** sub_1401839E4, UIAgentFFTOTitle_Update
 - **Callees:** SaveWork_UnpackToLive, Str_Format, sub_140033CBC, sub_140034CF0, memmove, memset
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -24,7 +24,7 @@ Loads one save slot: copies it from the RAM cache into the work copy and unpacks
 ## Referenced by
 
 - Appears in flows: [AutoSaveRead](../flows/AutoSaveRead.md)
-- Called by: [sub_1401839E4](sub_1401839E4.md), [sub_1401C2D60](sub_1401C2D60.md)
+- Called by: [UIAgentFFTOTitle_Update](UIAgentFFTOTitle_Update.md), [sub_1401839E4](sub_1401839E4.md)
 - Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md)
 - Reads file formats: [BattleResumeImage](../formats/BattleResumeImage.md), [ResumeEntry](../formats/ResumeEntry.md)
 

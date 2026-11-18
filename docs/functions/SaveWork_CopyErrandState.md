@@ -31,6 +31,7 @@ Copies the party-wide status masks, the errand arrays and the active errand slot
 ## Referenced by
 
 - Called by: [Battle_RestoreCapture](Battle_RestoreCapture.md), [Battle_SaveCapture](Battle_SaveCapture.md)
+- Observed behaviours: [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md), [TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage](../behaviors/TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage.md)
 
 ## Notes
 

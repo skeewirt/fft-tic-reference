@@ -18,7 +18,7 @@ Nine scene-task data records of 0xA8 bytes, parsed from u16 token streams during
 ## Referenced by
 
 - Described by tables: [SceneTaskSlots](../tables/SceneTaskSlots.md)
-- Written by: [sub_1402509E8](../functions/sub_1402509E8.md), [sub_1402523B0](../functions/sub_1402523B0.md)
+- Written by: [MapBlock_ApplyLayerCommand](../functions/MapBlock_ApplyLayerCommand.md), [MapBlock_RunCommand](../functions/MapBlock_RunCommand.md)
 
 ## Open questions
 

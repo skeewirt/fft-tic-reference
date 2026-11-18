@@ -2,7 +2,7 @@
 
 Item records and categories, and the shops.
 
-Functions: 95, Structures: 9, Globals: 29, Registries: 2, Flows: 1, Observed behaviours: 6, Tables: 14.
+Functions: 95, Structures: 27, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 9, Tables: 33.
 
 ## Functions (95)
 
@@ -104,16 +104,34 @@ Functions: 95, Structures: 9, Globals: 29, Registries: 2, Flows: 1, Observed beh
 | [sub_14039684C](../functions/sub_14039684C.md) | `0x14039684C` | A second synchroniser for the saved item order lists. |
 | [sub_140396FEC](../functions/sub_140396FEC.md) | `0x140396FEC` | Builds the item screen's 256-word list `word_141D32F00` for one category: it walks the item-id space, keeps the owned ids of the category, marks preview-unequippable entries with bit 14, terminates the list, and optio... |
 
-## Structures (9)
+## Structures (27)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
+| [CategoryIconCell](../structs/CategoryIconCell.md) | 2 | One row of the ItemCategoryIconCells table. |
+| [EquipmentOrderListPointer](../structs/EquipmentOrderListPointer.md) | 8 | One row of the EquipmentOrderLists table. |
 | [EquipSetBlock](../structs/EquipSetBlock.md) | 64 | The equip screen's computed set at 0x141876C40: stat deltas at +0x00..+0x23, the five candidate equipment words at +0x24..+0x2D, a five-word display array at +0x2E..+0x37, and unclassified words at +0x38..+0x3F. It is... |
+| [InflictRecordRow](../structs/InflictRecordRow.md) | 6 | One added-effect record. |
+| [ItemAccessoryRow](../structs/ItemAccessoryRow.md) | 2 | Accessory sub-record. |
+| [ItemArmorRow](../structs/ItemArmorRow.md) | 2 | Armor sub-record. |
+| [ItemAttributeRow](../structs/ItemAttributeRow.md) | 26 | Equipment attribute record. |
+| [ItemCategoryFirstIdRow](../structs/ItemCategoryFirstIdRow.md) | 2 | First item id of one category. |
+| [ItemCategoryTypeRow](../structs/ItemCategoryTypeRow.md) | 4 | Record kind of one category. |
+| [ItemChemistRow](../structs/ItemChemistRow.md) | 3 | Chemist item sub-record. |
+| [ItemEquipPaletteRow](../structs/ItemEquipPaletteRow.md) | 2 | Palette selector of one item. |
+| [ItemKindFirstCategoryRow](../structs/ItemKindFirstCategoryRow.md) | 4 | First category of one kind. |
 | [ItemNewFlagBlock](../structs/ItemNewFlagBlock.md) | 1007 | The block at g_ItemNewFlags: the shop new-item flags first, then the four Poachers' Den (poach) arrays. |
 | [ItemOrderLists](../structs/ItemOrderLists.md) |  | The ten saved item order lists: 16-bit words in static storage, no header and no length word. |
 | [ItemRecord](../structs/ItemRecord.md) | 12 | The 12-byte record of an item (Item_GetRecord): icon, level, equipment slot bits, equipment category, attribute index, price and the story progress it is sold from. |
+| [ItemShieldRow](../structs/ItemShieldRow.md) | 2 | Shield sub-record. |
+| [ItemShopMaskRow](../structs/ItemShopMaskRow.md) | 2 | Shop availability of one item. |
 | [ItemWeaponRecord](../structs/ItemWeaponRecord.md) | 8 | The 8-byte weapon sub-record of an item whose category kind is 0 or 5 (sub_1402B8C74). |
 | [MenuListWord](../structs/MenuListWord.md) | 2 | One entry of g_MenuList, the array the shop, equip, item and ability screens reuse: the id in bits 0..9, bit 14 "cannot equip / cannot learn / current", and the list-kind-specific bits 12 and 13. |
+| [NxdDataBookRow](../structs/NxdDataBookRow.md) | 44 | One row of the nxd.book table (English text table; the other languages share the layout). |
+| [NxdDataItemRow](../structs/NxdDataItemRow.md) | 48 | One row of the nxd.item table (English text table; the other languages share the layout). |
+| [NxdDataPoachItemRow](../structs/NxdDataPoachItemRow.md) | 56 | One row of the nxd.poach_item table (English text table; the other languages share the layout). |
+| [NxdDataZodiacStoneOwnerTimelineRow](../structs/NxdDataZodiacStoneOwnerTimelineRow.md) | 16 | One row of the nxd.zodiac_stone_owner_timeline table (data table). |
+| [NxdDataZodiacStoneRow](../structs/NxdDataZodiacStoneRow.md) | 40 | One row of the nxd.zodiac_stone table (English text table; the other languages share the layout). |
 | [PartyHandWord](../structs/PartyHandWord.md) | 2 | One equipment slot of a party unit: the item id in bits 0..9 and bit 15 as the Outfitter-session pending flag. |
 | [ShopEntry](../structs/ShopEntry.md) | 40 | One entry of a shop item list (buy, sell or equip), built per list index by ShopEntry_Fill from word_141811470 and drawn by ShopItemList_DrawRow. |
 | [ShopRowCallbackTable](../structs/ShopRowCallbackTable.md) | 56 | The seven qword row handlers at 0x141876AD0..0x141876B00 that the list gadget calls per visible row; the shop, equip and item screens install different functions in the same slots. |
@@ -159,35 +177,58 @@ Functions: 95, Structures: 9, Globals: 29, Registries: 2, Flows: 1, Observed beh
 | [ItemCategories](../registries/ItemCategories.md) | The item categories: the stock first-id thresholds of Item_FindCategoryIndex, the record kind of each category (which sub-record table it has) and the menu group sub_1402890C0 gives it. |
 | [ItemClassNumbers](../registries/ItemClassNumbers.md) | The item class numbers (item class n is allowed to a job when bit 7 - n % 8 of byte n / 8 of its exe.job equip_flags is set; the class is the equip_category of the item's exe.item row) with their names. |
 
-## Flows (1)
+## Flows (2)
 
 | Name | Summary |
 |---|---|
 | [EquipSessionFlagFlow](../flows/EquipSessionFlagFlow.md) | The Outfitter/equip session: build candidates, buy or apply a slot word with bit 15, then commit (strip the bit, charge the price, save) or cancel (restore the override). |
+| [ItemMenuListLifecycle](../flows/ItemMenuListLifecycle.md) | Where a shop or equip list word is written, reordered and read: one producer fills g_MenuList for the screen, the saved-order filter rewrites it right after a mode-1 build, and seven functions read single words back, ... |
 
-## Observed behaviours (6)
+## Observed behaviours (9)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [EquipListsDropRowsAUnitCannotEquip](../behaviors/EquipListsDropRowsAUnitCannotEquip.md) | engine (equip lists) | The Outfitter Fitting list and the Status screen's equipment list leave out the items the unit cannot equip; they do not show them greyed. |
 | [EquipSessionFlagLifecycle](../behaviors/EquipSessionFlagLifecycle.md) | the five party equipment words, the override array and the candidate array during an Outfitter or shop session | Bit 15 marks a slot changed in the current session and priced into dword_143D1AC68; bit 14 is a list-entry 'cannot equip' mark. |
 | [ItemCommandRelation](../behaviors/ItemCommandRelation.md) | how the Item command and Throw turn an item id into an ability id and back | An Item-command use is an item id plus a paired ability id: the table maps abilities 368..381 to items 240..253, while at use the engine computes ability = item + 0x80 and the current-action builder computes item = ab... |
 | [ItemDisplayInShopAndEquipPanels](../behaviors/ItemDisplayInShopAndEquipPanels.md) | the shop lists and the equipment detail panel for an item id | What a shop row and the detail panel show for an item, all keyed by the item id: name and description from the Item-en row, price from the item record, icon files named by the id. |
 | [ItemIdSpace](../behaviors/ItemIdSpace.md) | the item functions and every bound on an item id | Item ids are u16 wherever they are stored for units (roster, party, battle and preview records), but the code bounds them in three ways: the item functions serve 0..0x104 (two stock record arrays split at 0x100), abou... |
+| [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md) | engine (shop and equip list) | A shop or equip list word holds the item id in its low bits and the 'cannot equip' mark in bit 14; an item id can be up to 15 bits wide, so for an id of 16,384 and above the id's own bit 14 and the mark are the same bit. |
 | [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md) | g_MenuList and the three list kinds that reuse it (shop, equip, ability), plus the job list | The two high bits of the 16-bit list words are per-list-kind state, not part of the id: bit 14 is cannot-equip / cannot-learn / current, bit 15 is not written to g_MenuList at all but marks the equip-candidate buffers. |
 | [OrderInsideItemGroup](../behaviors/OrderInsideItemGroup.md) | the order of item ids inside one menu group (the item menu, the equip screen and the shop list) | Three rules decide the order, in this priority: the saved order list is the order, membership maintenance inserts a newly owned id at the front and removes a lost one, and an explicit sort replaces the order with a fi... |
+| [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](../behaviors/OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md) | engine (Outfitter preview) | The Outfitter preview builder, the equip-clear price step and the equip commit each reduce a party hand word to an item id with an AND that must strip the session flag (bit 15); an AND whose mask keeps bit 15 turns th... |
 
-## Tables (14)
+## Tables (33)
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
-| [AbilityKind1_ItemByAbility](../tables/AbilityKind1_ItemByAbility.md) | Executable (constant) |  | 14 entries of 1 byte | The Item-command table: 14 bytes, ability 368 + i maps to item 240 + i (items 240..253). |
-| [AbilityKind2_ThrowCategory](../tables/AbilityKind2_ThrowCategory.md) | Executable (constant) |  | 12 entries of 1 byte | The Throw table: 12 equip-category bytes, ability 382 + i maps to one category. |
+| [EquipmentOrderListPointers](../tables/EquipmentOrderListPointers.md) | Executable |  | 4 rows of 8 bytes | Pointers to the four saved equipment order lists; the next eleven pointers of the run belong to other lists. |
+| [InflictRecords](../tables/InflictRecords.md) | Executable |  | 128 rows of 6 bytes | Statuses an attack, item or ability inflicts or cures. |
 | [InventoryCounts](../tables/InventoryCounts.md) | Executable memory (saved with the game) |  | 261 entries of 1 byte | The party's inventory: one count per item id 0..260, saved with the game. |
 | [Item](../tables/Item.md) | NXD file | 45 |  | The item rows (the Item-en table), read through ItemTable_GetRow and ItemTable_GetRowById and used by the text resolver for the category 'Item'. The item records the game keeps in the executable are a separate table. |
-| [ItemAttributes](../tables/ItemAttributes.md) | Executable |  | 85 rows of 26 bytes | The equipment attribute records: stat bonuses, move and jump bonuses, status bytes and elements. |
+| [ItemAccessoryRecords](../tables/ItemAccessoryRecords.md) | Executable |  | 32 records of 2 bytes (ids 0xD0..0xEF) | Accessory evade values. |
+| [ItemAccessoryRecordsHigh](../tables/ItemAccessoryRecordsHigh.md) | Executable |  | 1 record of 2 bytes (id 0x104) | Accessory sub-record of item 260. |
+| [ItemArmorRecords](../tables/ItemArmorRecords.md) | Executable |  | 64 records of 2 bytes (ids 0x90..0xCF) | Head and body armor HP and MP bonuses. |
+| [ItemArmorRecordsHigh](../tables/ItemArmorRecordsHigh.md) | Executable |  | 2 records of 2 bytes (ids 0x102, 0x103) | Armor sub-records of items 258 and 259. |
+| [ItemAttributes](../tables/ItemAttributes.md) | Executable |  | 85 rows of 26 bytes | Equipment attribute records: stat, move and jump bonuses, status groups and elements an item adds to its wearer. |
+| [ItemCategoryFirstIds](../tables/ItemCategoryFirstIds.md) | Executable |  | 14 rows of 2 bytes | First item id of every category: Item_FindCategoryIndex returns the last category whose first id is not above the item id (entries 1..12 are compared). |
+| [ItemCategoryIconCells](../tables/ItemCategoryIconCells.md) | Executable |  | 40 rows of 2 bytes (rows 0..36 used) | Texture position of the category icon drawn beside each shop item row. |
+| [ItemCategoryTypes](../tables/ItemCategoryTypes.md) | Executable |  | 14 rows of 4 bytes | Record kind of each category: which sub-record table an item of the category has. |
+| [ItemChemistRecords](../tables/ItemChemistRecords.md) | Executable |  | 16 records of 3 bytes (ids 0xF0..0xFF) | Formula, amount and inflict index of the chemist items (the Item-command items 240..253 and two more). |
+| [ItemEquipPalettes](../tables/ItemEquipPalettes.md) | Executable |  | 145 records of 2 bytes (ids 0..0x8F) | Palette selectors of weapons and shields. |
+| [ItemEquipPalettesHigh](../tables/ItemEquipPalettesHigh.md) | Executable |  | 2-byte rows, count not established | Palette selectors read by Item_GetEquipPalette for the kinds 4 and 5. |
+| [ItemKind6Records](../tables/ItemKind6Records.md) | Executable |  | 0 records (empty range) | Base of the kind 6 sub-records. |
+| [ItemKind9Records](../tables/ItemKind9Records.md) | Executable |  | 0 records (empty range) | Base of the kind 9 sub-records. |
+| [ItemKindFirstCategories](../tables/ItemKindFirstCategories.md) | Executable |  | 10 rows of 4 bytes | First category of each record kind. |
 | [ItemNewFlags](../tables/ItemNewFlags.md) | Executable memory (saved with the game) |  | 261 rows of 2 entries of 1 byte | Two flag bytes per item id 0..260, set at a new game; I: the shop 'new item' badges (byte 1 cleared when the item is first sold, byte 0 when it is first obtained). |
-| [ItemRecords](../tables/ItemRecords.md) | Executable |  | 261 records of 12 bytes | The item records the executable keeps for equipment and chemist data: ids 0..255 in one block, ids 256..260 in a second block of five. |
-| [ItemShopMask](../tables/ItemShopMask.md) | Executable (constant) |  | 512 entries of 1 byte | Which shops sell which item: two bytes per item id 0..0xFF, a mask word whose bit for shop s is 0x8000 >> s. |
+| [ItemRecords](../tables/ItemRecords.md) | Executable |  | 261 records of 12 bytes | The item records the executable keeps for equipment and chemist data. |
+| [ItemShieldRecords](../tables/ItemShieldRecords.md) | Executable |  | 16 records of 2 bytes (ids 0x80..0x8F) | Shield evade values. |
+| [ItemShopMask](../tables/ItemShopMask.md) | Executable |  | 256 rows of 2 bytes | Which shops sell which item: a mask word whose bit for shop s is 0x8000 >> s. |
+| [ItemWeaponRecords](../tables/ItemWeaponRecords.md) | Executable |  | 128 records of 8 bytes (ids 0..0x7F) | Weapon sub-records of the first 128 items; two more in ItemWeaponRecordsHigh. |
+| [ItemWeaponRecordsHigh](../tables/ItemWeaponRecordsHigh.md) | Executable |  | 2 records of 8 bytes (ids 0x100, 0x101) | Weapon sub-records of items 256 and 257. |
+| [NxdDataBook](../tables/NxdDataBook.md) | NXD file | 148 | 5 rows of 44 bytes, text in 7 languages | The five lore books: titles, descriptions, icon and sound references. |
+| [NxdDataZodiacStone](../tables/NxdDataZodiacStone.md) | NXD file | 119 | 27 rows of 40 bytes, text in 7 languages | Zodiac stones keyed by stone and variant: condition link, owner timeline, name, summary, description and icons. |
+| [NxdDataZodiacStoneOwnerTimeline](../tables/NxdDataZodiacStoneOwnerTimeline.md) | NXD file | 238 | 11 rows of 16 bytes | Zodiac stone owner timelines (11). |
 | [PoachCount](../tables/PoachCount.md) | Executable memory (saved with the game) |  | 97 entries of 1 byte | Poach count per type, 97 bytes based at the badge block plus 522; the poach add routine clamps each byte to 99. |
 | [PoachersDenStock](../tables/PoachersDenStock.md) | Executable memory (saved with the game) |  | 261 entries of 1 byte | Poachers' Den stock: one count per item id 0..260 (PoachersDen_AddStock adds to it, clamped 0..255); the shop list builder Shop_BuildItemList lists the ids with stock when the shop id is 100 or above. |
 | [PoachItem](../tables/PoachItem.md) | NXD file | 236 |  | The poach rows (the PoachItem-en table), read through PoachTable_GetRowById. |

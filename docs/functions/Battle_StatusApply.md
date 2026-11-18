@@ -37,6 +37,7 @@ against the unit's innate/immunity sets. Handles the two team-changing statuses.
 
 - Called by: [Battle_StatusResolve](Battle_StatusResolve.md)
 - Observed behaviours: [KoLeavesSomeStatusesOnTheUnit](../behaviors/KoLeavesSomeStatusesOnTheUnit.md), [StatusBitWritersAndTheRemovalPath](../behaviors/StatusBitWritersAndTheRemovalPath.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md)
+- Reads tables: [AbilityAux](../tables/AbilityAux.md), [AbilityKind6_PassiveIndex](../tables/AbilityKind6_PassiveIndex.md)
 
 ## Notes
 

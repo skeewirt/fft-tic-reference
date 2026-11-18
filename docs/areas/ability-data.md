@@ -2,7 +2,7 @@
 
 Ability NXD row accessor, JP cost, aux header and the ability action records.
 
-Functions: 6, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 3.
+Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 14.
 
 ## Functions (6)
 
@@ -14,6 +14,23 @@ Functions: 6, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 3.
 | [AbilityAction_GetRecord](../functions/AbilityAction_GetRecord.md) | `0x1402BB060` | Returns a pointer to the 20-byte action record of an ability, building the working table on first use. |
 | [AbilityTable_GetRow](../functions/AbilityTable_GetRow.md) | `0x1400F8474` | Returns the Ability NXD row for an ability id, or null when the table or row is missing. |
 | [sub_1402A21B0](../functions/sub_1402A21B0.md) | `0x1402A21B0` | Builds the help text of an ability row; for a movement ability it adds the '+N' number from the ability id. |
+
+## Structures (12)
+
+| Name | Size (bytes) | Summary |
+|---|---|---|
+| [AbilityActionRow](../structs/AbilityActionRow.md) | 20 | One action record of an ability. |
+| [AbilityAnimRow](../structs/AbilityAnimRow.md) | 3 | Battle presentation of one ability. |
+| [AbilityAuxRow](../structs/AbilityAuxRow.md) | 8 | One auxiliary ability record. |
+| [AbilityEffectNumberRow](../structs/AbilityEffectNumberRow.md) | 2 | Effect word of one ability. |
+| [AbilityKind1Row](../structs/AbilityKind1Row.md) | 1 | Item id of an Item-command ability. |
+| [AbilityKind2Row](../structs/AbilityKind2Row.md) | 1 | Item type of a Throw ability. |
+| [AbilityKind3Row](../structs/AbilityKind3Row.md) | 2 | Jump reach. |
+| [AbilityKind4Row](../structs/AbilityKind4Row.md) | 2 | Charge values. |
+| [AbilityKind5Row](../structs/AbilityKind5Row.md) | 1 | Arithmeticks mask. |
+| [AbilityKind6Row](../structs/AbilityKind6Row.md) | 1 | Passive ability index. |
+| [NxdDataAbilityRow](../structs/NxdDataAbilityRow.md) | 68 | One row of the nxd.ability table (English text table; the other languages share the layout). |
+| [NxdDataOverrideAbilityActionDataRow](../structs/NxdDataOverrideAbilityActionDataRow.md) | 40 | One row of the nxd.override_ability_action_data table (data table). |
 
 ## Registries (2)
 
@@ -40,10 +57,21 @@ Functions: 6, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 3.
 | [SkillsetIdsPastTheByte](../behaviors/SkillsetIdsPastTheByte.md) | engine | A skillset id is one byte everywhere the game keeps it (job row +0, unit +0x12 / +0x13 / +0x192, save A+7, the action's command byte +0x1A1, the battle menu arrays, the command table). |
 | [StockFormulaHandlersAreBlockSequences](../behaviors/StockFormulaHandlersAreBlockSequences.md) | engine | The 106 stock formula handlers are plain functions with no arguments over the frame Battle_ResolveAction sets up; 47 of them are sequences of the game's own building blocks. |
 
-## Tables (3)
+## Tables (14)
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
 | [Ability](../tables/Ability.md) | NXD file | 39 |  | The ability rows the game reads through AbilityTable_GetRow, loaded lazily and cached. |
-| [AbilityActionRecords](../tables/AbilityActionRecords.md) | Executable |  | 368 records of 20 bytes (ids 0..0x16F) | The action record of each action ability, copied into a writable table on first use. |
-| [AbilityAux](../tables/AbilityAux.md) | Executable |  | 8 bytes per id, ids 0..511 | The per-ability auxiliary records: classic JP cost, learn percent and two flag fields, with an extra category-specific record for each id. |
+| [AbilityActionRecords](../tables/AbilityActionRecords.md) | Executable |  | 368 records of 20 bytes (ids 0..0x16F) | The action record of each action ability. |
+| [AbilityActionWorking](../tables/AbilityActionWorking.md) | Executable (filled at run time) |  | 368 records of 20 bytes | Working copy of AbilityActionRecords built at first use and read by every action builder. |
+| [AbilityAnim](../tables/AbilityAnim.md) | Executable |  | 454 rows of 3 bytes | Battle presentation of each ability: charge type, execution motion and text selector. |
+| [AbilityAux](../tables/AbilityAux.md) | Executable |  | 512 rows of 8 bytes | The per-ability auxiliary records: classic JP cost, learn percent and two flag fields. |
+| [AbilityEffectNumbers](../tables/AbilityEffectNumbers.md) | Executable |  | 454 rows of 2 bytes | Battle effect number and flag of each ability. |
+| [AbilityKind1_ItemByAbility](../tables/AbilityKind1_ItemByAbility.md) | Executable |  | 14 rows of 1 byte | Item-command table: ability 368 + i maps to one item id; the only table that pairs an Item-command ability with its item. |
+| [AbilityKind2_ThrowCategory](../tables/AbilityKind2_ThrowCategory.md) | Executable |  | 12 rows of 1 byte | Throw table: ability 382 + i maps to one equip category; an item is throwable when its category matches a row of one of the unit throw abilities. |
+| [AbilityKind3_JumpReach](../tables/AbilityKind3_JumpReach.md) | Executable |  | 12 rows of 2 bytes | Horizontal and vertical reach of each Jump ability. |
+| [AbilityKind4_Charge](../tables/AbilityKind4_Charge.md) | Executable |  | 8 rows of 2 bytes | Charge time and power of each Charge ability. |
+| [AbilityKind5_MathMask](../tables/AbilityKind5_MathMask.md) | Executable |  | 8 rows of 1 byte | Arithmeticks bit mask of each ability. |
+| [AbilityKind6_PassiveIndex](../tables/AbilityKind6_PassiveIndex.md) | Executable |  | 90 rows of 1 byte | Running index of every passive ability. |
+| [FormulaHandlers](../tables/FormulaHandlers.md) | Executable |  | 106 rows of 8 bytes | Dispatch table of the 106 ability formula handlers. |
+| [NxdDataOverrideAbilityActionData](../tables/NxdDataOverrideAbilityActionData.md) | NXD file | 247 | 368 rows of 40 bytes | Ability data override rows: each field is -1 (keep the stock value) or a replacement for range, area, formula, status, CT or MP cost. |

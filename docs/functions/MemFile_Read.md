@@ -19,7 +19,7 @@ Copies len bytes at offset from an in-memory file buffer (clamped to its size); 
 
 ## Referenced by
 
-- Called by: [GameDataPack_Open](GameDataPack_Open.md), [Resource_GetSlotObject](Resource_GetSlotObject.md), [sub_1403D2450](sub_1403D2450.md)
+- Called by: [GameDataPack_Open](GameDataPack_Open.md), [Opening_LoadMessageSprites](Opening_LoadMessageSprites.md), [Resource_GetSlotObject](Resource_GetSlotObject.md), [sub_1403D2450](sub_1403D2450.md)
 
 ## Notes
 

@@ -6,6 +6,7 @@
 - **NXD table id:** 45
 - **Keyed by:** item id
 - **Read by:** [ItemTable_GetRow](../functions/ItemTable_GetRow.md), [ItemTable_GetRowById](../functions/ItemTable_GetRowById.md), [NxdTable_GetRowById](../functions/NxdTable_GetRowById.md), [UIText_ResolveCategoryRow](../functions/UIText_ResolveCategoryRow.md)
+- **Row layout:** [NxdDataItemRow](../structs/NxdDataItemRow.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

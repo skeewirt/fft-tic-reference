@@ -25,6 +25,7 @@ Fills the unit panel shown for a turn-order entry, with the pending ability's na
 ## Referenced by
 
 - Observed behaviours: [BattleFaceIsThePoolSpriteByte](../behaviors/BattleFaceIsThePoolSpriteByte.md), [FaceLookupInlineCopiesDisagreeAboveCode159](../behaviors/FaceLookupInlineCopiesDisagreeAboveCode159.md), [FaceNumberCapsClipRawCodesToo](../behaviors/FaceNumberCapsClipRawCodesToo.md), [TurnOrderEntryKeepsNineBitsOfTheAbility](../behaviors/TurnOrderEntryKeepsNineBitsOfTheAbility.md)
+- Reads tables: [SceneSpriteToFace](../tables/SceneSpriteToFace.md)
 
 ## Notes
 

@@ -22,11 +22,12 @@ Services the three request mailboxes (event variables 0x5C, 0x5D and 0x5E) that 
 
 ## State touched
 
-- Calls: [EventVar_Write](EventVar_Write.md), [sub_1401D80A8](sub_1401D80A8.md)
+- Calls: [EventVar_Write](EventVar_Write.md), [sub_1401D80A8](sub_1401D80A8.md), [sub_1402F2500](sub_1402F2500.md)
 
 ## Referenced by
 
 - Called by: [EventCmd_Run](EventCmd_Run.md)
+- Observed behaviours: [EventSoundGroupAndMusicSlotOperandWidths](../behaviors/EventSoundGroupAndMusicSlotOperandWidths.md), [MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero](../behaviors/MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero.md), [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md)
 
 ## Notes
 

@@ -19,6 +19,7 @@ Returns RequiredJobExp[level] of the GeneralJob row (table 189, cache qword_143C
 ## Referenced by
 
 - Called by: [Job_LevelFromTotalJp](Job_LevelFromTotalJp.md), [UnitWork_StoreToSaveSlot](UnitWork_StoreToSaveSlot.md), [Unit_InitJobJp](Unit_InitJobJp.md), [sub_1403928D4](sub_1403928D4.md)
+- Reads tables: [NxdDataGeneralJob](../tables/NxdDataGeneralJob.md)
 
 ## Notes
 

@@ -13,7 +13,7 @@ The 16 scene-unit records (stride 0x548); the in-use dword is 8 bytes before eac
 ## Referenced by
 
 - Described by tables: [SceneUnitSlots](../tables/SceneUnitSlots.md)
-- Read by: [sub_14026EB74](../functions/sub_14026EB74.md)
+- Read by: [SceneUnit_BuildFromQueueEntry](../functions/SceneUnit_BuildFromQueueEntry.md)
 
 ## Open questions
 

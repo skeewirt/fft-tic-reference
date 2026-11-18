@@ -27,6 +27,7 @@ Recomputes the party-wide job-availability flags from each unit's job levels and
 ## Referenced by
 
 - Observed behaviours: [UnlockMaskStreamRunsIntoLearnedBitsPastIndex23](../behaviors/UnlockMaskStreamRunsIntoLearnedBitsPastIndex23.md)
+- Reads tables: [UnitJobFlags](../tables/UnitJobFlags.md), [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes
 
@@ -36,4 +37,4 @@ Per-job bits are addressed by job index (Job_IdToIndex), not job id.
 
 ## Open questions
 
-Whether the i == 20 skip is a vanilla off-by-one or deliberate (only 20 stock tree jobs).
+Whether the i == 20 skip is an off-by-one or deliberate (only 20 stock tree jobs).

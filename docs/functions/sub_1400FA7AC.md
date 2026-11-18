@@ -22,6 +22,11 @@ Adds an equipped item's attribute record and added-effect statuses to a unit's s
 
 - Calls: [Item_GetRecord](Item_GetRecord.md), [sub_1402B8C74](sub_1402B8C74.md), [sub_1402B8E04](sub_1402B8E04.md)
 
+## Referenced by
+
+- Observed behaviours: [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](../behaviors/OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md)
+- Reads tables: [InflictRecords](../tables/InflictRecords.md), [ItemAttributes](../tables/ItemAttributes.md)
+
 ## Notes
 
 - Only the table reads were studied.

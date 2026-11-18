@@ -26,7 +26,7 @@ The game's checked copy: copies the smaller of the destination size and the coun
 
 ## Referenced by
 
-- Called by: [Battle_ResolveAction](Battle_ResolveAction.md), [Battle_StatusResolve](Battle_StatusResolve.md)
+- Called by: [Battle_ResolveAction](Battle_ResolveAction.md), [Battle_StatusResolve](Battle_StatusResolve.md), [ClassicMenu_LoadPageArtPack](ClassicMenu_LoadPageArtPack.md)
 - Observed behaviours: [BattleCommandMenuCarriesSetsAsBytes](../behaviors/BattleCommandMenuCarriesSetsAsBytes.md)
 
 ## Notes

@@ -30,7 +30,7 @@ The battle HD layer's texture pass: for every draw record of the frame it finds 
 
 ## Referenced by
 
-- Observed behaviours: [SixteenColourLimitIsTwoCpuBuilders](../behaviors/SixteenColourLimitIsTwoCpuBuilders.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
+- Observed behaviours: [HdSheetFromSlotColoursFromRecord](../behaviors/HdSheetFromSlotColoursFromRecord.md), [SixteenColourLimitIsTwoCpuBuilders](../behaviors/SixteenColourLimitIsTwoCpuBuilders.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
 
 ## Notes
 

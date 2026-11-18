@@ -30,6 +30,8 @@ Attempts to mark one ability of a job as learned in a work record, optionally ch
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Called by: [Unit_QueueJobAbilitiesToLearn](Unit_QueueJobAbilitiesToLearn.md)
+- Observed behaviours: [JobArrayAccessesPutTheRecordPointerInTheIndexRegister](../behaviors/JobArrayAccessesPutTheRecordPointerInTheIndexRegister.md), [JobArraysInThePartyRecordHoldStockIndicesOnly](../behaviors/JobArraysInThePartyRecordHoldStockIndicesOnly.md)
+- Reads tables: [AbilityAux](../tables/AbilityAux.md)
 
 ## Notes
 

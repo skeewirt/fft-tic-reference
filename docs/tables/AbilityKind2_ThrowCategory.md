@@ -1,16 +1,28 @@
 # AbilityKind2_ThrowCategory
 
 - **Kind:** table
-- **Area:** [Items and shops](../areas/items.md)
-- **Storage:** Executable (constant)
-- **Rows:** 12 entries of 1 byte
+- **Area:** [Ability data](../areas/ability-data.md)
+- **Storage:** Executable
+- **Address:** `0x140789290`
+- **Rows:** 12 rows of 1 byte
+- **Keyed by:** ability id 0x17E..0x189 (Throw)
+- **Read by:** [Ability_GetAuxRecord](../functions/Ability_GetAuxRecord.md), [sub_14031FD40](../functions/sub_14031FD40.md)
 - **Held in:** [g_AbilityKind2_ThrowCategory](../globals/g_AbilityKind2_ThrowCategory.md)
+- **Row layout:** [AbilityKind2Row](../structs/AbilityKind2Row.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-The Throw table: 12 equip-category bytes, ability 382 + i maps to one category. It stores categories, not item ids; an item is throwable when its record's equipment category matches a row for one of the unit's throw abilities.
+Throw table: ability 382 + i maps to one equip category; an item is throwable when its category matches a row of one of the unit throw abilities. The real array starts at the first id of the range; the code addresses it through a virtual base before the array.
+
+## Behavior
+
+- V: one AI scoring routine walks the bytes from +1.
+
+## Notes
+
+Our names. Tags per member and behaviour line; read statically in the decompilation of the Enhanced executable.
 
 ## Open questions
 

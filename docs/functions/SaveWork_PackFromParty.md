@@ -26,7 +26,7 @@ Chooses the leader for the slot summary and packs the live state: the first part
 ## Referenced by
 
 - Called by: [SaveSlot_WriteFromLive](SaveSlot_WriteFromLive.md), [sub_14021AEC0](sub_14021AEC0.md), [sub_140246014](sub_140246014.md), [sub_1402CEEE8](sub_1402CEEE8.md)
-- Observed behaviours: [CheckpointCopyHoldsTheLiveUnitRecords](../behaviors/CheckpointCopyHoldsTheLiveUnitRecords.md)
+- Observed behaviours: [CheckpointCopyHoldsTheLiveUnitRecords](../behaviors/CheckpointCopyHoldsTheLiveUnitRecords.md), [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md)
 
 ## Notes
 

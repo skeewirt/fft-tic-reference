@@ -14,7 +14,7 @@ Builds the ENHANCED save/load list: one 240-byte entry per cache slot whose magi
 
 ## Behavior
 
-- V (J9): loops the 50 slots over the cache (level byte at cache + 0x113), skips slots failing CardSlot_IsValid, and per slot fills +0 slot, +4 language, +8 level, +12 mainProgress, +16 difficulty, +20 pos, +24 situation, +28 nextEventId, +32 timestamp, +40..+167 the four sprite records, +232 auto-slot flag, +236 cleared, +237 NG+.
+- V: loops the 50 slots over the cache (level byte at cache + 0x113), skips slots failing CardSlot_IsValid, and per slot fills +0 slot, +4 language, +8 level, +12 mainProgress, +16 difficulty, +20 pos, +24 situation, +28 nextEventId, +32 timestamp, +40..+167 the four sprite records, +232 auto-slot flag, +236 cleared, +237 NG+.
 - V: ends with a tail `jmp sub_1401CCE78` (0x14018621B) that sorts the vector.
 - V: no job byte or job text is read (the list shows no class).
 

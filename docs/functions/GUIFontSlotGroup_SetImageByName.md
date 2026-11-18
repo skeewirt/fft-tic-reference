@@ -23,6 +23,10 @@ Acquires the kind-3 image slot for name and stores it as the group's image slot;
 - Calls: [GUIFontSlots_AcquireImage](GUIFontSlots_AcquireImage.md), [UIName_SetKey](UIName_SetKey.md)
 - Reads: [g_GUIFontSlots](../globals/g_GUIFontSlots.md)
 
+## Referenced by
+
+- Called by: [UiNames_InstallCoreNames](UiNames_InstallCoreNames.md)
+
 ## Notes
 
 The name is ours (IDB: sub_1403F3DAC).

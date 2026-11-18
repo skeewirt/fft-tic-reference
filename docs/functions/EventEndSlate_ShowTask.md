@@ -34,6 +34,7 @@ The task started by event opcode 0xEC: adds the end-slate UI add-on, plays its l
 
 ## Referenced by
 
+- Observed behaviours: [TextLanguage](../behaviors/TextLanguage.md)
 - Started by event opcodes: [0xEC](../opcodes/README.md)
 
 ## Notes

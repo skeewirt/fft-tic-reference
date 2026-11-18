@@ -31,7 +31,7 @@ Describes the save-slot summary the load menu shows: hero name, job, level, date
 
 A record schema for the save and config files; see FieldSchema_Run for how descriptors are walked.
 
-- Correction (J9 report): the summary is the first 164 bytes of `info`; `hero_name` is unused (zero) and `chk_sum` is unused (0xFF); the slot-list readers are SaveLoadList_BuildEntries (0x140185D1C) and SaveLoadList_FillItem (0x1401864A4).
+- Correction: the summary is the first 164 bytes of `info`; `hero_name` is unused (zero) and `chk_sum` is unused (0xFF); the slot-list readers are SaveLoadList_BuildEntries (0x140185D1C) and SaveLoadList_FillItem (0x1401864A4).
 
 ## Open questions
 

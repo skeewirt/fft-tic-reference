@@ -20,6 +20,10 @@ Looks up one record of table 226 by key and stores the record pointer in the out
 - V: returns the output pointer.
 - I: EventScript_Run sets only the key (edx) before the call (the third operand from opcode 0xC4). The register values for arg3 and arg4 were not set in the disassembly, so their values are unresolved.
 
+## Referenced by
+
+- Reads tables: [NxdDataUISituationSubtitlesShowtime](../tables/NxdDataUISituationSubtitlesShowtime.md)
+
 ## Open questions
 
 What arg3 and arg4 hold at the 0xC4 call site, and what sub_1403D3AE8 does with them when the table is in its mode 1 or other modes.

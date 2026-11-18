@@ -18,6 +18,11 @@ Reads one step of an animation from the unit's sequence table: row (animation id
 - V: the row is found by key = animation id (a+56) and key2 = step (a+60); output: opcode = row dword +8, value = row byte +12, delay = float(row byte +13).
 - V (data): CharAnimSeq0/1 key 2, step 0 -> opcode 1 (show frame), value 2: the pose the tree uses shows frame 2 (CharAnimSeq2 gives 2 for key 2 as well).
 
+## Referenced by
+
+- Observed behaviours: [UnitMovementAnimationTables](../behaviors/UnitMovementAnimationTables.md)
+- Reads tables: [SpriteLookAttributes](../tables/SpriteLookAttributes.md)
+
 ## Notes
 
 The classic SEQ file is zero-based (anim 2 = frame 1); the nxd tables are one-based, so animation id 2 means frame 2.

@@ -32,6 +32,7 @@ Fills the job menu rows for the selected party unit: the static job record, the 
 ## Referenced by
 
 - Observed behaviours: [JobListBuilderCallersHold24Words](../behaviors/JobListBuilderCallersHold24Words.md)
+- Reads tables: [JobUnitRowsScriptLang0](../tables/JobUnitRowsScriptLang0.md), [JobUnitRowsScriptLang1](../tables/JobUnitRowsScriptLang1.md), [JobUnitRowsScriptLang2](../tables/JobUnitRowsScriptLang2.md), [JobUnitRowsScriptLang3](../tables/JobUnitRowsScriptLang3.md)
 
 ## Notes
 

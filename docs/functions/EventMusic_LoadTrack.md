@@ -29,6 +29,11 @@ Starts background music track number `track` on channel `channel` of the global 
 
 - Calls: [Str_Format](Str_Format.md)
 
+## Referenced by
+
+- Called by: [sub_1402BAB78](sub_1402BAB78.md)
+- Observed behaviours: [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md), [MusicTrackFilesAreOpenedByNameThroughTheFileManager](../behaviors/MusicTrackFilesAreOpenedByNameThroughTheFileManager.md)
+
 ## Notes
 
 The hash table at obj+1432 is only read here; no code in this routine inserts into it. The Str_Format result has no visible consumer in this routine.

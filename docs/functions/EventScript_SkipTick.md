@@ -33,6 +33,7 @@ The event fast-forward tick: while the skip action is held it raises the skip st
 ## Referenced by
 
 - Called by: [sub_140236468](sub_140236468.md)
+- Observed behaviours: [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
 
 ## Notes
 

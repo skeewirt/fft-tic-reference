@@ -1,0 +1,28 @@
+# NxdDataLoadingSettings
+
+- **Kind:** table
+- **Area:** [Display](../areas/display.md)
+- **Storage:** NXD file
+- **NXD table id:** 129
+- **Rows:** 11 rows of 4 bytes
+- **Keyed by:** one key: id (0..10)
+- **Row layout:** [NxdDataLoadingSettingsRow](../structs/NxdDataLoadingSettingsRow.md)
+
+Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
+
+## Summary
+
+Eleven loading screen settings. Verdict: engine-data.
+
+## Behavior
+
+- V: 11 rows, one key id (0..10); measured over every row of the stock file.
+- I: the table role and the column roles are inferred from the table and column names and the measured value ranges; not traced to a reader, except where a column line says V.
+
+## Notes
+
+Our names; the file format is described by the NXD format records.
+
+## Open questions
+
+? no reader found by table-id constant (readers may fetch it through a name or a runtime-computed id)

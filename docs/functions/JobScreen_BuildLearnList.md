@@ -29,6 +29,10 @@ Builds the Learn page of the job screen: the job ability list, the JP cost and t
 - Calls: [JobAbilityList_Build](JobAbilityList_Build.md), [Input_TestAction](Input_TestAction.md), [JobScreen_ShowPopup](JobScreen_ShowPopup.md), [sub_1402C0554](sub_1402C0554.md), [Unit_SpendJp](Unit_SpendJp.md)
 - Reads: [g_PartyUnits](../globals/g_PartyUnits.md), [g_JobTable](../globals/g_JobTable.md)
 
+## Referenced by
+
+- Reads tables: [JobLearnListScriptLang1](../tables/JobLearnListScriptLang1.md), [JobLearnListScriptLang2](../tables/JobLearnListScriptLang2.md), [JobLearnListScriptLang3](../tables/JobLearnListScriptLang3.md)
+
 ## Notes
 
 Whole function read (1333 bytes). The two 0x3FF masks are the sites the ability-width study lists.

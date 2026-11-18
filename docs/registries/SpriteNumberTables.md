@@ -14,7 +14,7 @@ Every table the executable indexes by sprite number, with the row count, the bou
 
 | Id | Name | Value | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="hd_entry"></a>1 | `hd_entry` | `0x1407151F0, 170 rows x 4` | V | Signed first g2d entry per sprite (-1 none). Bounds 0xA9 (three 32-bit compares, in CharaRender_BuildAtlasTexture and twice in sub_14026EB74) and 0xAA (four byte compares on the scene unit's sprite byte). 7 sites (1 rip, 6 img): the eighth operand of the address-range count is not a reader (behaviour UnitFaceIndexReadsTheTableAfterTheHdTable). |
+| <a id="hd_entry"></a>1 | `hd_entry` | `0x1407151F0, 170 rows x 4` | V | Signed first g2d entry per sprite (-1 none). Bounds 0xA9 (three 32-bit compares, in CharaRender_BuildAtlasTexture and twice in SceneUnit_BuildFromQueueEntry) and 0xAA (four byte compares on the scene unit's sprite byte). 7 sites (1 rip, 6 img): the eighth operand of the address-range count is not a reader (behaviour UnitFaceIndexReadsTheTableAfterTheHdTable). |
 | <a id="classic_kind"></a>2 | `classic_kind` | `0x784690, 170 rows x 8` | V | Classic file number and size per sprite. No bound in code except the load pass replacing values above 170 by 1 (CharaPalette_ReloadForShape). |
 | <a id="classic_kind_twin"></a>3 | `classic_kind_twin` | `0x784BE0, 170 rows x 8` | V | Language-0 twin of the table above (same rows). |
 | <a id="attribute"></a>4 | `attribute` | `0x673300, 170 rows x 4` | V | Frame file type, sequence file type, pose-remap flag and a byte of 0, 0x24, 0x3C or 0x78 per sprite; row 170 is the first row of another table; 24 reading sites (17 rip, 7 img; four of the lea sites point at byte 1, 2 or 3 of row 0); no bound. |

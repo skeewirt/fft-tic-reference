@@ -28,6 +28,7 @@ Builds the 512-byte unit work record C from a save unit record A. It first refre
 ## Referenced by
 
 - Called by: [SceneUnit_FillSpriteRecord](SceneUnit_FillSpriteRecord.md)
+- Reads tables: [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes
 

@@ -29,6 +29,10 @@ Loads the map-title texture file chosen by scene variable 51 (maptitle_%03d.tex)
 - Calls: [SceneVar_Read](SceneVar_Read.md)
 - Reads: [g_LanguageInfo](../globals/g_LanguageInfo.md)
 
+## Referenced by
+
+- Observed behaviours: [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md)
+
 ## Notes
 
 The routine takes no meaningful arguments; the 0x91 handler calls it with whatever the registers hold.

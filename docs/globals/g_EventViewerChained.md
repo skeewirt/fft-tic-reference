@@ -8,7 +8,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-Written by the event-viewer paths as (sub_14033D840(event) != -1), cleared by sub_140236378 and EventScript_Run; EventSkip_IsViewerEvent needs 0 (I: meaning from the writers only).
+Written by the event-viewer paths as (EventChain_Find(event) != -1), cleared by sub_140236378 and EventScript_Run; EventSkip_IsViewerEvent needs 0 (I: meaning from the writers only).
 
 ## Referenced by
 

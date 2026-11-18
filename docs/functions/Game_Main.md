@@ -27,6 +27,10 @@ The game's WinMain body: it rejects a debugger at startup, sets the working dire
 - Calls: [Startup_SetDataDirectory](Startup_SetDataDirectory.md), [App_RunFrame](App_RunFrame.md), [App_ProcessMessages](App_ProcessMessages.md)
 - Reads: [g_Application](../globals/g_Application.md)
 
+## Referenced by
+
+- Observed behaviours: [QuitLoopExit](../behaviors/QuitLoopExit.md)
+
 ## Notes
 
 The startup check is why a debugger attached before the process reaches this point causes the game to return 0 without a window. The same check exists in the frame loop, but only as the capture/debug gate inside App_RunFrame.

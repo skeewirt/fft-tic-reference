@@ -2,7 +2,7 @@
 
 Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters.
 
-20 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
+26 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -16,13 +16,19 @@ Ordered sequences across functions and state: what happens in which order (a fra
 | [EquipPanelBlockFill](EquipPanelBlockFill.md) | [Battle](../areas/battle.md) | How the five hand words travel from a unit record to the two panel blocks and what the two flag-aware panels do with them. |
 | [EquipSessionFlagFlow](EquipSessionFlagFlow.md) | [Items and shops](../areas/items.md) | The Outfitter/equip session: build candidates, buy or apply a slot word with bit 15, then commit (strip the bit, charge the price, save) or cancel (restore the override). |
 | [FrameUiSubmission](FrameUiSubmission.md) | [Graphics](../areas/graphics.md) | How one frame's UI reaches the GPU, and why the order matters: commands are packed on the CPU in one order and executed by sort key in another, and every pass inherits the context state it does not set. |
+| [GeneralOptionsOpenAndClose](GeneralOptionsOpenAndClose.md) | [UI framework](../areas/ui-framework.md) | How the settings screen opens from the mode select or the in-game menu and closes again, through the System agent. |
+| [ItemMenuListLifecycle](ItemMenuListLifecycle.md) | [Items and shops](../areas/items.md) | Where a shop or equip list word is written, reordered and read: one producer fills g_MenuList for the screen, the saved-order filter rewrites it right after a mode-1 build, and seven functions read single words back, ... |
 | [ItemNameToScreen](ItemNameToScreen.md) | [Data access](../areas/data.md) | How an item id becomes a name on screen, by two independent routes: the 0x3800 text id (a pool id decoded by sub_140226208, carried in a 2-byte list cell or a 32-bit message argument) and the Item-en row lookup (ItemT... |
 | [JobScreenFrame](JobScreenFrame.md) | [Job tree](../areas/job-tree.md) | How the Job Tree gets input and a chance to run code each frame: the party-menu scene's frame function runs the current screen's update through a function table, the job screen's update runs the screen dispatch, and t... |
 | [LayerDropShadow](LayerDropShadow.md) | [Graphics](../areas/graphics.md) | The drop shadow of a UI layer, end to end (decoded and reproduced from mid-frame GPU captures). |
 | [LayerGlowHalfSize](LayerGlowHalfSize.md) | [Graphics](../areas/graphics.md) | The glow of a UI layer with a blur radius from 3.2 to 6.4 (the Job Tree selection ring: radius 4.0), stage by stage, each stage reproduced from a mid-frame GPU capture (2026-10-30). |
+| [MapRendererBuildPath](MapRendererBuildPath.md) | [Battle](../areas/battle.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [NxdMultiKeyLookup](NxdMultiKeyLookup.md) | [Data access](../areas/data.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](NxdTableLoad.md) | [Data access](../areas/data.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
 | [PartyMenuFaceChain](PartyMenuFaceChain.md) | [Graphics](../areas/graphics.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [SaveFrameStep](SaveFrameStep.md) | [Save data](../areas/save-data.md) | How a manual save or load reaches the file: the save screen changes a command, and one frame step does the work once per frame, blocking that frame while the container is read or written. |
+| [ScreenAddonCreation](ScreenAddonCreation.md) | [UI framework](../areas/ui-framework.md) | How a screen (add-on) is made and shown: allocate, construct, attach to the agent, load its layout from the screen table, then show or hide it. |
 | [ScriptedBattleUnitsFromEntries](ScriptedBattleUnitsFromEntries.md) | [Job data](../areas/job-data.md) | How a scripted battle gets its units: the battle key picks 16 entries, the OverrideEntryData rows of the key overwrite them in place, and battle unit i is built from entry i with row i. |
+| [StatusLabelOverAHitUnit](StatusLabelOverAHitUnit.md) | [Battle](../areas/battle.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
+| [TitleMenuAction](TitleMenuAction.md) | [UI framework](../areas/ui-framework.md) | From a press on a title menu row to the action: the button event reaches the agent, which dispatches on the row's kind. |
 | [UiLayerComposite](UiLayerComposite.md) | [Graphics](../areas/graphics.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |

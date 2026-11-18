@@ -3,7 +3,7 @@
 - **Kind:** observed behaviour
 - **Scope:** engine (sprite rows in the NXD data)
 - **Area:** [Data access](../areas/data.md)
-- **Affects:** [CharShape_ApplyClut](../functions/CharShape_ApplyClut.md), [NxdRegistry_Find](../functions/NxdRegistry_Find.md), [CharaRender_LookupLutParams](../functions/CharaRender_LookupLutParams.md), [sub_14026EB74](../functions/sub_14026EB74.md)
+- **Affects:** [CharShape_ApplyClut](../functions/CharShape_ApplyClut.md), [NxdRegistry_Find](../functions/NxdRegistry_Find.md), [CharaRender_LookupLutParams](../functions/CharaRender_LookupLutParams.md), [SceneUnit_BuildFromQueueEntry](../functions/SceneUnit_BuildFromQueueEntry.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

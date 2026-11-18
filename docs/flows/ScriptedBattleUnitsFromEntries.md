@@ -13,7 +13,7 @@ How a scripted battle gets its units: the battle key picks 16 entries, the Overr
 
 | Step | Where | Conf | What happens |
 |---|---|---|---|
-| <a id="1"></a>1 | [sub_1403044EC](../functions/sub_1403044EC.md) | V | Battle load state 4: the key dword of g_BattleEntrySource = scene variable 50; state 5 calls Battle_BuildEntryUnits. |
+| <a id="1"></a>1 | [BattleLoad_StepFresh](../functions/BattleLoad_StepFresh.md) | V | Battle load state 4: the key dword of g_BattleEntrySource = scene variable 50; state 5 calls Battle_BuildEntryUnits. |
 | <a id="2"></a>2 | [Battle_GetEntryBlock](../functions/Battle_GetEntryBlock.md) | V | The 640-byte block of the key in the loaded entry data (null for key 0). |
 | <a id="3"></a>3 | [OverrideEntry_LoadBattleEntries](../functions/OverrideEntry_LoadBattleEntries.md) | V | Only when the dword at 0x1407D453C is not 0: for index 0..15 the row (key, index) of OverrideEntryData, its pointer into rows[index], OverrideEntry_FillUnitEntry into entry index. |
 | <a id="4"></a>4 | [Battle_PlaceEntryUnits](../functions/Battle_PlaceEntryUnits.md) | V | For i = 0..15 with a non-zero entry byte 0: g_CurrentSpawnEntry = entry i and Unit_BuildFromRecord(g_PreviewUnitTable + 512 x i, entry i, 0, 0, rows[i]). |

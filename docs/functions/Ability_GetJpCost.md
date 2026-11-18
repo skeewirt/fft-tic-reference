@@ -26,7 +26,7 @@ Returns the ability's JP cost: the u16 at Ability row +64 (JpCost1 | JpCost2 << 
 
 Also known as AbilityTable_GetJpCost (earlier sheet name). sub_1402B9AD0 subtracts the cost from the unit's per-job JP (unit + 202 + 2 * jobIndex, u16); sub_1402867BC / sub_14028A474 mark an ability learnable (|0x4000) when the unit's JP is not below the cost.
 
-- Correction (J7 report): arguments 2..4 are unused (the signature has no job argument); 7 callers.
+- Correction: arguments 2..4 are unused (the signature has no job argument); 7 callers.
 
 ## Open questions
 

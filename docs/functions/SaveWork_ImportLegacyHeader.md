@@ -14,7 +14,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Behavior
 
-- I (J9, operand scan of the cache and work copy): one of 26 functions that touch the slot cache, the work copy or the auto slot; it writes the summary fields from a legacy header.
+- I (operand scan of the cache and work copy): one of 26 functions that touch the slot cache, the work copy or the auto slot; it writes the summary fields from a legacy header.
 - V (decompile): one caller; uses string copies and memmove into the work copy.
 
 ## State touched

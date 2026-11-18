@@ -23,6 +23,10 @@ Describes the top level of a save file: the list of sections and which schema fi
 
 - Calls: [FieldSchema_Run](FieldSchema_Run.md)
 
+## Referenced by
+
+- Reads tables: [SaveFieldDescriptorLists](../tables/SaveFieldDescriptorLists.md)
+
 ## Notes
 
 Sub-schemas such as SaveWorld_Serialize and SaveJobNew_Serialize are reached from the section descriptors.

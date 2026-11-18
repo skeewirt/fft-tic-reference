@@ -25,7 +25,7 @@ The event system's wait-one-frame primitive: moves on to the next runnable task,
 
 ## Referenced by
 
-- Called by: [BattleMsg_SetCellText](BattleMsg_SetCellText.md), [EventMessage_Scripted](EventMessage_Scripted.md), [sub_1402DF374](sub_1402DF374.md), [sub_14032B1A4](sub_14032B1A4.md), [sub_14032EDB8](sub_14032EDB8.md), [sub_14032F410](sub_14032F410.md), [sub_14032F9F8](sub_14032F9F8.md), [sub_140364408](sub_140364408.md)
+- Called by: [BattleMsg_SetCellText](BattleMsg_SetCellText.md), [EventMessage_Scripted](EventMessage_Scripted.md), [LegacyOptions_DrawTask](LegacyOptions_DrawTask.md), [LegacyOptions_Open](LegacyOptions_Open.md), [ScreenTaskSet_Run](ScreenTaskSet_Run.md), [WindowRect_AnimateCurve](WindowRect_AnimateCurve.md), [sub_1402DF374](sub_1402DF374.md), [sub_14032B1A4](sub_14032B1A4.md), [sub_14032EDB8](sub_14032EDB8.md), [sub_14032F410](sub_14032F410.md), [sub_14032F9F8](sub_14032F9F8.md), [sub_140364408](sub_140364408.md)
 
 ## Notes
 

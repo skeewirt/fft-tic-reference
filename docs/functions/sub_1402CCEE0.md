@@ -32,7 +32,8 @@ Checks the errand state on a world tick: it reads the active errand slots and th
 
 ## Referenced by
 
-- Observed behaviours: [ErrandStateIsSpreadOverFiveStores](../behaviors/ErrandStateIsSpreadOverFiveStores.md)
+- Observed behaviours: [ErrandStateIsSpreadOverFiveStores](../behaviors/ErrandStateIsSpreadOverFiveStores.md), [TodaysCalendarDateIsHeldInEventVariables46And47](../behaviors/TodaysCalendarDateIsHeldInEventVariables46And47.md), [TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage](../behaviors/TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage.md), [TrackedDateLoopsVisitEverySlotBelowTheirBoundAndTheJumpAddsTheYearsToEachOne](../behaviors/TrackedDateLoopsVisitEverySlotBelowTheirBoundAndTheJumpAddsTheYearsToEachOne.md)
+- Reads tables: [CalendarTrackedDates](../tables/CalendarTrackedDates.md)
 
 ## Notes
 

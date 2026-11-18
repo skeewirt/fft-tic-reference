@@ -47,6 +47,7 @@ the formula handler and leaves a 40-byte result record for the apply step. This 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Called by: [Battle_ResolveReaction](Battle_ResolveReaction.md), [Battle_ResolveTargets](Battle_ResolveTargets.md)
 - Observed behaviours: [BattleItemsAreUsedThroughItemAbilities](../behaviors/BattleItemsAreUsedThroughItemAbilities.md), [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md), [FormulaHandlersBranchOnTheAbilityId](../behaviors/FormulaHandlersBranchOnTheAbilityId.md), [FormulaHandlersChooseTheirEffectByAbilityId](../behaviors/FormulaHandlersChooseTheirEffectByAbilityId.md), [FormulaIdsPastTheByte](../behaviors/FormulaIdsPastTheByte.md), [ItemCommandRelation](../behaviors/ItemCommandRelation.md), [SkillsetIdsPastTheByte](../behaviors/SkillsetIdsPastTheByte.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [StockFormulaHandlersAreBlockSequences](../behaviors/StockFormulaHandlersAreBlockSequences.md)
+- Reads tables: [AbilityAux](../tables/AbilityAux.md), [FormulaHandlers](../tables/FormulaHandlers.md), [InflictRecords](../tables/InflictRecords.md), [ItemCategoryTypes](../tables/ItemCategoryTypes.md), [TerrainProperties](../tables/TerrainProperties.md)
 
 ## Notes
 

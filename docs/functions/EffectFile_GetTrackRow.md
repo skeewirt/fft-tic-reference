@@ -24,6 +24,7 @@ Returns the two numbers that locate the data file of one battle effect: its file
 ## Referenced by
 
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
+- Reads tables: [EffectFileLocatorsLang0](../tables/EffectFileLocatorsLang0.md), [EffectFileLocatorsLangOther](../tables/EffectFileLocatorsLangOther.md)
 
 ## Notes
 

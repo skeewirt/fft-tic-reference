@@ -26,6 +26,11 @@ Marks an ability as learned in the current party member's record when the player
 - Calls: [Job_IdToIndex](Job_IdToIndex.md), [Skillset_BuildAbilityList](Skillset_BuildAbilityList.md)
 - Reads: [g_PartyUnits](../globals/g_PartyUnits.md)
 
+## Referenced by
+
+- Observed behaviours: [JobArrayAccessesPutTheRecordPointerInTheIndexRegister](../behaviors/JobArrayAccessesPutTheRecordPointerInTheIndexRegister.md)
+- Reads tables: [JobTable](../tables/JobTable.md)
+
 ## Notes
 
 The current party member is the index in word_141811428. Learning from a menu always succeeds; the learn-chance roll is only in Unit_TryLearnAbility. Its JobTable row guard is the bound 0xAE loaded into a register, then compared.

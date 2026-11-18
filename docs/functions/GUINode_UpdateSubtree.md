@@ -3,7 +3,7 @@
 - **Address:** `0x1403F08C0`
 - **Area:** [UI framework](../areas/ui-framework.md)
 - **Prototype:** `char GUINode_UpdateSubtree(GUINode *node, char force)`
-- **Callers:** component / screen update code (sub_1400F56D8, sub_14013D844, sub_1401AA85B, sub_1401F36A0, ... about 12 callers), itself
+- **Callers:** component / screen update code (sub_1400F56D8, GuideBar_LayoutRow, sub_1401AA85B, sub_1401F36A0, ... about 12 callers), itself
 - **Callees:** GUINode_UpdateColourAndMatrix, sub_1403EF834 (any ancestor dirty), sub_1403F1FAC, sub_1403F2208
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -25,7 +25,7 @@ Recursive per-frame colour / matrix pass over a node and its children (siblings 
 
 ## Referenced by
 
-- Called by: [GUIWidget_UpdateComponentsJob](GUIWidget_UpdateComponentsJob.md), [sub_14013D844](sub_14013D844.md), [sub_14013DD70](sub_14013DD70.md)
+- Called by: [GUIWidget_UpdateComponentsJob](GUIWidget_UpdateComponentsJob.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [sub_14013DD70](sub_14013DD70.md)
 
 ## Notes
 

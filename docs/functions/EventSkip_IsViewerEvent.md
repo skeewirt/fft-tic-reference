@@ -15,7 +15,7 @@ The second way an event becomes skippable: event variable 508 set (an event star
 ## Behavior
 
 - V: returns true when SceneVar_Read(508) is non-zero, SceneVar_Read(39) - 410 is above 15 (unsigned), and dword_141849E10 is 0; otherwise false.
-- V: the two writers of event variable 508 = 1 found here, sub_1402D2578 and sub_1402D28C8, also write event variable 39 (the event number), set both dwords of g_EventSkipFlags to 1 and set dword_141849E10 to (sub_14033D840(event) != -1).
+- V: the two writers of event variable 508 = 1 found here, EventViewer_EntryPage and sub_1402D28C8, also write event variable 39 (the event number), set both dwords of g_EventSkipFlags to 1 and set dword_141849E10 to (EventChain_Find(event) != -1).
 - I: sub_1402D28C8 is reached from a menu handler (sub_140169404) that starts an event by number and keeps a return value in dword_142FF9F4C, which SceneTransition_CheckTables later writes back to variable 39: an event replay / viewer path. In normal story play variable 508 is expected to be 0, so this branch is false.
 
 ## State touched

@@ -26,6 +26,7 @@ Scores the 1 to 3 units sent on an errand and sets the party grade (0 best, 2 wo
 ## Referenced by
 
 - Called by: [Errand_ComputeRewards](Errand_ComputeRewards.md)
+- Reads tables: [ErrandBlob](../tables/ErrandBlob.md), [ErrandJobFitCategory](../tables/ErrandJobFitCategory.md), [ErrandJobFitType](../tables/ErrandJobFitType.md)
 
 ## Notes
 

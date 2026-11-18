@@ -22,6 +22,10 @@ Fills the job screen's detail panel for a job: the skillset header row and the f
 
 - Calls: [JobRecord_FromJobId](JobRecord_FromJobId.md), [JobScreen_BuildJobTabRows](JobScreen_BuildJobTabRows.md), [sub_140367AA0](sub_140367AA0.md)
 
+## Referenced by
+
+- Reads tables: [JobTable](../tables/JobTable.md)
+
 ## Notes
 
 The row bound 0xAE is built in a register as 0x40 + 0x6E by a 3-byte instruction; a job id at or above it gets no header skillset (0), and the tab rows then fault in Job_BuildTabAbilityList.

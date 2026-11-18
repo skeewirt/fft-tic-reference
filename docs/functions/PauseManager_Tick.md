@@ -26,6 +26,7 @@ Ticks the pause overlay: when a pause is on the stack, loads its duration from N
 ## Referenced by
 
 - Called by: [EventControl_PausedTick](EventControl_PausedTick.md)
+- Reads tables: [NxdDataPause](../tables/NxdDataPause.md)
 
 ## Notes
 

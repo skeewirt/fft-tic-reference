@@ -3,7 +3,7 @@
 - **Address:** `0x140270CE4`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int Battle_BuildRosterTeam(uint8_t *spawnList, int a2)`
-- **Callers:** `sub_1403044EC` (`0x140304741`, battle scene task phase 8), `sub_14030476C` (`0x140304AE7`,
+- **Callers:** `BattleLoad_StepFresh` (`0x140304741`, battle scene task phase 8), `sub_14030476C` (`0x140304AE7`,
 - **Callees:** `UnitWork_BuildFromSaveIndex`, `Unit_ResolvePreviewShape`, `sub_140271178`, `sub_1403041A4`,
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -39,7 +39,8 @@ list, one team at a time. This is the function that places units on the two side
 
 ## Referenced by
 
-- Called by: [sub_1403044EC](sub_1403044EC.md), [sub_14030476C](sub_14030476C.md)
+- Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [sub_14030476C](sub_14030476C.md)
+- Observed behaviours: [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md), [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md)
 
 ## Notes
 

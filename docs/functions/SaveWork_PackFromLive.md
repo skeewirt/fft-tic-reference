@@ -14,10 +14,10 @@ Fills the save work copy (`g_SaveWorkCurrent`, 40164 bytes) from the live game s
 
 ## Behavior
 
-- V (J9, decompile): writes the summary at slot +256..+290: job (+274, from the argument), level (+275), month/day, location (+278, SceneVar 49), version, language, game-cleared, difficulty, new-game-plus, main progress, play time.
+- V (decompile): writes the summary at slot +256..+290: job (+274, from the argument), level (+275), month/day, location (+278, SceneVar 49), version, language, game-cleared, difficulty, new-game-plus, main progress, play time.
 - V: builds four 32-byte sprite records (+292..+419) via PreviewUnit_BuildRecord: the first unit whose marker byte is 1..3, then present units in slots 50..53.
 - V: copies the 54 unit records of 600 bytes to work +1304 + 600*n and the 160-byte `g_UnitJobFlags` block (146 bytes used) to +38604.
-- V (J9): chk_sum (+420..+435) and the pad byte +287 are not written (0xFF in the owner's saves).
+- V: chk_sum (+420..+435) and the pad byte +287 are not written (0xFF in the owner's saves).
 
 ## State touched
 
@@ -27,11 +27,12 @@ Fills the save work copy (`g_SaveWorkCurrent`, 40164 bytes) from the live game s
 ## Referenced by
 
 - Called by: [SaveWork_PackFromParty](SaveWork_PackFromParty.md)
-- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [CheckpointCopyHoldsTheLiveUnitRecords](../behaviors/CheckpointCopyHoldsTheLiveUnitRecords.md)
+- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [CheckpointCopyHoldsTheLiveUnitRecords](../behaviors/CheckpointCopyHoldsTheLiveUnitRecords.md), [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md), [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md), [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md), [TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage](../behaviors/TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage.md)
+- Reads tables: [UnitJobFlags](../tables/UnitJobFlags.md), [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes
 
-The only caller is the tail jump from SaveWork_PackFromParty, which covers all 5 pack paths; a post-pack hook there writes the class fallback (J9 H1). J7 proposed this name.
+The only caller is the tail jump from SaveWork_PackFromParty, which covers all 5 pack paths.
 
 ## Open questions
 

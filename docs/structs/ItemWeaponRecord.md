@@ -25,6 +25,7 @@ The 8-byte weapon sub-record of an item whose category kind is 0 or 5 (sub_1402B
 
 ## Referenced by
 
+- Described by tables: [ItemWeaponRecords](../tables/ItemWeaponRecords.md), [ItemWeaponRecordsHigh](../tables/ItemWeaponRecordsHigh.md)
 - Observed behaviours: [AttackWeaponReach](../behaviors/AttackWeaponReach.md)
 
 ## Notes

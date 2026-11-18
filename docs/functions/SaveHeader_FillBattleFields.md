@@ -27,6 +27,10 @@ Fills the battle-specific fields of the autosave payload header: the kind, the p
 
 - Calls: [SceneVar_Read](SceneVar_Read.md), [sub_1402CD168](sub_1402CD168.md), [PreviewUnit_BuildRecord](PreviewUnit_BuildRecord.md)
 
+## Referenced by
+
+- Observed behaviours: [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md), [PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId](../behaviors/PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId.md), [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md)
+
 ## Notes
 
 Whole function read (717 bytes).

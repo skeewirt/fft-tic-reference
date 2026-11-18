@@ -18,7 +18,7 @@ True when the Job row of the unit's job byte (unit+3) has jobtype +24 == 31.
 
 ## Referenced by
 
-- Called by: [sub_140271AC0](sub_140271AC0.md)
+- Called by: [MoveFind_TakeItem](MoveFind_TakeItem.md), [sub_140271AC0](sub_140271AC0.md)
 
 ## Notes
 

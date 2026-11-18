@@ -2,7 +2,7 @@
 
 Pointer polling and input state.
 
-Functions: 15, Structures: 2, Globals: 1.
+Functions: 15, Structures: 11, Globals: 1, Tables: 9.
 
 ## Functions (15)
 
@@ -24,15 +24,38 @@ Functions: 15, Structures: 2, Globals: 1.
 | [PauseManager_Push](../functions/PauseManager_Push.md) | `0x1400B4618` | Pushes a pause id onto the PauseManager's small stack (max depth 3), applying the previous top's "off" controls and the new top's "on" controls. |
 | [PauseManager_Tick](../functions/PauseManager_Tick.md) | `0x1400B467C` | Ticks the pause overlay: when a pause is on the stack, loads its duration from NXD table 282 into the remaining-time float. |
 
-## Structures (2)
+## Structures (11)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [InputActionRow](../structs/InputActionRow.md) | 48 | One action of the input module (g_InputModule + 1360 + 48 * action id, 256 rows; ids are UIKeyAssign keys): three 16-byte bindings, the pad button first, then two keys. |
 | [InputStateAxes](../structs/InputStateAxes.md) | 1352 | The analog part of the 0x548-byte input state that the UI listeners receive (copied whole by sub_1400EFB50 and by GUICore_OnInputState): four signed stick bytes, two trigger bytes and the button dwords. |
+| [KeyRepeatPreset](../structs/KeyRepeatPreset.md) | 6 | One row of the KeyRepeatPresets table. |
+| [NxdDataUIKeyAssignRow](../structs/NxdDataUIKeyAssignRow.md) | 48 | One row of the nxd.ui_key_assign table (data table). |
+| [NxdDataUIKeyboardKeyIconRow](../structs/NxdDataUIKeyboardKeyIconRow.md) | 8 | One row of the nxd.ui_keyboard_key_icon table (data table). |
+| [NxdDataUIKeyboardLayoutRow](../structs/NxdDataUIKeyboardLayoutRow.md) | 16 | One row of the nxd.ui_keyboard_layout table (data table). |
+| [NxdDataUIKeyboardTypeRow](../structs/NxdDataUIKeyboardTypeRow.md) | 28 | One row of the nxd.ui_keyboard_type table (data table). |
+| [NxdDataUIKeyConfigRow](../structs/NxdDataUIKeyConfigRow.md) | 16 | One row of the nxd.ui_key_config table (data table). |
+| [NxdDataUIKeyDefineRow](../structs/NxdDataUIKeyDefineRow.md) | 32 | One row of the nxd.ui_key_define table (data table). |
+| [NxdDataUIPadDefineRow](../structs/NxdDataUIPadDefineRow.md) | 16 | One row of the nxd.ui_pad_define table (data table). |
+| [NxdDataUIPadGuideRow](../structs/NxdDataUIPadGuideRow.md) | 44 | One row of the nxd.ui_pad_guide table (data table). |
 
 ## Globals (1)
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
 | [g_InputModule](../globals/g_InputModule.md) | `0x143CD9EE8` | `void *` | The UI input module: a copy of the device state at +8, 256 action rows of 48 bytes at +1360 (record InputActionRow), the context mask at +13720. |
+
+## Tables (9)
+
+| Name | Storage | NXD table id | Rows | Summary |
+|---|---|---|---|---|
+| [KeyRepeatPresets](../tables/KeyRepeatPresets.md) | Executable |  | 8 rows of 6 bytes | Key-repeat timing presets, one row per value of a 3-bit input option. |
+| [NxdDataUIKeyAssign](../tables/NxdDataUIKeyAssign.md) | NXD file | 25 | 256 rows of 48 bytes | Key assignment table (256): main and alternate key codes. |
+| [NxdDataUIKeyboardKeyIcon](../tables/NxdDataUIKeyboardKeyIcon.md) | NXD file | 332 | 167 rows of 8 bytes | Keyboard key icon map (167). |
+| [NxdDataUIKeyboardLayout](../tables/NxdDataUIKeyboardLayout.md) | NXD file | 328 | 26 rows of 16 bytes | Keyboard layouts (26). |
+| [NxdDataUIKeyboardType](../tables/NxdDataUIKeyboardType.md) | NXD file | 327 | 6 rows of 28 bytes | Keyboard types (6). |
+| [NxdDataUIKeyConfig](../tables/NxdDataUIKeyConfig.md) | NXD file | 331 | 12 rows of 16 bytes | Key configuration groups (12). |
+| [NxdDataUIKeyDefine](../tables/NxdDataUIKeyDefine.md) | NXD file | 35 | 256 rows of 32 bytes | Key definition table (256). |
+| [NxdDataUIPadDefine](../tables/NxdDataUIPadDefine.md) | NXD file | 28 | 61 rows of 16 bytes | Pad button definitions (61). |
+| [NxdDataUIPadGuide](../tables/NxdDataUIPadGuide.md) | NXD file | 278 | 15 rows of 44 bytes | Pad guide layouts (15). |

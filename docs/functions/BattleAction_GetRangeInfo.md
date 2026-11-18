@@ -31,6 +31,7 @@ Chooses how an action acquires its range and area: the item path for the item-li
 ## Referenced by
 
 - Called by: [Battle_ResolveReaction](Battle_ResolveReaction.md)
+- Reads tables: [CommandKind](../tables/CommandKind.md)
 
 ## Notes
 

@@ -31,6 +31,7 @@ Maps a unit job and its variant byte to the face index the portrait and unit pan
 ## Referenced by
 
 - Observed behaviours: [UnitFaceIndexReadsTheTableAfterTheHdTable](../behaviors/UnitFaceIndexReadsTheTableAfterTheHdTable.md)
+- Reads tables: [PartyFaceIndex](../tables/PartyFaceIndex.md), [SpriteHdEntryByShape](../tables/SpriteHdEntryByShape.md)
 
 ## Notes
 

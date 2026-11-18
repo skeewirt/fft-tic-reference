@@ -23,8 +23,9 @@ Maps a scene sprite id (the value Unit_GetSpriteSetId hands to event and scene c
 ## Referenced by
 
 - Appears in flows: [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md)
-- Called by: [Unit_GetSpriteSetId](Unit_GetSpriteSetId.md), [sub_1402F8684](sub_1402F8684.md), [sub_140300768](sub_140300768.md), [sub_140338A28](sub_140338A28.md), [sub_1403980AC](sub_1403980AC.md)
+- Called by: [Unit_GetSpriteSetId](Unit_GetSpriteSetId.md), [sub_1402F8684](sub_1402F8684.md), [sub_140300768](sub_140300768.md), [sub_140338A28](sub_140338A28.md), [sub_140376040](sub_140376040.md), [sub_1403980AC](sub_1403980AC.md)
 - Observed behaviours: [FaceLookupInlineCopiesDisagreeAboveCode159](../behaviors/FaceLookupInlineCopiesDisagreeAboveCode159.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md), [SpriteTablesEndAtSprite169](../behaviors/SpriteTablesEndAtSprite169.md), [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md)
+- Reads tables: [FaceSlotShapeIds](../tables/FaceSlotShapeIds.md), [SceneSpriteToFace](../tables/SceneSpriteToFace.md)
 
 ## Notes
 

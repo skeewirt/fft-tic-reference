@@ -24,6 +24,10 @@ Describes the world part of a save: the 54 unit slots and the party item, shop, 
 
 - Calls: [FieldSchema_Run](FieldSchema_Run.md)
 
+## Referenced by
+
+- Reads tables: [SaveFieldDescriptorLists](../tables/SaveFieldDescriptorLists.md)
+
 ## Notes
 
 A save holds 54 unit slots in this build.

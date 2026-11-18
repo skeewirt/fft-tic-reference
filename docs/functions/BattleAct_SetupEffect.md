@@ -32,10 +32,11 @@ byte from `g_AbilityAnim`, combines it with the ability element and calls the ef
 
 - Called by: [Battle_ExecuteAction](Battle_ExecuteAction.md)
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
+- Reads tables: [AbilityAnim](../tables/AbilityAnim.md)
 
 ## Notes
 
-`g_AbilityAnim` is `0x140672DA0`, 3 bytes per row (charge, motion, battle text), 454 rows (X3 sheet).
+`g_AbilityAnim` is `0x140672DA0`, 3 bytes per row (charge, motion, battle text), 454 rows.
 The same charge byte is used by `sub_140206C14` to pick a cast motion.
 
 ## Open questions

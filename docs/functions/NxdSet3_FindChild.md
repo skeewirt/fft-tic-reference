@@ -24,7 +24,7 @@ Finds the child record of a key2 inside one triple-keyed set: binary search over
 
 ## Referenced by
 
-- Called by: [NxdTable_GetEntryByKeysIndex3](NxdTable_GetEntryByKeysIndex3.md), [NxdTable_GetLeafCount3](NxdTable_GetLeafCount3.md)
+- Called by: [MapMesh_FindNodeRows](MapMesh_FindNodeRows.md), [NxdTable_GetEntryByKeysIndex3](NxdTable_GetEntryByKeysIndex3.md), [NxdTable_GetLeafCount3](NxdTable_GetLeafCount3.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes

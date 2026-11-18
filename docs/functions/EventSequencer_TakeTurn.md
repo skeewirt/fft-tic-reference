@@ -16,7 +16,7 @@ Waits for the shared sequencer to be free, claims it by writing the caller's tag
 
 - V: while dword_140D408B8 or dword_140D408BC is non-zero, calls SceneTask_WaitFrame.
 - V: writes the argument (the tag) to dword_140D408B8. This is the claim.
-- V: while dword_140D408B8 is non-zero, calls SceneTask_WaitFrame. Nothing in this routine writes it back to zero; other code releases it. sub_140234360 clears it with a value taken from a callback result, and sub_140243A60 and sub_1403044EC also write it (not traced here).
+- V: while dword_140D408B8 is non-zero, calls SceneTask_WaitFrame. Nothing in this routine writes it back to zero; other code releases it. sub_140234360 clears it with a value taken from a callback result, and sub_140243A60 and BattleLoad_StepFresh also write it (not traced here).
 - V: when word_140D408F8 is 1 after the release, calls SceneTask_Terminate, which ends the calling task. Otherwise it returns.
 - V: the return value is whatever the last wait left in the result register; no value is set on purpose.
 

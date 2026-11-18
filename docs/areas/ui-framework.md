@@ -2,9 +2,9 @@
 
 GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.
 
-Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flows: 1, Observed behaviours: 11.
+Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flows: 4, Observed behaviours: 19, Tables: 234.
 
-## Functions (421)
+## Functions (552)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -13,14 +13,56 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [BattleMsg_BannerHandlerB](../functions/BattleMsg_BannerHandlerB.md) | `0x1400E8A84` | Second handler body on the banner path: like BattleMsg_BannerHandlerA it calls UIMessageBanner_Show with the battle banner object, the descriptor and the enable flag after its agent's vfunc +16 test. |
 | [BattleMsg_InitHandlerTable](../functions/BattleMsg_InitHandlerTable.md) | `0x1400E28D0` | Fills an object's battle-message handler slots from the table based at a1+2528. |
 | [BattleMsg_ShowPrompt](../functions/BattleMsg_ShowPrompt.md) | `0x1400EE908` | Builds a class 1 / subtype 27 message descriptor from a dword of the object and shows it in the banner; then calls sub_140111B74 twice. |
+| [ButtonIcon_Draw](../functions/ButtonIcon_Draw.md) | `0x1402BE284` | Draws one animated button icon: the sprite pieces of an icon group with a press animation. |
+| [ClassicCursorRows_Select](../functions/ClassicCursorRows_Select.md) | `0x14036E28C` | Moves the cursor of a legacy menu to the row chosen in the state record. |
+| [ClassicItemListPage_Run](../functions/ClassicItemListPage_Run.md) | `0x140393E70` | Legacy party menu item list page: draws the list body and its header. |
+| [ClassicItemUsePage_Run](../functions/ClassicItemUsePage_Run.md) | `0x1403934B0` | Legacy party menu item use page: picks an item and applies it to a unit. |
+| [ClassicJobDetailPage_Run](../functions/ClassicJobDetailPage_Run.md) | `0x140392DB8` | Legacy party menu job detail page: four pages of the chosen job with page switching. |
+| [ClassicListPage_BuildRangeList](../functions/ClassicListPage_BuildRangeList.md) | `0x14037B8FC` | Builds the list of entry ids of the current category of a legacy list page and hands it to the list drawer. |
+| [ClassicMenu_LoadPageArtPack](../functions/ClassicMenu_LoadPageArtPack.md) | `0x140343770` | Loads the art pack of a legacy menu page (0..5) into the shared menu texture buffer. |
+| [ClassicPartyMenu_Run](../functions/ClassicPartyMenu_Run.md) | `0x14033E4C4` | Per-frame driver of the legacy party menu: prepares the shared header state and runs the handler of the current mode. |
+| [ClassicUi_OpAnimatedFrame](../functions/ClassicUi_OpAnimatedFrame.md) | `0x140390744` | Opcode 18: a window frame that grows open over the first 8 page redraws. |
+| [ClassicUi_OpDrawCell](../functions/ClassicUi_OpDrawCell.md) | `0x1403901D4` | Opcodes 4 and 5: queues one sprite cell. |
+| [ClassicUi_OpDrawNumber](../functions/ClassicUi_OpDrawNumber.md) | `0x140390BA4` | Opcode 13: draws a number or a row of gauge cells for a value supplied by the page. |
+| [ClassicUi_OpIf](../functions/ClassicUi_OpIf.md) | `0x140390024` | Opcode 1: runs the next records only when a page condition holds, otherwise skips them. |
+| [ClassicUi_OpIfElse](../functions/ClassicUi_OpIfElse.md) | `0x1403900D4` | Opcode 2: as opcode 1 with an else branch. |
+| [ClassicUi_OpSetBlendWord](../functions/ClassicUi_OpSetBlendWord.md) | `0x140390B0C` | Opcode 12: composes the blend and mode word of the following cells. |
+| [ClassicUi_OpSetLayer](../functions/ClassicUi_OpSetLayer.md) | `0x1403901C0` | Opcode 14: sets the layer word used by the following cells. |
+| [ClassicUi_OpSetPriority](../functions/ClassicUi_OpSetPriority.md) | `0x140390B88` | Opcode 15: sets the draw priority word unless a plate is being built. |
+| [ClassicUi_OpSetTexturePageA](../functions/ClassicUi_OpSetTexturePageA.md) | `0x140390A44` | Opcode 9: sets the texture page and palette word used by the following cells. |
+| [ClassicUi_OpSetTexturePageB](../functions/ClassicUi_OpSetTexturePageB.md) | `0x140390A90` | Opcode 10: as opcode 9 with a second set of arguments for an alternate display mode. |
+| [ClassicUi_OpTileGrid](../functions/ClassicUi_OpTileGrid.md) | `0x140390800` | Opcode 17: fills a rectangle with 8 x 8 tiles. |
+| [ClassicUi_OpWindowFrame](../functions/ClassicUi_OpWindowFrame.md) | `0x140390294` | Opcode 0: draws a bordered window of a given size at a position. |
+| [ClassicUi_RunLayoutScript](../functions/ClassicUi_RunLayoutScript.md) | `0x14038FFB8` | Runs one layout script of the legacy menus: a list of records that draw windows, cells and numbers. |
 | [ComponentDrawContext_Build](../functions/ComponentDrawContext_Build.md) | `0x1403EDCA4` | Creates the child draw context of a component: copy of the parent (0x258 bytes), composed matrix, opacity and colour. |
 | [ComponentEffects_Collect](../functions/ComponentEffects_Collect.md) | `0x1403E809C` | Copies every enabled effect group of the component's property block into the draw context and reports whether an offscreen layer is needed. |
 | [ComponentLayer_Begin](../functions/ComponentLayer_Begin.md) | `0x1403E8FA4` | Decides whether a component needs its own offscreen layer and opens it. |
 | [ComponentLayer_DrawMaskComponent](../functions/ComponentLayer_DrawMaskComponent.md) | `0x1403E647C` | Draws a component's mask component (ctx+392, with the Mask node as its property block ctx+400) into a fresh layer record; called by ComponentLayer_Begin the first time a layer with a mask is opened. |
+| [ConfigMenu_ConfirmDiscard](../functions/ConfigMenu_ConfirmDiscard.md) | `0x14018E650` | Opens UIDialog 63 when settings changes are pending and Back is pressed. |
+| [ConfigMenu_DrawRowValue](../functions/ConfigMenu_DrawRowValue.md) | `0x140190194` | Draws a row's value by item type, optionally stepping it first. |
+| [ConfigMenu_EnableRowWidgets](../functions/ConfigMenu_EnableRowWidgets.md) | `0x140193A20` | Enables or disables a row's arrows, slider and switch collisions. |
+| [ConfigMenu_LockList](../functions/ConfigMenu_LockList.md) | `0x140193958` | Turns the row list's input off or on (gadget +128, the rows' widgets, the tab collisions). |
+| [ConfigMenu_OnDefaultsConfirm](../functions/ConfigMenu_OnDefaultsConfirm.md) | `0x140194C00` | Answer of the screen's own confirm window (0 = do it, anything else = cancel): hides the window and returns the screen to its list. |
+| [ConfigMenu_ReadSettings](../functions/ConfigMenu_ReadSettings.md) | `0x14018C72C` | Reads the game settings' values per ConfigItem id into +648 of the add-on, every frame. |
+| [ConfigMenu_SetHelpText](../functions/ConfigMenu_SetHelpText.md) | `0x1401928AC` | Sets the help line (the Text part of Config/TextArea) from the item's help text id. |
+| [ConfigMenu_SetTabTitles](../functions/ConfigMenu_SetTabTitles.md) | `0x14018E6CC` | Sets the tab button titles from the ConfigCategory rows and the MainTab header. |
+| [ConfigMenu_ShowTab](../functions/ConfigMenu_ShowTab.md) | `0x14018EA74` | Fills the row list of a tab from its ConfigCategory and sets the tab states and header. |
+| [ConfigMenu_UpdateFooter](../functions/ConfigMenu_UpdateFooter.md) | `0x140192790` | Chooses the guide bar key (UIButtonGuide row) for the current row and state. |
+| [ConfirmWindow_Layout](../functions/ConfirmWindow_Layout.md) | `0x14029C9E8` | Lays the window out from its dialog row. |
+| [ConfirmWindow_OnInput](../functions/ConfirmWindow_OnInput.md) | `0x14029ECF8` | Input of the confirm window (its vtable +64). |
+| [ConfirmWindow_SetArgs](../functions/ConfirmWindow_SetArgs.md) | `0x14029C9A8` | Copies the message arguments from a vector {allocator, begin, end, capacity}. |
+| [ConfirmWindow_SetDialog](../functions/ConfirmWindow_SetDialog.md) | `0x14029C6E0` | Loads a UIDialog row into the confirm window gadget. |
+| [ConfirmWindow_ShowHide](../functions/ConfirmWindow_ShowHide.md) | `0x14029CE9C` | Shows or hides the confirm window. |
+| [CursorFrame_FromCycle](../functions/CursorFrame_FromCycle.md) | `0x1402E30A4` | Returns the animation frame of the screen cursor for the current tick. |
 | [EquipDetail_Refresh](../functions/EquipDetail_Refresh.md) | `0x14029F950` | Refreshes the item detail panel for one selected item: it builds the item's large picture path, then binds the picture and the item name to the panel's parts. |
 | [EquipDetail_SetHelpText](../functions/EquipDetail_SetHelpText.md) | `0x1402A0A08` | Writes one help line of the equipment detail panel: line 0 = the item's description from Item-en, line 1 = three lines built by sub_1402A0E58, line 2 = weapon notes. |
+| [EquipScreen_InitVram](../functions/EquipScreen_InitVram.md) | `0x14033DE68` | Uploads the palette and strips of the equipment screen to VRAM and resets the equipment lists. |
 | [FontPaletteBlock_Equals](../functions/FontPaletteBlock_Equals.md) | `0x1403DCB8C` | Equality test of two font palette blocks (the first 68 bytes of the 80-byte UIFontSet row) used to find an existing SDFPalette entry before appending a new one. |
 | [FreeCursor_StepFromSticks](../functions/FreeCursor_StepFromSticks.md) | `0x14016D440` | Moves a screen-space pointer (the finger cursor) from the left stick or from four direction actions and hit-tests what is under it. |
+| [GradientWindow_ColourFromPaletteA](../functions/GradientWindow_ColourFromPaletteA.md) | `0x140220640` | Colours the 12 vertices of a gradient window from palette A. |
+| [GradientWindow_ColourFromPaletteB](../functions/GradientWindow_ColourFromPaletteB.md) | `0x1402206A8` | As GradientWindow_ColourFromPaletteA with palette B (0x142FEC4F0). |
+| [GridAvailability_Reset](../functions/GridAvailability_Reset.md) | `0x1402FC6D8` | Resets the availability flags of the grid screen entries. |
+| [GridScreen_Task](../functions/GridScreen_Task.md) | `0x1402FC870` | Task of the legacy grid screen screen: a grid of five columns of unit portraits with a cursor and a help window. |
 | [GUIAddon_OnStateEvent](../functions/GUIAddon_OnStateEvent.md) | `0x14040A664` | Shared owner handler for the keyframe events (type 40) a state posts: acts on the state entry the event points at (sound triggers, nested state links, state resets, part triggers). |
 | [GUIBounds_ExpandByPoint](../functions/GUIBounds_ExpandByPoint.md) | `0x1403DF670` | Grows the double-precision draw bounds in the renderer (r+152..+176) to include one float point. |
 | [GUICollisionNode_ContainsPoint](../functions/GUICollisionNode_ContainsPoint.md) | `0x1403FDCC8` | The Collision node's shape test, in the node's local space. |
@@ -88,6 +130,9 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [GUICursorHand_GetTargetPoint](../functions/GUICursorHand_GetTargetPoint.md) | `0x1401D2FF8` | The hand's rest position for the focused component (left edge + hand+80, vertical centre + hand+84), or the screen centre (960, 540) when nothing is focused. |
 | [GUICursorHand_StepToward](../functions/GUICursorHand_StepToward.md) | `0x1401D37D8` | One step of the hand's travel: pos = roundf(pos + (target - pos) * k), per axis, written to the hand node. |
 | [GUICursorHand_Update](../functions/GUICursorHand_Update.md) | `0x1401D2B00` | Per-frame update of the pointing-hand cursor: finds the focused component, computes where the hand belongs and moves it there. |
+| [GuideBar_Layout](../functions/GuideBar_Layout.md) | `0x14013D758` | Rebuilds the guide bar: hides and resets all 8 slots, then lays out the visible rows of table 33 in two passes (left-aligned, then right-aligned). |
+| [GuideBar_LayoutRow](../functions/GuideBar_LayoutRow.md) | `0x14013D844` | Configures one guide slot for table 33 row `row`: sets the text, the up to four button icons (keyboard / pad variants), places the slot at x and starts its on-animation. |
+| [GuideBar_SetPage](../functions/GuideBar_SetPage.md) | `0x14013D5F4` | Selects the page of the button-guide bar: sets table key (+2224) and enabled-row bitmask (+2228) and rebuilds it with GuideBar_Layout. |
 | [GuideWindow_ShowPage](../functions/GuideWindow_ShowPage.md) | `0x14017D668` | Shows one page of an in-game guide: the GuidePage-en row (guide, page) gives the title, the text and an optional icon; the guide's page count is the size of its set. |
 | [GUIFactory_FreeSlotGroup](../functions/GUIFactory_FreeSlotGroup.md) | `0x1403FECD0` | Returns a slot group to the pool: clears its occupancy bit, runs the group's destructor and, every time the live count crosses 32 modulo 64, drops empty pages. |
 | [GUIFontRenderer_UploadPalette](../functions/GUIFontRenderer_UploadPalette.md) | `0x1403EDEA4` | Finds or appends an entry for a font palette block and writes it to the GPU structured buffer SDFPalette (192 bytes per entry) read by shader/SDFFont.tec. |
@@ -179,6 +224,8 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [GUIRenderer_RunDeferredDraws](../functions/GUIRenderer_RunDeferredDraws.md) | `0x1403E6348` | After the frame's UI commands are recorded, calls each deferred draw callback registered in the renderer. |
 | [GUISlotVec16_Insert](../functions/GUISlotVec16_Insert.md) | `0x1403EE77C` | Inserts a 16-byte record into a std::vector-like container (allocator, begin, end, cap): reuses the first record whose first qword is 0, otherwise appends (growing by 1.5x). |
 | [GUISlotVec32_Insert](../functions/GUISlotVec32_Insert.md) | `0x1403EE918` | The 32-byte-record twin of GUISlotVec16_Insert (used for the kind-2 texture-part vector). |
+| [GUISwitch_SetOff](../functions/GUISwitch_SetOff.md) | `0x14040ABDC` | Sets a switch node off: plays its state and posts event 22 (constant at 0x140723390). |
+| [GUISwitch_SetOn](../functions/GUISwitch_SetOn.md) | `0x14040AB40` | Sets a switch node on: plays its state and posts event 21. |
 | [GUIText_DecodeUtf8](../functions/GUIText_DecodeUtf8.md) | `0x1403D8510` | Decodes one UTF-8 sequence (up to the old 6-byte form) into a code point and returns the pointer after it; the text layout's character reader. |
 | [GUIText_Expand](../functions/GUIText_Expand.md) | `0x1403F0B10` | Runs the text formatter (qword_143CD9C00) over text with the argument vector (264-byte records) into out; returns 1 on success. |
 | [GUITextBoard_CacheAuthoredBox](../functions/GUITextBoard_CacheAuthoredBox.md) | `0x14040E59C` | Once per component, snapshots the text node's authored rectangle and the component's authored size, the baseline GUITextBoardComponent_Update uses when it refits the board around the text. |
@@ -230,6 +277,8 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [GUIWidget_Show](../functions/GUIWidget_Show.md) | `0x1403F930C` | Marks a widget shown and plays the Show state of its root component (Hide state stopped); posts owner event 5. |
 | [GUIWidget_Tick](../functions/GUIWidget_Tick.md) | `0x1403FC14C` | Per-frame update of one widget: rebuilds the node lists when flagged, delivers the pending-ready event, ticks the main component, and posts the update event 4 to the widget's owners. |
 | [GUIWidget_UpdateComponentsJob](../functions/GUIWidget_UpdateComponentsJob.md) | `0x1403F94EC` | Work-stealing worker: updates the node tree of the widget's components in chunks of 16, so several threads can share one widget's component vector. |
+| [ImageDissolve_Step](../functions/ImageDissolve_Step.md) | `0x140372518` | One step of a dissolve that reveals an image through scattered pixels. |
+| [Input_PauseFor](../functions/Input_PauseFor.md) | `0x1400F1C5C` | Makes the input module ignore input for a time. |
 | [Inventory_BuildEquipList](../functions/Inventory_BuildEquipList.md) | `0x140288B94` | Builds the candidate list of items a unit may take from one menu group, in id order, and then orders that list either by a sort field or by the saved user order. |
 | [Item_BuildAttributeLines](../functions/Item_BuildAttributeLines.md) | `0x14029F710` | Appends the equipment attribute lines of an item to the detail panel: the five stat bonuses, the move and jump bonuses and the element list. |
 | [ItemCell_BindIconAndName](../functions/ItemCell_BindIconAndName.md) | `0x14029BEC4` | Binds an item's icon image and name text to a cell's parts; a missing Item-en row leaves both unset. |
@@ -245,6 +294,16 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [KeyTrack_FindKey](../functions/KeyTrack_FindKey.md) | `0x14040222C` | Binary search in a keyframe track: returns the index of the last key whose frame (u16 at key+0) is <= frame, or -1 when every key is later. |
 | [KeyTrackBool_Eval](../functions/KeyTrackBool_Eval.md) | `0x1403F4604` | Evaluates the boolean (visibility) track of a UIB state at an integer frame; the result drives node byte +144. |
 | [KeyTrackVec2_Eval](../functions/KeyTrackVec2_Eval.md) | `0x140407C18` | Evaluates a two-float keyframe track (the scale track of a UIB state) at a frame: finds the key, eases between it and the next key with UIAnim_Curve and writes the interpolated pair. |
+| [LegacyMenu_BuildLocationList](../functions/LegacyMenu_BuildLocationList.md) | `0x1402B276C` | Builds the legacy location menu's list of unlocked world map locations. |
+| [LegacyMenu_InitWorld](../functions/LegacyMenu_InitWorld.md) | `0x1402B2EB0` | Initialises the legacy world menu: loads its text resource and picks the screen state block of the current text language. |
+| [LegacyMenu_LoadRowList](../functions/LegacyMenu_LoadRowList.md) | `0x1402B29D8` | Loads the row id list of the legacy menu named by the screen block into the live row array and starts the menu command screen. |
+| [LegacyMenu_PickLocation](../functions/LegacyMenu_PickLocation.md) | `0x1402B28B0` | Confirms the highlighted location of the legacy location menu. |
+| [LegacyMenu_StoreRow](../functions/LegacyMenu_StoreRow.md) | `0x1402378C8` | Stores the row chosen in the current legacy menu into the acting unit's row memory, for the menus that remember it. |
+| [LegacyMenuTasks_Run](../functions/LegacyMenuTasks_Run.md) | `0x1402B4570` | Task body of the legacy menu panes: keeps three pane tasks in step with the menu state. |
+| [LegacyOptions_DrawTask](../functions/LegacyOptions_DrawTask.md) | `0x140364FAC` | Task that draws the legacy options window and handles its cursor. |
+| [LegacyOptions_Open](../functions/LegacyOptions_Open.md) | `0x140364D2C` | Opens the legacy options screen: unpacks the option word into the 12 live choices. |
+| [LegacyOptions_RowTask](../functions/LegacyOptions_RowTask.md) | `0x140365F34` | Task that edits one option row of the legacy options screen and packs the choices back. |
+| [LegacyTask12_Build](../functions/LegacyTask12_Build.md) | `0x14039A518` | Scene task 12: builds the plates and number fields of a battle-side panel from per-language cell lists. |
 | [ListScroll_HandleStick](../functions/ListScroll_HandleStick.md) | `0x14028E5D0` | Mouse wheel or right stick scrolls a component list by whole rows, independent of the cursor. |
 | [ListScroll_Step](../functions/ListScroll_Step.md) | `0x14028E720` | Scrolls a component list vertically by rows x row height, then re-homes the focus when the focused item left the view. |
 | [MainTab_BindNodes](../functions/MainTab_BindNodes.md) | `0x1402AC048` | Finds the header (MainTab/Tab) nodes of a screen and keeps them in the controller: the tab, the TextMask mask node, the title text node and the other tab title boards. |
@@ -253,6 +312,12 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [MovieControl_PausedTick](../functions/MovieControl_PausedTick.md) | `0x14027A1CC` | Paused frame of the movie overlay: a completed hold with byte +25 set takes the skip (state 3); the pause or back action resumes. |
 | [MovieControl_TryOpenPause](../functions/MovieControl_TryOpenPause.md) | `0x14027A35C` | Opens the movie pause overlay on the pause action, with or without the Skip hint by MovieControl +25. |
 | [MovieController_UpdateSkip](../functions/MovieController_UpdateSkip.md) | `0x1400D8168` | Per-frame movie pause / skip handling of the GameUI MovieController (a virtual of its second vtable): publishes whether the playing movie can be skipped and runs the MovieControl state machine. |
+| [MsgWindow_BuildFrame](../functions/MsgWindow_BuildFrame.md) | `0x14022BFEC` | Sets up the frame primitives of a message window and its decoration cells by window kind and language. |
+| [NumberFields_Draw](../functions/NumberFields_Draw.md) | `0x140242C84` | Draws a list of number fields (32-byte records) into a staging buffer. |
+| [Opening_LoadMessageSprites](../functions/Opening_LoadMessageSprites.md) | `0x14037DB9C` | Loads the opening message textures and selects the language's sprite list for the opening text. |
+| [PanelScreen_InitVram](../functions/PanelScreen_InitVram.md) | `0x14033D88C` | Uploads the palette and strips of the second panel screen to VRAM. |
+| [RangeOverlay_BuildRowMasks](../functions/RangeOverlay_BuildRowMasks.md) | `0x140389B50` | Builds the 18 row words of the range overlay diamond for a given distance. |
+| [ScenePresetOverrides_Apply](../functions/ScenePresetOverrides_Apply.md) | `0x140348038` | Copies the sprite palette and pose entries named by the current scene's preset list into the live sprite tables. |
 | [ScrollBar_SetPosition](../functions/ScrollBar_SetPosition.md) | `0x14040B994` | Game setter for the native scroll bar component (vtable 0x140722238, kind 8 at node+536). |
 | [ScrollHelper_Bind](../functions/ScrollHelper_Bind.md) | `0x1402AADD8` | Binds a screen's scrolling gadget: finds the child named `VScroll` (a scroll bar node, type 8) and its guide part, records the binding and refits the gadget. |
 | [SDFFont_GetKerning](../functions/SDFFont_GetKerning.md) | `0x1403A9114` | Kerning pair lookup: returns (x, y) kerning for a left / right code point pair of the current font, from the font's own kerning rows plus the second .ker table. |
@@ -261,7 +326,9 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [ShopItemList_FillRow](../functions/ShopItemList_FillRow.md) | `0x1402A3578` | Fills one row of an item list (the shop's buy and sell lists and three other lists): icon and name, the equipped and owned counts and the category image of the entry's item. |
 | [ShopItemList_SetPrice](../functions/ShopItemList_SetPrice.md) | `0x1402A5A80` | Prints a price into the row's 'TextPrice' part with UI text 1717 (1753 when greyed). |
 | [ShopList_BuildEntries](../functions/ShopList_BuildEntries.md) | `0x14036B18C` | Builds the entries of the shop's item list from word_141811470: orders the list, sizes the list gadget and fills one entry per id (ShopEntry_Fill). |
+| [SpriteAnim_Step](../functions/SpriteAnim_Step.md) | `0x14038EDD4` | Advances one opening / title sprite animation by a tick and queues the cells of its current frame. |
 | [Str_Format](../functions/Str_Format.md) | `0x1400261CC` | snprintf-style formatter (thin wrapper around sub_140026084). |
+| [StringHandle_Release](../functions/StringHandle_Release.md) | `0x140026D9C` | Frees a {allocator, pointer} string-like member. |
 | [sub_14002620C](../functions/sub_14002620C.md) | `0x14002620C` | A bounded string copy: it moves a source string into a caller buffer, stopping at either the destination capacity or an explicit source limit, and terminates the result. |
 | [sub_1400ED328](../functions/sub_1400ED328.md) | `0x1400ED328` | Publishes a built list to the UI: it checks that the UI list module is open and hands the list parameters to the module's list setter with a "publish" flag. |
 | [sub_1400EEC18](../functions/sub_1400EEC18.md) | `0x1400EEC18` | The handler for a scene message word: it resolves the 5-bit class and 11-bit index of the word and dispatches to the text setter of that class. |
@@ -285,9 +352,6 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [sub_1400FCE48](../functions/sub_1400FCE48.md) | `0x1400FCE48` | Checks that no 'busy' gate is active: returns 1 when the global gate variables at 0x142FF9F24..0x142FF9F50 are all clear (or the alternative gate function says OK). |
 | [sub_14010824C](../functions/sub_14010824C.md) | `0x14010824C` | The Land ability help panel's content method: it reads the Land row's ability id and icon and fills the panel's text and icon slots. |
 | [sub_140134B54](../functions/sub_140134B54.md) | `0x140134B54` | Focus-change handler (slot 27) of the UnitStatusHoroscopeAffinity addon: activates / deactivates the addon when focus enters or leaves id 1111 / 1517. |
-| [sub_14013D5F4](../functions/sub_14013D5F4.md) | `0x14013D5F4` | Selects the page of the button-guide bar: sets table key (+2224) and enabled-row bitmask (+2228) and rebuilds it with sub_14013D758. |
-| [sub_14013D758](../functions/sub_14013D758.md) | `0x14013D758` | Rebuilds the guide bar: hides and resets all 8 slots, then lays out the visible rows of table 33 in two passes (left-aligned, then right-aligned). |
-| [sub_14013D844](../functions/sub_14013D844.md) | `0x14013D844` | Configures one guide slot for table 33 row `row`: sets the text, the up to four button icons (keyboard / pad variants), places the slot at x and starts its on-animation. |
 | [sub_14013DD70](../functions/sub_14013DD70.md) | `0x14013DD70` | Fades a guide slot in or out: finds the slot of row `row`, sets its node visible byte and plays Gauge_on / Gauge_off. |
 | [sub_140142014](../functions/sub_140142014.md) | `0x140142014` | Builds one row of an item list: its name text, the item's small picture path and the parts that draw them. |
 | [sub_14014D57C](../functions/sub_14014D57C.md) | `0x14014D57C` | Fills a selection panel from one item: clears its text, stores the id, updates a named node, and sets the small item picture and name on the panel's parts. |
@@ -361,9 +425,34 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [TabBar_ClearClick](../functions/TabBar_ClearClick.md) | `0x1402A9BD8` | Releases the pressed state of the four tab nodes: for each existing node (kind 5) calls sub_14040ABDC(node, 0) and stops its 'Click' state. |
 | [TabBar_Select](../functions/TabBar_Select.md) | `0x1402A9944` | Selects a tab: puts the cursor / focus on tab 'index' of the bar's nodes and plays Active on it and Deactive on all the others. |
 | [TabBar_SetTable](../functions/TabBar_SetTable.md) | `0x1402A9730` | Sets up a row of up to four tab / button nodes from a row of UI table 139: one title text id per tab, the count and a 'focusable' byte; then picks the layout state ButtonNN for the count and selects tab 0. |
+| [TitleMenu_AddEntry](../functions/TitleMenu_AddEntry.md) | `0x1401C43B4` | Appends one row to the title menu: sets the row's label by kind and stores the kind. |
+| [TitleMenu_Build](../functions/TitleMenu_Build.md) | `0x1401C34B4` | Fills the title menu's rows according to the save state and the cleared flag, plays the matching layout state and shows the menu with the cursor on the row the agent asks for. |
+| [TitleMenu_FocusCurrent](../functions/TitleMenu_FocusCurrent.md) | `0x1401C4318` | Focuses the current row; with none, the first row of kind 2 (Continue) when a save exists, else of kind 0 (New Game). |
+| [TitleMenu_IdleTimeout](../functions/TitleMenu_IdleTimeout.md) | `0x1401C41B0` | The title menu's idle timeout (vtable slot 14): after 8000 ticks without input the agent is told to go back to the opening. |
+| [TitleMenu_MoveCursor](../functions/TitleMenu_MoveCursor.md) | `0x1401C4154` | Moves the current row by a delta, wrapping when its flag is set, and focuses the row's button node. |
+| [TitleMenu_SelectKind](../functions/TitleMenu_SelectKind.md) | `0x1401C4448` | Sets the current row to the first row of a given kind (-1 when there is none). |
+| [TitleMenu_StampInput](../functions/TitleMenu_StampInput.md) | `0x1401C40C8` | Records the time of the last input for the idle timeout. |
 | [UI_FrameUpdate](../functions/UI_FrameUpdate.md) | `0x1400E3B20` | Per-frame update of the UI: sets the UI frame time, runs a pending cursor restart, updates the agents (the hand's glide) and hands the frame time to the GUI core. |
 | [UI_GetHelpSlotState](../functions/UI_GetHelpSlotState.md) | `0x1402BB604` | Decides whether the shared help-description slot is visible and returns a masked UI state word for the caller. |
+| [UIAddon_CanTakeInput](../functions/UIAddon_CanTakeInput.md) | `0x1401D21D8` | Vtable slot 3: true unless the add-on is showing (+42) or hiding (+43). |
+| [UIAddon_LoadByPath](../functions/UIAddon_LoadByPath.md) | `0x1401D1A3C` | Loads an add-on's layout from a path: a path starting with '#' names a widget, any other path is a layout file. |
+| [UIAddon_LoadByRow](../functions/UIAddon_LoadByRow.md) | `0x1401D1A00` | Loads a screen's layout: row of UI table 24 (`uiaddon.nxd`), whose `UiFilePath` names the layout file. |
+| [UIAddon_OnEventBase](../functions/UIAddon_OnEventBase.md) | `0x1401D1F7C` | Base event handler every add-on's own handler calls first. |
+| [UIAddonFFTOConfig_BindNodes](../functions/UIAddonFFTOConfig_BindNodes.md) | `0x140188878` | Node binding of the General Options screen (vtable slot 4): picks the tabs by mode and binds Config, TabAll, ConfigList, SelectList, TextArea and ConfirmWindowAll. |
+| [UIAddonFFTOConfig_Ctor](../functions/UIAddonFFTOConfig_Ctor.md) | `0x14018853C` | Constructor of the General Options screen add-on (3416 bytes): sets its vtable and builds the gadgets. |
+| [UIAddonFFTOConfig_DeletingDtor](../functions/UIAddonFFTOConfig_DeletingDtor.md) | `0x1401886CC` | Vtable slot 0 of the General Options add-on: runs the destructor body and frees the object. |
+| [UIAddonFFTOConfig_Dtor](../functions/UIAddonFFTOConfig_Dtor.md) | `0x140188700` | Destructor body of the General Options add-on: frees its vectors and gadgets. |
+| [UIAddonFFTOConfig_OnClose](../functions/UIAddonFFTOConfig_OnClose.md) | `0x140188FA4` | On-close handler of the General Options screen (vtable slot 5): asks for a settings save and, after a display change, restarts the boot sequence. |
+| [UIAddonFFTOConfig_OnEvent](../functions/UIAddonFFTOConfig_OnEvent.md) | `0x14018A344` | Node event handler of the General Options screen (vtable slot 2): draws rows, tracks the cursor, applies switches, sliders and tab clicks. |
+| [UIAddonFFTOConfig_OnInput](../functions/UIAddonFFTOConfig_OnInput.md) | `0x1401892A8` | Input handler of the General Options screen (vtable slot 12): Back, restore defaults, tabs, value steps, then the row list's own input. |
+| [UIAddonFFTOConfig_OnShown](../functions/UIAddonFFTOConfig_OnShown.md) | `0x14018A31C` | Slot 7 of the General Options screen: after it is shown the row list focuses its cursor row and the shown flag is set. |
+| [UIAddonFFTOConfig_RefreshRowTexts](../functions/UIAddonFFTOConfig_RefreshRowTexts.md) | `0x1401890E0` | Vtable slot 13 of the General Options screen: sets every row's Title text again from its ConfigItem. |
+| [UIAddonFFTOConfig_Update](../functions/UIAddonFFTOConfig_Update.md) | `0x140189D54` | Per-frame update of the General Options screen (vtable slot 14): queued dialogs, the display change states, the render device check and the sync of shown values with the game settings. |
 | [UIAddonFFTOEvent_Ctor](../functions/UIAddonFFTOEvent_Ctor.md) | `0x140135A00` | Creates the four addons owned by the event UI agent, including the pause overlay. |
+| [UIAddonFFTOTitle_Create](../functions/UIAddonFFTOTitle_Create.md) | `0x1401CB9B4` | Allocates and builds the title menu add-on (the screen of uiaddon row 244) and attaches it to the title agent. |
+| [UIAddonFFTOTitle_Dtor](../functions/UIAddonFFTOTitle_Dtor.md) | `0x1401C3E64` | Destructor of the title menu add-on: puts the base class's vtables back and frees the 240 bytes. |
+| [UIAddonFFTOTitle_OnEvent](../functions/UIAddonFFTOTitle_OnEvent.md) | `0x1401C4228` | The title add-on's event handler (vtable slot 2) for the nodes tagged 121 (the six menu buttons). |
+| [UIAddonFFTOTitlePlaymode_Create](../functions/UIAddonFFTOTitlePlaymode_Create.md) | `0x1401CBA60` | Creates the second add-on of `UITitle_ShowMenu`: the play mode screen (uiaddon row 245, `ffto_title_playmode.uib`). |
 | [UIAddonFingerCursor_Bind](../functions/UIAddonFingerCursor_Bind.md) | `0x1401D31E8` | Finds the parts of the cursor widget once it is loaded and resets the glide (vtable slot 4 of the addon). |
 | [UIAddonFingerCursor_FreezePose](../functions/UIAddonFingerCursor_FreezePose.md) | `0x1401D3550` | Plays the main component's Loop state to its last frame and then stops every state of that component (the bob ends). |
 | [UIAddonFingerCursor_PlayDefault](../functions/UIAddonFingerCursor_PlayDefault.md) | `0x1401D34B4` | Plays the Default pose state on the Hand component (vtable slot 6 of the addon). |
@@ -371,13 +460,27 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [UIAddonFingerCursor_ResetGlide](../functions/UIAddonFingerCursor_ResetGlide.md) | `0x1401D351C` | Makes the next placement of the cursor instant instead of a step (vtable slot 9 of the addon). |
 | [UIAddonFingerCursor_ResetPose](../functions/UIAddonFingerCursor_ResetPose.md) | `0x1401D3694` | Takes the glove out of a pose, back to Default, and restarts the bob. |
 | [UIAddonFingerCursor_SetPose](../functions/UIAddonFingerCursor_SetPose.md) | `0x1401D35AC` | Gives the glove one of its poses: stops the bob and plays the pose's state on the Hand component. |
+| [UIAgent_AttachAddon](../functions/UIAgent_AttachAddon.md) | `0x1401D16C4` | Links a screen (add-on) to its agent and gives it an id. |
+| [UIAgent_DetachAddon](../functions/UIAgent_DetachAddon.md) | `0x1401D183C` | Removes an add-on from its agent's list, hides it and calls its slot 5. |
 | [UIAgentCursor_Hide](../functions/UIAgentCursor_Hide.md) | `0x1401D2F24` | Hides the finger cursor: cancels a pending show, stops every state of the cursor widget's main component and hides the widget. |
 | [UIAgentCursor_PopRequest](../functions/UIAgentCursor_PopRequest.md) | `0x1401D2A10` | Takes the last cursor request off the agent's request stack and applies it: mode, rest offset, static flag, show or hide. |
 | [UIAgentCursor_SetStatic](../functions/UIAgentCursor_SetStatic.md) | `0x1401D2E0C` | Switches the finger cursor between its animated mode and a static mode in which it neither bobs nor glides. |
 | [UIAgentCursor_Show](../functions/UIAgentCursor_Show.md) | `0x1401D2EF4` | Asks the finger cursor to appear and to restart its Loop animation. |
+| [UIAgentFFTOSystem_Ctor](../functions/UIAgentFFTOSystem_Ctor.md) | `0x140181C94` | Constructor of the System agent (1472 bytes), entry 37 of the agent manager's array. |
+| [UIAgentFFTOSystem_FreeAddons](../functions/UIAgentFFTOSystem_FreeAddons.md) | `0x140181DD0` | Frees the add-ons at +1448 / +1456 / +1464. |
+| [UIAgentFFTOSystem_OnAddonEvent](../functions/UIAgentFFTOSystem_OnAddonEvent.md) | `0x140181ED0` | Agent vtable slot 6, the sink of its add-ons' events. |
+| [UIAgentFFTOSystem_OpenConfig](../functions/UIAgentFFTOSystem_OpenConfig.md) | `0x140182478` | Makes the General Options add-on and starts the agent's open state. |
+| [UIAgentFFTOSystem_ReturnToMenu](../functions/UIAgentFFTOSystem_ReturnToMenu.md) | `0x140182378` | Frees the config add-ons and shows the system menu again. |
+| [UIAgentFFTOSystem_StateCloseConfig](../functions/UIAgentFFTOSystem_StateCloseConfig.md) | `0x14018290C` | State handler that closes the General Options screen. |
+| [UIAgentFFTOSystem_StateExitGame](../functions/UIAgentFFTOSystem_StateExitGame.md) | `0x1401827E4` | State handler that exits the game: UI state 13 fade, then the application's quit request byte is set. |
+| [UIAgentFFTOSystem_StateOpenConfig](../functions/UIAgentFFTOSystem_StateOpenConfig.md) | `0x140182860` | State handler that opens the General Options screen. |
+| [UIAgentFFTOTitle_OnAddonEvent](../functions/UIAgentFFTOTitle_OnAddonEvent.md) | `0x1401C32D0` | The agent's sink (slot 6) for the events of its three add-ons: the menu, the play mode screen and the saving screen. |
+| [UIAgentFFTOTitle_Tick](../functions/UIAgentFFTOTitle_Tick.md) | `0x1401C2D20` | Per-frame update of the title agent (vtable 0x14070A5B0 slot 1). |
+| [UIAgentFFTOTitle_Update](../functions/UIAgentFFTOTitle_Update.md) | `0x1401C2D60` | The title agent's state machine (state byte at +88): builds the menu, runs the fade-driven transitions and starts the loads the menu rows choose. |
 | [UIAnim_ApplyComponentTrack](../functions/UIAnim_ApplyComponentTrack.md) | `0x1403F7AC0` | Applies a state track aimed at the component itself (target kind 4002, property tags >= 5031) as an animated component-effect property. |
 | [UIAnim_ApplyTrack](../functions/UIAnim_ApplyTrack.md) | `0x1403F6FC0` | Converts one state track aimed at a node (target kind 4001, property tags 5001..5030) into a queued property animation on that node. |
 | [UIAnim_Curve](../functions/UIAnim_Curve.md) | `0x14040242C` | Easing curve evaluator for keyframes: maps the position t within a key interval (0 to 1) to the blend factor of that interval. |
+| [UiAnim_DrawFrame](../functions/UiAnim_DrawFrame.md) | `0x140342070` | Advances one widget animation by a frame and draws the sprite pieces of the frame set the current step names. |
 | [UIAnim_InterpToCurve](../functions/UIAnim_InterpToCurve.md) | `0x1403F8818` | Maps a UIB keyframe interpolation id to the easing curve id used by UIAnim_Curve: n -> n + 1 for 0 to 35, anything else -> 2 (linear). |
 | [UIAnim_LerpColor](../functions/UIAnim_LerpColor.md) | `0x1404022A8` | Per-channel linear blend of two packed RGBA colours with truncation and clamping to 0..255. |
 | [UIAnim_PlayStateTracks](../functions/UIAnim_PlayStateTracks.md) | `0x1403F6EA0` | Converts the tracks of one UIB state record (a timeline) into the runtime state object when a component is built: frame count, loop byte, absolute flag, key tracks and entries. |
@@ -399,9 +502,25 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [UIGadgetFFTOVScrollText_ApplyScroll](../functions/UIGadgetFFTOVScrollText_ApplyScroll.md) | `0x1402AAD30` | Applies the scroll offset: moves the text node (g+40) to y = -scroll and re-centres the marker node (g+160) on the 'ScrollMark' part of the owner. |
 | [UIGadgetFFTOVScrollText_HandleScrollInput](../functions/UIGadgetFFTOVScrollText_HandleScrollInput.md) | `0x1402AB0B8` | Mouse wheel / stick scrolling of a scroll-text gadget: moves the scroll bar by 20 units per wheel notch or by the stick axis; returns 1 when it scrolled. |
 | [UIGadgetFFTOVScrollText_Refit](../functions/UIGadgetFFTOVScrollText_Refit.md) | `0x1402AB174` | After the text of a scroll-text gadget changed: lays the text out, sizes the text node to its laid-out height and sets up the scroll bar (range = text height, page = viewport height, position 0, bar visible only when ... |
+| [UIGuide_GetKey](../functions/UIGuide_GetKey.md) | `0x1400EB70C` | Returns the guide key currently shown. |
+| [UIGuide_Set](../functions/UIGuide_Set.md) | `0x1400EB65C` | Sets the guide bar's key and sub-row mask. |
+| [UIGuide_Show](../functions/UIGuide_Show.md) | `0x1400EB5F4` | Shows or hides the guide bar (calls the guide agent's 0x14013C740). |
 | [UIImage_DrawTiled](../functions/UIImage_DrawTiled.md) | `0x1403E0E80` | Fills a node rectangle with copies of a texture part, optionally mirroring every second column and row, emitting one quad (4 vertices of 24 bytes) per cell. |
 | [UIImage_ResolvePart](../functions/UIImage_ResolvePart.md) | `0x1403E95E0` | Finds the texture slot and part rectangle for an Image node texture reference and part index. |
 | [UIImageNode_Draw](../functions/UIImageNode_Draw.md) | `0x1403E9C48` | Draws one Image node: resolves its texture part, builds the node's colour, flips and draw state, then calls the draw routine its fill type selects. |
+| [UILauncher_OnMenuAction](../functions/UILauncher_OnMenuAction.md) | `0x1401B924C` | The mode select screen's button handler. |
+| [UIListGadget_Bind](../functions/UIListGadget_Bind.md) | `0x14028C5C4` | Binds a list gadget to its node. |
+| [UIListGadget_Ctor](../functions/UIListGadget_Ctor.md) | `0x14028C458` | Constructor of the row list gadget (General Options +1744). |
+| [UIListGadget_IsAnimating](../functions/UIListGadget_IsAnimating.md) | `0x14028D44C` | True while a 'Show', 'Slide_left' or 'Slide_right' state is running on the gadget's node +16, its list +24 or a visible slot component. |
+| [UIListGadget_OnInput](../functions/UIListGadget_OnInput.md) | `0x14028E188` | Input of a list gadget: up / down / left / right moves of the cursor. |
+| [UIListGadget_RefreshVisible](../functions/UIListGadget_RefreshVisible.md) | `0x14028DCA4` | Posts event 0x1E (draw row) for every visible row. |
+| [UIListGadget_RestoreFocus](../functions/UIListGadget_RestoreFocus.md) | `0x14028DAEC` | Focuses the list's cursor row again. |
+| [UIListGadget_SetCount](../functions/UIListGadget_SetCount.md) | `0x14028D7BC` | Sets the row count, scrolls to the top and redraws. |
+| [UIListGadget_SetCursor](../functions/UIListGadget_SetCursor.md) | `0x14028D8F4` | Moves the cursor to a row and focuses the row. |
+| [UIListGadget_Show](../functions/UIListGadget_Show.md) | `0x14028D038` | Plays the list's Show state. |
+| [UIListGadget_StepColumn](../functions/UIListGadget_StepColumn.md) | `0x14028E4B0` | Pages or steps a column of the list. |
+| [UIListGadget_StepRow](../functions/UIListGadget_StepRow.md) | `0x14028E55C` | Steps the list's cursor row. |
+| [UIMenuFunction_OnInput](../functions/UIMenuFunction_OnInput.md) | `0x1402AB4D8` | The shared menu input of the `UIFFTOMenuFunctionBase` part (the title menu's part at +48). |
 | [UIMessageBanner_Show](../functions/UIMessageBanner_Show.md) | `0x140111D20` | Shows a message in the centre banner: resolves the banner's 'Title' text node, fills the format arguments and stores the template text, then starts the banner state selected by the dword at banner+80. |
 | [UIName_Assign](../functions/UIName_Assign.md) | `0x1403D87F4` | Copy-assignment of an interned name handle: takes a reference on src's entry, drops dst's old reference and copies pointer and id. |
 | [UIName_Intern](../functions/UIName_Intern.md) | `0x1403D8A24` | Interns a UI name string: finds or adds it in the name table and fills `outKey` with its key id, adding one reference. |
@@ -409,6 +528,7 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [UIName_KeyIndexed](../functions/UIName_KeyIndexed.md) | `0x1403D8E5C` | Builds the name key for base, or 'base#index' when index is non-zero, via UIName_Key. |
 | [UIName_ReleaseKey](../functions/UIName_ReleaseKey.md) | `0x1403D8D1C` | Drops one reference to an interned UI name; frees the string and shrinks the bucket when the count reaches zero. |
 | [UIName_SetKey](../functions/UIName_SetKey.md) | `0x1403D8870` | Re-points a name handle at the interned entry for str (adds a reference to the new entry, drops the old one). |
+| [UiNames_InstallCoreNames](../functions/UiNames_InstallCoreNames.md) | `0x1403D5934` | Registers the 43 core UI event and part names in the UI name table and loads the font data of the current text language. |
 | [UIPartRef_GetResource](../functions/UIPartRef_GetResource.md) | `0x1403DCA6C` | Returns the resource record of a part reference: the first element of its resource list, or a table entry by id, or the fallback pointer. |
 | [UIPartRef_GetTextureSize](../functions/UIPartRef_GetTextureSize.md) | `0x1403DCA04` | Writes the pixel width and height of the texture a part reference points at (1 x 1 when it has none); the divisor that turns texel rectangles into UVs. |
 | [UIPosFollow_SetTarget](../functions/UIPosFollow_SetTarget.md) | `0x1402AB394` | Starts a position follow: target = base offset (f+40 / f+44) + pos (x, y); records the follower node's current position as the start. |
@@ -423,29 +543,154 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [UIRender_QueueImageDraw](../functions/UIRender_QueueImageDraw.md) | `0x1403B84EC` | Appends a type-34 (image) command that carries a copy of the draw state, flagging the layer used and recording whether the draw state asks for a flag at bit 12. |
 | [UIResourceHandle_Delete](../functions/UIResourceHandle_Delete.md) | `0x1403D99C0` | Scalar deleting destructor (vtable method) of the UIResourceHandle class: resets the vtable, runs the base destructor and frees the 104-byte object when bit 0 of flags is set. |
 | [UIResourceHandle_New](../functions/UIResourceHandle_New.md) | `0x1403D9A00` | Factory: allocates a 104-byte UIResourceHandle through the allocator object at qword_143CDAA80 (+8) and constructs it. |
+| [UiScript_Run](../functions/UiScript_Run.md) | `0x1403278EC` | Runs one UI script: the byte-coded layout and behaviour program of a list or panel screen. |
+| [UIState_EndTransition](../functions/UIState_EndTransition.md) | `0x1401DDA5C` | Ends the UI fade state given (fade +24 = 0). |
 | [UITable_GetRow](../functions/UITable_GetRow.md) | `0x1403DBD60` | Returns the in-memory row of an nxd table by table id and row index (null when the table or row is missing). |
 | [UITable_GetRowByIndex](../functions/UITable_GetRowByIndex.md) | `0x1403DBDF4` | Returns the index-th sub-row of a key in a multi-row UI table, or null. |
 | [UITable_GetRowByKeys](../functions/UITable_GetRowByKeys.md) | `0x1403DBCE4` | The row of (key1, key2) of a double-keyed table (for a triple-keyed table: the first leaf of child (key1, key2)), looked up by table id; its data pointer, or null. |
 | [UITable_GetRowCount](../functions/UITable_GetRowCount.md) | `0x1403DBC20` | Number of sub-rows of a key in a multi-row UI table (the count field of the key's entry), or 0 when the table or key does not exist. |
 | [UITexturePath_Select4k](../functions/UITexturePath_Select4k.md) | `0x1403DB0EC` | Copies a texture path into out (255 characters at most) and, when the path contains '_2k_', changes it to '_4k_'; returns true when the path contains _2k_ or _4k_. |
+| [UITitle_OnMenuAction](../functions/UITitle_OnMenuAction.md) | `0x1401C3710` | Carries out the row the player chose on the title menu. |
+| [UITitle_OpenPlayMode](../functions/UITitle_OpenPlayMode.md) | `0x1401C3968` | Kind 0 (New Game): starts UI state 19 and agent state 2, after which the agent hides the menu and shows the play mode screen. |
+| [UITitle_ShowMenu](../functions/UITitle_ShowMenu.md) | `0x1401C2BCC` | Creates the title agent's three add-ons and builds the menu. |
+| [UITitle_ShowPlayMode](../functions/UITitle_ShowPlayMode.md) | `0x1401C3CE0` | Hides the title menu add-on and shows the play mode add-on. |
+| [UITitle_StartNewGamePlus](../functions/UITitle_StartNewGamePlus.md) | `0x1401C3A28` | Kind 1 (text 2226, New Game +): fades out and sets agent state 0x201, only when no save request is pending. |
+| [UITitleMenu_BindNodes](../functions/UITitleMenu_BindNodes.md) | `0x1401C3EB0` | The title menu add-on's node binding (vtable slot 4): finds the TitleEnhanced and Menu nodes and the six MenuButton nodes, and tags them for the event handler. |
+| [WindowPattern_Build](../functions/WindowPattern_Build.md) | `0x140332330` | Builds the pixel pattern of a legacy window frame row by row and, in mode 2, uploads it to VRAM. |
+| [WindowPattern_FillRow](../functions/WindowPattern_FillRow.md) | `0x1403324F8` | Fills one row of a window frame pattern from a six-word template. |
+| [WindowRect_AnimateCurve](../functions/WindowRect_AnimateCurve.md) | `0x1402DDFE8` | Opens or closes a window by moving two rectangles along one of the five animation step lists. |
 | [WorldMapScreen_BindNodes](../functions/WorldMapScreen_BindNodes.md) | `0x140159304` | Binds the world-map screen's nodes: the widget's root, MapAll with its Route and Bases groups, the 48 base/point nodes, and each base's TextBoardMapName title. |
 
-## Structures (12)
+## Structures (126)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
+| [AvailabilityFlag](../structs/AvailabilityFlag.md) | 1 | One row of the GridAvailableTemplate table. |
+| [CharGridCell](../structs/CharGridCell.md) | 1 | One row of the CharGridOrder table. |
+| [CodePointerRow](../structs/CodePointerRow.md) | 8 | One row of UiLegacyLayoutScriptOps. |
+| [ColourPair](../structs/ColourPair.md) | 4 | One row of the EquipPanelColourPairs table. |
+| [CursorPosition](../structs/CursorPosition.md) | 2 | One row of the LegacyCursorPositions table. |
+| [EaseEndpoints](../structs/EaseEndpoints.md) | 8 | One row of the EaseCurvesSetG table. |
+| [EaseSample](../structs/EaseSample.md) | 4 | One row of the EaseCurvesSetA table. |
+| [EaseSample3](../structs/EaseSample3.md) | 12 | One row of the EaseCurvesSetH table. |
+| [FrameSetPointer](../structs/FrameSetPointer.md) | 8 | One row of the UiFrameSets tables. |
+| [GlyphCodeTripleRow](../structs/GlyphCodeTripleRow.md) | 3 | One row of UiGlyphCodeTriples. |
+| [GradientWindowVertexPaletteIndex](../structs/GradientWindowVertexPaletteIndex.md) | 1 | One row of the GradientWindowVertexPalette table. |
+| [GridHelpRow](../structs/GridHelpRow.md) | 24 | One row of the GridHelpRows tables. |
 | [GUILayer](../structs/GUILayer.md) | 592 | A UI layer: a component drawn offscreen and composited with its effects (mask, drop shadow, glow). |
 | [GUINode](../structs/GUINode.md) | 224 | Size from the 224-byte free in GUILayerNode's destructor. |
 | [GUINodeState](../structs/GUINodeState.md) | 208 | One state (timeline) of a component: its clock, its loop range, its flags and the channel sets and entries it applies. |
 | [GUINodeStateEntry](../structs/GUINodeStateEntry.md) | 64 | One entry of a state's entry list (GUINodeState.entries): a jump marker, a trigger, a state link, a state reset or a part trigger, built from the state's special tracks by UIAnim_ApplyTrack and UIAnim_ApplyComponentTr... |
 | [KeyTrack](../structs/KeyTrack.md) |  | A keyframe track of one property of one target: sorted keys, the first four stored inline. |
 | [KeyTrackKey](../structs/KeyTrackKey.md) | 16 | One keyframe: its frame, the curve that shapes the interval to the next key, and the value. |
+| [LauncherButtonIdRow](../structs/LauncherButtonIdRow.md) | 4 | One row of UiLauncherButtonOrder. |
+| [LauncherFocusRow](../structs/LauncherFocusRow.md) | 24 | One row of UiLauncherFocusNeighborsAlt. |
+| [LegacyAbilityMenuSkillsetByTabRow](../structs/LegacyAbilityMenuSkillsetByTabRow.md) | 1 | One row of the LegacyAbilityMenuSkillsetByTab table. |
+| [LegacyBounceProfileRow](../structs/LegacyBounceProfileRow.md) | 2 | One row of the LegacyBounceProfile table. |
+| [LegacyButtonIconGroupStartsRow](../structs/LegacyButtonIconGroupStartsRow.md) | 1 | One row of a LegacyButtonIconGroupStarts table. |
+| [LegacyButtonIconPiecesRow](../structs/LegacyButtonIconPiecesRow.md) | 12 | One row of a LegacyButtonIconPieces table. |
+| [LegacyButtonIconScalesRow](../structs/LegacyButtonIconScalesRow.md) | 4 | One row of a LegacyButtonIconScales table. |
+| [LegacyCellRectsRow](../structs/LegacyCellRectsRow.md) | 20 | One row of the LegacyCellRects table. |
+| [LegacyCursorRowsLang0Row](../structs/LegacyCursorRowsLang0Row.md) | 24 | One row of the LegacyCursorRowsLang0 table. |
+| [LegacyCursorRowsLangOtherRow](../structs/LegacyCursorRowsLangOtherRow.md) | 24 | One row of the LegacyCursorRowsLangOther table. |
+| [LegacyItemCursorTemplatesRow](../structs/LegacyItemCursorTemplatesRow.md) | 8 | One row of the LegacyItemCursorTemplates table. |
+| [LegacyItemListBodyGridARow](../structs/LegacyItemListBodyGridARow.md) | 1 | One row of the LegacyItemListBodyGridA table. |
+| [LegacyItemListBodyGridBRow](../structs/LegacyItemListBodyGridBRow.md) | 1 | One row of the LegacyItemListBodyGridB table. |
+| [LegacyItemScriptRecord](../structs/LegacyItemScriptRecord.md) | 1 | First byte of one record of an item page layout script; the handler of the opcode returns the start of the next record. |
+| [LegacyJobScreenLayoutLang0Row](../structs/LegacyJobScreenLayoutLang0Row.md) | 6592 | One row of the LegacyJobScreenLayoutLang0 table. |
+| [LegacyListRowSlotRow](../structs/LegacyListRowSlotRow.md) | 1 | One row of the LegacyListRowSlot table. |
+| [LegacyMenuNode](../structs/LegacyMenuNode.md) | 88 | One row of the LegacyMenuNodesLanguage0 table and the tables that share its shape. |
+| [LegacyMenuRowCountsRow](../structs/LegacyMenuRowCountsRow.md) | 1 | One row of the LegacyMenuRowCounts table. |
+| [LegacyMenuRowIconsRow](../structs/LegacyMenuRowIconsRow.md) | 1 | One row of the LegacyMenuRowIcons table. |
+| [LegacyMenuRowListPointersRow](../structs/LegacyMenuRowListPointersRow.md) | 8 | One row of the LegacyMenuRowListPointers table. |
+| [LegacyMenuRowResultRecord](../structs/LegacyMenuRowResultRecord.md) | 16 | One row of the LegacyMenuRowResults table. |
+| [LegacyMenuTaskSetupsRow](../structs/LegacyMenuTaskSetupsRow.md) | 48 | One row of the LegacyMenuTaskSetups table. |
+| [LegacyRowCellDescriptorsRow](../structs/LegacyRowCellDescriptorsRow.md) | 24 | One row of the LegacyRowCellDescriptors table. |
+| [LegacyTask12CommandsARow](../structs/LegacyTask12CommandsARow.md) | 480 | One row of the LegacyTask12CommandsA table. |
+| [LegacyTask12CommandsBRow](../structs/LegacyTask12CommandsBRow.md) | 64 | One row of the LegacyTask12CommandsB table. |
+| [LegacyTitleMenuOffsetsRow](../structs/LegacyTitleMenuOffsetsRow.md) | 2 | One row of the LegacyTitleMenuOffsets table. |
+| [LegacyUiScriptRecord](../structs/LegacyUiScriptRecord.md) | 2 | Header of one record of a legacy menu layout script; the record is {opcode, length, arguments} and the next record starts length bytes later. |
+| [ListPageRangeStart](../structs/ListPageRangeStart.md) | 2 | One row of the LegacyListPageRangesLang0 table. |
 | [MovieControl](../structs/MovieControl.md) | 32 | ffto::Game::Movie::MovieControl (vtable 0x1407154B0), at g_MovieControl: pause overlay and hold-to-skip of a playing movie. |
 | [MovieController](../structs/MovieController.md) |  | ffto::Game::GameUI::MovieController (vtables 0x140702D20 and 0x140702D30): the movie host at *(qword_143CD9DC8) + 0xC8. |
+| [NxdDataConfigCategoryRow](../structs/NxdDataConfigCategoryRow.md) | 16 | One row of the nxd.config_category table (data table). |
+| [NxdDataConfigItemButtonTypeRow](../structs/NxdDataConfigItemButtonTypeRow.md) | 12 | One row of the nxd.config_item_button_type table (data table). |
+| [NxdDataConfigItemCursorMoveTypeRow](../structs/NxdDataConfigItemCursorMoveTypeRow.md) | 20 | One row of the nxd.config_item_cursor_move_type table (data table). |
+| [NxdDataConfigItemEnableDOFRow](../structs/NxdDataConfigItemEnableDOFRow.md) | 12 | One row of the nxd.config_item_enable_dof table (data table). |
+| [NxdDataConfigItemForwardEnabledTypeRow](../structs/NxdDataConfigItemForwardEnabledTypeRow.md) | 12 | One row of the nxd.config_item_forward_enabled_type table (data table). |
+| [NxdDataConfigItemResolutionRow](../structs/NxdDataConfigItemResolutionRow.md) | 8 | One row of the nxd.config_item_resolution table (data table). |
+| [NxdDataConfigItemRow](../structs/NxdDataConfigItemRow.md) | 76 | One row of the nxd.config_item table (data table). |
+| [NxdDataConfigItemScreenModeRow](../structs/NxdDataConfigItemScreenModeRow.md) | 12 | One row of the nxd.config_item_screen_mode table (data table). |
+| [NxdDataConfigItemTextLanguageRow](../structs/NxdDataConfigItemTextLanguageRow.md) | 12 | One row of the nxd.config_item_text_language table (data table). |
+| [NxdDataConfigItemVoiceLanguageRow](../structs/NxdDataConfigItemVoiceLanguageRow.md) | 12 | One row of the nxd.config_item_voice_language table (data table). |
+| [NxdDataConfigPadAssignRow](../structs/NxdDataConfigPadAssignRow.md) | 20 | One row of the nxd.config_pad_assign table (data table). |
+| [NxdDataConfigPadListRow](../structs/NxdDataConfigPadListRow.md) | 20 | One row of the nxd.config_pad_list table (data table). |
+| [NxdDataCursorMoveTypeRow](../structs/NxdDataCursorMoveTypeRow.md) | 8 | One row of the nxd.cursor_move_type table (data table). |
+| [NxdDataDifficultyLevelRow](../structs/NxdDataDifficultyLevelRow.md) | 28 | One row of the nxd.difficulty_level table (data table). |
+| [NxdDataFloorCursorSpeedRow](../structs/NxdDataFloorCursorSpeedRow.md) | 8 | One row of the nxd.floor_cursor_speed table (data table). |
+| [NxdDataForwardEnabledTypeRow](../structs/NxdDataForwardEnabledTypeRow.md) | 8 | One row of the nxd.forward_enabled_type table (data table). |
+| [NxdDataIconGroupRow](../structs/NxdDataIconGroupRow.md) | 12 | One row of the nxd.icon_group table (data table). |
+| [NxdDataIconRow](../structs/NxdDataIconRow.md) | 16 | One row of the nxd.icon table (data table). |
+| [NxdDataLanguageRow](../structs/NxdDataLanguageRow.md) | 12 | One row of the nxd.language table (data table). |
+| [NxdDataMessageWindowAnimationTypeRow](../structs/NxdDataMessageWindowAnimationTypeRow.md) | 28 | One row of the nxd.message_window_animation_type table (data table). |
+| [NxdDataSystemParamRow](../structs/NxdDataSystemParamRow.md) | 12 | One row of the nxd.system_param table (data table). |
+| [NxdDataUIAbilityIconRow](../structs/NxdDataUIAbilityIconRow.md) | 8 | One row of the nxd.ui_ability_icon table (data table). |
+| [NxdDataUIAddonPriorityRow](../structs/NxdDataUIAddonPriorityRow.md) | 12 | One row of the nxd.ui_addon_priority table (data table). |
+| [NxdDataUIAddonRow](../structs/NxdDataUIAddonRow.md) | 36 | One row of the nxd.ui_addon table (data table). |
+| [NxdDataUIAnnounceRow](../structs/NxdDataUIAnnounceRow.md) | 28 | One row of the nxd.ui_announce table (data table). |
+| [NxdDataUIButtonGuideRow](../structs/NxdDataUIButtonGuideRow.md) | 40 | One row of the nxd.ui_button_guide table (data table). |
+| [NxdDataUIButtonRow](../structs/NxdDataUIButtonRow.md) | 12 | One row of the nxd.ui_button table (data table). |
+| [NxdDataUIColorRow](../structs/NxdDataUIColorRow.md) | 12 | One row of the nxd.ui_color table (data table). |
+| [NxdDataUIDialogRow](../structs/NxdDataUIDialogRow.md) | 60 | One row of the nxd.ui_dialog table (data table). |
+| [NxdDataUIEquipAbilitySlotRow](../structs/NxdDataUIEquipAbilitySlotRow.md) | 16 | One row of the nxd.ui_equip_ability_slot table (data table). |
+| [NxdDataUIEquipDetailNumParamRow](../structs/NxdDataUIEquipDetailNumParamRow.md) | 12 | One row of the nxd.ui_equip_detail_num_param table (data table). |
+| [NxdDataUIFilePathExchangeRow](../structs/NxdDataUIFilePathExchangeRow.md) | 12 | One row of the nxd.ui_file_path_exchange table (data table). |
+| [NxdDataUIFontSetRow](../structs/NxdDataUIFontSetRow.md) | 100 | One row of the nxd.ui_font_set table (data table). |
+| [NxdDataUIFontTypeRow](../structs/NxdDataUIFontTypeRow.md) | 24 | One row of the nxd.ui_font_type table (data table). |
+| [NxdDataUILoadTexturePathRow](../structs/NxdDataUILoadTexturePathRow.md) | 8 | One row of the nxd.ui_load_texture_path table (data table). |
+| [NxdDataUIMenuButtonLeftRow](../structs/NxdDataUIMenuButtonLeftRow.md) | 32 | One row of the nxd.ui_menu_button_left table (data table). |
+| [NxdDataUIMenuSortListRow](../structs/NxdDataUIMenuSortListRow.md) | 16 | One row of the nxd.ui_menu_sort_list table (data table). |
+| [NxdDataUIMenuTabRow](../structs/NxdDataUIMenuTabRow.md) | 8 | One row of the nxd.ui_menu_tab table (data table). |
+| [NxdDataUIModalRow](../structs/NxdDataUIModalRow.md) | 24 | One row of the nxd.ui_modal table (data table). |
+| [NxdDataUIMouseCollisionRow](../structs/NxdDataUIMouseCollisionRow.md) | 12 | One row of the nxd.ui_mouse_collision table (data table). |
+| [NxdDataUISubMenuRow](../structs/NxdDataUISubMenuRow.md) | 20 | One row of the nxd.ui_sub_menu table (data table). |
+| [NxdDataUISubTabRow](../structs/NxdDataUISubTabRow.md) | 16 | One row of the nxd.ui_sub_tab table (data table). |
+| [NxdDataUISystemParamRow](../structs/NxdDataUISystemParamRow.md) | 8 | One row of the nxd.ui_system_param table (data table). |
+| [NxdDataUIUnitStatusNumParamRow](../structs/NxdDataUIUnitStatusNumParamRow.md) | 16 | One row of the nxd.ui_unit_status_num_param table (data table). |
+| [OpeningSpriteListsRow](../structs/OpeningSpriteListsRow.md) | 8 | One row of the OpeningSpriteLists table. |
+| [OpeningStepMapsRow](../structs/OpeningStepMapsRow.md) | 1 | One row of the OpeningStepMaps table. |
+| [OptionChoice](../structs/OptionChoice.md) | 4 | One row of the LegacyOptionsDefaultChoices table. |
+| [OptionTextBase](../structs/OptionTextBase.md) | 4 | One row of the LegacyOptionsTextBases table. |
+| [PaletteColour](../structs/PaletteColour.md) | 2 | One row of a UI palette block. |
+| [PanelStateOffset](../structs/PanelStateOffset.md) | 1 | One row of the PanelStateOffsets table. |
+| [Rgb555Colour](../structs/Rgb555Colour.md) | 2 | One row of the LegacyCursorPalette table. |
+| [SceneWindowColourRow](../structs/SceneWindowColourRow.md) | 20 | One row of BattleSceneWindowColours. |
+| [SceneWindowTemplateRow](../structs/SceneWindowTemplateRow.md) | 84 | One row of BattleSceneWindowTemplatesLang0. |
+| [ScreenTaskSetRow](../structs/ScreenTaskSetRow.md) | 64 | One row of the ScreenTaskSets table: up to four task slots started together. |
+| [SlideCurveStep](../structs/SlideCurveStep.md) | 2 | One row of the PanelSlideCurve table. |
+| [SpriteAnimScriptsRow](../structs/SpriteAnimScriptsRow.md) | 8 | One row of the SpriteAnimScripts table. |
+| [StringPointerRow](../structs/StringPointerRow.md) | 8 | One row of a string pointer table (ResumeKindNames, SoundPackPathPatterns, UiCoreNameKeys, DeflateErrorMessages). |
+| [UIAddonFFTOConfig](../structs/UIAddonFFTOConfig.md) | 3416 | The General Options screen object (3416 bytes, `Mem_Alloc(3416)` in 0x140182478): base `UIAddonMenuBase`, vtable 0x14070DB30 with 18 entries (RTTI locator at 0x14070DB28). |
+| [UIAddonFFTOTitle](../structs/UIAddonFFTOTitle.md) | 240 | The title menu screen object (240 bytes, `Mem_Alloc(240)` in UIAddonFFTOTitle_Create): base `UIAddonMenuBase`, primary vtable 0x14070A4B0 and a second vtable 0x14070A460 at +48 (the `UIFFTOMenuFunctionBase` part). |
 | [UIAddonFingerCursor](../structs/UIAddonFingerCursor.md) |  | The finger cursor addon: the loaded cursor widget (ffto_finger_cursor.uib), the parts it moves, and the glide state of GUICursorHand_StepToward. |
 | [UIAgentCursor](../structs/UIAgentCursor.md) |  | The cursor agent: element 1 of the addon manager's agent vector (global qword_143CD9DA8, vector at +16). |
+| [UIAgentFFTOSystem](../structs/UIAgentFFTOSystem.md) | 1472 | The System agent: entry 37 of the agent manager's array (`*(qword_143CD9DA8 + 16) + 37 * 8`, as Boot_Update reads it); 1472 bytes, constructor 0x140181C94, vtable 0x14070DF00. |
+| [UIAgentFFTOTitle](../structs/UIAgentFFTOTitle.md) | 1448 | The title screens' agent (1448 bytes, `Mem_Alloc(0x5A8)` in `UIAgentManager_CreateAgents` at 0x1401CFA4D; vtable 0x14070A5B0, constructor 0x1401C2AE4). |
+| [UIGadgetFFTOConfigConfirmWindow](../structs/UIGadgetFFTOConfigConfirmWindow.md) |  | The confirm window gadget of General Options (+2400; vtables 0x140712448 and 0x1407124A0): a message and up to three option buttons loaded from a UIDialog row. |
+| [UIListGadget](../structs/UIListGadget.md) |  | The row list gadget used by General Options (constructor 0x14028C458, bound by 0x14028C5C4 with tag 151 and the part name `List`). |
 | [UIManager](../structs/UIManager.md) |  | The UI manager object at Renderer.ui_manager: the shader selectors of the UI technique and the shared layer quad buffers. |
+| [UiRect](../structs/UiRect.md) | 8 | One screen or VRAM rectangle of a panel. |
 | [UIRender](../structs/UIRender.md) |  | The UI render object (the command ring): the slot ids it resolved by name when it was created, used by every UI draw. |
+| [UiScriptRecord](../structs/UiScriptRecord.md) |  | One record of a UI script: an opcode byte, a length byte and the arguments. |
+| [UiSpriteCell](../structs/UiSpriteCell.md) | 12 | One row of the MessageWindowTagCellsLanguage2 table and the tables that share its shape. |
+| [UnitEditorRange](../structs/UnitEditorRange.md) | 8 | One row of the UnitEditorRanges tables. |
+| [UnitEditorWidget](../structs/UnitEditorWidget.md) | 24 | One row of the UnitEditorWidgets tables. |
+| [WindowCellRecordRow](../structs/WindowCellRecordRow.md) | 12 | One row of UiLegacyWindowCellLayoutBase. |
+| [WindowColourSetRow](../structs/WindowColourSetRow.md) | 4 | One row of UiLegacyWindowColourSetsLang1. |
+| [WindowCurvePointer](../structs/WindowCurvePointer.md) | 8 | One row of the WindowCurvePointers table. |
+| [WindowGroupStartRow](../structs/WindowGroupStartRow.md) | 1 | One row of UiLegacyWindowGroupStartsLang0. |
+| [WindowGrowStep](../structs/WindowGrowStep.md) | 1 | One row of the WindowGrowSteps table. |
+| [WindowPatternWord](../structs/WindowPatternWord.md) | 2 | One row of the WindowPatternTiles table. |
 
 ## Globals (7)
 
@@ -459,26 +704,40 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [g_StatusIconWord](../globals/g_StatusIconWord.md) | `0x143D1B590` | `uint16` | The packed page-and-palette word of the status/item icon the status screen last set. |
 | [g_UIChosenItemId](../globals/g_UIChosenItemId.md) | `0x143C518F0` | `uint16` | The 16-bit UI field that holds the item id the player picked in the shop list. |
 
-## Registries (1)
+## Registries (7)
 
 | Name | Summary |
 |---|---|
+| [TitleMenuEntryKinds](../registries/TitleMenuEntryKinds.md) | The six kinds of row of the Enhanced title menu: the kind byte stored in each row, the text id of its label (UI table, nxd id 19) and what choosing it does. |
+| [TitleModeSelectButtons](../registries/TitleModeSelectButtons.md) | The button ids of the mode select screen as `UILauncher_OnMenuAction` handles them. |
+| [UIAddonRows](../registries/UIAddonRows.md) | Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `UiFilePath` names the layout file a screen loads. |
 | [UIAnimCurves](../registries/UIAnimCurves.md) | The easing curves of UI keyframes: curve id to blend function of the position t within a key interval (UIAnim_Curve). |
+| [UIButtonGuideKeysOfGeneralOptions](../registries/UIButtonGuideKeysOfGeneralOptions.md) | The guide bar keys (`UIButtonGuide` rows, UI table 33) the settings screen uses, with the text id of each sub-row; 'right' marks sub-rows drawn on the right (byte +37 `Unknown25`). |
+| [UIDialogRowsOfSettings](../registries/UIDialogRowsOfSettings.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
+| [UISoundIdsOfSettings](../registries/UISoundIdsOfSettings.md) | The UI sound ids (`sub_1400F4BCC(_, id)`, UI table 0x45) the settings screen plays. |
 
-## File formats (2)
+## File formats (7)
 
 | Name | Extension | Summary |
 |---|---|---|
+| [ConfigCategoryTable](../formats/ConfigCategoryTable.md) | `.nxd` | `configcategory.nxd` (nxd 249): the tabs of the settings screens; `ConfigItemIds` are the rows of a tab and `NameUIId` its title. |
+| [ConfigItemTable](../formats/ConfigItemTable.md) | `.nxd` | `configitem.nxd` (nxd 250): one row per setting of the settings screens. |
+| [ConfigScreenLayout](../formats/ConfigScreenLayout.md) | `.uib` | `ffto_config_enhanced_ver02.uib` and `ffto_config_parts.uib` (pack 0008): the layout of the settings screen and its row, switch, select and slider parts. |
 | [ItemIconPath](../formats/ItemIconPath.md) | `.utexpt with .tex` | The two per-item picture paths: a detail picture (Icon table row 12) and a list picture (row 13), both formatted from the item id and both texture-parts URIs. |
 | [TexturePartFile](../formats/TexturePartFile.md) | `.utexpt` | The part file that names the texture a UI image part shows (ui/ffto/icon/<kind>/textureparts/<name>.utexpt). |
+| [TitleMenuLayout](../formats/TitleMenuLayout.md) | `.uib` | `ui/ffto/title/ffto_title_enhanced.uib` (pack 0008), the layout of the Enhanced title menu: nine components, of which `Menu` carries the row layouts the add-on plays by name. |
+| [TitleScreenLayout](../formats/TitleScreenLayout.md) | `.uib` | `ffto_title_enhanced.uib` (pack 0008): the title screen behind the menu: backdrop, logo, version, copyright and the `Menu` component with its six buttons. |
 
-## Flows (1)
+## Flows (4)
 
 | Name | Summary |
 |---|---|
 | [CursorGloveFrame](../flows/CursorGloveFrame.md) | What happens to the finger cursor's glove in one UI frame, in order: its Loop clock advances, scrubs the Hand's Loop, the Hand's IconHand position is sampled as an integer, and the cursor reference node glides toward ... |
+| [GeneralOptionsOpenAndClose](../flows/GeneralOptionsOpenAndClose.md) | How the settings screen opens from the mode select or the in-game menu and closes again, through the System agent. |
+| [ScreenAddonCreation](../flows/ScreenAddonCreation.md) | How a screen (add-on) is made and shown: allocate, construct, attach to the agent, load its layout from the screen table, then show or hide it. |
+| [TitleMenuAction](../flows/TitleMenuAction.md) | From a press on a title menu row to the action: the button event reaches the agent, which dispatches on the row's kind. |
 
-## Observed behaviours (11)
+## Observed behaviours (19)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -486,10 +745,257 @@ Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flow
 | [BattleHudAndUnitFields](../behaviors/BattleHudAndUnitFields.md) | the Jobs screen and a battle's first turn | What the game shows from the Jobs screen into a battle, as seen live. |
 | [BattleTextOverlaysAndPreview](../behaviors/BattleTextOverlaysAndPreview.md) | battle: event dialogue, notice banner, attack / item preview, deployment placement | Where the battle's dialogue, notices and action preview are drawn, how placement works, and what the preview numbers meant in play, as seen live. |
 | [CursorGloveBob](../behaviors/CursorGloveBob.md) | finger cursor (the glove on the Job Tree) | The glove's idle bob: a 40-frame, looping, position track on the IconHand node of the Hand component, played on the UI frame time, sampled as an integer, and added to the glove's glide only in the node matrices. |
+| [GuideBarLayout](../behaviors/GuideBarLayout.md) | the footer button guide bar | The guide bar shows one UIButtonGuide key at a time: up to 8 slots, left ones first then right ones from x 1920; a sub-row mask hides sub-rows. |
+| [GUITextNodeStringSource](../behaviors/GUITextNodeStringSource.md) | where a text node's string comes from: the UI table or the code | A text node shows the string of its UI table text id while that id is not 0; with text id 0 it keeps a string set in code. |
 | [JobsEquipmentShopScreens](../behaviors/JobsEquipmentShopScreens.md) | Units > Status, Jobs, equipment list, Outfitter (Buy) | Screen identities, cell layouts and the memory handles (job byte, item id, gil) of the world map management screens, as seen live. |
 | [JobTreeLayerList](../behaviors/JobTreeLayerList.md) | the layer slots of a UI frame and, for the Job Tree screen, which component opens each one and how its float rectangle is made | A UI layer is not tied to a component by any pointer: the layer records hold no component link (only the mask component of a masked layer is stored). |
+| [ListGadgetInputPath](../behaviors/ListGadgetInputPath.md) | why a list cursor moves only when the screen calls the list input | A list gadget's cursor moves by pad or keyboard only when the screen's input handler calls the list's own input; the Left / Right branches of the settings screen return before that call. |
+| [SettingsCloseSavesSystemFile](../behaviors/SettingsCloseSavesSystemFile.md) | what closing the settings screen writes | Closing the settings screen requests a settings save, and the save rewrites the SYSTEM save file with the settings and the save manager's bytes +656..+895, among them the game-cleared byte. |
 | [TextNodeDrawGate](../behaviors/TextNodeDrawGate.md) | UI text nodes (GUITextNode_Draw) | GUITextNode_Draw returns before drawing unless a byte at node +0xCC is non-zero, a byte at +0x91 is zero, the string size at +0xE8 is non-zero and a font-table / font-set lookup returns true. |
 | [TitleAndSaveListScreens](../behaviors/TitleAndSaveListScreens.md) | title screens, Continue / Load Game save list | The screens between launch and a loaded game, the keys they take, and how the save list is built, as seen live. |
+| [TitleBackdropAndInputFlag](../behaviors/TitleBackdropAndInputFlag.md) | the title screen behind another screen | Hiding the title add-on hides its backdrop; input reaches an add-on only when its byte +47 is clear. |
+| [TitleMenuRows](../behaviors/TitleMenuRows.md) | which rows the Enhanced title menu shows and how they are laid out | The Enhanced title menu shows 3 to 6 rows chosen by the save state and the cleared flag; the layout file has a state for each count. |
+| [TitleMenuRowStorage](../behaviors/TitleMenuRowStorage.md) | where the title add-on keeps its rows and what lies after them | The title add-on stores six 24-byte rows at +72; the count, current row, last input tick and flags follow at +216..+230, and no instruction of the title code touches +231..+239, so a seventh row would overlap those fi... |
+| [UIAddonBaseEventRouting](../behaviors/UIAddonBaseEventRouting.md) | how a screen's events reach its handlers | Every add-on's event handler calls UIAddon_OnEventBase first; input reaches the add-on's slot 12 only when its id is not excluded, byte +47 is clear and slot 3 allows it. |
 | [UIStateClock](../behaviors/UIStateClock.md) | every UIB state (timeline) | How the clock of a UI state runs: real elapsed time per UI frame (never less than 1/60 s), summed in single precision, frame = time * 60.0 as a float; the end or a loop resets frame and time and drops the overshoot. |
 | [WidgetRootsAreLayers](../behaviors/WidgetRootsAreLayers.md) | every UI widget (the Job Tree, the finger cursor, the footer guides) | Every widget's root component is drawn into its own layer record, whether or not it has an effect: the renderer's feature byte at r+606621 is 1 from the initialiser and the widget byte at +83 is 1 for all 51 widgets o... |
 | [WorldMapLocationsAndBattleEntry](../behaviors/WorldMapLocationsAndBattleEntry.md) | world map free roam, Locations list, travel to a battleground, battle deployment | How a battle is entered from the world map, and which screens and memory fields show it, as seen live. |
+
+## Tables (234)
+
+| Name | Storage | NXD table id | Rows | Summary |
+|---|---|---|---|---|
+| [BattlePanelNumbersActor](../tables/BattlePanelNumbersActor.md) | Executable (initialised data) |  | 10 rows of 32 bytes | Number fields of the battle unit panel, actor side (HP and MP with maxima, Wt, At, level, experience). |
+| [BattlePanelNumbersTarget](../tables/BattlePanelNumbersTarget.md) | Executable (initialised data) |  | 10 rows of 32 bytes | Number fields of the battle unit panel, target side. |
+| [BattleSceneWindowColours](../tables/BattleSceneWindowColours.md) | Executable |  | 6 rows of 20 bytes | Corner colours (four per row) of the battle scene window gradients. |
+| [BattleSceneWindowTemplatesDefault](../tables/BattleSceneWindowTemplatesDefault.md) | Executable |  | 920 bytes of window records | Window records (rectangles, flags, pointers) of the battle scene screen, default for other languages. |
+| [BattleSceneWindowTemplatesLang0](../tables/BattleSceneWindowTemplatesLang0.md) | Executable |  | 800 bytes of window records | Window records (rectangles, flags, pointers) of the battle scene screen, text language 0. |
+| [CharGridOrder](../tables/CharGridOrder.md) | Executable |  | 97 rows of 1 bytes | Which symbol each cell of the 97-cell character selection grid shows. |
+| [EaseCurvesSetA](../tables/EaseCurvesSetA.md) | Executable |  | 56 rows of 4 bytes | Easing curve set for legacy screen animations: 6 curves of 9 samples (linear up, linear down, ease up, ease down, bump, constant 1.0) plus a short tail. |
+| [EaseCurvesSetB](../tables/EaseCurvesSetB.md) | Executable |  | 44 rows of 4 bytes | Easing curve set b: 44 samples in 9-sample curves (five-step ramps, S-curves and two bumps). |
+| [EaseCurvesSetC](../tables/EaseCurvesSetC.md) | Executable |  | 20 rows of 4 bytes | Easing curve set c: 20 samples of small step curves (0, 0x800, 0x1000 ramps). |
+| [EaseCurvesSetD](../tables/EaseCurvesSetD.md) | Executable |  | 36 rows of 4 bytes | Easing curve set d: 36 samples (4 curves of 9: ramp, S-curve, bumps). |
+| [EaseCurvesSetE](../tables/EaseCurvesSetE.md) | Executable |  | 72 rows of 4 bytes | Easing curve set e: 72 samples (8 curves of 9), the shapes of set a plus a decay curve. |
+| [EaseCurvesSetF](../tables/EaseCurvesSetF.md) | Executable |  | 120 rows of 4 bytes | Easing curve set f: 120 samples, curves of 33 steps (long ramps and S-curves) for slower animations. |
+| [EaseCurvesSetG](../tables/EaseCurvesSetG.md) | Executable |  | 6 rows of 8 bytes | Six start and end factors (0 to 1.0, 1.0 to 0, ...) used as ramp endpoints. |
+| [EaseCurvesSetH](../tables/EaseCurvesSetH.md) | Executable |  | 5 rows of 12 bytes | Short 3-sample curves; the 0x80-byte object ends with a list of byte pairs (cell step offsets) that this reader does not use. |
+| [EquipPanelCellsLanguage0V0](../tables/EquipPanelCellsLanguage0V0.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 0, variant 0 (19 cells). |
+| [EquipPanelCellsLanguage0V1](../tables/EquipPanelCellsLanguage0V1.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 0, variant 1 (19 cells). |
+| [EquipPanelCellsLanguage0V2](../tables/EquipPanelCellsLanguage0V2.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 0, variant 2 (19 cells). |
+| [EquipPanelCellsLanguage0V3](../tables/EquipPanelCellsLanguage0V3.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 0, variant 3 (19 cells). |
+| [EquipPanelCellsLanguage2V0](../tables/EquipPanelCellsLanguage2V0.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 2, variant 0 (19 cells). |
+| [EquipPanelCellsLanguage2V1](../tables/EquipPanelCellsLanguage2V1.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 2, variant 1 (19 cells). |
+| [EquipPanelCellsLanguage2V2](../tables/EquipPanelCellsLanguage2V2.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 2, variant 2 (19 cells). |
+| [EquipPanelCellsLanguage2V3](../tables/EquipPanelCellsLanguage2V3.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 2, variant 3 (19 cells). |
+| [EquipPanelCellsLanguage3V0](../tables/EquipPanelCellsLanguage3V0.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 3, variant 0 (19 cells). |
+| [EquipPanelCellsLanguage3V1](../tables/EquipPanelCellsLanguage3V1.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 3, variant 1 (19 cells). |
+| [EquipPanelCellsLanguage3V2](../tables/EquipPanelCellsLanguage3V2.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 3, variant 2 (19 cells). |
+| [EquipPanelCellsLanguage3V3](../tables/EquipPanelCellsLanguage3V3.md) | Executable (initialised data) |  | 19 rows of 12 bytes | Sprite cells of the equip screen panel, language 3, variant 3 (19 cells). |
+| [EquipPanelColourPairs](../tables/EquipPanelColourPairs.md) | Executable (initialised data) |  | 11 rows of 4 bytes | Gradient colour pairs of the result panel, one colour per variant. |
+| [EquipPanelRects](../tables/EquipPanelRects.md) | Executable (initialised data) |  | 10 rows of 8 bytes | The panel origins and VRAM staging rectangles of the equip screen panels: two palette row rectangles, then screen rectangles and two texture strip rectangles. |
+| [EquipScreenPalette](../tables/EquipScreenPalette.md) | Executable (initialised data) |  | 256 rows of 2 bytes | UI palette block (four rows of 64 colours) the equipment screen uploads to the CLUT area of VRAM. Verdict: designer-data. |
+| [EventMenuNodesDefault](../tables/EventMenuNodesDefault.md) | Executable (initialised data) |  | 63 rows of 88 bytes | Legacy menu node array of the event task group, default language. |
+| [EventMenuNodesLanguage0](../tables/EventMenuNodesLanguage0.md) | Executable (initialised data) |  | 63 rows of 88 bytes | Legacy menu node array of the event task group, language 0 (63 nodes of 88 bytes, mutable at run time). |
+| [EventMenuNodesLanguage2](../tables/EventMenuNodesLanguage2.md) | Executable (initialised data) |  | 63 rows of 88 bytes | Legacy menu node array of the event task group, language 2. |
+| [EventMenuNodesLanguage3](../tables/EventMenuNodesLanguage3.md) | Executable (initialised data) |  | 63 rows of 88 bytes | Legacy menu node array of the event task group, language 3. |
+| [FrameSetsDefault](../tables/FrameSetsDefault.md) | Executable |  | 142 rows of 8 bytes | Sprite frame sets of the widget animations, the default (language 1) variant. |
+| [FrameSetsLanguage0](../tables/FrameSetsLanguage0.md) | Executable |  | 142 rows of 8 bytes | Sprite frame sets of the widget animations, language 0 variant. |
+| [FrameSetsLanguage2](../tables/FrameSetsLanguage2.md) | Executable |  | 142 rows of 8 bytes | Sprite frame sets of the widget animations, language 2 variant. |
+| [FrameSetsLanguage3](../tables/FrameSetsLanguage3.md) | Executable |  | 142 rows of 8 bytes | Sprite frame sets of the widget animations, language 3. |
+| [GradientWindowVertexPalette](../tables/GradientWindowVertexPalette.md) | Executable |  | 12 rows of 1 bytes | Which palette colour each of the 12 vertices of a gradient window takes. |
+| [GridArrowCells](../tables/GridArrowCells.md) | Executable (initialised data) |  | 5 rows of 12 bytes | Five sprite cells of the grid screen (arrows and page markers). |
+| [GridAvailableTemplate](../tables/GridAvailableTemplate.md) | Executable (initialised data) |  | 54 rows of 1 bytes | Initial availability flags of the grid screen entries. |
+| [GridHelpRowsDefault](../tables/GridHelpRowsDefault.md) | Executable (initialised data) |  | 31 rows of 24 bytes | Cursor rows of the grid screen text helper, default language. |
+| [GridHelpRowsLanguage0](../tables/GridHelpRowsLanguage0.md) | Executable (initialised data) |  | 31 rows of 24 bytes | Cursor rows of the grid screen text helper, language 0. |
+| [GridMenuNodesDefault](../tables/GridMenuNodesDefault.md) | Executable (initialised data) |  | 5 rows of 88 bytes | Legacy menu nodes of the grid screen, default language. |
+| [GridMenuNodesLanguage0](../tables/GridMenuNodesLanguage0.md) | Executable (initialised data) |  | 5 rows of 88 bytes | Legacy menu nodes of the grid screen, language 0. |
+| [ItemListScriptLanguage0](../tables/ItemListScriptLanguage0.md) | Executable (initialised data) |  | 1 script of 198 bytes | The UI script that lays out and runs the item list screen's widgets, language 0 (198 bytes, then a block of rectangles). |
+| [ItemListScriptLanguage1](../tables/ItemListScriptLanguage1.md) | Executable (initialised data) |  | 1 script of 198 bytes | The UI script that lays out and runs the item list screen's widgets, language 1 (198 bytes, then a block of rectangles). |
+| [ItemListScriptLanguage2](../tables/ItemListScriptLanguage2.md) | Executable (initialised data) |  | 1 script of 198 bytes | The UI script that lays out and runs the item list screen's widgets, language 2 (198 bytes, then a block of rectangles). |
+| [ItemListScriptLanguage3](../tables/ItemListScriptLanguage3.md) | Executable (initialised data) |  | 1 script of 198 bytes | The UI script that lays out and runs the item list screen's widgets, language 3 (198 bytes, then a block of rectangles). |
+| [JobLearnListScriptLang1](../tables/JobLearnListScriptLang1.md) | Executable |  | 1 script of 493 bytes | UI script (layout of the job learn list) for text language 1. |
+| [JobLearnListScriptLang2](../tables/JobLearnListScriptLang2.md) | Executable |  | 1 script of 493 bytes | UI script (layout of the job learn list) for text language 2. |
+| [JobLearnListScriptLang3](../tables/JobLearnListScriptLang3.md) | Executable |  | 1 script of 493 bytes | UI script (layout of the job learn list) for text language 3. |
+| [JobUnitRowsScriptLang0](../tables/JobUnitRowsScriptLang0.md) | Executable |  | 1 script of 217 bytes | UI script (layout of the job screen's unit rows) for text language 0. |
+| [JobUnitRowsScriptLang1](../tables/JobUnitRowsScriptLang1.md) | Executable |  | 1 script of 217 bytes | UI script (layout of the job screen's unit rows) for text language 1. |
+| [JobUnitRowsScriptLang2](../tables/JobUnitRowsScriptLang2.md) | Executable |  | 1 script of 217 bytes | UI script (layout of the job screen's unit rows) for text language 2. |
+| [JobUnitRowsScriptLang3](../tables/JobUnitRowsScriptLang3.md) | Executable |  | 1 script of 217 bytes | UI script (layout of the job screen's unit rows) for text language 3. |
+| [LegacyAbilityMenuSkillsetByTab](../tables/LegacyAbilityMenuSkillsetByTab.md) | Executable |  | 4 rows of 1 byte | Four skillset ids, one per tab of the legacy ability menu; the same object continues with two 7-entry dword tables (run starts 0, 6 ... 36 and 0, 60 ... 360) that cut the page art into per-page ranges. |
+| [LegacyBounceProfile](../tables/LegacyBounceProfile.md) | Executable |  | 11 rows of 2 bytes | Symmetric 11-sample arc used to animate a cursor or row; the rest of the 0xBA-byte object holds small cell records. |
+| [LegacyButtonIconGroupStartsLang0](../tables/LegacyButtonIconGroupStartsLang0.md) | Executable |  | 15 rows of 1 byte | Cumulative piece start index of each button icon group for text language 0; language 1 (default), 2 and 3 share another list (LegacyButtonIconGroupStartsLang1). |
+| [LegacyButtonIconGroupStartsLang1](../tables/LegacyButtonIconGroupStartsLang1.md) | Executable |  | 15 rows of 1 byte | Piece start indexes of the button icon groups for text languages 1, 2 and 3 (80 pieces; three identical copies at 0x140691D00, 0x140691CF0 and 0x140691A60). |
+| [LegacyButtonIconPiecesLang0](../tables/LegacyButtonIconPiecesLang0.md) | Executable |  | 81 rows of 12 bytes | Texture rectangle and draw offset of each button icon piece, text language 0 (81 pieces; the other languages have 80). |
+| [LegacyButtonIconPiecesLang1](../tables/LegacyButtonIconPiecesLang1.md) | Executable |  | 80 rows of 12 bytes | Texture rectangle and draw offset of each button icon piece, text language 1. |
+| [LegacyButtonIconPiecesLang2](../tables/LegacyButtonIconPiecesLang2.md) | Executable |  | 80 rows of 12 bytes | Texture rectangle and draw offset of each button icon piece, text language 2. |
+| [LegacyButtonIconPiecesLang3](../tables/LegacyButtonIconPiecesLang3.md) | Executable |  | 80 rows of 12 bytes | Texture rectangle and draw offset of each button icon piece, text language 3. |
+| [LegacyButtonIconScalesLang0](../tables/LegacyButtonIconScalesLang0.md) | Executable |  | 81 rows of 4 bytes | Scale pair of each button icon piece for text language 0. |
+| [LegacyButtonIconScalesLang1](../tables/LegacyButtonIconScalesLang1.md) | Executable |  | 80 rows of 4 bytes | Scale pair of each button icon piece for text languages 1, 2 and 3 (three identical copies); language 0 has its own with 81 rows (LegacyButtonIconScalesLang0). |
+| [LegacyCellRects](../tables/LegacyCellRects.md) | Executable (initialised data) |  | 5 rows of 20 bytes | Five 20-byte rectangle records (size, texture position and flag bytes) of legacy item page cells; the rest of the 0xD0-byte object holds pointers and floats. |
+| [LegacyCursorPalette](../tables/LegacyCursorPalette.md) | Executable (initialised data) |  | 24 rows of 2 bytes | Palette words of the legacy cursor highlight (a pale ramp). |
+| [LegacyCursorPositions](../tables/LegacyCursorPositions.md) | Executable |  | 31 rows of 2 bytes | Cursor (x, y) positions of the legacy item pages (from +0x10) and a 5-byte group list at +0; the tail of the 0x90-byte object holds three save file name strings. |
+| [LegacyCursorRowsLang0](../tables/LegacyCursorRowsLang0.md) | Executable (initialised data) |  | about 33 rows of 24 bytes | Cursor row table of a legacy menu, language 0 variant: 24-byte rows holding the cursor x, y and a key; the candidate address is the third halfword of the first row (base + 4). |
+| [LegacyCursorRowsLangOther](../tables/LegacyCursorRowsLangOther.md) | Executable (initialised data) |  | about 33 rows of 24 bytes | Cursor row table of the same legacy menu for the languages other than 0; 30 bytes differ from the language 0 table. |
+| [LegacyItemCursorTemplates](../tables/LegacyItemCursorTemplates.md) | Executable |  | 5 rows of 8 bytes | Five pointer slots (first empty) to the cursor window templates of the legacy item pages. |
+| [LegacyItemListBodyGridA](../tables/LegacyItemListBodyGridA.md) | Executable (initialised data) |  | 1 grid (0x1280 bytes) | Cell code grid of a large legacy list body (variant a). |
+| [LegacyItemListBodyGridB](../tables/LegacyItemListBodyGridB.md) | Executable (initialised data) |  | 1 grid (0xBA0 bytes) | Cell code grid of a large legacy list body (variant b). |
+| [LegacyItemListLayoutLang0](../tables/LegacyItemListLayoutLang0.md) | Executable (initialised data) |  | 1 script (0x190 bytes) | Layout script of the item list page of the legacy party menu, language 0 variant. |
+| [LegacyItemListLayoutLang1](../tables/LegacyItemListLayoutLang1.md) | Executable (initialised data) |  | 1 script (0x190 bytes) | Layout script of the item list page of the legacy party menu, language 1 variant. |
+| [LegacyItemListLayoutLang2](../tables/LegacyItemListLayoutLang2.md) | Executable (initialised data) |  | 1 script (0x190 bytes) | Layout script of the item list page of the legacy party menu, language 2 variant. |
+| [LegacyItemListLayoutLang3](../tables/LegacyItemListLayoutLang3.md) | Executable (initialised data) |  | 1 script (0x190 bytes) | Layout script of the item list page of the legacy party menu, language 3 variant. |
+| [LegacyItemUseLayoutLang0](../tables/LegacyItemUseLayoutLang0.md) | Executable (initialised data) |  | 1 script (0x100 bytes) | Layout script of the item use page of the legacy party menu (using an item on a unit), language 0 variant. |
+| [LegacyItemUseLayoutLang1](../tables/LegacyItemUseLayoutLang1.md) | Executable (initialised data) |  | 1 script (0x100 bytes) | Layout script of the item use page of the legacy party menu (using an item on a unit), language 1 variant. |
+| [LegacyItemUseLayoutLang2](../tables/LegacyItemUseLayoutLang2.md) | Executable (initialised data) |  | 1 script (0x100 bytes) | Layout script of the item use page of the legacy party menu (using an item on a unit), language 2 variant. |
+| [LegacyItemUseLayoutLang3](../tables/LegacyItemUseLayoutLang3.md) | Executable (initialised data) |  | 1 script (0x100 bytes) | Layout script of the item use page of the legacy party menu (using an item on a unit), language 3 variant. |
+| [LegacyJobChoiceLayoutLang0](../tables/LegacyJobChoiceLayoutLang0.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Layout script of the job choice page of the legacy party menu (the page that lists a unit's jobs and applies a change), language 0 variant. |
+| [LegacyJobChoiceLayoutLang1](../tables/LegacyJobChoiceLayoutLang1.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Layout script of the job choice page of the legacy party menu (the page that lists a unit's jobs and applies a change), language 1 variant. |
+| [LegacyJobChoiceLayoutLang2](../tables/LegacyJobChoiceLayoutLang2.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Layout script of the job choice page of the legacy party menu (the page that lists a unit's jobs and applies a change), language 2 variant. |
+| [LegacyJobChoiceLayoutLang3](../tables/LegacyJobChoiceLayoutLang3.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Layout script of the job choice page of the legacy party menu (the page that lists a unit's jobs and applies a change), language 3 variant. |
+| [LegacyJobDetailLayoutLang0](../tables/LegacyJobDetailLayoutLang0.md) | Executable (initialised data) |  | 1 script (0x1F0 bytes) | Layout script of the job detail page of the legacy party menu (four pages of the chosen job), language 0 variant. |
+| [LegacyJobDetailLayoutLang1](../tables/LegacyJobDetailLayoutLang1.md) | Executable (initialised data) |  | 1 script (0x1F0 bytes) | Layout script of the job detail page of the legacy party menu (four pages of the chosen job), language 1 variant. |
+| [LegacyJobDetailLayoutLang2](../tables/LegacyJobDetailLayoutLang2.md) | Executable (initialised data) |  | 1 script (0x1F0 bytes) | Layout script of the job detail page of the legacy party menu (four pages of the chosen job), language 2 variant. |
+| [LegacyJobDetailLayoutLang3](../tables/LegacyJobDetailLayoutLang3.md) | Executable (initialised data) |  | 1 script (0x280 bytes) | Layout script of the job detail page of the legacy party menu (four pages of the chosen job), language 3 variant. |
+| [LegacyJobScreenLayoutLang0](../tables/LegacyJobScreenLayoutLang0.md) | Executable (initialised data) |  | 1 record (0x19B0 bytes) | Language 0 variant of the legacy page layout: a header of row sizes and a grid of cell codes (the other languages are smaller blocks). |
+| [LegacyListPageRangesLang0](../tables/LegacyListPageRangesLang0.md) | Executable (initialised data) |  | 120 rows of 2 bytes | Cumulative start ids that cut a long entry list (names of the legacy list page) into categories; language 0 variant. |
+| [LegacyListPageRangesLang1](../tables/LegacyListPageRangesLang1.md) | Executable (initialised data) |  | 120 rows of 2 bytes | Cumulative start ids that cut a long entry list (names of the legacy list page) into categories; language 1 variant. |
+| [LegacyListPageRangesLang2](../tables/LegacyListPageRangesLang2.md) | Executable (initialised data) |  | 120 rows of 2 bytes | Cumulative start ids that cut a long entry list (names of the legacy list page) into categories; language 2 variant. |
+| [LegacyListRowSlot](../tables/LegacyListRowSlot.md) | Executable |  | 48 rows of 1 byte | Sparse byte map from a list row code to a slot number; nearly all entries are 0. |
+| [LegacyMenuNodesDefault](../tables/LegacyMenuNodesDefault.md) | Executable (initialised data, written at run time) |  | 63 rows of 88 bytes | Legacy menu tree, language 1 (default). |
+| [LegacyMenuNodesLanguage0](../tables/LegacyMenuNodesLanguage0.md) | Executable (initialised data, written at run time) |  | 63 rows of 88 bytes | Legacy battle / scene menu tree, language 0: 63 nodes of 88 bytes; mutable at run time. |
+| [LegacyMenuNodesLanguage2](../tables/LegacyMenuNodesLanguage2.md) | Executable (initialised data, written at run time) |  | 63 rows of 88 bytes | Legacy menu tree, language 2. |
+| [LegacyMenuNodesLanguage3](../tables/LegacyMenuNodesLanguage3.md) | Executable (initialised data, written at run time) |  | 63 rows of 88 bytes | Legacy menu tree, language 3. |
+| [LegacyMenuRowCounts](../tables/LegacyMenuRowCounts.md) | Executable |  | 48 rows of 1 byte | Number of rows of each legacy menu (the list is LegacyMenuRowListPointers). |
+| [LegacyMenuRowIcons](../tables/LegacyMenuRowIcons.md) | Executable |  | 16 rows of 1 bytes | A run of 16 consecutive row codes followed by a table of 88 u16 cell ids: menu row decoration data of the legacy menus. |
+| [LegacyMenuRowListPointers](../tables/LegacyMenuRowListPointers.md) | Executable |  | 48 rows of 8 bytes | Pointers to the byte lists of row ids of each legacy menu; the matching row counts are LegacyMenuRowCounts. |
+| [LegacyMenuRowResults](../tables/LegacyMenuRowResults.md) | Executable (initialised data) |  | 31 rows of 16 bytes | Per legacy menu, the result code of each row (and which menus remember the row per unit). |
+| [LegacyMenuTaskSetups](../tables/LegacyMenuTaskSetups.md) | Executable |  | 4 rows of 48 bytes | Per menu state, the three pane tasks of the legacy menu with their task ids and owner ids. |
+| [LegacyOptionsDefaultChoices](../tables/LegacyOptionsDefaultChoices.md) | Executable (initialised data) |  | 12 rows of 4 bytes | Default choice of each of the 12 options of the legacy options screen. |
+| [LegacyOptionsTextBases](../tables/LegacyOptionsTextBases.md) | Executable (initialised data) |  | 12 rows of 4 bytes | Per option of the legacy options screen, the message id of its first choice label. |
+| [LegacyRowCellDescriptors](../tables/LegacyRowCellDescriptors.md) | Executable |  | 9 rows of 24 bytes (from this address) | Sprite cell descriptors of the item list row drawer, 24 bytes each. |
+| [LegacyTask10CellsSlot0](../tables/LegacyTask10CellsSlot0.md) | Executable (initialised data) |  | 28 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 0, variant 0. |
+| [LegacyTask10CellsSlot1](../tables/LegacyTask10CellsSlot1.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 0, variant 1. |
+| [LegacyTask10CellsSlot10](../tables/LegacyTask10CellsSlot10.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 2, variant 2. |
+| [LegacyTask10CellsSlot11](../tables/LegacyTask10CellsSlot11.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 2, variant 3. |
+| [LegacyTask10CellsSlot12](../tables/LegacyTask10CellsSlot12.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 3, variant 0. |
+| [LegacyTask10CellsSlot13](../tables/LegacyTask10CellsSlot13.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 3, variant 1. |
+| [LegacyTask10CellsSlot14](../tables/LegacyTask10CellsSlot14.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 3, variant 2. |
+| [LegacyTask10CellsSlot15](../tables/LegacyTask10CellsSlot15.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 3, variant 3. |
+| [LegacyTask10CellsSlot2](../tables/LegacyTask10CellsSlot2.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 0, variant 2. |
+| [LegacyTask10CellsSlot3](../tables/LegacyTask10CellsSlot3.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 0, variant 3. |
+| [LegacyTask10CellsSlot4](../tables/LegacyTask10CellsSlot4.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 1, variant 0. |
+| [LegacyTask10CellsSlot5](../tables/LegacyTask10CellsSlot5.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 1, variant 1. |
+| [LegacyTask10CellsSlot6](../tables/LegacyTask10CellsSlot6.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 1, variant 2. |
+| [LegacyTask10CellsSlot7](../tables/LegacyTask10CellsSlot7.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 1, variant 3. |
+| [LegacyTask10CellsSlot8](../tables/LegacyTask10CellsSlot8.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 2, variant 0. |
+| [LegacyTask10CellsSlot9](../tables/LegacyTask10CellsSlot9.md) | Executable (initialised data) |  | 24 rows of 12 bytes | Sprite cell list of the legacy scene task 10, language 2, variant 1. |
+| [LegacyTask12CommandsA](../tables/LegacyTask12CommandsA.md) | Executable (initialised data) |  | 1 block (0x1E0 bytes) | Command row block of the legacy scene task 12 (text labels and live pointers). |
+| [LegacyTask12CommandsB](../tables/LegacyTask12CommandsB.md) | Executable (initialised data) |  | 1 block (length unknown) | Command row block of the legacy scene task 12 for the other mode. |
+| [LegacyTask12LayoutLang0](../tables/LegacyTask12LayoutLang0.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Cell list of the legacy scene task 12, language 0 variant. |
+| [LegacyTask12LayoutLang1](../tables/LegacyTask12LayoutLang1.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Cell list of the legacy scene task 12, language 1 variant. |
+| [LegacyTask12LayoutLang2](../tables/LegacyTask12LayoutLang2.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Cell list of the legacy scene task 12, language 2 variant. |
+| [LegacyTask12LayoutLang3](../tables/LegacyTask12LayoutLang3.md) | Executable (initialised data) |  | 1 script (0x110 bytes) | Cell list of the legacy scene task 12, language 3 variant. |
+| [LegacyTask13LayoutMode13](../tables/LegacyTask13LayoutMode13.md) | Executable (initialised data) |  | 1 block (0x1C0 bytes) | Layout block of the legacy scene task 13 for mode 13. |
+| [LegacyTask13LayoutOther](../tables/LegacyTask13LayoutOther.md) | Executable (initialised data) |  | 1 block (0x1C0 bytes) | Layout block of the legacy scene task 13 for every other mode. |
+| [LegacyTitleMenuOffsets](../tables/LegacyTitleMenuOffsets.md) | Executable |  | 6 rows of 2 bytes | Six signed offsets applied to the opening menu slots; the same 0x30-byte object continues with a float (0.01), a list of cell ids and two 5-byte lists. |
+| [MessageWindowTagCellsDefault](../tables/MessageWindowTagCellsDefault.md) | Executable (initialised data) |  | 20 rows of 12 bytes | Message window decoration cells, default (language 1) variant. |
+| [MessageWindowTagCellsLanguage0](../tables/MessageWindowTagCellsLanguage0.md) | Executable (initialised data) |  | 20 rows of 12 bytes | Message window decoration cells, language 0 variant. |
+| [MessageWindowTagCellsLanguage2](../tables/MessageWindowTagCellsLanguage2.md) | Executable (initialised data) |  | 20 rows of 12 bytes | Sprite cells (4 per window kind 5..9) decorating message windows, language 2 variant. |
+| [MessageWindowTagCellsLanguage3](../tables/MessageWindowTagCellsLanguage3.md) | Executable (initialised data) |  | 20 rows of 12 bytes | Message window decoration cells, language 3 variant. |
+| [NxdDataConfigCategory](../tables/NxdDataConfigCategory.md) | NXD file | 249 | 16 rows of 16 bytes | Settings menu categories: the item ids each contains and a UI text key for the title. |
+| [NxdDataConfigItem](../tables/NxdDataConfigItem.md) | NXD file | 250 | 61 rows of 76 bytes | Settings menu rows (61): pad list, name and description UI text keys and value-kind parameters. |
+| [NxdDataConfigItemButtonType](../tables/NxdDataConfigItemButtonType.md) | NXD file | 288 | 2 rows of 12 bytes | Option values for the button-style setting. |
+| [NxdDataConfigItemCursorMoveType](../tables/NxdDataConfigItemCursorMoveType.md) | NXD file | 268 | 2 rows of 20 bytes | Option values for the cursor-movement setting. |
+| [NxdDataConfigItemEnableDOF](../tables/NxdDataConfigItemEnableDOF.md) | NXD file | 271 | 3 rows of 12 bytes | Option values for the depth-of-field setting. |
+| [NxdDataConfigItemForwardEnabledType](../tables/NxdDataConfigItemForwardEnabledType.md) | NXD file | 323 | 3 rows of 12 bytes | Option values for the fast-forward enable setting, with UI text keys. |
+| [NxdDataConfigItemResolution](../tables/NxdDataConfigItemResolution.md) | NXD file | 252 | 9 rows of 8 bytes | Option list of the resolution setting (nine rows pointing at Resolution). |
+| [NxdDataConfigItemScreenMode](../tables/NxdDataConfigItemScreenMode.md) | NXD file | 251 | 3 rows of 12 bytes | Option values for the screen-mode setting. |
+| [NxdDataConfigItemTextLanguage](../tables/NxdDataConfigItemTextLanguage.md) | NXD file | 260 | 7 rows of 12 bytes | Option values for the text-language setting (seven languages). |
+| [NxdDataConfigItemVoiceLanguage](../tables/NxdDataConfigItemVoiceLanguage.md) | NXD file | 259 | 2 rows of 12 bytes | Option values for the voice-language setting (two). |
+| [NxdDataConfigPadAssign](../tables/NxdDataConfigPadAssign.md) | NXD file | 270 | 4 rows of 20 bytes | Pad button assignment presets keyed by two ids. |
+| [NxdDataConfigPadList](../tables/NxdDataConfigPadList.md) | NXD file | 273 | 4 rows of 20 bytes | Four pad lists used by settings rows. |
+| [NxdDataCursorMoveType](../tables/NxdDataCursorMoveType.md) | NXD file | 267 | 2 rows of 8 bytes | Two cursor movement types. |
+| [NxdDataDifficultyLevel](../tables/NxdDataDifficultyLevel.md) | NXD file | 111 | 3 rows of 28 bytes | The three play modes: UI text key and numeric parameters. |
+| [NxdDataFloorCursorSpeed](../tables/NxdDataFloorCursorSpeed.md) | NXD file | 262 | 4 rows of 8 bytes | Four cursor speeds. |
+| [NxdDataForwardEnabledType](../tables/NxdDataForwardEnabledType.md) | NXD file | 324 | 3 rows of 8 bytes | Three fast-forward permission types. |
+| [NxdDataIcon](../tables/NxdDataIcon.md) | NXD file | 118 | 1400 rows of 16 bytes | Icon id to image file path (1400 rows). |
+| [NxdDataIconGroup](../tables/NxdDataIconGroup.md) | NXD file | 29 | 75 rows of 12 bytes | Icon group parameters (75 rows). |
+| [NxdDataLanguage](../tables/NxdDataLanguage.md) | NXD file | 261 | 7 rows of 12 bytes | The seven game languages. |
+| [NxdDataMessageWindowAnimationType](../tables/NxdDataMessageWindowAnimationType.md) | NXD file | 245 | 9 rows of 28 bytes | Message window animation parameters (nine types). |
+| [NxdDataSystemParam](../tables/NxdDataSystemParam.md) | NXD file | 84 | 71 rows of 12 bytes | System parameter values (71). |
+| [NxdDataUIAbilityIcon](../tables/NxdDataUIAbilityIcon.md) | NXD file | 31 | 55 rows of 8 bytes | Ability icon variants (55). |
+| [NxdDataUIAddon](../tables/NxdDataUIAddon.md) | NXD file | 24 | 264 rows of 36 bytes | UI add-on definitions (264): UI file path and flags. |
+| [NxdDataUIAddonPriority](../tables/NxdDataUIAddonPriority.md) | NXD file | 81 | 8 rows of 12 bytes | UI add-on priorities (8). |
+| [NxdDataUIAnnounce](../tables/NxdDataUIAnnounce.md) | NXD file | 68 | 123 rows of 28 bytes | Announcement banner definitions (123). |
+| [NxdDataUIButton](../tables/NxdDataUIButton.md) | NXD file | 322 | 21 rows of 12 bytes | UI button definitions (21). |
+| [NxdDataUIButtonGuide](../tables/NxdDataUIButtonGuide.md) | NXD file | 33 | 1152 rows of 40 bytes | Button guide footer layouts keyed by screen and slot (1152). |
+| [NxdDataUIColor](../tables/NxdDataUIColor.md) | NXD file | 20 | 201 rows of 12 bytes | Named UI colours (201). |
+| [NxdDataUIDialog](../tables/NxdDataUIDialog.md) | NXD file | 34 | 241 rows of 60 bytes | Dialog definitions (241): text and option UI text keys. |
+| [NxdDataUIEquipAbilitySlot](../tables/NxdDataUIEquipAbilitySlot.md) | NXD file | 62 | 12 rows of 16 bytes | Equipment screen ability slot layout (12). |
+| [NxdDataUIEquipDetailNumParam](../tables/NxdDataUIEquipDetailNumParam.md) | NXD file | 198 | 9 rows of 12 bytes | Equipment detail number fields, keyed by field and variant. |
+| [NxdDataUIFilePathExchange](../tables/NxdDataUIFilePathExchange.md) | NXD file | 125 | 5 rows of 12 bytes | UI file replacement mapping (5). |
+| [NxdDataUIFontSet](../tables/NxdDataUIFontSet.md) | NXD file | 21 | 100 rows of 100 bytes | Font sets (100) as groups of font type ids. |
+| [NxdDataUIFontType](../tables/NxdDataUIFontType.md) | NXD file | 27 | 19 rows of 24 bytes | Font types (19) with file path. |
+| [NxdDataUILoadTexturePath](../tables/NxdDataUILoadTexturePath.md) | NXD file | 143 | 32 rows of 8 bytes | Loading screen texture paths (32). |
+| [NxdDataUIMenuButtonLeft](../tables/NxdDataUIMenuButtonLeft.md) | NXD file | 180 | 8 rows of 32 bytes | Left menu buttons (8). |
+| [NxdDataUIMenuSortList](../tables/NxdDataUIMenuSortList.md) | NXD file | 43 | 33 rows of 16 bytes | Menu sort option lists keyed by menu and slot. |
+| [NxdDataUIMenuTab](../tables/NxdDataUIMenuTab.md) | NXD file | 95 | 6 rows of 8 bytes | Menu tabs keyed by menu and slot (6). |
+| [NxdDataUIModal](../tables/NxdDataUIModal.md) | NXD file | 333 | 27 rows of 24 bytes | Modal window definitions (27). |
+| [NxdDataUIMouseCollision](../tables/NxdDataUIMouseCollision.md) | NXD file | 329 | 21 rows of 12 bytes | UI mouse pick boxes (21). |
+| [NxdDataUISubMenu](../tables/NxdDataUISubMenu.md) | NXD file | 139 | 3 rows of 20 bytes | Sub menu definitions (3). |
+| [NxdDataUISubTab](../tables/NxdDataUISubTab.md) | NXD file | 61 | 59 rows of 16 bytes | Sub tabs keyed by tab group and slot (59). |
+| [NxdDataUISystemParam](../tables/NxdDataUISystemParam.md) | NXD file | 23 | 301 rows of 8 bytes | UI system parameter values (301). |
+| [NxdDataUIUnitStatusNumParam](../tables/NxdDataUIUnitStatusNumParam.md) | NXD file | 197 | 19 rows of 16 bytes | Unit status number fields (19). |
+| [OpeningSpriteLists](../tables/OpeningSpriteLists.md) | Executable (initialised data) |  | 152 rows of 8 bytes | Per-language pointer sets of the opening sprite cell lists: four sets of 12 pointers, then four sets of 26. |
+| [OpeningStepMaps](../tables/OpeningStepMaps.md) | Executable |  | 40 rows of 1 bytes | Byte step maps of the opening sequence plus three resource path strings (the title texture and two message texture files). |
+| [PanelCellGroupPointers](../tables/PanelCellGroupPointers.md) | Executable (initialised data) |  | 32 rows of 8 bytes | Pointers to the sprite cell groups of the status window frame (four languages of eight modes). |
+| [PanelScreenPalette](../tables/PanelScreenPalette.md) | Executable (initialised data) |  | 256 rows of 2 bytes | UI palette block of the second panel screen; the first 62 bytes equal exe.ui.equip_screen_palette. |
+| [PanelSlideCurve](../tables/PanelSlideCurve.md) | Executable |  | 12 rows of 2 bytes | Easing curve (symmetric, peak 144) a battle unit panel uses to slide a part of the panel in and out. |
+| [PanelStateOffsets](../tables/PanelStateOffsets.md) | Executable |  | 16 rows of 1 bytes | A short list of signed offsets a unit panel row builder adds to a position; the bytes 0x2E, 0, 0, 0, 0, 0, 13, 13, 31, 31, 0, 0, -2, -1, -1, -1. |
+| [SceneMenuNodesADefault](../tables/SceneMenuNodesADefault.md) | Executable (initialised data) |  | 7 rows of 88 bytes | Seven legacy menu nodes of the scene menus, first group, default language. |
+| [SceneMenuNodesALanguage0](../tables/SceneMenuNodesALanguage0.md) | Executable (initialised data) |  | 7 rows of 88 bytes | Seven legacy menu nodes of the scene menus, first group, language 0. |
+| [SceneMenuNodesBDefault](../tables/SceneMenuNodesBDefault.md) | Executable (initialised data) |  | 7 rows of 88 bytes | Seven legacy menu nodes of the scene menus, second group, default language. |
+| [SceneMenuNodesBLanguage0](../tables/SceneMenuNodesBLanguage0.md) | Executable (initialised data) |  | 7 rows of 88 bytes | Seven legacy menu nodes of the scene menus, second group, language 0. |
+| [ScreenTaskSets](../tables/ScreenTaskSets.md) | Executable |  | 9 rows of 64 bytes | The window tasks started together for each legacy screen set (four handlers, their slot numbers, their expected tags). |
+| [SpriteAnimScripts](../tables/SpriteAnimScripts.md) | Executable |  | 18 rows of 8 bytes | Eighteen sprite animation frame lists of the opening / title sprites: each frame is a cell group index and a number of ticks. |
+| [UiCoreNameKeys](../tables/UiCoreNameKeys.md) | Executable |  | 43 rows of 8 bytes | The 43 fixed names the UI system registers first: widget events (Show, Hide, Enable, Disable, FocusIn, FocusOut, CursorOver, CursorOut, Click, Check, Open, Close, gauge and scroll events, In / Out), widget part names ... |
+| [UiEquipScreenNodeNames](../tables/UiEquipScreenNodeNames.md) | Executable |  | 9 rows of 8 bytes | Names of the nodes and animations of the HD equipment screen. |
+| [UiEventCommandNames](../tables/UiEventCommandNames.md) | Executable |  | 8 rows of 8 bytes | Command words of the event window markup (forced, wait, cursor, cursor end, no set, value set, time, branch). |
+| [UiEventWindowFontAndNameNodeRun](../tables/UiEventWindowFontAndNameNodeRun.md) | Executable |  | 2 rows of 8 bytes at the head (the sweep run holds 182 slots) | Head list of 2 node name pointers (Normalfont, TextName); the run continues into class vtables (13 class vtables: event, common parts, gil and character number, notice dialog, main menu parts, horoscope affinity, job ... |
+| [UiGlyphCodeTriples](../tables/UiGlyphCodeTriples.md) | Executable |  | 73 rows of 3 bytes | Scan list used to turn a character code 1..72 into a glyph slot (row index). |
+| [UiGuideTipPageNamesRun](../tables/UiGuideTipPageNamesRun.md) | Executable |  | 6 rows of 8 bytes at the head (the sweep run holds 896 slots) | Head list of 6 node name pointers (page01 to page06); the run continues into class vtables (54 class vtables: guide, bar (profit, gossip, main list), menu base, shop, end slate, classic band / loading / subtitles, end... |
+| [UiLauncherButtonOrder](../tables/UiLauncherButtonOrder.md) | Executable |  | 8 rows of 4 bytes (7 used) | Button ids of the start launcher in focus order. |
+| [UiLauncherControllerGuideLabelsRun](../tables/UiLauncherControllerGuideLabelsRun.md) | Executable |  | 15 rows of 8 bytes at the head (the sweep run holds 25 slots) | Head list of 15 node name pointers (Controller button label nodes (L2, L1, select, d-pad, left stick, L3, R2, R1, right buttons, right stick, R3, start)); the run continues into class vtables (UIAddonFFTOLauncher (sec... |
+| [UiLauncherFocusNeighborsAlt](../tables/UiLauncherFocusNeighborsAlt.md) | Executable |  | 7 rows of 24 bytes | Directional focus neighbours of the seven buttons of the start launcher, alternate layout (the default layout of the same shape is at 0x14070A8D0). |
+| [UiLauncherModeNamesRun](../tables/UiLauncherModeNamesRun.md) | Executable |  | 2 rows of 8 bytes at the head (the sweep run holds 99 slots) | Head list of 2 node name pointers (EnhancedMode and ClassicMode node names); the run continues into class vtables (6 class vtables: launcher, title cushion, launcher agent, start config (two) and its agent). |
+| [UiLegacyLayoutScriptOps](../tables/UiLegacyLayoutScriptOps.md) | Executable |  | 22 rows of 8 bytes | Handlers of the 22 opcodes of the legacy layout script (the record language of the job choice, job detail and other legacy pages: {opcode, length, arguments} until opcode 22). |
+| [UiLegacyWindowCellLayoutBase](../tables/UiLegacyWindowCellLayoutBase.md) | Executable |  | about 81 rows of 12 bytes | Cell records (kind, size, offset) of a legacy list window, base set. |
+| [UiLegacyWindowColourSetsLang1](../tables/UiLegacyWindowColourSetsLang1.md) | Executable |  | colour dwords (about 1888 bytes) | Colour set of a legacy list window, text language 1. |
+| [UiLegacyWindowColourSetsLang2](../tables/UiLegacyWindowColourSetsLang2.md) | Executable |  | colour dwords (about 2000 bytes) | Colour set of a legacy list window, text language 2. |
+| [UiLegacyWindowColourSetsLang3](../tables/UiLegacyWindowColourSetsLang3.md) | Executable |  | colour dwords (about 1632 bytes) | Colour set of a legacy list window, text language 3. |
+| [UiLegacyWindowGroupStartsLang0](../tables/UiLegacyWindowGroupStartsLang0.md) | Executable |  | 12 rows of 1 byte (+4 padding) | Cumulative start indexes of 12 cell groups of a legacy list window, text language 0. |
+| [UiLegacyWindowGroupStartsLang1](../tables/UiLegacyWindowGroupStartsLang1.md) | Executable |  | 12 rows of 1 byte (+4 padding) | Cumulative start indexes of 12 cell groups of a legacy list window, text language 1. |
+| [UiLegacyWindowGroupStartsLang2](../tables/UiLegacyWindowGroupStartsLang2.md) | Executable |  | 12 rows of 1 byte (+4 padding) | Cumulative start indexes of 12 cell groups of a legacy list window, text language 2. |
+| [UiLegacyWindowGroupStartsLang3](../tables/UiLegacyWindowGroupStartsLang3.md) | Executable |  | 12 rows of 1 byte (+4 padding) | Cumulative start indexes of 12 cell groups of a legacy list window, text language 3. |
+| [UiPartyMemberPartNodeNamesRun](../tables/UiPartyMemberPartNodeNamesRun.md) | Executable |  | 6 rows of 8 bytes at the head (the sweep run holds 353 slots) | Head list of 6 node name pointers (six party member part nodes (parts, parts00 to parts04)); the run continues into class vtables (19 class vtables: save / load, system top, subtitles, novel, brave story (Darlavon, tr... |
+| [UiRadioButtonNodeNamesRun](../tables/UiRadioButtonNodeNamesRun.md) | Executable |  | 4 rows of 8 bytes at the head (the sweep run holds 659 slots) | Head list of 4 node name pointers (RadioButton01 to RadioButton04); the run continues into class vtables (39 class vtables: system message, battle command, warning, announce, battle (continuous, dialog, flytext, join,... |
+| [UiStartupScreenNodeNamesRun](../tables/UiStartupScreenNodeNamesRun.md) | Executable |  | 3 rows of 8 bytes at the head (the sweep run holds 557 slots) | Head list of 3 node name pointers (ShowEnFrDe, ShowJa, ShowTitle); the run continues into class vtables (41 class vtables: startup, text input, poach, employ and item screens, guide). |
+| [UiStoryButtonNodeNamesRun](../tables/UiStoryButtonNodeNamesRun.md) | Executable |  | 10 rows of 8 bytes at the head (the sweep run holds 451 slots) | Head list of 10 node name pointers (ButtonArazlamL00..L02, S00..S03, Darlavon00..02); the run continues into class vtables (27 class vtables: brave story top, achievement notifications, novel manager callback, world m... |
+| [UiTabButtonNodeNamesRun](../tables/UiTabButtonNodeNamesRun.md) | Executable |  | 3 rows of 8 bytes at the head (the sweep run holds 237 slots) | Head list of 3 node name pointers (TabButton01 to TabButton03); the run continues into class vtables (16 class vtables: brave story glossary, work history, zodiac stone, journal, collection, books). |
+| [UnitEditorRangesA](../tables/UnitEditorRangesA.md) | Executable (initialised data) |  | 22 rows of 8 bytes | Value ranges of the 22 editable fields of the unit editor screen, mode A (level 1..99, brave / faith 0..100, three ability id ranges 144..171, 172..207, 208..239, ...). |
+| [UnitEditorRangesB](../tables/UnitEditorRangesB.md) | Executable (initialised data) |  | 22 rows of 8 bytes | Value ranges of the unit editor, mode B: rows 0..13 equal mode A, rows 14..18 each allow 1..356 where mode A allows 1..187 twice and then three ranges 428..453, 454..485, 486..509, rows 19..21 equal mode A. Verdict: d... |
+| [UnitEditorWidgetsDefault](../tables/UnitEditorWidgetsDefault.md) | Executable (initialised data) |  | 22 rows of 24 bytes | Widget records of the 22 editable fields of the unit editor screen, every other language. |
+| [UnitEditorWidgetsLanguage0](../tables/UnitEditorWidgetsLanguage0.md) | Executable (initialised data) |  | 22 rows of 24 bytes | Widget records of the 22 editable fields of the unit editor screen, text language 0. |
+| [UnitPageNumberFieldsA](../tables/UnitPageNumberFieldsA.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Number fields of the second unit page, first panel. |
+| [UnitPageNumberFieldsB](../tables/UnitPageNumberFieldsB.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Number fields of the second unit page, second panel. |
+| [UnitPanelCellsLanguage0](../tables/UnitPanelCellsLanguage0.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Sprite cells of the unit status page, language 0 (18 cells). |
+| [UnitPanelCellsLanguage1](../tables/UnitPanelCellsLanguage1.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Sprite cells of the unit status page, language 1 (18 cells). |
+| [UnitPanelCellsLanguage2](../tables/UnitPanelCellsLanguage2.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Sprite cells of the unit status page, language 2 (18 cells). |
+| [UnitPanelCellsLanguage3](../tables/UnitPanelCellsLanguage3.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Sprite cells of the unit status page, language 3 (18 cells). |
+| [UnitPanelNumberFieldsA](../tables/UnitPanelNumberFieldsA.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Number fields (Move, Jump, Wt, weapon powers, At, Def, Ar, Av and their magic pairs) of the unit status page, first panel. |
+| [UnitPanelNumberFieldsB](../tables/UnitPanelNumberFieldsB.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Number fields of the unit status page, second panel. |
+| [UnitPanelScriptBlock0](../tables/UnitPanelScriptBlock0.md) | Executable (initialised data) |  | 1 rectangle and 1 script block | A panel window rectangle followed by a UI script block of the unit panel page (block 0). |
+| [UnitPanelScriptBlock1](../tables/UnitPanelScriptBlock1.md) | Executable (initialised data) |  | 1 rectangle and 1 script block | A panel window rectangle followed by a UI script block of the unit panel page (block 1). |
+| [UnitPanelScriptBlock2](../tables/UnitPanelScriptBlock2.md) | Executable (initialised data) |  | 1 rectangle and 1 script block | A panel window rectangle followed by a UI script block of the unit panel page (block 2). |
+| [UnitPanelScriptBlock3](../tables/UnitPanelScriptBlock3.md) | Executable (initialised data) |  | 1 rectangle and 1 script block | A panel window rectangle followed by a UI script block of the unit panel page (block 3). |
+| [WindowCurvePointers](../tables/WindowCurvePointers.md) | Executable |  | 5 rows of 8 bytes | Pointers to the five window open / close animation step lists. |
+| [WindowGrowSteps](../tables/WindowGrowSteps.md) | Executable |  | 12 rows of 1 bytes | Per-frame edge movement of the window grow animation for each window style. |
+| [WindowPatternTiles](../tables/WindowPatternTiles.md) | Executable (initialised data) |  | 2088 rows of 2 bytes | Line patterns of the legacy window frames (borders and gradient rows) as 16-bit words, in a block of 2088 words. |

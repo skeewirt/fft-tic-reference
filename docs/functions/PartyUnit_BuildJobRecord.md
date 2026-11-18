@@ -30,6 +30,7 @@ Returns the classic-graphics face value of a save unit record: it finds the reco
 ## Referenced by
 
 - Observed behaviours: [GenericUnitSpriteNumberFromJob](../behaviors/GenericUnitSpriteNumberFromJob.md), [LookSitesUseTheSaveRecordNotTheSlot](../behaviors/LookSitesUseTheSaveRecordNotTheSlot.md), [LookSumSeesTheBaseJob](../behaviors/LookSumSeesTheBaseJob.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md), [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md)
+- Reads tables: [JobTable](../tables/JobTable.md), [PortraitCodes](../tables/PortraitCodes.md)
 
 ## Notes
 

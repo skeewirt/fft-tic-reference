@@ -26,6 +26,7 @@ The resource-handle factory NxdRegistry_LoadRootNxl passes for every nxd file: c
 ## Referenced by
 
 - Appears in flows: [NxdTableLoad](../flows/NxdTableLoad.md)
+- Observed behaviours: [NxdTableRebinding](../behaviors/NxdTableRebinding.md)
 
 ## Notes
 

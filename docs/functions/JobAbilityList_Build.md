@@ -32,6 +32,7 @@ Builds the list of abilities shown for a job (skill-set abilities filtered by ta
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Called by: [JobScreen_BuildLearnList](JobScreen_BuildLearnList.md), [JobScreen_RefreshLearnList](JobScreen_RefreshLearnList.md), [sub_140286A78](sub_140286A78.md), [sub_140366FE0](sub_140366FE0.md)
 - Observed behaviours: [JobLearnedBitsPointerIsBuiltFromTheUnitRecord](../behaviors/JobLearnedBitsPointerIsBuiltFromTheUnitRecord.md), [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md)
+- Reads tables: [AbilityAux](../tables/AbilityAux.md), [JobTable](../tables/JobTable.md)
 
 ## Notes
 

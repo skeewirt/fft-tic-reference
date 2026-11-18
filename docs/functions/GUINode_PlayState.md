@@ -19,6 +19,7 @@ Starts a state: resets its time, sets the running flags (+105/+106) and the 60 f
 - V: it does not touch +104 (enabled), +108 (loop) or +72 (rate): callers set +104 = 1 first, and UIAddonFingerCursor_PlayLoop sets +108 = 1.
 - V: nothing is applied to the nodes here.
 - I: the first application happens in the next component update, after GUINodeState_Advance has moved the frame by one tick, so the first applied frame is about 1 (one tick of 60 fps frames), not 0.
+- V: sets the state's +105 / +106 to 1 (running), time 0 (or the start frame / 60 when +92 < +96).
 
 ## State touched
 

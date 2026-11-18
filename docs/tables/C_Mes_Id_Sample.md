@@ -7,6 +7,7 @@
 - **Keyed by:** message id
 - **Read by:** [CMesId_GetText](../functions/CMesId_GetText.md), [NxdTable_GetRowById](../functions/NxdTable_GetRowById.md), [UIText_ResolveCategoryRow](../functions/UIText_ResolveCategoryRow.md)
 - **Held in:** [g_CMesIdTable](../globals/g_CMesIdTable.md)
+- **Row layout:** [NxdDataC_Mes_Id_SampleRow](../structs/NxdDataC_Mes_Id_SampleRow.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

@@ -27,6 +27,7 @@ The task started by event opcode 0x58: loads the sprite data for an event charac
 
 ## Referenced by
 
+- Reads tables: [EventSpriteHdTextures](../tables/EventSpriteHdTextures.md)
 - Started by event opcodes: [0x58](../opcodes/README.md)
 
 ## Notes

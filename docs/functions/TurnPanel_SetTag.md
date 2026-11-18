@@ -26,6 +26,7 @@ Fills one tag of the turn-order panel from a list entry: the unit's portrait dat
 
 - Called by: [Battle_TimelineRefresh](Battle_TimelineRefresh.md)
 - Observed behaviours: [BattleFaceIsThePoolSpriteByte](../behaviors/BattleFaceIsThePoolSpriteByte.md), [FaceLookupInlineCopiesDisagreeAboveCode159](../behaviors/FaceLookupInlineCopiesDisagreeAboveCode159.md), [FaceNumberCapsClipRawCodesToo](../behaviors/FaceNumberCapsClipRawCodesToo.md), [TurnOrderEntryKeepsNineBitsOfTheAbility](../behaviors/TurnOrderEntryKeepsNineBitsOfTheAbility.md)
+- Reads tables: [SceneSpriteToFace](../tables/SceneSpriteToFace.md)
 
 ## Notes
 

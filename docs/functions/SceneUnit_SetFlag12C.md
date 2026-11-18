@@ -3,7 +3,7 @@
 - **Address:** `0x14026CA00`
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `void SceneUnit_SetFlag12C(void *unit)`
-- **Callers:** EventScript_Run, at 0x14023DF84 (opcode 0xA9, with the unit from `SceneObject_FindBySlot`). Also SceneUnit_RunPlacement (at 0x140269227), sub_14026EB74 (at 0x14026EFC8), sub_1402735F0 (at 0x140273693), and data references at 0x143D39058 and 0x143D39064.
+- **Callers:** EventScript_Run, at 0x14023DF84 (opcode 0xA9, with the unit from `SceneObject_FindBySlot`). Also SceneUnit_RunPlacement (at 0x140269227), SceneUnit_BuildFromQueueEntry (at 0x14026EFC8), sub_1402735F0 (at 0x140273693), and data references at 0x143D39058 and 0x143D39064.
 - **Callees:** `sub_1403D325C`, `sub_1403D3AE8`, `sub_1403D2FD8`
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -23,7 +23,8 @@ The body of opcode 0xA9: clears bit 0x40 of the unit's byte +0x12C (300) and set
 
 ## Referenced by
 
-- Called by: [SceneUnit_RunPlacement](SceneUnit_RunPlacement.md), [sub_14026EB74](sub_14026EB74.md)
+- Called by: [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md), [SceneUnit_RunPlacement](SceneUnit_RunPlacement.md)
+- Reads tables: [NxdDataCharaPartsDrawParam](../tables/NxdDataCharaPartsDrawParam.md)
 
 ## Notes
 

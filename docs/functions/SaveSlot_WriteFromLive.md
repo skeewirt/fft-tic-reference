@@ -26,7 +26,7 @@ Writes one save slot: packs the live state into the work copy and copies it into
 
 - Appears in flows: [AutoSaveWrite](../flows/AutoSaveWrite.md)
 - Called by: [sub_140183C38](sub_140183C38.md)
-- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md)
+- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md)
 - Reads file formats: [BattleResumeImage](../formats/BattleResumeImage.md)
 
 ## Notes

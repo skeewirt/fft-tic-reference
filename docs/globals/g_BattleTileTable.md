@@ -19,7 +19,7 @@ The battle map tile table: 512 records of 8 bytes (flags and movement cost), fil
 
 - Described by tables: [BattleTiles](../tables/BattleTiles.md)
 - Read by: [Battle_MoveRange_CeilingAbove](../functions/Battle_MoveRange_CeilingAbove.md), [Battle_MoveRange_GapBlocked](../functions/Battle_MoveRange_GapBlocked.md), [Battle_MoveRange_InitTiles](../functions/Battle_MoveRange_InitTiles.md), [Unit_GetReachHeight](../functions/Unit_GetReachHeight.md)
-- Written by: [sub_140248E08](../functions/sub_140248E08.md), [sub_1402509E8](../functions/sub_1402509E8.md)
+- Written by: [MapBlock_RunCommand](../functions/MapBlock_RunCommand.md), [sub_140248E08](../functions/sub_140248E08.md)
 
 ## Open questions
 

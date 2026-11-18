@@ -24,6 +24,7 @@ Returns the first item id of the category (type) that contains the given id, so 
 ## Referenced by
 
 - Called by: [sub_1402B8C74](sub_1402B8C74.md), [sub_1402B8CD4](sub_1402B8CD4.md), [sub_1402B8D3C](sub_1402B8D3C.md), [sub_1402B8DA0](sub_1402B8DA0.md), [sub_1402B8E04](sub_1402B8E04.md)
+- Reads tables: [ItemCategoryFirstIds](../tables/ItemCategoryFirstIds.md), [ItemCategoryTypes](../tables/ItemCategoryTypes.md), [ItemKindFirstCategories](../tables/ItemKindFirstCategories.md)
 - Resolves registries: [ItemCategories](../registries/ItemCategories.md)
 
 ## Notes

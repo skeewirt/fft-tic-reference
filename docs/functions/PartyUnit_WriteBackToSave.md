@@ -42,7 +42,8 @@ without a mask or flag test.
 ## Referenced by
 
 - Called by: [JobScreen_UpdateState](JobScreen_UpdateState.md), [sub_140285A6C](sub_140285A6C.md), [sub_1402BBBCC](sub_1402BBBCC.md), [sub_1403358FC](sub_1403358FC.md)
-- Observed behaviours: [BattleLoadWritesThePartyBackToTheSaveRecords](../behaviors/BattleLoadWritesThePartyBackToTheSaveRecords.md), [CombatSetJobBytesAreOnlyCopied](../behaviors/CombatSetJobBytesAreOnlyCopied.md), [JobChangeReachesTheSaveRecordOnlyThroughWriteBack](../behaviors/JobChangeReachesTheSaveRecordOnlyThroughWriteBack.md), [PartyJobWordIsSixteenBits](../behaviors/PartyJobWordIsSixteenBits.md)
+- Observed behaviours: [BattleLoadWritesThePartyBackToTheSaveRecords](../behaviors/BattleLoadWritesThePartyBackToTheSaveRecords.md), [CombatSetJobBytesAreOnlyCopied](../behaviors/CombatSetJobBytesAreOnlyCopied.md), [JobChangeReachesTheSaveRecordOnlyThroughWriteBack](../behaviors/JobChangeReachesTheSaveRecordOnlyThroughWriteBack.md), [PartyJobWordIsSixteenBits](../behaviors/PartyJobWordIsSixteenBits.md), [PartyWriteBackCopiesSecondarySetAndReactionLowByteInOneLoop](../behaviors/PartyWriteBackCopiesSecondarySetAndReactionLowByteInOneLoop.md)
+- Reads tables: [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes
 

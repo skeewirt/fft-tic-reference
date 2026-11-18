@@ -27,6 +27,10 @@ The battle command task: it reads the cell text of the command menu, starts the 
 
 - Calls: [EventTask_Start](EventTask_Start.md), [EventTask_Terminate](EventTask_Terminate.md), [sub_1402EA58C](sub_1402EA58C.md), [BattleCommand_BuildScreen](BattleCommand_BuildScreen.md)
 
+## Referenced by
+
+- Reads tables: [CommandKindMessageOffsets](../tables/CommandKindMessageOffsets.md), [CommandKindParams](../tables/CommandKindParams.md), [CommandMenuSteps](../tables/CommandMenuSteps.md)
+
 ## Notes
 
 Whole function read (1117 bytes). The 0x7000 subtraction is a fact about the cell word.

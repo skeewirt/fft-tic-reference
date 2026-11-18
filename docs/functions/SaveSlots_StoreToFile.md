@@ -15,7 +15,7 @@ Copies the slot cache (0x1EA488 bytes = 50 x 40164) into the manager's image and
 ## Behavior
 
 - V (decompile): `memmove(mgr + 1528, cache, 0x1EA488)` and a second copy; header tick from sub_140025D74; `SaveFile_QueueEntry(file, "fftsave.bin", 14, image, 0x1EA488)`.
-- V (J9, decode of the owner's file): the entry decodes to 16 + 50 x 40164 bytes, a flat raw memory image, not the named-field tree of FieldSchema_Run.
+- V (decode of the owner's file): the entry decodes to 16 + 50 x 40164 bytes, a flat raw memory image, not the named-field tree of FieldSchema_Run.
 
 ## State touched
 

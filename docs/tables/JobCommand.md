@@ -6,6 +6,7 @@
 - **NXD table id:** 41
 - **Keyed by:** command id
 - **Read by:** [JobCommandTable_GetRow](../functions/JobCommandTable_GetRow.md), [NxdTable_GetRowById](../functions/NxdTable_GetRowById.md), [UIText_ResolveCategoryRow](../functions/UIText_ResolveCategoryRow.md)
+- **Row layout:** [NxdDataJobCommandRow](../structs/NxdDataJobCommandRow.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

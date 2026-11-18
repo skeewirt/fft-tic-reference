@@ -6,6 +6,7 @@
 - **NXD table id:** 88
 - **Keyed by:** battle state
 - **Held in:** [g_FastForwardStateTable](../globals/g_FastForwardStateTable.md)
+- **Row layout:** [NxdDataGameModeTypesRow](../structs/NxdDataGameModeTypesRow.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

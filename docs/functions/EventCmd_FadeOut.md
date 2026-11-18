@@ -20,6 +20,10 @@ Class 40 handler. Starts a fade-out over byte 9 in 60ths of a second (instant wh
 - V: when that dword is zero, calls sub_1402CCCD0 with 2 and byte 9.
 - V: sets bit 2 (value 4, continue) in the status word.
 
+## State touched
+
+- Calls: [sub_14033FDAC](sub_14033FDAC.md)
+
 ## Notes
 
 On the path without the object, bit 1 is cleared first, so sub_1402CCCD0 sees a difference and sets the state to 3. Status bit meanings are the EventCmd_Run loop rules.

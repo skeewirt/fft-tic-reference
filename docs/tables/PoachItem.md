@@ -6,6 +6,7 @@
 - **NXD table id:** 236
 - **Keyed by:** poach type id
 - **Read by:** [PoachTable_GetRowById](../functions/PoachTable_GetRowById.md), [NxdTable_GetRowById](../functions/NxdTable_GetRowById.md), [UIText_ResolveCategoryRow](../functions/UIText_ResolveCategoryRow.md)
+- **Row layout:** [NxdDataPoachItemRow](../structs/NxdDataPoachItemRow.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

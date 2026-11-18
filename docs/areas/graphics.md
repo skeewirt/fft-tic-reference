@@ -2,13 +2,16 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 36, Tables: 3.
+Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 45, Tables: 48.
 
-## Functions (161)
+## Functions (170)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [AtlasShelf_Alloc](../functions/AtlasShelf_Alloc.md) | `0x1403B6D68` | Shelf (row) allocator for the layer atlas page: places a rectangle plus margin and returns the packed integer rectangle. |
+| [Battle_JoinUnitAndLoad](../functions/Battle_JoinUnitAndLoad.md) | `0x1401F2E4C` | The mid-battle join: runs Battle_AddJoinedUnit, then the look loader once per frame until it returns 0. |
+| [BattleFormation_DrawUnits](../functions/BattleFormation_DrawUnits.md) | `0x140216EB4` | The battle formation draw (called from sub_140213F14): per unit index 0..20 it reads the CharShape row of the scene object's sprite byte for the draw height. |
+| [BattleLoad_StepFresh](../functions/BattleLoad_StepFresh.md) | `0x1403044EC` | State machine of one battle scene load: prepares, builds the roster queue, loads every queued look through CharaPalette_ReloadForShape and starts the battle turn engine. |
 | [BlendDesc_FromWords](../functions/BlendDesc_FromWords.md) | `0x140051284` | Unpacks packed render-target blend words into the Direct3D 12 blend description array of a pipeline state. |
 | [Camera_UpdateMatrices](../functions/Camera_UpdateMatrices.md) | `0x1403A5674` | Per-frame update of a render camera (vftable faith::Graphics::Object::Camera slot at 0x140720AF8): rebuilds its view matrix, projection matrix, view-projection matrix, inverses, and sets a 'changed' flag when anything... |
 | [Camera_UpdateSecondaryView](../functions/Camera_UpdateSecondaryView.md) | `0x1403A5ECC` | Tail of Camera_UpdateMatrices: builds the second view (the one belonging to the render target object at target+32), its view-projection and inverse, with the same epsilon dirty tracking. |
@@ -41,6 +44,7 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [GUILayer_GlowPass](../functions/GUILayer_GlowPass.md) | `0x1403B4EA8` | Glow composite: blurs the layer by the glow radius and draws the result with the glow shader permutation selected by the mode field. |
 | [GUILayer_PackAtlasRect](../functions/GUILayer_PackAtlasRect.md) | `0x1403B6A78` | Decides where a layer's pixels live in the layer atlas pages, allocates the integer rectangle there and rewrites the layer rectangle (+208..+220) and its offsets (+224..+236) to the packed position. |
 | [HdGroup_BuildPiece](../functions/HdGroup_BuildPiece.md) | `0x1403D0F8C` | Builds one texture of a sheet group: a rectangle of the group's sheet pixels, expanded through a converted palette into 32-bit texels. |
+| [HdLayer_BindSheetTexture](../functions/HdLayer_BindSheetTexture.md) | `0x14041D670` | Binds a sprite sheet texture id of the battle HD layer to the g2d entry that the sheet slot table holds. |
 | [HdLayer_BuildTextures](../functions/HdLayer_BuildTextures.md) | `0x140415D30` | The battle HD layer's texture pass: for every draw record of the frame it finds or builds the texture of its sheet piece and palette, and writes the texture id into the record. |
 | [LayerBinds_Push](../functions/LayerBinds_Push.md) | `0x1403A83B0` | Appends a (slot, resource) pair to the binder's per-layer (mode 1) or per-target (mode 2) vectors; the pairs are replayed into a render command by LayerBinds_Replay. |
 | [LayerBinds_RecordAllLayers](../functions/LayerBinds_RecordAllLayers.md) | `0x1403A82A8` | Walks every live render layer and records the per-layer shader-resource binds for those flagged as recordable. |
@@ -49,7 +53,9 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [LookPool_ClaimForSprite](../functions/LookPool_ClaimForSprite.md) | `0x140268FF4` | Finds or claims the look pool record for a sprite number and returns its index, or 0xFFFF when all 15 records are in use. |
 | [LookPool_ResetForBattleLoad](../functions/LookPool_ResetForBattleLoad.md) | `0x14026F5CC` | Clears the scene-unit in-use flags and the look pool claims before a battle load, and resets the load state machine. |
 | [LookQueue_Add](../functions/LookQueue_Add.md) | `0x1403041A4` | Appends one entry to the 16-entry look load queue that CharaPalette_ReloadForShape later turns into scene units. |
+| [ModelSkeleton_BuildBoneLinks](../functions/ModelSkeleton_BuildBoneLinks.md) | `0x1403BD428` | Builds the list of bone links of a loaded model by matching its bone names against the 33 bone name pairs. |
 | [NameSlotTable_Lookup](../functions/NameSlotTable_Lookup.md) | `0x140089280` | Turns a shader resource name (constant buffer, texture or sampler) into a small dense slot id, adding the name to the table the first time it is seen. |
+| [Palette_ConvertToRgba](../functions/Palette_ConvertToRgba.md) | `0x14025EB10` | Converts a 16- or 256-colour palette of 15-bit words into 32-bit colours with alpha. |
 | [PartyUnit_BuildJobRecord](../functions/PartyUnit_BuildJobRecord.md) | `0x1402B5644` | Returns the classic-graphics face value of a save unit record: it finds the record's portrait code the way sub_14032AB3C does (marker, job byte, job row), from its own copy of the code words, and turns the code into t... |
 | [Pixels_ExpandToRgba](../functions/Pixels_ExpandToRgba.md) | `0x14041DDB0` | Expands a block of 4-, 8-, 16- or 32-bit pixels into 32-bit texels. |
 | [PortraitCode_FillCell](../functions/PortraitCode_FillCell.md) | `0x1402E16A8` | Turns a portrait code into the classic portrait atlas cell of a draw record and its colour, and returns the code's low byte. |
@@ -84,11 +90,16 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [ResourceHandle_StateStep](../functions/ResourceHandle_StateStep.md) | `0x1403BA658` | Slot 7 of every faith::Graphics::*ResourceHandle class (Font, Model, Texture, Custom, AdditionalKerning): advances the handle's load state machine by one step. |
 | [RootSignature_CreateWithSampler](../functions/RootSignature_CreateWithSampler.md) | `0x140042E64` | Builds one Direct3D 12 root signature (optional root constants, one SRV descriptor table, optional UAV descriptor table, at most one static sampler decoded from a sampler word), serialises and creates it on the device... |
 | [Sampler_DescFromWord](../functions/Sampler_DescFromWord.md) | `0x140068D54` | Decodes a 32-bit packed sampler word (the words kept in the draw state at +5704 + 4 * slot) into a D3D12 static sampler description. |
+| [SceneObject_FindByUnitIndex](../functions/SceneObject_FindByUnitIndex.md) | `0x140260ABC` | Walks the scene object list and returns the object whose battle unit record has the given unit index, or null. |
 | [SceneUnit_ApplyStatusTint](../functions/SceneUnit_ApplyStatusTint.md) | `0x140269330` | Gives a scene unit its colours: a status tint chosen from the unit's flag dword, or the plain row with the ambient light when no tint flag is set. |
+| [SceneUnit_ApplyStatusVisuals](../functions/SceneUnit_ApplyStatusVisuals.md) | `0x1401FAF54` | Applies a scene unit's status visual set / clear masks and redraws the pose. |
+| [SceneUnit_BuildFromQueueEntry](../functions/SceneUnit_BuildFromQueueEntry.md) | `0x14026EB74` | Builds the scene unit of one look queue entry: takes a scene-unit slot, claims the look pool record of the sprite, picks the palette row, loads the pool's palette and frames, sets the HD sheet slot and links the unit ... |
 | [SceneUnit_EntryById](../functions/SceneUnit_EntryById.md) | `0x1402EFF34` | Returns a scene unit entry of the selector scenes (564 bytes each at 0x1408E6CB0) by its id, or null. |
 | [SceneUnit_FillSpriteRecord](../functions/SceneUnit_FillSpriteRecord.md) | `0x1402C2520` | Builds a work record from the selector-scene unit entry named by the object's byte +180 and fills the object's sprite record (+188) with its preview shape. |
+| [SceneUnit_LoadExtraPage](../functions/SceneUnit_LoadExtraPage.md) | `0x14026C2E8` | Gives a scene unit one of the two extra sprite pages for its second-sheet frames (special poses such as a punch) and points that page's HD sheet slot at the unit's second sheet entry. |
 | [SceneUnit_SyncSpriteFromPool](../functions/SceneUnit_SyncSpriteFromPool.md) | `0x14026A1DC` | Keeps a scene unit's sprite byte in step with its look pool record, and switches to the four effect sprites 155 to 158 when the unit's effect flags ask for them. |
 | [SceneUnit_TintOwnRow](../functions/SceneUnit_TintOwnRow.md) | `0x14026929C` | Picks the 16-colour row a scene unit is drawn with and passes it to UnitClut_TintRow with the caller's mode and offsets. |
+| [SceneUnits_SaveRestore](../functions/SceneUnits_SaveRestore.md) | `0x1401D46B0` | Copies the scene units, the scene list, the CLUT image and the CLUT manager to or from the battle capture. |
 | [SDFFont_GetAdvance](../functions/SDFFont_GetAdvance.md) | `0x1403A9A9C` | Returns the scaled advance (x, y) of one character: per-axis renderer scale times the glyph record advance, or (0, 0) when the font is unavailable or the glyph is missing. |
 | [SDFFontBatch_SortCompare](../functions/SDFFontBatch_SortCompare.md) | `0x1403A8FB0` | qsort comparator for the text batch list: orders 8-byte entries by their first dword, never returns 0. |
 | [SDFFontRenderer_AccumulateBounds](../functions/SDFFontRenderer_AccumulateBounds.md) | `0x1403A9248` | Grows the current batch's 2D bounding box (r+7928..7940) by the four vertices of the quad that SDFFontRenderer_EmitGlyph just wrote. |
@@ -104,6 +115,7 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [ShaderProgram_ApplyState](../functions/ShaderProgram_ApplyState.md) | `0x1403A39CC` | Binds one program: its shader objects into the thread state and the pipeline-state words (raster word, blend state word, the blend words of the render targets, blend-factor flags) from its 64-byte entry. |
 | [ShaderSelector_Apply](../functions/ShaderSelector_Apply.md) | `0x14039EC9C` | Resolves the selector's current permutation index to a program table and applies the program with the given index (within that permutation) to the thread state. |
 | [ShaderSelector_SetDigit](../functions/ShaderSelector_SetDigit.md) | `0x1403C4AA8` | Sets one mixed-radix digit of the selector's state dword (the permutation index that ShaderSelector_Apply uses) and marks the state dirty. |
+| [SpriteShape_ToHdTexture](../functions/SpriteShape_ToHdTexture.md) | `0x14027411C` | Returns the HD texture id of a sprite shape number, or -1 when the shape has none. |
 | [StdSort_LayersByKey](../functions/StdSort_LayersByKey.md) | `0x1403C2B00` | The introsort loop of MSVC's std::sort for an array of layer pointers keyed by the unsigned dword at layer+84 (the draw-order key); the final sort of UIRender_PrepareLayers, whose result is the order in which GUILayer... |
 | [StdSort_LayersByOrder](../functions/StdSort_LayersByOrder.md) | `0x1403C2930` | The introsort loop of MSVC's std::sort for an array of layer pointers, keyed by the unsigned dword at layer+12 (the layer's order); UIRender_PrepareLayers sorts the collected layer list with it before it computes the ... |
 | [StdSort_PartitionPtrByDword12](../functions/StdSort_PartitionPtrByDword12.md) | `0x1403C37EC` | Introsort partition step on an array of object pointers keyed by the dword at object+12: median-of-three (or Tukey ninther for more than 41 elements) pivot choice and three-way partition; returns the equal range [lo, ... |
@@ -112,8 +124,6 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [StdSort_PopHeapHolePtrByDword84](../functions/StdSort_PopHeapHolePtrByDword84.md) | `0x1403C3FA0` | The same heap step as StdSort_PopHeapHolePtrByDword12 with the key at layer+84. |
 | [sub_14022AA88](../functions/sub_14022AA88.md) | `0x14022AA88` | Finds the look pool index of a battle unit through the scene-unit list and fills the image rectangle the turn panel uses for its small face; returns the pool index or -1. |
 | [sub_14026E838](../functions/sub_14026E838.md) | `0x14026E838` | Battle side of the palette load: copies the classic file's palette into the unit's look pool record, applies the CharShape colour override keyed by the unit's sprite byte, and uploads the palette and frames for the slot. |
-| [sub_14026EB74](../functions/sub_14026EB74.md) | `0x14026EB74` | Builds the scene unit of one look queue entry: takes a scene-unit slot, claims the look pool record of the sprite, picks the palette row, loads the pool's palette and frames, sets the HD sheet slot and links the unit ... |
-| [sub_1403044EC](../functions/sub_1403044EC.md) | `0x1403044EC` | State machine of one battle scene load: prepares, builds the roster queue, loads every queued look through CharaPalette_ReloadForShape and starts the battle turn engine. |
 | [sub_14030476C](../functions/sub_14030476C.md) | `0x14030476C` | State machine of a battle scene load with a second roster build (the checkpoint or rematch path): resets the look pool, builds both rosters, loads their looks and starts the turn engine. |
 | [sub_14032AB3C](../functions/sub_14032AB3C.md) | `0x14032AB3C` | Finds the portrait code of a save unit record (by its marker byte, job byte and job row) and fills a portrait draw record with it; returns the code's low byte, or -1 when the code carries bit 8 or 9. |
 | [sub_14032ACE0](../functions/sub_14032ACE0.md) | `0x14032ACE0` | Builds the portrait draw records for one or two save units in a layout chosen by *mode, and returns the first unit's portrait code byte (sub_14032AB3C) or -1. |
@@ -124,7 +134,6 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [sub_1403BA7A0](../functions/sub_1403BA7A0.md) | `0x1403BA7A0` | Slot 9 of every resource handle class: calls virtual +256 then virtual +152 and clears the payload pointer / size at +96 / +104. |
 | [sub_1403BA80C](../functions/sub_1403BA80C.md) | `0x1403BA80C` | Slot 13 of every resource handle class: calls virtual +168; when it returns >= 0 returns virtual +272(h, arg), else the negative result. |
 | [sub_1403D0898](../functions/sub_1403D0898.md) | `0x1403D0898` | Initialises a 96-byte texture-create parameter block to defaults: dword +92 = 1, floats +8 / +84 / +88 = 1.0, the rest zero, and the two arrays of four ids (+96..+111) = 0xFF. |
-| [sub_14041D670](../functions/sub_14041D670.md) | `0x14041D670` | Binds a sprite sheet texture id of the battle HD layer to the g2d entry that the sheet slot table holds. |
 | [sub_14041E05C](../functions/sub_14041E05C.md) | `0x14041E05C` | Builds the texture of one pending request record of the battle HD layer: a fixed sheet entry with the record's own palette, or pixels another routine prepared. |
 | [TexHeader_TableSize](../functions/TexHeader_TableSize.md) | `0x1403BA9B0` | Size of the sub-image table of a TEX file header: returns (low dword = bytes of the table after the 40-byte header start, high dword = 40), or 0 for a header that is not version 4. |
 | [TexHeader_ValidateCopy](../functions/TexHeader_ValidateCopy.md) | `0x1403BAA14` | Checks that a TEX header table fits and copies it: returns 0 on success, 2 for a wrong version, 3 for an entry count of 0 or above 255, 4 when the table is larger than the data available. |
@@ -170,19 +179,63 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [UnitClut_TintRow](../functions/UnitClut_TintRow.md) | `0x1402F7628` | The battle side's tint rule: turns one 16-colour palette row into a unit slot's colours in bank 3 of the palette manager. |
 | [UnitClut_TintRowPlain](../functions/UnitClut_TintRowPlain.md) | `0x1402F78A4` | Calls UnitClut_TintRow with mode 8 (the channels as they are plus the offsets) for a row and a slot. |
 
-## Structures (9)
+## Structures (53)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [AtlasShelf](../structs/AtlasShelf.md) | 16 | The state of one layer atlas allocator (a shelf / row packer): the cursor in the current row, the start of the row, the height of the row and the page. |
+| [BlendModeAlphaEntry](../structs/BlendModeAlphaEntry.md) | 1 | One row of the BlendModeAlpha table. |
+| [BoneLinkPairsRow](../structs/BoneLinkPairsRow.md) | 16 | One row of the BoneLinkPairs table. |
+| [ChannelExpandRow](../structs/ChannelExpandRow.md) | 1 | One row of GfxBitExpandTables. |
 | [ClutBank](../structs/ClutBank.md) | 2450 | One of the 14 banks of the palette manager (g_ClutManager, from +8): 16 rows of 16 colours with a timer per row, the state of every colour and the bank's base rows. |
+| [DissolveStep](../structs/DissolveStep.md) | 64 | One row of the DissolveOffsets table. |
+| [FixedRampBlockRow](../structs/FixedRampBlockRow.md) | 16 | One row of EffectPoseBlendKeys. |
 | [HdSheetGroup](../structs/HdSheetGroup.md) | 21144 | One of the 20 sheet groups of the battle HD layer (g_HdSheetGroups): a sheet entry kept in memory and the textures cut from it, one per piece and palette. |
+| [ItemScreenPaletteRow](../structs/ItemScreenPaletteRow.md) | 2 | One row of the ItemScreenPalette table. |
 | [LookPoolRecord](../structs/LookPoolRecord.md) | 13014 | One of the 15 sprite records at 0x140D005A0 (stride 0x32D6) that hold the loaded graphics of a look; records are shared by every unit that has the same sprite number. |
 | [LookQueueEntry](../structs/LookQueueEntry.md) | 32 | One entry of the 16-entry load queue that Battle_BuildRosterTeam, Battle_AddJoinedUnit and the scene preview code fill (LookQueue_Add) and CharaPalette_ReloadForShape consumes; entry n starts at 0x141856728 + 32 * n, ... |
+| [MapDrawIndexListRecord](../structs/MapDrawIndexListRecord.md) | 24 | One row of the MapDrawIndexLists table. |
 | [NameSlotTable](../structs/NameSlotTable.md) |  | A name-to-slot table of the render device (constant buffers, textures, samplers): names hashed into a tree, each with a dense slot id. |
+| [NxdDataDepthBiasRow](../structs/NxdDataDepthBiasRow.md) | 12 | One row of the nxd.depth_bias table (data table). |
+| [NxdDataPostEffectDepthLUTRow](../structs/NxdDataPostEffectDepthLUTRow.md) | 40 | One row of the nxd.post_effect_depth_lut table (data table). |
+| [NxdDataPostEffectDOFRow](../structs/NxdDataPostEffectDOFRow.md) | 28 | One row of the nxd.post_effect_dof table (data table). |
+| [NxdDataPostEffectGlareRow](../structs/NxdDataPostEffectGlareRow.md) | 24 | One row of the nxd.post_effect_glare table (data table). |
+| [NxdDataPostEffectLUTRow](../structs/NxdDataPostEffectLUTRow.md) | 20 | One row of the nxd.post_effect_lut table (data table). |
+| [NxdDataPostEffectRow](../structs/NxdDataPostEffectRow.md) | 16 | One row of the nxd.post_effect table (data table). |
+| [NxdDataRefinedBgAnimRow](../structs/NxdDataRefinedBgAnimRow.md) | 12 | One row of the nxd.refined_bg_anim table (data table). |
+| [NxdDataRefinedBgMeshNodeInvisTypeRow](../structs/NxdDataRefinedBgMeshNodeInvisTypeRow.md) | 12 | One row of the nxd.refined_bg_mesh_node_invis_type table (data table). |
+| [NxdDataRefinedBgMeshNodeRow](../structs/NxdDataRefinedBgMeshNodeRow.md) | 28 | One row of the nxd.refined_bg_mesh_node table (data table). |
+| [NxdDataRefinedBgMeshPolygonCondRow](../structs/NxdDataRefinedBgMeshPolygonCondRow.md) | 20 | One row of the nxd.refined_bg_mesh_polygon_cond table (data table). |
+| [NxdDataRefinedBgMeshPolygonRow](../structs/NxdDataRefinedBgMeshPolygonRow.md) | 24 | One row of the nxd.refined_bg_mesh_polygon table (data table). |
+| [NxdDataRefinedBgSystemTextureRow](../structs/NxdDataRefinedBgSystemTextureRow.md) | 24 | One row of the nxd.refined_bg_system_texture table (data table). |
+| [NxdDataRefinedBgTextureRow](../structs/NxdDataRefinedBgTextureRow.md) | 40 | One row of the nxd.refined_bg_texture table (data table). |
+| [NxdDataRefinedBgUITextureFramesRow](../structs/NxdDataRefinedBgUITextureFramesRow.md) | 12 | One row of the nxd.refined_bg_ui_texture_frames table (data table). |
+| [NxdDataRefinedBgUITextureRow](../structs/NxdDataRefinedBgUITextureRow.md) | 20 | One row of the nxd.refined_bg_ui_texture table (data table). |
+| [NxdDataRefinedPermanentVFXRow](../structs/NxdDataRefinedPermanentVFXRow.md) | 12 | One row of the nxd.refined_permanent_vfx table (data table). |
+| [NxdDataRefinedVFXCameraControlRow](../structs/NxdDataRefinedVFXCameraControlRow.md) | 20 | One row of the nxd.refined_vfx_camera_control table (data table). |
+| [NxdDataRefinedVFXTextureRow](../structs/NxdDataRefinedVFXTextureRow.md) | 32 | One row of the nxd.refined_vfx_texture table (data table). |
+| [PaletteFormat](../structs/PaletteFormat.md) | 16 | One row of the PaletteFormats table. |
+| [PaletteIndexByteRow](../structs/PaletteIndexByteRow.md) | 1 | One row of GfxColourCubeIndexImage. |
+| [PartyFaceIndexRow](../structs/PartyFaceIndexRow.md) | 1 | One face record index. |
+| [PartyFaceRecordRow](../structs/PartyFaceRecordRow.md) | 12 | One portrait rectangle record. |
+| [PortraitCodeRow](../structs/PortraitCodeRow.md) | 2 | One portrait code word. |
 | [RenderContext](../structs/RenderContext.md) | 6032 | The per-thread draw state every pass fills before it packs a command: sort key, clip rectangle, render target, blend and raster words, vertex/index buffers and three binding tables (constant buffers, textures, sampler... |
 | [Renderer](../structs/Renderer.md) |  | The renderer object (global g_Renderer): output size, the render-target table and the per-type target slot tables, and the UI manager. |
-| [SceneUnitSlot](../structs/SceneUnitSlot.md) | 1352 | One of the 16 scene-unit records at 0x140D30038 (stride 0x548) that sub_14026EB74 builds for a queued unit; the code addresses it by the pointer it returns, the in-use dword sits 8 bytes before that pointer (0x140D300... |
+| [RgbaColourRow](../structs/RgbaColourRow.md) | 4 | One row of GfxColourCubePalette. |
+| [SceneSpriteFaceRow](../structs/SceneSpriteFaceRow.md) | 4 | One face number. |
+| [SceneUnitSlot](../structs/SceneUnitSlot.md) | 1352 | One of the 16 scene-unit records at 0x140D30038 (stride 0x548) that SceneUnit_BuildFromQueueEntry builds for a queued unit; the code addresses it by the pointer it returns, the in-use dword sits 8 bytes before that po... |
+| [ShopScreenPaletteRow](../structs/ShopScreenPaletteRow.md) | 2 | One row of the ShopScreenPalette table. |
+| [SlotPermutationRow](../structs/SlotPermutationRow.md) | 16 | One row of SceneSlotPermutations. |
+| [SpriteClassicFileRow](../structs/SpriteClassicFileRow.md) | 8 | Where one classic sprite file is and how long it is. |
+| [SpriteDirectionTablesRow](../structs/SpriteDirectionTablesRow.md) | 1 | One row of SpriteDirectionTables. |
+| [SpriteHdEntryRow](../structs/SpriteHdEntryRow.md) | 4 | One HD sheet entry number. |
+| [SpriteKindFlagRow](../structs/SpriteKindFlagRow.md) | 1 | One row of SpriteEffectKindFlags. |
+| [SpriteLayerByteRow](../structs/SpriteLayerByteRow.md) | 1 | One row of SpriteLayerByteRows. |
+| [SpriteLookAttributeRow](../structs/SpriteLookAttributeRow.md) | 4 | One look attribute row. |
+| [SpriteMotionByKindRow](../structs/SpriteMotionByKindRow.md) | 1 | One row of SpriteMotionByKind. |
+| [TextureIdRow](../structs/TextureIdRow.md) | 4 | One row of SpriteShapeHdTexture. |
+| [TextureWindowWordRow](../structs/TextureWindowWordRow.md) | 2 | One row of GfxTextureWindowParams. |
+| [UnitSpritePosePackRow](../structs/UnitSpritePosePackRow.md) | 2 | One row of the UnitSpritePosePack table. |
 
 ## Globals (14)
 
@@ -193,7 +246,7 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [g_FaceDisplayMode](../globals/g_FaceDisplayMode.md) | `0x142FF9ED8` | `int32` | Face display mode word: when (mode & ~2) is 0 the face readers map a portrait code through SpriteId_ToShape, else they use the raw code; written 0 then 2 by sub_140210AF0 (battle setup), 0 by Video_RefreshState and su... |
 | [g_FaceG2dEntryByFace](../globals/g_FaceG2dEntryByFace.md) | `0x140714EA0` | `int32[206]` | g2d (pack) entry number per face number 0..205 for the HD layer (row 0 -1, rows 155..158 -1); four readers, each bounding the face with 0xCD. |
 | [g_GraphicsLevel](../globals/g_GraphicsLevel.md) | `0x142C81554` | `float` | Graphics level; Unit_GetSpriteSetId's save-record branch and the battle palette upload test it against 2.0 (I: 2.0 and up = enhanced graphics). |
-| [g_HdFaceSlotValues](../globals/g_HdFaceSlotValues.md) | `0x142E7FCAC` | `int32[]` | HD-layer face slot values (stride 4 dwords per slot); Unit_GetSpriteSetId writes [0]; sub_14041D670 and sub_14041DAA4 read [4 * slot]. |
+| [g_HdFaceSlotValues](../globals/g_HdFaceSlotValues.md) | `0x142E7FCAC` | `int32[]` | HD-layer face slot values (stride 4 dwords per slot); Unit_GetSpriteSetId writes [0]; HdLayer_BindSheetTexture and sub_14041DAA4 read [4 * slot]. |
 | [g_LookPoolFaceValue](../globals/g_LookPoolFaceValue.md) | `0x1437A59E0` | `int32[10]` | Battle face value per look pool record 0..9: sub_14026E838 stores the scene unit's sprite byte; cleared to -1 by sub_140210AF0, saved and restored by sub_140304BEC; ten readers use it as a face number behind the 0xCD ... |
 | [g_PortraitCodeA](../globals/g_PortraitCodeA.md) | `0x140680070` | `uint16[211]` | Copy A of the portrait code words (one of six identical copies), read by PartyUnit_BuildJobRecord. |
 | [g_PortraitCodeD](../globals/g_PortraitCodeD.md) | `0x140681A90` | `uint16[211]` | Copy D of the portrait code words, read by EventMessage_Scripted (the speaker's portrait). |
@@ -265,22 +318,26 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (36)
+## Observed behaviours (45)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [BattleFaceIsThePoolSpriteByte](../behaviors/BattleFaceIsThePoolSpriteByte.md) | engine (battle faces) | A battle unit's face is not a portrait code: the look pool's sprite byte is stored as the pool's face value and ten readers use it as the face number behind the 0xCD cap; a separate code exists only for one special unit. |
+| [BattleMotionNumbers](../behaviors/BattleMotionNumbers.md) | engine (battle unit animation choice) | A battle action names its animation by a motion number from two tables (one per ability, one per weapon type); the unit stores motion + 1, and the motion number is the pair index of the classic animation file (front v... |
 | [BattlePaletteSourceByLookRange](../behaviors/BattlePaletteSourceByLookRange.md) | engine (battle palette row) | Where a battle unit's palette row comes from depends on its sprite number: the generic looks (96..133) and 159..162 take the unit's byte +4, every other look its CharShape row's colour override or the queue palette. |
 | [BlendFactorUsesStoredSourceAlpha](../behaviors/BlendFactorUsesStoredSourceAlpha.md) | GPU (the test machine's GPU and driver), UI draws into an 8-bit target | The destination factor of a UI draw's blend (1 - source alpha) uses the source alpha as the 8-bit target stores it: result = round(source) + round(destination * (1 - round8(source alpha))), with round8 = the target's ... |
 | [BlendTermsRoundedSeparately](../behaviors/BlendTermsRoundedSeparately.md) | GPU (the test machine's GPU and driver), UI draws into a layer target | A UI draw's blend into its 8-bit target behaves as if both terms were rounded to 8 bits before they are added: result = round(source) + round(destination * (1 - source alpha)), not round(source + destination * (1 - so... |
 | [CharShapeKeyByteSites](../behaviors/CharShapeKeyByteSites.md) | engine (CharShape key) | CharShape_ApplyClut takes its key as a byte: the callee's zero-extending byte load of the key at 0x14026C7C0, the menu caller's byte move of the look at 0x14026E806 and the battle copy loop's byte mask at 0x14026E8D0. |
 | [CharShapeRowMissingFaultsTheFormation](../behaviors/CharShapeRowMissingFaultsTheFormation.md) | engine (battle formation) | The battle formation code reads a CharShape row (NXD 174) keyed by the scene unit's sprite byte and, on one path, reads the row's byte +0x2C with no row: a sprite number without a CharShape row faults. |
+| [ClassicSpriteFilesByNumber](../behaviors/ClassicSpriteFilesByNumber.md) | the sprite pack, classic palettes and portraits of stock shapes | Classic sprite files are numbered entries of fftpack.bin, and the `offset` column of the classic kind tables is that file number; the game has no portrait for shapes 56 and 57. |
 | [CursorDrawnThroughLayerTarget](../behaviors/CursorDrawnThroughLayerTarget.md) | the finger cursor's glove (UI layer) | The glove reaches the screen in two 8-bit stores: it is drawn into a cleared layer target (premultiplied, rounded) and that layer is then blended onto the frame (dst = layer + dst * (1 - layer alpha), rounded again). |
 | [EffectPassesInheritDefaultSampler](../behaviors/EffectPassesInheritDefaultSampler.md) | engine | Layer effect passes read their textures through g_Sampler without setting it; because they are packed before the UI draws that set it, they always get the default word (point filter, wrap). |
 | [EnhancedDrawsHdSheetsWithTheClassicFilePalette](../behaviors/EnhancedDrawsHdSheetsWithTheClassicFilePalette.md) | engine (unit sprites) | In the enhanced build a unit's HD sprite sheet is drawn with the palette taken from the classic sprite file named in the classic file table, so the colours follow that file, not the sheet. |
 | [FaceLookupInlineCopiesDisagreeAboveCode159](../behaviors/FaceLookupInlineCopiesDisagreeAboveCode159.md) | engine (portrait face numbers) | The face-number lookup exists as SpriteId_ToShape and ten inline copies; for codes above 0x9F five of the copies answer differently from the function, so one table row cannot stand for all of them. |
 | [FaceNumberCapsClipRawCodesToo](../behaviors/FaceNumberCapsClipRawCodesToo.md) | engine (portrait face numbers) | Sixteen readers cap the face number at 0xCD (205): the twelve caps below and the four readers of the HD face table g_FaceG2dEntryByFace. |
 | [GenericUnitSpriteNumberFromJob](../behaviors/GenericUnitSpriteNumberFromJob.md) | engine (unit sprite selection) | A generic unit has no stored sprite number: the game derives it from the job and the sex, with the same sum in at least ten places, and every other job id falls back to a default. |
+| [HdSheetFromSlotColoursFromRecord](../behaviors/HdSheetFromSlotColoursFromRecord.md) | engine (Enhanced battle sprite) | In Enhanced a pool's HD sheet comes from its sheet slot (the g2d entry) while its colours come from the pool record's palette. |
+| [JobChangeTransitionShapeFromTheListEntryByte](../behaviors/JobChangeTransitionShapeFromTheListEntryByte.md) | engine (Change Job transition sprite) | While a job change plays its light pillar, the Status header figure is drawn in a shape JobScreen_UpdateState asks Unit_ResolvePreviewShape for, passing the Change Job list entry's job as one byte; for a generic unit ... |
 | [LayerAtlasPlacement](../behaviors/LayerAtlasPlacement.md) | every layer of a UI frame that is packed (composited, kind 0 or 1, none of the flags +78 / +486 / +488); the Job Tree frame was checked end to end | Where a UI layer's pixels are placed in the layer atlas each frame: the layers are put in a fixed order (their order key), and a shelf packer places each layer's integer rectangle plus a margin of 2 px (32 px when a b... |
 | [LayerBlitOverFrameTarget](../behaviors/LayerBlitOverFrameTarget.md) | every layer of blend type 0 (normal) | Store 2: the layer is blended onto the frame target by a pixel shader that reads the frame pixel through a UAV and writes it back: frame = layer + frame x (1 - layer alpha) in premultiplied form, per channel, from the... |
 | [LayerCompositeOrder](../behaviors/LayerCompositeOrder.md) | the order of layers and of draws on the frame | Layers are composited in the order the game's draw traversal opened them, but only layers whose rectangles overlap are ordered against each other: each layer gets an order number that is one more than the creation ind... |
@@ -289,9 +346,13 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [LookSitesUseTheSaveRecordNotTheSlot](../behaviors/LookSitesUseTheSaveRecordNotTheSlot.md) | engine (portraits and faces) | The six portrait readers compute the look from the unit's marker, job byte and sex each time through six copies of one 211-word table; none of them reads the battle slot, and they are separate from the battle sprite p... |
 | [LookSlotsAlreadyInTheGame](../behaviors/LookSlotsAlreadyInTheGame.md) | engine (battle sprite loading) | The battle loader already assigns small per-battle slots to looks: a 16-entry queue, 15 look pool records shared by equal sprite numbers, 16 scene-unit records and 10 HD sheet entries. |
 | [LookSumSeesTheBaseJob](../behaviors/LookSumSeesTheBaseJob.md) | engine (portrait look index) | Five functions compute a save unit's portrait look index from its job byte (2 * job - 52, + 1 for marker 0x81), each against its own copy of the portrait code words. |
+| [MidBattleJoinLoadsLooks](../behaviors/MidBattleJoinLoadsLooks.md) | engine (battle join) | A unit that joins mid-battle is queued by Battle_AddJoinedUnit and loaded by running the look loader once per frame until it returns 0; the loader's file reads are synchronous. |
+| [NamedCharactersKeepTheirOwnLookWhateverTheirJob](../behaviors/NamedCharactersKeepTheirOwnLookWhateverTheirJob.md) | engine (unit look by character byte) | A named character (character byte +0 of the save, party or battle record below 0x80, e.g. |
 | [PoolRecordKeepsItsSpriteAcrossTheReset](../behaviors/PoolRecordKeepsItsSpriteAcrossTheReset.md) | engine (battle sprite loading) | A look pool record keeps the sprite it holds (byte +1) after LookPool_ResetForBattleLoad, and the load pass skips the classic file of a queued sprite that any record's +1 already names; only the battle setup clears +1... |
 | [PortraitCodeIsAByteOnTheSaveRecordPath](../behaviors/PortraitCodeIsAByteOnTheSaveRecordPath.md) | engine (party faces) | On the save-record path a portrait code can only carry 256 distinct faces: the code reader refuses a code with bit 8 or 9 and the cell function returns the low byte. |
 | [RasterizerSnapsTo1_256Px](../behaviors/RasterizerSnapsTo1_256Px.md) | GPU (the test machine's GPU and driver) | Vertex positions are snapped to 1/256 of a pixel (rounded to nearest) before rasterization, so a UI quad at a third of a pixel (the 2/3 screen scale) is drawn from slightly moved corners and samples its texture at sli... |
+| [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md) | engine (battle resume) | A battle resumed from a payload copies the payload twice around the scene-variable restore, builds no scene unit but restores the scene-unit records whole, and rebuilds existing scene units from the restored slot and ... |
+| [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md) | engine (battle unit shape) | A scene unit's shape (sprite byte +0xA) is the sprite word of its load queue entry; a battle unit's shape byte +0x18F is written only by the unit builders and comes back in the battle snapshot, while the save keeps no... |
 | [SixteenColourLimitIsTwoCpuBuilders](../behaviors/SixteenColourLimitIsTwoCpuBuilders.md) | engine (unit sheets) | The 15 colours of a unit sheet (16 with the transparent one) are a property of two CPU routines that expand 4-bit pixels through 16 converted colours; both hand the GPU 32-bit textures, and the battle one already has ... |
 | [SpriteLookupFailuresPastTheTables](../behaviors/SpriteLookupFailuresPastTheTables.md) | engine (sprite readers) | What went wrong in game when a sprite number or job id above the stock range reached a reader: three failures. |
 | [SpriteNumberStoreWidths](../behaviors/SpriteNumberStoreWidths.md) | engine (unit sprite number) | Which stores of a unit's sprite number are bytes and which are wider: the battle path keeps the number in bytes (limit 255) while the menu path carries it as a 32-bit value. |
@@ -303,13 +364,59 @@ Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader pr
 | [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md) | engine (battle unit colours) | A battle unit's 16 colours are its palette row put through one tint rule (status tints, ambient light), then moved by the palette manager's timed fades; the result is uploaded to the emulated video memory, where the H... |
 | [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md) | engine (small unit portraits) | The small unit face is chosen from the sprite number through three portrait-code tables, then a face number, and the face number is capped at 0xCD; the status card's large job picture follows a different path through ... |
 | [UnitFaceIndexReadsTheTableAfterTheHdTable](../behaviors/UnitFaceIndexReadsTheTableAfterTheHdTable.md) | engine (party faces) | Unit_GetFaceIndex reads the face index of a monster job from the table right after the HD sheet entry table, through a virtual base that falls inside the HD table, so an address-range census counts it as an HD reader ... |
+| [UnitMovementAnimationTables](../behaviors/UnitMovementAnimationTables.md) | engine (unit sprite animation) | Eight data tables, one per sprite class, hold the unit's movement animations only (standing, walking, floating, turning, jumping, a few single-frame poses): a row per step, keyed by animation id and step number; attac... |
 | [UnormStoreRoundsHalfDown](../behaviors/UnormStoreRoundsHalfDown.md) | GPU (the test machine's GPU and driver) | When a shader stores a float into an 8-bit UNORM target, an exact half rounds down: 16.5 stores 16, 9.5 stores 9. |
 | [VertexColourBytesTruncated](../behaviors/VertexColourBytesTruncated.md) | engine (UI node colours) | A UI node's vertex colour reaches the shader as bytes: each channel is the product of the node colour and its opacity, truncated to an integer. |
 
-## Tables (3)
+## Tables (48)
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
+| [BlendModeAlpha](../tables/BlendModeAlpha.md) | Executable |  | 4 rows of 1 bytes | Alpha for each of the four semi-transparency modes (half, add, subtract, quarter). |
+| [BoneLinkPairs](../tables/BoneLinkPairs.md) | Executable |  | 33 rows of 16 bytes | The 33 bone name pairs that define the chains of a model skeleton (spine, neck, head, arms, hands, fingers, legs, toes, jaw, face, nose flap, forearm and shin extension bones, waist, tail segments). |
+| [DissolveOffsets](../tables/DissolveOffsets.md) | Executable (initialised data) |  | 32 rows of 64 bytes | Pixel-order table of a dissolve (reveal) effect: 32 steps, each with 32 offsets. |
+| [EffectPoseBlendKeys](../tables/EffectPoseBlendKeys.md) | Executable |  | 10 blocks of 16 bytes | Ten blocks of 16-bit fixed point (4096 = 1.0) ramp values copied by a sprite effect update. |
 | [FaceG2dEntryByFace](../tables/FaceG2dEntryByFace.md) | Executable (constant) |  | 206 entries of 4 bytes | g2d (pack) entry number per face number 0..205 for the HD layer (row 0 -1, rows 155..158 -1); four readers, each bounding the face with 0xCD. |
+| [GfxBitExpandTables](../tables/GfxBitExpandTables.md) | Executable |  | 16 + 32 + 64 rows of 1 byte | Lookup tables that expand 4, 5 and 6 bit colour channels to 8 bits in the texture format converters. |
+| [GfxBlueNoiseTexturePaths](../tables/GfxBlueNoiseTexturePaths.md) | Executable |  | 16 rows of 8 bytes | File paths of the sixteen 64 by 64 blue noise textures the renderer loads at set-up. |
+| [GfxColourCubeIndexImage](../tables/GfxColourCubeIndexImage.md) | Executable |  | 1024 bytes (size inferred) | 8-bit index image drawn with the colour cube palette (size word 32 stored by the set-up). |
+| [GfxColourCubePalette](../tables/GfxColourCubePalette.md) | Executable |  | 256 rows of 4 bytes | 256-colour palette whose entries step by 8 in red, green and blue; the palette of the index image at 0x14078E2B0. |
+| [GfxTextureWindowParams](../tables/GfxTextureWindowParams.md) | Executable |  | 4 words (head of a 2048-byte object) | Texture window parameter words (mask x / y, offset x / y) of a draw mode command. |
+| [ItemScreenPalette](../tables/ItemScreenPalette.md) | Executable |  | 256 rows of 2 bytes | 256 colours (15-bit) uploaded to the video page row used by the legacy item and map title textures. |
 | [LookPoolFaceValue](../tables/LookPoolFaceValue.md) | Executable (filled at run time) |  | 10 entries of 4 bytes | Battle face value per look pool record 0..9: sub_14026E838 stores the scene unit's sprite byte; cleared to -1 by sub_140210AF0, saved and restored by sub_140304BEC; ten readers use it as a face number behind the 0xCD ... |
-| [PortraitCodes](../tables/PortraitCodes.md) | Executable (constant) |  | 211 entries of 2 bytes | The portrait code words, one per portrait number. |
+| [MapDrawIndexLists](../tables/MapDrawIndexLists.md) | Executable |  | 50 rows of 24 bytes | Per battle map, two lists of map draw-record indices that the two map draw passes treat specially. |
+| [NxdDataDepthBias](../tables/NxdDataDepthBias.md) | NXD file | 315 | 12 rows of 12 bytes | Twelve depth-bias values for effect textures. |
+| [NxdDataPostEffect](../tables/NxdDataPostEffect.md) | NXD file | 228 | 2 rows of 16 bytes | Two post effect definitions with an effect file path. |
+| [NxdDataPostEffectDepthLUT](../tables/NxdDataPostEffectDepthLUT.md) | NXD file | 284 | 30 rows of 40 bytes | Depth lookup parameters (30). |
+| [NxdDataPostEffectDOF](../tables/NxdDataPostEffectDOF.md) | NXD file | 227 | 34 rows of 28 bytes | Depth-of-field parameters (34). |
+| [NxdDataPostEffectGlare](../tables/NxdDataPostEffectGlare.md) | NXD file | 256 | 19 rows of 24 bytes | Glare parameters (19). |
+| [NxdDataPostEffectLUT](../tables/NxdDataPostEffectLUT.md) | NXD file | 285 | 31 rows of 20 bytes | Colour lookup parameters (31). |
+| [NxdDataRefinedBgAnim](../tables/NxdDataRefinedBgAnim.md) | NXD file | 49 | 280 rows of 12 bytes | Remastered background animations keyed by map and slot. |
+| [NxdDataRefinedBgMeshNode](../tables/NxdDataRefinedBgMeshNode.md) | NXD file | 153 | 1429 rows of 28 bytes | Remastered background mesh nodes keyed by map, group and node. |
+| [NxdDataRefinedBgMeshNodeInvisType](../tables/NxdDataRefinedBgMeshNodeInvisType.md) | NXD file | 312 | 1 rows of 12 bytes | Mesh node invisibility type (one row). |
+| [NxdDataRefinedBgMeshPolygon](../tables/NxdDataRefinedBgMeshPolygon.md) | NXD file | 232 | 4037 rows of 24 bytes | Remastered background polygons keyed by map and index (4037), linked to conditions. |
+| [NxdDataRefinedBgMeshPolygonCond](../tables/NxdDataRefinedBgMeshPolygonCond.md) | NXD file | 326 | 78 rows of 20 bytes | Polygon condition rows (78). |
+| [NxdDataRefinedBgSystemTexture](../tables/NxdDataRefinedBgSystemTexture.md) | NXD file | 141 | 870 rows of 24 bytes | System textures of remastered backgrounds, triple keyed. |
+| [NxdDataRefinedBgTexture](../tables/NxdDataRefinedBgTexture.md) | NXD file | 71 | 1338 rows of 40 bytes | Textures of remastered backgrounds, triple keyed (1338 rows). |
+| [NxdDataRefinedBgUITexture](../tables/NxdDataRefinedBgUITexture.md) | NXD file | 223 | 20 rows of 20 bytes | UI textures of remastered backgrounds, with frame id arrays. |
+| [NxdDataRefinedBgUITextureFrames](../tables/NxdDataRefinedBgUITextureFrames.md) | NXD file | 222 | 17 rows of 12 bytes | Frame texture file paths of background UI textures. |
+| [NxdDataRefinedPermanentVFX](../tables/NxdDataRefinedPermanentVFX.md) | NXD file | 321 | 21 rows of 12 bytes | Permanent effect definitions (21). |
+| [NxdDataRefinedVFXCameraControl](../tables/NxdDataRefinedVFXCameraControl.md) | NXD file | 317 | 1 rows of 20 bytes | Effect camera control parameters (one row). |
+| [NxdDataRefinedVFXTexture](../tables/NxdDataRefinedVFXTexture.md) | NXD file | 202 | 487 rows of 32 bytes | Effect textures (487) linked to depth bias and camera control. |
+| [PaletteFormats](../tables/PaletteFormats.md) | Executable |  | 2 rows of 16 bytes | Two palette format descriptors (16- and 256-colour palettes). |
+| [PartyFaceIndex](../tables/PartyFaceIndex.md) | Executable |  | 74 rows of 1 byte | Maps a unit marker or job to a face record index. |
+| [PartyFaceRecords](../tables/PartyFaceRecords.md) | Executable |  | 90 rows of 12 bytes | Portrait rectangle and variant of each party face. |
+| [PortraitCodes](../tables/PortraitCodes.md) | Executable |  | 211 rows of 2 bytes in each of five byte-identical copies (0x1406807C0, 0x140680070, 0x140681A90, 0x1406829F0, 0x140683A70) | Portrait code word of each generic look. |
+| [SceneSlotPermutations](../tables/SceneSlotPermutations.md) | Executable |  | 24 rows of 16 bytes | The 24 permutations of the four slots 0..3, walked by a sprite effect update to pick a slot order. |
+| [SceneSpriteToFace](../tables/SceneSpriteToFace.md) | Executable |  | 160 rows of 4 bytes | Face number of each scene sprite id, read by the sprite-id-to-shape function and five inline copies of it. |
+| [ShopScreenPalette](../tables/ShopScreenPalette.md) | Executable |  | 16 rows of 2 bytes (first block) | 16 colours (15-bit) copied into the video page by the shop screen set-up. |
+| [SpriteClassicFilesByShape](../tables/SpriteClassicFilesByShape.md) | Executable |  | 170 rows of 8 bytes | Classic sprite file locator per shape, used for the palette load of the HD sheet. |
+| [SpriteClassicFilesByShapeB](../tables/SpriteClassicFilesByShapeB.md) | Executable |  | 170 rows of 8 bytes | Second copy of the classic sprite file locator table, read when the language code is 0; byte-identical to SpriteClassicFilesByShape. |
+| [SpriteDirectionTables](../tables/SpriteDirectionTables.md) | Executable |  | 184 bytes in six sub-tables | Small per-facing tables read by the sprite record code: mirror flag words, frame flag masks, walk phase steps and palette base words. |
+| [SpriteEffectKindFlags](../tables/SpriteEffectKindFlags.md) | Executable |  | 32 rows of 1 byte | One flag byte per sprite record kind read by the effect placement code. |
+| [SpriteHdEntryByShape](../tables/SpriteHdEntryByShape.md) | Executable |  | 170 rows of 4 bytes | First HD sheet entry of every look in the g2d pack. |
+| [SpriteLayerByteRows](../tables/SpriteLayerByteRows.md) | Executable |  | 3 rows of 24 bytes (80 to the next symbol) | Three rows of per-kind bytes stored into the sprite object (+18 / +19). |
+| [SpriteLookAttributes](../tables/SpriteLookAttributes.md) | Executable |  | 170 rows of 4 bytes | Per look: which frame file and animation sequence file kind it uses, the pose remap flag and a scale byte. |
+| [SpriteMotionByKind](../tables/SpriteMotionByKind.md) | Executable |  | 2 rows of 16 bytes | Motion number per sprite kind class, in two variants chosen by a flag test. |
+| [SpriteShapeHdTexture](../tables/SpriteShapeHdTexture.md) | Executable |  | 82 rows of 4 bytes (84 to the next symbol) | HD texture id per sprite shape (effect and scene sprites), -1 for none. |
+| [UnitSpritePosePack](../tables/UnitSpritePosePack.md) | Executable (initialised data) |  | 107 offsets | Offset index and pose records for drawing a unit sprite as a rotated quad: 107 offsets, records of 28 bytes. |

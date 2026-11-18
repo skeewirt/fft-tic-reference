@@ -19,6 +19,7 @@ The engine's allocation entry: asks the heap object for `size` bytes with at lea
 
 ## Referenced by
 
+- Appears in flows: [ScreenAddonCreation](../flows/ScreenAddonCreation.md)
 - Called by: [BUi_BattleMenuWindowsCtor](BUi_BattleMenuWindowsCtor.md), [HdLayer_BuildTextures](HdLayer_BuildTextures.md), [NxdRegistry_CreateRootHandle](NxdRegistry_CreateRootHandle.md), [NxdTable_CreateHandle](NxdTable_CreateHandle.md), [Sound_PlayNovelSe](Sound_PlayNovelSe.md), [UIAddonFFTOEvent_Ctor](UIAddonFFTOEvent_Ctor.md), [sub_140034D7C](sub_140034D7C.md), [sub_1400C30BC](sub_1400C30BC.md), [sub_14018373C](sub_14018373C.md)
 
 ## Notes

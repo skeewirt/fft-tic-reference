@@ -32,7 +32,7 @@ Tests whether an item belongs to a given menu category, accepting the matching c
 
 ## Referenced by
 
-- Called by: [Battle_ResolveAction](Battle_ResolveAction.md), [Item_GetMenuField](Item_GetMenuField.md), [Party_ReturnHandItems](Party_ReturnHandItems.md), [sub_1400FB9F0](sub_1400FB9F0.md), [sub_1402875A4](sub_1402875A4.md), [sub_140287D9C](sub_140287D9C.md), [sub_140288788](sub_140288788.md), [sub_1402890C0](sub_1402890C0.md), [sub_14028B180](sub_14028B180.md), [sub_14028B354](sub_14028B354.md), [sub_1403099B0](sub_1403099B0.md), [sub_140396D08](sub_140396D08.md)
+- Called by: [Battle_ResolveAction](Battle_ResolveAction.md), [ClassicItemListPage_Run](ClassicItemListPage_Run.md), [Item_GetMenuField](Item_GetMenuField.md), [Party_ReturnHandItems](Party_ReturnHandItems.md), [sub_1400FB9F0](sub_1400FB9F0.md), [sub_1402875A4](sub_1402875A4.md), [sub_140287D9C](sub_140287D9C.md), [sub_140288788](sub_140288788.md), [sub_1402890C0](sub_1402890C0.md), [sub_14028B180](sub_14028B180.md), [sub_14028B354](sub_14028B354.md), [sub_1403099B0](sub_1403099B0.md), [sub_140396D08](sub_140396D08.md)
 - Resolves registries: [ItemCategories](../registries/ItemCategories.md)
 
 ## Open questions

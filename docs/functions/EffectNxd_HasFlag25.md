@@ -23,6 +23,7 @@ Reports whether the RefinedVFXTexture row of an effect has its byte at +25 set.
 ## Referenced by
 
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
+- Reads tables: [NxdDataRefinedVFXTexture](../tables/NxdDataRefinedVFXTexture.md)
 
 ## Notes
 

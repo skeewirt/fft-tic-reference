@@ -28,6 +28,10 @@ Appends the equipment attribute lines of an item to the detail panel: the five s
 - Calls: [Item_GetRecord](Item_GetRecord.md)
 - Reads: [g_ItemAttributeTable](../globals/g_ItemAttributeTable.md)
 
+## Referenced by
+
+- Reads tables: [ItemAttributes](../tables/ItemAttributes.md)
+
 ## Notes
 
 Whole function read (184 bytes). The attribute table layout is the one the W1a item study lists.

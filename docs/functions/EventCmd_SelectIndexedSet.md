@@ -20,6 +20,10 @@ Class 44 handler: stores a 16-bit value in the event command word at 0x141862472
 - V: sub_1402F1868 calls sub_1402B20C0, then reads four bytes at byte_140681D00 + 4*(n-1), adds 14745600 to each and calls sub_1402BA7C4 with each value minus 1, in order.
 - V: sets bit 2 (value 4) of the status word (continue).
 
+## Referenced by
+
+- Observed behaviours: [EventSoundGroupAndMusicSlotOperandWidths](../behaviors/EventSoundGroupAndMusicSlotOperandWidths.md)
+
 ## Notes
 
 The table byte_140681D00 is indexed with 4*n-4, so n is a one-based set number; n = 0 would read before the table. The byte-9 value that is stored is the same value that is passed on.

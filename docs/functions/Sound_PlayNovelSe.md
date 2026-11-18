@@ -28,6 +28,10 @@ Plays one of the common novel sound effects by id: it finds a free channel, load
 
 - Calls: [Mem_Alloc](Mem_Alloc.md)
 
+## Referenced by
+
+- Called by: [EventSoundGroup_Play](EventSoundGroup_Play.md)
+
 ## Notes
 
 Whole function read (290 bytes). The bank path and the channel loop are the identifying facts.

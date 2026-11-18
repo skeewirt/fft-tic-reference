@@ -24,7 +24,7 @@ Creates the writable ability action table: copies the executable's built-in tabl
 ## Referenced by
 
 - Called by: [AbilityAction_GetRecord](AbilityAction_GetRecord.md)
-- Reads tables: [AbilityActionRecords](../tables/AbilityActionRecords.md)
+- Reads tables: [AbilityActionRecords](../tables/AbilityActionRecords.md), [AbilityActionWorking](../tables/AbilityActionWorking.md), [NxdDataOverrideAbilityActionData](../tables/NxdDataOverrideAbilityActionData.md)
 
 ## Notes
 

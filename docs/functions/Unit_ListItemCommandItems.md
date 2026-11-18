@@ -41,6 +41,7 @@ each of the fourteen item abilities into the item id the command offers.
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Called by: [sub_14023678C](sub_14023678C.md), [sub_1402EA58C](sub_1402EA58C.md), [sub_14030E174](sub_14030E174.md)
 - Observed behaviours: [ItemCommandRelation](../behaviors/ItemCommandRelation.md)
+- Reads tables: [AbilityKind1_ItemByAbility](../tables/AbilityKind1_ItemByAbility.md)
 
 ## Notes
 

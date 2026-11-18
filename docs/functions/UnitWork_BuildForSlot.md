@@ -32,6 +32,7 @@ Builds a unit work record for a party slot from the save record, then applies th
 ## Referenced by
 
 - Called by: [Inventory_RebuildOrders](Inventory_RebuildOrders.md), [sub_140246014](sub_140246014.md), [sub_1402CEEE8](sub_1402CEEE8.md)
+- Observed behaviours: [BattleRosterCopiesCarryTheBattleSlotAt44](../behaviors/BattleRosterCopiesCarryTheBattleSlotAt44.md)
 
 ## Notes
 

@@ -33,6 +33,7 @@ The dialogue-window task used by the first task table: it shows a scripted event
 
 - Called by: [EventCmd_ShowMessage](EventCmd_ShowMessage.md)
 - Observed behaviours: [LookSitesUseTheSaveRecordNotTheSlot](../behaviors/LookSitesUseTheSaveRecordNotTheSlot.md), [LookSumSeesTheBaseJob](../behaviors/LookSumSeesTheBaseJob.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md), [StoryChoiceBalloon](../behaviors/StoryChoiceBalloon.md)
+- Reads tables: [JobTable](../tables/JobTable.md), [PortraitCodes](../tables/PortraitCodes.md)
 
 ## Notes
 

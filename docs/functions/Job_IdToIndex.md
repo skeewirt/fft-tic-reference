@@ -32,7 +32,7 @@ The ids 160 and 161 are hard-coded here, as are the 0xA0 base-constant sites els
 
 Ids 94 and above (monsters) and ids below 74 (special characters) all return index 0, so they collide with Squire in any per-index array.
 
-- Correction (J7 report): 34 callers in the J7 census (J9 counted 37 sites in 33 functions with its own method).
+- Correction: 34 callers (another count found 37 sites in 33 functions).
 
 ## Open questions
 

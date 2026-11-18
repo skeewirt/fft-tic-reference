@@ -26,6 +26,7 @@ Tells whether the runtime-list entry under the list cursor lacks the 0x4000 flag
 
 - Called by: [JobScreen_UpdateState](JobScreen_UpdateState.md)
 - Observed behaviours: [RuntimeJobListCanLiveInAnyBlockWithinReach](../behaviors/RuntimeJobListCanLiveInAnyBlockWithinReach.md), [RuntimeJobListIs48WordsFollowedByAnotherGlobal](../behaviors/RuntimeJobListIs48WordsFollowedByAnotherGlobal.md)
+- Reads tables: [RuntimeJobList](../tables/RuntimeJobList.md)
 
 ## Notes
 

@@ -20,6 +20,11 @@ Class 39 handler. When the word at 0x14186246A is non-zero, sets bit 0 of the fl
 - V: sets bit 2 (value 4, continue) in every case.
 - V: the signed slot index at 0x14186246B is the high byte of the word tested at 0x14186246A (overlapping fields).
 
+## Referenced by
+
+- Observed behaviours: [MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero](../behaviors/MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero.md), [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md)
+- Reads tables: [MusicSlotRecords](../tables/MusicSlotRecords.md)
+
 ## Notes
 
 The return value is not assigned when the word is zero. The decompiler hides the argument registers of sub_1402B1F08; the disassembly shows the slot index passed in ecx. Status bit meanings are the EventCmd_Run loop rules.

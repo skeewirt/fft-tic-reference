@@ -28,6 +28,7 @@ Computes JP and gil rewards, the grade and the bonus loot for one active errand 
 ## Referenced by
 
 - Called by: [Errand_BoardInput](Errand_BoardInput.md)
+- Reads tables: [ErrandBlob](../tables/ErrandBlob.md)
 
 ## Notes
 

@@ -23,7 +23,7 @@ Answers whether a UserSituation condition (nxd table 90, keyed by situation and 
 
 ## Referenced by
 
-- Called by: [BarTop_Setup](BarTop_Setup.md)
+- Called by: [BarTop_Setup](BarTop_Setup.md), [MapRow_SelectVariation](MapRow_SelectVariation.md), [TavernRumour_IsAvailable](TavernRumour_IsAvailable.md)
 - Observed behaviours: [TavernErrandsOpenAtSituationCounter450](../behaviors/TavernErrandsOpenAtSituationCounter450.md)
 
 ## Notes

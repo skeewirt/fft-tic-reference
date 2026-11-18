@@ -3,7 +3,7 @@
 - **Kind:** observed behaviour
 - **Scope:** engine (sprite number tables)
 - **Area:** [Graphics](../areas/graphics.md)
-- **Affects:** [CharaRender_BuildAtlasTexture](../functions/CharaRender_BuildAtlasTexture.md), [CharaPalette_LoadClassic](../functions/CharaPalette_LoadClassic.md), [CharaPalette_ReloadForShape](../functions/CharaPalette_ReloadForShape.md), [sub_14026EB74](../functions/sub_14026EB74.md), [PartyUnit_BuildJobRecord](../functions/PartyUnit_BuildJobRecord.md), [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md), [EventMessage_Scripted](../functions/EventMessage_Scripted.md), [sub_140300768](../functions/sub_140300768.md), [sub_140300D74](../functions/sub_140300D74.md), [sub_14032AB3C](../functions/sub_14032AB3C.md), [SpriteId_ToShape](../functions/SpriteId_ToShape.md)
+- **Affects:** [CharaRender_BuildAtlasTexture](../functions/CharaRender_BuildAtlasTexture.md), [CharaPalette_LoadClassic](../functions/CharaPalette_LoadClassic.md), [CharaPalette_ReloadForShape](../functions/CharaPalette_ReloadForShape.md), [SceneUnit_BuildFromQueueEntry](../functions/SceneUnit_BuildFromQueueEntry.md), [PartyUnit_BuildJobRecord](../functions/PartyUnit_BuildJobRecord.md), [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md), [EventMessage_Scripted](../functions/EventMessage_Scripted.md), [sub_140300768](../functions/sub_140300768.md), [sub_140300D74](../functions/sub_140300D74.md), [sub_14032AB3C](../functions/sub_14032AB3C.md), [SpriteId_ToShape](../functions/SpriteId_ToShape.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

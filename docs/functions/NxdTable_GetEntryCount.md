@@ -24,12 +24,12 @@ For a double / triple keyed table: the record count of the set key1 (double: its
 ## Referenced by
 
 - Appears in flows: [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md)
-- Called by: [UserSituation_IsMet](UserSituation_IsMet.md), [sub_1402FB7C8](sub_1402FB7C8.md)
+- Called by: [MapAnim_ReadRows](MapAnim_ReadRows.md), [ScenarioSetup_ApplyRecord](ScenarioSetup_ApplyRecord.md), [SettlementEvent_EvaluateConditions](SettlementEvent_EvaluateConditions.md), [UserSituation_IsMet](UserSituation_IsMet.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes
 
-The name is ours (IDB: sub_1403D3A34). The index layouts are the format NxdMultiKeyIndex (X6, V against all 58 multi-key retail files).
+The name is ours (IDB: sub_1403D3A34). The index layouts are the format NxdMultiKeyIndex (V against all 58 multi-key retail files).
 
 ## Open questions
 

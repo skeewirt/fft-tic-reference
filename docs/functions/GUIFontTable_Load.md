@@ -25,6 +25,10 @@ Rebuilds the in-memory UIFontSet row vector from UI table id 21: each 80-byte ro
 
 - Calls: [UITable_GetRow](UITable_GetRow.md), [UIFontSetRow_Default](UIFontSetRow_Default.md)
 
+## Referenced by
+
+- Called by: [UiNames_InstallCoreNames](UiNames_InstallCoreNames.md)
+
 ## Notes
 
 Row size 80 is confirmed by both Load (add 80) and GetSetRow (/80 and *80). The UIFontSet table id is 21 (V: literal 21 in both calls).

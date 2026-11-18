@@ -24,7 +24,7 @@ Turns a portrait code into the classic portrait atlas cell of a draw record and 
 ## Referenced by
 
 - Appears in flows: [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md)
-- Called by: [sub_1402DF374](sub_1402DF374.md), [sub_14032AB3C](sub_14032AB3C.md)
+- Called by: [sub_1402DF374](sub_1402DF374.md), [sub_14032AB3C](sub_14032AB3C.md), [sub_140376040](sub_140376040.md)
 - Observed behaviours: [PortraitCodeIsAByteOnTheSaveRecordPath](../behaviors/PortraitCodeIsAByteOnTheSaveRecordPath.md)
 
 ## Notes

@@ -3,7 +3,7 @@
 - **Address:** `0x14030F030`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int __fastcall Battle_TurnEngine(int reset)`
-- **Callers:** `Battle_TurnStep` (`0x1402029DC`, call at `0x1402029E8`), `sub_1403044EC` (`0x140304712`), `sub_14030476C` (`0x140304997`), `Battle_AITurnRun` (`0x14038A468`)
+- **Callers:** `Battle_TurnStep` (`0x1402029DC`, call at `0x1402029E8`), `BattleLoad_StepFresh` (`0x140304712`), `sub_14030476C` (`0x140304997`), `Battle_AITurnRun` (`0x14038A468`)
 - **Callees:** `sub_14002630C`, `sub_14030A410`, `Status_FilterPendingSets`, `BTurn_StatusFlags`, `BTurn_OnTurnStartStatus`, `sub_14030C240`, `sub_14030C2C0`, `sub_14030D1CC`, `BTurn_IsUnitDone`, `BTurn_FinishUnit`, `AbilityAction_GetRecord`, `SceneVar_Read`, `SceneVar_Write`
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -43,7 +43,7 @@ It returns an action code `slot | 0x100/0x200/0x300/0x400` (or `0xFF00` on the l
 
 ## Referenced by
 
-- Called by: [Battle_AITurnRun](Battle_AITurnRun.md), [Battle_TurnStep](Battle_TurnStep.md), [sub_1403044EC](sub_1403044EC.md), [sub_14030476C](sub_14030476C.md)
+- Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [Battle_AITurnRun](Battle_AITurnRun.md), [Battle_TurnStep](Battle_TurnStep.md), [sub_14030476C](sub_14030476C.md)
 - Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md)
 
 ## Notes

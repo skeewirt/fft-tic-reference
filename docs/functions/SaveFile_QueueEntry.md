@@ -14,8 +14,8 @@ Queues one named entry (name, version, data buffer) into the save file object fo
 
 ## Behavior
 
-- V (J9): signature seen from SaveSlots_StoreToFile: (file object, "fftsave.bin", 14, buffer, 0x1EA488).
-- V (J9, decode): the 16-byte file header is `{16, tick, version 14, 0}`; there is no checksum of the payload at this layer.
+- V: signature seen from SaveSlots_StoreToFile: (file object, "fftsave.bin", 14, buffer, 0x1EA488).
+- V (decode): the 16-byte file header is `{16, tick, version 14, 0}`; there is no checksum of the payload at this layer.
 
 ## Referenced by
 

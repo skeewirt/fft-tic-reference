@@ -25,6 +25,7 @@ Reorders a 0xFFFF-terminated item list by a saved order list, dropping every ent
 - I: both the shop list builder and the equipment list builder call it, so the saved user order is the single ordering rule for those screens.
 - ?: whether a display entry with the flag bit set is ever meant to sort differently from the same id without it.
 - V: the order id is compared unmasked with the list word masked by 0x3FF (constant at 0x140285E5E, mask at 0x140285E63); a match copies the whole list word to a stack buffer at 0x140285E7E, and the buffer is moved back with memmove at 0x140285EA8. Flags travel, and a flagged order id never matches.
+- V: it runs on g_MenuList right after the mode-1 builds of `ShopList_BuildEntries` (call site 0x14036B1EB lies in that caller, not in this function) and `sub_1403368C0` (call site 0x14033695A, also in the caller), so the order of the list after the producers is the saved order, not the build order (flow ItemMenuListLifecycle).
 
 ## State touched
 
@@ -32,6 +33,7 @@ Reorders a 0xFFFF-terminated item list by a saved order list, dropping every ent
 
 ## Referenced by
 
+- Appears in flows: [ItemMenuListLifecycle](../flows/ItemMenuListLifecycle.md)
 - Called by: [Inventory_BuildEquipList](Inventory_BuildEquipList.md), [ShopList_BuildEntries](ShopList_BuildEntries.md), [sub_140286228](sub_140286228.md), [sub_1403368C0](sub_1403368C0.md), [sub_140338250](sub_140338250.md)
 - Observed behaviours: [OrderInsideItemGroup](../behaviors/OrderInsideItemGroup.md)
 

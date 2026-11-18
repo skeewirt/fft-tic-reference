@@ -19,6 +19,7 @@ Sets frame/palette flag bits at record+12 and the selected palette index at +24 
 ## Referenced by
 
 - Called by: [JobTree_SetPanelRecord](JobTree_SetPanelRecord.md), [sub_140132DC8](sub_140132DC8.md), [sub_140132E1C](sub_140132E1C.md)
+- Reads tables: [SpriteDirectionTables](../tables/SpriteDirectionTables.md)
 
 ## Open questions
 

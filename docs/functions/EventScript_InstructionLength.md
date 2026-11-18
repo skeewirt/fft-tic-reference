@@ -24,6 +24,7 @@ Returns the length in bytes of the event script instruction at a pointer: one op
 
 - Called by: [EventMoveTargets_Rewrite](EventMoveTargets_Rewrite.md), [EventScript_FindInstruction](EventScript_FindInstruction.md), [EventScript_FindOpcode](EventScript_FindOpcode.md), [EventScript_Run](EventScript_Run.md), [EventStateTrack_RunTask](EventStateTrack_RunTask.md), [EventSubScript_RunTask](EventSubScript_RunTask.md), [EventUnitBlock_RunTask](EventUnitBlock_RunTask.md), [sub_1401DEC14](sub_1401DEC14.md)
 - Called by event opcodes: [0x10](../opcodes/README.md)
+- Reads tables: [EventOperandLengths](../tables/EventOperandLengths.md)
 
 ## Notes
 

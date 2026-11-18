@@ -26,6 +26,7 @@ Updates one effect node: copies its position and angle into the node record and 
 ## Referenced by
 
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
+- Reads tables: [NxdDataRefinedVFXTexture](../tables/NxdDataRefinedVFXTexture.md)
 
 ## Notes
 

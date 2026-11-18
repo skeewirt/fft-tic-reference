@@ -26,7 +26,7 @@ menu (Move / Abilities / Wait / Status) or hands the unit to the AI.
   state and shows the command menu: `dword_140C6B1CC = 39` (`0x140202DB3`), `dword_140D3A864 = 1`
   (`0x140202DD5`).
 - V: the post-command handler `sub_14020AD64` calls the AI entry `sub_14031F130` when the unit has idled for more
-  than 30 frames (`*(uint16*)(node+12) > 0x1E`) and `*(node+466) == 0` (`0x14020ADC6`) — the Auto/idle takeover path (I).
+  than 30 frames (`*(uint16*)(node+12) > 0x1E`) and `*(node+466) == 0` (`0x14020ADC6`) — the Auto / idle path (I).
 - V: `dword_140D3A868` (last engine code) is only written by this path, in `Battle_TurnStep`.
 
 ## State touched

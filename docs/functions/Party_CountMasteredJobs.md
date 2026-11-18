@@ -26,6 +26,7 @@ Counts the generic jobs whose every ability is learned and returns half of that 
 
 - Called by: [UnitWork_StoreToSaveSlot](UnitWork_StoreToSaveSlot.md)
 - Observed behaviours: [UnlockMaskStreamRunsIntoLearnedBitsPastIndex23](../behaviors/UnlockMaskStreamRunsIntoLearnedBitsPastIndex23.md)
+- Reads tables: [JobTable](../tables/JobTable.md)
 
 ## Notes
 

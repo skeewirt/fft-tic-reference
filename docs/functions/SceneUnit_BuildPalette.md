@@ -3,7 +3,7 @@
 - **Address:** `0x14026C858`
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `void SceneUnit_BuildPalette(void *unit)`
-- **Callers:** EventScript_Run, at 0x14023DFC7 (opcode 0xA8, with the unit from `SceneObject_FindBySlot`). Also SceneUnit_RunPlacement (at 0x14026921F), sub_14026EB74 (at 0x14026EFC0), sub_1402735F0 (at 0x140273677), and one data reference at 0x143D39058.
+- **Callers:** EventScript_Run, at 0x14023DFC7 (opcode 0xA8, with the unit from `SceneObject_FindBySlot`). Also SceneUnit_RunPlacement (at 0x14026921F), SceneUnit_BuildFromQueueEntry (at 0x14026EFC0), sub_1402735F0 (at 0x140273677), and one data reference at 0x143D39058.
 - **Callees:** `sub_1403D325C`, `sub_1403D3AE8`, `sub_1403D2FD8`, `sub_1402F7594` (level 2: `sub_1402F74D8` splits each 15-bit word into five-bit fields and a flag bit in a 7-byte-stride table)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -29,8 +29,9 @@ The body of opcode 0xA8: when the unit exists, builds 16 packed 15-bit words fro
 
 ## Referenced by
 
-- Called by: [SceneUnit_RunPlacement](SceneUnit_RunPlacement.md), [sub_14026EB74](sub_14026EB74.md)
+- Called by: [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md), [SceneUnit_RunPlacement](SceneUnit_RunPlacement.md)
 - Called by event opcodes: [0xA8](../opcodes/README.md)
+- Reads tables: [NxdDataCharaZodiacStoneCLUT](../tables/NxdDataCharaZodiacStoneCLUT.md)
 
 ## Notes
 

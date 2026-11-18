@@ -14,8 +14,8 @@ Builds the CLASSIC-mode slot title text: hero name, job name, level, date and lo
 
 ## Behavior
 
-- V (J9): the leader's job byte `Src[274]` walks the classic job-name string block `qword_14375F958` entry by entry (unbounded); the hero name is copied from +257.
-- V (J9): it is the only reader of the saved job byte (summary +274) found in the save path.
+- V: the leader's job byte `Src[274]` walks the classic job-name string block `qword_14375F958` entry by entry (unbounded); the hero name is copied from +257.
+- V: it is the only reader of the saved job byte (summary +274) found in the save path.
 
 ## State touched
 
@@ -24,6 +24,7 @@ Builds the CLASSIC-mode slot title text: hero name, job name, level, date and lo
 ## Referenced by
 
 - Called by: [sub_14021AEC0](sub_14021AEC0.md), [sub_14021BD04](sub_14021BD04.md)
+- Observed behaviours: [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md)
 
 ## Notes
 

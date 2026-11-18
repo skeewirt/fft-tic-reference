@@ -25,6 +25,10 @@ One equipment slot of a party unit: the item id in bits 0..9 and bit 15 as the O
 - V: a word at or above 0x8000 is treated as session-pending and its price is already in dword_143D1AC68; a word below 0x8000 is a plain 16-bit id and may still carry bit 14.
 - V: the bit and the id share one 16-bit word, so the store cannot hold a 16-bit id without moving the session flag out of the word.
 
+## Referenced by
+
+- Observed behaviours: [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](../behaviors/OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md)
+
 ## Notes
 
 V: layout, writers and readers come from the sheets sub_1402D6FB8, sub_1402D7280, sub_1402D6464, sub_1402D65D4 and sub_1402D5B6C. The earlier 'present' reading of bit 15 was wrong: the commit path strips it from an item that stays equipped.

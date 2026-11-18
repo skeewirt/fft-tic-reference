@@ -32,7 +32,7 @@ Tests a map tile for the targeting cursor: bounds, terrain passability, the unit
 
 ## Referenced by
 
-- Called by: [sub_140271AC0](sub_140271AC0.md), [sub_140271EFC](sub_140271EFC.md)
+- Called by: [MoveFind_ProbeTile](MoveFind_ProbeTile.md), [sub_140271AC0](sub_140271AC0.md), [sub_140271EFC](sub_140271EFC.md)
 
 ## Notes
 

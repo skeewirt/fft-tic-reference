@@ -18,7 +18,7 @@ How a battle resumed from a payload gets its looks back: the setup clears the po
 | <a id="3"></a>3 | [sub_1402181EC](../functions/sub_1402181EC.md) | V | A payload of kind 1 is copied (668,112 bytes) into the snapshot region at 0x1408167A0, which holds g_UnitLookPoolIndex, g_UnitSceneSlotIndex and g_SnapshotLookPool. |
 | <a id="4"></a>4 | [Battle_RestoreSceneVars](../functions/Battle_RestoreSceneVars.md) | V | Scene variables, live stores, the 21 battle units, the load queue with its count and the 15 pool records are copied back from the region. |
 | <a id="5"></a>5 | [sub_140210AF0](../functions/sub_140210AF0.md) | V | Then g_UnitSceneSlotIndex is set to -1 (memset of 0x54 bytes) and the ten g_LookPoolFaceValue dwords to -1. |
-| <a id="6"></a>6 | [sub_14026EB74](../functions/sub_14026EB74.md) | V | On the resume path (mode 1) a scene unit takes its slot from g_UnitSceneSlotIndex and its pool index from g_UnitLookPoolIndex by the unit index +444. |
+| <a id="6"></a>6 | [SceneUnit_BuildFromQueueEntry](../functions/SceneUnit_BuildFromQueueEntry.md) | V | On the resume path (mode 1) a scene unit takes its slot from g_UnitSceneSlotIndex and its pool index from g_UnitLookPoolIndex by the unit index +444. |
 
 ## Open questions
 

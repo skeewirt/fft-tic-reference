@@ -21,6 +21,10 @@ Finds the table-224 entry for two keys and passes its text offset to the GUI tar
 - V: the routine returns the result of sub_1403F113C.
 - I: when no row is found, the data pointer stays null and the code still reads the dword at address 4 of it. The decompile shows that path, so a missing row would fault unless the table is always present. This was not checked.
 
+## Referenced by
+
+- Reads tables: [NxdDataUISituationSubtitles](../tables/NxdDataUISituationSubtitles.md)
+
 ## Notes
 
 The node is the object at [[qword_143CD9DA8+16]+368]+64 as passed by the 0xC4 handler.

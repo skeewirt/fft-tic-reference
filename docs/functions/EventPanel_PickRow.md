@@ -29,6 +29,10 @@ The second half of the 0x7D task: reads the row number the task stored in its bl
 - Calls: [EventPanel_QueueAndWait](EventPanel_QueueAndWait.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [SceneTask_Terminate](SceneTask_Terminate.md)
 - Reads: [g_LanguageInfo](../globals/g_LanguageInfo.md)
 
+## Referenced by
+
+- Reads tables: [EventPanelRowsDefault](../tables/EventPanelRowsDefault.md), [EventPanelRowsLanguage0](../tables/EventPanelRowsLanguage0.md)
+
 ## Notes
 
 The table holds rows 0 to 13 in the 784 bytes from unk_1407B4720 to unk_1407B4A30. In both tables rows 0 to 6 have kind 0, row 7 has kind 1 and rows 8 to 12 have kind 2.

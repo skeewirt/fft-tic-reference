@@ -26,7 +26,7 @@ The index-th row of the set key1 (double keyed), or the first leaf of the index-
 ## Referenced by
 
 - Appears in flows: [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md)
-- Called by: [NxdTable_GetRowById](NxdTable_GetRowById.md), [UserSituation_IsMet](UserSituation_IsMet.md)
+- Called by: [MapAnim_ReadRows](MapAnim_ReadRows.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [UserSituation_IsMet](UserSituation_IsMet.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes

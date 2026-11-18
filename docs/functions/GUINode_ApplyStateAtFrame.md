@@ -17,6 +17,8 @@ Evaluates all property tracks of a named state at one frame and writes the resul
 - V: state = GUINode_FindState(comp, key); none -> nothing. frame < 0 -> frame = state+88 (the last frame); f = (float)frame.
 - V: for each track group of the state (pointer vector state+144..+152): when sub_1404007FC(group) says the group is named with the component's own key (qword_143CDA2A0+5144, compared by interned id or string), sub_1404015C0(group, f, comp, state+111) applies the component-level properties; otherwise node = GUINode_FindPartByName(comp+272, group name) and sub_140400840(group, f, node, state+111) applies the node properties.
 - V: for every entry of the state's list (state+176.., 64 bytes) with type 5 (nested state link): child = GUINode_FindDescendant(comp, entry+16), childState = GUINode_FindState(child, entry+32) and the function recurses with frame' = (int)fmaxf(((f - (float)entry+8) * (float)childState+88) / (float)(entry+12 - entry+8), 0.0) in single precision. The child frame is NOT clamped to its length here (GUIAddon_OnStateEvent clamps).
+- V: returns at once when `GUINode_FindState` finds no state of that name: a name the file does not have changes nothing (the title's `Menu%d` with a count the file has no state for).
+- V: `GUIComponent_UpdateNodeTree` skips a node with enabled byte +144 = 0 together with its subtree, and `GUINode_ClearVisibleSubtree` follows a Reference into its component, so +144 = 0 on a Reference hides the referenced component; a state changes +144 only through a bool track (`GUINode_ApplyAnimChannels` a[14]).
 
 ## State touched
 
@@ -24,7 +26,7 @@ Evaluates all property tracks of a named state at one frame and writes the resul
 
 ## Referenced by
 
-- Called by: [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md), [sub_14013D844](sub_14013D844.md)
+- Called by: [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [TitleMenu_Build](TitleMenu_Build.md)
 
 ## Notes
 

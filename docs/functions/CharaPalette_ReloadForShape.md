@@ -3,8 +3,8 @@
 - **Address:** `0x14026FB28`
 - **Area:** [Graphics](../areas/graphics.md)
 - **Prototype:** `int CharaPalette_ReloadForShape(void)`
-- **Callers:** sub_1403044EC, sub_14030476C, sub_1401F2E4C, sub_14023A0B4
-- **Callees:** GameData_ReadSectors, sub_14026E194, sub_14026E2C0, sub_14026E484, sub_14026EB74, sub_1402F3888, sub_1402F3A04
+- **Callers:** BattleLoad_StepFresh, sub_14030476C, sub_1401F2E4C, sub_14023A0B4
+- **Callees:** GameData_ReadSectors, sub_14026E194, sub_14026E2C0, sub_14026E484, SceneUnit_BuildFromQueueEntry, sub_1402F3888, sub_1402F3A04
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -18,17 +18,20 @@ Step function that walks the look queue and, for each entry, loads its frame fil
 - V: pass 0 reads attribute byte 0 of the entry's sprite (table 0x673300 + 4 * sprite); when it is 5 or more and differs from the last one loaded it reads the file named by the row of that value in the table at 0x140785130 or its twin at 0x140785180.
 - V: pass 1 does the same with attribute byte 1 and the tables at 0x140784610 and 0x1407845B0.
 - V: pass 2 replaces a sprite above 170 by 1, scans the 15 look pool records for a byte +1 equal to it (a hit skips the file read), otherwise reads the classic file named by the table at 0x140784690 (language flag 0: 0x140784BE0) through GameData_ReadSectors.
-- V: in step 2 of pass 2 it calls sub_14026EB74 with the queue entry's fields and the file buffer, and then sub_14026E194 three times.
+- V: in step 2 of pass 2 it calls SceneUnit_BuildFromQueueEntry with the queue entry's fields and the file buffer, and then sub_14026E194 three times.
 - V: after the sprite pass of an entry it moves to the next entry; it returns 0 when the entry index reaches the queue count.
+- V: its step machine (0x140CE3240: pass, step, entry index; buffer 0x140CE3250) returns 0 once the entry index reaches g_LookQueueCount, 1 or 2 otherwise; its files are read with GameData_ReadSectors, which is synchronous (MemFile_Read; it clears the pending flag the high dword of qword_141856AB0 itself). The mid-battle join runs it once per frame until 0.
+- V: load step 2 stores a queue word above 170 back as 1 (stock clamp) and tests the word against byte +1 of all 15 look pool records, claimed or not (the loop over 0x140D005A1 in steps of 0x32D6), reading no classic file when one matches; the scene unit is then built from whatever data the record its build uses holds. It passes the load queue entry's word +6 to SceneUnit_BuildFromQueueEntry as the sprite, so a scene unit's shape is the queue word.
 
 ## State touched
 
-- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [sub_14026EB74](sub_14026EB74.md)
+- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md)
 
 ## Referenced by
 
-- Called by: [sub_1403044EC](sub_1403044EC.md), [sub_14030476C](sub_14030476C.md)
-- Observed behaviours: [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [LookSlotsAlreadyInTheGame](../behaviors/LookSlotsAlreadyInTheGame.md), [PoolRecordKeepsItsSpriteAcrossTheReset](../behaviors/PoolRecordKeepsItsSpriteAcrossTheReset.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md)
+- Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [Battle_JoinUnitAndLoad](Battle_JoinUnitAndLoad.md), [sub_14030476C](sub_14030476C.md)
+- Observed behaviours: [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [LookSlotsAlreadyInTheGame](../behaviors/LookSlotsAlreadyInTheGame.md), [MidBattleJoinLoadsLooks](../behaviors/MidBattleJoinLoadsLooks.md), [PoolRecordKeepsItsSpriteAcrossTheReset](../behaviors/PoolRecordKeepsItsSpriteAcrossTheReset.md), [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md)
+- Reads tables: [SpriteClassicFilesByShape](../tables/SpriteClassicFilesByShape.md), [SpriteClassicFilesByShapeB](../tables/SpriteClassicFilesByShapeB.md), [SpriteLookAttributes](../tables/SpriteLookAttributes.md)
 
 ## Notes
 

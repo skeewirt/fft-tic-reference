@@ -77,7 +77,7 @@ The working copy of a unit: the 21 battle units (g_BattleUnits) and temporary co
 
 - V: UnitWork_CopySaveFields fills the arrays from a save record; UnitWork_StoreToSaveSlot writes them back.
 - V (2026-11-10): the Toad restriction on abilities tests status byte +0x63 mask 0x02 (sub_1402828E4, sub_14030B1A0): a Toad unit may use only ability 0, 367 and 29 (a command kind of 10 never).
-- V (H2): the passive-ability map is rebuilt by Unit_BuildAbilityBits; see PassiveAbilitiesAreAPerUnitBitMap.
+- V: the passive-ability map is rebuilt by Unit_BuildAbilityBits; see PassiveAbilitiesAreAPerUnitBitMap.
 
 ## Referenced by
 

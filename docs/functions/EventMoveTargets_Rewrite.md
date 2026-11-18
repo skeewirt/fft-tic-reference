@@ -34,6 +34,10 @@ Rewrites the operands of the next opcode 0x19 from the vectors of two units and,
 
 - Calls: [EventScript_InstructionLength](EventScript_InstructionLength.md), [EventRef_ResolveSlot](EventRef_ResolveSlot.md)
 
+## Referenced by
+
+- Reads tables: [EventSideYawTargets](../tables/EventSideYawTargets.md)
+
 ## Notes
 
 The second argument is passed as the reference flag to EventRef_ResolveSlot; for the second id the code does not set that register, so it carries the value left by the first call.

@@ -24,6 +24,7 @@ Applies the CharCLUT rows of one key to a palette: each enabled row replaces one
 ## Referenced by
 
 - Called by: [CharShape_ApplyClut](CharShape_ApplyClut.md)
+- Reads tables: [NxdDataCharCLUT](../tables/NxdDataCharCLUT.md)
 
 ## Notes
 

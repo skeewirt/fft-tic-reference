@@ -39,6 +39,7 @@ display.
   both.
 - ?: what the unused fifth argument was meant to carry.
 - V: in mode 1 a refused item gets bit 14 through the bit-set at 0x140288CAF and is stored with the id at 0x140288CB6; modes 2 and 3 drop the item instead, and mode 0 never tests it.
+- V (seen live): the Fitting list and the Status equipment list show no row for an item the unit cannot equip; the mark of mode 1 is not drawn as a greyed row there (behavior EquipListsDropRowsAUnitCannotEquip, flow ItemMenuListLifecycle).
 
 ## State touched
 
@@ -48,8 +49,9 @@ display.
 
 ## Referenced by
 
+- Appears in flows: [ItemMenuListLifecycle](../flows/ItemMenuListLifecycle.md)
 - Called by: [sub_1402875A4](sub_1402875A4.md), [sub_140333974](sub_140333974.md), [sub_140334A48](sub_140334A48.md), [sub_1403368C0](sub_1403368C0.md), [sub_140336B88](sub_140336B88.md), [sub_140338250](sub_140338250.md), [sub_14036C3EC](sub_14036C3EC.md)
-- Observed behaviours: [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md), [OrderInsideItemGroup](../behaviors/OrderInsideItemGroup.md)
+- Observed behaviours: [EquipListsDropRowsAUnitCannotEquip](../behaviors/EquipListsDropRowsAUnitCannotEquip.md), [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md), [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md), [OrderInsideItemGroup](../behaviors/OrderInsideItemGroup.md)
 
 ## Notes
 

@@ -16,12 +16,13 @@ Turns an item id into its category index: the number of leading entries of the 1
 
 - V (decompile): ids above 0xFD are rejected unless they are 0x100..0x104 (0xFE and 0xFF are rejected); a rejected id returns -1.
 - V: scans the word array from entry 1 (0x1406804E2) while id >= entry, counting; returns -1 if the scan runs off the end (0x1406804FC).
-- V (J8): the index is then mapped by `g_ItemCategoryType` (index -> type 0..9) in the callers.
+- V: the index is then mapped by `g_ItemCategoryType` (index -> type 0..9) in the callers.
 
 ## Referenced by
 
 - Called by: [Battle_ResolveAction](Battle_ResolveAction.md), [Item_CategoryFirstId](Item_CategoryFirstId.md), [Item_GetEquipPalette](Item_GetEquipPalette.md), [Item_IsInCategory](Item_IsInCategory.md), [sub_1402B8C74](sub_1402B8C74.md), [sub_1402B8CD4](sub_1402B8CD4.md), [sub_1402B8D3C](sub_1402B8D3C.md), [sub_1402B8DA0](sub_1402B8DA0.md), [sub_1402B8E04](sub_1402B8E04.md), [sub_1403099B0](sub_1403099B0.md)
 - Observed behaviours: [ItemIdSpace](../behaviors/ItemIdSpace.md)
+- Reads tables: [ItemCategoryFirstIds](../tables/ItemCategoryFirstIds.md)
 - Resolves registries: [ItemCategories](../registries/ItemCategories.md)
 
 ## Notes

@@ -12,6 +12,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Referenced by
 
+- Described by tables: [AbilityAnim](../tables/AbilityAnim.md)
 - Read by: [sub_1402059AC](../functions/sub_1402059AC.md), [sub_140206CE8](../functions/sub_140206CE8.md), [sub_14020CC50](../functions/sub_14020CC50.md)
 
 ## Open questions

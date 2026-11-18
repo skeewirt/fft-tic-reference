@@ -31,6 +31,8 @@ Runs the 4-byte scripted command loop: it services pending requests, fetches the
 ## Referenced by
 
 - Called by: [sub_1401E1618](sub_1401E1618.md), [sub_140372F9C](sub_140372F9C.md)
+- Observed behaviours: [EventSoundGroupAndMusicSlotOperandWidths](../behaviors/EventSoundGroupAndMusicSlotOperandWidths.md)
+- Reads tables: [EventCommandHandlers](../tables/EventCommandHandlers.md)
 
 ## Notes
 

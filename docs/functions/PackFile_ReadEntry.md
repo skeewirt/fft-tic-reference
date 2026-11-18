@@ -16,6 +16,7 @@ Copies (and, when needed, inflates) one entry of an index-addressed pack into a 
 
 - V: PackEntry_Inflate(state with window 0x8000, out, PackFile_EntryPtr(index)).
 - V (2026-11-10): the pack handle of all three callers is the g2d.dat reader `qword_140D3AD58` (see sub_1403D2450); the result is the inflated length, -1 makes the callers load the entry again once.
+- V: = PackEntry_Inflate(state, out, PackFile_EntryPtr(pack, n), size) with no test of n against the pack's entry count; PackEntry_Inflate's first access to the entry (the address is inside that callee, not in this body) is a test of the entry's flag byte +4 (0x1403D1EF0, stored or zlib). An entry number past the pack faults there (seen live 2026-11-13).
 
 ## State touched
 
@@ -24,7 +25,7 @@ Copies (and, when needed, inflates) one entry of an index-addressed pack into a 
 ## Referenced by
 
 - Called by: [HdLayer_BuildTextures](HdLayer_BuildTextures.md), [sub_14041E05C](sub_14041E05C.md)
-- Observed behaviours: [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md), [SpriteSheetPortraitAndPartFiles](../behaviors/SpriteSheetPortraitAndPartFiles.md)
+- Observed behaviours: [ClassicSpriteFilesByNumber](../behaviors/ClassicSpriteFilesByNumber.md), [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md), [SpriteSheetPortraitAndPartFiles](../behaviors/SpriteSheetPortraitAndPartFiles.md)
 - Reads file formats: [SpriteSheetEntries](../formats/SpriteSheetEntries.md)
 
 ## Notes

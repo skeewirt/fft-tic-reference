@@ -32,6 +32,7 @@ Marks the outer ring of tiles an action can reach, from the twenty-byte action b
 ## Referenced by
 
 - Called by: [BattleAction_BuildUnitRequest](BattleAction_BuildUnitRequest.md)
+- Reads tables: [TerrainProperties](../tables/TerrainProperties.md)
 
 ## Notes
 

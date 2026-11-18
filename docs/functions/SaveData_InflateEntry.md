@@ -14,8 +14,8 @@ Decodes one container entry: unscrambles it and inflates it with zlib using a 32
 
 ## Behavior
 
-- V (J9): the game prepends the two bytes `78 F9` (a zlib header with FDICT); the preset dictionary is 32768 bytes at VA 0x14065F6E0 (dictionary id adler32 0x4DAFCB9C, matches).
-- V (J9): the only integrity left is the deflate stream's own Adler-32.
+- V: the game prepends the two bytes `78 F9` (a zlib header with FDICT); the preset dictionary is 32768 bytes at VA 0x14065F6E0 (dictionary id adler32 0x4DAFCB9C, matches).
+- V: the only integrity left is the deflate stream's own Adler-32.
 
 ## State touched
 

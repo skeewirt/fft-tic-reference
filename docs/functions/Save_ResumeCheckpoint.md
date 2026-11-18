@@ -3,7 +3,7 @@
 - **Address:** `0x1402D03D8`
 - **Area:** [Save data](../areas/save-data.md)
 - **Prototype:** `void Save_ResumeCheckpoint(__int64 arg)`
-- **Callers:** UISaveLoad_StateLoad, sub_1401C2D60
+- **Callers:** UISaveLoad_StateLoad, UIAgentFFTOTitle_Update
 - **Callees:** sub_14021849C, sub_140257354, memmove, SaveWork_UnpackToLive (tail)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

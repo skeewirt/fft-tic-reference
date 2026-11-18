@@ -3,7 +3,7 @@
 - **Address:** `0x1400C3B24`
 - **Area:** [Save data](../areas/save-data.md)
 - **Prototype:** `int64_t SaveSlots_LoadFromFile(int64_t mgr)`
-- **Callers:** sub_14018403C, sub_1401C2D60, sub_1402185A4, sub_140218728
+- **Callers:** sub_14018403C, UIAgentFFTOTitle_Update, sub_1402185A4, sub_140218728
 - **Callees:** sub_140033CBC, sub_140034CF0, sub_1400C6008
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -15,7 +15,7 @@ Loads the `fftsave.bin` entry from the save container into the manager's image (
 ## Behavior
 
 - V (decompile): `sub_140033CBC(file, "fftsave.bin")`, then tags the load "CLASSIC" or "ENHANCED" by `dword_1407D453C`.
-- V (J9): called when the title menu opens (sub_1401C2D60 case 4).
+- V: called when the title menu opens (UIAgentFFTOTitle_Update case 4).
 
 ## State touched
 
@@ -24,7 +24,7 @@ Loads the `fftsave.bin` entry from the save container into the manager's image (
 ## Referenced by
 
 - Appears in flows: [SaveFrameStep](../flows/SaveFrameStep.md)
-- Called by: [sub_14018403C](sub_14018403C.md), [sub_1401C2D60](sub_1401C2D60.md), [sub_1402185A4](sub_1402185A4.md), [sub_140218728](sub_140218728.md)
+- Called by: [UIAgentFFTOTitle_Update](UIAgentFFTOTitle_Update.md), [sub_14018403C](sub_14018403C.md), [sub_1402185A4](sub_1402185A4.md), [sub_140218728](sub_140218728.md)
 - Reads file formats: [BattleResumeImage](../formats/BattleResumeImage.md), [ManualSaveEntry](../formats/ManualSaveEntry.md)
 
 ## Notes

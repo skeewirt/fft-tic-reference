@@ -23,6 +23,7 @@ Resolves a unit's sprite number for the event and scene code. In scenes of a few
 - I: the selector value is the second numbering of the same sprites (the event-character sprite number); the earlier note that it is a portrait index is not supported.
 - V: on the save-record branch the code comes from sub_14032ACE0 -> sub_14032AB3C -> PortraitCode_FillCell and is a byte (or the record index when no code is set); the function writes it unmapped to dword_142E7FCAC[0] and dword_142FF9EDC before any face mapping.
 - M (unicorn, codes 0..255): with the mode word & ~2 = 0 no code gives -1 at the cap 0x1402C0816: 146 codes map to faces up to 204 and the 110 unmapped codes return as themselves (50 of them 206..255); in modes 1 and 5 the codes 206..255 give -1.
+- V (seen live 2026-11-14): a face number 9056 / 9057 returned for a unit whose look byte is 56 / 57 makes the roster and the Status screen draw the texture `wldface_9056_08` / `wldface_9057_08`: the face number is formatted into the texture name unchanged at four digits.
 
 ## State touched
 
@@ -34,7 +35,8 @@ Resolves a unit's sprite number for the event and scene code. In scenes of a few
 
 - Appears in flows: [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md), [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md)
 - Called by: [EventScene_QueueHelpText](EventScene_QueueHelpText.md)
-- Observed behaviours: [FaceNumberCapsClipRawCodesToo](../behaviors/FaceNumberCapsClipRawCodesToo.md), [GenericUnitSpriteNumberFromJob](../behaviors/GenericUnitSpriteNumberFromJob.md), [LookSitesUseTheSaveRecordNotTheSlot](../behaviors/LookSitesUseTheSaveRecordNotTheSlot.md), [PortraitCodeIsAByteOnTheSaveRecordPath](../behaviors/PortraitCodeIsAByteOnTheSaveRecordPath.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md), [SpriteTablesEndAtSprite169](../behaviors/SpriteTablesEndAtSprite169.md), [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md)
+- Observed behaviours: [ClassicSpriteFilesByNumber](../behaviors/ClassicSpriteFilesByNumber.md), [FaceNumberCapsClipRawCodesToo](../behaviors/FaceNumberCapsClipRawCodesToo.md), [GenericUnitSpriteNumberFromJob](../behaviors/GenericUnitSpriteNumberFromJob.md), [LookSitesUseTheSaveRecordNotTheSlot](../behaviors/LookSitesUseTheSaveRecordNotTheSlot.md), [NamedCharactersKeepTheirOwnLookWhateverTheirJob](../behaviors/NamedCharactersKeepTheirOwnLookWhateverTheirJob.md), [PortraitCodeIsAByteOnTheSaveRecordPath](../behaviors/PortraitCodeIsAByteOnTheSaveRecordPath.md), [SpriteTablesCanLiveInBlocksOf1300Rows](../behaviors/SpriteTablesCanLiveInBlocksOf1300Rows.md), [SpriteTablesEndAtSprite169](../behaviors/SpriteTablesEndAtSprite169.md), [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md)
+- Reads tables: [PortraitCodes](../tables/PortraitCodes.md)
 - Resolves registries: [SpriteNumberTables](../registries/SpriteNumberTables.md)
 
 ## Notes

@@ -3,7 +3,7 @@
 - **Address:** `0x1402791FC`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `char StatusList_BuildFromResultBlock(__int64 resultBlock, _BYTE *list, int *count)`
-- **Callers:** sub_140217A7C, sub_140227CF8
+- **Callers:** sub_140217A7C, UnitPanel_FillEffectLine
 - **Callees:** qsort
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -25,12 +25,13 @@ Lists the statuses a result block adds and removes, as one byte per status, sort
 
 ## Referenced by
 
-- Observed behaviours: [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md)
+- Called by: [UnitPanel_FillEffectLine](UnitPanel_FillEffectLine.md)
+- Observed behaviours: [HitLabelsAndThePanelEffectLineAreSeparateLists](../behaviors/HitLabelsAndThePanelEffectLineAreSeparateLists.md), [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md)
 
 ## Notes
 
-Name is ours. The list is one byte per entry, so the 0x80 flag leaves seven bits for an id.
+Name is ours. The list is one byte per entry, so the 0x80 flag leaves seven bits for an id. V (traced live 2026-11-17): UnitPanel_FillEffectLine builds it for the unit status panel (action preview, enemy target panel); the labels over a hit unit do not use it (ResultLabel_QueueFromUnit walks the sets itself).
 
 ## Open questions
 
-? which panels show the list (both callers are in the battle UI range).
+? what sub_140217A7C shows (it builds the list from a copy of two five-byte sets in the battle control block).

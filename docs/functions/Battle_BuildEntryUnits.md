@@ -3,7 +3,7 @@
 - **Address:** `0x14030428C`
 - **Area:** [Unit data](../areas/unit-data.md)
 - **Prototype:** `int Battle_BuildEntryUnits(void)`
-- **Callers:** sub_1403044EC (battle load state 5, after state 4 set the key from scene variable 50), sub_14030476C
+- **Callers:** BattleLoad_StepFresh (battle load state 5, after state 4 set the key from scene variable 50), sub_14030476C
 - **Callees:** Battle_GetEntryBlock, OverrideEntry_LoadBattleEntries, Battle_PlaceEntryUnits, sub_1402F3A04
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -23,6 +23,10 @@ Builds the battle units of the current battle from its 16 entries: fetches the e
 
 - Calls: [Battle_GetEntryBlock](Battle_GetEntryBlock.md), [OverrideEntry_LoadBattleEntries](OverrideEntry_LoadBattleEntries.md), [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md)
 - Reads: [g_BattleEntrySource](../globals/g_BattleEntrySource.md)
+
+## Referenced by
+
+- Observed behaviours: [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md)
 
 ## Notes
 

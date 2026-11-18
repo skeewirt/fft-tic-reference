@@ -16,11 +16,15 @@ Selects the face / portrait record of a party unit and writes it to the output: 
 
 - V (decompile): job word (+36) 72, 144, 145, 150, 151, 153..154 select fixed record indexes (76, 82, 79, 81); marker byte (+114) 0x82, 0xA2, 0xA3 select others (61 + the byte at +358, 88, 89); markers below 0x4A index `g_PartyFaceIndex[marker]`; markers 0x4A and above call sub_1402897B4(job, flag, out).
 - V: the record is `g_PartyFaceRecords + 12 * index`: a qword and a dword are copied to the output; for indexes other than 88/89 the word at out+8 is rebuilt from the result of sub_1402B5644.
-- V (J8): a new class has no portrait unless this function is replaced (hard-coded job ids).
+- V: the job ids it handles are written in the code (hard-coded).
 
 ## State touched
 
 - Reads: [g_PartyUnits](../globals/g_PartyUnits.md)
+
+## Referenced by
+
+- Reads tables: [PartyFaceIndex](../tables/PartyFaceIndex.md), [PartyFaceRecords](../tables/PartyFaceRecords.md)
 
 ## Notes
 

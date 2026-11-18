@@ -30,7 +30,7 @@ Builds the battle command/ability screen: the unit panels, the job record, the a
 
 ## Referenced by
 
-- Called by: [BattleCommand_BuildMenu](BattleCommand_BuildMenu.md)
+- Called by: [BattleCommand_BuildMenu](BattleCommand_BuildMenu.md), [LegacyMenu_LoadRowList](LegacyMenu_LoadRowList.md)
 - Observed behaviours: [BattlePanelsNameTheJobByte](../behaviors/BattlePanelsNameTheJobByte.md)
 
 ## Notes

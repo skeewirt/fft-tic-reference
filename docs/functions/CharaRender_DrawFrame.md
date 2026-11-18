@@ -31,6 +31,8 @@ Renders one unit slot's current animation frame into its 256 x 256 target: build
 ## Referenced by
 
 - Called by: [CharaRenderer_Update](CharaRenderer_Update.md)
+- Observed behaviours: [UnitMovementAnimationTables](../behaviors/UnitMovementAnimationTables.md)
+- Reads tables: [SpriteLookAttributes](../tables/SpriteLookAttributes.md)
 
 ## Notes
 

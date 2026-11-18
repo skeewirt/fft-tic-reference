@@ -2,50 +2,50 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-2550 records in 12 kinds; 1783 functions.
+3930 records in 12 kinds; 2014 functions.
 
 ## By kind
 
 | Kind | Records | What it covers |
 |---|---|---|
-| [Functions](docs/functions/README.md) | 1783 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
+| [Functions](docs/functions/README.md) | 2014 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
-| [Structures](docs/structs/README.md) | 68 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
-| [Globals](docs/globals/README.md) | 190 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
-| [Registries](docs/registries/README.md) | 12 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
+| [Structures](docs/structs/README.md) | 512 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
+| [Globals](docs/globals/README.md) | 211 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
+| [Registries](docs/registries/README.md) | 19 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
 | [Shaders](docs/shaders/README.md) | 9 | GPU shader programs from the game's technique files: stage, interface, bindings and what they compute (in words; no bytecode). |
 | [Shader programs](docs/programs/README.md) | 4 | Engine shader programs: a selector and program index resolved to its vertex and pixel shader, and the passes that use it. |
 | [Render targets](docs/render-targets/README.md) | 8 | GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame. |
-| [File formats](docs/formats/README.md) | 16 | Layouts of the game's file formats (described, never copied): headers, records, string pools. |
-| [Flows](docs/flows/README.md) | 22 | Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters. |
-| [Observed behaviours](docs/behaviors/README.md) | 136 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
-| [Tables](docs/tables/README.md) | 60 | Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents. |
+| [File formats](docs/formats/README.md) | 18 | Layouts of the game's file formats (described, never copied): headers, records, string pools. |
+| [Flows](docs/flows/README.md) | 26 | Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters. |
+| [Observed behaviours](docs/behaviors/README.md) | 194 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
+| [Tables](docs/tables/README.md) | 673 | Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents. |
 
 ## By area
 
 | Area | Contents |
 |---|---|
-| [Ability data](docs/areas/ability-data.md) | Functions: 6, Registries: 2, Flows: 1, Observed behaviours: 10, Tables: 3 |
-| [Application and startup](docs/areas/app-startup.md) | Functions: 16, Structures: 1, Globals: 2, Observed behaviours: 2, Tables: 1 |
-| [Battle](docs/areas/battle.md) | Functions: 251, Structures: 18, Globals: 42, Registries: 1, Flows: 3, Observed behaviours: 21, Tables: 14 |
-| [Data access](docs/areas/data.md) | Functions: 54, Structures: 1, Globals: 2, Registries: 1, File formats: 6, Flows: 3, Observed behaviours: 5, Tables: 1 |
-| [Display](docs/areas/display.md) | Functions: 3 |
-| [Errands](docs/areas/errands.md) | Functions: 25, Structures: 1, Globals: 2, Observed behaviours: 3, Tables: 2 |
+| [Ability data](docs/areas/ability-data.md) | Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 14 |
+| [Application and startup](docs/areas/app-startup.md) | Functions: 17, Structures: 2, Globals: 2, Observed behaviours: 4, Tables: 2 |
+| [Battle](docs/areas/battle.md) | Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 43, Tables: 89 |
+| [Data access](docs/areas/data.md) | Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flows: 3, Observed behaviours: 6, Tables: 116 |
+| [Display](docs/areas/display.md) | Functions: 3, Structures: 5, Tables: 5 |
+| [Errands](docs/areas/errands.md) | Functions: 25, Structures: 9, Globals: 2, Observed behaviours: 2, Tables: 11 |
 | [Event commands](docs/areas/event-commands.md) | Functions: 57 |
-| [Event system](docs/areas/event-system.md) | Functions: 162, Structures: 1, Globals: 5, Observed behaviours: 3 |
+| [Event system](docs/areas/event-system.md) | Functions: 195, Structures: 28, Globals: 5, Observed behaviours: 18, Tables: 29 |
 | [Battle formulas](docs/areas/formulas.md) | Functions: 138, Observed behaviours: 1 |
-| [Graphics](docs/areas/graphics.md) | Functions: 161, Structures: 9, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 39, Tables: 3 |
-| [Input](docs/areas/input.md) | Functions: 15, Structures: 2, Globals: 1 |
-| [Items and shops](docs/areas/items.md) | Functions: 95, Structures: 9, Globals: 29, Registries: 2, Flows: 1, Observed behaviours: 6, Tables: 14 |
-| [Job data](docs/areas/job-data.md) | Functions: 35, Structures: 1, Globals: 1, Registries: 1, Flows: 1, Observed behaviours: 22, Tables: 3 |
+| [Graphics](docs/areas/graphics.md) | Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 45, Tables: 48 |
+| [Input](docs/areas/input.md) | Functions: 15, Structures: 11, Globals: 1, Tables: 9 |
+| [Items and shops](docs/areas/items.md) | Functions: 95, Structures: 27, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 9, Tables: 33 |
+| [Job data](docs/areas/job-data.md) | Functions: 35, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed behaviours: 27, Tables: 15 |
 | [Job list and unlock](docs/areas/job-list.md) | Functions: 21, Structures: 2 |
-| [Job tree](docs/areas/job-tree.md) | Functions: 44, Structures: 3, Flows: 1, Observed behaviours: 7 |
-| [Math](docs/areas/math.md) | Functions: 5 |
-| [Resource](docs/areas/resource.md) | Functions: 27, Structures: 1 |
-| [Save data](docs/areas/save-data.md) | Functions: 140, Structures: 3, Globals: 8, File formats: 6, Flows: 4, Observed behaviours: 4 |
-| [UI framework](docs/areas/ui-framework.md) | Functions: 421, Structures: 12, Globals: 7, Registries: 1, File formats: 2, Flows: 1, Observed behaviours: 11 |
-| [Unit data](docs/areas/unit-data.md) | Functions: 69, Structures: 4, Globals: 5, Registries: 1, Flows: 1, Observed behaviours: 2, Tables: 1 |
-| [Unit rendering](docs/areas/unit-rendering.md) | Functions: 38 |
+| [Job tree](docs/areas/job-tree.md) | Functions: 44, Structures: 3, Flows: 1, Observed behaviours: 5 |
+| [Math](docs/areas/math.md) | Functions: 5, Structures: 5, Tables: 6 |
+| [Resource](docs/areas/resource.md) | Functions: 36, Structures: 7, Observed behaviours: 1, Tables: 15 |
+| [Save data](docs/areas/save-data.md) | Functions: 138, Structures: 12, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10 |
+| [UI framework](docs/areas/ui-framework.md) | Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flows: 4, Observed behaviours: 19, Tables: 234 |
+| [Unit data](docs/areas/unit-data.md) | Functions: 69, Structures: 3, Globals: 5, Registries: 1, Observed behaviours: 2, Tables: 1 |
+| [Unit rendering](docs/areas/unit-rendering.md) | Functions: 38, Structures: 17, Tables: 20 |
 
 ## How this repository is organised
 

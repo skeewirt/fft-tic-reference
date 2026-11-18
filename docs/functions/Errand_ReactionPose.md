@@ -18,6 +18,10 @@ Chooses which reaction pose a unit shows in the errand result scene from its Bra
 - V: result = basePose + table[3 x faithClass + braveClass] + 3 when the unit is female (bit 7 of the record byte +4 clear).
 - V: the table is the reaction matrix in the errand data block; a unit index of 54 or more falls back to a placeholder record.
 
+## Referenced by
+
+- Reads tables: [ErrandBlob](../tables/ErrandBlob.md)
+
 ## Open questions
 
 None recorded.

@@ -8,7 +8,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-One of the 16 scene-unit records at 0x140D30038 (stride 0x548) that sub_14026EB74 builds for a queued unit; the code addresses it by the pointer it returns, the in-use dword sits 8 bytes before that pointer (0x140D30030 + 1352 * slot).
+One of the 16 scene-unit records at 0x140D30038 (stride 0x548) that SceneUnit_BuildFromQueueEntry builds for a queued unit; the code addresses it by the pointer it returns, the in-use dword sits 8 bytes before that pointer (0x140D30030 + 1352 * slot).
 
 ## Fields
 

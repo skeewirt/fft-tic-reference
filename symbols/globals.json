@@ -99,6 +99,15 @@
       },
       "doc": "docs/globals/g_BattleActionBlock.md"
     },
+    "g_BattleCaptureTrackedDateCounters": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x8b885c"
+        }
+      },
+      "doc": "docs/globals/g_BattleCaptureTrackedDateCounters.md"
+    },
     "g_BattleCasterResult": {
       "area": "battle",
       "builds": {
@@ -189,6 +198,15 @@
       },
       "doc": "docs/globals/g_BattleLineAbility.md"
     },
+    "g_BattleMapId": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0xd3a838"
+        }
+      },
+      "doc": "docs/globals/g_BattleMapId.md"
+    },
     "g_BattleMapSize": {
       "area": "",
       "builds": {
@@ -206,6 +224,15 @@
         }
       },
       "doc": "docs/globals/g_BattleMapWords.md"
+    },
+    "g_BattleModeFlag": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x1853c08"
+        }
+      },
+      "doc": "docs/globals/g_BattleModeFlag.md"
     },
     "g_BattleMsgObject": {
       "area": "battle",
@@ -315,6 +342,15 @@
       },
       "doc": "docs/globals/g_CMesIdTable.md"
     },
+    "g_CharShapeTableCache": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x3cd9f38"
+        }
+      },
+      "doc": "docs/globals/g_CharShapeTableCache.md"
+    },
     "g_CharaRectSizeTable": {
       "area": "",
       "builds": {
@@ -350,6 +386,15 @@
         }
       },
       "doc": "docs/globals/g_ChargeMotionPairs.md"
+    },
+    "g_CheckpointTrackedDateCounters": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x2e808dc"
+        }
+      },
+      "doc": "docs/globals/g_CheckpointTrackedDateCounters.md"
     },
     "g_ClockProvider": {
       "area": "",
@@ -431,6 +476,15 @@
         }
       },
       "doc": "docs/globals/g_CurrentEffectNumber.md"
+    },
+    "g_CurrentMapId": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x784478"
+        }
+      },
+      "doc": "docs/globals/g_CurrentMapId.md"
     },
     "g_CurrentSpawnEntry": {
       "area": "unit-data",
@@ -594,6 +648,15 @@
       },
       "doc": "docs/globals/g_EventControl.md"
     },
+    "g_EventEffectWord": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0xd40930"
+        }
+      },
+      "doc": "docs/globals/g_EventEffectWord.md"
+    },
     "g_EventKeepAutoLatch": {
       "area": "event-system",
       "builds": {
@@ -683,6 +746,15 @@
         }
       },
       "doc": "docs/globals/g_ExceptionFilterDepth.md"
+    },
+    "g_ExtraPageOwner": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0xce3260"
+        }
+      },
+      "doc": "docs/globals/g_ExtraPageOwner.md"
     },
     "g_FaceDisplayMode": {
       "area": "graphics",
@@ -990,6 +1062,24 @@
       },
       "doc": "docs/globals/g_ListSelectedRowIndex.md"
     },
+    "g_LoadedMapId": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x2ff9eb8"
+        }
+      },
+      "doc": "docs/globals/g_LoadedMapId.md"
+    },
+    "g_LookLoaderState": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0xce3240"
+        }
+      },
+      "doc": "docs/globals/g_LookLoaderState.md"
+    },
     "g_LookPool": {
       "area": "",
       "builds": {
@@ -1062,6 +1152,24 @@
       },
       "doc": "docs/globals/g_MoveBlockers.md"
     },
+    "g_MoveFindTakenBits": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a7680"
+        }
+      },
+      "doc": "docs/globals/g_MoveFindTakenBits.md"
+    },
+    "g_MoveFindWorkingRow": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0xd8dc90"
+        }
+      },
+      "doc": "docs/globals/g_MoveFindWorkingRow.md"
+    },
     "g_MoveRangeScratch": {
       "area": "battle",
       "builds": {
@@ -1124,6 +1232,24 @@
         }
       },
       "doc": "docs/globals/g_MovieRequestId.md"
+    },
+    "g_NxdDefaultRow": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x6f5ed0"
+        }
+      },
+      "doc": "docs/globals/g_NxdDefaultRow.md"
+    },
+    "g_PageListFlags": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0xd497d0"
+        }
+      },
+      "doc": "docs/globals/g_PageListFlags.md"
     },
     "g_PartyCount": {
       "area": "",
@@ -1287,6 +1413,24 @@
       },
       "doc": "docs/globals/g_Renderer.md"
     },
+    "g_RumourNewFlags": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a7299"
+        }
+      },
+      "doc": "docs/globals/g_RumourNewFlags.md"
+    },
+    "g_RumourTownMasks": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x7be620"
+        }
+      },
+      "doc": "docs/globals/g_RumourTownMasks.md"
+    },
     "g_RuntimeJobList": {
       "area": "",
       "builds": {
@@ -1332,6 +1476,15 @@
       },
       "doc": "docs/globals/g_SaveCheckpointCopy.md"
     },
+    "g_SaveManager": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x3cd9ee0"
+        }
+      },
+      "doc": "docs/globals/g_SaveManager.md"
+    },
     "g_SaveRequestManager": {
       "area": "save-data",
       "builds": {
@@ -1376,6 +1529,15 @@
         }
       },
       "doc": "docs/globals/g_SceneIdWord.md"
+    },
+    "g_SceneObjectList": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0xd3a410"
+        }
+      },
+      "doc": "docs/globals/g_SceneObjectList.md"
     },
     "g_SceneTaskSlots": {
       "area": "battle",
@@ -1566,6 +1728,15 @@
       },
       "doc": "docs/globals/g_TextureTable.md"
     },
+    "g_TrackedDateCounters": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a7220"
+        }
+      },
+      "doc": "docs/globals/g_TrackedDateCounters.md"
+    },
     "g_TurnList": {
       "area": "",
       "builds": {
@@ -1602,6 +1773,15 @@
       },
       "doc": "docs/globals/g_UINameTable.md"
     },
+    "g_UIStateFade": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x3cd9e00"
+        }
+      },
+      "doc": "docs/globals/g_UIStateFade.md"
+    },
     "g_UnitEquipOverride": {
       "area": "unit-data",
       "builds": {
@@ -1628,6 +1808,15 @@
         }
       },
       "doc": "docs/globals/g_UnitImageAspectX.md"
+    },
+    "g_UnitJobFlags": {
+      "area": "job-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a7490"
+        }
+      },
+      "doc": "docs/globals/g_UnitJobFlags.md"
     },
     "g_UnitLookPoolIndex": {
       "area": "",
@@ -1682,6 +1871,15 @@
         }
       },
       "doc": "docs/globals/qword_141801100.md"
+    },
+    "tbl_StatusBattleSignal": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x672cc0"
+        }
+      },
+      "doc": "docs/globals/tbl_StatusBattleSignal.md"
     },
     "xmmword_141876E90": {
       "area": "battle",

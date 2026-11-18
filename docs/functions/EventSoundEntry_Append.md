@@ -28,6 +28,7 @@ The body of opcode 0xA6: looks the id up in data table 280 and then, through a v
 ## Referenced by
 
 - Called by: [sub_1400F4BCC](sub_1400F4BCC.md)
+- Reads tables: [NxdDataSoundEnhanced](../tables/NxdDataSoundEnhanced.md), [NxdDataSoundEnhancedResource](../tables/NxdDataSoundEnhancedResource.md)
 
 ## Notes
 
