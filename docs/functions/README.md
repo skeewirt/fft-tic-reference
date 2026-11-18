@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2021 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2029 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -240,6 +240,8 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Effect_RunStateMachine](Effect_RunStateMachine.md) | `0x140319DA4` | [Battle](../areas/battle.md) | Per-frame state machine of one battle effect: waits for the file load, uploads the texture, sets up the effect sections and runs the effect to its end. |
 | [Effect_SelectForAbility](Effect_SelectForAbility.md) | `0x140319B50` | [Battle](../areas/battle.md) | Picks the effect number for an effect word and starts the effect. |
 | [Effect_TintByNxdScale](Effect_TintByNxdScale.md) | `0x1403845C0` | [Battle](../areas/battle.md) | Updates one effect node: copies its position and angle into the node record and sets its colour, scaled by the effect number's table row. |
+| [EffectAnchor_GetPoint](EffectAnchor_GetPoint.md) | `0x140384240` | [Battle](../areas/battle.md) | Gives an effect's caster (index -1) or target (index 0..) position: a unit's scene position or a tile's centre. |
+| [EffectEmitter_Spawn](EffectEmitter_Spawn.md) | `0x1403847D8` | [Battle](../areas/battle.md) | Spawns the particles of one effect emitter at time t: count, position, velocity, mass, forces, life, homing and children from its 196-byte record. |
 | [EffectFile_GetTrackRow](EffectFile_GetTrackRow.md) | `0x1402742CC` | [Battle](../areas/battle.md) | Returns the two numbers that locate the data file of one battle effect: its file number in the game pack and its size in bytes. |
 | [EffectFile_ResetBasePointers](EffectFile_ResetBasePointers.md) | `0x1402741BC` | [Battle](../areas/battle.md) | Points every entry of the 512-slot effect base array at the one shared effect buffer. |
 | [EffectFile_UploadTexture](EffectFile_UploadTexture.md) | `0x1402741E0` | [Battle](../areas/battle.md) | Registers the two palettes and copies the picture stored at the end of the loaded effect file into the 1024 by 512 video page. |
@@ -249,9 +251,15 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [EffectNxd_HasFlag28](EffectNxd_HasFlag28.md) | `0x1400D2BE0` | [Battle](../areas/battle.md) | Reports whether the RefinedVFXTexture row of an effect has its byte at +28 set. |
 | [EffectNxd_LoadRow](EffectNxd_LoadRow.md) | `0x1400D258C` | [Battle](../areas/battle.md) | Reads the Enhanced parameter row of the current effect from the RefinedVFXTexture table (id 202) and applies it to the effect renderer and to the loaded effect data. |
 | [EffectPalette_Step](EffectPalette_Step.md) | `0x140315620` | [Battle](../areas/battle.md) | Sequence kind 18 handler: a full screen palette effect that starts from six seed colours. |
+| [EffectParticle_StepPhysics](EffectParticle_StepPhysics.md) | `0x140388170` | [Battle](../areas/battle.md) | Moves every effect particle one step: position by velocity, velocity by gravity, drag and force, force by its change or by homing. |
 | [EffectScript_OpCallCallback](EffectScript_OpCallCallback.md) | `0x14031AC98` | [Battle](../areas/battle.md) | Effect script opcode: runs one effect callback at once. |
+| [EffectScript_OpLoadPhysics](EffectScript_OpLoadPhysics.md) | `0x14031B9DC` | [Battle](../areas/battle.md) | Effect script opcode 0x27: loads the effect's gravity and drag from the header of section 3. |
+| [EffectScript_OpRunTimeline](EffectScript_OpRunTimeline.md) | `0x14031C2DC` | [Battle](../areas/battle.md) | Effect script opcode 0x28: runs one step of the effect's timeline (emitter tracks, colour tracks, sound tracks, camera tracks) and counts the frame. |
 | [EffectScript_OpSetCallback](EffectScript_OpSetCallback.md) | `0x14031AC30` | [Battle](../areas/battle.md) | Effect script opcode: attaches one of the effect callbacks to a live callback slot. |
+| [EffectScript_OpUpdateParticles](EffectScript_OpUpdateParticles.md) | `0x14031B768` | [Battle](../areas/battle.md) | Effect script opcode 0x25: moves every particle of the effect, draws it, runs its child emitters and removes it when its life ends. |
 | [EffectScript_Run](EffectScript_Run.md) | `0x14031D658` | [Battle](../areas/battle.md) | Runs the opcodes of one effect script until it yields or ends. |
+| [EffectScript_RunColourTracks](EffectScript_RunColourTracks.md) | `0x14031BE2C` | [Battle](../areas/battle.md) | Runs the colour-fade tracks of the effect timeline: palette fades on the screen, the caster and the targets. |
+| [EffectScript_RunEmitterTracks](EffectScript_RunEmitterTracks.md) | `0x14031BC8C` | [Battle](../areas/battle.md) | Runs the five emitter tracks of the effect timeline: each track is a list of phases, and the emitter of the running phase is asked to spawn particles. |
 | [EffectSequence_Run](EffectSequence_Run.md) | `0x14031A3DC` | [Battle](../areas/battle.md) | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
 | [EffectSprite_EmitPieces](EffectSprite_EmitPieces.md) | `0x140380878` | [Battle](../areas/battle.md) | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](EffectSprite_StepAnimation.md) | `0x140387B70` | [Battle](../areas/battle.md) | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |

@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 307, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
+Functions: 315, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
 
-## Functions (307)
+## Functions (315)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -120,6 +120,8 @@ Functions: 307, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [Effect_RunStateMachine](../functions/Effect_RunStateMachine.md) | `0x140319DA4` | Per-frame state machine of one battle effect: waits for the file load, uploads the texture, sets up the effect sections and runs the effect to its end. |
 | [Effect_SelectForAbility](../functions/Effect_SelectForAbility.md) | `0x140319B50` | Picks the effect number for an effect word and starts the effect. |
 | [Effect_TintByNxdScale](../functions/Effect_TintByNxdScale.md) | `0x1403845C0` | Updates one effect node: copies its position and angle into the node record and sets its colour, scaled by the effect number's table row. |
+| [EffectAnchor_GetPoint](../functions/EffectAnchor_GetPoint.md) | `0x140384240` | Gives an effect's caster (index -1) or target (index 0..) position: a unit's scene position or a tile's centre. |
+| [EffectEmitter_Spawn](../functions/EffectEmitter_Spawn.md) | `0x1403847D8` | Spawns the particles of one effect emitter at time t: count, position, velocity, mass, forces, life, homing and children from its 196-byte record. |
 | [EffectFile_GetTrackRow](../functions/EffectFile_GetTrackRow.md) | `0x1402742CC` | Returns the two numbers that locate the data file of one battle effect: its file number in the game pack and its size in bytes. |
 | [EffectFile_ResetBasePointers](../functions/EffectFile_ResetBasePointers.md) | `0x1402741BC` | Points every entry of the 512-slot effect base array at the one shared effect buffer. |
 | [EffectFile_UploadTexture](../functions/EffectFile_UploadTexture.md) | `0x1402741E0` | Registers the two palettes and copies the picture stored at the end of the loaded effect file into the 1024 by 512 video page. |
@@ -129,9 +131,15 @@ Functions: 307, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [EffectNxd_HasFlag28](../functions/EffectNxd_HasFlag28.md) | `0x1400D2BE0` | Reports whether the RefinedVFXTexture row of an effect has its byte at +28 set. |
 | [EffectNxd_LoadRow](../functions/EffectNxd_LoadRow.md) | `0x1400D258C` | Reads the Enhanced parameter row of the current effect from the RefinedVFXTexture table (id 202) and applies it to the effect renderer and to the loaded effect data. |
 | [EffectPalette_Step](../functions/EffectPalette_Step.md) | `0x140315620` | Sequence kind 18 handler: a full screen palette effect that starts from six seed colours. |
+| [EffectParticle_StepPhysics](../functions/EffectParticle_StepPhysics.md) | `0x140388170` | Moves every effect particle one step: position by velocity, velocity by gravity, drag and force, force by its change or by homing. |
 | [EffectScript_OpCallCallback](../functions/EffectScript_OpCallCallback.md) | `0x14031AC98` | Effect script opcode: runs one effect callback at once. |
+| [EffectScript_OpLoadPhysics](../functions/EffectScript_OpLoadPhysics.md) | `0x14031B9DC` | Effect script opcode 0x27: loads the effect's gravity and drag from the header of section 3. |
+| [EffectScript_OpRunTimeline](../functions/EffectScript_OpRunTimeline.md) | `0x14031C2DC` | Effect script opcode 0x28: runs one step of the effect's timeline (emitter tracks, colour tracks, sound tracks, camera tracks) and counts the frame. |
 | [EffectScript_OpSetCallback](../functions/EffectScript_OpSetCallback.md) | `0x14031AC30` | Effect script opcode: attaches one of the effect callbacks to a live callback slot. |
+| [EffectScript_OpUpdateParticles](../functions/EffectScript_OpUpdateParticles.md) | `0x14031B768` | Effect script opcode 0x25: moves every particle of the effect, draws it, runs its child emitters and removes it when its life ends. |
 | [EffectScript_Run](../functions/EffectScript_Run.md) | `0x14031D658` | Runs the opcodes of one effect script until it yields or ends. |
+| [EffectScript_RunColourTracks](../functions/EffectScript_RunColourTracks.md) | `0x14031BE2C` | Runs the colour-fade tracks of the effect timeline: palette fades on the screen, the caster and the targets. |
+| [EffectScript_RunEmitterTracks](../functions/EffectScript_RunEmitterTracks.md) | `0x14031BC8C` | Runs the five emitter tracks of the effect timeline: each track is a list of phases, and the emitter of the running phase is asked to spawn particles. |
 | [EffectSequence_Run](../functions/EffectSequence_Run.md) | `0x14031A3DC` | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
 | [EffectSprite_EmitPieces](../functions/EffectSprite_EmitPieces.md) | `0x140380878` | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](../functions/EffectSprite_StepAnimation.md) | `0x140387B70` | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |

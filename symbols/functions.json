@@ -3893,6 +3893,40 @@
       },
       "doc": "docs/functions/DepthStencilDesc_FromWord.md"
     },
+    "EffectAnchor_GetPoint": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:b3c85dbf0fc1f52d8f925da9fe157049170ba1a8f49e8925c590634744238253",
+            "insn_count": 48,
+            "mnemonics": "sha256:cd9ed0d8c192ba40539456d147bb570c3e3313e63b0350a3a65a9b590f1e6812",
+            "size": 304
+          },
+          "rva": "0x384240",
+          "size": 304
+        }
+      },
+      "doc": "docs/functions/EffectAnchor_GetPoint.md"
+    },
+    "EffectEmitter_Spawn": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 7,
+            "calls": "sha256:4c45371de96999b92e70bed37d50e6f50b4711a1b91527c9e65e61f45d5b7844",
+            "insn_count": 48,
+            "mnemonics": "sha256:93a61c6ed673b17b705c10a5cdc7723e2c24d60c4f4d03bed99897d9d405bef0",
+            "size": 10894
+          },
+          "rva": "0x3847d8",
+          "size": 10894
+        }
+      },
+      "doc": "docs/functions/EffectEmitter_Spawn.md"
+    },
     "EffectFile_GetTrackRow": {
       "area": "battle",
       "builds": {
@@ -4046,6 +4080,23 @@
       },
       "doc": "docs/functions/EffectPalette_Step.md"
     },
+    "EffectParticle_StepPhysics": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:d4fdbfa4c4677d27015b3ea5197e941ba5fc03f7462b59d6a2390cec206af129",
+            "insn_count": 48,
+            "mnemonics": "sha256:dae33f9a3910ee62b7aad96a0797c1d447ceece31adb58bfc3a18306dfec09fa",
+            "size": 592
+          },
+          "rva": "0x388170",
+          "size": 592
+        }
+      },
+      "doc": "docs/functions/EffectParticle_StepPhysics.md"
+    },
     "EffectScript_OpCallCallback": {
       "area": "battle",
       "builds": {
@@ -4062,6 +4113,40 @@
         }
       },
       "doc": "docs/functions/EffectScript_OpCallCallback.md"
+    },
+    "EffectScript_OpLoadPhysics": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 21,
+            "mnemonics": "sha256:e353505d6471cfe3003d78a74dfe0dfc89febb056425a2174a6f6eb58a6570eb",
+            "size": 91
+          },
+          "rva": "0x31b9dc",
+          "size": 91
+        }
+      },
+      "doc": "docs/functions/EffectScript_OpLoadPhysics.md"
+    },
+    "EffectScript_OpRunTimeline": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:c04b268b0451ddeed5316247ae5e453aa8b10de3c68e3eb82e890aa3f8e788ee",
+            "insn_count": 48,
+            "mnemonics": "sha256:e3064d5172d5f28756fad84bf01a8540e43f47b8772c914a148ff8f88246b553",
+            "size": 920
+          },
+          "rva": "0x31c2dc",
+          "size": 920
+        }
+      },
+      "doc": "docs/functions/EffectScript_OpRunTimeline.md"
     },
     "EffectScript_OpSetCallback": {
       "area": "battle",
@@ -4080,6 +4165,23 @@
       },
       "doc": "docs/functions/EffectScript_OpSetCallback.md"
     },
+    "EffectScript_OpUpdateParticles": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:6deb362a3c7843684310ae161d1e48895d7f6ba2128882988dde050a40dcf9f3",
+            "insn_count": 48,
+            "mnemonics": "sha256:7ab2cf8b2469b2e4188a73615326d7b86f19610d1b2c4e9d7037d873ea6be243",
+            "size": 506
+          },
+          "rva": "0x31b768",
+          "size": 506
+        }
+      },
+      "doc": "docs/functions/EffectScript_OpUpdateParticles.md"
+    },
     "EffectScript_Run": {
       "area": "battle",
       "builds": {
@@ -4096,6 +4198,40 @@
         }
       },
       "doc": "docs/functions/EffectScript_Run.md"
+    },
+    "EffectScript_RunColourTracks": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 7,
+            "calls": "sha256:babedd7133611ccbade000211ff3546b28d6a6a9cdbe7670b1a326ecce6bc5c2",
+            "insn_count": 48,
+            "mnemonics": "sha256:d50044c1c78b4183e5bda752bf3bac3d5375a632857a86208125d84caac9a237",
+            "size": 1200
+          },
+          "rva": "0x31be2c",
+          "size": 1200
+        }
+      },
+      "doc": "docs/functions/EffectScript_RunColourTracks.md"
+    },
+    "EffectScript_RunEmitterTracks": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:62be290850d24e1a2dba3a7654a1d3cbbe5d0944b9a54bb370df189e173a7e23",
+            "insn_count": 48,
+            "mnemonics": "sha256:51db4d4fbebb3fe9f1b2ff19427f4a7322589179bdf141daa04167923ccdd6b4",
+            "size": 413
+          },
+          "rva": "0x31bc8c",
+          "size": 413
+        }
+      },
+      "doc": "docs/functions/EffectScript_RunEmitterTracks.md"
     },
     "EffectSequence_Run": {
       "area": "battle",

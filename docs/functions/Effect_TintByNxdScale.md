@@ -3,7 +3,7 @@
 - **Address:** `0x1403845C0`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int64 Effect_TintByNxdScale(int64 a1, int64 node)`
-- **Callers:** sub_14031B768
+- **Callers:** EffectScript_OpUpdateParticles
 - **Callees:** NxdEntry_GetRow, NxdRegistry_Find, NxdTable_GetRowById, atan2f, sub_1400D30D8
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -25,6 +25,7 @@ Updates one effect node: copies its position and angle into the node record and 
 
 ## Referenced by
 
+- Called by: [EffectScript_OpUpdateParticles](EffectScript_OpUpdateParticles.md)
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
 - Reads tables: [NxdDataRefinedVFXTexture](../tables/NxdDataRefinedVFXTexture.md)
 

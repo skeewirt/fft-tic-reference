@@ -30,7 +30,7 @@ Per-frame state machine of one battle effect: waits for the file load, uploads t
 
 ## Notes
 
-Name is ours. The header dwords are offsets inside the file (the pointer is the file base plus the dword), so the file does not depend on its own number. Section meanings below +8 are inferred from their readers (sub_14034xxx per-primitive renderers, sound functions sub_14031C2DC / sub_14031D010).
+Name is ours. The header dwords are offsets inside the file (the pointer is the file base plus the dword), so the file does not depend on its own number. Section meanings below +8 are inferred from their readers (sub_14034xxx per-primitive renderers, sound functions EffectScript_OpRunTimeline / sub_14031D010).
 
 ## Open questions
 

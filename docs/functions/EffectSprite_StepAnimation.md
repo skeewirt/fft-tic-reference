@@ -18,7 +18,7 @@ Steps one effect sprite's animation script and, on a frame change, points the sp
 - V: script steps are 3 bytes: frame (0..127), hold (stored at +22), a depth mode (stored at +20); a hold of 0 leaves the position on that step (the frame stays). A first byte of 0x80 or more is a code: 0x81 back to the start, 0x82 then s16 x, s16 y = set the position (+8, +10), 0x83 then s8 dx, dy = move it.
 - V: a new frame (node +35 differs) sets +6 bit 0; then the frame set offset is the s16 at section 0 + byte node +34, the frame record at section 0 + the u16 at (that offset + 2 * frame), its piece count at record +2 and its pieces (24 bytes each) from record +4; the sprite primitive (+40) gets one pointer per piece (a new primitive when the count changes).
 - V: the depth mode picks the drawing order slot: 1 = depth - 8, 2 = 8, 3 = 382, 4 = 16, 5 = depth - 16, else the projected depth / 4, clamped 0..382; the sprite is drawn by EffectSprite_EmitPieces.
-- V: section 0 is the file's header dword [0] + 4 (qword_1411A3850); the script comes from section 1 (qword_1411A3858): sub_1403847D8 sets node +24 to section 1 + the u16 at (2 * emitter byte +21) and node +34 to 2 * emitter byte +24.
+- V: section 0 is the file's header dword [0] + 4 (qword_1411A3850); the script comes from section 1 (qword_1411A3858): EffectEmitter_Spawn sets node +24 to section 1 + the u16 at (2 * emitter byte +21) and node +34 to 2 * emitter byte +24.
 
 ## State touched
 
