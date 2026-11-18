@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2029 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2030 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -261,6 +261,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [EffectScript_RunColourTracks](EffectScript_RunColourTracks.md) | `0x14031BE2C` | [Battle](../areas/battle.md) | Runs the colour-fade tracks of the effect timeline: palette fades on the screen, the caster and the targets. |
 | [EffectScript_RunEmitterTracks](EffectScript_RunEmitterTracks.md) | `0x14031BC8C` | [Battle](../areas/battle.md) | Runs the five emitter tracks of the effect timeline: each track is a list of phases, and the emitter of the running phase is asked to spawn particles. |
 | [EffectSequence_Run](EffectSequence_Run.md) | `0x14031A3DC` | [Battle](../areas/battle.md) | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
+| [EffectSound_PickSlotValue](EffectSound_PickSlotValue.md) | `0x14031BBDC` | [Battle](../areas/battle.md) | Picks the value a battle effect's sound slot plays this time, by the slot's mode and its play counter. |
 | [EffectSprite_EmitPieces](EffectSprite_EmitPieces.md) | `0x140380878` | [Battle](../areas/battle.md) | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](EffectSprite_StepAnimation.md) | `0x140387B70` | [Battle](../areas/battle.md) | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
 | [EffectSprites_Spawn](EffectSprites_Spawn.md) | `0x140313210` | [Battle](../areas/battle.md) | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
@@ -1549,7 +1550,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_1402B2AAC](sub_1402B2AAC.md) | `0x1402B2AAC` | [UI framework](../areas/ui-framework.md) | Builds the classic UI atlas bundle once per process from five game textures, including the classic item icon sheet. |
 | [sub_1402B8C74](sub_1402B8C74.md) | `0x1402B8C74` | [Items and shops](../areas/items.md) | Returns the 8-byte weapon sub-record (I: range, attack flags, formula, -, power, evade, element, status effect), or null when the item is not of this kind. |
 | [sub_1402B8CD4](sub_1402B8CD4.md) | `0x1402B8CD4` | [Items and shops](../areas/items.md) | Returns the 2-byte shield sub-record (copied into the unit's evade group, I: physical / magic evade), or null when the item is not of this kind. |
-| [sub_1402B8D3C](sub_1402B8D3C.md) | `0x1402B8D3C` | [Items and shops](../areas/items.md) | Returns the 2-byte head / body sub-record (added to the unit's max HP / MP, capped 999: sub_1402779EC), or null when the item is not of this kind. |
+| [sub_1402B8D3C](sub_1402B8D3C.md) | `0x1402B8D3C` | [Items and shops](../areas/items.md) | Returns the 2-byte head / body sub-record (added to the unit's max HP / MP, capped 999: Unit_ApplyEquipment), or null when the item is not of this kind. |
 | [sub_1402B8DA0](sub_1402B8DA0.md) | `0x1402B8DA0` | [Items and shops](../areas/items.md) | Returns the 2-byte accessory sub-record (copied into the unit's evade group), or null when the item is not of this kind. |
 | [sub_1402B8E04](sub_1402B8E04.md) | `0x1402B8E04` | [Items and shops](../areas/items.md) | Returns the 3-byte usable-item sub-record (I: formula, amount, status record index into the 6-byte table at 0x14080FBA0), or null when the item is not of this kind. |
 | [sub_1402BAB78](sub_1402BAB78.md) | `0x1402BAB78` | [Event system](../areas/event-system.md) | Applies the pending music request: starts the requested track, stops the current one, and runs the pending fade. |

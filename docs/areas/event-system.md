@@ -2,7 +2,7 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 195, Structures: 28, Globals: 5, Observed behaviours: 18, Tables: 29.
+Functions: 195, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 18, Tables: 29.
 
 ## Functions (195)
 
@@ -246,6 +246,12 @@ Functions: 195, Structures: 28, Globals: 5, Observed behaviours: 18, Tables: 29.
 | [g_EventWorkPtr](../globals/g_EventWorkPtr.md) | `0x14078DCE8` | `ptr` | Pointer to the event work block at 0x140D40060; the event tasks reach their work area through it. |
 | [g_ScreenFade](../globals/g_ScreenFade.md) | `0x142FF9E08` | `uint64` | The fade and skip state: the low dword is the fade alpha, the high dword the skip state (0 none, 1 requested, 2 skipping). |
 | [g_SkipRequestSource](../globals/g_SkipRequestSource.md) | `0x142FF9EF4` | `uint64` | The skip-request source: its high dword is copied into the fade/skip state by the event runner. |
+
+## File formats (1)
+
+| Name | Extension | Summary |
+|---|---|---|
+| [SoundBankSab](../formats/SoundBankSab.md) |  | sound/common/sound.sab (0006.pac, 78 MB, stored uncompressed): a SEAD sound bank ('sabf' version 2) whose 690 sounds are the ids SoundCue_Play accepts (0..0x2B1); the audio is CRI HCA, not encrypted. |
 
 ## Observed behaviours (18)
 

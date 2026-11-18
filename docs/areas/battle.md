@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 315, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
+Functions: 316, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
 
-## Functions (315)
+## Functions (316)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -141,6 +141,7 @@ Functions: 315, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [EffectScript_RunColourTracks](../functions/EffectScript_RunColourTracks.md) | `0x14031BE2C` | Runs the colour-fade tracks of the effect timeline: palette fades on the screen, the caster and the targets. |
 | [EffectScript_RunEmitterTracks](../functions/EffectScript_RunEmitterTracks.md) | `0x14031BC8C` | Runs the five emitter tracks of the effect timeline: each track is a list of phases, and the emitter of the running phase is asked to spawn particles. |
 | [EffectSequence_Run](../functions/EffectSequence_Run.md) | `0x14031A3DC` | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
+| [EffectSound_PickSlotValue](../functions/EffectSound_PickSlotValue.md) | `0x14031BBDC` | Picks the value a battle effect's sound slot plays this time, by the slot's mode and its play counter. |
 | [EffectSprite_EmitPieces](../functions/EffectSprite_EmitPieces.md) | `0x140380878` | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](../functions/EffectSprite_StepAnimation.md) | `0x140387B70` | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
 | [EffectSprites_Spawn](../functions/EffectSprites_Spawn.md) | `0x140313210` | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
@@ -452,6 +453,12 @@ Functions: 315, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | Name | Summary |
 |---|---|
 | [BattleMsgKindBase](../registries/BattleMsgKindBase.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
+
+## File formats (1)
+
+| Name | Extension | Summary |
+|---|---|---|
+| [EffectSoundTracks](../formats/EffectSoundTracks.md) |  | An effect file names its sounds in three places: three sound tracks in section 7 say when, a slot list in section 6 says which value, and section 8 gives the cue base. |
 
 ## Flows (5)
 

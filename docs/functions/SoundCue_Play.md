@@ -27,6 +27,7 @@ Plays a sound cue on the first free sound channel of 13..19: remaps the cue with
 
 - Called by: [EffectScript_OpRunTimeline](EffectScript_OpRunTimeline.md), [EventChannel_BindStepTask](EventChannel_BindStepTask.md), [EventCmd_AllocSlot](EventCmd_AllocSlot.md), [JobScreen_ShowPopup](JobScreen_ShowPopup.md), [sub_1400F4BCC](sub_1400F4BCC.md), [sub_140269554](sub_140269554.md)
 - Observed behaviours: [SoundCuesAreRemappedBeforeTheyPlay](../behaviors/SoundCuesAreRemappedBeforeTheyPlay.md)
+- Reads file formats: [EffectSoundTracks](../formats/EffectSoundTracks.md), [SoundBankSab](../formats/SoundBankSab.md)
 
 ## Notes
 

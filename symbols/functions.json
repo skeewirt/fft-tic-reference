@@ -4250,6 +4250,23 @@
       },
       "doc": "docs/functions/EffectSequence_Run.md"
     },
+    "EffectSound_PickSlotValue": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:7508af01e4f885749484c19db283ea98768185c89342ee2623a614490b9c2224",
+            "size": 175
+          },
+          "rva": "0x31bbdc",
+          "size": 175
+        }
+      },
+      "doc": "docs/functions/EffectSound_PickSlotValue.md"
+    },
     "EffectSprite_EmitPieces": {
       "area": "battle",
       "builds": {

@@ -22,6 +22,10 @@ Effect script opcode 0x28: runs one step of the effect's timeline (emitter track
 
 - Calls: [EffectScript_RunEmitterTracks](EffectScript_RunEmitterTracks.md), [EffectScript_RunColourTracks](EffectScript_RunColourTracks.md), [SoundCue_Play](SoundCue_Play.md)
 
+## Referenced by
+
+- Reads file formats: [EffectSoundTracks](../formats/EffectSoundTracks.md)
+
 ## Notes
 
 Name is ours (was sub_14031C2DC). The opcode numbers (0x1D, 0x25, 0x27, the 0x1FF mask) belong to EffectScript_Run and the handler table, not to this body.

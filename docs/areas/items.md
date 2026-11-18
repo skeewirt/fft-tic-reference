@@ -63,7 +63,7 @@ Functions: 95, Structures: 27, Globals: 29, Registries: 2, Flows: 2, Observed be
 | [sub_14028B510](../functions/sub_14028B510.md) | `0x14028B510` | Marks the items sold in any open shop. |
 | [sub_1402B8C74](../functions/sub_1402B8C74.md) | `0x1402B8C74` | Returns the 8-byte weapon sub-record (I: range, attack flags, formula, -, power, evade, element, status effect), or null when the item is not of this kind. |
 | [sub_1402B8CD4](../functions/sub_1402B8CD4.md) | `0x1402B8CD4` | Returns the 2-byte shield sub-record (copied into the unit's evade group, I: physical / magic evade), or null when the item is not of this kind. |
-| [sub_1402B8D3C](../functions/sub_1402B8D3C.md) | `0x1402B8D3C` | Returns the 2-byte head / body sub-record (added to the unit's max HP / MP, capped 999: sub_1402779EC), or null when the item is not of this kind. |
+| [sub_1402B8D3C](../functions/sub_1402B8D3C.md) | `0x1402B8D3C` | Returns the 2-byte head / body sub-record (added to the unit's max HP / MP, capped 999: Unit_ApplyEquipment), or null when the item is not of this kind. |
 | [sub_1402B8DA0](../functions/sub_1402B8DA0.md) | `0x1402B8DA0` | Returns the 2-byte accessory sub-record (copied into the unit's evade group), or null when the item is not of this kind. |
 | [sub_1402B8E04](../functions/sub_1402B8E04.md) | `0x1402B8E04` | Returns the 3-byte usable-item sub-record (I: formula, amount, status record index into the 6-byte table at 0x14080FBA0), or null when the item is not of this kind. |
 | [sub_1402C60E4](../functions/sub_1402C60E4.md) | `0x1402C60E4` | Reconciles a unit's equipment words with the inventory: every equipped item is counted, duplicates beyond the cap are sold, and the unit's slots are cleared afterwards. |
