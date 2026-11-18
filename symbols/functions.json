@@ -1462,6 +1462,23 @@
       },
       "doc": "docs/functions/BattleUnit_BuildJobRecord.md"
     },
+    "BattleUnit_SetStatusVisual": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:1b9d3c54ba841d89697319f1f2a8b40c1a94f5dc89193af8a8d90278a40c438c",
+            "insn_count": 48,
+            "mnemonics": "sha256:11332cf7e2b1506772d9462bb7217c59e33991265261ed20491cab12ec439433",
+            "size": 495
+          },
+          "rva": "0x1fb064",
+          "size": 495
+        }
+      },
+      "doc": "docs/functions/BattleUnit_SetStatusVisual.md"
+    },
     "Battle_AITurnPrepare": {
       "area": "battle",
       "builds": {
@@ -4096,6 +4113,40 @@
         }
       },
       "doc": "docs/functions/EffectSequence_Run.md"
+    },
+    "EffectSprite_EmitPieces": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:0d6b8118c00af7ea1214462a9c0d26ab20533794720f5f19e9d8fa736b60af22",
+            "insn_count": 48,
+            "mnemonics": "sha256:c9ec13ab3c151a4bf1a6c2458815a65097c312a62faf0a169ceff49455c46588",
+            "size": 1856
+          },
+          "rva": "0x380878",
+          "size": 1856
+        }
+      },
+      "doc": "docs/functions/EffectSprite_EmitPieces.md"
+    },
+    "EffectSprite_StepAnimation": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:4c0aeecd353e53452b1348258c1ed20327d7c985fce0fde25f3d8271e5332fa1",
+            "insn_count": 48,
+            "mnemonics": "sha256:718ec15e15e8db483b06efeb5b16ef625cc70b4658f0fb913fbcc2cb31ea8b09",
+            "size": 1091
+          },
+          "rva": "0x387b70",
+          "size": 1091
+        }
+      },
+      "doc": "docs/functions/EffectSprite_StepAnimation.md"
     },
     "EffectSprites_Spawn": {
       "area": "battle",
@@ -28270,23 +28321,6 @@
         }
       },
       "doc": "docs/functions/sub_1401F9CC4.md"
-    },
-    "sub_1401FB064": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 2,
-            "calls": "sha256:1b9d3c54ba841d89697319f1f2a8b40c1a94f5dc89193af8a8d90278a40c438c",
-            "insn_count": 48,
-            "mnemonics": "sha256:11332cf7e2b1506772d9462bb7217c59e33991265261ed20491cab12ec439433",
-            "size": 495
-          },
-          "rva": "0x1fb064",
-          "size": 495
-        }
-      },
-      "doc": "docs/functions/sub_1401FB064.md"
     },
     "sub_14020261C": {
       "area": "battle",

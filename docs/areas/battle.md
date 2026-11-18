@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 305, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
+Functions: 307, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
 
-## Functions (305)
+## Functions (307)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -102,6 +102,7 @@ Functions: 305, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [BattleRange_SpreadDiamond](../functions/BattleRange_SpreadDiamond.md) | `0x14027EBF8` | Spreads the seeded marks outward one tile per pass for range passes, so every tile within Manhattan distance range of a seed gets a non-zero mark byte 0; heights are not looked at. |
 | [BattleTask_Slot13Entry](../functions/BattleTask_Slot13Entry.md) | `0x140229D24` | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state and runs the battle event/message runner that ends the task. |
 | [BattleUnit_BuildCursorRecord](../functions/BattleUnit_BuildCursorRecord.md) | `0x140281248` | Builds the seven-byte cursor record a unit contributes to the targeting display: slot and flags, level, terrain height and the tile the cursor should sit on. |
+| [BattleUnit_SetStatusVisual](../functions/BattleUnit_SetStatusVisual.md) | `0x1401FB064` | Sets or clears a status's visual bits on the unit's scene object: the tint / pose word or the sprite-change word. |
 | [BTurn_FinishUnit](../functions/BTurn_FinishUnit.md) | `0x140310650` | Ends one unit's turn: clears the active flag and applies the post-turn CT bonus. |
 | [BTurn_IsUnitDone](../functions/BTurn_IsUnitDone.md) | `0x140310704` | Decides whether the active unit has nothing left to do this turn, including the two-unit (partner) case. |
 | [BTurn_MarkActionDone](../functions/BTurn_MarkActionDone.md) | `0x1403105B0` | Records that a unit has used its action and ends the turn if the move was already used. |
@@ -132,6 +133,8 @@ Functions: 305, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [EffectScript_OpSetCallback](../functions/EffectScript_OpSetCallback.md) | `0x14031AC30` | Effect script opcode: attaches one of the effect callbacks to a live callback slot. |
 | [EffectScript_Run](../functions/EffectScript_Run.md) | `0x14031D658` | Runs the opcodes of one effect script until it yields or ends. |
 | [EffectSequence_Run](../functions/EffectSequence_Run.md) | `0x14031A3DC` | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
+| [EffectSprite_EmitPieces](../functions/EffectSprite_EmitPieces.md) | `0x140380878` | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
+| [EffectSprite_StepAnimation](../functions/EffectSprite_StepAnimation.md) | `0x140387B70` | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
 | [EffectSprites_Spawn](../functions/EffectSprites_Spawn.md) | `0x140313210` | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
 | [EventUnitStatus_DispatchActiveIcons](../functions/EventUnitStatus_DispatchActiveIcons.md) | `0x140241080` | For one preview unit of an event scene, sends the status icon updater a message for every status the unit currently has. |
 | [EventUnitStatus_SaveAndHide](../functions/EventUnitStatus_SaveAndHide.md) | `0x140241128` | For an event scene, saves the status state of a unit into the event unit store and clears the statuses the scene must not show. |
@@ -184,7 +187,6 @@ Functions: 305, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [sub_1401EC01C](../functions/sub_1401EC01C.md) | `0x1401EC01C` | Walks the forty battle message entries and resolves each one through the shared resolver. |
 | [sub_1401F92A8](../functions/sub_1401F92A8.md) | `0x1401F92A8` | Fills the 106 rows of the PostBattleCalc object, one per formula id: the 12 formulas with an after-damage rule get a hook row, every other row holds the do-nothing marker. |
 | [sub_1401F9CC4](../functions/sub_1401F9CC4.md) | `0x1401F9CC4` | A small preview of an item's effect amount: it repeats the HP-item formula's arithmetic but only when the battle state is in an item-preview phase, and writes the result into the same result block. |
-| [sub_1401FB064](../functions/sub_1401FB064.md) | `0x1401FB064` | Updates the panel icon and flags for one status effect on one unit. |
 | [sub_14020261C](../functions/sub_14020261C.md) | `0x14020261C` | Posts a battle message that depends on the current map, then marks the unit's action as done. |
 | [sub_14020327C](../functions/sub_14020327C.md) | `0x14020327C` | Confirm handler for a battle command: it stores the chosen value in the command request and starts battle program 3. |
 | [sub_140203450](../functions/sub_140203450.md) | `0x140203450` | The unit-targeting confirm handler: it stores the chosen value in the command request and starts battle program 3 for a found unit node. |

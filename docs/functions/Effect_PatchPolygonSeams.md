@@ -3,7 +3,7 @@
 - **Address:** `0x140381834`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `void Effect_PatchPolygonSeams(int64 prim)`
-- **Callers:** sub_140380878
+- **Callers:** EffectSprite_EmitPieces
 - **Callees:** not recorded
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -16,6 +16,10 @@ Nudges the texture coordinates of a few primitives of five stock effects by one 
 
 - V: it compares word_141D330BC with 65, 71, 73, 451 and 485 and does nothing for any other number.
 - V: for each of those it first checks that the primitive count (byte +3) and the original coordinate bytes have the stock values, then writes changed bytes; a primitive that does not match is left alone.
+
+## Referenced by
+
+- Called by: [EffectSprite_EmitPieces](EffectSprite_EmitPieces.md)
 
 ## Notes
 

@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `char Battle_StatusApply(int slot, int source)`
 - **Callers:** `Battle_StatusResolve` (`0x14030C937`)
-- **Callees:** `Status_FilterPendingSets`, `Battle_StatusRefresh`, `Unit_SetStatusCountdown`, `sub_1401FB064`
+- **Callees:** `Status_FilterPendingSets`, `Battle_StatusRefresh`, `Unit_SetStatusCountdown`, `BattleUnit_SetStatusVisual`
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -21,7 +21,7 @@ against the unit's innate/immunity sets. Handles the two team-changing statuses.
   it and a 16-byte filter table at `byte_140788DFC` says it is blocked; otherwise copy the corresponding 5-byte
   mask from `aDefghijklmnopq` into the pending clears, run `Status_FilterPendingSets(source)`, clear the effective
   status byte through `Battle_StatusRefresh`, set the bit in `+0x1EF..0x1F3`, call `Unit_SetStatusCountdown`, and
-  play the status icon update `sub_1401FB064(status+1, on/off, slot)`.
+  play the status icon update `BattleUnit_SetStatusVisual(status+1, on/off, slot)`.
 - V: status 19 clears `rec[0x2E]`.
 - V: statuses 9 and 34 (Charm/Recruit) copy the source unit's team bits: `rec[5]` bits 4..5 are set to the
   source's, and `rec[0x1EE] = (src[5] & 0x30) | (rec[0x1EE] & 0xC7)`; status 9 also zeroes result +16 and
@@ -31,7 +31,7 @@ against the unit's innate/immunity sets. Handles the two team-changing statuses.
 
 ## State touched
 
-- Calls: [Battle_StatusRefresh](Battle_StatusRefresh.md), [sub_1401FB064](sub_1401FB064.md)
+- Calls: [Battle_StatusRefresh](Battle_StatusRefresh.md), [BattleUnit_SetStatusVisual](BattleUnit_SetStatusVisual.md)
 
 ## Referenced by
 

@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `void Unit_BuildInnateStatuses(void *unit, int reload)`
 - **Callers:** sub_140278C1C, sub_14028531C, PartyUnit_ReloadEquipment, sub_14030BF04, sub_14033E4C4, sub_14039651C
-- **Callees:** sub_140276DF4, sub_140277C58, Unit_LoadEquipmentAndEvade, Unit_ApplyEquipment, sub_14027788C, Unit_ReinitStatusCountdowns, sub_1401FB064
+- **Callees:** sub_140276DF4, sub_140277C58, Unit_LoadEquipmentAndEvade, Unit_ApplyEquipment, sub_14027788C, Unit_ReinitStatusCountdowns, BattleUnit_SetStatusVisual
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -19,7 +19,7 @@ Builds the three innate status groups of a unit from its job row, its equipment 
 - V: the battle-applied set at +0x1EF is saved on the stack before the copy and restored afterwards.
 - V: the equipment attribute apply (Unit_ApplyEquipment) then ORs the status bytes of the equipped items into the same groups.
 - V: it calls Unit_LoadEquipmentAndEvade and sub_14027788C to rebuild the ability/RSM side, and sub_140276DF4 for the stat block.
-- V: Unit_ReinitStatusCountdowns runs at the end for the two reload variants, and sub_1401FB064 refreshes the status icon/flag owner.
+- V: Unit_ReinitStatusCountdowns runs at the end for the two reload variants, and BattleUnit_SetStatusVisual refreshes the status icon/flag owner.
 - V: the second argument selects the reload path; the six callers include the job-change, equipment-change and save-reload paths.
 - I: the fourth group at +0x198 has no identified producer, so the extra innate statuses are only as complete as whatever fills that field.
 - ?: whether an equipment status in group 3 survives the first battle refresh; the order of the copy and the restore here does not settle it.
@@ -27,7 +27,7 @@ Builds the three innate status groups of a unit from its job row, its equipment 
 
 ## State touched
 
-- Calls: [Unit_LoadEquipmentAndEvade](Unit_LoadEquipmentAndEvade.md), [Unit_ApplyEquipment](Unit_ApplyEquipment.md), [Unit_ReinitStatusCountdowns](Unit_ReinitStatusCountdowns.md), [sub_1401FB064](sub_1401FB064.md)
+- Calls: [Unit_LoadEquipmentAndEvade](Unit_LoadEquipmentAndEvade.md), [Unit_ApplyEquipment](Unit_ApplyEquipment.md), [Unit_ReinitStatusCountdowns](Unit_ReinitStatusCountdowns.md), [BattleUnit_SetStatusVisual](BattleUnit_SetStatusVisual.md)
 - Reads: [g_JobTable](../globals/g_JobTable.md)
 - Writes: [UnitWorkRecord](../structs/UnitWorkRecord.md)
 

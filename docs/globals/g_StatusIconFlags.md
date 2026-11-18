@@ -18,7 +18,7 @@ The per-status flag words the status panel update reads: index status+1, no boun
 ## Referenced by
 
 - Described by tables: [StatusIconFlags](../tables/StatusIconFlags.md)
-- Read by: [sub_1401FB064](../functions/sub_1401FB064.md)
+- Read by: [BattleUnit_SetStatusVisual](../functions/BattleUnit_SetStatusVisual.md)
 
 ## Open questions
 

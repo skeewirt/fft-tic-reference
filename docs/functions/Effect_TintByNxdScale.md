@@ -16,7 +16,7 @@ Updates one effect node: copies its position and angle into the node record and 
 
 - V: when the game is not paused and the frame flag bit 0 of dword_1407B0758 is set, it writes the node position (three values shifted right by 12) into the node record and, for a node with flag 2, an angle computed with atan2f.
 - V: the three colour bytes default to 0x80; a node with flag 0x40 takes them from the 160-byte records at qword_1411A3848.
-- V: the colour bytes are multiplied by the float at +8 of the RefinedVFXTexture row of word_141D330BC (1.0 when the effect number is 0 or less or the row is missing) and the result is passed on to sub_140387B70.
+- V: the colour bytes are multiplied by the float at +8 of the RefinedVFXTexture row of word_141D330BC (1.0 when the effect number is 0 or less or the row is missing) and the result is passed on to EffectSprite_StepAnimation.
 - V (2026-11-12): the number is loaded sign-extended into edi at 0x1403846FD and tested for 0 or less before the table lookup.
 
 ## State touched

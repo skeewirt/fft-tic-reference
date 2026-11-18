@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2019 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2021 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -135,6 +135,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BattleTask_Slot13Entry](BattleTask_Slot13Entry.md) | `0x140229D24` | [Battle](../areas/battle.md) | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state and runs the battle event/message runner that ends the task. |
 | [BattleUnit_BuildCursorRecord](BattleUnit_BuildCursorRecord.md) | `0x140281248` | [Battle](../areas/battle.md) | Builds the seven-byte cursor record a unit contributes to the targeting display: slot and flags, level, terrain height and the tile the cursor should sit on. |
 | [BattleUnit_BuildJobRecord](BattleUnit_BuildJobRecord.md) | `0x1400FCF80` | [Job data](../areas/job-data.md) | Builds the 148-byte job record of battle unit `slot` for the battle panels: its job, levels and JP, through JobRecord_FromJobId. |
+| [BattleUnit_SetStatusVisual](BattleUnit_SetStatusVisual.md) | `0x1401FB064` | [Battle](../areas/battle.md) | Sets or clears a status's visual bits on the unit's scene object: the tint / pose word or the sprite-change word. |
 | [BitStream_ReadBits](BitStream_ReadBits.md) | `0x140360A74` | [Job list and unlock](../areas/job-list.md) | MSB-first bit reader over the stream at `qword_143C49BF8`; the bit cursor is `dword_140906AAC`. |
 | [BlendDesc_FromWords](BlendDesc_FromWords.md) | `0x140051284` | [Graphics](../areas/graphics.md) | Unpacks packed render-target blend words into the Direct3D 12 blend description array of a pipeline state. |
 | [BTurn_FinishUnit](BTurn_FinishUnit.md) | `0x140310650` | [Battle](../areas/battle.md) | Ends one unit's turn: clears the active flag and applies the post-turn CT bonus. |
@@ -252,6 +253,8 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [EffectScript_OpSetCallback](EffectScript_OpSetCallback.md) | `0x14031AC30` | [Battle](../areas/battle.md) | Effect script opcode: attaches one of the effect callbacks to a live callback slot. |
 | [EffectScript_Run](EffectScript_Run.md) | `0x14031D658` | [Battle](../areas/battle.md) | Runs the opcodes of one effect script until it yields or ends. |
 | [EffectSequence_Run](EffectSequence_Run.md) | `0x14031A3DC` | [Battle](../areas/battle.md) | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
+| [EffectSprite_EmitPieces](EffectSprite_EmitPieces.md) | `0x140380878` | [Battle](../areas/battle.md) | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
+| [EffectSprite_StepAnimation](EffectSprite_StepAnimation.md) | `0x140387B70` | [Battle](../areas/battle.md) | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
 | [EffectSprites_Spawn](EffectSprites_Spawn.md) | `0x140313210` | [Battle](../areas/battle.md) | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
 | [EquipDetail_Refresh](EquipDetail_Refresh.md) | `0x14029F950` | [UI framework](../areas/ui-framework.md) | Refreshes the item detail panel for one selected item: it builds the item's large picture path, then binds the picture and the item name to the panel's parts. |
 | [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md) | `0x1402A0A08` | [UI framework](../areas/ui-framework.md) | Writes one help line of the equipment detail panel: line 0 = the item's description from Item-en, line 1 = three lines built by sub_1402A0E58, line 2 = weapon notes. |
@@ -1406,7 +1409,6 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_1401F3858](sub_1401F3858.md) | `0x1401F3858` | [UI framework](../areas/ui-framework.md) | Refreshes a party/unit panel: it looks up the unit's sprite shape and shows or hides the lock and starting-team icons. |
 | [sub_1401F92A8](sub_1401F92A8.md) | `0x1401F92A8` | [Battle](../areas/battle.md) | Fills the 106 rows of the PostBattleCalc object, one per formula id: the 12 formulas with an after-damage rule get a hook row, every other row holds the do-nothing marker. |
 | [sub_1401F9CC4](sub_1401F9CC4.md) | `0x1401F9CC4` | [Battle](../areas/battle.md) | A small preview of an item's effect amount: it repeats the HP-item formula's arithmetic but only when the battle state is in an item-preview phase, and writes the result into the same result block. |
-| [sub_1401FB064](sub_1401FB064.md) | `0x1401FB064` | [Battle](../areas/battle.md) | Updates the panel icon and flags for one status effect on one unit. |
 | [sub_14020261C](sub_14020261C.md) | `0x14020261C` | [Battle](../areas/battle.md) | Posts a battle message that depends on the current map, then marks the unit's action as done. |
 | [sub_14020327C](sub_14020327C.md) | `0x14020327C` | [Battle](../areas/battle.md) | Confirm handler for a battle command: it stores the chosen value in the command request and starts battle program 3. |
 | [sub_140203450](sub_140203450.md) | `0x140203450` | [Battle](../areas/battle.md) | The unit-targeting confirm handler: it stores the chosen value in the command request and starts battle program 3 for a found unit node. |

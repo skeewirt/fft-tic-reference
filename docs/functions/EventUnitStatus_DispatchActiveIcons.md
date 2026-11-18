@@ -14,7 +14,7 @@ For one preview unit of an event scene, sends the status icon updater a message 
 
 ## Behavior
 
-- V: points the scene callback slot (g_TextCommandSlot) at sub_1401FB064, the status icon updater.
+- V: points the scene callback slot (g_TextCommandSlot) at BattleUnit_SetStatusVisual, the status icon updater.
 - V: reads the effective set (unit +97) of the preview unit at slot (the 21-row table at 0x141853CE0) and loops over the ids 0..39 (a fixed bound of 40).
 - V: for each id whose bit is set it calls SceneCallback_Dispatch with kind 3, argument id + 1, the given mode, the slot and 0.
 - I: a slot above 20 makes the set pointer the bare offset 97 (a null-based read); the one caller (EventScript_Run) is expected to pass a valid slot.
