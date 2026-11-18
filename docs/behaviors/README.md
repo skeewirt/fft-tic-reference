@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-194 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+195 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -30,6 +30,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [BattleMapIdPathsAndTheirWidths](BattleMapIdPathsAndTheirWidths.md) | engine (battle map id storage) | The battle map id travels as a 32-bit global (0x140D3A838) set from scene variable 51 or from one of two signed 16-bit event words (-1 means none); the current-map global used for resources is another 32-bit global (0... |
 | [BattleMotionNumbers](BattleMotionNumbers.md) | engine (battle unit animation choice) | A battle action names its animation by a motion number from two tables (one per ability, one per weapon type); the unit stores motion + 1, and the motion number is the pair index of the classic animation file (front v... |
 | [BattlePaletteSourceByLookRange](BattlePaletteSourceByLookRange.md) | engine (battle palette row) | Where a battle unit's palette row comes from depends on its sprite number: the generic looks (96..133) and 159..162 take the unit's byte +4, every other look its CharShape row's colour override or the queue palette. |
+| [BattlePanelJobLineShowsDashesAtLevelZero](BattlePanelJobLineShowsDashesAtLevelZero.md) | engine | The job line of a battle unit panel shows 'Lv. |
 | [BattlePanelsNameTheJobByte](BattlePanelsNameTheJobByte.md) | engine (battle unit panels) | The battle's unit panels and command screens name a unit's job from its job byte (+3) or from the first listed job whose row holds a skillset, never from a party word. |
 | [BattleRosterCopiesCarryTheBattleSlotAt44](BattleRosterCopiesCarryTheBattleSlotAt44.md) | engine (battle party records) | In battle the party records are copies of battle unit records: PartyUnit_FillFromWorkRecord fills the battle roster records from the battle unit table, writing the unit's battle slot at +44 and its save slot at +0x1E,... |
 | [BattleStatChangeAndCtGainSteps](BattleStatChangeAndCtGainSteps.md) | engine | Unit_ChangeBattleStat changes PA / MA / Speed at the base +0x38..+0x3A with the totals +0x3E..+0x40; Move / Jump are at +0x42 / +0x43; the Haste / Slow CT step is in phase 0 of Battle_TurnEngine; Protect and Shell sca... |

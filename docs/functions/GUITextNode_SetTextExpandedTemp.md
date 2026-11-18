@@ -25,7 +25,7 @@ Sets a node's text with expansion using a throwaway, empty argument list that is
 
 ## Referenced by
 
-- Called by: [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md), [GUITextNode_UpdateLayout](GUITextNode_UpdateLayout.md), [GuideWindow_ShowPage](GuideWindow_ShowPage.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [sub_1402A6710](sub_1402A6710.md)
+- Called by: [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md), [GUITextNode_UpdateLayout](GUITextNode_UpdateLayout.md), [GuideWindow_ShowPage](GuideWindow_ShowPage.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [UnitPanel_FillJobLine](UnitPanel_FillJobLine.md), [sub_1402A6710](sub_1402A6710.md)
 
 ## Notes
 

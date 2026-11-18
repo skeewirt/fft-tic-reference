@@ -26,7 +26,7 @@ Builds the 148-byte job record of battle unit `slot` for the battle panels: its 
 ## Referenced by
 
 - Called by: [sub_1402DF374](sub_1402DF374.md)
-- Observed behaviours: [BattlePanelsNameTheJobByte](../behaviors/BattlePanelsNameTheJobByte.md)
+- Observed behaviours: [BattlePanelJobLineShowsDashesAtLevelZero](../behaviors/BattlePanelJobLineShowsDashesAtLevelZero.md), [BattlePanelsNameTheJobByte](../behaviors/BattlePanelsNameTheJobByte.md)
 
 ## Notes
 

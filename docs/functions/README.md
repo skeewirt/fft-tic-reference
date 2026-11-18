@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2014 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2018 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -26,6 +26,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BannerWord_Draw](BannerWord_Draw.md) | `0x140227AD8` | [Battle](../areas/battle.md) | Builds the gradient quads of one banner word image from its run of sprite cells. |
 | [BannerWords_FillQuads](BannerWords_FillQuads.md) | `0x1402DF154` | [Event system](../areas/event-system.md) | Fills the gradient quads of one banner (a row of word cells) from the legacy banner tables. |
 | [BarTop_Setup](BarTop_Setup.md) | `0x14019F330` | [Errands](../areas/errands.md) | Sets up the tavern's top menu (rumors, errands): the errand row is open only when situation 3220 holds. |
+| [Battle_ActorResultLevels](Battle_ActorResultLevels.md) | `0x14030C704` | [Battle](../areas/battle.md) | Applies the acting unit's action result and returns, in four bytes, what the level-up banners need: two result bytes, the new unit level and the new job level. |
 | [Battle_AITurnPrepare](Battle_AITurnPrepare.md) | `0x14031F534` | [Battle](../areas/battle.md) | Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one AI turn. |
 | [Battle_AITurnRun](Battle_AITurnRun.md) | `0x14038A468` | [Battle](../areas/battle.md) | Drives AI-controlled turns: loops the turn engine, consumes its action codes, decides and executes the unit's action, and restores the engine state when the AI cannot act. |
 | [Battle_ApplyActionResult](Battle_ApplyActionResult.md) | `0x14030A488` | [Battle](../areas/battle.md) | Applies the pending action result of one unit to that unit: HP/MP damage and healing, stat changes, Brave/Faith changes, EXP/level changes, status sets/clears and the death check. |
@@ -69,6 +70,8 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Battle_RestoreSceneVars](Battle_RestoreSceneVars.md) | `0x1402CE5C8` | [Save data](../areas/save-data.md) | Puts a saved battle's scene state back from the battle snapshot region: seven scene variables, the live stores, the battle unit table, the look queue and the look pool. |
 | [Battle_ResultResetStatusSets](Battle_ResultResetStatusSets.md) | `0x14030A43C` | [Battle](../areas/battle.md) | Clears the two pending status sets of an action-result block (and a five-byte scratch copy in the battle formula state). |
 | [Battle_SaveCapture](Battle_SaveCapture.md) | `0x1402CDBC4` | [Save data](../areas/save-data.md) | Captures the battle state into the autosave battle payload: the scene variables, the five memory blocks A..E, the live item and unit state and the item order record. |
+| [Battle_ShowJobLevelUp](Battle_ShowJobLevelUp.md) | `0x1402041D8` | [Battle](../areas/battle.md) | Shows the job level-up banner over the acting unit when its action raised its job level. |
+| [Battle_ShowUnitLevelUp](Battle_ShowUnitLevelUp.md) | `0x14020401C` | [Battle](../areas/battle.md) | Shows the level-up banner over the acting unit when its action raised its unit level. |
 | [Battle_SnapshotLiveState](Battle_SnapshotLiveState.md) | `0x140279BF4` | [Save data](../areas/save-data.md) | Captures or restores the live save state the battle image carries: the item stores and the unit save records, copied between the live globals and a save work block in the direction the second argument selects. |
 | [Battle_StatusApply](Battle_StatusApply.md) | `0x14030CAA8` | [Battle](../areas/battle.md) | Converts the pending status sets of one unit's action result block into applied status bits, after filtering them against the unit's innate/immunity sets. |
 | [Battle_StatusRefresh](Battle_StatusRefresh.md) | `0x14030CA00` | [Battle](../areas/battle.md) | Applies the pending status clears of a unit and recomputes the effective 40-bit status set. |
@@ -97,6 +100,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BattleLabel_ShowReactionSignal](BattleLabel_ShowReactionSignal.md) | `0x14014BFFC` | [Battle](../areas/battle.md) | Draws a plain text label (a BattleSignal title) over a unit, in the TextReaction node. |
 | [BattleLabel_ShowStatusSignal](BattleLabel_ShowStatusSignal.md) | `0x14014B87C` | [Battle](../areas/battle.md) | Draws a styled status label over a unit: the BattleSignal row's title with the icon of the status that names the row. |
 | [BattleLoad_StepFresh](BattleLoad_StepFresh.md) | `0x1403044EC` | [Graphics](../areas/graphics.md) | State machine of one battle scene load: prepares, builds the roster queue, loads every queued look through CharaPalette_ReloadForShape and starts the battle turn engine. |
+| [BattleMain_SetPanelJobRecord](BattleMain_SetPanelJobRecord.md) | `0x14010141C` | [Battle](../areas/battle.md) | Stores a job record (the first 92 bytes) into one of the battle main screen's two unit panel blocks. |
 | [BattleMenu_ConfirmRow](BattleMenu_ConfirmRow.md) | `0x140237B18` | [Battle](../areas/battle.md) | Acts on a confirmed battle command menu row: picks the follow-up screen code and starts the scene task that shows it. |
 | [BattleMenu_RunStep](BattleMenu_RunStep.md) | `0x1402381C4` | [Battle](../areas/battle.md) | Runs one step of the battle menu step table: sets the current menu and starts the step's task. |
 | [BattleMsg_BannerHandlerA](BattleMsg_BannerHandlerA.md) | `0x1400E8930` | [UI framework](../areas/ui-framework.md) | Handler body that shows the centre banner after its agent's vfunc +16 returns true: it calls UIMessageBanner_Show with the battle banner object, the descriptor and the enable flag. |
@@ -1614,7 +1618,6 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_14030BE18](sub_14030BE18.md) | `0x14030BE18` | [Battle](../areas/battle.md) | The Brave roll that decides whether a reaction fires; on success it stores the reaction id and the amount the reaction acts on in the action block. |
 | [sub_14030BE68](sub_14030BE68.md) | `0x14030BE68` | [Battle](../areas/battle.md) | The second reaction helper: the same Brave roll as sub_14030BE18, only for a unit with status bit 0x01 at +0x63, and it stores the reaction id without copying the HP result. |
 | [sub_14030BF04](sub_14030BF04.md) | `0x14030BF04` | [Battle](../areas/battle.md) | Handles a break or destroy effect on a piece of equipment: it finds the item, checks whether it can break, and removes it from the slot. |
-| [sub_14030C704](sub_14030C704.md) | `0x14030C704` | [Battle](../areas/battle.md) | Builds a four-byte battle-result entry for a unit: the two halves of a name id, the level and the job level, after applying the unit's action result. |
 | [sub_14030CAA8](sub_14030CAA8.md) | `0x14030CAA8` | [Battle](../areas/battle.md) | Applies a unit's pending status bits (bitset at unit-state +29..+33) to its status state, subject to immunity and conflict checks. |
 | [sub_14030CD08](sub_14030CD08.md) | `0x14030CD08` | [Battle](../areas/battle.md) | Finds a unit that learns the current ability from the action, rolling the learn chance; returns the unit index or -1. |
 | [sub_14030CF38](sub_14030CF38.md) | `0x14030CF38` | [Items and shops](../areas/items.md) | Adds an item's sale value to the gil total: a quarter of the item price, added to scene variable 44 and clamped. |
@@ -1990,6 +1993,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [UnitInfo_FillFromBattleUnit](UnitInfo_FillFromBattleUnit.md) | `0x1402CBCA0` | [Battle](../areas/battle.md) | Fills the unit information record a battle panel draws (the deployment carousel's unit card, an event's unit preview) from a battle unit record: its job line, face, level, HP / MP / CT, Brave and Faith. |
 | [UnitPage_Task](UnitPage_Task.md) | `0x1402FAA28` | [Battle](../areas/battle.md) | Task of the legacy unit page: builds the cells and the fifteen number fields of the unit page. |
 | [UnitPanel_FillEffectLine](UnitPanel_FillEffectLine.md) | `0x140227CF8` | [Battle](../areas/battle.md) | Fills the effect line of the unit status panel (the panel beside the action preview and the AI's target panel) from the current target's result block: damage, recovery, a stat change, or the statuses the action would ... |
+| [UnitPanel_FillJobLine](UnitPanel_FillJobLine.md) | `0x14029B5CC` | [Battle](../areas/battle.md) | Fills the job line of a unit panel from a 148-byte job record: the job icon, the job level, the JP and the JP to the next level. |
 | [UnitPanel_SetSignalList](UnitPanel_SetSignalList.md) | `0x14010A284` | [Battle](../areas/battle.md) | Turns a status list (ids, bit 0x80 = removed) into the panel's list of BattleSignal ids. |
 | [UnitPanel_SetStatusBytes](UnitPanel_SetStatusBytes.md) | `0x14010A42C` | [Battle](../areas/battle.md) | Fills a battle unit panel's status byte list (the icons on the panel) from a five-byte status set. |
 | [UnitWork_ApplyJobRow](UnitWork_ApplyJobRow.md) | `0x140276C64` | [Unit data](../areas/unit-data.md) | Copies a unit's JobTable row into its work record: skillset, innate abilities, equipment flags, growth pairs, Move/Jump, status groups, elemental groups and the three trailing bytes. |

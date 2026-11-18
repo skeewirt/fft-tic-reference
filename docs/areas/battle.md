@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 43, Tables: 89.
+Functions: 304, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 44, Tables: 89.
 
-## Functions (300)
+## Functions (304)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -13,6 +13,7 @@ Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [Action_SetWeaponItem](../functions/Action_SetWeaponItem.md) | `0x1403098CC` | Fills the weapon item id of a battle action from the acting unit's equipped weapon, with 255 standing for empty hands and zero written for an empty or out-of-range id. |
 | [Ai_StatusLastsTurns](../functions/Ai_StatusLastsTurns.md) | `0x14038BAB4` | Tells the battle AI whether a unit has a status and will still have it after the given number of its turns. |
 | [BannerWord_Draw](../functions/BannerWord_Draw.md) | `0x140227AD8` | Builds the gradient quads of one banner word image from its run of sprite cells. |
+| [Battle_ActorResultLevels](../functions/Battle_ActorResultLevels.md) | `0x14030C704` | Applies the acting unit's action result and returns, in four bytes, what the level-up banners need: two result bytes, the new unit level and the new job level. |
 | [Battle_AITurnPrepare](../functions/Battle_AITurnPrepare.md) | `0x14031F534` | Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one AI turn. |
 | [Battle_AITurnRun](../functions/Battle_AITurnRun.md) | `0x14038A468` | Drives AI-controlled turns: loops the turn engine, consumes its action codes, decides and executes the unit's action, and restores the engine state when the AI cannot act. |
 | [Battle_ApplyActionResult](../functions/Battle_ApplyActionResult.md) | `0x14030A488` | Applies the pending action result of one unit to that unit: HP/MP damage and healing, stat changes, Brave/Faith changes, EXP/level changes, status sets/clears and the death check. |
@@ -48,6 +49,8 @@ Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [Battle_ResolveReaction](../functions/Battle_ResolveReaction.md) | `0x140283C00` | Resolves a reaction or secondary action: it copies the action, rebuilds the preview and range, calls the action resolver and then the reaction bookkeeping. |
 | [Battle_ResolveTargets](../functions/Battle_ResolveTargets.md) | `0x140281CE8` | Builds the target set for one action request and resolves the request against every target, producing one result record per target plus a summary of the whole action. |
 | [Battle_ResultResetStatusSets](../functions/Battle_ResultResetStatusSets.md) | `0x14030A43C` | Clears the two pending status sets of an action-result block (and a five-byte scratch copy in the battle formula state). |
+| [Battle_ShowJobLevelUp](../functions/Battle_ShowJobLevelUp.md) | `0x1402041D8` | Shows the job level-up banner over the acting unit when its action raised its job level. |
+| [Battle_ShowUnitLevelUp](../functions/Battle_ShowUnitLevelUp.md) | `0x14020401C` | Shows the level-up banner over the acting unit when its action raised its unit level. |
 | [Battle_StatusApply](../functions/Battle_StatusApply.md) | `0x14030CAA8` | Converts the pending status sets of one unit's action result block into applied status bits, after filtering them against the unit's innate/immunity sets. |
 | [Battle_StatusRefresh](../functions/Battle_StatusRefresh.md) | `0x14030CA00` | Applies the pending status clears of a unit and recomputes the effective 40-bit status set. |
 | [Battle_StatusResolve](../functions/Battle_StatusResolve.md) | `0x14030C87C` | Applies the pending status adds and removes of one battle unit: filters them, clears, sets, then settles the effects that depend on the new set. |
@@ -73,6 +76,7 @@ Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [BattleControl_FrameUpdate](../functions/BattleControl_FrameUpdate.md) | `0x1401EA110` | Per-frame update of the battle control object; its first part sets the fast-forward level in battle straight from the held buttons. |
 | [BattleLabel_ShowReactionSignal](../functions/BattleLabel_ShowReactionSignal.md) | `0x14014BFFC` | Draws a plain text label (a BattleSignal title) over a unit, in the TextReaction node. |
 | [BattleLabel_ShowStatusSignal](../functions/BattleLabel_ShowStatusSignal.md) | `0x14014B87C` | Draws a styled status label over a unit: the BattleSignal row's title with the icon of the status that names the row. |
+| [BattleMain_SetPanelJobRecord](../functions/BattleMain_SetPanelJobRecord.md) | `0x14010141C` | Stores a job record (the first 92 bytes) into one of the battle main screen's two unit panel blocks. |
 | [BattleMenu_ConfirmRow](../functions/BattleMenu_ConfirmRow.md) | `0x140237B18` | Acts on a confirmed battle command menu row: picks the follow-up screen code and starts the scene task that shows it. |
 | [BattleMenu_RunStep](../functions/BattleMenu_RunStep.md) | `0x1402381C4` | Runs one step of the battle menu step table: sets the current menu and starts the step's task. |
 | [BattleMsg_Dispatch](../functions/BattleMsg_Dispatch.md) | `0x1402387C4` | Fills the battle message record from an event: it switches on the message kind, writes the kind and id of the record entries, starts the message scene task and resets the action-list widget state. |
@@ -247,7 +251,6 @@ Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [sub_14030BE18](../functions/sub_14030BE18.md) | `0x14030BE18` | The Brave roll that decides whether a reaction fires; on success it stores the reaction id and the amount the reaction acts on in the action block. |
 | [sub_14030BE68](../functions/sub_14030BE68.md) | `0x14030BE68` | The second reaction helper: the same Brave roll as sub_14030BE18, only for a unit with status bit 0x01 at +0x63, and it stores the reaction id without copying the HP result. |
 | [sub_14030BF04](../functions/sub_14030BF04.md) | `0x14030BF04` | Handles a break or destroy effect on a piece of equipment: it finds the item, checks whether it can break, and removes it from the slot. |
-| [sub_14030C704](../functions/sub_14030C704.md) | `0x14030C704` | Builds a four-byte battle-result entry for a unit: the two halves of a name id, the level and the job level, after applying the unit's action result. |
 | [sub_14030CAA8](../functions/sub_14030CAA8.md) | `0x14030CAA8` | Applies a unit's pending status bits (bitset at unit-state +29..+33) to its status state, subject to immunity and conflict checks. |
 | [sub_14030CD08](../functions/sub_14030CD08.md) | `0x14030CD08` | Finds a unit that learns the current ability from the action, rolling the learn chance; returns the unit index or -1. |
 | [sub_14030CFB8](../functions/sub_14030CFB8.md) | `0x14030CFB8` | Clears every pending status on a unit and refreshes the status icons. |
@@ -305,6 +308,7 @@ Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [UnitInfo_FillFromBattleUnit](../functions/UnitInfo_FillFromBattleUnit.md) | `0x1402CBCA0` | Fills the unit information record a battle panel draws (the deployment carousel's unit card, an event's unit preview) from a battle unit record: its job line, face, level, HP / MP / CT, Brave and Faith. |
 | [UnitPage_Task](../functions/UnitPage_Task.md) | `0x1402FAA28` | Task of the legacy unit page: builds the cells and the fifteen number fields of the unit page. |
 | [UnitPanel_FillEffectLine](../functions/UnitPanel_FillEffectLine.md) | `0x140227CF8` | Fills the effect line of the unit status panel (the panel beside the action preview and the AI's target panel) from the current target's result block: damage, recovery, a stat change, or the statuses the action would ... |
+| [UnitPanel_FillJobLine](../functions/UnitPanel_FillJobLine.md) | `0x14029B5CC` | Fills the job line of a unit panel from a 148-byte job record: the job icon, the job level, the JP and the JP to the next level. |
 | [UnitPanel_SetSignalList](../functions/UnitPanel_SetSignalList.md) | `0x14010A284` | Turns a status list (ids, bit 0x80 = removed) into the panel's list of BattleSignal ids. |
 | [UnitPanel_SetStatusBytes](../functions/UnitPanel_SetStatusBytes.md) | `0x14010A42C` | Fills a battle unit panel's status byte list (the icons on the panel) from a five-byte status set. |
 | [VramPage_CopyRect](../functions/VramPage_CopyRect.md) | `0x14025FA60` | Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPage) and marks that area for upload. |
@@ -448,7 +452,7 @@ Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (43)
+## Observed behaviours (44)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -461,6 +465,7 @@ Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md) | engine (battle unit entries) | The entry key (variable 50) selects 16 entries of 40 bytes: keys 1..127 read from file 224, 128..255 from 225, 256..383 from 226, 384..511 from 227 (81,920 bytes each, 128 keys), and keys 512..591 from file 892 (51,20... |
 | [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md) | a battle resumed from one autosave and driven by the same scripted input in two runs | A battle can be forked only at a save point: the autosave restores the world work copy and a battle image, but not the random stream, the frame counters, the input state or the thread/GPU state. |
 | [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md) | engine (battle map id storage) | The battle map id travels as a 32-bit global (0x140D3A838) set from scene variable 51 or from one of two signed 16-bit event words (-1 means none); the current-map global used for resources is another 32-bit global (0... |
+| [BattlePanelJobLineShowsDashesAtLevelZero](../behaviors/BattlePanelJobLineShowsDashesAtLevelZero.md) | engine | The job line of a battle unit panel shows 'Lv. |
 | [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md) | engine | Unit_ChangeBattleStat changes PA / MA / Speed at the base +0x38..+0x3A with the totals +0x3E..+0x40; Move / Jump are at +0x42 / +0x43; the Haste / Slow CT step is in phase 0 of Battle_TurnEngine; Protect and Shell sca... |
 | [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md) | battle unit +0x1B5 | Battle unit byte +0x1B5 (437): 1 placed on the field, 0 not placed (benched), 0xFF an empty slot. |
 | [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md) | engine (battle unit table, random battle start) | In a random battle the unit table holds up to nine enemy rows from the start, but only the rows with the slot byte (+0x01) equal to their own slot and the on-field byte (+0x1B5) equal to 1 stand on the field; the othe... |

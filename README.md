@@ -2,13 +2,13 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-3930 records in 12 kinds; 2014 functions.
+3935 records in 12 kinds; 2018 functions.
 
 ## By kind
 
 | Kind | Records | What it covers |
 |---|---|---|
-| [Functions](docs/functions/README.md) | 2014 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
+| [Functions](docs/functions/README.md) | 2018 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
 | [Structures](docs/structs/README.md) | 512 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
 | [Globals](docs/globals/README.md) | 211 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
@@ -18,7 +18,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Render targets](docs/render-targets/README.md) | 8 | GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame. |
 | [File formats](docs/formats/README.md) | 18 | Layouts of the game's file formats (described, never copied): headers, records, string pools. |
 | [Flows](docs/flows/README.md) | 26 | Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters. |
-| [Observed behaviours](docs/behaviors/README.md) | 194 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
+| [Observed behaviours](docs/behaviors/README.md) | 195 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
 | [Tables](docs/tables/README.md) | 673 | Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents. |
 
 ## By area
@@ -27,7 +27,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 |---|---|
 | [Ability data](docs/areas/ability-data.md) | Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 14 |
 | [Application and startup](docs/areas/app-startup.md) | Functions: 17, Structures: 2, Globals: 2, Observed behaviours: 4, Tables: 2 |
-| [Battle](docs/areas/battle.md) | Functions: 300, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 43, Tables: 89 |
+| [Battle](docs/areas/battle.md) | Functions: 304, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 44, Tables: 89 |
 | [Data access](docs/areas/data.md) | Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flows: 3, Observed behaviours: 6, Tables: 116 |
 | [Display](docs/areas/display.md) | Functions: 3, Structures: 5, Tables: 5 |
 | [Errands](docs/areas/errands.md) | Functions: 25, Structures: 9, Globals: 2, Observed behaviours: 2, Tables: 11 |

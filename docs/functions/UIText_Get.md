@@ -25,7 +25,7 @@ Returns the UI text string for an id from UI table 19, or a shared empty string 
 
 ## Referenced by
 
-- Called by: [BattleMsg_ResolveEntry](BattleMsg_ResolveEntry.md), [BattleMsg_TextFromDescriptor](BattleMsg_TextFromDescriptor.md), [GUITextNode_SetTextById](GUITextNode_SetTextById.md), [GUITextNode_UpdateLayout](GUITextNode_UpdateLayout.md), [JobRecord_FromJobId](JobRecord_FromJobId.md), [JobTreePanel_FillTexts](JobTreePanel_FillTexts.md), [SaveSlot_WriteFromLive](SaveSlot_WriteFromLive.md), [SaveSlots_StoreToFile](SaveSlots_StoreToFile.md), [sub_1401560D0](sub_1401560D0.md)
+- Called by: [BattleMsg_ResolveEntry](BattleMsg_ResolveEntry.md), [BattleMsg_TextFromDescriptor](BattleMsg_TextFromDescriptor.md), [GUITextNode_SetTextById](GUITextNode_SetTextById.md), [GUITextNode_UpdateLayout](GUITextNode_UpdateLayout.md), [JobRecord_FromJobId](JobRecord_FromJobId.md), [JobTreePanel_FillTexts](JobTreePanel_FillTexts.md), [SaveSlot_WriteFromLive](SaveSlot_WriteFromLive.md), [SaveSlots_StoreToFile](SaveSlots_StoreToFile.md), [UnitPanel_FillJobLine](UnitPanel_FillJobLine.md), [sub_1401560D0](sub_1401560D0.md)
 
 ## Notes
 

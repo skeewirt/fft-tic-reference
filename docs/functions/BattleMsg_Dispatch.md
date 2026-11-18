@@ -37,7 +37,7 @@ Fills the battle message record from an event: it switches on the message kind, 
 ## Referenced by
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [sub_14020261C](sub_14020261C.md), [sub_14020435C](sub_14020435C.md), [sub_140204B78](sub_140204B78.md), [sub_14020558C](sub_14020558C.md), [sub_140238444](sub_140238444.md)
+- Called by: [Battle_ShowJobLevelUp](Battle_ShowJobLevelUp.md), [Battle_ShowUnitLevelUp](Battle_ShowUnitLevelUp.md), [sub_14020261C](sub_14020261C.md), [sub_14020435C](sub_14020435C.md), [sub_140204B78](sub_140204B78.md), [sub_14020558C](sub_14020558C.md), [sub_140238444](sub_140238444.md)
 
 ## Notes
 

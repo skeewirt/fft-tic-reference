@@ -51,7 +51,7 @@ changes, EXP/level changes, status sets/clears and the death check. This is the 
 ## Referenced by
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [Battle_ApplyActionResults](Battle_ApplyActionResults.md), [sub_14020435C](sub_14020435C.md), [sub_14020BFD4](sub_14020BFD4.md), [sub_14030C704](sub_14030C704.md)
+- Called by: [Battle_ActorResultLevels](Battle_ActorResultLevels.md), [Battle_ApplyActionResults](Battle_ApplyActionResults.md), [sub_14020435C](sub_14020435C.md), [sub_14020BFD4](sub_14020BFD4.md)
 - Observed behaviours: [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md)
 
 ## Notes

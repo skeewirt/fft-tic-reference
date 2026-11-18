@@ -867,6 +867,23 @@
       },
       "doc": "docs/functions/BattleLoad_StepFresh.md"
     },
+    "BattleMain_SetPanelJobRecord": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 30,
+            "mnemonics": "sha256:703ef471298c454e496b84799915c12e3b36b0681ae17e6e596f018527581241",
+            "size": 138
+          },
+          "rva": "0x10141c",
+          "size": 138
+        }
+      },
+      "doc": "docs/functions/BattleMain_SetPanelJobRecord.md"
+    },
     "BattleMenu_ConfirmRow": {
       "area": "battle",
       "builds": {
@@ -1427,6 +1444,23 @@
         }
       },
       "doc": "docs/functions/Battle_AITurnRun.md"
+    },
+    "Battle_ActorResultLevels": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:f4885e2b48869da5b589a3535b98dc17f6bfb7bb8f72f1ab2d5b0ba7cc60016b",
+            "insn_count": 48,
+            "mnemonics": "sha256:df6d5ed1705ad997bf932b89f7aa258c21f7b763e7f6a9fe18f64a695777e0fd",
+            "size": 191
+          },
+          "rva": "0x30c704",
+          "size": 191
+        }
+      },
+      "doc": "docs/functions/Battle_ActorResultLevels.md"
     },
     "Battle_ApplyActionResult": {
       "area": "battle",
@@ -2124,6 +2158,40 @@
         }
       },
       "doc": "docs/functions/Battle_SaveCapture.md"
+    },
+    "Battle_ShowJobLevelUp": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:9c6b37819f95d66407bfb6c7f3119d862c8e5cab45f91af772de5e25d4d7087f",
+            "insn_count": 48,
+            "mnemonics": "sha256:8cf42172d5ac6c047dbaa10ae0145a8643bbf15bf7f07cb98717f44cd8d3378f",
+            "size": 385
+          },
+          "rva": "0x2041d8",
+          "size": 385
+        }
+      },
+      "doc": "docs/functions/Battle_ShowJobLevelUp.md"
+    },
+    "Battle_ShowUnitLevelUp": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:e964b1c2d3fb47e82fe428687ef7f4d4fbff4ed7bc4b9329a7308075b6387755",
+            "insn_count": 48,
+            "mnemonics": "sha256:31464b344e12ba33ffb7ab9724554ae9cad40925720e6cd8de874bb99c08c3b3",
+            "size": 442
+          },
+          "rva": "0x20401c",
+          "size": 442
+        }
+      },
+      "doc": "docs/functions/Battle_ShowUnitLevelUp.md"
     },
     "Battle_SnapshotLiveState": {
       "area": "save-data",
@@ -24973,6 +25041,23 @@
       },
       "doc": "docs/functions/UnitPanel_FillEffectLine.md"
     },
+    "UnitPanel_FillJobLine": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:49551d65d324144b94ae94edbf7da4ffd49f36a38749f731d92e36f3fd842a10",
+            "insn_count": 48,
+            "mnemonics": "sha256:cd068e991b52492c05b60027e838a62982c988a95b3881bdfc36325b7cd4c104",
+            "size": 1588
+          },
+          "rva": "0x29b5cc",
+          "size": 1588
+        }
+      },
+      "doc": "docs/functions/UnitPanel_FillJobLine.md"
+    },
     "UnitPanel_SetSignalList": {
       "area": "battle",
       "builds": {
@@ -31772,23 +31857,6 @@
         }
       },
       "doc": "docs/functions/sub_14030BF04.md"
-    },
-    "sub_14030C704": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 2,
-            "calls": "sha256:f4885e2b48869da5b589a3535b98dc17f6bfb7bb8f72f1ab2d5b0ba7cc60016b",
-            "insn_count": 48,
-            "mnemonics": "sha256:df6d5ed1705ad997bf932b89f7aa258c21f7b763e7f6a9fe18f64a695777e0fd",
-            "size": 191
-          },
-          "rva": "0x30c704",
-          "size": 191
-        }
-      },
-      "doc": "docs/functions/sub_14030C704.md"
     },
     "sub_14030CAA8": {
       "area": "battle",

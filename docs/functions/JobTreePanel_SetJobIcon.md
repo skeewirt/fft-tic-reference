@@ -24,7 +24,7 @@ Formats the job icon image path (j_NNN) of a tree panel from its job record; a L
 
 ## Referenced by
 
-- Called by: [JobList_StoreCell](JobList_StoreCell.md), [JobTreePanel_FillTexts](JobTreePanel_FillTexts.md), [sub_1401321FC](sub_1401321FC.md)
+- Called by: [JobList_StoreCell](JobList_StoreCell.md), [JobTreePanel_FillTexts](JobTreePanel_FillTexts.md), [UnitPanel_FillJobLine](UnitPanel_FillJobLine.md), [sub_1401321FC](sub_1401321FC.md)
 - Observed behaviours: [JobTreeLockState](../behaviors/JobTreeLockState.md)
 
 ## Notes
