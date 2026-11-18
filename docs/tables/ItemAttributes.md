@@ -6,7 +6,7 @@
 - **Address:** `0x14080FEA0`
 - **Rows:** 85 rows of 26 bytes
 - **Keyed by:** the attribute index of the item record (values from 0x55 up are ignored)
-- **Read by:** [Item_BuildAttributeLines](../functions/Item_BuildAttributeLines.md), [sub_1400FA7AC](../functions/sub_1400FA7AC.md), [sub_1402779EC](../functions/sub_1402779EC.md), [sub_140286C8C](../functions/sub_140286C8C.md), [sub_140396984](../functions/sub_140396984.md)
+- **Read by:** [Item_BuildAttributeLines](../functions/Item_BuildAttributeLines.md), [sub_1400FA7AC](../functions/sub_1400FA7AC.md), [Unit_ApplyEquipment](../functions/Unit_ApplyEquipment.md), [sub_140286C8C](../functions/sub_140286C8C.md), [sub_140396984](../functions/sub_140396984.md)
 - **Held in:** [g_ItemAttributeTable](../globals/g_ItemAttributeTable.md)
 - **Row layout:** [ItemAttributeRow](../structs/ItemAttributeRow.md)
 

@@ -3,7 +3,7 @@
 - **Address:** `0x140320504`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `void Action_BuildCurrentAction(const void *entry)`
-- **Callers:** sub_1403167E4, sub_14031FD40 (two sites), sub_14038BC00 (two sites), sub_14038C8F8, sub_14038D1EC, sub_14038D65C
+- **Callers:** sub_1403167E4, Ai_SurveyTargets (two sites), sub_14038BC00 (two sites), sub_14038C8F8, sub_14038D1EC, sub_14038D65C
 - **Callees:** Item_GetRecord, `sub_1402B8C74` (Item_GetWeaponRecord), `sub_1402B8E04` (Item_GetChemistRecord), AbilityAction_GetRecord
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -52,8 +52,8 @@ commands resolves the item id and the ability that represents it.
 ## Referenced by
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [sub_1403167E4](sub_1403167E4.md), [sub_14031FD40](sub_14031FD40.md), [sub_14038BC00](sub_14038BC00.md), [sub_14038C8F8](sub_14038C8F8.md), [sub_14038D1EC](sub_14038D1EC.md), [sub_14038D65C](sub_14038D65C.md)
-- Observed behaviours: [BattleItemsAreUsedThroughItemAbilities](../behaviors/BattleItemsAreUsedThroughItemAbilities.md), [ItemCommandRelation](../behaviors/ItemCommandRelation.md)
+- Called by: [Ai_SurveyTargets](Ai_SurveyTargets.md), [sub_1403167E4](sub_1403167E4.md), [sub_14038BC00](sub_14038BC00.md), [sub_14038C8F8](sub_14038C8F8.md), [sub_14038D1EC](sub_14038D1EC.md), [sub_14038D65C](sub_14038D65C.md)
+- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md), [BattleItemsAreUsedThroughItemAbilities](../behaviors/BattleItemsAreUsedThroughItemAbilities.md), [ItemCommandRelation](../behaviors/ItemCommandRelation.md)
 - Reads tables: [AbilityAux](../tables/AbilityAux.md), [AbilityKind3_JumpReach](../tables/AbilityKind3_JumpReach.md), [AbilityKind4_Charge](../tables/AbilityKind4_Charge.md), [InflictRecords](../tables/InflictRecords.md)
 
 ## Notes

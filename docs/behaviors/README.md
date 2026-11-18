@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-195 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+196 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -12,6 +12,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [AFailedMeshLoadSkipsEveryLaterRendererStep](AFailedMeshLoadSkipsEveryLaterRendererStep.md) | engine (map renderer) | When MapMesh_Load returns anything but 0 (missing file, oversize, wrong header, ids 15 and 33) the texture, system-texture and anim steps are not run and the mesh set's loaded-id field stays at none; the map block's t... |
 | [AFaultInAGameTaskFreezesTheGame](AFaultInAGameTaskFreezesTheGame.md) | engine | Game logic runs in task threads that the main thread hands control to each frame (GameTasks_RunFrameSteps waits on them). |
 | [AfterDamageReactionChain](AfterDamageReactionChain.md) | engine (battle action result) | At the end of Battle_ApplyActionResult the unit held in g_BattleActingUnit is tested for passive reactions in a fixed order; the first one present goes to a Brave-roll helper, and the reaction executor then handles on... |
+| [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md) | engine | An AI-controlled unit weighs statuses in two places, both limited to the 40 statuses of the five status bytes: the test of whether an action is worth trying on a unit compares the action's status bytes (from its infli... |
 | [AnUnservedIdFromASaveFreezesTheGame](AnUnservedIdFromASaveFreezesTheGame.md) | loading a save whose item ids have no row | The game trusts every id in a save: an equipped item with no item row reaches the unit stat builder, which reads the armor record it does not get and faults inside a game task, freezing the game. |
 | [AttackWeaponReach](AttackWeaponReach.md) | battle: the tiles the Attack command can target, from the equipped weapon or bare hands | Which tiles a unit's basic Attack can target: one weapon is chosen, its flag byte picks one of four shapes (strike, lunge, direct, arc), heights are compared in half-steps, the unit's own tile and some flagged tiles a... |
 | [BattleAbilityListReadsLearnedBitsThroughAPointerPastTheGroup](BattleAbilityListReadsLearnedBitsThroughAPointerPastTheGroup.md) | engine (battle ability list) | The battle's usable-ability list builder reads the three learned bytes of a job group from a battle record with the group number in one address register and the record pointer plus twice the group in the other, so for... |

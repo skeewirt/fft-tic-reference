@@ -33,7 +33,6 @@ Functions: 69, Structures: 3, Globals: 5, Registries: 1, Observed behaviours: 2,
 | [sub_1400FA7AC](../functions/sub_1400FA7AC.md) | `0x1400FA7AC` | Adds an equipped item's attribute record and added-effect statuses to a unit's status state. |
 | [sub_1401EA910](../functions/sub_1401EA910.md) | `0x1401EA910` | Adds an OverrideEntryData row's HP and MP growth bonuses to a unit work record, by an index from a global record. |
 | [sub_140275EF4](../functions/sub_140275EF4.md) | `0x140275EF4` | Builds a unit's working stats from its job row and its equipment words, one of the two paths that turn equipped items into stats. |
-| [sub_1402779EC](../functions/sub_1402779EC.md) | `0x1402779EC` | Adds the armor and attribute contributions of a unit's equipped items to the unit's stats. |
 | [sub_140285A6C](../functions/sub_140285A6C.md) | `0x140285A6C` | Writes every party unit's record back to its save row. |
 | [sub_140287118](../functions/sub_140287118.md) | `0x140287118` | The stat calculator behind `sub_140287354`: it masks the five unit and candidate words and computes the attack/defence differences into the block. |
 | [sub_14028728C](../functions/sub_14028728C.md) | `0x14028728C` | Computes the equip block's stat deltas from the unit's live words and the candidate array, comparing each pair masked to ten bits. |
@@ -55,6 +54,7 @@ Functions: 69, Structures: 3, Globals: 5, Registries: 1, Observed behaviours: 2,
 | [sub_14034DE90](../functions/sub_14034DE90.md) | `0x14034DE90` | Equipment refresh for the scene and battle unit records: it rewrites the per-slot item-id word at unit +0x1C2 from the party records. |
 | [sub_140396984](../functions/sub_140396984.md) | `0x140396984` | Fills the attribute part of an equip preview: which stats an item would add and which of them the unit already has. |
 | [sub_140396D08](../functions/sub_140396D08.md) | `0x140396D08` | Validates an equip preview against the unit's current equipment: it compares the candidate item with the item already in the slot and with the job's equip rules. |
+| [Unit_ApplyEquipment](../functions/Unit_ApplyEquipment.md) | `0x1402779EC` | Adds the armor and attribute contributions of a unit's equipped items to the unit's stats. |
 | [Unit_ApplyLevelGrowth](../functions/Unit_ApplyLevelGrowth.md) | `0x140278B24` | Raises a save record's level by a number of levels, growing the five 24-bit stat accumulators at each step from the job row's growth C values. |
 | [Unit_BuildAbilityBits](../functions/Unit_BuildAbilityBits.md) | `0x140276DF4` | Rebuilds a battle unit's passive-ability bit map from its innate ability words and its equipped reaction, support and movement ability. |
 | [Unit_BuildFromRecord](../functions/Unit_BuildFromRecord.md) | `0x140275CA4` | Builds a unit work record from a spawn record: applies the record, sets up job state, abilities and growth, computes the stats and the starting equipment. |

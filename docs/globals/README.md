@@ -2,7 +2,7 @@
 
 Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json).
 
-211 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
+213 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
@@ -14,6 +14,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_AbilityMpCost](g_AbilityMpCost.md) | `0x1407B078E` | `uint8` | The MP cost of the action being started or previewed: the action row's cost byte, halved for a unit with the halving passive; zero when no cost applies. |
 | [g_ActionItemIdByte](g_ActionItemIdByte.md) | `0x1407B077E` | `uint8` | The item-id byte the battle action resolver leaves for the item formulas: the item id's low byte plus 0x10, so the formulas rebuild the id by adding 0xF0. |
 | [g_AiCommandTable](g_AiCommandTable.md) | `0x141872598` | `AiCommandEntry[16][34]` | The AI's candidate action table: 16 rows (one per AI unit) of 34 four-byte entries; each entry is an ability word and the command (skillset) byte it came from. |
+| [g_AiCurrentAction](g_AiCurrentAction.md) | `0x1418716A0` | `battle ai` | 16 bytes (+0x10 / +0x20 more): the action the AI is looking at, filled by Action_BuildCurrentAction: +0 command, +1 its charge time (I: AbilityAction +12; added to turn counts), +2 ability id (word), +4 a byte (? rang... |
 | [g_Application](g_Application.md) | `0x140C6AD30` | `object *` | Application object passed to App_RunFrame, Game_Main and the application vfuncs. |
 | [g_BattleActingUnit](g_BattleActingUnit.md) | `0x14186AF68` | `ptr` | Pointer to the unit record the current battle action is worked out on: the TARGET of the action (the unit hit), although the name says acting; its byte at +0x97 carries the reaction flags and its byte at +0x61 the ite... |
 | [g_BattleActionBlock](g_BattleActionBlock.md) | `0x14186AF70` | `ActionResult *` | Pointer to the result block of the current action on its target: unit +0x1BE of the target's slot (the formula handlers' R). |
@@ -214,6 +215,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_UserSituation](g_UserSituation.md) | `0x143CD9DE0` | `event system` | pointer to the situation store UserSituation_TestCheck reads: a bank flag byte at +16 (bit 0), flag bytes at +72 / +152, dword counters at +24 / +104. |
 | [g_ZeroPair](g_ZeroPair.md) | `0x143D12018` | `int32[2]` | A pair of zeros in uninitialised data (no writer; the database shows -1 for it because the bytes are not stored in the file, but the running game reads 0, live 2026-10-30). |
 | [qword_141801100](qword_141801100.md) | `0x141801100` | `PartyUnitB *` | Pointer to a 640-byte scratch party record (unk_143749CA0). |
+| [tbl_AiStatusValue](tbl_AiStatusValue.md) | `0x1407B22F0` | `battle ai` | int16[40]: how much each status (index = status id) is worth to a unit in the AI's score of a simulated outcome, on the scale where full HP is 128: Crystal / KO / Chest -192, Traitor -231, Stone / Vampire -116, Doom -... |
 | [tbl_StatusBattleSignal](tbl_StatusBattleSignal.md) | `0x140672CC0` | `battle ui` | uint8[40]: the BattleSignal row of each status id (index = id), 0 = no label: ids 2 KO, 21 Chicken and 22 Toad map to 0 (KO's row is 0; Chicken and Toad have labels of their own, 65 / 66); 24 Poison -> 13. |
 | [xmmword_141876E90](xmmword_141876E90.md) | `0x141876E90` | `EquipPanelBlock` | The field equip screens' 64-byte copy of the selected party record bytes +0x30..+0x6F; its hand words at +0x24 are a raw copy of g_PartyUnits +0x54..+0x5C. |
 | [xmmword_141D3B880](xmmword_141D3B880.md) | `0x141D3B880` | `EquipPanelBlock` | The battle module's copy of the same 64-byte record slice (+0x30..+0x6F), with its five hand words at +0x24; read by the battle panel sub_140399A64. |

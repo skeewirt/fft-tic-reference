@@ -25,6 +25,10 @@ Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one 
 
 - Calls: [Battle_AITurnRun](Battle_AITurnRun.md)
 
+## Referenced by
+
+- Called by: [Ai_UnitTurnStep](Ai_UnitTurnStep.md)
+
 ## Notes
 
 The AI table byte layout (`v1[0..4]`) is a scoring input for `Battle_AITurnRun`; it is rebuilt every AI turn.

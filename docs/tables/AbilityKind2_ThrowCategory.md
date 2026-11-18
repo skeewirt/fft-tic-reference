@@ -6,7 +6,7 @@
 - **Address:** `0x140789290`
 - **Rows:** 12 rows of 1 byte
 - **Keyed by:** ability id 0x17E..0x189 (Throw)
-- **Read by:** [Ability_GetAuxRecord](../functions/Ability_GetAuxRecord.md), [sub_14031FD40](../functions/sub_14031FD40.md)
+- **Read by:** [Ability_GetAuxRecord](../functions/Ability_GetAuxRecord.md), [Ai_SurveyTargets](../functions/Ai_SurveyTargets.md)
 - **Held in:** [g_AbilityKind2_ThrowCategory](../globals/g_AbilityKind2_ThrowCategory.md)
 - **Row layout:** [AbilityKind2Row](../structs/AbilityKind2Row.md)
 

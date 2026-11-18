@@ -10,8 +10,8 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Drives AI-controlled turns: loops the turn engine, consumes its action codes, decides and executes the unit's action,
-and restores the engine state when the AI cannot act.
+Runs one AI trial: applies the candidate action on the preview unit table, lets the turn engine play on (up to 255
+steps), scores the outcome and restores the engine state.
 
 ## Behavior
 
@@ -24,8 +24,11 @@ and restores the engine state when the AI cannot act.
   returns 0.
 - V: code `0x100` -> `sub_14038BB68(0, slot)` scores the plan, sets the AI table byte `xmmword_1418724B8+slot = 1`,
   and clears `unit[0x1B8]` so the engine can finish the turn.
-- V: the tail of the function is the action scoring loop (ability ids from the unit's skillset, weapon/terrain
-  values, status modifiers) that picks the action the AI will use.
+- V: the tail of the function scores the simulated outcome (it does not choose; the planner compares the scores): for
+  each unit, HP x 128 / max HP, plus `tbl_AiStatusValue[s]` (0x1407B22F0) for each status s of 0..39 the unit has
+  (Blindness and Silence scaled by a per-unit AI byte / 4; Confusion, Vampire and Charmed halved under some conditions;
+  some statuses counted only under conditions), plus an MP term and 51 for each of 7 words of the unit (+0x1A..) that equals a word the AI stored at qword_141873070 (? their meaning); units of the
+  acting side add, the others subtract; the total is kept in the high word of `dword_1418716D0`.
 - V: it uses `sub_140279370` (facing/pose) when the chosen action needs one.
 
 ## State touched
@@ -35,6 +38,7 @@ and restores the engine state when the AI cannot act.
 ## Referenced by
 
 - Called by: [Battle_AITurnPrepare](Battle_AITurnPrepare.md)
+- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md)
 
 ## Notes
 

@@ -3,7 +3,7 @@
 - **Address:** `0x140276EBC`
 - **Area:** [Unit data](../areas/unit-data.md)
 - **Prototype:** `void Unit_ComputeStats(uint8_t *work, int flags, void *extra)`
-- **Callers:** UnitWork_BuildFromSave, sub_140275CA4, sub_140275EF4, sub_1402779EC
+- **Callers:** UnitWork_BuildFromSave, sub_140275CA4, sub_140275EF4, Unit_ApplyEquipment
 - **Callees:** none (all arithmetic is inline)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -26,7 +26,7 @@ Turns a work record's five 24-bit stat accumulators and the job row's growth pai
 
 ## Referenced by
 
-- Called by: [Unit_BuildFromRecord](Unit_BuildFromRecord.md), [sub_140275EF4](sub_140275EF4.md), [sub_1402779EC](sub_1402779EC.md)
+- Called by: [Unit_ApplyEquipment](Unit_ApplyEquipment.md), [Unit_BuildFromRecord](Unit_BuildFromRecord.md), [sub_140275EF4](sub_140275EF4.md)
 
 ## Notes
 

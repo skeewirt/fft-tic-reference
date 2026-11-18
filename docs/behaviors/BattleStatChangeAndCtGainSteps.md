@@ -3,7 +3,7 @@
 - **Kind:** observed behaviour
 - **Scope:** engine
 - **Area:** [Battle](../areas/battle.md)
-- **Affects:** [Battle_TurnEngine](../functions/Battle_TurnEngine.md), [Unit_ChangeBattleStat](../functions/Unit_ChangeBattleStat.md), [sub_1402779EC](../functions/sub_1402779EC.md), [Formula_TargetStatusPhys](../functions/Formula_TargetStatusPhys.md), [Formula_TargetStatusMag](../functions/Formula_TargetStatusMag.md)
+- **Affects:** [Battle_TurnEngine](../functions/Battle_TurnEngine.md), [Unit_ChangeBattleStat](../functions/Unit_ChangeBattleStat.md), [Unit_ApplyEquipment](../functions/Unit_ApplyEquipment.md), [Formula_TargetStatusPhys](../functions/Formula_TargetStatusPhys.md), [Formula_TargetStatusMag](../functions/Formula_TargetStatusMag.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 

@@ -22,7 +22,7 @@ One candidate action of the AI's command table: the ability word (id | unit slot
 
 - V: the table is word_141872598 (g_AiCommandTable): 16 rows x 34 entries x 4 bytes, the row chosen by byte_141873038[unit slot]; an 8-byte header per row sits at byte_141872E20 (the item id word at header +4 is read by sub_140316D24 for the command kind 10 test).
 - V: sub_140316B04 writes entry 0 (command 1, word = slot << 10), then calls sub_140316D24 for the primary and (outside the monster range 0xB0..0xDF) the secondary set, then writes the last entry (word = (slot << 10) + 367, bytes +2 / +3 = 0xA9 / 0x84) and the 0xFF terminator when fewer than 34 entries are used.
-- V: readers of the command byte: 0x140320569, sub_14031FD40 (0x14031FED7), sub_14038D65C (0x14038D835); sub_140275EF4 (0x140276076) copies byte +2 to a unit's +0x13.
+- V: readers of the command byte: 0x140320569, Ai_SurveyTargets (0x14031FED7), sub_14038D65C (0x14038D835); sub_140275EF4 (0x140276076) copies byte +2 to a unit's +0x13.
 
 ## Referenced by
 

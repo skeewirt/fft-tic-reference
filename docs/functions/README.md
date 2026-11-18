@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2018 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2019 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -15,7 +15,10 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Action_PickTargetEquipment](Action_PickTargetEquipment.md) | `0x1403065C4` | [Battle](../areas/battle.md) | Chooses which equipment slot a steal or break action aims at, from the target unit's hand and body slots, and reports the chosen slot and item to the action builder. |
 | [Action_SetWeaponItem](Action_SetWeaponItem.md) | `0x1403098CC` | [Battle](../areas/battle.md) | Fills the weapon item id of a battle action from the acting unit's equipped weapon, with 255 standing for empty hands and zero written for an empty or out-of-range id. |
 | [AdditionalKerning_Lookup](AdditionalKerning_Lookup.md) | `0x1403BA2D4` | [UI framework](../areas/ui-framework.md) | Looks up the (left, right) glyph pair in the .ker table's std::map and returns its extra (x, y) kerning (0 when missing); builds the map first when it is dirty. |
+| [Ai_ActionWorthOnUnit](Ai_ActionWorthOnUnit.md) | `0x14038B34C` | [Battle](../areas/battle.md) | Tells the AI whether the action in g_AiCurrentAction is worth trying on unit `slot`: 0 no, 1 yes, 2 yes (a stronger case). |
 | [Ai_StatusLastsTurns](Ai_StatusLastsTurns.md) | `0x14038BAB4` | [Battle](../areas/battle.md) | Tells the battle AI whether a unit has a status and will still have it after the given number of its turns. |
+| [Ai_SurveyTargets](Ai_SurveyTargets.md) | `0x14031FD40` | [Battle](../areas/battle.md) | Before planning, goes over every unit and every action in the acting unit's action list and notes what those actions could do to each unit (hurt it, help it), then marks which of its own actions are worth planning with. |
+| [Ai_UnitTurnStep](Ai_UnitTurnStep.md) | `0x14031F130` | [Battle](../areas/battle.md) | Runs one step of an AI-controlled unit's decision (several frames per turn) and, when it is done, writes the chosen move and action. |
 | [App_LaunchClassic](App_LaunchClassic.md) | `0x1401DDB5C` | [Application and startup](../areas/app-startup.md) | Starts the Classic executable and ends this one. |
 | [App_ProcessMessages](App_ProcessMessages.md) | `0x14002F728` | [Application and startup](../areas/app-startup.md) | Drains up to ten Win32 messages per call. |
 | [App_RunFrame](App_RunFrame.md) | `0x14002A1F0` | [Application and startup](../areas/app-startup.md) | One iteration of the game's application loop: frame pacing, the debug/capture gate, Steam callbacks, the UI/render/audio update chain and the secondary frame-rate wait. |
@@ -28,7 +31,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BarTop_Setup](BarTop_Setup.md) | `0x14019F330` | [Errands](../areas/errands.md) | Sets up the tavern's top menu (rumors, errands): the errand row is open only when situation 3220 holds. |
 | [Battle_ActorResultLevels](Battle_ActorResultLevels.md) | `0x14030C704` | [Battle](../areas/battle.md) | Applies the acting unit's action result and returns, in four bytes, what the level-up banners need: two result bytes, the new unit level and the new job level. |
 | [Battle_AITurnPrepare](Battle_AITurnPrepare.md) | `0x14031F534` | [Battle](../areas/battle.md) | Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one AI turn. |
-| [Battle_AITurnRun](Battle_AITurnRun.md) | `0x14038A468` | [Battle](../areas/battle.md) | Drives AI-controlled turns: loops the turn engine, consumes its action codes, decides and executes the unit's action, and restores the engine state when the AI cannot act. |
+| [Battle_AITurnRun](Battle_AITurnRun.md) | `0x14038A468` | [Battle](../areas/battle.md) | Runs one AI trial: applies the candidate action on the preview unit table, lets the turn engine play on (up to 255 steps), scores the outcome and restores the engine state. |
 | [Battle_ApplyActionResult](Battle_ApplyActionResult.md) | `0x14030A488` | [Battle](../areas/battle.md) | Applies the pending action result of one unit to that unit: HP/MP damage and healing, stat changes, Brave/Faith changes, EXP/level changes, status sets/clears and the death check. |
 | [Battle_ApplyActionResults](Battle_ApplyActionResults.md) | `0x140206758` | [Battle](../areas/battle.md) | Applies the resolved action to every target and starts each target's hit animation; this is the step that turns the formula result into live HP/MP/status changes and visible hits. |
 | [Battle_AwardActorJp](Battle_AwardActorJp.md) | `0x14030C7C4` | [Battle](../areas/battle.md) | Gives the acting battle unit its JP for the current job and reports whether its job level changed (for the level-up message). |
@@ -1484,7 +1487,6 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_1402723EC](sub_1402723EC.md) | `0x1402723EC` | [Battle](../areas/battle.md) | Chooses the item a chest unit gives to the unit that steps on it. |
 | [sub_140274DB0](sub_140274DB0.md) | `0x140274DB0` | [Battle](../areas/battle.md) | Builds ten 5-byte status masks (one bit per status 0..39) from the flag bytes of the status property table. |
 | [sub_140275EF4](sub_140275EF4.md) | `0x140275EF4` | [Unit data](../areas/unit-data.md) | Builds a unit's working stats from its job row and its equipment words, one of the two paths that turn equipped items into stats. |
-| [sub_1402779EC](sub_1402779EC.md) | `0x1402779EC` | [Unit data](../areas/unit-data.md) | Adds the armor and attribute contributions of a unit's equipped items to the unit's stats. |
 | [sub_140278CF0](sub_140278CF0.md) | `0x140278CF0` | [Battle](../areas/battle.md) | Sets or clears the countdown of a timed status on a unit record. |
 | [sub_140278FEC](sub_140278FEC.md) | `0x140278FEC` | [Items and shops](../areas/items.md) | Inventory count plus the copies worn by roster units and by the battle units. |
 | [sub_140279110](sub_140279110.md) | `0x140279110` | [Battle](../areas/battle.md) | Sort comparator: orders two status ids by byte 2 of their status property entries. |
@@ -1640,7 +1642,6 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_140316D24](sub_140316D24.md) | `0x140316D24` | [Battle](../areas/battle.md) | Adds a unit's candidate action slots for command a2 (one entry per usable ability, or a fixed set for Throw / Items / Jump) to the AI slot table at word_141872598. |
 | [sub_1403170CC](sub_1403170CC.md) | `0x1403170CC` | [Battle](../areas/battle.md) | Answers whether a unit may use one ability id: it checks the unit's availability flag and then the learned bit for that id. |
 | [sub_14031EF70](sub_14031EF70.md) | `0x14031EF70` | [Items and shops](../areas/items.md) | Initialises the item order state at the start of a game: it terminates the five saved item order lists, clears the whole equipment order block, terminates its five lists, and re-creates the sort-field lists the menu s... |
-| [sub_14031FD40](sub_14031FD40.md) | `0x14031FD40` | [Battle](../areas/battle.md) | AI pass over all 21 units: expands each unit's 34 candidate action slots, picks the best throw item for Throw slots and accumulates per-unit flags and scores. |
 | [sub_140323D1C](sub_140323D1C.md) | `0x140323D1C` | [Battle](../areas/battle.md) | Runs the crystal / chest window: lists the abilities the roll chose, asks the player to learn them or restore HP and MP (or announces a chest item) and stores the answer in dword_140D40958. |
 | [sub_140324658](sub_140324658.md) | `0x140324658` | [Battle](../areas/battle.md) | Opens one of three battle panels for a message-script command: mode 0 a panel through sub_140324970, mode 1 a 19-row list panel (sub_140321DB8), mode 2 the crystal / chest window. |
 | [sub_140327004](sub_140327004.md) | `0x140327004` | [Save data](../areas/save-data.md) | Moves the ten item order lists between a work record and the live arrays, in either direction. |
@@ -1720,7 +1721,6 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_140388EB4](sub_140388EB4.md) | `0x140388EB4` | [Battle](../areas/battle.md) | AI search pass: tries the abilities of four skillsets with action-record flag 0x40 against combinations of two sub-abilities. |
 | [sub_140389D84](sub_140389D84.md) | `0x140389D84` | [Battle](../areas/battle.md) | AI targeting step: it picks a target area, calls the ring-range helper and returns the chosen cells. |
 | [sub_14038ABA4](sub_14038ABA4.md) | `0x14038ABA4` | [Battle](../areas/battle.md) | Evaluates an action's targets: resolves the target list and accumulates score fields per hit unit using the ability's flags4. |
-| [sub_14038B34C](sub_14038B34C.md) | `0x14038B34C` | [Battle](../areas/battle.md) | Preview and AI action builder: it loads the ability record, computes the action's area and returns the evaluation for the battle preview. |
 | [sub_14038BC00](sub_14038BC00.md) | `0x14038BC00` | [Battle](../areas/battle.md) | AI-side action builder: it turns the chosen action into the packed action word and evaluates its target. |
 | [sub_14038BF34](sub_14038BF34.md) | `0x14038BF34` | [Battle](../areas/battle.md) | AI: picks the concrete action for the chosen candidate; for command type 3 draws a random usable ability, otherwise selects targets. |
 | [sub_14038C47C](sub_14038C47C.md) | `0x14038C47C` | [Battle](../areas/battle.md) | AI targeting for the Arithmeticks path: it walks the tiles around a point and returns the ones in range. |
@@ -1957,6 +1957,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [UITitle_ShowPlayMode](UITitle_ShowPlayMode.md) | `0x1401C3CE0` | [UI framework](../areas/ui-framework.md) | Hides the title menu add-on and shows the play mode add-on. |
 | [UITitle_StartNewGamePlus](UITitle_StartNewGamePlus.md) | `0x1401C3A28` | [UI framework](../areas/ui-framework.md) | Kind 1 (text 2226, New Game +): fades out and sets agent state 0x201, only when no save request is pending. |
 | [UITitleMenu_BindNodes](UITitleMenu_BindNodes.md) | `0x1401C3EB0` | [UI framework](../areas/ui-framework.md) | The title menu add-on's node binding (vtable slot 4): finds the TitleEnhanced and Menu nodes and the six MenuButton nodes, and tags them for the event handler. |
+| [Unit_ApplyEquipment](Unit_ApplyEquipment.md) | `0x1402779EC` | [Unit data](../areas/unit-data.md) | Adds the armor and attribute contributions of a unit's equipped items to the unit's stats. |
 | [Unit_ApplyLevelGrowth](Unit_ApplyLevelGrowth.md) | `0x140278B24` | [Unit data](../areas/unit-data.md) | Raises a save record's level by a number of levels, growing the five 24-bit stat accumulators at each step from the job row's growth C values. |
 | [Unit_AwardJobJp](Unit_AwardJobJp.md) | `0x140283664` | [Job data](../areas/job-data.md) | Adds JP to one job of a battle unit: current JP and total JP (both capped at 9999), recomputes the job's level from the total and rebuilds the unit's unlock mask. |
 | [Unit_BuildAbilityBits](Unit_BuildAbilityBits.md) | `0x140276DF4` | [Unit data](../areas/unit-data.md) | Rebuilds a battle unit's passive-ability bit map from its innate ability words and its equipped reaction, support and movement ability. |

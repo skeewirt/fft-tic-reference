@@ -2,20 +2,23 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 304, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 44, Tables: 89.
+Functions: 305, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
 
-## Functions (304)
+## Functions (305)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [Action_BuildCurrentAction](../functions/Action_BuildCurrentAction.md) | `0x140320504` | Turns one packed four-byte action entry into the game's current-action block at `0x1418716A0`: it resolves the command, fills the action's range and presentation fields from the ability or item data, and for the item ... |
 | [Action_PickTargetEquipment](../functions/Action_PickTargetEquipment.md) | `0x1403065C4` | Chooses which equipment slot a steal or break action aims at, from the target unit's hand and body slots, and reports the chosen slot and item to the action builder. |
 | [Action_SetWeaponItem](../functions/Action_SetWeaponItem.md) | `0x1403098CC` | Fills the weapon item id of a battle action from the acting unit's equipped weapon, with 255 standing for empty hands and zero written for an empty or out-of-range id. |
+| [Ai_ActionWorthOnUnit](../functions/Ai_ActionWorthOnUnit.md) | `0x14038B34C` | Tells the AI whether the action in g_AiCurrentAction is worth trying on unit `slot`: 0 no, 1 yes, 2 yes (a stronger case). |
 | [Ai_StatusLastsTurns](../functions/Ai_StatusLastsTurns.md) | `0x14038BAB4` | Tells the battle AI whether a unit has a status and will still have it after the given number of its turns. |
+| [Ai_SurveyTargets](../functions/Ai_SurveyTargets.md) | `0x14031FD40` | Before planning, goes over every unit and every action in the acting unit's action list and notes what those actions could do to each unit (hurt it, help it), then marks which of its own actions are worth planning with. |
+| [Ai_UnitTurnStep](../functions/Ai_UnitTurnStep.md) | `0x14031F130` | Runs one step of an AI-controlled unit's decision (several frames per turn) and, when it is done, writes the chosen move and action. |
 | [BannerWord_Draw](../functions/BannerWord_Draw.md) | `0x140227AD8` | Builds the gradient quads of one banner word image from its run of sprite cells. |
 | [Battle_ActorResultLevels](../functions/Battle_ActorResultLevels.md) | `0x14030C704` | Applies the acting unit's action result and returns, in four bytes, what the level-up banners need: two result bytes, the new unit level and the new job level. |
 | [Battle_AITurnPrepare](../functions/Battle_AITurnPrepare.md) | `0x14031F534` | Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one AI turn. |
-| [Battle_AITurnRun](../functions/Battle_AITurnRun.md) | `0x14038A468` | Drives AI-controlled turns: loops the turn engine, consumes its action codes, decides and executes the unit's action, and restores the engine state when the AI cannot act. |
+| [Battle_AITurnRun](../functions/Battle_AITurnRun.md) | `0x14038A468` | Runs one AI trial: applies the candidate action on the preview unit table, lets the turn engine play on (up to 255 steps), scores the outcome and restores the engine state. |
 | [Battle_ApplyActionResult](../functions/Battle_ApplyActionResult.md) | `0x14030A488` | Applies the pending action result of one unit to that unit: HP/MP damage and healing, stat changes, Brave/Faith changes, EXP/level changes, status sets/clears and the death check. |
 | [Battle_ApplyActionResults](../functions/Battle_ApplyActionResults.md) | `0x140206758` | Applies the resolved action to every target and starts each target's hit animation; this is the step that turns the formula result into live HP/MP/status changes and visible hits. |
 | [Battle_AwardActorJp](../functions/Battle_AwardActorJp.md) | `0x14030C7C4` | Gives the acting battle unit its JP for the current job and reports whether its job level changed (for the level-up message). |
@@ -268,7 +271,6 @@ Functions: 304, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [sub_140316B04](../functions/sub_140316B04.md) | `0x140316B04` | Seeds a unit's candidate action slots for its current command before the action row is written. |
 | [sub_140316D24](../functions/sub_140316D24.md) | `0x140316D24` | Adds a unit's candidate action slots for command a2 (one entry per usable ability, or a fixed set for Throw / Items / Jump) to the AI slot table at word_141872598. |
 | [sub_1403170CC](../functions/sub_1403170CC.md) | `0x1403170CC` | Answers whether a unit may use one ability id: it checks the unit's availability flag and then the learned bit for that id. |
-| [sub_14031FD40](../functions/sub_14031FD40.md) | `0x14031FD40` | AI pass over all 21 units: expands each unit's 34 candidate action slots, picks the best throw item for Throw slots and accumulates per-unit flags and scores. |
 | [sub_140323D1C](../functions/sub_140323D1C.md) | `0x140323D1C` | Runs the crystal / chest window: lists the abilities the roll chose, asks the player to learn them or restore HP and MP (or announces a chest item) and stores the answer in dword_140D40958. |
 | [sub_140324658](../functions/sub_140324658.md) | `0x140324658` | Opens one of three battle panels for a message-script command: mode 0 a panel through sub_140324970, mode 1 a 19-row list panel (sub_140321DB8), mode 2 the crystal / chest window. |
 | [sub_14032B1A4](../functions/sub_14032B1A4.md) | `0x14032B1A4` | A battle/result panel that copies the 0x141876E90 block into the 0x14078DDD0 render area and draws the unit's equipment summary. |
@@ -282,7 +284,6 @@ Functions: 304, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [sub_140388EB4](../functions/sub_140388EB4.md) | `0x140388EB4` | AI search pass: tries the abilities of four skillsets with action-record flag 0x40 against combinations of two sub-abilities. |
 | [sub_140389D84](../functions/sub_140389D84.md) | `0x140389D84` | AI targeting step: it picks a target area, calls the ring-range helper and returns the chosen cells. |
 | [sub_14038ABA4](../functions/sub_14038ABA4.md) | `0x14038ABA4` | Evaluates an action's targets: resolves the target list and accumulates score fields per hit unit using the ability's flags4. |
-| [sub_14038B34C](../functions/sub_14038B34C.md) | `0x14038B34C` | Preview and AI action builder: it loads the ability record, computes the action's area and returns the evaluation for the battle preview. |
 | [sub_14038BC00](../functions/sub_14038BC00.md) | `0x14038BC00` | AI-side action builder: it turns the chosen action into the packed action word and evaluates its target. |
 | [sub_14038BF34](../functions/sub_14038BF34.md) | `0x14038BF34` | AI: picks the concrete action for the chosen candidate; for command type 3 draws a random usable ability, otherwise selects targets. |
 | [sub_14038C47C](../functions/sub_14038C47C.md) | `0x14038C47C` | AI targeting for the Arithmeticks path: it walks the tiles around a point and returns the ones in range. |
@@ -452,13 +453,14 @@ Functions: 304, Structures: 65, Globals: 48, Registries: 1, Flows: 5, Observed b
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (44)
+## Observed behaviours (45)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [AbilityAboveStockBoundaryHasNoMpCheckOrCost](../behaviors/AbilityAboveStockBoundaryHasNoMpCheckOrCost.md) | engine (action start and preview) | The MP check and payment (sub_1402828E4) and its preview twin (sub_14030B1A0) only look at ids up to 0x16F (367): an ability id above that boundary pays no MP, has no MP check and shows no cost. |
 | [AFailedMeshLoadSkipsEveryLaterRendererStep](../behaviors/AFailedMeshLoadSkipsEveryLaterRendererStep.md) | engine (map renderer) | When MapMesh_Load returns anything but 0 (missing file, oversize, wrong header, ids 15 and 33) the texture, system-texture and anim steps are not run and the mesh set's loaded-id field stays at none; the map block's t... |
 | [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md) | engine (battle action result) | At the end of Battle_ApplyActionResult the unit held in g_BattleActingUnit is tested for passive reactions in a fixed order; the first one present goes to a Brave-roll helper, and the reaction executor then handles on... |
+| [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md) | engine | An AI-controlled unit weighs statuses in two places, both limited to the 40 statuses of the five status bytes: the test of whether an action is worth trying on a unit compares the action's status bytes (from its infli... |
 | [AttackWeaponReach](../behaviors/AttackWeaponReach.md) | battle: the tiles the Attack command can target, from the equipped weapon or bare hands | Which tiles a unit's basic Attack can target: one weapon is chosen, its flag byte picks one of four shapes (strike, lunge, direct, arc), heights are compared in half-steps, the unit's own tile and some flagged tiles a... |
 | [BattleCommandMenuCarriesSetsAsBytes](../behaviors/BattleCommandMenuCarriesSetsAsBytes.md) | engine | The battle command menu works with skillset ids as single bytes at every step: the unit's two set bytes, the byte lists the menu builders write, the kind array, the AI's command table and the command byte of the 20-by... |
 | [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md) | engine | A battle effect is one self-contained file per effect number (0..511): EffectFile_GetTrackRow gives its pack file and size, the loader reads it into one shared buffer and the effect runs from offsets inside the file. |

@@ -3,7 +3,7 @@
 - **Address:** `0x14038BAB4`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int Ai_StatusLastsTurns(int turns, UnitWorkRecord *unit, int status)`
-- **Callers:** sub_14031FD40, sub_140388ABC, sub_14038B34C, sub_14038BB68, sub_14038E07C
+- **Callers:** Ai_SurveyTargets, sub_140388ABC, Ai_ActionWorthOnUnit, sub_14038BB68, sub_14038E07C
 - **Callees:** not recorded
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -25,6 +25,7 @@ Tells the battle AI whether a unit has a status and will still have it after the
 
 ## Referenced by
 
+- Called by: [Ai_ActionWorthOnUnit](Ai_ActionWorthOnUnit.md), [Ai_SurveyTargets](Ai_SurveyTargets.md)
 - Observed behaviours: [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md)
 
 ## Notes

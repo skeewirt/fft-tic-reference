@@ -72,6 +72,15 @@
       },
       "doc": "docs/globals/g_AiCommandTable.md"
     },
+    "g_AiCurrentAction": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x18716a0"
+        }
+      },
+      "doc": "docs/globals/g_AiCurrentAction.md"
+    },
     "g_Application": {
       "area": "",
       "builds": {
@@ -1871,6 +1880,15 @@
         }
       },
       "doc": "docs/globals/qword_141801100.md"
+    },
+    "tbl_AiStatusValue": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x7b22f0"
+        }
+      },
+      "doc": "docs/globals/tbl_AiStatusValue.md"
     },
     "tbl_StatusBattleSignal": {
       "area": "",
