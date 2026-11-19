@@ -11,22 +11,24 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Speechcraft: a magic hit check with per-ability branches for buffs, Brave/Faith changes, a level/speed transfer and status.
+Talk: a target with the refusing reaction may refuse on a Brave roll; then a chance of MA + X (zodiac only, no Faith) and an effect chosen by the ability id.
 
 ## Behavior
 
+- V: re-read 2026-11-18 (IDA, whole body): the earlier calculation listed a Faith factor; the body calls no faith step.
 - V: Current-build decompilation confirms the chain and arithmetic shown above.
 - V: Current-build symbol size is 366 bytes.
 - V: Typical abilities: Entice, Stall, Praise, Intimidate, Preach, Enlighten, Condemn, Insult, Mimic Darlavon.
 - V: The earlier sheet named ability 123 Nether Mantra; the current code routes it through the level/speed transfer helper.
-- V: the branches are chosen by the ability id at 0x1407B0778: the compares are for the ids 117, 118, 119, 120, 121 and 123; any other id (122 included) takes none of these branches.
+- V: the branches are chosen by the ability id at 0x1407B0778: the compares are for the ids 117, 118, 119, 120, 121 and 123; any other id (122 included) takes none of these branches, so the same row under any other ability number gets none of the id-specific effects.
 
 ## Calculation
 
 ```text
-Hit = (MA + X) × Zodiac(50-150%) × Faith(caster×target/10000)
-Branches by ability:
- all buffs; Brave up/down; Faith up/down; level/speed transfer; otherwise F56 status
+No effect on a target with status byte +0x65 bit 0x10, or on a target with +6 bit 0x20 unless the caster has +0x9A bit 0x10
+Refusal: target +0x97 bit 0x20: chance = target Brave -> hit 0, reaction 448, reason 11
+Chance: A = MA, B = X; Formula_Zodiac, Formula_ChanceSum, Formula_ChanceRoll (no Faith)
+On success: per ability id (buffs, Brave / Faith changes, transfers) or Formula_56
 ```
 
 ## Referenced by

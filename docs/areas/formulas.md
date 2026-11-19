@@ -39,7 +39,7 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_23_Gravija](../functions/Formula_23_Gravija.md) | `0x140307960` | Gravija: a magic hit check that reduces the target to 1 HP. |
 | [Formula_26_StatSap](../functions/Formula_26_StatSap.md) | `0x1403079A8` | Stat lowering by magic: the magic evade gate, then a chance of MA + Y (magic modifiers, zodiac, Faith); on success the stat the ability id selects drops by X. No damage. |
 | [Formula_27_Magicksap](../functions/Formula_27_Magicksap.md) | `0x140307A24` | Magicksap: a magic hit check that deals MP damage based on the target's maximum MP. |
-| [Formula_28_BardSongs](../functions/Formula_28_BardSongs.md) | `0x140307A70` | Bard songs: a hit roll with per-ability branches for healing, stat downs, all buffs and status. |
+| [Formula_28_BardSongs](../functions/Formula_28_BardSongs.md) | `0x140307A70` | Songs: an X percent roll (Formula_BardDancerGate), then an effect chosen by the ability id: MP or HP restore of MA + Y, Speed, PA or MA + 1, a status, or every stat up. |
 | [Formula_29_DancerDances](../functions/Formula_29_DancerDances.md) | `0x140307B44` | Dances: an X percent roll, then an effect chosen by the ability id: MP or HP damage of weapon-type value + WP, Speed, PA or MA - 1, a status, or the all-stats change downward. |
 | [Formula_30_IaidoHeaven](../functions/Formula_30_IaidoHeaven.md) | `0x140307C10` | Iaido Heaven: PA is replaced by MA and Y is averaged with MA, then the magic chain runs. |
 | [Formula_31_IaidoNether](../functions/Formula_31_IaidoNether.md) | `0x140307C28` | Iaido Nether: MA x Y with element, caster/Shell/Sleep/Zodiac and inverse-Faith scaling. |
@@ -53,7 +53,7 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_39_StealGil](../functions/Formula_39_StealGil.md) | `0x140308098` | Steal Gil: a physical evade check and a Speed-based hit, then a gil transfer. |
 | [Formula_40_StealEXP](../functions/Formula_40_StealEXP.md) | `0x1403080F8` | Steal EXP: a physical evade check and a Speed-based hit, then a CT/EXP modifier. |
 | [Formula_41_StealHeartCharm](../functions/Formula_41_StealHeartCharm.md) | `0x140308208` | Charm: a chance of MA + X (zodiac only, no Faith); on success, when caster and target are on different sides, the ability's status through Formula_56. |
-| [Formula_42_Speechcraft](../functions/Formula_42_Speechcraft.md) | `0x140308284` | Speechcraft: a magic hit check with per-ability branches for buffs, Brave/Faith changes, a level/speed transfer and status. |
+| [Formula_42_Speechcraft](../functions/Formula_42_Speechcraft.md) | `0x140308284` | Talk: a target with the refusing reaction may refuse on a Brave roll; then a chance of MA + X (zodiac only, no Faith) and an effect chosen by the ability id. |
 | [Formula_43_RendStats](../functions/Formula_43_RendStats.md) | `0x1403083F4` | Stat lowering by force: the physical evade gate, then a chance of PA + Y with the physical modifiers; on success the stat the ability id selects drops by X. No damage. |
 | [Formula_44_RendMP](../functions/Formula_44_RendMP.md) | `0x140308448` | MP damage by force: the physical evade gate, a chance of PA + Y with the physical modifiers, then MP damage of Y percent of the target's max MP. |
 | [Formula_45_HolySword](../functions/Formula_45_HolySword.md) | `0x1403084C4` | Holy Sword: PA x (WP + Y) through the physical chain, then a status. |
