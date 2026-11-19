@@ -10,7 +10,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Formats 'ui/ffto/icon/<IconFilePath>' (or the same path with a texture-parts URI prefix) from Icon row iconKey (table 118, cache qword_143CDA328).
+Formats 'ui/ffto/icon/<path>' (or the same path with a texture-parts URI prefix) from Icon row iconKey (table 118, cache qword_143CDA328).
 
 ## Behavior
 

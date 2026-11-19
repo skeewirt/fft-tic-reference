@@ -7,7 +7,7 @@ Layouts of the game's file formats (described, never copied): headers, records, 
 | Name | Extension | Summary |
 |---|---|---|
 | [BattleResumeImage](BattleResumeImage.md) | `.sav` | The payload of a resume entry of `autoenhanced.png`. |
-| [ConfigCategoryTable](ConfigCategoryTable.md) | `.nxd` | `configcategory.nxd` (nxd 249): the tabs of the settings screens; `ConfigItemIds` are the rows of a tab and `NameUIId` its title. |
+| [ConfigCategoryTable](ConfigCategoryTable.md) | `.nxd` | `configcategory.nxd` (nxd 249): the tabs of the settings screens; `config_items` are the rows of a tab and `name_text` its title. |
 | [ConfigItemTable](ConfigItemTable.md) | `.nxd` | `configitem.nxd` (nxd 250): one row per setting of the settings screens. |
 | [ConfigScreenLayout](ConfigScreenLayout.md) | `.uib` | `ffto_config_enhanced_ver02.uib` and `ffto_config_parts.uib` (pack 0008): the layout of the settings screen and its row, switch, select and slider parts. |
 | [EffectSoundTracks](EffectSoundTracks.md) |  | An effect file names its sounds in three places: three sound tracks in section 7 say when, a slot list in section 6 says which value, and section 8 gives the cue base. |

@@ -14,17 +14,17 @@ One row of the nxd.world_map_progress_info table (English text table; the other 
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="town_id1"></a>`0x8` | town_id1 | `int32` | I | Row id of Town-en (a reference by column name). Observed in the stock rows: 0 to 47, 22 distinct values. |
-| <a id="town_id2"></a>`0xC` | town_id2 | `int32` | I | Row id of Town-en (a reference by column name). Observed in the stock rows: 7 to 47, 23 distinct values. |
-| <a id="route_ids"></a>`0x10` | route_ids | `int32[] {int32 offset; uint32 count}` | I | Route ids (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 25 distinct values. |
-| <a id="caption"></a>`0x18` | caption | `string (int32 offset)` | I | Caption text. Observed in the stock rows: 54 distinct values, 36 empty. |
-| <a id="user_situation_id1"></a>`0x1C` | user_situation_id1 | `int32` | I | Row id of UserSituation (a reference by column name). Observed in the stock rows: 0 to 3230, 4 distinct values. |
-| <a id="unk_20"></a>`0x20` | unk_20 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 2782, 13 distinct values. |
-| <a id="unk_24"></a>`0x24` | unk_24 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 1643, 13 distinct values. |
-| <a id="unk_28"></a>`0x28` | unk_28 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_29"></a>`0x29` | flag_29 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="town"></a>`0x8` | town | `int32` | M | Measured over every stock row: Every value is a key of nxd.Town-en. Observed in the stock rows: 0 to 47, 22 distinct values. |
+| <a id="town_2"></a>`0xC` | town_2 | `int32` | M | Measured over every stock row: Every value is a key of nxd.Town-en. Observed in the stock rows: 7 to 47, 23 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 25 distinct values. |
+| <a id="caption"></a>`0x18` | caption | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 54 distinct values, 36 empty. |
+| <a id="user_situation"></a>`0x1C` | user_situation | `int32` | M | Measured over every stock row: Every value is a key of nxd.UserSituation. Observed in the stock rows: 0 to 3230, 4 distinct values. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 2782, 13 distinct values. |
+| <a id="unknown24"></a>`0x24` | unknown24 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 1643, 13 distinct values. |
+| <a id="unknown28"></a>`0x28` | unknown28 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown29"></a>`0x29` | unknown29 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -36,4 +36,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-4 of 11 columns not decoded.
+? 7 of 11 columns not decoded.

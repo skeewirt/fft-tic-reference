@@ -14,10 +14,10 @@ One row of the nxd.refined_bg_mesh_polygon_cond table (data table). The key is n
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 78 distinct values. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 78 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-2 of 4 columns not decoded.
+? 4 of 4 columns not decoded.

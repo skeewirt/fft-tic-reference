@@ -2,7 +2,7 @@
 
 - **Address:** `0x140409214`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `GUINode *GUINode_FindDescendant2(GUINode *root, UIName *outer, UIName *inner)`
+- **Prototype:** `GUINode *GUINode_FindDescendant2(GUINode *root, element *outer, element *inner)`
 - **Callers:** 36 call sites: MainTab_BindNodes ('MainTab' then 'Tab'; 'TextMask' then 'MaskNode00'), the world-map screen builder and many other screen builders
 - **Callees:** GUINode_FindDescendant
 

@@ -14,11 +14,11 @@ One row of the nxd.game_progress table (data table). The key is not stored in th
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="world_map_progress_info_id_k1"></a>`0x8` | world_map_progress_info_id_k1 | `int32` | I | World map progress info id k1 (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 1000, 3 distinct values. |
-| <a id="world_map_progress_info_id_k2"></a>`0xC` | world_map_progress_info_id_k2 | `int32` | I | World map progress info id k2 (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 270, 50 distinct values. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 430, 42 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1000, 3 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 270, 50 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 430, 42 distinct values. |
 
 ## Referenced by
 
@@ -30,4 +30,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-1 of 5 columns not decoded.
+? 5 of 5 columns not decoded.

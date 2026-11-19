@@ -14,58 +14,58 @@ One row of the nxd.override_entry_data table (data table). The key is not stored
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="unk_00"></a>`0x0` | unk_00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
-| <a id="spriteset"></a>`0x8` | spriteset | `uint32` | I | If non-zero, replaces the unit's sprite set (marker); Disable=1 sets it to 0. Observed in the stock rows: 0 to 48, 5 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `uint32` | ? | Not decoded. Observed in the stock rows: 0 to 764, 41 distinct values. |
-| <a id="main_job"></a>`0x10` | main_job | `uint32` | I | Job key forced on the unit; 0 = keep. Values 2, 154, 169..173 (story / variant jobs). Observed in the stock rows: 0 to 173, 8 distinct values. |
-| <a id="job_unlock"></a>`0x14` | job_unlock | `uint32` | I | Generic job index (0..19) the unit is given as an unlocked job; 20 = none (503 of 516 rows). Observed in the stock rows: 0 to 20, 10 distinct values. |
-| <a id="entry_unknown1_d"></a>`0x18` | entry_unknown1_d | `int32` | I | Entry unknown1 d (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 in every row. |
-| <a id="secondary_skillset"></a>`0x1C` | secondary_skillset | `int32` | I | JobCommand key for the secondary command; -1 = keep. Values 5..18 are generic commands (6 = Items, 9 = Martial Arts...). Observed in the stock rows: -1 to 18, 10 distinct values. |
-| <a id="reaction"></a>`0x20` | reaction | `int32` | I | Ability key of the reaction ability (427..451 = Dragonheart, Counter, Shirahadori...); -1 keep. Observed in the stock rows: -1 to 451, 8 distinct values. |
-| <a id="support"></a>`0x24` | support | `int32` | I | Support ability key (465..479). Observed in the stock rows: -1 to 479, 7 distinct values. |
-| <a id="movement"></a>`0x28` | movement | `int32` | I | Movement ability key (486..509). Observed in the stock rows: -1 to 509, 6 distinct values. |
-| <a id="head"></a>`0x2C` | head | `int32` | I | Head (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 to 255, 4 distinct values. |
-| <a id="body"></a>`0x30` | body | `int32` | I | Body (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 to 186, 3 distinct values. |
-| <a id="accessory"></a>`0x34` | accessory | `int32` | I | Accessory (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 in every row. |
-| <a id="right_hand"></a>`0x38` | right_hand | `int32` | I | Right hand (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 to 62, 4 distinct values. |
-| <a id="left_hand"></a>`0x3C` | left_hand | `int32` | I | Left hand (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 in every row. |
-| <a id="initial_direction"></a>`0x40` | initial_direction | `int32` | I | Initial direction (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 255, 3 distinct values. |
-| <a id="unit_id_characontrolid_id"></a>`0x44` | unit_id_characontrolid_id | `int32` | I | Unit id characontrolid id (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 2, 2 distinct values. |
-| <a id="present"></a>`0x48` | present | `int32` | I | Present (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 255, 2 distinct values. |
-| <a id="unk_4c"></a>`0x4C` | unk_4c | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 22 distinct values. |
-| <a id="unk_54"></a>`0x54` | unk_54 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 6 distinct values. |
-| <a id="unk_5c"></a>`0x5C` | unk_5c | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 6 distinct values. |
-| <a id="unk_64"></a>`0x64` | unk_64 | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 32 distinct values. |
-| <a id="unk_6c"></a>`0x6C` | unk_6c | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 1 distinct values. |
-| <a id="unk_74"></a>`0x74` | unk_74 | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 19 distinct values. |
-| <a id="level"></a>`0x7C` | level | `int16` | I | Unit level. Observed in the stock rows: -1 to 254, 4 distinct values. |
-| <a id="job_level"></a>`0x7E` | job_level | `int16` | I | Job level of the forced job (1..8); -1 keep. Observed in the stock rows: -1 to 8, 6 distinct values. |
-| <a id="unk_80"></a>`0x80` | unk_80 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 255, 2 distinct values. |
-| <a id="unk_81"></a>`0x81` | unk_81 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 255, 2 distinct values. |
-| <a id="bravery"></a>`0x82` | bravery | `int16` | I | Bravery (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 in every row. |
-| <a id="faith"></a>`0x84` | faith | `int16` | I | Faith (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 in every row. |
-| <a id="unk_86"></a>`0x86` | unk_86 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_87"></a>`0x87` | unk_87 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="position_x"></a>`0x88` | position_x | `int16` | I | Position x (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 to 7, 7 distinct values. |
-| <a id="position_y"></a>`0x8A` | position_y | `int16` | I | Position y (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 to 6, 5 distinct values. |
-| <a id="higher_elevation"></a>`0x8C` | higher_elevation | `uint8` | I | Higher elevation (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 255, 3 distinct values. |
-| <a id="disable"></a>`0x8D` | disable | `uint8` | I | Disable (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 in every row. |
-| <a id="unk_8e"></a>`0x8E` | unk_8e | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_8f"></a>`0x8F` | unk_8f | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_90"></a>`0x90` | unk_90 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_91"></a>`0x91` | unk_91 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_92"></a>`0x92` | unk_92 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_93"></a>`0x93` | unk_93 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_94"></a>`0x94` | unk_94 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_95"></a>`0x95` | unk_95 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_96"></a>`0x96` | unk_96 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_97"></a>`0x97` | unk_97 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="load_formation"></a>`0x98` | load_formation | `uint8` | I | Load formation (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_99"></a>`0x99` | unk_99 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_9a"></a>`0x9A` | unk_9a | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_9b"></a>`0x9B` | unk_9b | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_9c"></a>`0x9C` | unk_9c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 244, 94 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="sprite_shape"></a>`0x8` | sprite_shape | `uint32` | V | Read in the code: When not 0 it becomes the first byte of the unit's entry, its sprite shape. Observed in the stock rows: 0 to 48, 5 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `uint32` | ? | Not decoded. Observed in the stock rows: 0 to 764, 41 distinct values. |
+| <a id="job"></a>`0x10` | job | `uint32` | V | Read in the code: When not 0 it becomes the unit's job (one byte). Observed in the stock rows: 0 to 173, 8 distinct values. |
+| <a id="leveled_job"></a>`0x14` | leveled_job | `uint32` | V | Read in the code: The generic job (0..19) whose level is set; 20 = keep. Observed in the stock rows: 0 to 20, 10 distinct values. |
+| <a id="skillset"></a>`0x18` | skillset | `int32` | V | Read in the code: When 0 or more it becomes the unit's command. Observed in the stock rows: -1 in every row. |
+| <a id="secondary_skillset"></a>`0x1C` | secondary_skillset | `int32` | V | Read in the code: When 0 or more it becomes the unit's second command. Observed in the stock rows: -1 to 18, 10 distinct values. |
+| <a id="reaction"></a>`0x20` | reaction | `int32` | V | Read in the code: When 0 or more it becomes the unit's reaction ability. Observed in the stock rows: -1 to 451, 8 distinct values. |
+| <a id="support"></a>`0x24` | support | `int32` | V | Read in the code: When 0 or more it becomes the unit's support ability. Observed in the stock rows: -1 to 479, 7 distinct values. |
+| <a id="movement"></a>`0x28` | movement | `int32` | V | Read in the code: When 0 or more it becomes the unit's movement ability. Observed in the stock rows: -1 to 509, 6 distinct values. |
+| <a id="unknown2c"></a>`0x2C` | unknown2c | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 255, 4 distinct values. |
+| <a id="unknown30"></a>`0x30` | unknown30 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 186, 3 distinct values. |
+| <a id="unknown34"></a>`0x34` | unknown34 | `int32` | ? | Not decoded. Observed in the stock rows: -1 in every row. |
+| <a id="unknown38"></a>`0x38` | unknown38 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 62, 4 distinct values. |
+| <a id="unknown3c"></a>`0x3C` | unknown3c | `int32` | ? | Not decoded. Observed in the stock rows: -1 in every row. |
+| <a id="facing"></a>`0x40` | facing | `int32` | V | Read in the code: When not 255 it becomes the unit's facing. Observed in the stock rows: 0 to 255, 3 distinct values. |
+| <a id="chara_control"></a>`0x44` | chara_control | `int32` | V | Read in the code: When not 0, a key of nxd.CharaControlId. Observed in the stock rows: 0 to 2, 2 distinct values. |
+| <a id="unknown48"></a>`0x48` | unknown48 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 255, 2 distinct values. |
+| <a id="unknown4c"></a>`0x4C` | unknown4c | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 22 distinct values. |
+| <a id="unknown54"></a>`0x54` | unknown54 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 6 distinct values. |
+| <a id="unknown5c"></a>`0x5C` | unknown5c | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 6 distinct values. |
+| <a id="unknown64"></a>`0x64` | unknown64 | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 32 distinct values. |
+| <a id="unknown6c"></a>`0x6C` | unknown6c | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 1 distinct values. |
+| <a id="unknown74"></a>`0x74` | unknown74 | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 19 distinct values. |
+| <a id="unknown7c"></a>`0x7C` | unknown7c | `int16` | ? | Not decoded. Observed in the stock rows: -1 to 254, 4 distinct values. |
+| <a id="job_level"></a>`0x7E` | job_level | `int16` | V | Read in the code: The level given to that job. Observed in the stock rows: -1 to 8, 6 distinct values. |
+| <a id="unknown80"></a>`0x80` | unknown80 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 255, 2 distinct values. |
+| <a id="unknown81"></a>`0x81` | unknown81 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 255, 2 distinct values. |
+| <a id="unknown82"></a>`0x82` | unknown82 | `int16` | ? | Not decoded. Observed in the stock rows: -1 in every row. |
+| <a id="unknown84"></a>`0x84` | unknown84 | `int16` | ? | Not decoded. Observed in the stock rows: -1 in every row. |
+| <a id="unknown86"></a>`0x86` | unknown86 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown87"></a>`0x87` | unknown87 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="tile_x"></a>`0x88` | tile_x | `int16` | V | Read in the code: When 0 or more it becomes the unit's tile x. Observed in the stock rows: -1 to 7, 7 distinct values. |
+| <a id="tile_y"></a>`0x8A` | tile_y | `int16` | V | Read in the code: When 0 or more it becomes the unit's tile y. Observed in the stock rows: -1 to 6, 5 distinct values. |
+| <a id="upper_level"></a>`0x8C` | upper_level | `uint8` | V | Read in the code: 0 or 1 sets the unit's upper height layer bit. Observed in the stock rows: 0 to 255, 3 distinct values. |
+| <a id="remove_unit"></a>`0x8D` | remove_unit | `uint8` | V | Read in the code: Non-zero empties the unit's entry. Observed in the stock rows: 0 in every row. |
+| <a id="flag_0"></a>`0x8E` | flag_0 | `uint8` | V | Read in the code: Non-zero sets bit 0 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_1"></a>`0x8F` | flag_1 | `uint8` | V | Read in the code: Non-zero sets bit 1 of the entry's flag word. Observed in the stock rows: 0 in every row. |
+| <a id="flag_2"></a>`0x90` | flag_2 | `uint8` | V | Read in the code: Non-zero sets bit 2 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_3"></a>`0x91` | flag_3 | `uint8` | V | Read in the code: Non-zero sets bit 3 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_4"></a>`0x92` | flag_4 | `uint8` | V | Read in the code: Non-zero sets bit 4 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_5"></a>`0x93` | flag_5 | `uint8` | V | Read in the code: Non-zero sets bit 5 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_6"></a>`0x94` | flag_6 | `uint8` | V | Read in the code: Non-zero sets bit 6 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_7"></a>`0x95` | flag_7 | `uint8` | V | Read in the code: Non-zero sets bit 7 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_8"></a>`0x96` | flag_8 | `uint8` | V | Read in the code: Non-zero sets bit 8 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_9"></a>`0x97` | flag_9 | `uint8` | V | Read in the code: Non-zero sets bit 9 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown98"></a>`0x98` | unknown98 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="flag_10"></a>`0x99` | flag_10 | `uint8` | V | Read in the code: Non-zero sets bit 10 of the entry's flag word. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown9a"></a>`0x9A` | unknown9a | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown9b"></a>`0x9B` | unknown9b | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown9c"></a>`0x9C` | unknown9c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 244, 94 distinct values. |
 
 ## Referenced by
 
@@ -77,4 +77,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-27 of 52 columns not decoded.
+? 26 of 52 columns not decoded.

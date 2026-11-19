@@ -14,16 +14,16 @@ One row of the nxd.post_effect_depth_lut table (data table). The key is not stor
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `float32` | ? | Not decoded. Observed in the stock rows: 0.498 to 1, 19 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.561, 20 distinct values. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.834, 23 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `float32` | ? | Not decoded. Observed in the stock rows: 0.063 to 0.7, 23 distinct values. |
-| <a id="unk_18"></a>`0x18` | unk_18 | `float32` | ? | Not decoded. Observed in the stock rows: 0.26 to 0.762, 21 distinct values. |
-| <a id="unk_1c"></a>`0x1C` | unk_1c | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.735, 24 distinct values. |
-| <a id="unk_20"></a>`0x20` | unk_20 | `float32` | ? | Not decoded. Observed in the stock rows: 0.136 to 0.619, 24 distinct values. |
-| <a id="unk_24"></a>`0x24` | unk_24 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.742, 21 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `float32` | ? | Not decoded. Observed in the stock rows: 0.498 to 1, 19 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.561, 20 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.834, 23 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `float32` | ? | Not decoded. Observed in the stock rows: 0.063 to 0.7, 23 distinct values. |
+| <a id="unknown18"></a>`0x18` | unknown18 | `float32` | ? | Not decoded. Observed in the stock rows: 0.26 to 0.762, 21 distinct values. |
+| <a id="unknown1c"></a>`0x1C` | unknown1c | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.735, 24 distinct values. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `float32` | ? | Not decoded. Observed in the stock rows: 0.136 to 0.619, 24 distinct values. |
+| <a id="unknown24"></a>`0x24` | unknown24 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 0.742, 21 distinct values. |
 
 ## Referenced by
 
@@ -35,4 +35,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-8 of 10 columns not decoded.
+? 10 of 10 columns not decoded.

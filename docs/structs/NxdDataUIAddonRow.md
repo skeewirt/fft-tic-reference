@@ -14,30 +14,30 @@ One row of the nxd.ui_addon table (data table). The key is not stored in the row
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `int32` | ? | Not decoded. Observed in the stock rows: -100 to 260, 40 distinct values. |
-| <a id="ui_file_path"></a>`0x8` | ui_file_path | `string (int32 offset)` | I | File path string. Observed in the stock rows: 124 distinct values, 140 empty. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_0d"></a>`0xD` | unk_0d | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_0e"></a>`0xE` | unk_0e | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_0f"></a>`0xF` | unk_0f | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_11"></a>`0x11` | unk_11 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_12"></a>`0x12` | unk_12 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_13"></a>`0x13` | unk_13 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_15"></a>`0x15` | unk_15 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_16"></a>`0x16` | unk_16 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_17"></a>`0x17` | unk_17 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_18"></a>`0x18` | unk_18 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_19"></a>`0x19` | unk_19 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_1a"></a>`0x1A` | unk_1a | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_1b"></a>`0x1B` | unk_1b | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_1c"></a>`0x1C` | unk_1c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_1d"></a>`0x1D` | unk_1d | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_1e"></a>`0x1E` | unk_1e | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_1f"></a>`0x1F` | unk_1f | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_20"></a>`0x20` | unk_20 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: -100 to 260, 40 distinct values. |
+| <a id="path"></a>`0x8` | path | `string (int32 offset)` | M | Measured over every stock row: File paths. Observed in the stock rows: 124 distinct values, 140 empty. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown0d"></a>`0xD` | unknown0d | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown0e"></a>`0xE` | unknown0e | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown0f"></a>`0xF` | unknown0f | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown11"></a>`0x11` | unknown11 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown12"></a>`0x12` | unknown12 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown13"></a>`0x13` | unknown13 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown15"></a>`0x15` | unknown15 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown16"></a>`0x16` | unknown16 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown17"></a>`0x17` | unknown17 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown18"></a>`0x18` | unknown18 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown19"></a>`0x19` | unknown19 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown1a"></a>`0x1A` | unknown1a | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown1b"></a>`0x1B` | unknown1b | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown1c"></a>`0x1C` | unknown1c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown1d"></a>`0x1D` | unknown1d | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown1e"></a>`0x1E` | unknown1e | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown1f"></a>`0x1F` | unknown1f | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -49,4 +49,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-22 of 24 columns not decoded.
+? 23 of 24 columns not decoded.

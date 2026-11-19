@@ -14,10 +14,10 @@ One row of the nxd.icon table (data table). The key is not stored in the row: it
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | DLC gate bit set. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Null. Observed in the stock rows: empty in every row. |
-| <a id="icon_file_path"></a>`0x8` | icon_file_path | `string (int32 offset)` | V | Path (or printf template) of the UI texture part under ui/ffto/icon/ (600 of 1400 rows have one). Observed in the stock rows: 594 distinct values, 800 empty. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int32` | ? | 0 in every row. Observed in the stock rows: 0 in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="path"></a>`0x8` | path | `string (int32 offset)` | M | Measured over every stock row: File paths. Observed in the stock rows: 594 distinct values, 800 empty. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-1 of 4 columns not decoded.
+? 3 of 4 columns not decoded.

@@ -14,8 +14,8 @@ One row of the nxd.system_bonus_item_contents table (data table). The key is not
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="union_id"></a>`0x4` | union_id | `union {int32 kind; int32 id}` | I | Typed reference: a table kind and a row id in that table. Observed in the stock rows: 12 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="link"></a>`0x4` | link | `union {int32 kind; int32 id}` | M | Measured over every stock row: Typed references (table:row). Observed in the stock rows: 12 distinct values. |
 
 ## Referenced by
 
@@ -27,4 +27,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 1 of 2 columns not decoded.

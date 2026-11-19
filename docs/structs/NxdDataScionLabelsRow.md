@@ -14,9 +14,9 @@ One row of the nxd.scion_labels table (data table). The key is not stored in the
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="scion_files_id"></a>`0x4` | scion_files_id | `int32` | I | Row id of ScionFiles (a reference by column name). Observed in the stock rows: 1129 to 2160, 152 distinct values. |
-| <a id="panzer_entry_id"></a>`0x8` | panzer_entry_id | `int32` | I | Packed archive entry id of a voice line. Observed in the stock rows: 302152 to 357594, 3323 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="scion_files"></a>`0x4` | scion_files | `int32` | M | Measured over every stock row: Every value is a key of nxd.ScionFiles. Observed in the stock rows: 1129 to 2160, 152 distinct values. |
+| <a id="scion_labels"></a>`0x8` | scion_labels | `int32` | M | Measured over every stock row: Every value is a key of nxd.ScionLabels. Observed in the stock rows: 302152 to 357594, 3323 distinct values. |
 
 ## Referenced by
 
@@ -28,4 +28,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 1 of 3 columns not decoded.

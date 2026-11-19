@@ -14,9 +14,9 @@ Picks the UIFontType id of a font-set row for the current game language.
 
 ## Behavior
 
-- V: language code = *(int*)(qword_143CD9B10 + 8). Codes 1, 2, 3 (English, French, German) and a missing language object return row byte +68 = FontTypeId2; code 4 (Simplified Chinese) returns +72 = FontTypeId6; 5 (Traditional Chinese) +73 = FontTypeId7; 6 (Korean) +74 = FontTypeId8; every other code (0 = Japanese) returns the dword at +0 = FontTypeId1.
+- V: language code = *(int*)(qword_143CD9B10 + 8). Codes 1, 2, 3 (English, French, German) and a missing language object return row byte +68 = ui_font_type_2; code 4 (Simplified Chinese) returns +72 = ui_font_type_3; 5 (Traditional Chinese) +73 = ui_font_type_4; 6 (Korean) +74 = ui_font_type_5; every other code (0 = Japanese) returns the dword at +0 = ui_font_type.
 - V: the language codes are the index into the exe's name table japanese(0) english(1) french(2) german(3) schinese(4) tchinese(5) (strings at 0x1406FA8B8).
-- V (data): font set 60 (the hover name plate) = FontTypeId1 7 (BO-ShinMGo, Japanese), FontTypeId2 5 (Zilvertype Pro Bold); font sets 51 and 98 (level badge, chips) = type 6 (Jura SemiBold) in every column.
+- V (data): font set 60 (the hover name plate) = ui_font_type 7 (BO-ShinMGo, Japanese), ui_font_type_2 5 (Zilvertype Pro Bold); font sets 51 and 98 (level badge, chips) = type 6 (Jura SemiBold) in every column.
 
 ## State touched
 

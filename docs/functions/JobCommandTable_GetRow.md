@@ -14,7 +14,7 @@ Returns the JobCommand-en row (table 41, cache qword_143CDA2E0).
 
 ## Behavior
 
-- V: row +4 IconId (drawn only when 1..24, sub_1400FBF9C), +8 Name, +20 group number (sub_1400F7334 compares), +28 flag, +32 UiDialogId (sub_140129260).
+- V: row +4 icon (drawn only when 1..24, sub_1400FBF9C), +8 Name, +20 group number (sub_1400F7334 compares), +28 flag, +32 extra_text (sub_140129260).
 
 ## Referenced by
 

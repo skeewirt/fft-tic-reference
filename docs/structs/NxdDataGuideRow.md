@@ -14,19 +14,19 @@ One row of the nxd.guide table (English text table; the other languages share th
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4, 4 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 12, 10 distinct values. |
-| <a id="guide_page_id"></a>`0x10` | guide_page_id | `int32` | I | Row id of GuidePage-en (a reference by column name). Observed in the stock rows: 0 to 3277, 226 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 59, 19 distinct values. |
-| <a id="user_situation_id"></a>`0x18` | user_situation_id | `int32` | I | Row id of UserSituation (a reference by column name). Observed in the stock rows: 0 to 60016, 13 distinct values. |
-| <a id="user_situation_id2"></a>`0x1C` | user_situation_id2 | `int32` | I | Row id of UserSituation (a reference by column name). Observed in the stock rows: 0 to 12700, 8 distinct values. |
-| <a id="unk_20"></a>`0x20` | unk_20 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 2.8, 14 distinct values. |
-| <a id="title"></a>`0x24` | title | `string (int32 offset)` | I | Title text. Observed in the stock rows: 166 distinct values, 77 empty. |
-| <a id="sort_order"></a>`0x28` | sort_order | `int16` | I | Sort order value. Observed in the stock rows: 0 to 3600, 115 distinct values. |
-| <a id="unk_2a"></a>`0x2A` | unk_2a | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 165, 166 distinct values. |
-| <a id="unk_2c"></a>`0x2C` | unk_2c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4, 4 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 12, 10 distinct values. |
+| <a id="guide_page"></a>`0x10` | guide_page | `int32` | M | Measured over every stock row: Every value is a key of nxd.GuidePage-en. Observed in the stock rows: 0 to 3277, 226 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 59, 19 distinct values. |
+| <a id="user_situation"></a>`0x18` | user_situation | `int32` | M | Measured over every stock row: Every value is a key of nxd.UserSituation. Observed in the stock rows: 0 to 60016, 13 distinct values. |
+| <a id="user_situation_2"></a>`0x1C` | user_situation_2 | `int32` | M | Measured over every stock row: Every value is a key of nxd.UserSituation. Observed in the stock rows: 0 to 12700, 8 distinct values. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 2.8, 14 distinct values. |
+| <a id="title"></a>`0x24` | title | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 166 distinct values, 77 empty. |
+| <a id="unknown28"></a>`0x28` | unknown28 | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 3600, 115 distinct values. |
+| <a id="unknown2a"></a>`0x2A` | unknown2a | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 165, 166 distinct values. |
+| <a id="unknown2c"></a>`0x2C` | unknown2c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -38,4 +38,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-6 of 13 columns not decoded.
+? 9 of 13 columns not decoded.

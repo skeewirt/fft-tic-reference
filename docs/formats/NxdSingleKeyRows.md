@@ -31,7 +31,7 @@ The row area of a single-key nxd file (header byte 8 = 1, byte 9 = 1 or 2): the 
 - V: 186 of the 188 single-key retail files decode with this column order and alignment, checked against every stock row (all 32,752 rows, every column).
 - V: the same row encoding holds in the double / triple keyed files (NxdMultiKeyIndex); only the index differs.
 - V: RefinedBgTexture rows hold two pairs of (name list, count list) at +8/+16 and +24/+32; the counts are signed 32-bit frame counts read at the name's index, and the count list's own element count is never read (MapTextures_NameOfFrame). All 1,338 stock rows have as many counts as names.
-- V: a layout can be longer than the rows: OverrideEntryData's layout ends at +0x9D (row size 160) but its rows are 156 bytes apart, so its last column is the next row's first byte (OverrideEntry_FillUnitEntry reads up to +0x99). A byte check against the stock rows cannot see this.
+- V: a table's row size field can be larger than the distance between its rows: OverrideEntryData states 160 bytes but its rows are 156 bytes apart, so a byte at +0x9C is the next row's first byte (OverrideEntry_FillUnitEntry reads up to +0x99).
 
 ## Referenced by
 

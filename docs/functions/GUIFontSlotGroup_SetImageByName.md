@@ -14,7 +14,7 @@ Acquires the kind-3 image slot for name and stores it as the group's image slot;
 
 ## Behavior
 
-- V: id = GUIFontSlots_AcquireImage(g_GUIFontSlots, name, a3). id != 0: +84 = id, byte +89 = 0; when the UIName at +8 is empty (id dword +8 == 0) UIName_SetKey(g, name); returns 1.
+- V: id = GUIFontSlots_AcquireImage(g_GUIFontSlots, name, a3). id != 0: +84 = id, byte +89 = 0; when the element at +8 is empty (id dword +8 == 0) UIName_SetKey(g, name); returns 1.
 - V: id == 0: word +88 = 0x0101 (bytes +88 and +89 both 1, the 'failed' flags) and returns the (zero) result.
 - V: any previous slot id at +84 is not released here (the caller released via GUIFontSlotGroup_ReleaseAll).
 

@@ -14,25 +14,25 @@ One row of the nxd.event_id table (data table). The key is not stored in the row
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 485, 62 distinct values. |
-| <a id="comment"></a>`0x8` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="comment2"></a>`0xC` | comment2 | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="sortie_confirm_union_id"></a>`0x10` | sortie_confirm_union_id | `union {int32 kind; int32 id}` | I | Typed reference: a table kind and a row id in that table. Observed in the stock rows: 146 distinct values. |
-| <a id="sead_state_parameter_id"></a>`0x18` | sead_state_parameter_id | `int32` | I | Row id of SeadStateParameter (a reference by column name). Observed in the stock rows: 0 to 11, 12 distinct values. |
-| <a id="unk_1c"></a>`0x1C` | unk_1c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 3 distinct values. |
-| <a id="flag_20"></a>`0x20` | flag_20 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_21"></a>`0x21` | flag_21 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_22"></a>`0x22` | flag_22 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_23"></a>`0x23` | flag_23 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_24"></a>`0x24` | flag_24 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_25"></a>`0x25` | flag_25 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_26"></a>`0x26` | flag_26 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="flag_27"></a>`0x27` | flag_27 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_28"></a>`0x28` | flag_28 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="flag_29"></a>`0x29` | flag_29 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_2a"></a>`0x2A` | flag_2a | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_2b"></a>`0x2B` | unk_2b | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 485, 62 distinct values. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="link"></a>`0x10` | link | `union {int32 kind; int32 id}` | M | Measured over every stock row: Typed references (table:row). Observed in the stock rows: 146 distinct values. |
+| <a id="sead_state_parameter"></a>`0x18` | sead_state_parameter | `int32` | M | Measured over every stock row: Every value is a key of nxd.SeadStateParameter. Observed in the stock rows: 0 to 11, 12 distinct values. |
+| <a id="unknown1c"></a>`0x1C` | unknown1c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 3 distinct values. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown21"></a>`0x21` | unknown21 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown22"></a>`0x22` | unknown22 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown23"></a>`0x23` | unknown23 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown24"></a>`0x24` | unknown24 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown25"></a>`0x25` | unknown25 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown26"></a>`0x26` | unknown26 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown27"></a>`0x27` | unknown27 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown28"></a>`0x28` | unknown28 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown29"></a>`0x29` | unknown29 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown2a"></a>`0x2A` | unknown2a | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown2b"></a>`0x2B` | unknown2b | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -44,4 +44,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-14 of 19 columns not decoded.
+? 17 of 19 columns not decoded.

@@ -14,8 +14,8 @@ One row of the nxd.telemetry_property_value table (data table). The key is not s
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="values"></a>`0x4` | values | `string (int32 offset)[] {int32 offset; uint32 count}` | I | Values (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 6 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="values"></a>`0x4` | values | `string (int32 offset)[] {int32 offset; uint32 count}` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 6 distinct values. |
 
 ## Referenced by
 
@@ -27,4 +27,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 1 of 2 columns not decoded.

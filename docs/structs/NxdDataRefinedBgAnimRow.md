@@ -14,9 +14,9 @@ One row of the nxd.refined_bg_anim table (data table). The key is not stored in 
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="unk_00"></a>`0x0` | unk_00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 6, 7 distinct values. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 17, 18 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 6, 7 distinct values. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 17, 18 distinct values. |
 
 ## Referenced by
 
@@ -28,4 +28,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-3 of 3 columns not decoded.
+? 3 of 3 columns not decoded.

@@ -14,10 +14,10 @@ One row of the nxd.resolution table (data table). The key is not stored in the r
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="width"></a>`0x4` | width | `int32` | I | Width (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 1280 to 7680, 9 distinct values. |
-| <a id="height"></a>`0x8` | height | `int32` | I | Height (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 720 to 4320, 9 distinct values. |
-| <a id="comment"></a>`0xC` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="width"></a>`0x4` | width | `int32` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 1280 to 7680, 9 distinct values. |
+| <a id="height"></a>`0x8` | height | `int32` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 720 to 4320, 9 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 2 of 4 columns not decoded.

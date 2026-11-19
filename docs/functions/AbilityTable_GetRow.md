@@ -32,8 +32,8 @@ The row layout below is ported from the earlier Ability layout research and has 
 
 | Offset | Field | Type |
 |---|---|---|
-| `0x00` | DLCFlags | int |
-| `0x04` | IconId | int |
+| `0x00` | unknown00 | int |
+| `0x04` | icon | int |
 | `0x08` | Name | string (relative) |
 | `0x0C` | Description | string (relative, -4 base) |
 | `0x10` | UnusedString10 | string (relative, -8 base) |
@@ -41,16 +41,16 @@ The row layout below is ported from the earlier Ability layout research and has 
 | `0x16`-`0x19` | NounFormByte1-4 | byte x 4 |
 | `0x1A` | Padding | short |
 | `0x1C` | Comment | string |
-| `0x20` | UiId | int |
-| `0x24` | BattleVoiceIds | int[] |
-| `0x2C` | UiId2 | int |
+| `0x20` | ui_text | int |
+| `0x24` | battle_voices | int[] |
+| `0x2C` | ui_text_2 | int |
 | `0x30` | SlotColorTint | int |
 | `0x34` | PassiveSortOrder | int |
-| `0x38` | AbilityReactionVoiceTypeId | int |
+| `0x38` | unknown38 | int |
 | `0x3C` | AbilityAnimType | int |
-| `0x40` | JpCost | uint16 |
-| `0x42` | IsRandomDamage | byte |
-| `0x43` | IsRandomStatus | byte |
+| `0x40` | jp_cost_low, jp_cost_high | uint16 |
+| `0x42` | unknown42 | byte |
+| `0x43` | random_status | byte |
 
 ## Open questions
 

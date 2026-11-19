@@ -8,7 +8,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `UiFilePath` names the layout file a screen loads.
+Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `path` names the layout file a screen loads.
 
 ## Entries
 

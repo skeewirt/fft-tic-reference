@@ -14,10 +14,10 @@ One row of the nxd.job_type table (data table). The key is not stored in the row
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | DLC gate bit set (0 everywhere). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Null everywhere. Observed in the stock rows: empty in every row. |
-| <a id="male_visual_icon_id"></a>`0x8` | male_visual_icon_id | `int32` | V | Icon key (701..719) of the job's male 'visual' image (job_visual/textureparts/jv_NN_m). Nonzero only for the 20 generic job types; JobRecord.out[0] = this when the unit is male. Observed in the stock rows: 0 to 719, 20 distinct values. |
-| <a id="female_visual_icon_id"></a>`0xC` | female_visual_icon_id | `int32` | V | Icon key (720..738) of the female visual (jv_NN_f). Observed in the stock rows: 0 to 738, 20 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="male_card_icon"></a>`0x8` | male_card_icon | `int32` | M | Measured over every stock row: Every value is a key of nxd.Icon. Observed in the stock rows: 0 to 719, 20 distinct values. |
+| <a id="female_card_icon"></a>`0xC` | female_card_icon | `int32` | M | Measured over every stock row: Every value is a key of nxd.Icon. Observed in the stock rows: 0 to 738, 20 distinct values. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 2 of 4 columns not decoded.

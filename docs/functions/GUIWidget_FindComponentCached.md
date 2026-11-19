@@ -2,7 +2,7 @@
 
 - **Address:** `0x1403F9938`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `GUIComponent *GUIWidget_FindComponentCached(GUIWidget *w, UIName *name, UIName *name2, GUIComponentCache *cache)`
+- **Prototype:** `GUIComponent *GUIWidget_FindComponentCached(GUIWidget *w, element *name, element *name2, GUIComponentCache *cache)`
 - **Callers:** GUIComponentRef_Draw (ctx+488, ref+208, ref+224, ref+304), sub_140118438, sub_14013D064, GuideBar_LayoutRow, sub_140149148, sub_14014970C, sub_1401BED40, sub_1401BEF44, sub_1401BF48C, sub_1401BFB04
 - **Callees:** sub_140098898, sub_140098A58
 

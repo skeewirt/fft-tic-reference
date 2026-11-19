@@ -14,17 +14,17 @@ One row of the nxd.movie_data table (data table). The key is not stored in the r
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="movie_file_path"></a>`0x8` | movie_file_path | `string (int32 offset)` | I | File path string. Observed in the stock rows: 15 distinct values, 8 empty. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `union {int32 kind; int32 id}` | ? | Not decoded. Observed in the stock rows: 22 distinct values. |
-| <a id="unk_18"></a>`0x18` | unk_18 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 8 distinct values, 15 empty. |
-| <a id="movie_sound_file_id"></a>`0x1C` | movie_sound_file_id | `int32` | I | Movie sound file id (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: -1 to 120, 14 distinct values. |
-| <a id="unk_20"></a>`0x20` | unk_20 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 3 distinct values, 20 empty. |
-| <a id="flag_24"></a>`0x24` | flag_24 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_25"></a>`0x25` | flag_25 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="flag_26"></a>`0x26` | flag_26 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="path"></a>`0x8` | path | `string (int32 offset)` | M | Measured over every stock row: File paths. Observed in the stock rows: 15 distinct values, 8 empty. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `union {int32 kind; int32 id}` | ? | Not decoded. Observed in the stock rows: 22 distinct values. |
+| <a id="unknown18"></a>`0x18` | unknown18 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 8 distinct values, 15 empty. |
+| <a id="unknown1c"></a>`0x1C` | unknown1c | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 120, 14 distinct values. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 3 distinct values, 20 empty. |
+| <a id="unknown24"></a>`0x24` | unknown24 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown25"></a>`0x25` | unknown25 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown26"></a>`0x26` | unknown26 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -36,4 +36,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-7 of 11 columns not decoded.
+? 10 of 11 columns not decoded.

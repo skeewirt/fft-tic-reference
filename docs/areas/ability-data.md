@@ -9,7 +9,7 @@ Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, T
 | Name | Address | Purpose |
 |---|---|---|
 | [Ability_GetAuxRecord](../functions/Ability_GetAuxRecord.md) | `0x140275A78` | Returns the executable's per-ability auxiliary record and an extra category-specific pointer for an ability id. |
-| [Ability_GetJpCost](../functions/Ability_GetJpCost.md) | `0x1402CC0AC` | Returns the ability's JP cost: the u16 at Ability row +64 (JpCost1 \| JpCost2 << 8); 0xFFFF when the table or row is missing. |
+| [Ability_GetJpCost](../functions/Ability_GetJpCost.md) | `0x1402CC0AC` | Returns the ability's JP cost: the u16 at Ability row +64 (jp_cost_low \| jp_cost_high << 8); 0xFFFF when the table or row is missing. |
 | [AbilityAction_BuildWorkingCopy](../functions/AbilityAction_BuildWorkingCopy.md) | `0x1402BAE24` | Creates the writable ability action table: copies the executable's built-in table of 368 records (20 bytes each) and then overwrites fields from the OverrideAbilityActionData nxd table (id 247). |
 | [AbilityAction_GetRecord](../functions/AbilityAction_GetRecord.md) | `0x1402BB060` | Returns a pointer to the 20-byte action record of an ability, building the working table on first use. |
 | [AbilityTable_GetRow](../functions/AbilityTable_GetRow.md) | `0x1400F8474` | Returns the Ability NXD row for an ability id, or null when the table or row is missing. |

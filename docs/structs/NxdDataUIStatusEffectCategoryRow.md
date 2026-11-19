@@ -14,12 +14,12 @@ One row of the nxd.ui_status_effect_category table (English text table; the othe
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="category_name1"></a>`0x4` | category_name1 | `string (int32 offset)` | I | Category name1 text. Observed in the stock rows: 12 distinct values, 0 empty. |
-| <a id="category_name2"></a>`0x8` | category_name2 | `string (int32 offset)` | I | Category name2 text. Observed in the stock rows: 12 distinct values, 1 empty. |
-| <a id="category_name3"></a>`0xC` | category_name3 | `string (int32 offset)` | I | Category name3 text. Observed in the stock rows: 12 distinct values, 1 empty. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `int32` | ? | Not decoded. Observed in the stock rows: 2 to 4, 3 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int32` | ? | Not decoded. Observed in the stock rows: 1 to 13, 13 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="name"></a>`0x4` | name | `string (int32 offset)` | M | Measured over every stock row: The category's name. Observed in the stock rows: 12 distinct values, 0 empty. |
+| <a id="name_2"></a>`0x8` | name_2 | `string (int32 offset)` | M | Measured over every stock row: A second copy of the name. Observed in the stock rows: 12 distinct values, 1 empty. |
+| <a id="name_3"></a>`0xC` | name_3 | `string (int32 offset)` | M | Measured over every stock row: A third copy of the name. Observed in the stock rows: 12 distinct values, 1 empty. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int32` | ? | Not decoded. Observed in the stock rows: 2 to 4, 3 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 1 to 13, 13 distinct values. |
 
 ## Referenced by
 
@@ -31,4 +31,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-2 of 6 columns not decoded.
+? 3 of 6 columns not decoded.

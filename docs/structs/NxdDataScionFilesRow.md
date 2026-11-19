@@ -14,8 +14,8 @@ One row of the nxd.scion_files table (data table). The key is not stored in the 
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="file"></a>`0x4` | file | `string (int32 offset)` | I | File text. Observed in the stock rows: 498 distinct values, 0 empty. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="file"></a>`0x4` | file | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 498 distinct values, 0 empty. |
 
 ## Referenced by
 
@@ -27,4 +27,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 1 of 2 columns not decoded.

@@ -9,7 +9,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-The job card (the large faded painting behind the right half of the Status panel) is chosen by the job's JobType row, not by the job row's TexturePartsIndex (that is the small job icon): Job row +24 names a JobType row, whose MaleVisualIconId / FemaleVisualIconId name an Icon row holding the card's part file path.
+The job card (the large faded painting behind the right half of the Status panel) is chosen by the job's JobType row, not by the job row's icon_part (that is the small job icon): Job row +24 names a JobType row, whose male_card_icon / female_card_icon name an Icon row holding the card's part file path.
 
 ## Behavior
 

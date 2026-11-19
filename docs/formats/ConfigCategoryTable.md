@@ -9,7 +9,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-`configcategory.nxd` (nxd 249): the tabs of the settings screens; `ConfigItemIds` are the rows of a tab and `NameUIId` its title.
+`configcategory.nxd` (nxd 249): the tabs of the settings screens; `config_items` are the rows of a tab and `name_text` its title.
 
 ## Behavior
 

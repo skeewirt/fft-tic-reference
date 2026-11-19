@@ -2,7 +2,7 @@
 
 - **Address:** `0x1403D8870`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `void UIName_SetKey(UIName *dst, const char *str)`
+- **Prototype:** `void UIName_SetKey(element *dst, const char *str)`
 - **Callers:** GUICore_SetCursorTarget, GUICore_SetFocusComponent, GUICore_UpdateFrame, GUICore_FocusNode, GUIComponent_LoadProps, GUIComponent_LoadDef, GUINode_BuildFromFile, GUIComponent_ResetEffects, GuiImage_SetIconById and about 25 more
 - **Callees:** sub_1403D8A24, sub_1403D8D1C
 

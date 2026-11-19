@@ -2,7 +2,7 @@
 
 - **Address:** `0x1403F8708`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `__int64 UIAnim_StoreKey(UIAnimLoader *ld, int *track, GUINodeState *state, UIName *target, int propType, unsigned frame, short word, void *value, int curveId)`
+- **Prototype:** `__int64 UIAnim_StoreKey(UIAnimLoader *ld, int *track, GUINodeState *state, element *target, int propType, unsigned frame, short word, void *value, int curveId)`
 - **Callers:** UIAnim_ApplyTrack, UIAnim_ApplyComponentTrack
 - **Callees:** sub_1404003F4, sub_1404020E4
 

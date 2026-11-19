@@ -17,12 +17,11 @@ UI file replacement mapping (5). Verdict: engine-data.
 ## Behavior
 
 - V: 5 rows, two keys id (0..2001) x id2 (0..1); measured over every row of the stock file.
-- I: column roles not marked V are inferred from names and measured ranges.
 
 ## Notes
 
-Our names; the file format is described by the NXD format records.
+Column names are our own: a column is named only where its role was read in the code or measured over every stock row; the others are numbered by their offset. The file format is described by the NXD format records.
 
 ## Open questions
 
-? 1 of 2 columns not decoded (see the row layout)
+? 2 of 2 columns not decoded (see the row layout)

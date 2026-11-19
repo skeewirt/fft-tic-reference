@@ -20,7 +20,7 @@ Debug triple-keyed table with no rows and no layout columns. Verdict: engine-dat
 
 ## Notes
 
-Our names; the file format is described by the NXD format records.
+Column names are our own: a column is named only where its role was read in the code or measured over every stock row; the others are numbered by their offset. The file format is described by the NXD format records.
 
 ## Open questions
 

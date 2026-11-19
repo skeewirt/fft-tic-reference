@@ -2,7 +2,7 @@
 
 - **Address:** `0x1403D8E5C`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `UIName *UIName_KeyIndexed(__int64 unused, UIName *out, const char *base, int index)`
+- **Prototype:** `element *UIName_KeyIndexed(__int64 unused, element *out, const char *base, int index)`
 - **Callers:** sub_140297FF8, sub_1403FA344, sub_1403FB340, sub_14040C1DC, sub_14040C37C
 - **Callees:** Str_Format, UIName_Key
 

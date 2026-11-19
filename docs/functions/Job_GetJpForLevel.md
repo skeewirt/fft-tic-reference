@@ -10,7 +10,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Returns RequiredJobExp[level] of the GeneralJob row (table 189, cache qword_143CD9F00): u16 at row-data + 4 * level where the list offset is the dword at row +8.
+Returns job_level_jp[level] of the GeneralJob row (table 189, cache qword_143CD9F00): u16 at row-data + 4 * level where the list offset is the dword at row +8.
 
 ## Behavior
 

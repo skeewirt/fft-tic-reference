@@ -17,13 +17,12 @@ Per achievement: link to its telemetry record, a few story-progress numbers and 
 ## Behavior
 
 - V: 51 rows, one key id (0..50); measured over every row of the stock file.
-- I: column roles not marked V are inferred from names and measured ranges.
 - V: the 53 text tables have the same columns, keys, row size and table id in all seven languages (offline decode of every file).
 
 ## Notes
 
-Our names; the file format is described by the NXD format records.
+Column names are our own: a column is named only where its role was read in the code or measured over every stock row; the others are numbered by their offset. The file format is described by the NXD format records.
 
 ## Open questions
 
-? 2 of 7 columns not decoded (see the row layout); I: the other six languages share this layout (V by the offline decode in the title records); only the English file was extracted here
+? 5 of 7 columns not decoded (see the row layout)

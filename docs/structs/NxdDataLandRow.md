@@ -14,11 +14,11 @@ One row of the nxd.land table (English text table; the other languages share the
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="ability_id"></a>`0x4` | ability_id | `int32` | I | Geomancer terrain ability (126..137). Observed in the stock rows: 0 to 137, 13 distinct values. |
-| <a id="name"></a>`0x8` | name | `string (int32 offset)` | I | Name text. Observed in the stock rows: 49 distinct values, 16 empty. |
-| <a id="description"></a>`0xC` | description | `string (int32 offset)` | I | Description text. Observed in the stock rows: 49 distinct values, 16 empty. |
-| <a id="icon_id"></a>`0x10` | icon_id | `int32` | I | Row id of Icon (a reference by column name). Observed in the stock rows: 0 to 647, 48 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="ability"></a>`0x4` | ability | `int32` | M | Measured over every stock row: Every value is a key of nxd.Ability-en. Observed in the stock rows: 0 to 137, 13 distinct values. |
+| <a id="name"></a>`0x8` | name | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 49 distinct values, 16 empty. |
+| <a id="description"></a>`0xC` | description | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 49 distinct values, 16 empty. |
+| <a id="icon"></a>`0x10` | icon | `int32` | M | Measured over every stock row: Every value is a key of nxd.Icon. Observed in the stock rows: 0 to 647, 48 distinct values. |
 
 ## Referenced by
 
@@ -30,4 +30,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 1 of 5 columns not decoded.

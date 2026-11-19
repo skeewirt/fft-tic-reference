@@ -14,12 +14,12 @@ One row of the nxd.sound_enhanced table (data table). The key is not stored in t
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="sound_enhanced_resource_id"></a>`0x8` | sound_enhanced_resource_id | `int32` | I | Row id of SoundEnhancedResource (a reference by column name). Observed in the stock rows: 0 to 109, 103 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 123, 100 distinct values. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 100, 101 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="sound_enhanced_resource"></a>`0x8` | sound_enhanced_resource | `int32` | M | Measured over every stock row: Every value is a key of nxd.SoundEnhancedResource. Observed in the stock rows: 0 to 109, 103 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 123, 100 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 100, 101 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 
 ## Referenced by
 
@@ -31,4 +31,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-3 of 6 columns not decoded.
+? 5 of 6 columns not decoded.

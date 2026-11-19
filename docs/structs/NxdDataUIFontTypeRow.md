@@ -14,12 +14,12 @@ One row of the nxd.ui_font_type table (data table). The key is not stored in the
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="font_path"></a>`0x4` | font_path | `string (int32 offset)` | I | File path string. Observed in the stock rows: 15 distinct values, 5 empty. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 56, 5 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `float32` | ? | Not decoded. Observed in the stock rows: 1 in every row. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `float32` | ? | Not decoded. Observed in the stock rows: 1 in every row. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `float32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="path"></a>`0x4` | path | `string (int32 offset)` | M | Measured over every stock row: File paths. Observed in the stock rows: 15 distinct values, 5 empty. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 56, 5 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `float32` | ? | Not decoded. Observed in the stock rows: 1 in every row. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `float32` | ? | Not decoded. Observed in the stock rows: 1 in every row. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `float32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 
 ## Referenced by
 
@@ -31,4 +31,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-4 of 6 columns not decoded.
+? 5 of 6 columns not decoded.

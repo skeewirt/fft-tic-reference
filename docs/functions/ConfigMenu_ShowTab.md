@@ -14,7 +14,7 @@ Fills the row list of a tab from its ConfigCategory and sets the tab states and 
 
 ## Behavior
 
-- V: walks the tab's ConfigCategory `ConfigItemIds` and keeps only the item ids its code names (0..27, 30..33, 39, 46..56, in that code's order); in mode 1 only those whose ConfigItem byte +72 is set. A ConfigItem row the code does not name is never listed, whatever the table says.
+- V: walks the tab's ConfigCategory `config_items` and keeps only the item ids its code names (0..27, 30..33, 39, 46..56, in that code's order); in mode 1 only those whose ConfigItem byte +72 is set. A ConfigItem row the code does not name is never listed, whatever the table says.
 - V: then sets the list count, the tab buttons' Active / Deactive states and the sub-header (+2888).
 
 ## State touched

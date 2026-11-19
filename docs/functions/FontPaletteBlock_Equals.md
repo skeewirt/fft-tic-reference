@@ -15,7 +15,7 @@ Equality test of two font palette blocks (the first 68 bytes of the 80-byte UIFo
 ## Behavior
 
 - V: exact compare of the int at +0 and of the four colour dwords at +8, +16, +28, +40 (compared byte by byte); every float at +4, +12, +20, +24, +32, +36, +44, +48, +52, +56, +60, +64 compares equal when |a - b| <= 1.1920929e-7 (FLT_EPSILON).
-- V: bytes 68..79 (FontTypeId2 and the +72..+74 bytes) are NOT compared.
+- V: bytes 68..79 (ui_font_type_2 and the +72..+74 bytes) are NOT compared.
 
 ## Notes
 

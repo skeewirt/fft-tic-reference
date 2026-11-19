@@ -14,20 +14,20 @@ One row of the nxd.enhanced_battle_event table (data table). The key is not stor
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="unk_type4"></a>`0x4` | unk_type4 | `int16` | I | Unk type4 (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 1 to 39, 17 distinct values. |
-| <a id="unk_06"></a>`0x6` | unk_06 | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="chara_control_id"></a>`0x8` | chara_control_id | `int16` | I | Chara control id (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 1006, 56 distinct values. |
-| <a id="unk_0a"></a>`0xA` | unk_0a | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 509, 22 distinct values. |
-| <a id="unk_0e"></a>`0xE` | unk_0e | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 886, 390 distinct values. |
-| <a id="unk_12"></a>`0x12` | unk_12 | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 65 distinct values. |
-| <a id="unk_1c"></a>`0x1C` | unk_1c | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_1e"></a>`0x1E` | unk_1e | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_20"></a>`0x20` | unk_20 | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 14, 4 distinct values. |
-| <a id="comment"></a>`0x24` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int16` | ? | Not decoded. Observed in the stock rows: 1 to 39, 17 distinct values. |
+| <a id="unknown06"></a>`0x6` | unknown06 | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="chara_control_id"></a>`0x8` | chara_control_id | `int16` | M | Measured over every stock row: Every value is a key of nxd.CharaControlId. Observed in the stock rows: 0 to 1006, 56 distinct values. |
+| <a id="unknown0a"></a>`0xA` | unknown0a | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 509, 22 distinct values. |
+| <a id="unknown0e"></a>`0xE` | unknown0e | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 886, 390 distinct values. |
+| <a id="unknown12"></a>`0x12` | unknown12 | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 65 distinct values. |
+| <a id="unknown1c"></a>`0x1C` | unknown1c | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown1e"></a>`0x1E` | unknown1e | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 14, 4 distinct values. |
+| <a id="unknown24"></a>`0x24` | unknown24 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 
 ## Referenced by
 
@@ -39,4 +39,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-10 of 14 columns not decoded.
+? 13 of 14 columns not decoded.

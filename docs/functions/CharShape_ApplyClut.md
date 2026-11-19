@@ -15,7 +15,7 @@ Looks up the shape's row in the CharShape table and, if the row names a colour-o
 ## Behavior
 
 - V: fetches the CharShape table (id 174) lazily from the table registry and the row whose key is the shape.
-- V: reads the row's dword at +12 (the colour-override key, column `charclut+Id`); if it is non-zero it calls CharClut_ApplyToPalette(clutId, pal).
+- V: reads the row's dword at +12 (the colour-override key, column `char_clut`); if it is non-zero it calls CharClut_ApplyToPalette(clutId, pal).
 - V: a missing table, missing row or a zero key leaves the palette unchanged.
 - V: called by CharaPalette_LoadClassic and by one other palette loader (sub_14026E838, the battle side).
 - V: the key is narrowed to its low byte (zero-extending byte load at 0x14026C7C0) before NxdTable_GetRowById, which itself takes a 32-bit key; the two callers hand only a byte register: CharaPalette_LoadClassic the low byte of the 32-bit look at 0x14026E806, sub_14026E838 the scene unit's sprite byte (+0xA) at 0x14026E8F3.

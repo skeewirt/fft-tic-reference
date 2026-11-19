@@ -14,10 +14,10 @@ One row of the nxd.ui_equip_ability_slot table (data table). The key is not stor
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | DLC gate bit set. Observed in the stock rows: 0 in every row. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `int32` | ? | Slot group (0..8). Observed in the stock rows: 0 to 8, 9 distinct values. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `int32` | ? | Slot order (0..10). Observed in the stock rows: 0 to 10, 11 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int32` | ? | Icon id (24..27 or 0). Observed in the stock rows: 0 to 27, 5 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 8, 9 distinct values. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 10, 11 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 27, 5 distinct values. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-3 of 4 columns not decoded.
+? 4 of 4 columns not decoded.

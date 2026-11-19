@@ -17,12 +17,11 @@ Battle event scripting rows keyed by battle, step and sub-step: event type and c
 ## Behavior
 
 - V: 2274 rows, three keys id (0..170) x id2 (0..14) x id3 (0..10); measured over every row of the stock file.
-- I: column roles not marked V are inferred from names and measured ranges.
 
 ## Notes
 
-Our names; the file format is described by the NXD format records.
+Column names are our own: a column is named only where its role was read in the code or measured over every stock row; the others are numbered by their offset. The file format is described by the NXD format records.
 
 ## Open questions
 
-? 10 of 14 columns not decoded (see the row layout)
+? 13 of 14 columns not decoded (see the row layout)

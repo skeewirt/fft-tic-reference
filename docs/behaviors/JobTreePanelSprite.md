@@ -19,7 +19,7 @@ Each panel shows the viewed unit as that job: the generic sheet of the unit's ge
 - V: JobList_Build lists job 91 (Bard) or 92 (Dancer) by the unit's gender, so the Bard panel is the Dancer for a female unit.
 - V: the HD sheet of a shape is the dword table at 0x1407151F0 (first g2d entry of the sheet pair: shape 1 -> 830, 96 -> 992, 97 -> 994, ..., 133 -> 1066); the colours come from the job's classic sheet.
 - V (retail frames): the generic Squire's classic sheet is mina_m / mina_w (both match, see below); the 10m / 10w sheets are civilians.
-- V: the palette is recoloured per shape before the atlas is built (CharShape_ApplyClut / CharClut_ApplyToPalette): Ramza's shapes carry CharShape charclut+Id 1, and every enabled CharCLUT row of key 1 replaces the 16-colour block numbered by its second key (Key2) with its RGB triples packed to RGB555. Without it the hovered Ramza differs by 0.8 mean in green and blue (frame t4); with it 0.042 mean, max 2 (91 % exact), which also settles the block index as Key2.
+- V: the palette is recoloured per shape before the atlas is built (CharShape_ApplyClut / CharClut_ApplyToPalette): Ramza's shapes carry CharShape char_clut 1, and every enabled CharCLUT row of key 1 replaces the 16-colour block numbered by its second key (Key2) with its RGB triples packed to RGB555. Without it the hovered Ramza differs by 0.8 mean in green and blue (frame t4); with it 0.042 mean, max 2 (91 % exact), which also settles the block index as Key2.
 - V (retail frame, 2026-10-30): a generic male unit's Squire panel shows the generic Squire. A generic female unit's Dancer panel, black (nobody has it), is the female Dancer silhouette.
 
 ## Notes

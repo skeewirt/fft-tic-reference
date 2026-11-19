@@ -14,8 +14,8 @@ One row of the nxd.ui_ability_icon table (data table). The key is not stored in 
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | DLC gate bit set. Observed in the stock rows: 0 in every row. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `int32` | ? | Group number 0..5 (icon category). Observed in the stock rows: 0 to 5, 6 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 5, 6 distinct values. |
 
 ## Referenced by
 
@@ -27,4 +27,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-1 of 2 columns not decoded.
+? 2 of 2 columns not decoded.

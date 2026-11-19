@@ -10,7 +10,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Returns 1 when the Job row (table 46, row = job id) has a nonzero HideJobTree byte at +60, else 0.
+Returns 1 when the Job row (table 46, row = job id) has a nonzero hidden_from_job_list byte at +60, else 0.
 
 ## Behavior
 

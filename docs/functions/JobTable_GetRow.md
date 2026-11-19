@@ -15,7 +15,7 @@ Returns the Job-en row for a job key (null if missing). Lazily caches table 46 i
 ## Behavior
 
 - V: registry lookup of table id (int)qword_143CDA2D8 + 46 = 46, then keyed row lookup (sub_1403D3AE8).
-- V: in-memory Job row fields read by callers: +24 jobtype (JobType key, runtime flag index), +32 jobcommand (JobCommand key), +36 / +40 monster pair, +44 TexturePartsIndex, +48 uijobabilityhelp.
+- V: in-memory Job row fields read by callers: +24 jobtype (JobType key, runtime flag index), +32 jobcommand (JobCommand key), +36 / +40 monster pair, +44 icon_part, +48 uijobabilityhelp.
 
 ## Referenced by
 
@@ -28,4 +28,4 @@ Same getter shape as AbilityTable_GetRow. A second inlined copy of the lookup si
 
 ## Open questions
 
-Job +52 (egg) and +56 / +60 (Unknown15, HideJobTree) have no reader found.
+Job +52 (egg) and +56 / +60 (Unknown15, hidden_from_job_list) have no reader found.

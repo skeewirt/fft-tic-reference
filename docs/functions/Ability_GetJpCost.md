@@ -10,7 +10,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Returns the ability's JP cost: the u16 at Ability row +64 (JpCost1 | JpCost2 << 8); 0xFFFF when the table or row is missing.
+Returns the ability's JP cost: the u16 at Ability row +64 (jp_cost_low | jp_cost_high << 8); 0xFFFF when the table or row is missing.
 
 ## Behavior
 

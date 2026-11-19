@@ -14,10 +14,10 @@ One row of the nxd.character_sort_info table (data table). The key is not stored
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `int16` | ? | Not decoded. Observed in the stock rows: -1 to 22, 14 distinct values. |
-| <a id="unk_06"></a>`0x6` | unk_06 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unk_07"></a>`0x7` | unk_07 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int16` | ? | Not decoded. Observed in the stock rows: -1 to 22, 14 distinct values. |
+| <a id="unknown06"></a>`0x6` | unknown06 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown07"></a>`0x7` | unknown07 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-3 of 4 columns not decoded.
+? 4 of 4 columns not decoded.

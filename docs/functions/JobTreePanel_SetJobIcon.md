@@ -16,7 +16,7 @@ Formats the job icon image path (j_NNN) of a tree panel from its job record; a L
 
 - V: formats the Icon table template (row 15) with the third argument, or with 24 when `locked` is set, and hands the resulting path to the setter (sub_14029BC00).
 - V: when `locked` is set and a Title node exists, the node's text id (+248) is forced to 1010 and its dirty byte (+316) set: UI text row 1010 is '???' in the English text table.
-- V: formats the Icon table's template (row 15) with the third argument, or with 24 when the locked flag is set, i.e. a job icon image path of the form j_%03d; the number is the job row's TexturePartsIndex (record +64).
+- V: formats the Icon table's template (row 15) with the third argument, or with 24 when the locked flag is set, i.e. a job icon image path of the form j_%03d; the number is the job row's icon_part (record +64).
 
 ## State touched
 

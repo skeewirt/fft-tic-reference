@@ -14,11 +14,11 @@ One row of the nxd.ui_credit_row table (data table). The key is not stored in th
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="type"></a>`0x4` | type | `int32` | I | Type (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 39, 12 distinct values. |
-| <a id="captions"></a>`0x8` | captions | `string (int32 offset)[] {int32 offset; uint32 count}` | I | Captions (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 988 distinct values. |
-| <a id="icon_id"></a>`0x10` | icon_id | `int32` | I | Row id of Icon (a reference by column name). Observed in the stock rows: 0 in every row. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 39, 12 distinct values. |
+| <a id="captions"></a>`0x8` | captions | `string (int32 offset)[] {int32 offset; uint32 count}` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 988 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 
 ## Referenced by
 
@@ -30,4 +30,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-1 of 5 columns not decoded.
+? 4 of 5 columns not decoded.

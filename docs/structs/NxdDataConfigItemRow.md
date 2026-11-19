@@ -14,24 +14,24 @@ One row of the nxd.config_item table (data table). The key is not stored in the 
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 5, 6 distinct values. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 331, 9 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 100, 17 distinct values. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 100, 3 distinct values. |
-| <a id="unk_18"></a>`0x18` | unk_18 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 3 distinct values. |
-| <a id="unk_1c"></a>`0x1C` | unk_1c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 3 distinct values. |
-| <a id="unk_20"></a>`0x20` | unk_20 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 5 distinct values. |
-| <a id="config_pad_list_id"></a>`0x28` | config_pad_list_id | `int32` | I | Row id of ConfigPadList (a reference by column name). Observed in the stock rows: 0 to 3, 4 distinct values. |
-| <a id="unk_2c"></a>`0x2C` | unk_2c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 11, 12 distinct values. |
-| <a id="unk_30"></a>`0x30` | unk_30 | `int32` | ? | Not decoded. Observed in the stock rows: 1 in every row. |
-| <a id="unk_34"></a>`0x34` | unk_34 | `int32` | ? | Not decoded. Observed in the stock rows: 1 to 5, 2 distinct values. |
-| <a id="item_name_text_ui_id"></a>`0x38` | item_name_text_ui_id | `int32` | I | UI text key (a row of the UI text table), from the column name. Observed in the stock rows: 0 to 4021, 45 distinct values. |
-| <a id="description_text_ui_id"></a>`0x3C` | description_text_ui_id | `int32` | I | UI text key (a row of the UI text table), from the column name. Observed in the stock rows: 0 to 3643, 13 distinct values. |
-| <a id="unk_40"></a>`0x40` | unk_40 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4022, 35 distinct values. |
-| <a id="unk_44"></a>`0x44` | unk_44 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4022, 40 distinct values. |
-| <a id="unk_48"></a>`0x48` | unk_48 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 5, 6 distinct values. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 331, 9 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 100, 17 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 100, 3 distinct values. |
+| <a id="unknown18"></a>`0x18` | unknown18 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 3 distinct values. |
+| <a id="unknown1c"></a>`0x1C` | unknown1c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 3 distinct values. |
+| <a id="unknown20"></a>`0x20` | unknown20 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 5 distinct values. |
+| <a id="config_pad_list"></a>`0x28` | config_pad_list | `int32` | M | Measured over every stock row: Every value is a key of nxd.ConfigPadList. Observed in the stock rows: 0 to 3, 4 distinct values. |
+| <a id="unknown2c"></a>`0x2C` | unknown2c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 11, 12 distinct values. |
+| <a id="unknown30"></a>`0x30` | unknown30 | `int32` | ? | Not decoded. Observed in the stock rows: 1 in every row. |
+| <a id="unknown34"></a>`0x34` | unknown34 | `int32` | ? | Not decoded. Observed in the stock rows: 1 to 5, 2 distinct values. |
+| <a id="name_text"></a>`0x38` | name_text | `int32` | M | Measured over every stock row: Every value is a line of nxd.UI. Observed in the stock rows: 0 to 4021, 45 distinct values. |
+| <a id="description_text"></a>`0x3C` | description_text | `int32` | M | Measured over every stock row: Every value is a line of nxd.UI. Observed in the stock rows: 0 to 3643, 13 distinct values. |
+| <a id="unknown40"></a>`0x40` | unknown40 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4022, 35 distinct values. |
+| <a id="unknown44"></a>`0x44` | unknown44 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4022, 40 distinct values. |
+| <a id="unknown48"></a>`0x48` | unknown48 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -43,4 +43,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-14 of 18 columns not decoded.
+? 15 of 18 columns not decoded.

@@ -17,7 +17,7 @@ Scene task that refreshes the battle message when a unit's turn starts: writes t
 - V: the acting unit is g_BattleUnitTable + 512 * SHIWORD(dword_1407DCF98) when the index is at most 0x14.
 - V: when unit byte +0x61 has bit 3 set: if byte +0x1A1 maps (through byte_14067E010) to 10, entry 0 becomes kind 5 with id = that byte + 0xB000; otherwise the signed word at unit +0x1A2 is written into entry 0 as kind 6 with id = word + 0x7000 through BattleMsg_SetKind6.
 - V: this ability path has no 9-bit mask, so the ability id reaches the banner whole.
-- V: the function then stops and starts the action-list widget states (UIName keys ActionListPosition2 and ActionListPosition3), stores qword_140D40940 = sub_1402371F8 and calls it, and runs scene tasks.
+- V: the function then stops and starts the action-list widget states (element keys ActionListPosition2 and ActionListPosition3), stores qword_140D40940 = sub_1402371F8 and calls it, and runs scene tasks.
 - V: 0x434 bytes; no direct call site: its address is loaded in sub_140234468 and stored in the pointer tables at 0x140801500, 0x140802AB0, 0x140804060 and 0x140805610.
 - I: it is the scene task behind the unit turn message; the name is ours.
 - ?: which scene task invokes it; what unit +0x61 bit 3 is.

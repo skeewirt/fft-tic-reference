@@ -17,9 +17,9 @@ Creates the writable ability action table: copies the executable's built-in tabl
 - V: copies 0x1CC0 bytes (368 records x 20) from the built-in table to the working table in one move.
 - V: looks up nxd table 247 (cached in a global after the first lookup) and walks its rows by row index, one row per ability id, up to the table's row count.
 - V: a field is overwritten only when the override cell is not negative; a negative cell leaves the built-in value.
-- V: record layout of the 20 bytes: +0 Range, +1 EffectArea, +2 Vertical, +3..4 first flag list, +5..6 second flag list, +7 Element, +8 Formula, +9 X, +10 Y, +11 InflictStatus, +12 CT, +13 MPCost. The remaining bytes (+14..19) are never written by this function.
+- V: record layout of the 20 bytes: +0 Range, +1 effect_area, +2 Vertical, +3..4 first flag list, +5..6 second flag list, +7 Element, +8 Formula, +9 X, +10 Y, +11 inflict_status, +12 CT, +13 mp. The remaining bytes (+14..19) are never written by this function.
 - V: the two flag lists are list cells in the nxd row (count at +8 / +16, data offset at +4 / +12); the first two entries of each list become the two bytes.
-- I: a live comparison of the built-in table and the working copy showed 47 differing bytes, all in the CT and MPCost columns, matching the stock override rows.
+- I: a live comparison of the built-in table and the working copy showed 47 differing bytes, all in the CT and mp columns, matching the stock override rows.
 
 ## Referenced by
 

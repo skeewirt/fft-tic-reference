@@ -10,11 +10,11 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Loads a screen's layout: row of UI table 24 (`uiaddon.nxd`), whose `UiFilePath` names the layout file.
+Loads a screen's layout: row of UI table 24 (`uiaddon.nxd`), whose `path` names the layout file.
 
 ## Behavior
 
-- V: looks the row up in UI table 24 and, when it exists, loads the layout with `sub_1401D1A3C` using the row's `UiFilePath`.
+- V: looks the row up in UI table 24 and, when it exists, loads the layout with `sub_1401D1A3C` using the row's `path`.
 
 ## Referenced by
 

@@ -15,7 +15,7 @@ For every active state of the component (vector comp+616 .. +624), evaluates the
 ## Behavior
 
 - V: skipped when the widget's byte (comp+496 -> +72) is set. For each state S (S+104 = active): t = float S+80. When S+24 != 0 (a transition: a previous state name at S+32/+48 and a component/state key) the previous state's channel list is looked up (GUIWidget_FindComponentCached + GUINode_FindState) and applied first with time t - (float)(int)S+64 when t >= that delay.
-- V: each target of the state's own list (vector S+144 .. +152; element = a UIName) is resolved: sub_1404007FC tests it against the global 'self' name (qword_143CDA2A0+5144): the component itself is handled by sub_1404015C0, any other name is a node, found by GUINode_FindPartByName(comp+272, name) and animated by GUINode_ApplyAnimChannels(channels, t, node, S+111).
+- V: each target of the state's own list (vector S+144 .. +152; element = a element) is resolved: sub_1404007FC tests it against the global 'self' name (qword_143CDA2A0+5144): the component itself is handled by sub_1404015C0, any other name is a node, found by GUINode_FindPartByName(comp+272, name) and animated by GUINode_ApplyAnimChannels(channels, t, node, S+111).
 - V: nothing is interpolated here; this function only selects states, targets and times.
 
 ## State touched

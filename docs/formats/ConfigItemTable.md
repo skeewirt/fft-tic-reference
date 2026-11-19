@@ -16,7 +16,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 | Offset | Part | Type | Conf | Meaning |
 |---|---|---|---|---|
 | <a id="nametextid"></a>56 | NameTextId | `int32` | V | The row's name text id. |
-| <a id="descriptiontextuiid"></a>64 | DescriptionTextUIId | `int32` | V | The help text id used in mode 1 (the mode select's screen). |
+| <a id="description_text"></a>64 | description_text | `int32` | V | The help text id used in mode 1 (the mode select's screen). |
 | <a id="unknown44"></a>68 | Unknown44 | `int32` | V | The help text id used in mode 0 (in game). |
 | <a id="mode1_flag"></a>72 | mode1_flag | `uint8` | V | In mode 1 only rows with this byte set are listed. |
 | <a id="unknown4 (row type)"></a>0 | Unknown4 (row type) | `int32` | V | 1 a value with arrows (Select), 2 a slider, 3 an On / Off switch (Swich), 4 a value from a list (SelectList), 5 a key to press (UIDialog 232). Offset is not read; the column name is. Checked against stock rows: 13 Horizontal Camera Inversion = 3, 7 Master Volume = 2, 0 Display Mode = 1, 46 Confirm = 5. |

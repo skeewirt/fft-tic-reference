@@ -15,7 +15,7 @@ Builds the 148-byte job record used by the job tree and job-change screens from 
 ## Behavior
 
 - V: stores the key's job id at rec+72.
-- V: the Job row is taken from the key id (or the key's +36 field when the id is not positive) via JobTable_GetRow; rec+64 receives the row's dword at +44 (TexturePartsIndex, the job icon number), 0 if no row.
+- V: the Job row is taken from the key id (or the key's +36 field when the id is not positive) via JobTable_GetRow; rec+64 receives the row's dword at +44 (icon_part, the job icon number), 0 if no row.
 - V: rec+0..63 receives the display text: a formatted UI text 0x3FA with the job id and a flag (key +32 bit 0x40) for positive ids, or text 0x50 otherwise.
 - V: if the key carries a level array (+8) rec+68 gets the job's 4-bit level (high nibble for even job index, low nibble for odd).
 - V: if the key also carries a total-points array (+24), rec+84 is the points still needed for the next level (a threshold lookup for level+1 minus the stored total); level 8 or above, and job 161, give 0x20000000.

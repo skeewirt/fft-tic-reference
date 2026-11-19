@@ -2,7 +2,7 @@
 
 - **Address:** `0x1404096D4`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `GUINodeState *GUINode_NewState(GUIComponent *comp, UIName *key)`
+- **Prototype:** `GUINodeState *GUINode_NewState(GUIComponent *comp, element *key)`
 - **Callers:** sub_140409684 (the by-name wrapper GUIComponent_LoadDef uses)
 - **Callees:** GUINodeState_Alloc, UIName_Assign
 

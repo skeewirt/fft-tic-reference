@@ -14,9 +14,9 @@ One row of the nxd.chapter_file table (data table). The key is not stored in the
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="unk_04"></a>`0x4` | unk_04 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="chapter_number"></a>`0x5` | chapter_number | `uint8` | I | Chapter number (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 0 to 4, 5 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="chapter"></a>`0x5` | chapter | `uint8` | M | Measured over every stock row: Every value is a key of nxd.Chapter-en. Observed in the stock rows: 0 to 4, 5 distinct values. |
 
 ## Referenced by
 
@@ -28,4 +28,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-1 of 3 columns not decoded.
+? 2 of 3 columns not decoded.

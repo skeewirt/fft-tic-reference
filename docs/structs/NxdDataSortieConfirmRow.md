@@ -14,18 +14,18 @@ One row of the nxd.sortie_confirm table (data table). The key is not stored in t
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="map_id"></a>`0x4` | map_id | `int32` | I | Row id of Map (a reference by column name). Observed in the stock rows: 0 to 91, 28 distinct values. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 14, 5 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int32` | ? | Not decoded. Observed in the stock rows: -1 in every row. |
-| <a id="event_ui_id"></a>`0x10` | event_ui_id | `int32` | I | UI text key (a row of the UI text table), from the column name. Observed in the stock rows: 0 to 1507, 3 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 3, 2 distinct values. |
-| <a id="max_unit_ui_id"></a>`0x18` | max_unit_ui_id | `int32` | I | UI text key (a row of the UI text table), from the column name. Observed in the stock rows: 0 to 1502, 3 distinct values. |
-| <a id="unk_1c"></a>`0x1C` | unk_1c | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 172, 31 distinct values. |
-| <a id="threat_rating_ui_id"></a>`0x20` | threat_rating_ui_id | `int32` | I | UI text key (a row of the UI text table), from the column name. Observed in the stock rows: 0 to 1505, 4 distinct values. |
-| <a id="unk_24"></a>`0x24` | unk_24 | `int32` | ? | Not decoded. Observed in the stock rows: 48 in every row. |
-| <a id="unk_28"></a>`0x28` | unk_28 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 2 distinct values. |
-| <a id="unk_2c"></a>`0x2C` | unk_2c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="map"></a>`0x4` | map | `int32` | M | Measured over every stock row: Every value is a key of nxd.Map. Observed in the stock rows: 0 to 91, 28 distinct values. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 14, 5 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: -1 in every row. |
+| <a id="event_text"></a>`0x10` | event_text | `int32` | M | Measured over every stock row: Every value is a line of nxd.UI. Observed in the stock rows: 0 to 1507, 3 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 3, 2 distinct values. |
+| <a id="max_units_text"></a>`0x18` | max_units_text | `int32` | M | Measured over every stock row: Every value is a line of nxd.UI. Observed in the stock rows: 0 to 1502, 3 distinct values. |
+| <a id="unknown1c"></a>`0x1C` | unknown1c | `int32` | ? | Not decoded. Observed in the stock rows: -1 to 172, 31 distinct values. |
+| <a id="threat_text"></a>`0x20` | threat_text | `int32` | M | Measured over every stock row: Every value is a line of nxd.UI. Observed in the stock rows: 0 to 1505, 4 distinct values. |
+| <a id="unknown24"></a>`0x24` | unknown24 | `int32` | ? | Not decoded. Observed in the stock rows: 48 in every row. |
+| <a id="unknown28"></a>`0x28` | unknown28 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 2 distinct values. |
+| <a id="unknown2c"></a>`0x2C` | unknown2c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -37,4 +37,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-7 of 12 columns not decoded.
+? 8 of 12 columns not decoded.

@@ -14,12 +14,12 @@ One row of the nxd.refined_bg_ui_texture table (data table). The key is not stor
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="refined_bg_ui_texture_frames_ids"></a>`0x4` | refined_bg_ui_texture_frames_ids | `int32[] {int32 offset; uint32 count}` | I | UI text key (a row of the UI text table), from the column name. Observed in the stock rows: 19 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int16` | ? | Not decoded. Observed in the stock rows: 1 to 3, 2 distinct values. |
-| <a id="unk_0e"></a>`0xE` | unk_0e | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 29, 2 distinct values. |
-| <a id="unk_10"></a>`0x10` | unk_10 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 6, 2 distinct values. |
-| <a id="unk_11"></a>`0x11` | unk_11 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 5, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="refined_bg_ui_texture_frameses"></a>`0x4` | refined_bg_ui_texture_frameses | `int32[] {int32 offset; uint32 count}` | M | Measured over every stock row: Every value is a key of nxd.RefinedBgUITextureFrames. Observed in the stock rows: 19 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int16` | ? | Not decoded. Observed in the stock rows: 1 to 3, 2 distinct values. |
+| <a id="unknown0e"></a>`0xE` | unknown0e | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 29, 2 distinct values. |
+| <a id="unknown10"></a>`0x10` | unknown10 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 6, 2 distinct values. |
+| <a id="unknown11"></a>`0x11` | unknown11 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 5, 2 distinct values. |
 
 ## Referenced by
 
@@ -31,4 +31,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-4 of 6 columns not decoded.
+? 5 of 6 columns not decoded.

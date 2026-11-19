@@ -14,9 +14,9 @@ One row of the nxd.config_category table (data table). The key is not stored in 
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="config_item_ids"></a>`0x4` | config_item_ids | `int32[] {int32 offset; uint32 count}` | I | Config item ids (name taken from the column; role inferred, not traced to a reader). Observed in the stock rows: 11 distinct values. |
-| <a id="name_ui_id"></a>`0xC` | name_ui_id | `int32` | I | UI text key (a row of the UI text table), from the column name. Observed in the stock rows: 0 to 3612, 10 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="config_items"></a>`0x4` | config_items | `int32[] {int32 offset; uint32 count}` | M | Measured over every stock row: Every value is a key of nxd.ConfigItem. Observed in the stock rows: 11 distinct values. |
+| <a id="name_text"></a>`0xC` | name_text | `int32` | M | Measured over every stock row: Every value is a line of nxd.UI. Observed in the stock rows: 0 to 3612, 10 distinct values. |
 
 ## Referenced by
 
@@ -28,4 +28,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 1 of 3 columns not decoded.

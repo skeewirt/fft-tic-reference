@@ -2,7 +2,7 @@
 
 - **Address:** `0x1403FBDCC`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `UIResource **GUIWidget_FindResourceByKey(GUIWidget *w, UIName *key)`
+- **Prototype:** `UIResource **GUIWidget_FindResourceByKey(GUIWidget *w, element *key)`
 - **Callers:** GUINode_DrawKind10, sub_1403F495C
 - **Callees:** none
 
@@ -19,7 +19,7 @@ Linear search of the widget's pointer vector (widget+256 .. +264) for the entry 
 
 ## Notes
 
-The name is ours. The element's first 12 bytes use the same {char *name; int hash} layout as UIName. GUINode_DrawKind10 calls this vector the widget's resource vector.
+The name is ours. The element's first 12 bytes use the same {char *name; int hash} layout as element. GUINode_DrawKind10 calls this vector the widget's resource vector.
 
 ## Open questions
 

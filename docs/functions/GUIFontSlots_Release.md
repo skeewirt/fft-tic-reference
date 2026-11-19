@@ -28,4 +28,4 @@ Slot id layout (V, from the decode in GUIFontSlots_Release / _GetResource): id =
 
 ## Open questions
 
-? who finally frees the resource of a refcount-0 record (not traced; sub_1403D8D1C does the same for UIName records and frees there).
+? who finally frees the resource of a refcount-0 record (not traced; sub_1403D8D1C does the same for element records and frees there).

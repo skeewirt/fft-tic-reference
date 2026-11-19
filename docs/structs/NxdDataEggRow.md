@@ -14,12 +14,12 @@ One row of the nxd.egg table (data table). The key is not stored in the row: it 
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | DLC gate bit set. Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Null. Observed in the stock rows: empty in every row. |
-| <a id="job_id1"></a>`0x8` | job_id1 | `int32` | V | job id given to the hatched monster at stage 1. Observed in the stock rows: 0 to 139, 17 distinct values. |
-| <a id="job_id2"></a>`0xC` | job_id2 | `int32` | V | job id at stage 2. Observed in the stock rows: 0 to 140, 17 distinct values. |
-| <a id="job_id3"></a>`0x10` | job_id3 | `int32` | V | job id at stage 3. Observed in the stock rows: 0 to 141, 33 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int32` | I | modulus of a random draw: n = rand % Unknown14 + 1 (min 2); the unit's A+5 value becomes 17*n (<= 365). Observed in the stock rows: 0 to 9, 8 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="job"></a>`0x8` | job | `int32` | M | Measured over every stock row: Every value is a key of nxd.Job-en. Observed in the stock rows: 0 to 139, 17 distinct values. |
+| <a id="job_2"></a>`0xC` | job_2 | `int32` | M | Measured over every stock row: Every value is a key of nxd.Job-en. Observed in the stock rows: 0 to 140, 17 distinct values. |
+| <a id="job_3"></a>`0x10` | job_3 | `int32` | M | Measured over every stock row: Every value is a key of nxd.Job-en. Observed in the stock rows: 0 to 141, 33 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 9, 8 distinct values. |
 
 ## Referenced by
 
@@ -31,4 +31,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 3 of 6 columns not decoded.

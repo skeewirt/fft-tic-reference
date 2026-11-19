@@ -14,11 +14,11 @@ One row of the nxd.system_bonus_item table (English text table; the other langua
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="title"></a>`0x4` | title | `string (int32 offset)` | I | Title text. Observed in the stock rows: 3 distinct values, 1 empty. |
-| <a id="description"></a>`0x8` | description | `string (int32 offset)` | I | Description text. Observed in the stock rows: 3 distinct values, 1 empty. |
-| <a id="union_id"></a>`0xC` | union_id | `union {int32 kind; int32 id}` | I | Typed reference: a table kind and a row id in that table. Observed in the stock rows: 3 distinct values. |
-| <a id="comment"></a>`0x14` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="title"></a>`0x4` | title | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 3 distinct values, 1 empty. |
+| <a id="description"></a>`0x8` | description | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 3 distinct values, 1 empty. |
+| <a id="link"></a>`0xC` | link | `union {int32 kind; int32 id}` | M | Measured over every stock row: Typed references (table:row). Observed in the stock rows: 3 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 
 ## Referenced by
 
@@ -30,4 +30,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-None recorded.
+? 2 of 5 columns not decoded.

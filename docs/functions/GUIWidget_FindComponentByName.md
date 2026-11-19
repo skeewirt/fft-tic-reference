@@ -2,7 +2,7 @@
 
 - **Address:** `0x1403F96CC`
 - **Area:** [UI framework](../areas/ui-framework.md)
-- **Prototype:** `GUIComponent *GUIWidget_FindComponentByName(GUIWidget *w, UIName *name)`
+- **Prototype:** `GUIComponent *GUIWidget_FindComponentByName(GUIWidget *w, element *name)`
 - **Callers:** sub_1401BC92C (a dozen call sites), GUINode_DrawKind10 and others
 - **Callees:** sub_140098898, sub_140098A58
 

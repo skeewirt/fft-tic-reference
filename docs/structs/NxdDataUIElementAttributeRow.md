@@ -14,10 +14,10 @@ One row of the nxd.ui_element_attribute table (English text table; the other lan
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="name"></a>`0x4` | name | `string (int32 offset)` | I | Name text. Observed in the stock rows: 8 distinct values, 0 empty. |
-| <a id="unk_08"></a>`0x8` | unk_08 | `uint8` | ? | Not decoded. Observed in the stock rows: 1 to 8, 8 distinct values. |
-| <a id="unk_09"></a>`0x9` | unk_09 | `uint8` | ? | Not decoded. Observed in the stock rows: 1 to 8, 8 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="name"></a>`0x4` | name | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 8 distinct values, 0 empty. |
+| <a id="unknown08"></a>`0x8` | unknown08 | `uint8` | ? | Not decoded. Observed in the stock rows: 1 to 8, 8 distinct values. |
+| <a id="unknown09"></a>`0x9` | unknown09 | `uint8` | ? | Not decoded. Observed in the stock rows: 1 to 8, 8 distinct values. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-2 of 4 columns not decoded.
+? 3 of 4 columns not decoded.

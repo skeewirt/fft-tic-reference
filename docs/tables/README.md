@@ -308,7 +308,7 @@ Where the game keeps its data tables, NXD files and the fixed tables inside the 
 | [NxdDataAbilityReactionVoiceType](NxdDataAbilityReactionVoiceType.md) | NXD file | 330 | 4 rows of 48 bytes | Four rows of numeric voice-reaction parameters selected by an ability's reaction voice type; columns not decoded. |
 | [NxdDataAchievement](NxdDataAchievement.md) | NXD file | 195 | 51 rows of 28 bytes, text in 7 languages | Per achievement: link to its telemetry record, a few story-progress numbers and the description text. |
 | [NxdDataAchievementArray](NxdDataAchievementArray.md) | NXD file | 213 | 7 rows of 28 bytes | Seven achievement groupings: arrays of achievement ids per group. |
-| [NxdDataBattle](NxdDataBattle.md) | NXD file | 83 | 713 rows of 4 bytes | Index of battle ids: the rows carry no data column besides the DLC gate; other tables key off these ids. |
+| [NxdDataBattle](NxdDataBattle.md) | NXD file | 83 | 713 rows of 4 bytes | Index of battle ids: the rows carry no data column besides the first one at +0; other tables key off these ids. |
 | [NxdDataBattleEventOpcode](NxdDataBattleEventOpcode.md) | NXD file | 221 | 40 rows of 8 bytes | Index of the battle event opcode numbers (40 rows); rows carry only a designer comment slot. |
 | [NxdDataBattleObjective](NxdDataBattleObjective.md) | NXD file | 47 | 69 rows of 16 bytes, text in 7 languages | Win-condition captions shown in the battle system menu, with a flag marking protect-the-unit objectives. |
 | [NxdDataBattleSignal](NxdDataBattleSignal.md) | NXD file | 214 | 71 rows of 16 bytes, text in 7 languages | Short in-battle banner texts (titles) with a flag for evasion messages. |

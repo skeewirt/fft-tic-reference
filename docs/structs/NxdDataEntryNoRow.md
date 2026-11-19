@@ -14,11 +14,11 @@ One row of the nxd.entry_no table (data table). The key is not stored in the row
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="dlc_flags"></a>`0x0` | dlc_flags | `int32` | I | Downloadable-content gate bit set (0 in the stock rows). Observed in the stock rows: 0 in every row. |
-| <a id="comment"></a>`0x4` | comment | `string (int32 offset)` | I | Designer comment slot. Observed in the stock rows: empty in every row. |
-| <a id="sortie_confirm_id"></a>`0x8` | sortie_confirm_id | `int32` | I | Row id of SortieConfirm (a reference by column name). Observed in the stock rows: 0 to 341, 196 distinct values. |
-| <a id="unk_0c"></a>`0xC` | unk_0c | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 41 distinct values. |
-| <a id="unk_14"></a>`0x14` | unk_14 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 3 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="sortie_confirm"></a>`0x8` | sortie_confirm | `int32` | M | Measured over every stock row: Every value is a key of nxd.SortieConfirm. Observed in the stock rows: 0 to 341, 196 distinct values. |
+| <a id="unknown0c"></a>`0xC` | unknown0c | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 41 distinct values. |
+| <a id="unknown14"></a>`0x14` | unknown14 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 3 distinct values. |
 
 ## Referenced by
 
@@ -30,4 +30,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-2 of 5 columns not decoded.
+? 4 of 5 columns not decoded.

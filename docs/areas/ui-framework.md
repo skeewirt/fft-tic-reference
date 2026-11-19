@@ -436,7 +436,7 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [UI_GetHelpSlotState](../functions/UI_GetHelpSlotState.md) | `0x1402BB604` | Decides whether the shared help-description slot is visible and returns a masked UI state word for the caller. |
 | [UIAddon_CanTakeInput](../functions/UIAddon_CanTakeInput.md) | `0x1401D21D8` | Vtable slot 3: true unless the add-on is showing (+42) or hiding (+43). |
 | [UIAddon_LoadByPath](../functions/UIAddon_LoadByPath.md) | `0x1401D1A3C` | Loads an add-on's layout from a path: a path starting with '#' names a widget, any other path is a layout file. |
-| [UIAddon_LoadByRow](../functions/UIAddon_LoadByRow.md) | `0x1401D1A00` | Loads a screen's layout: row of UI table 24 (`uiaddon.nxd`), whose `UiFilePath` names the layout file. |
+| [UIAddon_LoadByRow](../functions/UIAddon_LoadByRow.md) | `0x1401D1A00` | Loads a screen's layout: row of UI table 24 (`uiaddon.nxd`), whose `path` names the layout file. |
 | [UIAddon_OnEventBase](../functions/UIAddon_OnEventBase.md) | `0x1401D1F7C` | Base event handler every add-on's own handler calls first. |
 | [UIAddonFFTOConfig_BindNodes](../functions/UIAddonFFTOConfig_BindNodes.md) | `0x140188878` | Node binding of the General Options screen (vtable slot 4): picks the tabs by mode and binds Config, TabAll, ConfigList, SelectList, TextArea and ConfirmWindowAll. |
 | [UIAddonFFTOConfig_Ctor](../functions/UIAddonFFTOConfig_Ctor.md) | `0x14018853C` | Constructor of the General Options screen add-on (3416 bytes): sets its vtable and builds the gadgets. |
@@ -710,7 +710,7 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 |---|---|
 | [TitleMenuEntryKinds](../registries/TitleMenuEntryKinds.md) | The six kinds of row of the Enhanced title menu: the kind byte stored in each row, the text id of its label (UI table, nxd id 19) and what choosing it does. |
 | [TitleModeSelectButtons](../registries/TitleModeSelectButtons.md) | The button ids of the mode select screen as `UILauncher_OnMenuAction` handles them. |
-| [UIAddonRows](../registries/UIAddonRows.md) | Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `UiFilePath` names the layout file a screen loads. |
+| [UIAddonRows](../registries/UIAddonRows.md) | Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `path` names the layout file a screen loads. |
 | [UIAnimCurves](../registries/UIAnimCurves.md) | The easing curves of UI keyframes: curve id to blend function of the position t within a key interval (UIAnim_Curve). |
 | [UIButtonGuideKeysOfGeneralOptions](../registries/UIButtonGuideKeysOfGeneralOptions.md) | The guide bar keys (`UIButtonGuide` rows, UI table 33) the settings screen uses, with the text id of each sub-row; 'right' marks sub-rows drawn on the right (byte +37 `Unknown25`). |
 | [UIDialogRowsOfSettings](../registries/UIDialogRowsOfSettings.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
@@ -720,7 +720,7 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 
 | Name | Extension | Summary |
 |---|---|---|
-| [ConfigCategoryTable](../formats/ConfigCategoryTable.md) | `.nxd` | `configcategory.nxd` (nxd 249): the tabs of the settings screens; `ConfigItemIds` are the rows of a tab and `NameUIId` its title. |
+| [ConfigCategoryTable](../formats/ConfigCategoryTable.md) | `.nxd` | `configcategory.nxd` (nxd 249): the tabs of the settings screens; `config_items` are the rows of a tab and `name_text` its title. |
 | [ConfigItemTable](../formats/ConfigItemTable.md) | `.nxd` | `configitem.nxd` (nxd 250): one row per setting of the settings screens. |
 | [ConfigScreenLayout](../formats/ConfigScreenLayout.md) | `.uib` | `ffto_config_enhanced_ver02.uib` and `ffto_config_parts.uib` (pack 0008): the layout of the settings screen and its row, switch, select and slider parts. |
 | [ItemIconPath](../formats/ItemIconPath.md) | `.utexpt with .tex` | The two per-item picture paths: a detail picture (Icon table row 12) and a list picture (row 13), both formatted from the item id and both texture-parts URIs. |

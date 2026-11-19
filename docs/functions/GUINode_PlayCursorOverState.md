@@ -28,7 +28,7 @@ Stops the node's CursorOut state, starts its CursorOver state and sets the curso
 
 ## Notes
 
-The state keys are the UIName keys 'CursorOver' (+4696) and 'CursorOut' (+4712) (names read in the live state traces).
+The state keys are the element keys 'CursorOver' (+4696) and 'CursorOut' (+4712) (names read in the live state traces).
 
 ## Open questions
 
