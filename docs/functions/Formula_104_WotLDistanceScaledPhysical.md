@@ -11,23 +11,21 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-WotL distance-scaled physical: weapon damage adjusted by the distance between caster and target.
+Distance-scaled weapon attack: the weapon-type value and WP, with WP + 3 next to the target, WP + 1 at two tiles and half the weapon-type value from three tiles, then the whole physical chain.
 
 ## Behavior
 
+- V: re-read 2026-11-18 (IDA, whole body): the earlier calculation said Y; the bonus goes to B, the weapon power (no ability Y is read).
 - V: Current-build decompilation confirms the chain and arithmetic shown above.
 - V: Current-build symbol size is 190 bytes.
 
 ## Calculation
 
 ```text
-Base damage from CalcWeaponDamage (weapon-type specific)
-then distance modifier:
- adjacent (1 tile): Y += 3 (bonus damage)
- near (2 tiles): Y += 1 (small bonus)
- far (3+ tiles): PA /= 2 (halved damage)
-then × [phys modifiers] × Zodiac × [element]
-capped at 32767 + faith adjust + status
+Gate: sub_140306C90 (physical evade); sub_140305A48 (A = weapon-type value, B = WP)
+Distance = max(|dx|, |dy|) of the two units' tiles (+0x4F, +0x50)
+1: B += 3; 2: B += 1; 3 or more: A = A / 2
+Then element boost, Formula_PhysMods, critical, Damage = A x B, element affinity, absorb, status tail
 ```
 
 ## Notes

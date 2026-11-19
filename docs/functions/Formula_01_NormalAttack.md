@@ -11,10 +11,11 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Normal attack damage: weapon-type PA setup, weapon power, the standard physical modifiers and elemental affinity.
+Normal attack: the physical evade gate, then the whole weapon attack (weapon-type value x WP with the physical modifiers, critical and element), and the weapon's status on the 19 percent roll.
 
 ## Behavior
 
+- V: re-read 2026-11-18 (IDA, whole body): the earlier calculation (PA += WP, PA x Y) did not match the body: B is the weapon power, A the weapon-type value; no ability X or Y is read.
 - V: Current-build decompilation confirms the chain and arithmetic shown above.
 - V: Current-build symbol size is 32 bytes.
 - V: Typical abilities: Attack, Choco Beak, Tackle, Bite, Claw, all monster basic attacks (16 total).
@@ -22,12 +23,10 @@ Normal attack damage: weapon-type PA setup, weapon power, the standard physical 
 ## Calculation
 
 ```text
-1. CalcWeaponDamage sets PA based on weapon type (fists/swords/guns etc)
-2. PA += WP (weapon power added to PA)
-3. Damage = PA × Y × [×2 dual wield] × [×3/2 Berserk] × [×3/2 AttackUp]
- × [×2/3 target Protect] × [×3/2 target Sleep/Charging]
- × Zodiac(50-150%) × [element absorb/weak/half]
-capped at 32767, then counter check
+Gate: sub_140306C90 (physical evade)
+Formula_PhysAttackFull: A, B from the weapon type (sub_140305A48), A += weapon bonus,
+  element boost, Formula_PhysMods, critical, Damage = A x B, element affinity, absorb
+19 % roll (Formula_StatusChance19): Formula_StatusTailKeepHit adds the weapon's status
 ```
 
 ## Notes

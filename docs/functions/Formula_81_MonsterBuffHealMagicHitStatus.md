@@ -11,10 +11,11 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Monster buff/heal: a magic hit check that applies a status.
+Status with a magic chance: MA + X with the element boost, the caster's magic modifiers and zodiac (no Faith); on success the ability's status through Formula_56.
 
 ## Behavior
 
+- V: re-read 2026-11-18 (IDA, whole body): the earlier calculation listed a Faith factor; the body calls no faith step.
 - V: Current-build decompilation confirms the chain and arithmetic shown above.
 - V: Current-build symbol size is 83 bytes.
 - V: Typical abilities: Choco Esuna, Guardian Nymph, Shell Nymph.
@@ -22,10 +23,9 @@ Monster buff/heal: a magic hit check that applies a status.
 ## Calculation
 
 ```text
-Hit = (MA + X) × [×5/4 element] × [×4/3 MagicAttackUp]
-    × Zodiac(50-150%) × faith_scaling
-On success: apply status via F56 engine
-(Uses CalcTotalDamage — additive base, same as F10/F11)
+Chance: A = MA, B = X; Formula_ElemBoostAction, Formula_CasterMagMods, Formula_Zodiac,
+  Formula_ChanceSum, Formula_ChanceRoll (no Faith)
+On success: Formula_56_StatusOnlyApplication
 ```
 
 ## Notes

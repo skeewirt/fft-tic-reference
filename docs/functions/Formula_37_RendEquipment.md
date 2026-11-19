@@ -11,10 +11,11 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Rend equipment: an equipment-slot check then physical damage; a recursive sub-action handles the second hit.
+Break equipment: when Action_PickTargetEquipment finds a piece it resolves a sub-action; otherwise the physical evade gate, then a chance of PA + WP + Y; on success (and past Formula_StealGate) the flag word gets the break bit 0x04.
 
 ## Behavior
 
+- V: re-read 2026-11-18 (IDA, whole body): the earlier calculation called it PA x WP damage; the body rolls a chance and writes no damage.
 - V: Current-build decompilation confirms the chain and arithmetic shown above.
 - V: Current-build symbol size is 342 bytes.
 - V: Typical abilities: Rend Helm/Armor/Shield/Weapon.
@@ -23,9 +24,11 @@ Rend equipment: an equipment-slot check then physical damage; a recursive sub-ac
 ## Calculation
 
 ```text
-Equipment-slot check; if a slot is selected, a recursive sub-action is dispatched
-Physical evade check, then PA × weapon power through the physical chain
-On success: destroys the target's equipment in that slot
+Action_PickTargetEquipment != 0: Battle_ResolveAction of a sub-action (caster +0x1A0), flag 0x2000 on a miss
+else Gate: sub_140306C90 (physical evade)
+Chance: A = PA, B = WP + Y; Formula_PhysMods, Formula_ChanceSum, Formula_ChanceRoll
+Failure: flag word (+18) = 0x2000 outside a forecast
+Success: Formula_StealGate; still a hit -> flag word = 4
 ```
 
 ## Notes

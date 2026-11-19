@@ -9,7 +9,7 @@ Functions: 151, Observed behaviours: 1.
 | Name | Address | Purpose |
 |---|---|---|
 | [Battle_Rand15](../functions/Battle_Rand15.md) | `0x14030D088` | The battle's random number: a 15-bit value, fixed while a forecast runs. |
-| [Formula_01_NormalAttack](../functions/Formula_01_NormalAttack.md) | `0x140307120` | Normal attack damage: weapon-type PA setup, weapon power, the standard physical modifiers and elemental affinity. |
+| [Formula_01_NormalAttack](../functions/Formula_01_NormalAttack.md) | `0x140307120` | Normal attack: the physical evade gate, then the whole weapon attack (weapon-type value x WP with the physical modifiers, critical and element), and the weapon's status on the 19 percent roll. |
 | [Formula_02_WeaponCastsSpell](../functions/Formula_02_WeaponCastsSpell.md) | `0x140307140` | Weapon attack that can cast a spell: the whole weapon attack, and on the 19 percent status roll the weapon's inflict byte becomes the ability resolved next instead of a status. |
 | [Formula_03_WeaponPowerSquared](../functions/Formula_03_WeaponPowerSquared.md) | `0x1403071A4` | Weapon power squared: A = WP + weapon bonus, B = WP, through the physical modifiers and the critical roll, with no hit roll of its own. |
 | [Formula_04_MagicGun](../functions/Formula_04_MagicGun.md) | `0x1403071DC` | Magic gun: picks one of three spells of the weapon's element by a random roll and deals its damage as (WP + bonus) x the spell's Y through the magic chain. |
@@ -22,7 +22,7 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_101_Physical80HPDrain](../functions/Formula_101_Physical80HPDrain.md) | `0x14030D540` | PA x WP physical damage reduced to 80 percent, and the caster gains the damage dealt as HP (reversed on an Undead target). |
 | [Formula_102_WotLPhysical80MPDrain](../functions/Formula_102_WotLPhysical80MPDrain.md) | `0x14030D5AC` | WotL physical: PA x WP damage reduced to 80%, with the difference restoring the caster's MP. |
 | [Formula_103_WotLHolySwordAlias](../functions/Formula_103_WotLHolySwordAlias.md) | `0x14030D618` | WotL Holy Sword: alias of F45; shares its target and calculation. |
-| [Formula_104_WotLDistanceScaledPhysical](../functions/Formula_104_WotLDistanceScaledPhysical.md) | `0x14030D620` | WotL distance-scaled physical: weapon damage adjusted by the distance between caster and target. |
+| [Formula_104_WotLDistanceScaledPhysical](../functions/Formula_104_WotLDistanceScaledPhysical.md) | `0x14030D620` | Distance-scaled weapon attack: the weapon-type value and WP, with WP + 3 next to the target, WP + 1 at two tiles and half the weapon-type value from three tiles, then the whole physical chain. |
 | [Formula_105_WotLLevelScaledPhysical](../functions/Formula_105_WotLLevelScaledPhysical.md) | `0x14030D6E0` | WotL level-scaled physical: PA comes from MA, and Y scales with max HP and MA. |
 | [Formula_106_ReDispatchChainFormula](../functions/Formula_106_ReDispatchChainFormula.md) | `0x14030D720` | Re-dispatch: calls the formula table with a different ID, then applies the post-dispatch step. |
 | [Formula_10_FaithBasedStatus](../functions/Formula_10_FaithBasedStatus.md) | `0x1403074EC` | Faith-based status: a magic hit check that applies a status effect and deals no damage. |
@@ -37,10 +37,10 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_21_Return](../functions/Formula_21_Return.md) | `0x1403078FC` | Return: a magic hit check that resets the target's CT. |
 | [Formula_22_Disempower](../functions/Formula_22_Disempower.md) | `0x140307928` | Disempower: a magic hit check that deals MP damage equal to the target's current MP. |
 | [Formula_23_Gravija](../functions/Formula_23_Gravija.md) | `0x140307960` | Gravija: a magic hit check that reduces the target to 1 HP. |
-| [Formula_26_StatSap](../functions/Formula_26_StatSap.md) | `0x1403079A8` | Stat sap: magic damage that also reduces the target's stat. |
+| [Formula_26_StatSap](../functions/Formula_26_StatSap.md) | `0x1403079A8` | Stat lowering by magic: the magic evade gate, then a chance of MA + Y (magic modifiers, zodiac, Faith); on success the stat the ability id selects drops by X. No damage. |
 | [Formula_27_Magicksap](../functions/Formula_27_Magicksap.md) | `0x140307A24` | Magicksap: a magic hit check that deals MP damage based on the target's maximum MP. |
 | [Formula_28_BardSongs](../functions/Formula_28_BardSongs.md) | `0x140307A70` | Bard songs: a hit roll with per-ability branches for healing, stat downs, all buffs and status. |
-| [Formula_29_DancerDances](../functions/Formula_29_DancerDances.md) | `0x140307B44` | Dancer dances: a hit roll and weapon-damage setup with per-ability branches for damage, stat ups, all buffs and status. |
+| [Formula_29_DancerDances](../functions/Formula_29_DancerDances.md) | `0x140307B44` | Dances: an X percent roll, then an effect chosen by the ability id: MP or HP damage of weapon-type value + WP, Speed, PA or MA - 1, a status, or the all-stats change downward. |
 | [Formula_30_IaidoHeaven](../functions/Formula_30_IaidoHeaven.md) | `0x140307C10` | Iaido Heaven: PA is replaced by MA and Y is averaged with MA, then the magic chain runs. |
 | [Formula_31_IaidoNether](../functions/Formula_31_IaidoNether.md) | `0x140307C28` | Iaido Nether: MA x Y with element, caster/Shell/Sleep/Zodiac and inverse-Faith scaling. |
 | [Formula_32_DrawOutDamage](../functions/Formula_32_DrawOutDamage.md) | `0x140307D50` | Draw Out damage: MA x Y through the magic chain, with weather and element checks. |
@@ -48,14 +48,14 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_34_DrawOutBuff](../functions/Formula_34_DrawOutBuff.md) | `0x140307DE8` | Draw Out buff: status-only; applies the buff carried by the ability data. |
 | [Formula_35_DrawOutHeal](../functions/Formula_35_DrawOutHeal.md) | `0x140307DFC` | Draw Out heal: MA x Y healing with the undead reversal check. |
 | [Formula_36_Geomancy](../functions/Formula_36_Geomancy.md) | `0x140307E34` | Geomancy: MA and an averaged Y through the magic chain, with a terrain element. |
-| [Formula_37_RendEquipment](../functions/Formula_37_RendEquipment.md) | `0x140307E74` | Rend equipment: an equipment-slot check then physical damage; a recursive sub-action handles the second hit. |
+| [Formula_37_RendEquipment](../functions/Formula_37_RendEquipment.md) | `0x140307E74` | Break equipment: when Action_PickTargetEquipment finds a piece it resolves a sub-action; otherwise the physical evade gate, then a chance of PA + WP + Y; on success (and past Formula_StealGate) the flag word gets the ... |
 | [Formula_38_StealEquipment](../functions/Formula_38_StealEquipment.md) | `0x140307FCC` | Steal equipment: an equipment-slot check then a Speed-based hit; success steals the item. |
 | [Formula_39_StealGil](../functions/Formula_39_StealGil.md) | `0x140308098` | Steal Gil: a physical evade check and a Speed-based hit, then a gil transfer. |
 | [Formula_40_StealEXP](../functions/Formula_40_StealEXP.md) | `0x1403080F8` | Steal EXP: a physical evade check and a Speed-based hit, then a CT/EXP modifier. |
-| [Formula_41_StealHeartCharm](../functions/Formula_41_StealHeartCharm.md) | `0x140308208` | Steal Heart/Charm: a magic hit check and a team check, then Charm through F56. |
+| [Formula_41_StealHeartCharm](../functions/Formula_41_StealHeartCharm.md) | `0x140308208` | Charm: a chance of MA + X (zodiac only, no Faith); on success, when caster and target are on different sides, the ability's status through Formula_56. |
 | [Formula_42_Speechcraft](../functions/Formula_42_Speechcraft.md) | `0x140308284` | Speechcraft: a magic hit check with per-ability branches for buffs, Brave/Faith changes, a level/speed transfer and status. |
-| [Formula_43_RendStats](../functions/Formula_43_RendStats.md) | `0x1403083F4` | Rend stats: physical damage then a PA/MA/Speed reduction based on the ability. |
-| [Formula_44_RendMP](../functions/Formula_44_RendMP.md) | `0x140308448` | Rend MP: a physical hit check then MP damage based on the target's maximum MP. |
+| [Formula_43_RendStats](../functions/Formula_43_RendStats.md) | `0x1403083F4` | Stat lowering by force: the physical evade gate, then a chance of PA + Y with the physical modifiers; on success the stat the ability id selects drops by X. No damage. |
+| [Formula_44_RendMP](../functions/Formula_44_RendMP.md) | `0x140308448` | MP damage by force: the physical evade gate, a chance of PA + Y with the physical modifiers, then MP damage of Y percent of the target's max MP. |
 | [Formula_45_HolySword](../functions/Formula_45_HolySword.md) | `0x1403084C4` | Holy Sword: PA x (WP + Y) through the physical chain, then a status. |
 | [Formula_46_DarkSwordCrush](../functions/Formula_46_DarkSwordCrush.md) | `0x140308538` | Dark Sword (Crush): PA x WP physical damage that also destroys a piece of equipment. |
 | [Formula_47_DuskbladeMPDrain](../functions/Formula_47_DuskbladeMPDrain.md) | `0x140308664` | Duskblade: PA x WP physical damage that restores the caster's MP. |
@@ -91,7 +91,7 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_78_MAYPhysicalFullChain](../functions/Formula_78_MAYPhysicalFullChain.md) | `0x140308DBC` | MA x Y physical: the full magic chain applied to a physical-style attack. |
 | [Formula_79_PhysicalMissingHP](../functions/Formula_79_PhysicalMissingHP.md) | `0x140308DF4` | Physical plus missing HP: a physical evade check and magic chain, then damage equal to the caster's missing HP. |
 | [Formula_80_PhysicalStatus](../functions/Formula_80_PhysicalStatus.md) | `0x140308E50` | Physical plus status: a physical evade check and magic chain, then a status through F56. |
-| [Formula_81_MonsterBuffHealMagicHitStatus](../functions/Formula_81_MonsterBuffHealMagicHitStatus.md) | `0x140308E90` | Monster buff/heal: a magic hit check that applies a status. |
+| [Formula_81_MonsterBuffHealMagicHitStatus](../functions/Formula_81_MonsterBuffHealMagicHitStatus.md) | `0x140308E90` | Status with a magic chance: MA + X with the element boost, the caster's magic modifiers and zodiac (no Faith); on success the ability's status through Formula_56. |
 | [Formula_82_SelfDestructHPBasedDamage](../functions/Formula_82_SelfDestructHPBasedDamage.md) | `0x140308EE4` | Self-destruct: HP-based damage, with a different value for self versus area targets. |
 | [Formula_83_MonsterHPDamageMagicChain](../functions/Formula_83_MonsterHPDamageMagicChain.md) | `0x140308F28` | Monster % HP damage: a magic hit check then percentage-of-target-max-HP damage. |
 | [Formula_84_MPRestorationMagicBased](../functions/Formula_84_MPRestorationMagicBased.md) | `0x140308FA0` | MP restoration: MA x Y MP healing with caster boost and Zodiac; always succeeds. |

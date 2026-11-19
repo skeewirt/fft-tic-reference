@@ -11,10 +11,11 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Steal Heart/Charm: a magic hit check and a team check, then Charm through F56.
+Charm: a chance of MA + X (zodiac only, no Faith); on success, when caster and target are on different sides, the ability's status through Formula_56.
 
 ## Behavior
 
+- V: re-read 2026-11-18 (IDA, whole body): the earlier calculation listed a Faith factor; the body calls no faith step.
 - V: Current-build decompilation confirms the chain and arithmetic shown above.
 - V: Current-build symbol size is 121 bytes.
 - V: Typical abilities: Steal Heart, Charm, Snort.
@@ -23,9 +24,9 @@ Steal Heart/Charm: a magic hit check and a team check, then Charm through F56.
 ## Calculation
 
 ```text
-Hit = (MA + X) × Zodiac(50-150%) × Faith(caster×target/10000)
-Requires caster and target to be on different teams
-On success: inflicts Charm via F56
+Chance: A = MA, B = X; Formula_Zodiac, Formula_ChanceSum, Formula_ChanceRoll (no Faith)
+Side test: target +6 and caster +6 differ in bits 0xE0, else no effect (reason 7)
+On success: Formula_56_StatusOnlyApplication
 ```
 
 ## Notes
