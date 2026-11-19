@@ -18,7 +18,7 @@ Element boost from the weapon's element: A = 5 * A / 4 when the caster's element
 
 ## Referenced by
 
-- Called by: [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
+- Called by: [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
 
 ## Notes
 

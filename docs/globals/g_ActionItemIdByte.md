@@ -17,7 +17,7 @@ The item-id byte the battle action resolver leaves for the item formulas: the it
 
 ## Referenced by
 
-- Read by: [ItemAction_SetAmount](../functions/ItemAction_SetAmount.md), [sub_140308C30](../functions/sub_140308C30.md), [sub_140308C98](../functions/sub_140308C98.md)
+- Read by: [Formula_72_ItemRestoreHP](../functions/Formula_72_ItemRestoreHP.md), [Formula_73_ItemRestoreMP](../functions/Formula_73_ItemRestoreMP.md), [Formula_75_ItemRevive](../functions/Formula_75_ItemRevive.md)
 
 ## Open questions
 

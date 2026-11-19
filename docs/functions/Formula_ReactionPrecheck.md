@@ -22,6 +22,10 @@ Gate of the reaction-style handlers (Speechcraft, Throw): decides whether the re
 
 - Calls: [Unit_HasStatusGroup](Unit_HasStatusGroup.md)
 
+## Referenced by
+
+- Called by: [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md)
+
 ## Notes
 
 Block B43 (2026-11-12): 97 bytes, read whole. Head read; the register-lost compares are I.

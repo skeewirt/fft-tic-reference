@@ -19,7 +19,7 @@ Sets the kind bits of a damage result and turns an absorbed hit into a heal.
 
 ## Referenced by
 
-- Called by: [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
+- Called by: [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
 
 ## Notes
 

@@ -23,7 +23,7 @@ The damage amount: R+6 = A * B capped at 0x7FFF, kind bit 0x80.
 
 ## Referenced by
 
-- Called by: [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
+- Called by: [Formula_03_WeaponPowerSquared](Formula_03_WeaponPowerSquared.md), [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md), [Formula_06_WeaponDrainHP](Formula_06_WeaponDrainHP.md), [Formula_07_WeaponHeal](Formula_07_WeaponHeal.md), [Formula_100_JumpDamage](Formula_100_JumpDamage.md), [Formula_101_Physical80HPDrain](Formula_101_Physical80HPDrain.md), [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
 - Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md)
 
 ## Notes

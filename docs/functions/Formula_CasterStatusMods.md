@@ -19,7 +19,7 @@ The caster's status modifiers on A: Berserk raises it, Toad flattens it.
 
 ## Referenced by
 
-- Called by: [Formula_PhysMods](Formula_PhysMods.md), [Formula_PhysStatusHit](Formula_PhysStatusHit.md)
+- Called by: [Formula_100_JumpDamage](Formula_100_JumpDamage.md), [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md), [Formula_PhysMods](Formula_PhysMods.md), [Formula_PhysStatusHit](Formula_PhysStatusHit.md)
 
 ## Notes
 

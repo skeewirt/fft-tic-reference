@@ -23,7 +23,7 @@ Runs the status application on the inflict record and restores the hit fields it
 
 ## Referenced by
 
-- Called by: [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_RevivePrecheck](Formula_RevivePrecheck.md)
+- Called by: [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_RevivePrecheck](Formula_RevivePrecheck.md)
 
 ## Notes
 

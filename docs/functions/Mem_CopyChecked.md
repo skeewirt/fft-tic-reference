@@ -26,7 +26,7 @@ The game's checked copy: copies the smaller of the destination size and the coun
 
 ## Referenced by
 
-- Called by: [Ai_UnitTurnStep](Ai_UnitTurnStep.md), [Battle_ResolveAction](Battle_ResolveAction.md), [Battle_StatusResolve](Battle_StatusResolve.md), [ClassicMenu_LoadPageArtPack](ClassicMenu_LoadPageArtPack.md)
+- Called by: [Ai_UnitTurnStep](Ai_UnitTurnStep.md), [Battle_ResolveAction](Battle_ResolveAction.md), [Battle_StatusResolve](Battle_StatusResolve.md), [ClassicMenu_LoadPageArtPack](ClassicMenu_LoadPageArtPack.md), [Formula_04_MagicGun](Formula_04_MagicGun.md)
 - Observed behaviours: [BattleCommandMenuCarriesSetsAsBytes](../behaviors/BattleCommandMenuCarriesSetsAsBytes.md)
 
 ## Notes

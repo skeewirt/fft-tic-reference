@@ -7565,6 +7565,108 @@
       },
       "doc": "docs/functions/Formula_01_NormalAttack.md"
     },
+    "Formula_02_WeaponCastsSpell": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:112d60aebd7ab60439d84632df8dd31492593cb9b6d57b3f87142bf27d302bec",
+            "insn_count": 21,
+            "mnemonics": "sha256:2ca7428b0f8dfe07d4caea9a73367a1a307ecfe4160c35ced0ba62121167125b",
+            "size": 97
+          },
+          "rva": "0x307140",
+          "size": 97
+        }
+      },
+      "doc": "docs/functions/Formula_02_WeaponCastsSpell.md"
+    },
+    "Formula_03_WeaponPowerSquared": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:a40454a01cfac22af67f3c626649fe2cd5549e79784d16b42e8a7f1615b17fa4",
+            "insn_count": 10,
+            "mnemonics": "sha256:ddcc19c1a32ac7fa26783690b12f9feaf1e8fb21093984b3ebdd2acc36d2ef59",
+            "size": 54
+          },
+          "rva": "0x3071a4",
+          "size": 54
+        }
+      },
+      "doc": "docs/functions/Formula_03_WeaponPowerSquared.md"
+    },
+    "Formula_04_MagicGun": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 13,
+            "calls": "sha256:10d5f396ae4fd6a60faca6518d77fbc8bcfd4c2a47692aef3ee4f705b5e88af0",
+            "insn_count": 48,
+            "mnemonics": "sha256:d023d5f61433080cf8a1008bef2e632984ddfca60e65236f275ad81fb8fcb818",
+            "size": 284
+          },
+          "rva": "0x3071dc",
+          "size": 284
+        }
+      },
+      "doc": "docs/functions/Formula_04_MagicGun.md"
+    },
+    "Formula_05_WeaponAttackNoElement": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 11,
+            "calls": "sha256:443c89a525f52e16d8c0d4bbce2c3e5ef571821f1cfb570659f22e5b1e9d47ae",
+            "insn_count": 31,
+            "mnemonics": "sha256:45615b149c6e0e090510aef11a2907e40465054481580f275bd5f5b634f36ee2",
+            "size": 142
+          },
+          "rva": "0x3072f8",
+          "size": 142
+        }
+      },
+      "doc": "docs/functions/Formula_05_WeaponAttackNoElement.md"
+    },
+    "Formula_06_WeaponDrainHP": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 6,
+            "calls": "sha256:7826fe93d2bdd5a55cac38d446d6b4cdcd365f2d5d5fcf6bc7c9a71adfee80f3",
+            "insn_count": 13,
+            "mnemonics": "sha256:c2eaa4ff9abc8350cfea7c5544223c7f6c9b6c06b70cd328b3a0cef16b417952",
+            "size": 57
+          },
+          "rva": "0x307388",
+          "size": 57
+        }
+      },
+      "doc": "docs/functions/Formula_06_WeaponDrainHP.md"
+    },
+    "Formula_07_WeaponHeal": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:586b298371d423344508949d699754563b67e91231689dd993abfab3eb20ce8d",
+            "insn_count": 9,
+            "mnemonics": "sha256:9706237c9af81d883cb974d00f878dc8aa5cbed1852ad2df0b4e8ce6e62d87ee",
+            "size": 47
+          },
+          "rva": "0x3073c4",
+          "size": 47
+        }
+      },
+      "doc": "docs/functions/Formula_07_WeaponHeal.md"
+    },
     "Formula_08_BlackMagickSummonDamage": {
       "area": "formulas",
       "builds": {
@@ -7598,6 +7700,40 @@
         }
       },
       "doc": "docs/functions/Formula_09_Gravity.md"
+    },
+    "Formula_100_JumpDamage": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:db66f9583944b7c8630a8a8404204eb9461ee5d60d9d5c4722927f3ac2850133",
+            "insn_count": 35,
+            "mnemonics": "sha256:69f1b40f847b1647f5742b0fcff68f05779be78c5551683400eb3da81f3fc33b",
+            "size": 144
+          },
+          "rva": "0x309474",
+          "size": 144
+        }
+      },
+      "doc": "docs/functions/Formula_100_JumpDamage.md"
+    },
+    "Formula_101_Physical80HPDrain": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:8756297b016d9150afb81a9fda46b54114b052009ebaa0e5d20a6c70031c5c35",
+            "insn_count": 25,
+            "mnemonics": "sha256:b755b39751e30fa4aac439c3b933a6233b9e5bd2ccf9f4ad19e474af9085429c",
+            "size": 107
+          },
+          "rva": "0x30d540",
+          "size": 107
+        }
+      },
+      "doc": "docs/functions/Formula_101_Physical80HPDrain.md"
     },
     "Formula_102_WotLPhysical80MPDrain": {
       "area": "formulas",
@@ -8653,6 +8789,74 @@
       },
       "doc": "docs/functions/Formula_71_HPDrain.md"
     },
+    "Formula_72_ItemRestoreHP": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:b613158d32dd83c9bbfd96f841badb6e11821fdb1fe457114507e7209923ee5f",
+            "insn_count": 14,
+            "mnemonics": "sha256:b5d79ecd8fcd09117ddeb252e6f66004939dffebbe8e900f24f06748e0f253a6",
+            "size": 61
+          },
+          "rva": "0x308c30",
+          "size": 61
+        }
+      },
+      "doc": "docs/functions/Formula_72_ItemRestoreHP.md"
+    },
+    "Formula_73_ItemRestoreMP": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:b613158d32dd83c9bbfd96f841badb6e11821fdb1fe457114507e7209923ee5f",
+            "insn_count": 15,
+            "mnemonics": "sha256:befaf3983b59177fec350dc55d82bc9d9b47c5c7b9029bd8459f314caf7e5765",
+            "size": 61
+          },
+          "rva": "0x306bd0",
+          "size": 61
+        }
+      },
+      "doc": "docs/functions/Formula_73_ItemRestoreMP.md"
+    },
+    "Formula_74_ItemRestoreAll": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 8,
+            "mnemonics": "sha256:c555349e5b1c87793dfa3d67ec93c19d187a5b566ede04332446f0c07dcf5b9a",
+            "size": 39
+          },
+          "rva": "0x308c70",
+          "size": 39
+        }
+      },
+      "doc": "docs/functions/Formula_74_ItemRestoreAll.md"
+    },
+    "Formula_75_ItemRevive": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:75ff45e36533cea0a6fa6f3b8cba99dee1c32b579f41db05dc9f26361bb95aa0",
+            "insn_count": 28,
+            "mnemonics": "sha256:bb444b62a2ddd14c4938002360f29e5ecf34b0c5c44d14610c704a191837d15b",
+            "size": 113
+          },
+          "rva": "0x308c98",
+          "size": 113
+        }
+      },
+      "doc": "docs/functions/Formula_75_ItemRevive.md"
+    },
     "Formula_76_MagicHealSimplified": {
       "area": "formulas",
       "builds": {
@@ -8993,6 +9197,23 @@
       },
       "doc": "docs/functions/Formula_95_NanoflareReDispatchesToF30.md"
     },
+    "Formula_96_MagicAveraged": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 1,
+            "mnemonics": "sha256:5ff7c3e87f1aef3410d3cb6bcc14f037bd49ac8c8ac931ab0a0e7ad7917f4e4b",
+            "size": 5
+          },
+          "rva": "0x309310",
+          "size": 5
+        }
+      },
+      "doc": "docs/functions/Formula_96_MagicAveraged.md"
+    },
     "Formula_97_MagicBasedBraveModify": {
       "area": "formulas",
       "builds": {
@@ -9026,6 +9247,23 @@
         }
       },
       "doc": "docs/functions/Formula_98_PhysicalBasedBraveModify.md"
+    },
+    "Formula_99_SpeedTimesWeaponPower": {
+      "area": "formulas",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:534dfa32d9acd0e906c48dc7ee31dda4db76edc69a07e5994f815d6c8d5e0441",
+            "insn_count": 48,
+            "mnemonics": "sha256:b7d60bfaaa6f0fc75f925bdd6c803bfa6dd50e1a9f1f72e5041dbc2cbb0dde1b",
+            "size": 242
+          },
+          "rva": "0x309380",
+          "size": 242
+        }
+      },
+      "doc": "docs/functions/Formula_99_SpeedTimesWeaponPower.md"
     },
     "Formula_BardDancerGate": {
       "area": "formulas",
@@ -14262,23 +14500,6 @@
         }
       },
       "doc": "docs/functions/Inventory_SellOverflow.md"
-    },
-    "ItemAction_SetAmount": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 1,
-            "calls": "sha256:b613158d32dd83c9bbfd96f841badb6e11821fdb1fe457114507e7209923ee5f",
-            "insn_count": 15,
-            "mnemonics": "sha256:befaf3983b59177fec350dc55d82bc9d9b47c5c7b9029bd8459f314caf7e5765",
-            "size": 61
-          },
-          "rva": "0x306bd0",
-          "size": 61
-        }
-      },
-      "doc": "docs/functions/ItemAction_SetAmount.md"
     },
     "ItemCell_BindIconAndName": {
       "area": "ui-framework",
@@ -31942,57 +32163,6 @@
         }
       },
       "doc": "docs/functions/sub_140306D70.md"
-    },
-    "sub_140308C30": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 1,
-            "calls": "sha256:b613158d32dd83c9bbfd96f841badb6e11821fdb1fe457114507e7209923ee5f",
-            "insn_count": 14,
-            "mnemonics": "sha256:b5d79ecd8fcd09117ddeb252e6f66004939dffebbe8e900f24f06748e0f253a6",
-            "size": 61
-          },
-          "rva": "0x308c30",
-          "size": 61
-        }
-      },
-      "doc": "docs/functions/sub_140308C30.md"
-    },
-    "sub_140308C98": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 4,
-            "calls": "sha256:75ff45e36533cea0a6fa6f3b8cba99dee1c32b579f41db05dc9f26361bb95aa0",
-            "insn_count": 28,
-            "mnemonics": "sha256:bb444b62a2ddd14c4938002360f29e5ecf34b0c5c44d14610c704a191837d15b",
-            "size": 113
-          },
-          "rva": "0x308c98",
-          "size": 113
-        }
-      },
-      "doc": "docs/functions/sub_140308C98.md"
-    },
-    "sub_140309474": {
-      "area": "formulas",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 5,
-            "calls": "sha256:db66f9583944b7c8630a8a8404204eb9461ee5d60d9d5c4722927f3ac2850133",
-            "insn_count": 35,
-            "mnemonics": "sha256:69f1b40f847b1647f5742b0fcff68f05779be78c5551683400eb3da81f3fc33b",
-            "size": 144
-          },
-          "rva": "0x309474",
-          "size": 144
-        }
-      },
-      "doc": "docs/functions/sub_140309474.md"
     },
     "sub_1403095E4": {
       "area": "battle",

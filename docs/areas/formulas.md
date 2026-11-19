@@ -2,16 +2,24 @@
 
 The battle formula functions, dispatched by formula id.
 
-Functions: 138, Observed behaviours: 1.
+Functions: 151, Observed behaviours: 1.
 
-## Functions (138)
+## Functions (151)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [Battle_Rand15](../functions/Battle_Rand15.md) | `0x14030D088` | The battle's random number: a 15-bit value, fixed while a forecast runs. |
 | [Formula_01_NormalAttack](../functions/Formula_01_NormalAttack.md) | `0x140307120` | Normal attack damage: weapon-type PA setup, weapon power, the standard physical modifiers and elemental affinity. |
+| [Formula_02_WeaponCastsSpell](../functions/Formula_02_WeaponCastsSpell.md) | `0x140307140` | Weapon attack that can cast a spell: the whole weapon attack, and on the 19 percent status roll the weapon's inflict byte becomes the ability resolved next instead of a status. |
+| [Formula_03_WeaponPowerSquared](../functions/Formula_03_WeaponPowerSquared.md) | `0x1403071A4` | Weapon power squared: A = WP + weapon bonus, B = WP, through the physical modifiers and the critical roll, with no hit roll of its own. |
+| [Formula_04_MagicGun](../functions/Formula_04_MagicGun.md) | `0x1403071DC` | Magic gun: picks one of three spells of the weapon's element by a random roll and deals its damage as (WP + bonus) x the spell's Y through the magic chain. |
+| [Formula_05_WeaponAttackNoElement](../functions/Formula_05_WeaponAttackNoElement.md) | `0x1403072F8` | Weapon attack without the element steps: the physical evade roll, the weapon-type A and B, the modifiers and critical, then the 19 percent status roll. |
+| [Formula_06_WeaponDrainHP](../functions/Formula_06_WeaponDrainHP.md) | `0x140307388` | Weapon attack that drains HP: the weapon-type damage, and the caster gains what the target loses (reversed on an Undead target). |
+| [Formula_07_WeaponHeal](../functions/Formula_07_WeaponHeal.md) | `0x1403073C4` | Weapon that heals: the weapon-type amount through the zodiac and physical modifiers, given to the target as HP (damage on an Undead target); no hit roll. |
 | [Formula_08_BlackMagickSummonDamage](../functions/Formula_08_BlackMagickSummonDamage.md) | `0x1403073F4` | Magic damage: MA x Y with elemental, Shell, Zodiac and Faith modifiers. |
 | [Formula_09_Gravity](../functions/Formula_09_Gravity.md) | `0x140307474` | Gravity damage: a percentage of the target's maximum HP, gated by a magic hit check. |
+| [Formula_100_JumpDamage](../functions/Formula_100_JumpDamage.md) | `0x140309474` | Jump damage: PA x WP, with PA x 3/2 when the weapon is a spear and PA x (PA x Brave / 100) bare-handed, through the caster and target modifiers. |
+| [Formula_101_Physical80HPDrain](../functions/Formula_101_Physical80HPDrain.md) | `0x14030D540` | PA x WP physical damage reduced to 80 percent, and the caster gains the damage dealt as HP (reversed on an Undead target). |
 | [Formula_102_WotLPhysical80MPDrain](../functions/Formula_102_WotLPhysical80MPDrain.md) | `0x14030D5AC` | WotL physical: PA x WP damage reduced to 80%, with the difference restoring the caster's MP. |
 | [Formula_103_WotLHolySwordAlias](../functions/Formula_103_WotLHolySwordAlias.md) | `0x14030D618` | WotL Holy Sword: alias of F45; shares its target and calculation. |
 | [Formula_104_WotLDistanceScaledPhysical](../functions/Formula_104_WotLDistanceScaledPhysical.md) | `0x14030D620` | WotL distance-scaled physical: weapon damage adjusted by the distance between caster and target. |
@@ -74,6 +82,10 @@ Functions: 138, Observed behaviours: 1.
 | [Formula_68_CurrentMPDamage](../functions/Formula_68_CurrentMPDamage.md) | `0x1403060F8` | Current MP damage: deals damage equal to the target's current MP, with no hit check. |
 | [Formula_69_MissingHPAlt](../functions/Formula_69_MissingHPAlt.md) | `0x140306114` | Missing HP (alternate): uses the target's missing HP, with no hit check. |
 | [Formula_71_HPDrain](../functions/Formula_71_HPDrain.md) | `0x140308BEC` | % HP drain: percentage-of-max-HP damage that heals the caster, then a status. |
+| [Formula_72_ItemRestoreHP](../functions/Formula_72_ItemRestoreHP.md) | `0x140308C30` | HP restore item: heals 10 x the item's amount byte (an Undead target takes it as damage). |
+| [Formula_73_ItemRestoreMP](../functions/Formula_73_ItemRestoreMP.md) | `0x140306BD0` | MP restore item: restores 10 x the item's amount byte as MP. No hit roll, no Undead rule. |
+| [Formula_74_ItemRestoreAll](../functions/Formula_74_ItemRestoreAll.md) | `0x140308C70` | Full restore item: HP healed = the target's max HP and MP healed = its max MP (an Undead target takes the max HP as damage). |
+| [Formula_75_ItemRevive](../functions/Formula_75_ItemRevive.md) | `0x140308C98` | Revive item: on a target being revived, heals a random 1 to the item's amount byte; on an Undead target, damage equal to its current HP. |
 | [Formula_76_MagicHealSimplified](../functions/Formula_76_MagicHealSimplified.md) | `0x140308D0C` | Magic heal (simplified): MA x Y healing with caster boost and Zodiac, then the undead check. |
 | [Formula_77_PhysicalHPDrain](../functions/Formula_77_PhysicalHPDrain.md) | `0x140308D48` | Physical HP drain: a magic-style hit check then percentage-of-max-HP damage that heals the caster. |
 | [Formula_78_MAYPhysicalFullChain](../functions/Formula_78_MAYPhysicalFullChain.md) | `0x140308DBC` | MA x Y physical: the full magic chain applied to a physical-style attack. |
@@ -94,8 +106,10 @@ Functions: 138, Observed behaviours: 1.
 | [Formula_93_DragonSSpeedSpeciesGatedAllBuff](../functions/Formula_93_DragonSSpeedSpeciesGatedAllBuff.md) | `0x1403092D8` | Dragon's Speed: a species-gated all-buff. |
 | [Formula_94_TriElementReDispatchesToF30](../functions/Formula_94_TriElementReDispatchesToF30.md) | `0x140307C10` | Tri-Element: shares the F30 target; the ability supplies the element and parameters. |
 | [Formula_95_NanoflareReDispatchesToF30](../functions/Formula_95_NanoflareReDispatchesToF30.md) | `0x140307C10` | Nanoflare: shares the F30 target. |
+| [Formula_96_MagicAveraged](../functions/Formula_96_MagicAveraged.md) | `0x140309310` | Averaged magic damage: A = MA, B = (MA + Y) / 2, then the magic damage tail (a thunk to Formula_MagicAvgDamage). |
 | [Formula_97_MagicBasedBraveModify](../functions/Formula_97_MagicBasedBraveModify.md) | `0x140309318` | Magic-based Brave modify: a magic hit check that adjusts the target's Brave. |
 | [Formula_98_PhysicalBasedBraveModify](../functions/Formula_98_PhysicalBasedBraveModify.md) | `0x14030934C` | Brave modify using the single-faith magic chain. |
+| [Formula_99_SpeedTimesWeaponPower](../functions/Formula_99_SpeedTimesWeaponPower.md) | `0x140309380` | Thrown weapon: damage = the caster's Speed x the weapon's WP through the physical modifiers; a target with the catch reaction may catch it on a Brave roll. |
 | [Formula_BardDancerGate](../functions/Formula_BardDancerGate.md) | `0x140304D5C` | The Bard and Dancer hit roll: scales the shown percent by X and rolls a miss against X. |
 | [Formula_CasterMagMods](../functions/Formula_CasterMagMods.md) | `0x140305CB0` | The caster's magic damage modifiers: two passive bits scale A. |
 | [Formula_CasterStatusMods](../functions/Formula_CasterStatusMods.md) | `0x140305D08` | The caster's status modifiers on A: Berserk raises it, Toad flattens it. |
@@ -145,7 +159,6 @@ Functions: 138, Observed behaviours: 1.
 | [sub_1403064D8](../functions/sub_1403064D8.md) | `0x1403064D8` | The shared stat-sap effect: picks which stat byte the formula writes by the ability being resolved. |
 | [sub_140306C90](../functions/sub_140306C90.md) | `0x140306C90` | Second half of the physical attack setup: it applies the attacker's state modifiers after the hands are read and returns whether the action may continue. |
 | [sub_140306D70](../functions/sub_140306D70.md) | `0x140306D70` | Magic-side counterpart of the physical setup: it seeds the magic working bytes from the caster's hands and accessory. |
-| [sub_140309474](../functions/sub_140309474.md) | `0x140309474` | Physical formula variant reached through the formula pointer table: it sets the attack from the caster and the weapon category, then runs the shared damage chain. |
 
 ## Observed behaviours (1)
 

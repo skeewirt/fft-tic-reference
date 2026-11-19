@@ -22,6 +22,10 @@ The whole stock weapon attack as one unit (formulas 1 and 2): weapon stat, bonus
 
 - Calls: [Formula_ElementAffinity](Formula_ElementAffinity.md), [sub_140305A48](sub_140305A48.md), [Formula_ElemBoostWeapon](Formula_ElemBoostWeapon.md), [Formula_CritRoll](Formula_CritRoll.md), [Formula_DamageAB](Formula_DamageAB.md), [Formula_FinalizeAbsorb](Formula_FinalizeAbsorb.md), [Formula_PhysMods](Formula_PhysMods.md)
 
+## Referenced by
+
+- Called by: [Formula_02_WeaponCastsSpell](Formula_02_WeaponCastsSpell.md)
+
 ## Notes
 
 90 bytes, read whole. Callers: Formula_01_NormalAttack, sub_140307140 (formula 2). Crosscheck: the weapon bonus (block +0x17) is the byte at 0x1407B0787, a RIP-relative operand.

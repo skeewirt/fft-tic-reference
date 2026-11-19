@@ -24,7 +24,7 @@ Float nullifies an earth hit, then the element affinity step runs with the abili
 
 ## Referenced by
 
-- Called by: [Formula_MagicDamageTail](Formula_MagicDamageTail.md)
+- Called by: [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md)
 
 ## Notes
 

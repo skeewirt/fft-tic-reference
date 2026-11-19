@@ -24,7 +24,7 @@ The target's element affinities applied to R+6: absorb, null, half, weak and the
 
 ## Referenced by
 
-- Called by: [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
+- Called by: [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md), [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
 
 ## Notes
 

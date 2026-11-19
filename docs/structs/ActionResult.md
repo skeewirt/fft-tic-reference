@@ -51,7 +51,7 @@ The result of one action on one target, filled by the formula handler and read b
 ## Referenced by
 
 - Global instances: [g_BattleActionBlock](../globals/g_BattleActionBlock.md), [g_BattleCasterResult](../globals/g_BattleCasterResult.md)
-- Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md)
+- Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md), [FormulaIdsWithNoHandlerBody](../behaviors/FormulaIdsWithNoHandlerBody.md)
 - Written by: [Battle_ResolveAction](../functions/Battle_ResolveAction.md)
 
 ## Notes

@@ -25,6 +25,7 @@ HP drain: the target takes the amount and the caster gets it, or the reverse whe
 
 ## Referenced by
 
+- Called by: [Formula_06_WeaponDrainHP](Formula_06_WeaponDrainHP.md), [Formula_101_Physical80HPDrain](Formula_101_Physical80HPDrain.md)
 - Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md)
 
 ## Notes

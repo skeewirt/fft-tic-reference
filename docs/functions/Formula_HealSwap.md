@@ -21,6 +21,10 @@ Turns the computed amount into a heal, or into damage when the target is Undead.
 
 - Writes: [ActionResult.hp_heal](../structs/ActionResult.md#hp_heal), [ActionResult.kind_bits](../structs/ActionResult.md#kind_bits)
 
+## Referenced by
+
+- Called by: [Formula_07_WeaponHeal](Formula_07_WeaponHeal.md), [Formula_72_ItemRestoreHP](Formula_72_ItemRestoreHP.md), [Formula_74_ItemRestoreAll](Formula_74_ItemRestoreAll.md), [Formula_75_ItemRevive](Formula_75_ItemRevive.md)
+
 ## Notes
 
 Source: block B32. 63 bytes, read whole. Called by ten handlers (the heal and revive formulas). Crosscheck: 0x3F and 0x40 sit in the second path of the function (after the first return), where the checker leaf scan stops.

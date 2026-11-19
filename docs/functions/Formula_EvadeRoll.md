@@ -25,6 +25,10 @@ The shared evade step of the physical and magic gates: scales the shown hit perc
 - Calls: [Formula_EvadeByteRoll](Formula_EvadeByteRoll.md)
 - Writes: [ActionResult.hit_percent](../structs/ActionResult.md#hit_percent)
 
+## Referenced by
+
+- Called by: [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md)
+
 ## Notes
 
 Block B03 (2026-11-12): 441 bytes, read whole. Contract for a data formula: needs the baseline byte, the four evade bytes and R+44; writes R+0, R+2 and R+44. Crosscheck: the evade bytes 0x1407B0781..0x1407B0784 (block +0x11..+0x14) are read as the dword at 0x1407B0781 and its byte parts, RIP-relative operands.

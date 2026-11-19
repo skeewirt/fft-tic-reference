@@ -25,7 +25,7 @@ The chance that a status effect goes with a damage hit: a 19 percent roll (Nanof
 
 ## Referenced by
 
-- Called by: [Formula_MagicDamageTail](Formula_MagicDamageTail.md)
+- Called by: [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md)
 - Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md)
 
 ## Notes

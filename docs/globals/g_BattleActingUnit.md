@@ -19,7 +19,7 @@ Pointer to the unit record the current battle action is worked out on: the TARGE
 ## Referenced by
 
 - Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md)
-- Read by: [sub_1401F9CC4](../functions/sub_1401F9CC4.md), [sub_140308C98](../functions/sub_140308C98.md), [sub_14030AFEC](../functions/sub_14030AFEC.md), [sub_14030B278](../functions/sub_14030B278.md)
+- Read by: [Formula_75_ItemRevive](../functions/Formula_75_ItemRevive.md), [sub_1401F9CC4](../functions/sub_1401F9CC4.md), [sub_14030AFEC](../functions/sub_14030AFEC.md), [sub_14030B278](../functions/sub_14030B278.md)
 
 ## Open questions
 

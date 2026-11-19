@@ -22,7 +22,7 @@ The zodiac compatibility step on A: raises or lowers it by the pair of signs.
 
 ## Referenced by
 
-- Called by: [Formula_ChanceSum](Formula_ChanceSum.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_MagicHitElem](Formula_MagicHitElem.md), [Formula_MagicHitNoElem](Formula_MagicHitNoElem.md), [Formula_MagicHitNoFaith](Formula_MagicHitNoFaith.md), [Formula_PhysStatusHit](Formula_PhysStatusHit.md)
+- Called by: [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_07_WeaponHeal](Formula_07_WeaponHeal.md), [Formula_100_JumpDamage](Formula_100_JumpDamage.md), [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md), [Formula_ChanceSum](Formula_ChanceSum.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md), [Formula_MagicHitElem](Formula_MagicHitElem.md), [Formula_MagicHitNoElem](Formula_MagicHitNoElem.md), [Formula_MagicHitNoFaith](Formula_MagicHitNoFaith.md), [Formula_PhysStatusHit](Formula_PhysStatusHit.md)
 
 ## Notes
 

@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 320, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
+Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 46, Tables: 89.
 
-## Functions (320)
+## Functions (317)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -151,7 +151,6 @@ Functions: 320, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [EffectSprites_Spawn](../functions/EffectSprites_Spawn.md) | `0x140313210` | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
 | [EventUnitStatus_DispatchActiveIcons](../functions/EventUnitStatus_DispatchActiveIcons.md) | `0x140241080` | For one preview unit of an event scene, sends the status icon updater a message for every status the unit currently has. |
 | [EventUnitStatus_SaveAndHide](../functions/EventUnitStatus_SaveAndHide.md) | `0x140241128` | For an event scene, saves the status state of a unit into the event unit store and clears the statuses the scene must not show. |
-| [ItemAction_SetAmount](../functions/ItemAction_SetAmount.md) | `0x140306BD0` | The formula handler for the MP-restoring consumables: it rebuilds the used item's id, reads that item's chemist row and writes the item's amount into the battle result block. |
 | [Job_ReadLearnedBitsForBattle](../functions/Job_ReadLearnedBitsForBattle.md) | `0x14020D190` | Walks the skillset of a work record's current job and tests each slot's learned bit (3 bytes at C +162 + 3*index). |
 | [Map_LoadBattleData](../functions/Map_LoadBattleData.md) | `0x140251584` | Loads the per-map data of a battle map: its Move-Find row, its draw-index lists and its 4096-byte map block. |
 | [MapAnim_Load](../functions/MapAnim_Load.md) | `0x1400C6D64` | Reads the map's anim file when the RefinedBgAnim rows ask for one. |
@@ -257,8 +256,6 @@ Functions: 320, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [sub_140304F44](../functions/sub_140304F44.md) | `0x140304F44` | Answers what a map tile contains: it bounds-checks a tile coordinate and returns the element/terrain flags packed for that tile. |
 | [sub_1403052DC](../functions/sub_1403052DC.md) | `0x1403052DC` | Filters the pending add / remove status sets of the current action against the target's immunities and the status property table; returns how many bits remain. |
 | [sub_1403067D0](../functions/sub_1403067D0.md) | `0x1403067D0` | Post-dispatch step for the physical formulas (id below 7): it filters the pending status set, checks the defender's state and flags the result. |
-| [sub_140308C30](../functions/sub_140308C30.md) | `0x140308C30` | The formula handler for the HP-restoring consumables: it derives the amount from the used item's chemist row and hands the result to the shared healing step. |
-| [sub_140308C98](../functions/sub_140308C98.md) | `0x140308C98` | The formula handler for the revive consumable: it decides whether the target can be revived, then sets the amount of HP restored from the item's chemist row and a random roll. |
 | [sub_1403095E4](../functions/sub_1403095E4.md) | `0x1403095E4` | Executes a reaction ability: builds the result record the reaction causes from the reaction id in the word at 0x14186AFF0, or refuses an id it does not handle. |
 | [sub_1403099B0](../functions/sub_1403099B0.md) | `0x1403099B0` | Resolves one battle action: copies the 20-byte action, sets up per-command data, dispatches the formula and runs the post steps. |
 | [sub_14030A11C](../functions/sub_14030A11C.md) | `0x14030A11C` | Finishes the result block of one resolved action: either drops the whole result when the acting unit's own state forbids it, or runs the per-formula post hook, clamps the numbers to 999 and decides whether a follow-up... |
@@ -474,7 +471,7 @@ Functions: 320, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (45)
+## Observed behaviours (46)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -495,6 +492,7 @@ Functions: 320, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md) | The 106 ability formula handlers and the blocks they call | What a formula handler may assume and has to leave behind, read from the stock handlers and from Battle_ResolveAction: the frame it is called in, how it says 'no effect', which result fields go together, why it must n... |
+| [FormulaIdsWithNoHandlerBody](../behaviors/FormulaIdsWithNoHandlerBody.md) | Formula ids 17, 19, 24, 25 and 70 of the formula registry | Five formula ids have no formula of their own: their registry rows point at an empty function, so an action with one of them keeps the reset result (a hit with no amount and no status) and only the post-processing runs. |
 | [FormulaPostHooksAreKeyedByFormulaId](../behaviors/FormulaPostHooksAreKeyedByFormulaId.md) | engine | After a formula handler runs, sub_14030A11C looks the formula byte up in a 106-row hook table (PostBattleCalc) and runs the row's callback, if any: twelve formulas have an Undead rule there. |
 | [HitLabelsAndThePanelEffectLineAreSeparateLists](../behaviors/HitLabelsAndThePanelEffectLineAreSeparateLists.md) | engine | The status label over a unit hit by an action and the effect line of the unit status panel are two different lists. |
 | [KoLeavesSomeStatusesOnTheUnit](../behaviors/KoLeavesSomeStatusesOnTheUnit.md) | engine | KO does not end every status: its property row (status 2) cancels the action states 4..7, Confusion, Vampire, Float, Invisibility, Berserk, Critical and every status 23..39, and leaves Undead, Stone, Traitor, Blindnes... |

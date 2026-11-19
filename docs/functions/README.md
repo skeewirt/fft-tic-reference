@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2034 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2044 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -451,8 +451,16 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [FontPaletteBlock_Equals](FontPaletteBlock_Equals.md) | `0x1403DCB8C` | [UI framework](../areas/ui-framework.md) | Equality test of two font palette blocks (the first 68 bytes of the 80-byte UIFontSet row) used to find an existing SDFPalette entry before appending a new one. |
 | [FormatArgs_Push](FormatArgs_Push.md) | `0x1400FE4E4` | [Data access](../areas/data.md) | Appends one 264-byte format-argument record to a format-argument vector. |
 | [Formula_01_NormalAttack](Formula_01_NormalAttack.md) | `0x140307120` | [Battle formulas](../areas/formulas.md) | Normal attack damage: weapon-type PA setup, weapon power, the standard physical modifiers and elemental affinity. |
+| [Formula_02_WeaponCastsSpell](Formula_02_WeaponCastsSpell.md) | `0x140307140` | [Battle formulas](../areas/formulas.md) | Weapon attack that can cast a spell: the whole weapon attack, and on the 19 percent status roll the weapon's inflict byte becomes the ability resolved next instead of a status. |
+| [Formula_03_WeaponPowerSquared](Formula_03_WeaponPowerSquared.md) | `0x1403071A4` | [Battle formulas](../areas/formulas.md) | Weapon power squared: A = WP + weapon bonus, B = WP, through the physical modifiers and the critical roll, with no hit roll of its own. |
+| [Formula_04_MagicGun](Formula_04_MagicGun.md) | `0x1403071DC` | [Battle formulas](../areas/formulas.md) | Magic gun: picks one of three spells of the weapon's element by a random roll and deals its damage as (WP + bonus) x the spell's Y through the magic chain. |
+| [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md) | `0x1403072F8` | [Battle formulas](../areas/formulas.md) | Weapon attack without the element steps: the physical evade roll, the weapon-type A and B, the modifiers and critical, then the 19 percent status roll. |
+| [Formula_06_WeaponDrainHP](Formula_06_WeaponDrainHP.md) | `0x140307388` | [Battle formulas](../areas/formulas.md) | Weapon attack that drains HP: the weapon-type damage, and the caster gains what the target loses (reversed on an Undead target). |
+| [Formula_07_WeaponHeal](Formula_07_WeaponHeal.md) | `0x1403073C4` | [Battle formulas](../areas/formulas.md) | Weapon that heals: the weapon-type amount through the zodiac and physical modifiers, given to the target as HP (damage on an Undead target); no hit roll. |
 | [Formula_08_BlackMagickSummonDamage](Formula_08_BlackMagickSummonDamage.md) | `0x1403073F4` | [Battle formulas](../areas/formulas.md) | Magic damage: MA x Y with elemental, Shell, Zodiac and Faith modifiers. |
 | [Formula_09_Gravity](Formula_09_Gravity.md) | `0x140307474` | [Battle formulas](../areas/formulas.md) | Gravity damage: a percentage of the target's maximum HP, gated by a magic hit check. |
+| [Formula_100_JumpDamage](Formula_100_JumpDamage.md) | `0x140309474` | [Battle formulas](../areas/formulas.md) | Jump damage: PA x WP, with PA x 3/2 when the weapon is a spear and PA x (PA x Brave / 100) bare-handed, through the caster and target modifiers. |
+| [Formula_101_Physical80HPDrain](Formula_101_Physical80HPDrain.md) | `0x14030D540` | [Battle formulas](../areas/formulas.md) | PA x WP physical damage reduced to 80 percent, and the caster gains the damage dealt as HP (reversed on an Undead target). |
 | [Formula_102_WotLPhysical80MPDrain](Formula_102_WotLPhysical80MPDrain.md) | `0x14030D5AC` | [Battle formulas](../areas/formulas.md) | WotL physical: PA x WP damage reduced to 80%, with the difference restoring the caster's MP. |
 | [Formula_103_WotLHolySwordAlias](Formula_103_WotLHolySwordAlias.md) | `0x14030D618` | [Battle formulas](../areas/formulas.md) | WotL Holy Sword: alias of F45; shares its target and calculation. |
 | [Formula_104_WotLDistanceScaledPhysical](Formula_104_WotLDistanceScaledPhysical.md) | `0x14030D620` | [Battle formulas](../areas/formulas.md) | WotL distance-scaled physical: weapon damage adjusted by the distance between caster and target. |
@@ -515,6 +523,10 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Formula_68_CurrentMPDamage](Formula_68_CurrentMPDamage.md) | `0x1403060F8` | [Battle formulas](../areas/formulas.md) | Current MP damage: deals damage equal to the target's current MP, with no hit check. |
 | [Formula_69_MissingHPAlt](Formula_69_MissingHPAlt.md) | `0x140306114` | [Battle formulas](../areas/formulas.md) | Missing HP (alternate): uses the target's missing HP, with no hit check. |
 | [Formula_71_HPDrain](Formula_71_HPDrain.md) | `0x140308BEC` | [Battle formulas](../areas/formulas.md) | % HP drain: percentage-of-max-HP damage that heals the caster, then a status. |
+| [Formula_72_ItemRestoreHP](Formula_72_ItemRestoreHP.md) | `0x140308C30` | [Battle formulas](../areas/formulas.md) | HP restore item: heals 10 x the item's amount byte (an Undead target takes it as damage). |
+| [Formula_73_ItemRestoreMP](Formula_73_ItemRestoreMP.md) | `0x140306BD0` | [Battle formulas](../areas/formulas.md) | MP restore item: restores 10 x the item's amount byte as MP. No hit roll, no Undead rule. |
+| [Formula_74_ItemRestoreAll](Formula_74_ItemRestoreAll.md) | `0x140308C70` | [Battle formulas](../areas/formulas.md) | Full restore item: HP healed = the target's max HP and MP healed = its max MP (an Undead target takes the max HP as damage). |
+| [Formula_75_ItemRevive](Formula_75_ItemRevive.md) | `0x140308C98` | [Battle formulas](../areas/formulas.md) | Revive item: on a target being revived, heals a random 1 to the item's amount byte; on an Undead target, damage equal to its current HP. |
 | [Formula_76_MagicHealSimplified](Formula_76_MagicHealSimplified.md) | `0x140308D0C` | [Battle formulas](../areas/formulas.md) | Magic heal (simplified): MA x Y healing with caster boost and Zodiac, then the undead check. |
 | [Formula_77_PhysicalHPDrain](Formula_77_PhysicalHPDrain.md) | `0x140308D48` | [Battle formulas](../areas/formulas.md) | Physical HP drain: a magic-style hit check then percentage-of-max-HP damage that heals the caster. |
 | [Formula_78_MAYPhysicalFullChain](Formula_78_MAYPhysicalFullChain.md) | `0x140308DBC` | [Battle formulas](../areas/formulas.md) | MA x Y physical: the full magic chain applied to a physical-style attack. |
@@ -535,8 +547,10 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Formula_93_DragonSSpeedSpeciesGatedAllBuff](Formula_93_DragonSSpeedSpeciesGatedAllBuff.md) | `0x1403092D8` | [Battle formulas](../areas/formulas.md) | Dragon's Speed: a species-gated all-buff. |
 | [Formula_94_TriElementReDispatchesToF30](Formula_94_TriElementReDispatchesToF30.md) | `0x140307C10` | [Battle formulas](../areas/formulas.md) | Tri-Element: shares the F30 target; the ability supplies the element and parameters. |
 | [Formula_95_NanoflareReDispatchesToF30](Formula_95_NanoflareReDispatchesToF30.md) | `0x140307C10` | [Battle formulas](../areas/formulas.md) | Nanoflare: shares the F30 target. |
+| [Formula_96_MagicAveraged](Formula_96_MagicAveraged.md) | `0x140309310` | [Battle formulas](../areas/formulas.md) | Averaged magic damage: A = MA, B = (MA + Y) / 2, then the magic damage tail (a thunk to Formula_MagicAvgDamage). |
 | [Formula_97_MagicBasedBraveModify](Formula_97_MagicBasedBraveModify.md) | `0x140309318` | [Battle formulas](../areas/formulas.md) | Magic-based Brave modify: a magic hit check that adjusts the target's Brave. |
 | [Formula_98_PhysicalBasedBraveModify](Formula_98_PhysicalBasedBraveModify.md) | `0x14030934C` | [Battle formulas](../areas/formulas.md) | Brave modify using the single-faith magic chain. |
+| [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md) | `0x140309380` | [Battle formulas](../areas/formulas.md) | Thrown weapon: damage = the caster's Speed x the weapon's WP through the physical modifiers; a target with the catch reaction may catch it on a Brave roll. |
 | [Formula_BardDancerGate](Formula_BardDancerGate.md) | `0x140304D5C` | [Battle formulas](../areas/formulas.md) | The Bard and Dancer hit roll: scales the shown percent by X and rolls a miss against X. |
 | [Formula_CasterMagMods](Formula_CasterMagMods.md) | `0x140305CB0` | [Battle formulas](../areas/formulas.md) | The caster's magic damage modifiers: two passive bits scale A. |
 | [Formula_CasterStatusMods](Formula_CasterStatusMods.md) | `0x140305D08` | [Battle formulas](../areas/formulas.md) | The caster's status modifiers on A: Berserk raises it, Toad flattens it. |
@@ -859,7 +873,6 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Item_IsOwned](Item_IsOwned.md) | `0x140100F78` | [Items and shops](../areas/items.md) | Answers whether the party owns an item, either in the inventory or equipped on one of the 54 units. |
 | [Item_IsValidId](Item_IsValidId.md) | `0x1402B8EBC` | [Items and shops](../areas/items.md) | The stock validity test for an item id: one contiguous low range plus a five-id high range. |
 | [Item_SellPrice](Item_SellPrice.md) | `0x1402874A8` | [Items and shops](../areas/items.md) | Returns the gil a shop pays for one unit of an item: half its record price, with a floor of one. |
-| [ItemAction_SetAmount](ItemAction_SetAmount.md) | `0x140306BD0` | [Battle](../areas/battle.md) | The formula handler for the MP-restoring consumables: it rebuilds the used item's id, reads that item's chemist row and writes the item's amount into the battle result block. |
 | [ItemCell_BindIconAndName](ItemCell_BindIconAndName.md) | `0x14029BEC4` | [UI framework](../areas/ui-framework.md) | Binds an item's icon image and name text to a cell's parts; a missing Item-en row leaves both unset. |
 | [ItemCell_SetItem](ItemCell_SetItem.md) | `0x14029ADE4` | [UI framework](../areas/ui-framework.md) | Fills an item cell (icon image and name text) for an item id: formats the small item icon path and hands it with the id to ItemCell_BindIconAndName. |
 | [ItemIcon_FormatLargePath](ItemIcon_FormatLargePath.md) | `0x1400FC0D8` | [Items and shops](../areas/items.md) | Writes the texture-parts path of an item's large icon: Icon row 12 ('equip_item/textureparts/ei_%03d_uitx') formatted with the item id. |
@@ -1622,9 +1635,6 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_1403067D0](sub_1403067D0.md) | `0x1403067D0` | [Battle](../areas/battle.md) | Post-dispatch step for the physical formulas (id below 7): it filters the pending status set, checks the defender's state and flags the result. |
 | [sub_140306C90](sub_140306C90.md) | `0x140306C90` | [Battle formulas](../areas/formulas.md) | Second half of the physical attack setup: it applies the attacker's state modifiers after the hands are read and returns whether the action may continue. |
 | [sub_140306D70](sub_140306D70.md) | `0x140306D70` | [Battle formulas](../areas/formulas.md) | Magic-side counterpart of the physical setup: it seeds the magic working bytes from the caster's hands and accessory. |
-| [sub_140308C30](sub_140308C30.md) | `0x140308C30` | [Battle](../areas/battle.md) | The formula handler for the HP-restoring consumables: it derives the amount from the used item's chemist row and hands the result to the shared healing step. |
-| [sub_140308C98](sub_140308C98.md) | `0x140308C98` | [Battle](../areas/battle.md) | The formula handler for the revive consumable: it decides whether the target can be revived, then sets the amount of HP restored from the item's chemist row and a random roll. |
-| [sub_140309474](sub_140309474.md) | `0x140309474` | [Battle formulas](../areas/formulas.md) | Physical formula variant reached through the formula pointer table: it sets the attack from the caster and the weapon category, then runs the shared damage chain. |
 | [sub_1403095E4](sub_1403095E4.md) | `0x1403095E4` | [Battle](../areas/battle.md) | Executes a reaction ability: builds the result record the reaction causes from the reaction id in the word at 0x14186AFF0, or refuses an id it does not handle. |
 | [sub_1403099B0](sub_1403099B0.md) | `0x1403099B0` | [Battle](../areas/battle.md) | Resolves one battle action: copies the 20-byte action, sets up per-command data, dispatches the formula and runs the post steps. |
 | [sub_14030A11C](sub_14030A11C.md) | `0x14030A11C` | [Battle](../areas/battle.md) | Finishes the result block of one resolved action: either drops the whole result when the acting unit's own state forbids it, or runs the per-formula post hook, clamps the numbers to 999 and decides whether a follow-up... |

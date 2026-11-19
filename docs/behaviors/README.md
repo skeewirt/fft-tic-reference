@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-196 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+197 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -64,6 +64,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [FormulaHandlersBranchOnTheAbilityId](FormulaHandlersBranchOnTheAbilityId.md) | engine | Battle_ResolveAction reads one formula id per action (a byte), clamps it and calls one registry handler; many handlers then branch on the id of the ability being resolved (the formula block's +8 word). |
 | [FormulaHandlersChooseTheirEffectByAbilityId](FormulaHandlersChooseTheirEffectByAbilityId.md) | engine (battle formulas) | Several shared formula handlers choose their effect by the ability id in the formula block's word +8, and the resolver tests a few single ids, so an ability id none of them lists takes the default branch (usually: no ... |
 | [FormulaIdsPastTheByte](FormulaIdsPastTheByte.md) | engine | Every hop of a formula id is one byte and the registry has 106 rows; the clamp `(u8)(id - 1) > 0x69 -> 1` sends any other value to formula 1. |
+| [FormulaIdsWithNoHandlerBody](FormulaIdsWithNoHandlerBody.md) | Formula ids 17, 19, 24, 25 and 70 of the formula registry | Five formula ids have no formula of their own: their registry rows point at an empty function, so an action with one of them keeps the reset result (a hit with no amount and no status) and only the post-processing runs. |
 | [FormulaPostHooksAreKeyedByFormulaId](FormulaPostHooksAreKeyedByFormulaId.md) | engine | After a formula handler runs, sub_14030A11C looks the formula byte up in a 106-row hook table (PostBattleCalc) and runs the row's callback, if any: twelve formulas have an Undead rule there. |
 | [GenericUnitSpriteNumberFromJob](GenericUnitSpriteNumberFromJob.md) | engine (unit sprite selection) | A generic unit has no stored sprite number: the game derives it from the job and the sex, with the same sum in at least ten places, and every other job id falls back to a default. |
 | [GuideBarLayout](GuideBarLayout.md) | the footer button guide bar | The guide bar shows one UIButtonGuide key at a time: up to 8 slots, left ones first then right ones from x 1920; a sub-row mask hides sub-rows. |

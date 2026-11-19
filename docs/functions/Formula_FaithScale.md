@@ -20,7 +20,7 @@ Scales R+6 by the caster's and the target's faith: R+6 = R+6 * casterFaith * tar
 
 ## Referenced by
 
-- Called by: [Formula_MagicHitElem](Formula_MagicHitElem.md), [Formula_MagicHitNoElem](Formula_MagicHitNoElem.md)
+- Called by: [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_MagicHitElem](Formula_MagicHitElem.md), [Formula_MagicHitNoElem](Formula_MagicHitNoElem.md)
 
 ## Notes
 

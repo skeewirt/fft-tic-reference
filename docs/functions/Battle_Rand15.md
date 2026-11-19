@@ -20,7 +20,7 @@ The battle's random number: a 15-bit value, fixed while a forecast runs.
 
 ## Referenced by
 
-- Called by: [Formula_CritRoll](Formula_CritRoll.md)
+- Called by: [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_75_ItemRevive](Formula_75_ItemRevive.md), [Formula_CritRoll](Formula_CritRoll.md)
 
 ## Notes
 

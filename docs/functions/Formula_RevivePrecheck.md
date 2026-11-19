@@ -22,6 +22,10 @@ Revive gate: runs the status tail and continues only when a status is pending or
 
 - Calls: [Formula_ZeroResult](Formula_ZeroResult.md), [Formula_StatusTailKeepHit](Formula_StatusTailKeepHit.md)
 
+## Referenced by
+
+- Called by: [Formula_75_ItemRevive](Formula_75_ItemRevive.md)
+
 ## Notes
 
 60 bytes, read whole.

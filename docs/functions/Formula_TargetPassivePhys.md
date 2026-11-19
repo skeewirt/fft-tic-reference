@@ -19,7 +19,7 @@ The target's passive modifiers against a physical hit.
 
 ## Referenced by
 
-- Called by: [Formula_PhysMods](Formula_PhysMods.md), [Formula_PhysStatusHit](Formula_PhysStatusHit.md)
+- Called by: [Formula_100_JumpDamage](Formula_100_JumpDamage.md), [Formula_99_SpeedTimesWeaponPower](Formula_99_SpeedTimesWeaponPower.md), [Formula_PhysMods](Formula_PhysMods.md), [Formula_PhysStatusHit](Formula_PhysStatusHit.md)
 
 ## Notes
 

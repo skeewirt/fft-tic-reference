@@ -24,7 +24,7 @@ The 4 percent critical hit: marks R+1, adds a random share of A and runs the kno
 
 ## Referenced by
 
-- Called by: [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
+- Called by: [Formula_03_WeaponPowerSquared](Formula_03_WeaponPowerSquared.md), [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md), [Formula_06_WeaponDrainHP](Formula_06_WeaponDrainHP.md), [Formula_101_Physical80HPDrain](Formula_101_Physical80HPDrain.md), [Formula_PhysAttackFull](Formula_PhysAttackFull.md)
 
 ## Notes
 
