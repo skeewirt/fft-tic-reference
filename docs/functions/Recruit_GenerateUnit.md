@@ -30,7 +30,7 @@ Fills a fresh save record with a newly generated unit: identity marker, starting
 
 ## Referenced by
 
-- Resolves registries: [NewUnitStartRows](../registries/NewUnitStartRows.md)
+- Resolves registries: [NewUnitStartRows](../registries/NewUnitStartRows.md), [UnitIdentityIds](../registries/UnitIdentityIds.md)
 
 ## Notes
 

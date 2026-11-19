@@ -2,7 +2,7 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-3952 records in 12 kinds; 2030 functions.
+3953 records in 12 kinds; 2030 functions.
 
 ## By kind
 
@@ -12,7 +12,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
 | [Structures](docs/structs/README.md) | 512 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
 | [Globals](docs/globals/README.md) | 213 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
-| [Registries](docs/registries/README.md) | 19 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
+| [Registries](docs/registries/README.md) | 20 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
 | [Shaders](docs/shaders/README.md) | 9 | GPU shader programs from the game's technique files: stage, interface, bindings and what they compute (in words; no bytecode). |
 | [Shader programs](docs/programs/README.md) | 4 | Engine shader programs: a selector and program index resolved to its vertex and pixel shader, and the passes that use it. |
 | [Render targets](docs/render-targets/README.md) | 8 | GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame. |
@@ -44,7 +44,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Resource](docs/areas/resource.md) | Functions: 36, Structures: 7, Observed behaviours: 1, Tables: 15 |
 | [Save data](docs/areas/save-data.md) | Functions: 138, Structures: 12, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10 |
 | [UI framework](docs/areas/ui-framework.md) | Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flows: 4, Observed behaviours: 19, Tables: 234 |
-| [Unit data](docs/areas/unit-data.md) | Functions: 69, Structures: 3, Globals: 5, Registries: 1, Observed behaviours: 2, Tables: 1 |
+| [Unit data](docs/areas/unit-data.md) | Functions: 69, Structures: 3, Globals: 5, Registries: 2, Observed behaviours: 2, Tables: 1 |
 | [Unit rendering](docs/areas/unit-rendering.md) | Functions: 38, Structures: 17, Tables: 20 |
 
 ## How this repository is organised

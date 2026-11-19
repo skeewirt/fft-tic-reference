@@ -2,7 +2,7 @@
 
 Unit save, work and party records, stat and growth computation, egg hatching and scripted battle entries.
 
-Functions: 69, Structures: 3, Globals: 5, Registries: 1, Observed behaviours: 2, Tables: 1.
+Functions: 69, Structures: 3, Globals: 5, Registries: 2, Observed behaviours: 2, Tables: 1.
 
 ## Functions (69)
 
@@ -96,11 +96,12 @@ Functions: 69, Structures: 3, Globals: 5, Registries: 1, Observed behaviours: 2,
 | [g_UnitSaveData](../globals/g_UnitSaveData.md) | `0x1411A7D10` | `data` | 54 x 600 bytes; builder sub_140275C70 -> sub_140275B84 -> sub_140276758 |
 | [qword_141801100](../globals/qword_141801100.md) | `0x141801100` | `PartyUnitB *` | Pointer to a 640-byte scratch party record (unk_143749CA0). |
 
-## Registries (1)
+## Registries (2)
 
 | Name | Summary |
 |---|---|
 | [NewUnitStartRows](../registries/NewUnitStartRows.md) | The four start rows that Unit_RollStartingStats reads: base and random span of the five stat accumulators in whole raw units, and the seven starting equipment words; a new unit's row is its kind (gender), never its job. |
+| [UnitIdentityIds](../registries/UnitIdentityIds.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |
 
 ## Observed behaviours (2)
 

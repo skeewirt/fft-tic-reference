@@ -63,7 +63,7 @@ A unit as the save keeps it (54 records at g_UnitSaveData; copied whole into the
 
 - Described by tables: [UnitSaveSlots](../tables/UnitSaveSlots.md)
 - Global instances: [g_UnitSaveData](../globals/g_UnitSaveData.md)
-- Indexed by registries: [NewUnitStartRows](../registries/NewUnitStartRows.md)
+- Indexed by registries: [NewUnitStartRows](../registries/NewUnitStartRows.md), [UnitIdentityIds](../registries/UnitIdentityIds.md)
 
 ## Notes
 
