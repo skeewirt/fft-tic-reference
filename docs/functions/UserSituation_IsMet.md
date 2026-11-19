@@ -14,8 +14,9 @@ Answers whether a UserSituation condition (nxd table 90, keyed by situation and 
 
 ## Behavior
 
-- V: 0 holds always; otherwise for each entry of the key (NxdTable_GetEntryCount / GetEntryByKeyIndex) it runs the checks of the row (type at +8 + 4k, the union id at +24 + 8k, values at +44 + 4k and +80 + 4k, the IsTrueForSuccess byte at +92 + k) through UserSituation_TestCheck.
-- V: a check whose result differs from its IsTrueForSuccess byte moves on to the next entry; reaching a check type 0 first returns false. After the last entry it returns true.
+- V: 0 holds always; otherwise for each entry of the key (NxdTable_GetEntryCount / GetEntryByKeyIndex) it runs the checks k = 0..2 of the row in order through UserSituation_TestCheck: the kind at +8 + 4k, the ids at +24 + 8k and +60 + 8k, the values at +44 + 4k (fifth argument) and +80 + 4k (sixth argument); the values are passed only for kinds 3..11.
+- V: per check k, in order: kind 0 returns false; a TestCheck result that differs from the byte at +92 + k (column blocking_result) abandons this entry and moves on to the next one; when all three checks equal their bytes the function returns false.
+- V: after every entry was abandoned it returns true. So the byte at +0x5C + k is the result that blocks the situation, not a success value: an entry makes the situation unmet only when each of its checks returns exactly that byte.
 
 ## State touched
 
@@ -23,12 +24,12 @@ Answers whether a UserSituation condition (nxd table 90, keyed by situation and 
 
 ## Referenced by
 
-- Called by: [BarTop_Setup](BarTop_Setup.md), [MapRow_SelectVariation](MapRow_SelectVariation.md), [TavernRumour_IsAvailable](TavernRumour_IsAvailable.md)
+- Called by: [BarTop_Setup](BarTop_Setup.md), [MapRow_SelectVariation](MapRow_SelectVariation.md), [TavernRumour_IsAvailable](TavernRumour_IsAvailable.md), [WorldMap_ApplyProgressInfo](WorldMap_ApplyProgressInfo.md)
 - Observed behaviours: [TavernErrandsOpenAtSituationCounter450](../behaviors/TavernErrandsOpenAtSituationCounter450.md)
 
 ## Notes
 
-Name is ours (was sub_1400FF8A4). Situation 3220 (one entry: type 6 on id 0, value 450, IsTrueForSuccess 0) opens the tavern errand row.
+Name is ours (was sub_1400FF8A4). Situation 3220 (one entry: kind 6 on id 0, value 450, blocking_result 0) opens the tavern errand row.
 
 ## Open questions
 

@@ -2,15 +2,16 @@
 
 Unit save, work and party records, stat and growth computation, egg hatching and scripted battle entries.
 
-Functions: 69, Structures: 3, Globals: 5, Registries: 2, Observed behaviours: 2, Tables: 1.
+Functions: 73, Structures: 4, Globals: 5, Registries: 2, Observed behaviours: 3, Tables: 1.
 
-## Functions (69)
+## Functions (73)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [Battle_BuildEntryUnits](../functions/Battle_BuildEntryUnits.md) | `0x14030428C` | Builds the battle units of the current battle from its 16 entries: fetches the entry block, lets the battle's OverrideEntryData rows overwrite the entries, then places the units. |
 | [Battle_GetEntryBlock](../functions/Battle_GetEntryBlock.md) | `0x14028416C` | The 16 spawn entries (40 bytes each, 640 bytes) of the current battle inside the loaded entry data. |
 | [Battle_PlaceEntryUnits](../functions/Battle_PlaceEntryUnits.md) | `0x14027128C` | Builds battle unit i (g_PreviewUnitTable + 512 x i) from entry i for the 16 entries of a battle, decides who is placed and queues each placed unit's look. |
+| [CharaName_GetDisplayName](../functions/CharaName_GetDisplayName.md) | `0x1401E8B7C` | Returns the display name of a name key: the CharaName table's name, or the unit's own stored name string when the row says so. |
 | [GameState_ResetParty](../functions/GameState_ResetParty.md) | `0x140284500` | Resets the party-wide item state for a new game or a partial reset: the roster markers, the inventory counts, the Poachers' Den stock, the item badge block and the poach arrays, then the starting inventory and gil. |
 | [Item_CanUnitEquip](../functions/Item_CanUnitEquip.md) | `0x1402886D0` | Answers whether a unit's job may equip an item, combining the job's equip-category bits with a small set of item ids the game special-cases. |
 | [Item_CanUnitEquipPreview](../functions/Item_CanUnitEquipPreview.md) | `0x140396F1C` | The preview-record twin of the equip check: it decides whether the job shown in an equip preview could equip the candidate item. |
@@ -56,6 +57,7 @@ Functions: 69, Structures: 3, Globals: 5, Registries: 2, Observed behaviours: 2,
 | [sub_140396D08](../functions/sub_140396D08.md) | `0x140396D08` | Validates an equip preview against the unit's current equipment: it compares the candidate item with the item already in the slot and with the job's equip rules. |
 | [Unit_ApplyEquipment](../functions/Unit_ApplyEquipment.md) | `0x1402779EC` | Adds the armor and attribute contributions of a unit's equipped items to the unit's stats. |
 | [Unit_ApplyLevelGrowth](../functions/Unit_ApplyLevelGrowth.md) | `0x140278B24` | Raises a save record's level by a number of levels, growing the five 24-bit stat accumulators at each step from the job row's growth C values. |
+| [Unit_ApplySpawnRecord](../functions/Unit_ApplySpawnRecord.md) | `0x14027612C` | Applies a 40-byte spawn entry to a unit work record before the job and stat build: copies the side and presence byte, picks the save-record path for party and guest units, and sets level, birthday, Brave and Faith wit... |
 | [Unit_BuildAbilityBits](../functions/Unit_BuildAbilityBits.md) | `0x140276DF4` | Rebuilds a battle unit's passive-ability bit map from its innate ability words and its equipped reaction, support and movement ability. |
 | [Unit_BuildFromRecord](../functions/Unit_BuildFromRecord.md) | `0x140275CA4` | Builds a unit work record from a spawn record: applies the record, sets up job state, abilities and growth, computes the stats and the starting equipment. |
 | [Unit_BuildRsmAbilityList](../functions/Unit_BuildRsmAbilityList.md) | `0x140278358` | Answers a reaction / support / movement request of a spawn record: a fixed id is returned as is, a 'random' request (>= 0x1FE) picks one of the learned RSM abilities of the unit. |
@@ -72,16 +74,19 @@ Functions: 69, Structures: 3, Globals: 5, Registries: 2, Observed behaviours: 2,
 | [UnitWork_ApplyJobRow](../functions/UnitWork_ApplyJobRow.md) | `0x140276C64` | Copies a unit's JobTable row into its work record: skillset, innate abilities, equipment flags, growth pairs, Move/Jump, status groups, elemental groups and the three trailing bytes. |
 | [UnitWork_ApplyStartingEquipment](../functions/UnitWork_ApplyStartingEquipment.md) | `0x140277564` | Seeds a unit work record with its starting equipment while the unit is built from a setup record: the five slot bytes of the setup record are resolved to item ids and the hand slots and the two-handed state are derive... |
 | [UnitWork_BuildForSlot](../functions/UnitWork_BuildForSlot.md) | `0x140284F6C` | Builds a unit work record for a party slot from the save record, then applies the job row and the equipment so the caller can read derived stats without touching the live unit. |
+| [UnitWork_BuildFromGuestOrPartyRecord](../functions/UnitWork_BuildFromGuestOrPartyRecord.md) | `0x1402766C8` | Finds the save record a spawn entry names and builds the work record from it. |
 | [UnitWork_BuildFromSave](../functions/UnitWork_BuildFromSave.md) | `0x140275B84` | Builds the 512-byte unit work record C from a save unit record A. It first refreshes the unit's unlock mask inside the save record, then copies and completes the work record. |
 | [UnitWork_CopySaveFields](../functions/UnitWork_CopySaveFields.md) | `0x140276758` | Copies the fields of a save unit record A into the work record C. It defines the A -> C offset mapping. |
 | [UnitWork_InitFromSpawnRecord](../functions/UnitWork_InitFromSpawnRecord.md) | `0x14027699C` | Builds a new unit's job state in its work record from a spawn record: job levels, unlock mask, job row and secondary skillset. |
 | [UnitWork_PickStartingItem](../functions/UnitWork_PickStartingItem.md) | `0x140277F10` | Chooses one item id for a starting-equipment slot: it scans a category of the item table, keeps the ids the unit may use at its level, and returns one of them at random, or 0xFE when the category offers nothing. |
+| [UnitWork_SetNameKey](../functions/UnitWork_SetNameKey.md) | `0x140277CF0` | Sets a unit's name key (work dword +508) and name string (work +332). |
 | [UnitWork_StoreToSaveSlot](../functions/UnitWork_StoreToSaveSlot.md) | `0x140274EB8` | Writes a work record back into a save record: the unit's slot (a new slot for a recruit), job, flags, equipment and the per-job arrays. |
 
-## Structures (3)
+## Structures (4)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
+| [BattleSpawnEntry](../structs/BattleSpawnEntry.md) | 40 | One 40-byte entry of a scripted battle's entry block: the description of one unit to build. |
 | [PartyUnitRecord](../structs/PartyUnitRecord.md) | 640 | A unit as the party, status and job screens read it (55 records at g_PartyUnitRecords, reached through g_PartyUnits). |
 | [UnitSaveRecord](../structs/UnitSaveRecord.md) | 600 | A unit as the save keeps it (54 records at g_UnitSaveData; copied whole into the save slot at +1304 + 600 n). |
 | [UnitWorkRecord](../structs/UnitWorkRecord.md) | 512 | The working copy of a unit: the 21 battle units (g_BattleUnits) and temporary copies for previews and the job screens. |
@@ -103,12 +108,13 @@ Functions: 69, Structures: 3, Globals: 5, Registries: 2, Observed behaviours: 2,
 | [NewUnitStartRows](../registries/NewUnitStartRows.md) | The four start rows that Unit_RollStartingStats reads: base and random span of the five stat accumulators in whole raw units, and the seven starting equipment words; a new unit's row is its kind (gender), never its job. |
 | [UnitIdentityIds](../registries/UnitIdentityIds.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |
 
-## Observed behaviours (2)
+## Observed behaviours (3)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [PassiveAbilitiesAreAPerUnitBitMap](../behaviors/PassiveAbilitiesAreAPerUnitBitMap.md) | engine (battle unit record) | A battle unit's reactions, supports and movement abilities are kept as an 88-bit map (ids 422..509) in bytes +0x94..+0x9E of its record, rebuilt from the innate ability words and the three equipped words; the game's t... |
 | [PerJobSlotStateLayouts](../behaviors/PerJobSlotStateLayouts.md) | engine (party, battle and save unit records) | Per-job state (learned flags, level nibbles, JP, total JP) sits in several unit layouts at different offsets, indexed by the job slot that Job_IdToIndex returns. |
+| [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md) | engine (scripted battle entries) | A pre-placed unit of a scripted battle takes its starting equipment from one-byte item ids, so no item above id 255 can be a starting item. |
 
 ## Tables (1)
 

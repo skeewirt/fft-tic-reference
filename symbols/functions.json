@@ -493,6 +493,23 @@
       },
       "doc": "docs/functions/BTurn_StatusFlags.md"
     },
+    "BUi_BattleMain4_RegisterStateKeys": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:6cddde26705b96009acdc52c367e6984badfaa68dea638b3b789ab97c86c5072",
+            "insn_count": 48,
+            "mnemonics": "sha256:efd61d6c1f90a89a474e35b3136a33fdb767b78440deb88ac530ed8e18391a0e",
+            "size": 1876
+          },
+          "rva": "0x10e1fc",
+          "size": 1876
+        }
+      },
+      "doc": "docs/functions/BUi_BattleMain4_RegisterStateKeys.md"
+    },
     "BUi_BattleMenuWindowsCtor": {
       "area": "battle",
       "builds": {
@@ -1291,6 +1308,23 @@
         }
       },
       "doc": "docs/functions/BattleMsg_UnitTurnScene.md"
+    },
+    "BattleObjective_ShowsTarget": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:ea4214ff0c2eff162d53d1c582509c4fcd5218c2898072a192b4e2e1c37351bb",
+            "insn_count": 47,
+            "mnemonics": "sha256:adcff01984832a7a530d0c2ac163115546be860e59de7e43bfcd73d21c893f5b",
+            "size": 161
+          },
+          "rva": "0x1eb5d0",
+          "size": 161
+        }
+      },
+      "doc": "docs/functions/BattleObjective_ShowsTarget.md"
     },
     "BattlePreview_BuildAction": {
       "area": "battle",
@@ -2685,6 +2719,23 @@
         }
       },
       "doc": "docs/functions/CharaAnim_Step.md"
+    },
+    "CharaName_GetDisplayName": {
+      "area": "unit-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:d8c8f5c71d5a5e1036c982a5e19381560c65ed18fefc9c8cbbd25b181279b601",
+            "insn_count": 48,
+            "mnemonics": "sha256:e322e07a4c781c96349ca5833afd32c78d7e69f145ad5bc3fb2223309e9dc0da",
+            "size": 286
+          },
+          "rva": "0x1e8b7c",
+          "size": 286
+        }
+      },
+      "doc": "docs/functions/CharaName_GetDisplayName.md"
     },
     "CharaPalette_LoadClassic": {
       "area": "unit-rendering",
@@ -4471,6 +4522,23 @@
       },
       "doc": "docs/functions/Effect_TintByNxdScale.md"
     },
+    "EquipDetail_BuildCategoryLines": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:fd17ce1f278c9da1dc93ce5bf4530794e4ff4b3052ad5f9576cc2e4bcf8bcf40",
+            "insn_count": 48,
+            "mnemonics": "sha256:f02abbf833a8b17050bb91abafdcc348e8584d98a22cfb18ff013ce3b4cfc268",
+            "size": 3560
+          },
+          "rva": "0xf94dc",
+          "size": 3560
+        }
+      },
+      "doc": "docs/functions/EquipDetail_BuildCategoryLines.md"
+    },
     "EquipDetail_Refresh": {
       "area": "ui-framework",
       "builds": {
@@ -6188,6 +6256,23 @@
       },
       "doc": "docs/functions/EventFlagWait_Task.md"
     },
+    "EventId_TestByte27": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:17e708d149dfa0ea082e48ef48c7bdb874c7a87e90169fee92a48cff558fde28",
+            "insn_count": 42,
+            "mnemonics": "sha256:5807313856fc92e0ea55b9ece480d858467398ce5684184d2b010e0bb60393ca",
+            "size": 145
+          },
+          "rva": "0x254abc",
+          "size": 145
+        }
+      },
+      "doc": "docs/functions/EventId_TestByte27.md"
+    },
     "EventLookSet_Select": {
       "area": "event-system",
       "builds": {
@@ -6816,6 +6901,40 @@
         }
       },
       "doc": "docs/functions/EventSkip_IsViewerEvent.md"
+    },
+    "EventSlot_SetParam": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 19,
+            "mnemonics": "sha256:a70c3ff3b7da8fac09f9c1cacf0b2ba3904a33a93860aa3e33206a0f82449257",
+            "size": 80
+          },
+          "rva": "0x2b1fb4",
+          "size": 80
+        }
+      },
+      "doc": "docs/functions/EventSlot_SetParam.md"
+    },
+    "EventSlots_ResetAll": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:b07c6217e45de075c4360d410d2d40d8d7d841cc8f50d4dc9d39274df52ce46f",
+            "insn_count": 12,
+            "mnemonics": "sha256:8eeb9add04591b912a237f157de325bb21c2c5b8c7c6d58d6e1cff9ee07bb18d",
+            "size": 55
+          },
+          "rva": "0x2b2004",
+          "size": 55
+        }
+      },
+      "doc": "docs/functions/EventSlots_ResetAll.md"
     },
     "EventSoundEntry_Append": {
       "area": "event-system",
@@ -14790,6 +14909,23 @@
       },
       "doc": "docs/functions/Item_CategoryFirstId.md"
     },
+    "Item_CompareSortOrder": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:4209bfff9184abd9e1a2c79250742e64c99d2d84d674ec8e9cd8f002ced45336",
+            "insn_count": 21,
+            "mnemonics": "sha256:3dbdcffc18a7d706a4bae8d793a684ad8d2b283b1ddbcb39146fd9dbae211b7e",
+            "size": 64
+          },
+          "rva": "0x30e774",
+          "size": 64
+        }
+      },
+      "doc": "docs/functions/Item_CompareSortOrder.md"
+    },
     "Item_CountEquippedByParty": {
       "area": "items",
       "builds": {
@@ -18190,6 +18326,74 @@
       },
       "doc": "docs/functions/Pixels_ExpandToRgba.md"
     },
+    "PoachList_Build": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:fd8d5f6f706c72a0a02a777ee310489aa0ce24a147b26c1ffc48b1d03cc5b3da",
+            "insn_count": 48,
+            "mnemonics": "sha256:4d8bc980377ff596f341b2aaf4769f165b33038205fcd0010283c10ef9a1cafc",
+            "size": 343
+          },
+          "rva": "0x1affc4",
+          "size": 343
+        }
+      },
+      "doc": "docs/functions/PoachList_Build.md"
+    },
+    "PoachRow_SetMonsterIcon": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:90b317b16216a6e6fcd61698cd8f8edff497b527e5b1ec1de46241693d1d079b",
+            "insn_count": 48,
+            "mnemonics": "sha256:a5c7a6913e9686f801c6d9e6dd7ad9cbee23d3f1c1d43531cb3c19473d6167b4",
+            "size": 211
+          },
+          "rva": "0x2a4508",
+          "size": 211
+        }
+      },
+      "doc": "docs/functions/PoachRow_SetMonsterIcon.md"
+    },
+    "PoachSell_FillRow": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:5f2865820c3beec3bf2d2efb43e36f41c01ac14e205bb38ffb0f39fd59f336be",
+            "insn_count": 48,
+            "mnemonics": "sha256:5731a4082e02b7b66baa71211b6b25467d9a6f8ea4efaa2767e4b3def2ccda1c",
+            "size": 233
+          },
+          "rva": "0x1b2140",
+          "size": 233
+        }
+      },
+      "doc": "docs/functions/PoachSell_FillRow.md"
+    },
+    "PoachSell_ShowTotal": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:a8bfe80fd2b0f25aac2fd130e3db522a896de9d46c45aba640c7dc2054997ad9",
+            "insn_count": 28,
+            "mnemonics": "sha256:931a74fed06d763a240691d697a143cd4f8e3bcdcbec3160180bf7c8cbada521",
+            "size": 100
+          },
+          "rva": "0x1b23a0",
+          "size": 100
+        }
+      },
+      "doc": "docs/functions/PoachSell_ShowTotal.md"
+    },
     "PoachTable_GetRowById": {
       "area": "items",
       "builds": {
@@ -18206,6 +18410,40 @@
         }
       },
       "doc": "docs/functions/PoachTable_GetRowById.md"
+    },
+    "PoachTip_Fill": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 6,
+            "calls": "sha256:52f38303bd25ebed30b001bfb9b3566ecf78bf702202eb097501dd07fedaa8dd",
+            "insn_count": 48,
+            "mnemonics": "sha256:b30035478b5a2e3c6cae2fa57b54cc816fee81d3dd02e7a55c1d8ea474210f0d",
+            "size": 194
+          },
+          "rva": "0x29be00",
+          "size": 194
+        }
+      },
+      "doc": "docs/functions/PoachTip_Fill.md"
+    },
+    "Poach_GiveResult": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:7fda5e9e93f132fcf75d4dc6174640a681c6a1fd47db760808d34161a9209845",
+            "insn_count": 48,
+            "mnemonics": "sha256:ec1c3071c62dafc793d54fb7fc76c514aa539cc99344c372ee7abcd7e8196224",
+            "size": 626
+          },
+          "rva": "0x30ab70",
+          "size": 626
+        }
+      },
+      "doc": "docs/functions/Poach_GiveResult.md"
     },
     "PoachersDen_AddStock": {
       "area": "items",
@@ -21947,6 +22185,23 @@
       },
       "doc": "docs/functions/StatusList_BuildFromSet.md"
     },
+    "StatusLists_BuildOrder": {
+      "area": "items",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:64e467de13e80d738c78b1407429371096f38d75b350dfae1c53189d63096a05",
+            "insn_count": 48,
+            "mnemonics": "sha256:d697df5268025e05bc0813b7d57280f8cb06a835ffb8a8f4960b1c1a1a6949ea",
+            "size": 1607
+          },
+          "rva": "0xf8e94",
+          "size": 1607
+        }
+      },
+      "doc": "docs/functions/StatusLists_BuildOrder.md"
+    },
     "StatusScreen_BuildLists": {
       "area": "battle",
       "builds": {
@@ -25687,6 +25942,23 @@
       },
       "doc": "docs/functions/UnitWork_BuildForSlot.md"
     },
+    "UnitWork_BuildFromGuestOrPartyRecord": {
+      "area": "unit-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:d57f018186bde61c55d3924b1ab1d67eb802706bd2cbbc14c080fbbb72476fd5",
+            "insn_count": 43,
+            "mnemonics": "sha256:847772df49051f4b8cb8ee0ed440bced8a03b3cbe360e61b6dfddc95479c7f84",
+            "size": 143
+          },
+          "rva": "0x2766c8",
+          "size": 143
+        }
+      },
+      "doc": "docs/functions/UnitWork_BuildFromGuestOrPartyRecord.md"
+    },
     "UnitWork_BuildFromSave": {
       "area": "unit-data",
       "builds": {
@@ -25789,6 +26061,23 @@
       },
       "doc": "docs/functions/UnitWork_PickStartingItem.md"
     },
+    "UnitWork_SetNameKey": {
+      "area": "unit-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:e049e27e3479d1e0f500bc90340eae4eb7a2c931291a47cd114551c51c827fe2",
+            "insn_count": 48,
+            "mnemonics": "sha256:20afe4267a99d754b2189d0de1ba2a120eeb3762b4d15915bb16c2dce4e87290",
+            "size": 543
+          },
+          "rva": "0x277cf0",
+          "size": 543
+        }
+      },
+      "doc": "docs/functions/UnitWork_SetNameKey.md"
+    },
     "UnitWork_StoreToSaveSlot": {
       "area": "unit-data",
       "builds": {
@@ -25839,6 +26128,23 @@
         }
       },
       "doc": "docs/functions/Unit_ApplyLevelGrowth.md"
+    },
+    "Unit_ApplySpawnRecord": {
+      "area": "unit-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:cd21e50dd4bbfdb19a399b0c94fa5e1701fd2c289dd995d60563cc6937546513",
+            "insn_count": 48,
+            "mnemonics": "sha256:7a0c526f6cfaf5592617ffffd2f4fd5752308a2fe8aeefbc17661e0acccb5e43",
+            "size": 1435
+          },
+          "rva": "0x27612c",
+          "size": 1435
+        }
+      },
+      "doc": "docs/functions/Unit_ApplySpawnRecord.md"
     },
     "Unit_AwardJobJp": {
       "area": "job-data",
@@ -26214,6 +26520,23 @@
       },
       "doc": "docs/functions/Unit_QueueJobAbilitiesToLearn.md"
     },
+    "Unit_ReactionVoiceAllowed": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:3002c806deb701b3d56057c700fcb94b5a75da8209b436c0ef30efd6654df46b",
+            "insn_count": 48,
+            "mnemonics": "sha256:e37371723aefad8d4490ef4a11cd07a9d21afb85d9078b9b10871edba135867f",
+            "size": 442
+          },
+          "rva": "0x2178c0",
+          "size": 442
+        }
+      },
+      "doc": "docs/functions/Unit_ReactionVoiceAllowed.md"
+    },
     "Unit_ReinitStatusCountdowns": {
       "area": "battle",
       "builds": {
@@ -26570,6 +26893,23 @@
         }
       },
       "doc": "docs/functions/WorldMapScreen_BindNodes.md"
+    },
+    "WorldMap_ApplyProgressInfo": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:70ec8800da2870b1a8ceb3508499e4922708a231529b6651bdb105a71dd56e9a",
+            "insn_count": 48,
+            "mnemonics": "sha256:bbd5a295135f6861c47745fe89c8844d8f0e134595d3a502b10d8cd250321fa4",
+            "size": 815
+          },
+          "rva": "0x341094",
+          "size": 815
+        }
+      },
+      "doc": "docs/functions/WorldMap_ApplyProgressInfo.md"
     },
     "WorldMap_InitLocations": {
       "area": "event-system",

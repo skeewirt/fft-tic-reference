@@ -26,7 +26,7 @@ Returns the ability id stored in one slot of a skillset, or 0 when the set or sl
 ## Referenced by
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [Job_ReadLearnedBitsForBattle](Job_ReadLearnedBitsForBattle.md), [SaveWork_UnpackToLive_Repair](SaveWork_UnpackToLive_Repair.md), [Skillset_BuildAbilityList](Skillset_BuildAbilityList.md), [Unit_BuildRsmAbilityList](Unit_BuildRsmAbilityList.md), [Unit_QueueJobAbilitiesToLearn](Unit_QueueJobAbilitiesToLearn.md), [sub_140271EFC](sub_140271EFC.md), [sub_14030CD08](sub_14030CD08.md), [sub_14030DD8C](sub_14030DD8C.md), [sub_14030E368](sub_14030E368.md), [sub_14030EC48](sub_14030EC48.md)
+- Called by: [Job_ReadLearnedBitsForBattle](Job_ReadLearnedBitsForBattle.md), [SaveWork_UnpackToLive_Repair](SaveWork_UnpackToLive_Repair.md), [Skillset_BuildAbilityList](Skillset_BuildAbilityList.md), [Unit_ApplySpawnRecord](Unit_ApplySpawnRecord.md), [Unit_BuildRsmAbilityList](Unit_BuildRsmAbilityList.md), [Unit_QueueJobAbilitiesToLearn](Unit_QueueJobAbilitiesToLearn.md), [sub_140271EFC](sub_140271EFC.md), [sub_14030CD08](sub_14030CD08.md), [sub_14030DD8C](sub_14030DD8C.md), [sub_14030E368](sub_14030E368.md), [sub_14030EC48](sub_14030EC48.md)
 - Observed behaviours: [SkillsetIdsPastTheByte](../behaviors/SkillsetIdsPastTheByte.md)
 - Reads tables: [SkillsetTable](../tables/SkillsetTable.md), [SkillsetTableMonster](../tables/SkillsetTableMonster.md), [SkillsetTableSpecial](../tables/SkillsetTableSpecial.md)
 

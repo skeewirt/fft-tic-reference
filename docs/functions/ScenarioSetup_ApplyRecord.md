@@ -20,6 +20,7 @@ At a scene start, applies the scenario setup record of the scene's event to the 
 - V: then it searches the records for the scene's event (var 39, or the resume copy when the resume flag is 1); no record: variables 48 and 39 are set to 0 and it returns.
 - V: with a record it reads the fields into scene variables: map byte +2 -> 51 (event 93 keeps 51), +3 nibbles -> 48 / 35, +4 -> 36, +7 or +15 -> 50, +9 / +11 -> 53 / 54 and their count -> 52, +17 -> 511, the two scene bytes +13 / +14, and collects the scene's characters from the EnhancedBattleEvent rows of the key at +22 (it returns before writing variable 51 when that key has no row, has 16 or more entries, or the list reaches 512 words).
 - V: event numbers are read sign-extended from 16 bits in every search.
+- V: each word of the character list collected from the EnhancedBattleEvent rows is the row's 16-bit condition opcode (column condition, row +4); a row whose value is 0 is skipped, any other value is appended to the word list at 0x140D3F550 as the trigger-condition opcode.
 
 ## State touched
 

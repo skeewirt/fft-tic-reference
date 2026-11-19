@@ -32,6 +32,7 @@ Seeds a unit work record with its starting equipment while the unit is built fro
 ## Referenced by
 
 - Called by: [Unit_BuildFromRecord](Unit_BuildFromRecord.md)
+- Observed behaviours: [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md)
 
 ## Notes
 

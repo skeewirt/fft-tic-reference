@@ -15,7 +15,7 @@ One row of the nxd.enhanced_world_event table (data table). The key is not store
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown04"></a>`0x4` | unknown04 | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 43, 15 distinct values. |
+| <a id="condition"></a>`0x4` | condition | `int16` | V | Read in the code: Settlement-event condition opcode (0 = row skipped); the other columns are its arguments; run through the 44-entry condition handler table. Observed in the stock rows: 0 to 43, 15 distinct values. |
 | <a id="unknown08"></a>`0x8` | unknown08 | `int16[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 125 distinct values. |
 | <a id="unknown10"></a>`0x10` | unknown10 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 845, 109 distinct values. |
 | <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 47, 44 distinct values. |
@@ -32,4 +32,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 7 of 7 columns not decoded.
+? 6 of 7 columns not decoded.

@@ -26,7 +26,7 @@ The row entry of (key1, key2): for a double-keyed table the binary search over t
 ## Referenced by
 
 - Appears in flows: [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md)
-- Called by: [NxdTable_GetEntryByIndex](NxdTable_GetEntryByIndex.md), [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetSetEntries](NxdTable_GetSetEntries.md), [UITable_GetRowByKeys](UITable_GetRowByKeys.md), [sub_14036E5DC](sub_14036E5DC.md)
+- Called by: [NxdTable_GetEntryByIndex](NxdTable_GetEntryByIndex.md), [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetSetEntries](NxdTable_GetSetEntries.md), [UITable_GetRowByKeys](UITable_GetRowByKeys.md), [WorldMap_ApplyProgressInfo](WorldMap_ApplyProgressInfo.md), [sub_14036E5DC](sub_14036E5DC.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes

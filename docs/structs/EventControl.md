@@ -28,7 +28,7 @@ ffto::Game::Event::EventControl (vtable 0x140713658), the singleton at g_EventCo
 | <a id="ff_carry"></a>`0x36` | ff_carry | `uint8` | V | 1 when fast-forward was running at a script's end (EventControl_CarryToNextEvent); EventControl_ApplyCarry restores it in the next event. | [EventControl_ApplyCarry](../functions/EventControl_ApplyCarry.md) | [EventControl_CarryToNextEvent](../functions/EventControl_CarryToNextEvent.md) |
 | <a id="pause_block_a"></a>`0x31` | pause_block_a | `uint8` | V | Non-zero blocks opening the overlay; set (word 257 at +49) by the panel, preview and message tasks, cleared after them. | [EventControl_TryOpenPause](../functions/EventControl_TryOpenPause.md) | [EventControl_Reset](../functions/EventControl_Reset.md) |
 | <a id="pause_block_load"></a>`0x34` | pause_block_load | `uint8` | V | Non-zero blocks opening the overlay; set 1 by EventScript_LoadCurrent when it loads a new event, cleared by EventScript_Run when the script starts. | [EventControl_TryOpenPause](../functions/EventControl_TryOpenPause.md) |  |
-| <a id="pause_block_b"></a>`0x39` | pause_block_b | `uint8` | V | Non-zero blocks opening the overlay; cleared by sub_14021EE0C and EventControl_Reset. | [EventControl_TryOpenPause](../functions/EventControl_TryOpenPause.md) | [EventControl_Reset](../functions/EventControl_Reset.md) |
+| <a id="pause_block_b"></a>`0x39` | pause_block_b | `uint8` | V | Non-zero blocks opening the overlay (EventControl_TryOpenPause); set 1 by EventControl_ApplyCarry when the EventId no_pause column (+0x29) of the new event is non-zero; cleared by sub_14021EE0C and EventControl_Reset. | [EventControl_TryOpenPause](../functions/EventControl_TryOpenPause.md) | [EventControl_Reset](../functions/EventControl_Reset.md) |
 
 ## Behavior
 

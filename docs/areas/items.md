@@ -2,18 +2,20 @@
 
 Item records and categories, and the shops.
 
-Functions: 95, Structures: 27, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 9, Tables: 33.
+Functions: 103, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 9, Tables: 33.
 
-## Functions (95)
+## Functions (103)
 
 | Name | Address | Purpose |
 |---|---|---|
+| [EquipDetail_BuildCategoryLines](../functions/EquipDetail_BuildCategoryLines.md) | `0x1400F94DC` | Builds the text of the equipment detail category lines (UIStatusEffectCategory, nxd 56) for the equipment attribute record in the third argument. |
 | [Inventory_AddCount](../functions/Inventory_AddCount.md) | `0x1402847F8` | Adds a signed delta to the owned count of one item id and returns the new count, or zero when the id is outside the accepted range. |
 | [Inventory_AddWithOverflow](../functions/Inventory_AddWithOverflow.md) | `0x140101058` | Adds to an item's owned count with the game's 99 cap, sells the excess for gil, and appends a four-field record of the transaction to a caller-supplied vector. |
 | [Inventory_RebuildOrders](../functions/Inventory_RebuildOrders.md) | `0x1402BB3EC` | Rebuilds the five item order lists and the derived menu state after a load or a party change: it picks the owning unit, syncs every group and refreshes the list globals. |
 | [Inventory_ReturnItem](../functions/Inventory_ReturnItem.md) | `0x14030CEA4` | Puts one item back into the party inventory: the refund step for a use that was cancelled or resolved away. |
 | [Inventory_SellOverflow](../functions/Inventory_SellOverflow.md) | `0x1402846C0` | Sells down every inventory count above 99 and adds the gil, which is the overflow rule the rest of the item path relies on. |
 | [Item_CategoryFirstId](../functions/Item_CategoryFirstId.md) | `0x1402B8C0C` | Returns the first item id of the category (type) that contains the given id, so a caller can index a sub-record table from its start; 0 when the id is rejected. |
+| [Item_CompareSortOrder](../functions/Item_CompareSortOrder.md) | `0x14030E774` | qsort comparator of two item-id bytes: -1 / 0 / 1 from the Item row dword +0x28 (column sort_order), smaller first. |
 | [Item_CountEquippedByParty](../functions/Item_CountEquippedByParty.md) | `0x1402874D8` | Counts how many party units hold a given item id in their five equipment words. |
 | [Item_CountTotal](../functions/Item_CountTotal.md) | `0x140287530` | Returns everything the party owns of an item: the inventory count plus the number equipped by the party. |
 | [Item_FindCategoryIndex](../functions/Item_FindCategoryIndex.md) | `0x1402B8BCC` | Turns an item id into its category index: the number of leading entries of the 14-word first-id array (`g_ItemCategoryFirstId`) that are <= the id. |
@@ -33,12 +35,18 @@ Functions: 95, Structures: 27, Globals: 29, Registries: 2, Flows: 2, Observed be
 | [ItemTable_GetRowById](../functions/ItemTable_GetRowById.md) | `0x1402B889C` | Returns the Item-en row for an item id through the shared NXD table interface, or null when the row is absent. |
 | [Party_AnyItemBelow99](../functions/Party_AnyItemBelow99.md) | `0x1402D6688` | Answers whether any item held by the party has reached a high count. |
 | [PoachersDen_AddStock](../functions/PoachersDen_AddStock.md) | `0x140287564` | Adds a signed delta to the Poachers' Den stock count of one item id and returns the resulting count, clamped to the byte range the store uses; the shop list builder calls it with a zero delta, so in the shop path it i... |
+| [PoachList_Build](../functions/PoachList_Build.md) | `0x1401AFFC4` | Builds the poacher shop's list: one 48-byte entry for each poach id (1..96) with a non-zero held count. |
+| [PoachRow_SetMonsterIcon](../functions/PoachRow_SetMonsterIcon.md) | `0x1402A4508` | Sets the monster icon of a poacher list row. |
+| [PoachSell_FillRow](../functions/PoachSell_FillRow.md) | `0x1401B2140` | Fills one row of the poacher sell list. |
+| [PoachSell_ShowTotal](../functions/PoachSell_ShowTotal.md) | `0x1401B23A0` | Shows the sale total of the poacher sell screen. |
 | [PoachTable_GetRowById](../functions/PoachTable_GetRowById.md) | `0x1402B8A78` | Returns the PoachItem-en row for a poach type through the shared NXD table interface. |
+| [PoachTip_Fill](../functions/PoachTip_Fill.md) | `0x14029BE00` | Fills the poach help tip. |
 | [Shop_BuildItemList](../functions/Shop_BuildItemList.md) | `0x140288E54` | Builds the item id list of one shop or of the Poachers' Den into a caller-supplied buffer, applying the shop mask, the story-progress gate, a menu-category filter and an optional equipment check, and returns the numbe... |
 | [Shop_GetUiRowId](../functions/Shop_GetUiRowId.md) | `0x1402ACA48` | Maps a shop number to the UI table row that holds its name and description: the two special shops get fixed rows and every ordinary shop uses the common row. |
 | [Shop_Open](../functions/Shop_Open.md) | `0x1402C35FC` | Opens the shop screen for a shop number: it stores the id, resolves the real shop from the event variable when the id is not special, builds the list and the panels and starts the shop task. |
 | [ShopEntry_Fill](../functions/ShopEntry_Fill.md) | `0x14036B2D0` | Fills the 40-byte shop list entry of list index `index`: id and counts (ShopEntry_InitFromList), price, flags; then stores it in the list gadget. |
 | [ShopEntry_InitFromList](../functions/ShopEntry_InitFromList.md) | `0x14028B65C` | Starts a shop entry from list word `index` of word_141811470: the id (masked 0x3FF), the index and the equipped and owned counts. |
+| [StatusLists_BuildOrder](../functions/StatusLists_BuildOrder.md) | `0x1400F8E94` | Once per run, builds the three display-order key lists the equipment detail lines use. |
 | [sub_1400D6FB0](../functions/sub_1400D6FB0.md) | `0x1400D6FB0` | Adjusts the count of one poach type, clamps it, and keeps the two ordered poach lists in step when a type enters or leaves the collection. |
 | [sub_1400ED3E8](../functions/sub_1400ED3E8.md) | `0x1400ED3E8` | Returns the equip screen's current slot selector: the byte at the UI object's `+0xF1C`, or 0 when the UI module is not up. |
 | [sub_1400ED4BC](../functions/sub_1400ED4BC.md) | `0x1400ED4BC` | Returns the item screen's current list mode: the dword at the UI object's `+0x12EC`, or 0 when the module is not up. |
@@ -104,7 +112,7 @@ Functions: 95, Structures: 27, Globals: 29, Registries: 2, Flows: 2, Observed be
 | [sub_14039684C](../functions/sub_14039684C.md) | `0x14039684C` | A second synchroniser for the saved item order lists. |
 | [sub_140396FEC](../functions/sub_140396FEC.md) | `0x140396FEC` | Builds the item screen's 256-word list `word_141D32F00` for one category: it walks the item-id space, keeps the owned ids of the category, marks preview-unequippable entries with bit 14, terminates the list, and optio... |
 
-## Structures (27)
+## Structures (28)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -133,6 +141,7 @@ Functions: 95, Structures: 27, Globals: 29, Registries: 2, Flows: 2, Observed be
 | [NxdDataZodiacStoneOwnerTimelineRow](../structs/NxdDataZodiacStoneOwnerTimelineRow.md) | 16 | One row of the nxd.zodiac_stone_owner_timeline table (data table). |
 | [NxdDataZodiacStoneRow](../structs/NxdDataZodiacStoneRow.md) | 40 | One row of the nxd.zodiac_stone table (English text table; the other languages share the layout). |
 | [PartyHandWord](../structs/PartyHandWord.md) | 2 | One equipment slot of a party unit: the item id in bits 0..9 and bit 15 as the Outfitter-session pending flag. |
+| [PoachListEntry](../structs/PoachListEntry.md) | 48 | One entry of the poacher list that PoachList_Build fills: a poach id the party holds. |
 | [ShopEntry](../structs/ShopEntry.md) | 40 | One entry of a shop item list (buy, sell or equip), built per list index by ShopEntry_Fill from word_141811470 and drawn by ShopItemList_DrawRow. |
 | [ShopRowCallbackTable](../structs/ShopRowCallbackTable.md) | 56 | The seven qword row handlers at 0x141876AD0..0x141876B00 that the list gadget calls per visible row; the shop, equip and item screens install different functions in the same slots. |
 

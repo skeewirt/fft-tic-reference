@@ -26,7 +26,7 @@ Returns everything the party owns of an item: the inventory count plus the numbe
 
 ## Referenced by
 
-- Called by: [Inventory_BuildEquipList](Inventory_BuildEquipList.md), [Inventory_SellOverflow](Inventory_SellOverflow.md), [ItemOrder_SyncGroup](ItemOrder_SyncGroup.md), [JobChange_FillUnitEntry](JobChange_FillUnitEntry.md), [ShopEntry_InitFromList](ShopEntry_InitFromList.md), [sub_140286070](sub_140286070.md), [sub_140286160](sub_140286160.md), [sub_14028B354](sub_14028B354.md), [sub_140332C54](sub_140332C54.md), [sub_140334A48](sub_140334A48.md), [sub_14036A924](sub_14036A924.md)
+- Called by: [Inventory_BuildEquipList](Inventory_BuildEquipList.md), [Inventory_SellOverflow](Inventory_SellOverflow.md), [ItemOrder_SyncGroup](ItemOrder_SyncGroup.md), [JobChange_FillUnitEntry](JobChange_FillUnitEntry.md), [PoachList_Build](PoachList_Build.md), [ShopEntry_InitFromList](ShopEntry_InitFromList.md), [sub_140286070](sub_140286070.md), [sub_140286160](sub_140286160.md), [sub_14028B354](sub_14028B354.md), [sub_140332C54](sub_140332C54.md), [sub_140334A48](sub_140334A48.md), [sub_14036A924](sub_14036A924.md)
 
 ## Notes
 

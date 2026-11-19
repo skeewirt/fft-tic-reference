@@ -27,9 +27,9 @@ One row of the nxd.item table (English text table; the other languages share the
 | <a id="ui_status_effect"></a>`0x1C` | ui_status_effect | `int32` | M | Measured over every stock row: Every value is a key of nxd.UIStatusEffect-en. Observed in the stock rows: 0 to 1002, 3 distinct values. |
 | <a id="unknown20"></a>`0x20` | unknown20 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 | <a id="ui_item_category"></a>`0x24` | ui_item_category | `int32` | M | Measured over every stock row: Every value is a key of nxd.UIItemCategory-en. Observed in the stock rows: 0 to 34, 35 distinct values. |
-| <a id="unknown28"></a>`0x28` | unknown28 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 6106, 260 distinct values. |
+| <a id="sort_order"></a>`0x28` | sort_order | `int32` | V | Read in the code: Order key: lists sorted by it put the smaller value first (the Throw item list; item sort field 12). Observed in the stock rows: 0 to 6106, 260 distinct values. |
 | <a id="unknown2c"></a>`0x2C` | unknown2c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown2d"></a>`0x2D` | unknown2d | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="random_icon"></a>`0x2D` | random_icon | `uint8` | V | Read in the code: Non-zero on either weapon of an attack shows the 'random' icon (IconRandom) next to the damage number in the battle action panel. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -41,4 +41,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 9 of 16 columns not decoded.
+? 7 of 16 columns not decoded.

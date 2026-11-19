@@ -18,7 +18,7 @@ One row of the nxd.chara_name table (English text table; the other languages sha
 | <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 | <a id="name"></a>`0x8` | name | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 829 distinct values, 180 empty. |
 | <a id="unknown0c"></a>`0xC` | unknown0c | `union {int32 kind; int32 id}` | ? | Not decoded. Observed in the stock rows: 74 distinct values. |
-| <a id="unknown14"></a>`0x14` | unknown14 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="own_name"></a>`0x14` | own_name | `uint8` | V | Read in the code: Non-zero: a unit with this name key is shown with its own stored name string (when it has one) instead of this row's name. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -30,4 +30,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 4 of 5 columns not decoded.
+? 3 of 5 columns not decoded.

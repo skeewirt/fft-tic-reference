@@ -16,7 +16,7 @@ One row of the nxd.ui_status_effect table (English text table; the other languag
 |---|---|---|---|---|
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
-| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 13, 5 distinct values. |
+| <a id="ui_status_effect_category"></a>`0x8` | ui_status_effect_category | `int32` | V | Read in the code: The UIStatusEffectCategory row under which this status is listed in the equipment detail lists (0 = none). The code filters by it for Permanent (1) and Applies (3); values 12 (Initial Effect) and 13 (Special Effect) rest on the rows only. Observed in the stock rows: 0 to 13, 5 distinct values. |
 | <a id="name"></a>`0xC` | name | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 42 distinct values, 4 empty. |
 | <a id="caption"></a>`0x10` | caption | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 36 distinct values, 10 empty. |
 | <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 3 distinct values. |
@@ -35,4 +35,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 8 of 10 columns not decoded.
+? 7 of 10 columns not decoded.

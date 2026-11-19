@@ -22,7 +22,7 @@ Prints a price into the row's 'TextPrice' part with UI text 1717 (1753 when grey
 
 ## Referenced by
 
-- Called by: [ShopItemList_DrawRow](ShopItemList_DrawRow.md)
+- Called by: [PoachSell_FillRow](PoachSell_FillRow.md), [ShopItemList_DrawRow](ShopItemList_DrawRow.md)
 
 ## Open questions
 

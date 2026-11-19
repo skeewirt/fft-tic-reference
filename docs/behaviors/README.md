@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-197 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+199 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -60,6 +60,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [FaceLookupInlineCopiesDisagreeAboveCode159](FaceLookupInlineCopiesDisagreeAboveCode159.md) | engine (portrait face numbers) | The face-number lookup exists as SpriteId_ToShape and ten inline copies; for codes above 0x9F five of the copies answer differently from the function, so one table row cannot stand for all of them. |
 | [FaceNumberCapsClipRawCodesToo](FaceNumberCapsClipRawCodesToo.md) | engine (portrait face numbers) | Sixteen readers cap the face number at 0xCD (205): the twelve caps below and the four readers of the HD face table g_FaceG2dEntryByFace. |
 | [FastForwardState](FastForwardState.md) | battle, event scripts (story scenes, battle dialogue) and the world map, enhanced edition | How the fast-forward hold and the dialogue auto-advance toggle become state, how to read 'fast-forward is active now' from memory with no input, what gates a hold, and what the state changes. |
+| [FirstDwordOfTableRowsIsNeverRead](FirstDwordOfTableRowsIsNeverRead.md) | engine (nxd table access) | No shared code reads the first dword of a table row; a row is found through the key / offset index record, so the value there decides nothing. |
 | [FormulaHandlerContract](FormulaHandlerContract.md) | The 106 ability formula handlers and the blocks they call | What a formula handler may assume and has to leave behind, read from the stock handlers and from Battle_ResolveAction: the frame it is called in, how it says 'no effect', which result fields go together, why it must n... |
 | [FormulaHandlersBranchOnTheAbilityId](FormulaHandlersBranchOnTheAbilityId.md) | engine | Battle_ResolveAction reads one formula id per action (a byte), clamps it and calls one registry handler; many handlers then branch on the id of the ability being resolved (the formula block's +8 word). |
 | [FormulaHandlersChooseTheirEffectByAbilityId](FormulaHandlersChooseTheirEffectByAbilityId.md) | engine (battle formulas) | Several shared formula handlers choose their effect by the ability id in the formula block's word +8, and the resolver tests a few single ids, so an ability id none of them lists takes the default branch (usually: no ... |
@@ -134,6 +135,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [PoisonAndRegenActAtTheEndOfTheUnitsTurn](PoisonAndRegenActAtTheEndOfTheUnitsTurn.md) | engine | Poison and Regen change HP when the turn of the unit ends: Battle_TurnEngine phase 19 writes max HP / 8 as damage (Poison) or as a heal (Regen, only when not poisoned) into the result block of the unit, which the game... |
 | [PoolRecordKeepsItsSpriteAcrossTheReset](PoolRecordKeepsItsSpriteAcrossTheReset.md) | engine (battle sprite loading) | A look pool record keeps the sprite it holds (byte +1) after LookPool_ResetForBattleLoad, and the load pass skips the classic file of a queued sprite that any record's +1 already names; only the battle setup clears +1... |
 | [PortraitCodeIsAByteOnTheSaveRecordPath](PortraitCodeIsAByteOnTheSaveRecordPath.md) | engine (party faces) | On the save-record path a portrait code can only carry 256 distinct faces: the code reader refuses a code with bit 8 or 9 and the cell function returns the low byte. |
+| [PreplacedUnitsStartWithOneByteItems](PreplacedUnitsStartWithOneByteItems.md) | engine (scripted battle entries) | A pre-placed unit of a scripted battle takes its starting equipment from one-byte item ids, so no item above id 255 can be a starting item. |
 | [PreviewBuildersReadPartyRecordCopies](PreviewBuildersReadPartyRecordCopies.md) | engine (party and save records) | The unit detail and summary builders (sub_1402C185C, sub_1402C1628) read a party record copied in three parts (header from +34, middle from +48, block from +112); the header names the save slot (header + 10 = +44), an... |
 | [PseudoEffectWordIsASixteenBitEventOperand](PseudoEffectWordIsASixteenBitEventOperand.md) | engine (effect selection) | An effect word of 512 or more selects a row of the 37-word pseudo effect table (row = word - 512, row 0 when 37 or more) and the effect number is masked to 9 bits; event command class 0x18 sets the word, which the eve... |
 | [QuitLoopExit](QuitLoopExit.md) | how the quit request ends the main loop | Game_Main runs App_RunFrame in a loop and leaves it when it returns 0; App_RunFrame returns whether the quit request byte is 0. |

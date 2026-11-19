@@ -28,7 +28,7 @@ Counts how many party units hold a given item id in their five equipment words.
 
 ## Referenced by
 
-- Called by: [Inventory_AddWithOverflow](Inventory_AddWithOverflow.md), [Item_CountTotal](Item_CountTotal.md), [ShopEntry_InitFromList](ShopEntry_InitFromList.md), [sub_140332C8C](sub_140332C8C.md), [sub_1403358FC](sub_1403358FC.md), [sub_14036A95C](sub_14036A95C.md)
+- Called by: [Inventory_AddWithOverflow](Inventory_AddWithOverflow.md), [Item_CountTotal](Item_CountTotal.md), [PoachList_Build](PoachList_Build.md), [ShopEntry_InitFromList](ShopEntry_InitFromList.md), [sub_140332C8C](sub_140332C8C.md), [sub_1403358FC](sub_1403358FC.md), [sub_14036A95C](sub_14036A95C.md)
 
 ## Notes
 

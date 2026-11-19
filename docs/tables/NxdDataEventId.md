@@ -25,4 +25,4 @@ Column names are our own: a column is named only where its role was read in the 
 
 ## Open questions
 
-? 17 of 19 columns not decoded (see the row layout)
+? 9 of 19 columns not decoded (see the row layout)

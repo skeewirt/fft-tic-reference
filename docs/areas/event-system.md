@@ -2,9 +2,9 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 195, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 18, Tables: 29.
+Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 18, Tables: 29.
 
-## Functions (195)
+## Functions (199)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -33,6 +33,7 @@ Functions: 195, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventEffect_Start](../functions/EventEffect_Start.md) | `0x140273708` | Starts the effect an event script asked for: builds a small request record, fills its flag bytes and calls Effect_SelectForAbility with the effect word. |
 | [EventEndSlate_ShowTask](../functions/EventEndSlate_ShowTask.md) | `0x14021EB40` | The task started by event opcode 0xEC: adds the end-slate UI add-on, plays its language-keyed state and its Show state, waits until the state ends or the skip test passes, then removes the add-on. |
 | [EventFlagWait_Task](../functions/EventFlagWait_Task.md) | `0x14023589C` | The task started by event opcode 0x8B: waits frame by frame until the global dword_140CDB824 becomes zero, then ends. |
+| [EventId_TestByte27](../functions/EventId_TestByte27.md) | `0x140254ABC` | Returns 0 when event variable 39's EventId row byte +0x27 is non-zero, else 0x10002. |
 | [EventLookSet_Select](../functions/EventLookSet_Select.md) | `0x1402459E0` | Makes one of the eight generic look sets the active pool for an event's placeholder actors. |
 | [EventMapTitle_DrawSweep](../functions/EventMapTitle_DrawSweep.md) | `0x140302318` | Builds four 184-byte map-title draw records for one sweep value into a 736-byte buffer and links them into the draw list; the layout argument (0 or 1) chooses the record variant and the link order. |
 | [EventMapTitle_LoadTexture](../functions/EventMapTitle_LoadTexture.md) | `0x140302B68` | Loads the map-title texture file chosen by scene variable 51 (maptitle_%03d.tex) into a 10,240-byte buffer, unless the enhanced-build test says it is not needed; the 0x91 handler calls it before starting the sweep task. |
@@ -70,6 +71,8 @@ Functions: 195, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventSequencer_TakeTurn](../functions/EventSequencer_TakeTurn.md) | `0x1402334FC` | Waits for the shared sequencer to be free, claims it by writing the caller's tag, waits until it is released, and ends the caller when the flag word at word_140D408F8 is 1. |
 | [EventSkip_IsAvailable](../functions/EventSkip_IsAvailable.md) | `0x140239834` | Says whether the running event script may be skipped now. |
 | [EventSkip_IsViewerEvent](../functions/EventSkip_IsViewerEvent.md) | `0x1402397F8` | The second way an event becomes skippable: event variable 508 set (an event started from a viewer path), with the event number outside 410..425 and a blocking flag clear. |
+| [EventSlot_SetParam](../functions/EventSlot_SetParam.md) | `0x1402B1FB4` | Stores an event parameter record: -996, 100 * level / 127 and b into xmmword_140D3A910, and level into dword_1418623B8, when qword_1418623A8 is set. |
+| [EventSlots_ResetAll](../functions/EventSlots_ResetAll.md) | `0x1402B2004` | Resets the event's parameter slots and empties the event sound entry list. |
 | [EventSoundEntry_Append](../functions/EventSoundEntry_Append.md) | `0x1401D7AF8` | The body of opcode 0xA6: looks the id up in data table 280 and then, through a value in that row, in data table 279; when both rows are valid it creates a 56-byte sound resource that carries the id and appends it to t... |
 | [EventSoundEntry_SetStateById](../functions/EventSoundEntry_SetStateById.md) | `0x1401D7CF0` | The body of opcode 0xA7: for every entry in the sound object's entry list whose id equals the operand, stops its resource if one is held, and sets the entry's state byte to 4. |
 | [EventSoundGroup_Play](../functions/EventSoundGroup_Play.md) | `0x1402F1868` | Plays the four sound effects of one event sound group. |
@@ -199,6 +202,7 @@ Functions: 195, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [UserSituation_SetValue](../functions/UserSituation_SetValue.md) | `0x1400FF660` | Sets one situation counter and tells the registered listeners. |
 | [UserSituation_TestCheck](../functions/UserSituation_TestCheck.md) | `0x1400FFAF0` | One check of a UserSituation row against the situation store (qword_143CD9DE0): a flag byte, a counter compare or a scene variable. |
 | [WorldEncounter_Roll](../functions/WorldEncounter_Roll.md) | `0x140248BE4` | Decides whether a random battle starts at a battleground and which formation it uses. |
+| [WorldMap_ApplyProgressInfo](../functions/WorldMap_ApplyProgressInfo.md) | `0x140341094` | Applies the world-map progress rows that the story counters select to the world-map location values. |
 | [WorldMap_InitLocations](../functions/WorldMap_InitLocations.md) | `0x14033EC0C` | Sets up the world-map screen: the sprite piece list, the location markers and the road markers. |
 | [WorldRoads_BuildMarkers](../functions/WorldRoads_BuildMarkers.md) | `0x140341788` | Builds the drawable marker points of every open road on the world map. |
 | [WorldRoute_Search](../functions/WorldRoute_Search.md) | `0x1402471FC` | Recursive shortest-route search over the open world-map roads; keeps the best road list. |

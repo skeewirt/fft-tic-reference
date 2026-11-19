@@ -15,7 +15,7 @@ Paused frame of the event overlay: accepts the completed hold as a skip (state 3
 ## Behavior
 
 - V: when EventSkip_IsAvailable is true and Input_TestAction(action 0x5D) fires (the hold completed), it resets the overlay, sets +12 = old state, +8 = 3, ticks the PauseManager and calls sub_1400F4BCC(0xBA).
-- V: then, for an event number >= 0 (dword_140782A94), reads EventId (NXD 156) row byte +33; when that byte is 0, or EventSkip_IsViewerEvent is true, or the row is missing, it calls sub_1402B1FB4(0) and sub_1402B2004.
+- V: then, for an event number >= 0 (dword_140782A94), reads EventId (NXD 156) row byte +33; when that byte is 0, or EventSkip_IsViewerEvent is true, or the row is missing, it calls sub_1402B1FB4(0) and sub_1402B2004 (the reset of the event's parameter slots and of the event sound entry list; the column is skip_no_reset, and a non-zero value keeps the sounds across a skip).
 - V: event numbers 213, 296, 309 and 489 call sub_1402BAAA8 with fixed ids (649/651, 650, 653/647, 662/640).
 - V: otherwise, on action 0x5F or 0x1B (and the hold not in progress), sets +8 = 0 and ticks the PauseManager (resume).
 
@@ -31,4 +31,4 @@ Paused frame of the event overlay: accepts the completed hold as a skip (state 3
 
 ## Open questions
 
-? What sub_1402B1FB4 / sub_1402B2004 and the fixed ids passed to sub_1402BAAA8 do.
+? What the fixed ids passed to sub_1402BAAA8 do.

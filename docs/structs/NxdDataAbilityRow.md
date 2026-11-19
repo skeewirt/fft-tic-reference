@@ -31,11 +31,11 @@ One row of the nxd.ability table (English text table; the other languages share 
 | <a id="ui_text_2"></a>`0x2C` | ui_text_2 | `int32` | M | Measured over every stock row: Every value is a line of nxd.UI. Observed in the stock rows: 0 to 812, 6 distinct values. |
 | <a id="unknown30"></a>`0x30` | unknown30 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 2 distinct values. |
 | <a id="unknown34"></a>`0x34` | unknown34 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 3210, 81 distinct values. |
-| <a id="unknown38"></a>`0x38` | unknown38 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 3, 3 distinct values. |
+| <a id="ability_reaction_voice_type"></a>`0x38` | ability_reaction_voice_type | `int32` | V | Read in the code: Key of AbilityReactionVoiceType (nxd 330): a row of 11 rule values; a yes/no question about the unit picks one of them (0 = yes, 1 = no, 2/3 = a test of the unit, 4 = yes once per unit, other = yes). Observed in the stock rows: 0 to 3, 3 distinct values. |
 | <a id="unknown3c"></a>`0x3C` | unknown3c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 | <a id="jp_cost_low"></a>`0x40` | jp_cost_low | `uint8` | V | Low byte of the ability's JP cost. Observed in the stock rows: 0 to 250, 38 distinct values. |
 | <a id="jp_cost_high"></a>`0x41` | jp_cost_high | `uint8` | V | High byte of the JP cost. Observed in the stock rows: 0 to 39, 9 distinct values. |
-| <a id="unknown42"></a>`0x42` | unknown42 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="random_icon"></a>`0x42` | random_icon | `uint8` | V | Read in the code: Non-zero shows the 'random' icon (GUI node IconRandom) next to the damage number in the battle action panel when this ability is the action shown. Observed in the stock rows: 0 to 1, 2 distinct values. |
 | <a id="random_status"></a>`0x43` | random_status | `uint8` | V | 1 for five abilities (random status). Byte at +67 is returned by sub_1401086B4. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
@@ -48,4 +48,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 14 of 23 columns not decoded.
+? 12 of 23 columns not decoded.

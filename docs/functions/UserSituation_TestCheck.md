@@ -15,7 +15,8 @@ One check of a UserSituation row against the situation store (qword_143CD9DE0): 
 ## Behavior
 
 - V: the store has two banks chosen by bit 0 of its byte +16: flags at +72 / +152 (one byte per id), counters at +24 / +104 (one dword per id).
-- V: type 1 / 2 = flag set / clear; 3 = counter == value; 4 <=; 5 <; 6 >=; 7 >; 8..11 = a range of counter id (8: >= value, 10: > value) together with counter id2 (8, 10: <= value2; 9, 11: < value2); 12..15 = SceneVar_Read(id) equals the type; 16 = SceneVar_Read(id) - 12 <= 3.
+- V: type 1 / 2 = flag set / clear; 3 = counter == value; 4 <=; 5 <; 6 >=; 7 >; 8..11 = a range of counter id (8: >= value, 10: > value; 9: >= value, 11: > value) together with counter id2 (8, 10: <= value2; 9, 11: < value2); 12..15 = SceneVar_Read(id) equals the type (12..15); 16 = SceneVar_Read(id) is in 12..15.
+- V: kinds 3..11 are the ones that receive values; UserSituation_IsMet passes them only for those kinds.
 
 ## State touched
 

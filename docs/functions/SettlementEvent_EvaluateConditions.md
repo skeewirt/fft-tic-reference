@@ -17,6 +17,7 @@ Evaluates the condition lists of one row of the settlement event data table (tab
 - V: finds the table 199 in the data registry and the row by id, then walks the row's entries; each entry's condition list is a run of 16-bit opcode words below 44 followed by their arguments.
 - V: for each opcode word it calls the handler from the 44-entry condition handler table (0x140684E90); handlers read event variables (equal to, below a value, gil at least n x 10 ...) and set bit 1 of a fail flag when the test fails.
 - V: the mask argument selects which result bits matter (the callers pass 8 to ask whether an event is active).
+- V: the opcode word of an entry is the 16-bit value at row +4 (column condition of EnhancedWorldEvent); a row whose value is 0 is skipped.
 - I: the lists belong to the settlement events (the callers are the town status text and the location availability test).
 
 ## State touched

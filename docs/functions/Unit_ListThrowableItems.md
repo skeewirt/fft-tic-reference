@@ -36,7 +36,8 @@ throwable, ordered for the menu.
   items 122..127 are the six throwing weapons.
 - I: weapon flag bit 2 is the stock "can be thrown" marker, because the six throwing weapons set it and no other
   weapon in the stock table does.
-- ?: what the row field at +0x28 used by the comparator is (a name/help row, a price or an order key).
+- V: the comparator is sub_14030E774 (Item_CompareSortOrder): it returns -1 / 0 / 1 from the Item row dword +0x28 (column sort_order; read in the comparator, not in this body), smaller first; sub_14030EEF0 uses it as well.
+- I: sort_order is an order key, not a price: lists sorted by it place the smaller value first.
 
 ## State touched
 

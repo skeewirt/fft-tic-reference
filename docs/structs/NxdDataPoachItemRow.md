@@ -26,11 +26,11 @@ One row of the nxd.poach_item table (English text table; the other languages sha
 | <a id="unknown1e"></a>`0x1E` | unknown1e | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="unknown1f"></a>`0x1F` | unknown1f | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="unknown20"></a>`0x20` | unknown20 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown24"></a>`0x24` | unknown24 | `int32` | ? | Not decoded. Observed in the stock rows: 5 to 30000, 38 distinct values. |
-| <a id="unknown28"></a>`0x28` | unknown28 | `int32` | ? | Not decoded. Observed in the stock rows: 3 to 15000, 38 distinct values. |
+| <a id="price"></a>`0x24` | price | `int32` | V | Read in the code: Price of the item in the poacher shop list (shown greyed when gil is below it). Observed in the stock rows: 5 to 30000, 38 distinct values. |
+| <a id="sell_price"></a>`0x28` | sell_price | `int32` | V | Read in the code: Sell price per item in the poacher sell list; when a poach finds 99 already held, half of it is paid in gil instead. Observed in the stock rows: 3 to 15000, 38 distinct values. |
 | <a id="unknown2c"></a>`0x2C` | unknown2c | `int32` | ? | Not decoded. Observed in the stock rows: 4 to 253, 82 distinct values. |
 | <a id="icon"></a>`0x30` | icon | `int32` | M | Measured over every stock row: Every value is a key of nxd.Icon. Observed in the stock rows: 1 to 48, 48 distinct values. |
-| <a id="unknown34"></a>`0x34` | unknown34 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="rare"></a>`0x34` | rare | `uint8` | V | Read in the code: Non-zero marks a rare poach: the monster icon plays 'Rare' (else 'Normal') and the job-tree style icon uses icon 504 instead of 503. Observed in the stock rows: 0 to 1, 2 distinct values. |
 | <a id="unknown35"></a>`0x35` | unknown35 | `uint8` | ? | Not decoded. Observed in the stock rows: 1 to 98, 96 distinct values. |
 | <a id="unknown36"></a>`0x36` | unknown36 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
@@ -44,4 +44,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 18 of 19 columns not decoded.
+? 15 of 19 columns not decoded.

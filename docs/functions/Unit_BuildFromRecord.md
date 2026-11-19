@@ -19,19 +19,21 @@ Builds a unit work record from a spawn record: applies the record, sets up job s
 - V: Unit_ComputeStats runs with work+2 temporarily 0xFE (when it was 0xFF); the starting equipment is applied when mode is not 130 and work+2 is above 19.
 - V: for a unit of team 0..3 the first save record with that team (byte 0 below 4, byte +1 not 0xFF) supplies bits of the word at work+8 (its +5 and +6 bytes).
 - V: the fifth argument (kept in rbp from 0x140275CBF) is passed to UnitWork_InitFromSpawnRecord as its third: the entry's OverrideEntryData row from Battle_PlaceEntryUnits, null from sub_1402841D0 and Battle_RebuildUnitInPlace (2026-11-09).
+- V: UnitWork_ApplyStartingEquipment is called with (work, entry) at the end (rcx is set before the leaf sub_14027788C, which does not write it); the gate is mode not 130 and work +2 above 0x13.
 
 ## State touched
 
-- Calls: [UnitWork_InitFromSpawnRecord](UnitWork_InitFromSpawnRecord.md), [Unit_InitAbilitiesFromJob](Unit_InitAbilitiesFromJob.md), [Unit_ComputeStats](Unit_ComputeStats.md), [UnitWork_ApplyStartingEquipment](UnitWork_ApplyStartingEquipment.md), [sub_1401EA910](sub_1401EA910.md)
+- Calls: [Unit_ApplySpawnRecord](Unit_ApplySpawnRecord.md), [UnitWork_InitFromSpawnRecord](UnitWork_InitFromSpawnRecord.md), [Unit_InitAbilitiesFromJob](Unit_InitAbilitiesFromJob.md), [Unit_ComputeStats](Unit_ComputeStats.md), [UnitWork_ApplyStartingEquipment](UnitWork_ApplyStartingEquipment.md), [sub_1401EA910](sub_1401EA910.md)
 
 ## Referenced by
 
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
 - Called by: [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md)
+- Observed behaviours: [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md)
 
 ## Notes
 
-The row offset for the growth copy is computed at 0x140275DDF; r8 at 0x140275DEA holds the offset, before the table base is added.
+The row offset for the growth copy is computed at 0x140275DDF; r8 holds the offset (before the table base is added) at 0x140275DEA.
 
 ## Open questions
 

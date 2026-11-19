@@ -13,6 +13,7 @@ Pointer to the spawn entry being built: set by Battle_PlaceEntryUnits and sub_14
 
 ## Referenced by
 
+- Read by: [Unit_ApplySpawnRecord](../functions/Unit_ApplySpawnRecord.md)
 - Written by: [Battle_PlaceEntryUnits](../functions/Battle_PlaceEntryUnits.md)
 
 ## Open questions

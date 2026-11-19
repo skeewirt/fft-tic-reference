@@ -2,7 +2,7 @@
 
 Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.
 
-512 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
+515 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
 
 | Name | Size (bytes) | Area | Summary |
 |---|---|---|---|
@@ -24,6 +24,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [AtlasShelf](AtlasShelf.md) | 16 | [Graphics](../areas/graphics.md) | The state of one layer atlas allocator (a shelf / row packer): the cursor in the current row, the start of the row, the height of the row and the page. |
 | [AvailabilityFlag](AvailabilityFlag.md) | 1 | [UI framework](../areas/ui-framework.md) | One row of the GridAvailableTemplate table. |
 | [BannerWordRange](BannerWordRange.md) | 4 | [Battle](../areas/battle.md) | One row of the BannerWordRanges table. |
+| [BattleMainWindow](BattleMainWindow.md) |  | [Battle](../areas/battle.md) | The battle main window object (UIAddonFFTOBattleMain4): only the fields read so far. |
 | [BattleMenuRowScreenCode](BattleMenuRowScreenCode.md) | 1 | [Battle](../areas/battle.md) | One row of the BattleMenuRowScreenCodes table. |
 | [BattleMenuStepRow](BattleMenuStepRow.md) | 32 | [Battle](../areas/battle.md) | One row of the command menu step tables (same shape as the stock menu step table). |
 | [BattleMsgDescriptor](BattleMsgDescriptor.md) | 16 | [Battle](../areas/battle.md) | The 4-dword descriptor the banner takes: class, subtype, kind and a message word. |
@@ -32,6 +33,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [BattlePanelHandWord](BattlePanelHandWord.md) | 2 | [Battle](../areas/battle.md) | One hand word as the flag-aware panels read it: the item id in bits 0..8 and a two-bit value in bits 14..15. |
 | [BattleRangeMarkRecord](BattleRangeMarkRecord.md) | 5 | [Battle](../areas/battle.md) | One record of g_BattleRangeMarks, parallel to BattleTileRecord (512 records, layer 1 at +0x500). |
 | [BattleSnapshot](BattleSnapshot.md) | 668112 | [Save data](../areas/save-data.md) | The 668,112-byte battle image a kind-1 resume entry carries, as the capture builds it in g_BattleState: a battle context, five blocks (A..E), the 21 x 512-byte unit records and 3,000 more bytes of scene-task state. |
+| [BattleSpawnEntry](BattleSpawnEntry.md) | 40 | [Unit data](../areas/unit-data.md) | One 40-byte entry of a scripted battle's entry block: the description of one unit to build. |
 | [BattleTileRecord](BattleTileRecord.md) | 8 | [Battle](../areas/battle.md) | One tile of the battle map in g_BattleTileTable: 256 records per layer, two layers (layer 1 at +0x800), index x + y * width. |
 | [BlendModeAlphaEntry](BlendModeAlphaEntry.md) | 1 | [Graphics](../areas/graphics.md) | One row of the BlendModeAlpha table. |
 | [BlockSectorStart](BlockSectorStart.md) | 4 | [Resource](../areas/resource.md) | One row of the sector start tables of the packed UI and event blocks. |
@@ -429,6 +431,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [PartyFaceRecordRow](PartyFaceRecordRow.md) | 12 | [Graphics](../areas/graphics.md) | One portrait rectangle record. |
 | [PartyHandWord](PartyHandWord.md) | 2 | [Items and shops](../areas/items.md) | One equipment slot of a party unit: the item id in bits 0..9 and bit 15 as the Outfitter-session pending flag. |
 | [PartyUnitRecord](PartyUnitRecord.md) | 640 | [Unit data](../areas/unit-data.md) | A unit as the party, status and job screens read it (55 records at g_PartyUnitRecords, reached through g_PartyUnits). |
+| [PoachListEntry](PoachListEntry.md) | 48 | [Items and shops](../areas/items.md) | One entry of the poacher list that PoachList_Build fills: a poach id the party holds. |
 | [PopupBounceStep](PopupBounceStep.md) | 2 | [Battle](../areas/battle.md) | One row of the PopupBounceCurve table. |
 | [PortraitCodeRow](PortraitCodeRow.md) | 2 | [Graphics](../areas/graphics.md) | One portrait code word. |
 | [PoseCodeFlag](PoseCodeFlag.md) | 1 | [Event system](../areas/event-system.md) | One row of the EventPoseCodeFlags table. |

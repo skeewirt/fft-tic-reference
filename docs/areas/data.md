@@ -2,7 +2,7 @@
 
 NXD table accessors, the table registry and other game-data lookups.
 
-Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flows: 3, Observed behaviours: 6, Tables: 116.
+Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flows: 3, Observed behaviours: 7, Tables: 116.
 
 ## Functions (55)
 
@@ -211,11 +211,12 @@ Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flow
 | [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](../flows/NxdTableLoad.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
 
-## Observed behaviours (6)
+## Observed behaviours (7)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [CharShapeRowsANewLookNeeds](../behaviors/CharShapeRowsANewLookNeeds.md) | engine (sprite rows in the NXD data) | The CharShape rows (NXD table 174, keyed by look number) end at key 158 and twelve functions look a look up there. |
+| [FirstDwordOfTableRowsIsNeverRead](../behaviors/FirstDwordOfTableRowsIsNeverRead.md) | engine (nxd table access) | No shared code reads the first dword of a table row; a row is found through the key / offset index record, so the value there decides nothing. |
 | [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md) | engine (sprite sheets and palettes) | How a sprite number becomes a sheet and a palette: a g2d entry pair through the HD table and the pack's unchecked index table, and a palette from the classic file named in the classic table. |
 | [SkillsetNamesAndHelpAreKeyedBySetId](../behaviors/SkillsetNamesAndHelpAreKeyedBySetId.md) | engine | A skillset's name and help are found by the set id alone: the name token is 0xB000 \| set (text kind 22) and the help token 0x9800 \| set (kind 19), both 11-bit indexes; the name row is the JobCommand-en NXD row keyed b... |
 | [SpriteSheetsAndClassicFilesByNumber](../behaviors/SpriteSheetsAndClassicFilesByNumber.md) | engine (asset loading) | HD sprite sheets are read by number and the loader accepts any number; classic sprite files are read by name only. |

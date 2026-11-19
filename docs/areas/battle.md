@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 46, Tables: 89.
+Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 46, Tables: 89.
 
-## Functions (317)
+## Functions (321)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -91,6 +91,7 @@ Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [BattleMsg_SetKind1](../functions/BattleMsg_SetKind1.md) | `0x1401FA5C4` | Sets one battle message entry to kind 1 and stores its id. |
 | [BattleMsg_SetKind6](../functions/BattleMsg_SetKind6.md) | `0x1401FA61C` | Sets one battle message record entry to kind 6 and stores its id. |
 | [BattleMsg_UnitTurnScene](../functions/BattleMsg_UnitTurnScene.md) | `0x140237494` | Scene task that refreshes the battle message when a unit's turn starts: writes the acting unit's command or ability into record entry 0, starts the message scene tasks and resets the action-list widget states. |
+| [BattleObjective_ShowsTarget](../functions/BattleObjective_ShowsTarget.md) | `0x1401EB5D0` | True when a unit's spawn flag set marks it as an objective target and the current battle objective asks for targets to be shown. |
 | [BattlePreview_BuildAction](../functions/BattlePreview_BuildAction.md) | `0x140282234` | Builds the battle preview block for the action a unit is about to take: the preview word, the ability or item id, the target and the flags the cursor and forecast read. |
 | [BattleRange_ApplyShape](../functions/BattleRange_ApplyShape.md) | `0x14027FFE8` | Applies the range shape and the effect area of an action to the cursor mask: it resolves the action record or the item path, marks the reachable tiles and then hands the effect area to the area marker. |
 | [BattleRange_ClearWithin2](../functions/BattleRange_ClearWithin2.md) | `0x14027EB40` | Clears mark byte 0 (both layers) of every tile within Manhattan distance 2 of (x, y): the minimum range of the 'direct' weapons. |
@@ -115,6 +116,7 @@ Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [BTurn_QueueInvisibilityEnd](../functions/BTurn_QueueInvisibilityEnd.md) | `0x14030C240` | Queues the removal of Invisibility from a unit whose turn has ended, when the other conditions hold. |
 | [BTurn_QueueTerrainPoison](../functions/BTurn_QueueTerrainPoison.md) | `0x14030C2C0` | Queues Poison for a unit that stands on a harmful terrain tile and passes the filter of the status rules. |
 | [BTurn_StatusFlags](../functions/BTurn_StatusFlags.md) | `0x14030FB9C` | Returns the turn-scheduling flags of one unit work record: whether it can act at all, and whether Haste/Slow modify its CT increment. |
+| [BUi_BattleMain4_RegisterStateKeys](../functions/BUi_BattleMain4_RegisterStateKeys.md) | `0x14010E1FC` | Registers the battle main window's state-name keys. |
 | [BUi_BattleMenuWindowsCtor](../functions/BUi_BattleMenuWindowsCtor.md) | `0x1401012A0` | Creates the two addons of the battle menu-windows agent: the battle HUD (`BattleMain4`) and the command menu (`BattleCommand`). |
 | [BUi_BattleMenuWindowsSetPage](../functions/BUi_BattleMenuWindowsSetPage.md) | `0x1401015FC` | The command menu's show/hide entry point: maps a caller's state to a page show or hide. |
 | [BUi_CommandAddonCtor](../functions/BUi_CommandAddonCtor.md) | `0x140153020` | Constructs the 5640-byte command-menu addon: vtable, sub-objects and idle field values. |
@@ -179,6 +181,7 @@ Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [MoveFind_ApplyTrap](../functions/MoveFind_ApplyTrap.md) | `0x14030C39C` | Applies the trap of a unit's tile to the unit as an action result. |
 | [MoveFind_ProbeTile](../functions/MoveFind_ProbeTile.md) | `0x140271D80` | Reports what a battle tile hides: another unit, a Move-Find item not yet taken and a trap kind. |
 | [MoveFind_TakeItem](../functions/MoveFind_TakeItem.md) | `0x140271CA8` | Gives a unit the Move-Find item of its tile: rolls common against rare by Brave and marks the tile taken. |
+| [Poach_GiveResult](../functions/Poach_GiveResult.md) | `0x14030AB70` | Gives the result of a Poach action: an item, or gil when the stock is full, and sends the poach notification. |
 | [ResultLabel_QueueFromUnit](../functions/ResultLabel_QueueFromUnit.md) | `0x14026801C` | Fills a unit's label task from the unit's action-result block: which number and text labels to show, and the queue of status labels (BattleSignal ids) for the statuses the action added or removed. |
 | [ResultLabel_ShowNext](../functions/ResultLabel_ShowNext.md) | `0x140266A68` | Shows the next pending label over a unit: a number (HP / MP / stat change), a fixed text, or the next queued status label. |
 | [Scenario_CheckBattleRecord](../functions/Scenario_CheckBattleRecord.md) | `0x14020DFA8` | Finds the scenario setup record of the current event and lets the battle set-up continue only for a battle record. |
@@ -316,6 +319,7 @@ Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [Unit_InitBattleStatusState](../functions/Unit_InitBattleStatusState.md) | `0x140278E0C` | Sets up the status state of a unit that has just been built into the battle: the applied set, the countdowns and the KO counter. |
 | [Unit_ListItemCommandItems](../functions/Unit_ListItemCommandItems.md) | `0x14030E680` | Builds the item list for the Item command: it takes the usable ability list of the command's skill set and rewrites each of the fourteen item abilities into the item id the command offers. |
 | [Unit_ListThrowableItems](../functions/Unit_ListThrowableItems.md) | `0x14030E7B4` | Builds the candidate list for the Throw command: the item ids in the unit's inventory that the game considers throwable, ordered for the menu. |
+| [Unit_ReactionVoiceAllowed](../functions/Unit_ReactionVoiceAllowed.md) | `0x1402178C0` | Answers a yes / no question about a unit's reaction voice line by the rule row of its current ability. |
 | [Unit_ReinitStatusCountdowns](../functions/Unit_ReinitStatusCountdowns.md) | `0x140278600` | Re-initialises the countdown bytes of a unit after its innate status set has been rebuilt: it merges the saved innate status bytes into the effective set and starts a duration for every battle-applied status that has ... |
 | [Unit_SetChargeStateBits](../functions/Unit_SetChargeStateBits.md) | `0x140279370` | Sets which of the four action states Readying, Jumping, Evading, Performing (statuses 4..7) a unit is in, and the charge counter that goes with it. |
 | [UnitInfo_FillFromBattleUnit](../functions/UnitInfo_FillFromBattleUnit.md) | `0x1402CBCA0` | Fills the unit information record a battle panel draws (the deployment carousel's unit card, an event's unit preview) from a battle unit record: its job line, face, level, HP / MP / CT, Brave and Faith. |
@@ -326,7 +330,7 @@ Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [UnitPanel_SetStatusBytes](../functions/UnitPanel_SetStatusBytes.md) | `0x14010A42C` | Fills a battle unit panel's status byte list (the icons on the panel) from a five-byte status set. |
 | [VramPage_CopyRect](../functions/VramPage_CopyRect.md) | `0x14025FA60` | Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPage) and marks that area for upload. |
 
-## Structures (65)
+## Structures (66)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -334,6 +338,7 @@ Functions: 317, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [ActionResult](../structs/ActionResult.md) | 48 | The result of one action on one target, filled by the formula handler and read by the result applier, the preview and the messages. |
 | [AiCommandEntry](../structs/AiCommandEntry.md) | 4 | One candidate action of the AI's command table: the ability word (id \| unit slot << 10), the command (skillset) byte it comes from and a flag byte. |
 | [BannerWordRange](../structs/BannerWordRange.md) | 4 | One row of the BannerWordRanges table. |
+| [BattleMainWindow](../structs/BattleMainWindow.md) |  | The battle main window object (UIAddonFFTOBattleMain4): only the fields read so far. |
 | [BattleMenuRowScreenCode](../structs/BattleMenuRowScreenCode.md) | 1 | One row of the BattleMenuRowScreenCodes table. |
 | [BattleMenuStepRow](../structs/BattleMenuStepRow.md) | 32 | One row of the command menu step tables (same shape as the stock menu step table). |
 | [BattleMsgDescriptor](../structs/BattleMsgDescriptor.md) | 16 | The 4-dword descriptor the banner takes: class, subtype, kind and a message word. |

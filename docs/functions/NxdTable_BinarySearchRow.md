@@ -20,6 +20,7 @@ Binary search over an array of 16-byte entries sorted by the first dword of the 
 ## Referenced by
 
 - Called by: [NxdTable_GetRowById](NxdTable_GetRowById.md)
+- Observed behaviours: [FirstDwordOfTableRowsIsNeverRead](../behaviors/FirstDwordOfTableRowsIsNeverRead.md)
 - Reads file formats: [NxdSingleKeyRows](../formats/NxdSingleKeyRows.md)
 
 ## Notes

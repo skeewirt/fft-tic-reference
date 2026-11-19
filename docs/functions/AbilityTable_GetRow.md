@@ -23,7 +23,7 @@ Returns the Ability NXD row for an ability id, or null when the table or row is 
 ## Referenced by
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [TurnPanel_SetTag](TurnPanel_SetTag.md), [TurnPanel_SetUnitPanel](TurnPanel_SetUnitPanel.md), [UIGadgetFFTOJobDetailWindow_SetJob](UIGadgetFFTOJobDetailWindow_SetJob.md), [sub_14010824C](sub_14010824C.md), [sub_140153CA0](sub_140153CA0.md), [sub_1401560D0](sub_1401560D0.md)
+- Called by: [EquipDetail_BuildCategoryLines](EquipDetail_BuildCategoryLines.md), [TurnPanel_SetTag](TurnPanel_SetTag.md), [TurnPanel_SetUnitPanel](TurnPanel_SetUnitPanel.md), [UIGadgetFFTOJobDetailWindow_SetJob](UIGadgetFFTOJobDetailWindow_SetJob.md), [Unit_ReactionVoiceAllowed](Unit_ReactionVoiceAllowed.md), [sub_14010824C](sub_14010824C.md), [sub_140153CA0](sub_140153CA0.md), [sub_1401560D0](sub_1401560D0.md)
 - Reads tables: [Ability](../tables/Ability.md)
 
 ## Notes

@@ -17,7 +17,7 @@ One row of the nxd.battle_signal table (English text table; the other languages 
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 | <a id="title"></a>`0x8` | title | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 59 distinct values, 5 empty. |
-| <a id="unknown0c"></a>`0xC` | unknown0c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="yellow"></a>`0xC` | yellow | `uint8` | V | Read in the code: Non-zero draws this battle label in yellow (GUI state 'Yellow'); zero draws it white ('White'). Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -29,4 +29,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 3 of 4 columns not decoded.
+? 2 of 4 columns not decoded.

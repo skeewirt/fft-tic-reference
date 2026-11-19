@@ -22,7 +22,7 @@ Starts a motion on a battle unit's scene object: stores the animation number and
 
 ## Referenced by
 
-- Called by: [BattleAnim_SelectMotion](BattleAnim_SelectMotion.md), [BattleAnim_SelectWeaponMotion](BattleAnim_SelectWeaponMotion.md)
+- Called by: [BattleAnim_SelectMotion](BattleAnim_SelectMotion.md), [BattleAnim_SelectWeaponMotion](BattleAnim_SelectWeaponMotion.md), [EventControl_ApplyCarry](EventControl_ApplyCarry.md)
 - Observed behaviours: [BattleMotionNumbers](../behaviors/BattleMotionNumbers.md)
 
 ## Notes

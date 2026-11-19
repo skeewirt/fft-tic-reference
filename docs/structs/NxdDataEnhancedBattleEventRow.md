@@ -15,7 +15,7 @@ One row of the nxd.enhanced_battle_event table (data table). The key is not stor
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown04"></a>`0x4` | unknown04 | `int16` | ? | Not decoded. Observed in the stock rows: 1 to 39, 17 distinct values. |
+| <a id="condition"></a>`0x4` | condition | `int16` | V | Read in the code: Trigger-condition opcode of one word of the battle event condition list (0 = row skipped); the other columns are its arguments. Observed in the stock rows: 1 to 39, 17 distinct values. |
 | <a id="unknown06"></a>`0x6` | unknown06 | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="chara_control_id"></a>`0x8` | chara_control_id | `int16` | M | Measured over every stock row: Every value is a key of nxd.CharaControlId. Observed in the stock rows: 0 to 1006, 56 distinct values. |
 | <a id="unknown0a"></a>`0xA` | unknown0a | `int16` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
@@ -39,4 +39,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 13 of 14 columns not decoded.
+? 12 of 14 columns not decoded.
