@@ -3,7 +3,7 @@
 - **Address:** `0x14030A488`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int Battle_ApplyActionResult(int slot)`
-- **Callers:** `Battle_ApplyActionResults` (`0x1402067DF`), `sub_1402029DC` (`0x140202A53`, `0x140202AA6`), `sub_14020435C`, `sub_14020BFD4`, `sub_14030C1C4`,
+- **Callers:** `BattleAct_NoEffectStep` (`0x1402067DF`), `sub_1402029DC` (`0x140202A53`, `0x140202AA6`), `sub_14020435C`, `sub_14020BFD4`, `sub_14030C1C4`,
 - **Callees:** `Battle_StatusResolve`, `Status_FilterPendingSets`, `Battle_AwardActorJp`, `sub_140278C1C`,
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -51,7 +51,7 @@ changes, EXP/level changes, status sets/clears and the death check. This is the 
 ## Referenced by
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [Battle_ActorResultLevels](Battle_ActorResultLevels.md), [Battle_ApplyActionResults](Battle_ApplyActionResults.md), [sub_14020435C](sub_14020435C.md), [sub_14020BFD4](sub_14020BFD4.md)
+- Called by: [BattleAct_NoEffectStep](BattleAct_NoEffectStep.md), [Battle_ActorResultLevels](Battle_ActorResultLevels.md), [sub_14020435C](sub_14020435C.md), [sub_14020BFD4](sub_14020BFD4.md)
 - Observed behaviours: [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md)
 
 ## Notes

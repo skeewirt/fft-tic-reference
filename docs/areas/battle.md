@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 316, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
+Functions: 320, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 45, Tables: 89.
 
-## Functions (316)
+## Functions (320)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -20,12 +20,10 @@ Functions: 316, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [Battle_AITurnPrepare](../functions/Battle_AITurnPrepare.md) | `0x14031F534` | Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one AI turn. |
 | [Battle_AITurnRun](../functions/Battle_AITurnRun.md) | `0x14038A468` | Runs one AI trial: applies the candidate action on the preview unit table, lets the turn engine play on (up to 255 steps), scores the outcome and restores the engine state. |
 | [Battle_ApplyActionResult](../functions/Battle_ApplyActionResult.md) | `0x14030A488` | Applies the pending action result of one unit to that unit: HP/MP damage and healing, stat changes, Brave/Faith changes, EXP/level changes, status sets/clears and the death check. |
-| [Battle_ApplyActionResults](../functions/Battle_ApplyActionResults.md) | `0x140206758` | Applies the resolved action to every target and starts each target's hit animation; this is the step that turns the formula result into live HP/MP/status changes and visible hits. |
 | [Battle_AwardActorJp](../functions/Battle_AwardActorJp.md) | `0x14030C7C4` | Gives the acting battle unit its JP for the current job and reports whether its job level changed (for the level-up message). |
 | [Battle_AwardUnitJp](../functions/Battle_AwardUnitJp.md) | `0x14028338C` | Awards job JP to a battle unit after an action: it validates the unit, resolves its job index and JP amount, applies the award and reports the amount. |
 | [Battle_BuildRosterTeam](../functions/Battle_BuildRosterTeam.md) | `0x140270CE4` | Fills the live 21-slot battle unit table (`g_BattleUnitTable`, `0x141853CE0`, stride 512) from a 5-entry spawn list, one team at a time. |
 | [Battle_CommandTask](../functions/Battle_CommandTask.md) | `0x140202B08` | The per-frame player battle command task: advances the turn engine, claims the active unit, and puts up the command menu (Move / Abilities / Wait / Status) or hands the unit to the AI. |
-| [Battle_ExecuteAction](../functions/Battle_ExecuteAction.md) | `0x140206A0C` | Executes the acting unit's pending action: resolves it against every target, selects the visual effect, and hands off to the result-apply loop or to the "no effect" branch. |
 | [Battle_Init](../functions/Battle_Init.md) | `0x14020EF10` | Allocates and resets the battle singletons when a battle starts: BattleControl, post-battle calculator, a 3008-byte battle object, the map-view camera manager, markers and the command menu. |
 | [Battle_InitScene](../functions/Battle_InitScene.md) | `0x1402C8818` | The battle scene initialiser started by event opcode 0x78 mode 7: it builds the battle UI, places the units and their markers, shows the cursor and waits for the battle to end. |
 | [Battle_IsTileOccupied](../functions/Battle_IsTileOccupied.md) | `0x140282A7C` | Tests a map tile for the targeting cursor: bounds, terrain passability, the unit standing there and the large-monster exception for jobs 94..96. |
@@ -50,8 +48,8 @@ Functions: 316, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [Battle_PreviewUnitAction](../functions/Battle_PreviewUnitAction.md) | `0x140282BDC` | Rebuilds the preview of the action a battle unit currently holds: it resets the per-unit target flags, resolves the action mode and range, and refills the preview block. |
 | [Battle_ResolveAction](../functions/Battle_ResolveAction.md) | `0x1403099B0` | Resolves one action request against one target: selects the formula from the action type / ability, runs the formula handler and leaves a 40-byte result record for the apply step. |
 | [Battle_ResolveReaction](../functions/Battle_ResolveReaction.md) | `0x140283C00` | Resolves a reaction or secondary action: it copies the action, rebuilds the preview and range, calls the action resolver and then the reaction bookkeeping. |
-| [Battle_ResolveTargets](../functions/Battle_ResolveTargets.md) | `0x140281CE8` | Builds the target set for one action request and resolves the request against every target, producing one result record per target plus a summary of the whole action. |
 | [Battle_ResultResetStatusSets](../functions/Battle_ResultResetStatusSets.md) | `0x14030A43C` | Clears the two pending status sets of an action-result block (and a five-byte scratch copy in the battle formula state). |
+| [Battle_ScaleByDifficulty](../functions/Battle_ScaleByDifficulty.md) | `0x140309FB8` | Scales the HP and MP damage of a resolved action by the play mode's percentages: the row of the DifficultyLevel table that the configuration names, one percentage for one side of the target and another for the other. |
 | [Battle_ShowJobLevelUp](../functions/Battle_ShowJobLevelUp.md) | `0x1402041D8` | Shows the job level-up banner over the acting unit when its action raised its job level. |
 | [Battle_ShowUnitLevelUp](../functions/Battle_ShowUnitLevelUp.md) | `0x14020401C` | Shows the level-up banner over the acting unit when its action raised its unit level. |
 | [Battle_StatusApply](../functions/Battle_StatusApply.md) | `0x14030CAA8` | Converts the pending status sets of one unit's action result block into applied status bits, after filtering them against the unit's innate/immunity sets. |
@@ -62,14 +60,19 @@ Functions: 316, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [Battle_TurnEngine](../functions/Battle_TurnEngine.md) | `0x14030F030` | The battle turn state machine: ticks CT, picks the next unit, starts and finishes turns, and resolves charged actions. |
 | [Battle_TurnStep](../functions/Battle_TurnStep.md) | `0x1402029DC` | Runs one step of the turn engine on the player path and dispatches the returned action code to the scene/UI. |
 | [Battle_UnitStatusFill](../functions/Battle_UnitStatusFill.md) | `0x1402158F4` | Fills the battle status panel's view record (and the addon's cached fields) from the live unit table. |
+| [BattleAct_BuildResult](../functions/BattleAct_BuildResult.md) | `0x140281CE8` | Resolves the unit's queued action against its targets and fills the scene object's result record (obj +0x1A8): target list, flags and the effect word +0x14 the presentation is keyed by. |
+| [BattleAct_NoEffectStep](../functions/BattleAct_NoEffectStep.md) | `0x140206758` | Applies the resolved action to every target and starts each target's hit motion: the step that turns the formula results into HP, MP and status changes and visible hits. |
 | [BattleAct_SetupEffect](../functions/BattleAct_SetupEffect.md) | `0x1402060F4` | Selects the visual effect for an ability: builds the list of units on screen, reads the ability's charge byte from `g_AbilityAnim`, combines it with the ability element and calls the effect-number selector. |
+| [BattleAct_Step](../functions/BattleAct_Step.md) | `0x140206A0C` | The scene step that executes the acting object's action: builds the result, sets the effect word and chooses the presentation path. |
 | [BattleAction_ApplyRequest](../functions/BattleAction_ApplyRequest.md) | `0x140281434` | Wrapper that takes a request whose first byte is a unit slot, points at that unit action block, and applies the request; on success in the normal battle state it also refreshes the unit action. |
 | [BattleAction_BuildUnitRequest](../functions/BattleAction_BuildUnitRequest.md) | `0x140283280` | Writes a command and action word into a unit action block, optionally marks the ring, and applies the request through the common wrapper. |
 | [BattleAction_GetRangeInfo](../functions/BattleAction_GetRangeInfo.md) | `0x140281C24` | Chooses how an action acquires its range and area: the item path for the item-like command kinds and the ability record path otherwise, filling the caller flags and returning the range result. |
 | [BattleAction_RunScript](../functions/BattleAction_RunScript.md) | `0x140234B3C` | The driver task for the battle presentation programs: reads the current script id from scene block 1, starts up to four sub-tasks defined by that script's 64-byte record, waits for them and repeats, then ends. |
 | [BattleAction_StartScript](../functions/BattleAction_StartScript.md) | `0x140234A94` | Starts one of the seven battle presentation programs (the "scene script" table) and records the acting unit and target for the tasks that program starts. |
+| [BattleAnim_PickProjectile](../functions/BattleAnim_PickProjectile.md) | `0x1401FAD94` | Chooses the projectile of a throw motion by the effect word. |
 | [BattleAnim_SelectMotion](../functions/BattleAnim_SelectMotion.md) | `0x140269988` | Chooses the battle motion (animation id) for an ability: weapon attack, cast/ranged special, or a fixed motion from the per-ability table, then starts it on the unit. |
 | [BattleAnim_SelectWeaponMotion](../functions/BattleAnim_SelectWeaponMotion.md) | `0x140269790` | Chooses the motion of a plain weapon attack from the attacker's weapon animation type and, for some types, from how high the target stands, then starts it. |
+| [BattleAnim_SetChargeMotion](../functions/BattleAnim_SetChargeMotion.md) | `0x140269920` | Sets the charging motion from the charge byte of g_AbilityAnim (the effect word +0x142). |
 | [BattleAnim_StartMotion](../functions/BattleAnim_StartMotion.md) | `0x140268E04` | Starts a motion on a battle unit's scene object: stores the animation number and the facing value the unit's animation will use. |
 | [BattleCommand_BuildMenu](../functions/BattleCommand_BuildMenu.md) | `0x1402EAD14` | The battle command task: it reads the cell text of the command menu, starts the list and screen tasks, and runs the menu until the unit action is chosen. |
 | [BattleCommand_BuildScreen](../functions/BattleCommand_BuildScreen.md) | `0x1402E600C` | Builds the battle command/ability screen: the unit panels, the job record, the ability list entries and the equip detail panel the player navigates during a turn. |
@@ -115,6 +118,7 @@ Functions: 316, Structures: 65, Globals: 48, Registries: 1, File formats: 1, Flo
 | [BUi_BattleMenuWindowsCtor](../functions/BUi_BattleMenuWindowsCtor.md) | `0x1401012A0` | Creates the two addons of the battle menu-windows agent: the battle HUD (`BattleMain4`) and the command menu (`BattleCommand`). |
 | [BUi_BattleMenuWindowsSetPage](../functions/BUi_BattleMenuWindowsSetPage.md) | `0x1401015FC` | The command menu's show/hide entry point: maps a caller's state to a page show or hide. |
 | [BUi_CommandAddonCtor](../functions/BUi_CommandAddonCtor.md) | `0x140153020` | Constructs the 5640-byte command-menu addon: vtable, sub-objects and idle field values. |
+| [Effect_AbilityHasNoEffect](../functions/Effect_AbilityHasNoEffect.md) | `0x140319D74` | True when an effect word has no effect file (g_AbilityEffectNumber < 0), except 146 and 405..413. |
 | [Effect_ClearCurrent](../functions/Effect_ClearCurrent.md) | `0x14031A7E0` | Clears the running effect: resets its bookkeeping and sets the current effect number to -1. |
 | [Effect_PatchPolygonSeams](../functions/Effect_PatchPolygonSeams.md) | `0x140381834` | Nudges the texture coordinates of a few primitives of five stock effects by one or two units, keyed by the effect number. |
 | [Effect_RunStateMachine](../functions/Effect_RunStateMachine.md) | `0x140319DA4` | Per-frame state machine of one battle effect: waits for the file load, uploads the texture, sets up the effect sections and runs the effect to its end. |

@@ -3,7 +3,7 @@
 - **Address:** `0x140269988`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int16_t BattleAnim_SelectMotion(int64_t sceneObject, int64_t targetObject)`
-- **Callers:** `Battle_ApplyActionResults` (`0x1402069DF`), itself indirectly via BattleAnim_SelectWeaponMotion
+- **Callers:** `BattleAct_NoEffectStep` (`0x1402069DF`), itself indirectly via BattleAnim_SelectWeaponMotion
 - **Callees:** BattleAnim_SelectWeaponMotion (`0x1402699E8`), `sub_140266890`, BattleAnim_StartMotion
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -34,7 +34,7 @@ motion from the per-ability table, then starts it on the unit.
 ## Referenced by
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [Battle_ApplyActionResults](Battle_ApplyActionResults.md)
+- Called by: [BattleAct_NoEffectStep](BattleAct_NoEffectStep.md)
 - Observed behaviours: [BattleMotionNumbers](../behaviors/BattleMotionNumbers.md)
 - Reads tables: [SpriteLookAttributes](../tables/SpriteLookAttributes.md)
 

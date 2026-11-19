@@ -3,7 +3,7 @@
 - **Address:** `0x140281C24`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int BattleAction_GetRangeInfo(const void *action, uint8_t *out_flags)`
-- **Callers:** Battle_ResolveTargets, Battle_ResolveReaction
+- **Callers:** BattleAct_BuildResult, Battle_ResolveReaction
 - **Callees:** AbilityAction_GetRecord, BattleRange_ApplyShape, sub_1402826B0, sub_140280170
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

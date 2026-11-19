@@ -3,7 +3,7 @@
 - **Address:** `0x1402060F4`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int64_t BattleAct_SetupEffect(int abilityId, void *sceneObject)`
-- **Callers:** `Battle_ExecuteAction` (`0x140206BDF`)
+- **Callers:** `BattleAct_Step` (`0x140206BDF`)
 - **Callees:** `memset`, `sub_140260ABC`, `SceneObject_FindBySlot`, `Item_GetWeaponRecord`, `AbilityAction_GetRecord`, `Effect_SelectForAbility` (`0x140206317`)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -30,7 +30,7 @@ byte from `g_AbilityAnim`, combines it with the ability element and calls the ef
 
 ## Referenced by
 
-- Called by: [Battle_ExecuteAction](Battle_ExecuteAction.md)
+- Called by: [BattleAct_Step](BattleAct_Step.md)
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
 - Reads tables: [AbilityAnim](../tables/AbilityAnim.md)
 

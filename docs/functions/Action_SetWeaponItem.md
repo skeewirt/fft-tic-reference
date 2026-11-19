@@ -3,7 +3,7 @@
 - **Address:** `0x1403098CC`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `void Action_SetWeaponItem(void *action)`
-- **Callers:** `Battle_ResolveAction`, `Battle_ResolveTargets`
+- **Callers:** `Battle_ResolveAction`, `BattleAct_BuildResult`
 - **Callees:** `AbilityAction_GetRecord`
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -34,12 +34,12 @@ zero written for an empty or out-of-range id.
 
 ## Referenced by
 
-- Called by: [Battle_ResolveAction](Battle_ResolveAction.md), [Battle_ResolveTargets](Battle_ResolveTargets.md), [sub_1403099B0](sub_1403099B0.md)
+- Called by: [BattleAct_BuildResult](BattleAct_BuildResult.md), [Battle_ResolveAction](Battle_ResolveAction.md), [sub_1403099B0](sub_1403099B0.md)
 - Reads tables: [CommandKind](../tables/CommandKind.md)
 
 ## Notes
 
-- V: Its two callers are Battle_ResolveAction (the sheet for 0x1403099B0) and Battle_ResolveTargets, which places it on
+- V: Its two callers are Battle_ResolveAction (the sheet for 0x1403099B0) and BattleAct_BuildResult, which places it on
   the action build path.
 
 ## Open questions

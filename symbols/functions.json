@@ -595,6 +595,40 @@
       },
       "doc": "docs/functions/BarTop_Setup.md"
     },
+    "BattleAct_BuildResult": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 7,
+            "calls": "sha256:4f983d785ff35dbdbab2fa21b108b96ce449a1b6171789ed30614b5577edfb71",
+            "insn_count": 48,
+            "mnemonics": "sha256:48a506bf15ddc5494034b3a03effd432e4e1c3ccb9c00feedb7b75efcfe13a91",
+            "size": 1353
+          },
+          "rva": "0x281ce8",
+          "size": 1353
+        }
+      },
+      "doc": "docs/functions/BattleAct_BuildResult.md"
+    },
+    "BattleAct_NoEffectStep": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:53ca35ad6db4412687869addb28cbd277cfc0f28bcb2a02daf482e2b7c11a44e",
+            "insn_count": 48,
+            "mnemonics": "sha256:2eb51fd109918271f93a1198bdcfce20711001c93af4e0babcea2f97a208a84e",
+            "size": 689
+          },
+          "rva": "0x206758",
+          "size": 689
+        }
+      },
+      "doc": "docs/functions/BattleAct_NoEffectStep.md"
+    },
     "BattleAct_SetupEffect": {
       "area": "battle",
       "builds": {
@@ -611,6 +645,23 @@
         }
       },
       "doc": "docs/functions/BattleAct_SetupEffect.md"
+    },
+    "BattleAct_Step": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:26d2e135e3c9d74184aee472ba77af0e0e77713a05df3054789b5566eaf8e0b6",
+            "insn_count": 48,
+            "mnemonics": "sha256:4fe10c8e907ab855399ea814c3b2bc257efae6160c05134173b59ee82e8c2196",
+            "size": 520
+          },
+          "rva": "0x206a0c",
+          "size": 520
+        }
+      },
+      "doc": "docs/functions/BattleAct_Step.md"
     },
     "BattleAction_ApplyRequest": {
       "area": "battle",
@@ -697,6 +748,23 @@
       },
       "doc": "docs/functions/BattleAction_StartScript.md"
     },
+    "BattleAnim_PickProjectile": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:8fccf24802d4d261efc8851224e479a52c31cc310f2729438ad60625db8cf473",
+            "insn_count": 45,
+            "mnemonics": "sha256:cc1fc5a8b77cd1504b108db6e00035e3b170323d07bdce02dd3b49753cfc80d6",
+            "size": 199
+          },
+          "rva": "0x1fad94",
+          "size": 199
+        }
+      },
+      "doc": "docs/functions/BattleAnim_PickProjectile.md"
+    },
     "BattleAnim_SelectMotion": {
       "area": "battle",
       "builds": {
@@ -730,6 +798,23 @@
         }
       },
       "doc": "docs/functions/BattleAnim_SelectWeaponMotion.md"
+    },
+    "BattleAnim_SetChargeMotion": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:ab4c8ac1c83d960de01fb54f1a8784b70d20aada21a2ef095e174e493d8eb8ff",
+            "insn_count": 25,
+            "mnemonics": "sha256:8b6ffdfe0696b5615c291d1bb3998cf0cd3f98d2edb3f1212798558f4775c5fd",
+            "size": 103
+          },
+          "rva": "0x269920",
+          "size": 103
+        }
+      },
+      "doc": "docs/functions/BattleAnim_SetChargeMotion.md"
     },
     "BattleAnim_StartMotion": {
       "area": "battle",
@@ -1547,23 +1632,6 @@
       },
       "doc": "docs/functions/Battle_ApplyActionResult.md"
     },
-    "Battle_ApplyActionResults": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 9,
-            "calls": "sha256:53ca35ad6db4412687869addb28cbd277cfc0f28bcb2a02daf482e2b7c11a44e",
-            "insn_count": 48,
-            "mnemonics": "sha256:2eb51fd109918271f93a1198bdcfce20711001c93af4e0babcea2f97a208a84e",
-            "size": 689
-          },
-          "rva": "0x206758",
-          "size": 689
-        }
-      },
-      "doc": "docs/functions/Battle_ApplyActionResults.md"
-    },
     "Battle_AwardActorJp": {
       "area": "battle",
       "builds": {
@@ -1648,23 +1716,6 @@
         }
       },
       "doc": "docs/functions/Battle_CommandTask.md"
-    },
-    "Battle_ExecuteAction": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 9,
-            "calls": "sha256:26d2e135e3c9d74184aee472ba77af0e0e77713a05df3054789b5566eaf8e0b6",
-            "insn_count": 48,
-            "mnemonics": "sha256:4fe10c8e907ab855399ea814c3b2bc257efae6160c05134173b59ee82e8c2196",
-            "size": 520
-          },
-          "rva": "0x206a0c",
-          "size": 520
-        }
-      },
-      "doc": "docs/functions/Battle_ExecuteAction.md"
     },
     "Battle_GetEntryBlock": {
       "area": "unit-data",
@@ -2142,23 +2193,6 @@
       },
       "doc": "docs/functions/Battle_ResolveReaction.md"
     },
-    "Battle_ResolveTargets": {
-      "area": "battle",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 7,
-            "calls": "sha256:4f983d785ff35dbdbab2fa21b108b96ce449a1b6171789ed30614b5577edfb71",
-            "insn_count": 48,
-            "mnemonics": "sha256:48a506bf15ddc5494034b3a03effd432e4e1c3ccb9c00feedb7b75efcfe13a91",
-            "size": 1353
-          },
-          "rva": "0x281ce8",
-          "size": 1353
-        }
-      },
-      "doc": "docs/functions/Battle_ResolveTargets.md"
-    },
     "Battle_RestoreCapture": {
       "area": "save-data",
       "builds": {
@@ -2226,6 +2260,23 @@
         }
       },
       "doc": "docs/functions/Battle_SaveCapture.md"
+    },
+    "Battle_ScaleByDifficulty": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:ea4214ff0c2eff162d53d1c582509c4fcd5218c2898072a192b4e2e1c37351bb",
+            "insn_count": 48,
+            "mnemonics": "sha256:a39f70603a6fa25b45f67f17f37e883d34daaa40b14c562c3fa05b487c5b2e7c",
+            "size": 354
+          },
+          "rva": "0x309fb8",
+          "size": 354
+        }
+      },
+      "doc": "docs/functions/Battle_ScaleByDifficulty.md"
     },
     "Battle_ShowJobLevelUp": {
       "area": "battle",
@@ -4317,6 +4368,23 @@
         }
       },
       "doc": "docs/functions/EffectSprites_Spawn.md"
+    },
+    "Effect_AbilityHasNoEffect": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 13,
+            "mnemonics": "sha256:4fa231af9ea117a788957f737445ed6a26dc7aa47d14931071b0d1806857f94e",
+            "size": 45
+          },
+          "rva": "0x319d74",
+          "size": 45
+        }
+      },
+      "doc": "docs/functions/Effect_AbilityHasNoEffect.md"
     },
     "Effect_ClearCurrent": {
       "area": "battle",

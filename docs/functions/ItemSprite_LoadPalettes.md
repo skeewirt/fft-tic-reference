@@ -3,7 +3,7 @@
 - **Address:** `0x14026A358`
 - **Area:** [Unit rendering](../areas/unit-rendering.md)
 - **Prototype:** `void ItemSprite_LoadPalettes(uint16_t itemId, void *spriteState, char keepCategory)`
-- **Callers:** Battle_ExecuteAction, EventScript_Run, sub_14026A7B8, SceneUnit_BuildFromQueueEntry (two sites): five direct sites in four functions
+- **Callers:** BattleAct_Step, EventScript_Run, sub_14026A7B8, SceneUnit_BuildFromQueueEntry (two sites): five direct sites in four functions
 - **Callees:** Item_GetRecord, Item_GetEquipPalette, sub_1402F7594
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -31,7 +31,7 @@ Loads the two palettes of the unit's equipped weapon or shield into the sprite s
 
 ## Referenced by
 
-- Called by: [Battle_ExecuteAction](Battle_ExecuteAction.md), [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md), [sub_14026A7B8](sub_14026A7B8.md)
+- Called by: [BattleAct_Step](BattleAct_Step.md), [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md), [sub_14026A7B8](sub_14026A7B8.md)
 
 ## Notes
 
