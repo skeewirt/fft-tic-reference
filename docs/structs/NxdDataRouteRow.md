@@ -15,11 +15,11 @@ One row of the nxd.route table (data table). The key is not stored in the row: i
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 51 distinct values, 0 empty. |
-| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 42, 37 distinct values. |
-| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 46, 42 distinct values. |
-| <a id="unknown10"></a>`0x10` | unknown10 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 6 distinct values, 46 empty. |
-| <a id="unknown14"></a>`0x14` | unknown14 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 6 distinct values, 46 empty. |
+| <a id="name"></a>`0x4` | name | `string (int32 offset)` | V | Read in the code: Name of the route used to build its UI names: the file 'ui/ffto/worldmap/wm_route_<name>.uib' (UIAddon row 138) and the map states 'Show_R_<name>', 'Hide_R_<name>', 'R_<name>_Color_Default', 'R_<name>_Color_Grayout'. Observed in the stock rows: 51 distinct values, 0 empty. |
+| <a id="town"></a>`0x8` | town | `int32` | V | Read in the code: Town (table 52) key of the route's first end point: the route grows from it, and it is one of the two points marked when the route is listed as closed. Observed in the stock rows: 0 to 42, 37 distinct values. |
+| <a id="town_2"></a>`0xC` | town_2 | `int32` | V | Read in the code: Town key of the route's second end point (where the route grows to, unless reversed). Observed in the stock rows: 0 to 46, 42 distinct values. |
+| <a id="state_suffix"></a>`0x10` | state_suffix | `string (int32 offset)` | V | Read in the code: Suffix of the state names the route-grow effect plays ('Show<suffix>' / 'Hide<suffix>' instead of 'Show' / 'Hide') when the route grows forward; empty = plain names. Observed in the stock rows: 6 distinct values, 46 empty. |
+| <a id="state_suffix_2"></a>`0x14` | state_suffix_2 | `string (int32 offset)` | V | Read in the code: The same suffix used when the route grows reversed. Observed in the stock rows: 6 distinct values, 46 empty. |
 | <a id="unknown18"></a>`0x18` | unknown18 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
 
 ## Referenced by
@@ -32,4 +32,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 7 of 7 columns not decoded.
+? 2 of 7 columns not decoded.

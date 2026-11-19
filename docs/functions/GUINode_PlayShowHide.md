@@ -26,7 +26,7 @@ Plays a node's Show or Hide animation (default state names 'Show' and 'Hide'): s
 
 ## Referenced by
 
-- Called by: [JobList_ApplyCellRecord](JobList_ApplyCellRecord.md)
+- Called by: [JobList_ApplyCellRecord](JobList_ApplyCellRecord.md), [TavernRumourPage_Show](TavernRumourPage_Show.md)
 
 ## Notes
 

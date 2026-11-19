@@ -2,18 +2,37 @@
 
 GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.
 
-Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flows: 4, Observed behaviours: 19, Tables: 234.
+Functions: 662, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Flows: 6, Observed behaviours: 30, Tables: 234.
 
-## Functions (552)
+## Functions (662)
 
 | Name | Address | Purpose |
 |---|---|---|
+| [Achievement_CounterReached](../functions/Achievement_CounterReached.md) | `0x1400DC984` | Tells whether an achievement's counter has reached its threshold. |
+| [Achievement_LookupTelemetryRow](../functions/Achievement_LookupTelemetryRow.md) | `0x1400DEFAC` | Looks up an achievement's telemetry row (part read). |
+| [Achievement_RowExists](../functions/Achievement_RowExists.md) | `0x1400DCB3C` | Tests that the Achievement row of key 9 exists. |
+| [AchievementOther_CounterMatch](../functions/AchievementOther_CounterMatch.md) | `0x1400DE08C` | Counter test of the deep-dungeon-clear and side-story achievement classes. |
+| [AchievementOtherJournal_Match](../functions/AchievementOtherJournal_Match.md) | `0x1400DDFD4` | Match function of the Chronicle-event achievement class (vtable 0x1407031E8). |
+| [AchievementOtherNovel_Match](../functions/AchievementOtherNovel_Match.md) | `0x1400DDF1C` | Match function of the book-read achievement class (vtable 0x1407032A8). |
 | [AdditionalKerning_Lookup](../functions/AdditionalKerning_Lookup.md) | `0x1403BA2D4` | Looks up the (left, right) glyph pair in the .ker table's std::map and returns its extra (x, y) kerning (0 when missing); builds the map first when it is dirty. |
 | [BattleMsg_BannerHandlerA](../functions/BattleMsg_BannerHandlerA.md) | `0x1400E8930` | Handler body that shows the centre banner after its agent's vfunc +16 returns true: it calls UIMessageBanner_Show with the battle banner object, the descriptor and the enable flag. |
 | [BattleMsg_BannerHandlerB](../functions/BattleMsg_BannerHandlerB.md) | `0x1400E8A84` | Second handler body on the banner path: like BattleMsg_BannerHandlerA it calls UIMessageBanner_Show with the battle banner object, the descriptor and the enable flag after its agent's vfunc +16 test. |
 | [BattleMsg_InitHandlerTable](../functions/BattleMsg_InitHandlerTable.md) | `0x1400E28D0` | Fills an object's battle-message handler slots from the table based at a1+2528. |
 | [BattleMsg_ShowPrompt](../functions/BattleMsg_ShowPrompt.md) | `0x1400EE908` | Builds a class 1 / subtype 27 message descriptor from a dword of the object and shows it in the banner; then calls sub_140111B74 twice. |
+| [BgmMode_BuildLists](../functions/BgmMode_BuildLists.md) | `0x1401C850C` | Builds the two track lists of the music player screen from the BGMMode table. |
+| [BgmMode_DrawRow](../functions/BgmMode_DrawRow.md) | `0x1401C7DAC` | Draws one row of the music player list. |
+| [BgmMode_OnTabButton](../functions/BgmMode_OnTabButton.md) | `0x1401C8250` | Switches the music player's list when a tab button is pressed. |
+| [BgmMode_PlaySelected](../functions/BgmMode_PlaySelected.md) | `0x1401C811C` | Plays the track under the cursor of the music player. |
+| [BgmMode_SwitchTab](../functions/BgmMode_SwitchTab.md) | `0x1401C8308` | Moves the music player between its two lists on the tab input actions. |
+| [BgmMode_ToggleTitleLanguage](../functions/BgmMode_ToggleTitleLanguage.md) | `0x1401C8438` | Toggles the alternate track titles of the music player. |
+| [Book_ShowGuide](../functions/Book_ShowGuide.md) | `0x14016620C` | Opens the guide that explains the reading shelf. |
+| [BookShelf_Fill](../functions/BookShelf_Fill.md) | `0x140166E08` | Fills the five slots of the Reading Materials shelf. |
+| [Boot_MovieFrame](../functions/Boot_MovieFrame.md) | `0x1402F2E40` | Per-frame handler of the boot movie: ends it on the skip rules and copies the decoded frame into three textures. |
 | [ButtonIcon_Draw](../functions/ButtonIcon_Draw.md) | `0x1402BE284` | Draws one animated button icon: the sprite pieces of an icon group with a press animation. |
+| [ChroniclePeriod_GetIcon](../functions/ChroniclePeriod_GetIcon.md) | `0x1401E58B4` | Returns a Chronicle period's icon. |
+| [ChroniclePeriod_ListUnlocked](../functions/ChroniclePeriod_ListUnlocked.md) | `0x1401E572C` | Lists the Chronicle periods that are unlocked. |
+| [ChronicleTimeline_LayoutChapters](../functions/ChronicleTimeline_LayoutChapters.md) | `0x140178384` | Lays out the timeline bar by the number of periods in each chapter section. |
+| [ChronicleTimeline_Setup](../functions/ChronicleTimeline_Setup.md) | `0x140173E08` | Sets up the Chronicle timeline bar from the unlocked periods. |
 | [ClassicCursorRows_Select](../functions/ClassicCursorRows_Select.md) | `0x14036E28C` | Moves the cursor of a legacy menu to the row chosen in the state record. |
 | [ClassicItemListPage_Run](../functions/ClassicItemListPage_Run.md) | `0x140393E70` | Legacy party menu item list page: draws the list body and its header. |
 | [ClassicItemUsePage_Run](../functions/ClassicItemUsePage_Run.md) | `0x1403934B0` | Legacy party menu item use page: picks an item and applies it to a unit. |
@@ -21,6 +40,8 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [ClassicListPage_BuildRangeList](../functions/ClassicListPage_BuildRangeList.md) | `0x14037B8FC` | Builds the list of entry ids of the current category of a legacy list page and hands it to the list drawer. |
 | [ClassicMenu_LoadPageArtPack](../functions/ClassicMenu_LoadPageArtPack.md) | `0x140343770` | Loads the art pack of a legacy menu page (0..5) into the shared menu texture buffer. |
 | [ClassicPartyMenu_Run](../functions/ClassicPartyMenu_Run.md) | `0x14033E4C4` | Per-frame driver of the legacy party menu: prepares the shared header state and runs the handler of the current mode. |
+| [ClassicSubtitles_SetState](../functions/ClassicSubtitles_SetState.md) | `0x140196C80` | Plays the state of the classic subtitle window. |
+| [ClassicSubtitles_Step](../functions/ClassicSubtitles_Step.md) | `0x1401969CC` | Per-frame step of the classic-movie subtitle window: finds the line whose time window holds the movie time and sets its text and layout state. |
 | [ClassicUi_OpAnimatedFrame](../functions/ClassicUi_OpAnimatedFrame.md) | `0x140390744` | Opcode 18: a window frame that grows open over the first 8 page redraws. |
 | [ClassicUi_OpDrawCell](../functions/ClassicUi_OpDrawCell.md) | `0x1403901D4` | Opcodes 4 and 5: queues one sprite cell. |
 | [ClassicUi_OpDrawNumber](../functions/ClassicUi_OpDrawNumber.md) | `0x140390BA4` | Opcode 13: draws a number or a row of gauge cells for a value supplied by the page. |
@@ -53,12 +74,21 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [ConfirmWindow_SetArgs](../functions/ConfirmWindow_SetArgs.md) | `0x14029C9A8` | Copies the message arguments from a vector {allocator, begin, end, capacity}. |
 | [ConfirmWindow_SetDialog](../functions/ConfirmWindow_SetDialog.md) | `0x14029C6E0` | Loads a UIDialog row into the confirm window gadget. |
 | [ConfirmWindow_ShowHide](../functions/ConfirmWindow_ShowHide.md) | `0x14029CE9C` | Shows or hides the confirm window. |
+| [CreditRoll_AddPictureLine](../functions/CreditRoll_AddPictureLine.md) | `0x1401BEF44` | Credit roll line type 5: draws a picture line. |
+| [CreditRoll_QueueMusic](../functions/CreditRoll_QueueMusic.md) | `0x1401BF828` | Queues a music change of the credit roll at a roll position. |
+| [CreditRoll_StartMusic](../functions/CreditRoll_StartMusic.md) | `0x1401BF8C4` | Starts the credit roll's first music. |
+| [CreditRoll_Step](../functions/CreditRoll_Step.md) | `0x1401CB254` | Steps the credit roll: reads the script rows and builds one line widget per row until the screen is full or the script ends. |
 | [CursorFrame_FromCycle](../functions/CursorFrame_FromCycle.md) | `0x1402E30A4` | Returns the animation frame of the screen cursor for the current tick. |
 | [EquipDetail_Refresh](../functions/EquipDetail_Refresh.md) | `0x14029F950` | Refreshes the item detail panel for one selected item: it builds the item's large picture path, then binds the picture and the item name to the panel's parts. |
 | [EquipDetail_SetHelpText](../functions/EquipDetail_SetHelpText.md) | `0x1402A0A08` | Writes one help line of the equipment detail panel: line 0 = the item's description from Item-en, line 1 = three lines built by sub_1402A0E58, line 2 = weapon notes. |
 | [EquipScreen_InitVram](../functions/EquipScreen_InitVram.md) | `0x14033DE68` | Uploads the palette and strips of the equipment screen to VRAM and resets the equipment lists. |
+| [EventViewer_StartReplay](../functions/EventViewer_StartReplay.md) | `0x1402D28C8` | Starts the replay of an event from the Chronicle. |
 | [FontPaletteBlock_Equals](../functions/FontPaletteBlock_Equals.md) | `0x1403DCB8C` | Equality test of two font palette blocks (the first 68 bytes of the 80-byte UIFontSet row) used to find an existing SDFPalette entry before appending a new one. |
 | [FreeCursor_StepFromSticks](../functions/FreeCursor_StepFromSticks.md) | `0x14016D440` | Moves a screen-space pointer (the finger cursor) from the left stick or from four direction actions and hit-tests what is under it. |
+| [Glossary_OnSortInput](../functions/Glossary_OnSortInput.md) | `0x140173AC4` | Handles the glossary's sort command. |
+| [GlossaryCharacterPage_Fill](../functions/GlossaryCharacterPage_Fill.md) | `0x140177004` | Fills the glossary's character page, whose entry comes through a pair of table 283. |
+| [GlossaryDetail_Fill](../functions/GlossaryDetail_Fill.md) | `0x140172B70` | Fills the glossary detail page (part read). |
+| [GlossaryList_DrawRow](../functions/GlossaryList_DrawRow.md) | `0x140172604` | Draws one row of the glossary list. |
 | [GradientWindow_ColourFromPaletteA](../functions/GradientWindow_ColourFromPaletteA.md) | `0x140220640` | Colours the 12 vertices of a gradient window from palette A. |
 | [GradientWindow_ColourFromPaletteB](../functions/GradientWindow_ColourFromPaletteB.md) | `0x1402206A8` | As GradientWindow_ColourFromPaletteA with palette B (0x142FEC4F0). |
 | [GridAvailability_Reset](../functions/GridAvailability_Reset.md) | `0x1402FC6D8` | Resets the availability flags of the grid screen entries. |
@@ -130,9 +160,24 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [GUICursorHand_GetTargetPoint](../functions/GUICursorHand_GetTargetPoint.md) | `0x1401D2FF8` | The hand's rest position for the focused component (left edge + hand+80, vertical centre + hand+84), or the screen centre (960, 540) when nothing is focused. |
 | [GUICursorHand_StepToward](../functions/GUICursorHand_StepToward.md) | `0x1401D37D8` | One step of the hand's travel: pos = roundf(pos + (target - pos) * k), per axis, written to the hand node. |
 | [GUICursorHand_Update](../functions/GUICursorHand_Update.md) | `0x1401D2B00` | Per-frame update of the pointing-hand cursor: finds the focused component, computes where the hand belongs and moves it there. |
+| [Guide_CompareSortOrder](../functions/Guide_CompareSortOrder.md) | `0x1400DB2B4` | Comparator for guide id lists. |
+| [Guide_GetEntry](../functions/Guide_GetEntry.md) | `0x1400DB81C` | Fetches the Guide row of an id. |
+| [Guide_IsUnlocked](../functions/Guide_IsUnlocked.md) | `0x1400DAA64` | Tells whether a guide counts as unlocked. |
+| [Guide_MarkShown](../functions/Guide_MarkShown.md) | `0x1400DA454` | Marks a guide of window type 1 or 2 as seen. |
+| [Guide_OpenWindow](../functions/Guide_OpenWindow.md) | `0x1401A9000` | Opens the window that shows a guide. |
+| [Guide_QueueAutoShow](../functions/Guide_QueueAutoShow.md) | `0x1400EDFBC` | Queues a guide to be opened, with its input-pause delay. |
+| [Guide_TryAutoShow](../functions/Guide_TryAutoShow.md) | `0x1400D6DAC` | The entry point that shows a guide automatically when the game reaches its moment. |
 | [GuideBar_Layout](../functions/GuideBar_Layout.md) | `0x14013D758` | Rebuilds the guide bar: hides and resets all 8 slots, then lays out the visible rows of table 33 in two passes (left-aligned, then right-aligned). |
 | [GuideBar_LayoutRow](../functions/GuideBar_LayoutRow.md) | `0x14013D844` | Configures one guide slot for table 33 row `row`: sets the text, the up to four button icons (keyboard / pad variants), places the slot at x and starts its on-animation. |
 | [GuideBar_SetPage](../functions/GuideBar_SetPage.md) | `0x14013D5F4` | Selects the page of the button-guide bar: sets table key (+2224) and enabled-row bitmask (+2228) and rebuilds it with GuideBar_Layout. |
+| [GuideEntry_Fill](../functions/GuideEntry_Fill.md) | `0x1400F74F4` | Fills a guide entry (label and one or two buttons) of a window from a UIButtonGuide row. |
+| [GuideIcon_ToGlyph](../functions/GuideIcon_ToGlyph.md) | `0x1400F681C` | Maps a guide-bar icon number (UIButtonGuide guide_icon / guide_icon_2) and a variant byte to a glyph and draws it. |
+| [GuideLesson_MarkRead](../functions/GuideLesson_MarkRead.md) | `0x1400D6EA8` | Marks a lesson (window types 4..6) as read. |
+| [GuideLessons_AnyNewlyUnlockable](../functions/GuideLessons_AnyNewlyUnlockable.md) | `0x1400DB384` | Tells whether a lesson could be unlocked now but is not yet. |
+| [GuideLessons_UpdateUnlocked](../functions/GuideLessons_UpdateUnlocked.md) | `0x1400DA5D8` | Marks the lessons whose conditions are met as unlocked. |
+| [GuideList_BuildCategory](../functions/GuideList_BuildCategory.md) | `0x1400DAB10` | Builds the guide list of one tutorial tab. |
+| [GuideList_BuildLessons](../functions/GuideList_BuildLessons.md) | `0x1400DAD58` | Builds the lesson list of one Lessons tab. |
+| [GuideSlot_DrawButtons](../functions/GuideSlot_DrawButtons.md) | `0x14028BE4C` | Draws the buttons of one guide-bar slot: action buttons, fixed icons or keyboard key textures. |
 | [GuideWindow_ShowPage](../functions/GuideWindow_ShowPage.md) | `0x14017D668` | Shows one page of an in-game guide: the GuidePage-en row (guide, page) gives the title, the text and an optional icon; the guide's page count is the size of its set. |
 | [GUIFactory_FreeSlotGroup](../functions/GUIFactory_FreeSlotGroup.md) | `0x1403FECD0` | Returns a slot group to the pool: clears its occupancy bit, runs the group's destructor and, every time the live count crosses 32 modulo 64, drops empty pages. |
 | [GUIFontRenderer_UploadPalette](../functions/GUIFontRenderer_UploadPalette.md) | `0x1403EDEA4` | Finds or appends an entry for a font palette block and writes it to the GPU structured buffer SDFPalette (192 bytes per entry) read by shader/SDFFont.tec. |
@@ -277,6 +322,9 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [GUIWidget_Show](../functions/GUIWidget_Show.md) | `0x1403F930C` | Marks a widget shown and plays the Show state of its root component (Hide state stopped); posts owner event 5. |
 | [GUIWidget_Tick](../functions/GUIWidget_Tick.md) | `0x1403FC14C` | Per-frame update of one widget: rebuilds the node lists when flagged, delivers the pending-ready event, ticks the main component, and posts the update event 4 to the widget's owners. |
 | [GUIWidget_UpdateComponentsJob](../functions/GUIWidget_UpdateComponentsJob.md) | `0x1403F94EC` | Work-stealing worker: updates the node tree of the widget's components in chunks of 16, so several threads can share one widget's component vector. |
+| [IconBase_FormatPath](../functions/IconBase_FormatPath.md) | `0x1400FC1C0` | Builds the path of a numbered 'base' picture. |
+| [IconImage_AcquireById](../functions/IconImage_AcquireById.md) | `0x1403DB6B8` | Loads the image of an icon id. |
+| [IconPath_FromIconId](../functions/IconPath_FromIconId.md) | `0x1403DB140` | Builds the file path of an icon from its Icon id, using the IconGroup table to decide on the 4k texture variant. |
 | [ImageDissolve_Step](../functions/ImageDissolve_Step.md) | `0x140372518` | One step of a dissolve that reveals an image through scattered pixels. |
 | [Input_PauseFor](../functions/Input_PauseFor.md) | `0x1400F1C5C` | Makes the input module ignore input for a time. |
 | [Inventory_BuildEquipList](../functions/Inventory_BuildEquipList.md) | `0x140288B94` | Builds the candidate list of items a unit may take from one menu group, in id order, and then orders that list either by a sort field or by the saved user order. |
@@ -285,15 +333,29 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [ItemCell_SetItem](../functions/ItemCell_SetItem.md) | `0x14029ADE4` | Fills an item cell (icon image and name text) for an item id: formats the small item icon path and hands it with the id to ItemCell_BindIconAndName. |
 | [ItemIcon_Set](../functions/ItemIcon_Set.md) | `0x14022A9E4` | Fills the small draw state of one classic item icon from the item record's two icon bytes: a 16 by 16 tile in a shared sheet and a palette selector. |
 | [ItemList_GetPossessionIndex](../functions/ItemList_GetPossessionIndex.md) | `0x1402C437C` | Maps a possession-list row to the item or UI table row behind it: it switches on the list text id, walks the list element, and treats an entry at or above 261 as a UI table 0xEC row rather than an item. |
+| [ItemObtainedPanel_Fill](../functions/ItemObtainedPanel_Fill.md) | `0x1401A4A40` | Fills the 'obtained' panel for a book or a collection entry (part read). |
 | [JobScreen_BuildJobTabRows](../functions/JobScreen_BuildJobTabRows.md) | `0x14028A6E8` | The ability rows of one tab of a job on the job screen, for a party unit. |
 | [JobScreen_FillStaticParty](../functions/JobScreen_FillStaticParty.md) | `0x14039231C` | Copies a work record's per-job arrays into the static party-shaped record at 0x143C51F10 that the job screen readers sub_140392800 / sub_14039284C / sub_140392884 read through qword_141D3B778. |
 | [JobScreen_ShowJobAbilities](../functions/JobScreen_ShowJobAbilities.md) | `0x1402BA1FC` | Fills the job screen's detail panel for a job: the skillset header row and the four ability tabs of the current party unit. |
 | [JobTreePanel_FillTexts](../functions/JobTreePanel_FillTexts.md) | `0x14029B140` | Fills the texts of one tree panel's name board from its job record: the job icon (JobTreePanel_SetJobIcon) and the level texts. |
 | [JobTreePanel_SetJobIcon](../functions/JobTreePanel_SetJobIcon.md) | `0x14029B054` | Formats the job icon image path (j_NNN) of a tree panel from its job record; a LockUnreleased job gets the placeholder icon 24 instead. |
 | [JobTreePanel_SetTextKey](../functions/JobTreePanel_SetTextKey.md) | `0x14029BC00` | Points a name-board text binding at a text key and clears the text node's fixed text id so the keyed text is used. |
+| [JournalDetail_Fill](../functions/JournalDetail_Fill.md) | `0x14016B49C` | Fills the Events detail panel. |
+| [JournalList_Build](../functions/JournalList_Build.md) | `0x140169D28` | Builds the Chronicle Events list from the Journal rows that are met. |
+| [JournalList_DrawRow](../functions/JournalList_DrawRow.md) | `0x14016B0D4` | Draws one row of the Events list. |
+| [JournalList_RestoreCursor](../functions/JournalList_RestoreCursor.md) | `0x1401699A8` | Puts the list cursor back on the replayed entry. |
+| [JournalPanel_Tick](../functions/JournalPanel_Tick.md) | `0x140169404` | The replay panel's state steps. |
+| [JournalReplay_StartEvent](../functions/JournalReplay_StartEvent.md) | `0x140169724` | Starts the replay of the chosen Events entry (action 2). |
+| [JournalReplay_StartMovie](../functions/JournalReplay_StartMovie.md) | `0x140169854` | Starts the replay of a movie entry (action 3). |
+| [JournalScreen_OnAction](../functions/JournalScreen_OnAction.md) | `0x1401694E4` | Handles the actions of the Events screen. |
 | [KeyTrack_FindKey](../functions/KeyTrack_FindKey.md) | `0x14040222C` | Binary search in a keyframe track: returns the index of the last key whose frame (u16 at key+0) is <= frame, or -1 when every key is later. |
 | [KeyTrackBool_Eval](../functions/KeyTrackBool_Eval.md) | `0x1403F4604` | Evaluates the boolean (visibility) track of a UIB state at an integer frame; the result drives node byte +144. |
 | [KeyTrackVec2_Eval](../functions/KeyTrackVec2_Eval.md) | `0x140407C18` | Evaluates a two-float keyframe track (the scale track of a UIB state) at a frame: finds the key, eases between it and the next key with UIAnim_Curve and writes the interpolated pair. |
+| [Launcher_DrawControlsPage](../functions/Launcher_DrawControlsPage.md) | `0x1401BB9D8` | Switches the launcher guide to its controls panel. |
+| [Launcher_DrawInfoPage](../functions/Launcher_DrawInfoPage.md) | `0x1401BB77C` | Draws an information page of the launcher's guide. |
+| [Launcher_DrawPage](../functions/Launcher_DrawPage.md) | `0x1401BB5EC` | Draws the current page of the launcher's guide pages. |
+| [Launcher_DrawStartPage](../functions/Launcher_DrawStartPage.md) | `0x1401BBDD0` | Draws the guide page that carries the Start button. |
+| [Launcher_FillControls](../functions/Launcher_FillControls.md) | `0x1401BBB30` | Fills the controls list of the launcher guide. |
 | [LegacyMenu_BuildLocationList](../functions/LegacyMenu_BuildLocationList.md) | `0x1402B276C` | Builds the legacy location menu's list of unlocked world map locations. |
 | [LegacyMenu_InitWorld](../functions/LegacyMenu_InitWorld.md) | `0x1402B2EB0` | Initialises the legacy world menu: loads its text resource and picks the screen state block of the current text language. |
 | [LegacyMenu_LoadRowList](../functions/LegacyMenu_LoadRowList.md) | `0x1402B29D8` | Loads the row id list of the legacy menu named by the screen block into the live row array and starts the menu command screen. |
@@ -306,13 +368,41 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [LegacyTask12_Build](../functions/LegacyTask12_Build.md) | `0x14039A518` | Scene task 12: builds the plates and number fields of a battle-side panel from per-language cell lists. |
 | [ListScroll_HandleStick](../functions/ListScroll_HandleStick.md) | `0x14028E5D0` | Mouse wheel or right stick scrolls a component list by whole rows, independent of the cursor. |
 | [ListScroll_Step](../functions/ListScroll_Step.md) | `0x14028E720` | Scrolls a component list vertically by rows x row height, then re-homes the focus when the focused item left the view. |
+| [LoreDictionary_BuildList](../functions/LoreDictionary_BuildList.md) | `0x1401E412C` | Builds the glossary list of one category. |
+| [LoreDictionary_ClearNewMarks](../functions/LoreDictionary_ClearNewMarks.md) | `0x1401E4B24` | Clears the new mark of every listed glossary entry. |
+| [LoreDictionary_CompareEntries](../functions/LoreDictionary_CompareEntries.md) | `0x1401E4370` | Comparator of two glossary list entries. |
+| [LoreDictionary_CurrentRow](../functions/LoreDictionary_CurrentRow.md) | `0x1401E4BDC` | Returns the second key of the glossary row shown for an entry and page. |
+| [LoreDictionary_GetAffiliationIconId](../functions/LoreDictionary_GetAffiliationIconId.md) | `0x1401E4924` | Returns the affiliation icon id of a glossary entry's current row. |
+| [LoreDictionary_GetAffiliationIdByPair](../functions/LoreDictionary_GetAffiliationIdByPair.md) | `0x1401E5DE8` | Returns the affiliation id of the glossary row that a table 283 pair names. |
+| [LoreDictionary_GetAffiliationName](../functions/LoreDictionary_GetAffiliationName.md) | `0x1401E4820` | Returns the affiliation name of a glossary row. |
+| [LoreDictionary_GetAffiliationNameByPair](../functions/LoreDictionary_GetAffiliationNameByPair.md) | `0x1401E5F38` | Returns the affiliation name of the glossary row that a table 283 pair names. |
+| [LoreDictionary_GetAliasName](../functions/LoreDictionary_GetAliasName.md) | `0x1401E4A20` | Returns the alias name of a glossary row. |
+| [LoreDictionary_GetCategory](../functions/LoreDictionary_GetCategory.md) | `0x1401E46A0` | Returns a glossary row's category. |
+| [LoreDictionary_GetClearMarkByPair](../functions/LoreDictionary_GetClearMarkByPair.md) | `0x1401E6090` | Returns the clear mark of the glossary row that a table 283 pair names. |
+| [LoreDictionary_GetEntry](../functions/LoreDictionary_GetEntry.md) | `0x1401E5018` | Fetches a glossary row. |
+| [LoreDictionary_GetFace](../functions/LoreDictionary_GetFace.md) | `0x1401E4720` | Returns a glossary row's face number. |
+| [LoreDictionary_GetFaceByPair](../functions/LoreDictionary_GetFaceByPair.md) | `0x1401E5B6C` | Returns the face of the glossary row that a table 283 pair names. |
+| [LoreDictionary_GetFullNameByPair](../functions/LoreDictionary_GetFullNameByPair.md) | `0x1401E5A90` | Returns the full name of the glossary row that a table 283 pair names. |
+| [LoreDictionary_GetIcon](../functions/LoreDictionary_GetIcon.md) | `0x1401E47A0` | Returns the icon of a glossary entry's current row. |
+| [LoreDictionary_GetPaletteByPair](../functions/LoreDictionary_GetPaletteByPair.md) | `0x1401E5D14` | Returns the palette of the glossary row that a table 283 pair names. |
+| [LoreDictionary_GetPlainNameByPair](../functions/LoreDictionary_GetPlainNameByPair.md) | `0x1401E5934` | Returns the plain name of the glossary row that a table 283 pair names. |
+| [LoreDictionary_GetSpriteShapeByPair](../functions/LoreDictionary_GetSpriteShapeByPair.md) | `0x1401E5C40` | Returns the sprite shape of the glossary row that a table 283 pair names. |
+| [LoreDictionary_IndexOfKey](../functions/LoreDictionary_IndexOfKey.md) | `0x1401E4ED8` | Maps a glossary first key to its entry index (below 150). |
+| [LoreDictionary_PageCount](../functions/LoreDictionary_PageCount.md) | `0x1401E4594` | Counts the pages of a glossary entry. |
+| [LoreDictionary_SortList](../functions/LoreDictionary_SortList.md) | `0x1401E50D4` | Sorts a glossary list by a mode. |
 | [MainTab_BindNodes](../functions/MainTab_BindNodes.md) | `0x1402AC048` | Finds the header (MainTab/Tab) nodes of a screen and keeps them in the controller: the tab, the TextMask mask node, the title text node and the other tab title boards. |
 | [MainTab_SelectTab](../functions/MainTab_SelectTab.md) | `0x1402AC2E8` | Plays the header state that belongs to tab `index` and stops the other three. |
+| [Movie_Start](../functions/Movie_Start.md) | `0x1400D8304` | Starts the playback of a movie from its MovieData row: picks the file, the sound banks, the subtitle window and the controller flags. |
 | [MovieControl_IdleHint](../functions/MovieControl_IdleHint.md) | `0x14027A128` | While a movie plays unpaused, shows the 'Pause' button hint for about 5 seconds after any input. |
 | [MovieControl_PausedTick](../functions/MovieControl_PausedTick.md) | `0x14027A1CC` | Paused frame of the movie overlay: a completed hold with byte +25 set takes the skip (state 3); the pause or back action resumes. |
 | [MovieControl_TryOpenPause](../functions/MovieControl_TryOpenPause.md) | `0x14027A35C` | Opens the movie pause overlay on the pause action, with or without the Skip hint by MovieControl +25. |
 | [MovieController_UpdateSkip](../functions/MovieController_UpdateSkip.md) | `0x1400D8168` | Per-frame movie pause / skip handling of the GameUI MovieController (a virtual of its second vtable): publishes whether the playing movie can be skipped and runs the MovieControl state machine. |
+| [MovieSound_LoadBank](../functions/MovieSound_LoadBank.md) | `0x1401D7608` | Loads one sound bank of a movie. |
 | [MsgWindow_BuildFrame](../functions/MsgWindow_BuildFrame.md) | `0x14022BFEC` | Sets up the frame primitives of a message window and its decoration cells by window kind and language. |
+| [Novel_GetPageText](../functions/Novel_GetPageText.md) | `0x1401E1C10` | Returns the text of a book page from the Novel table the book names. |
+| [NovelReader_Open](../functions/NovelReader_Open.md) | `0x1401DFCD4` | Opens the book reader on a book (vtable slot at 0x143D36220). |
+| [NovelReader_SendReadThrough](../functions/NovelReader_SendReadThrough.md) | `0x1401DFF60` | Reports that the book was read to the end. |
+| [NovelReader_ShowPage](../functions/NovelReader_ShowPage.md) | `0x1401DFED0` | Shows one page of the open book (vtable slot at 0x143D36238). |
 | [NumberFields_Draw](../functions/NumberFields_Draw.md) | `0x140242C84` | Draws a list of number fields (32-byte records) into a staging buffer. |
 | [Opening_LoadMessageSprites](../functions/Opening_LoadMessageSprites.md) | `0x14037DB9C` | Loads the opening message textures and selects the language's sprite list for the opening text. |
 | [PanelScreen_InitVram](../functions/PanelScreen_InitVram.md) | `0x14033D88C` | Uploads the palette and strips of the second panel screen to VRAM. |
@@ -416,6 +506,7 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [sub_14036BBFC](../functions/sub_14036BBFC.md) | `0x14036BBFC` | The shop/equip detail screen's message handler: it builds the detail record from the scratch unit, applies a picked row, and closes the screen. |
 | [sub_14036C2A8](../functions/sub_14036C2A8.md) | `0x14036C2A8` | Applies a picked id to a slot, copies the scratch record's hand words into the candidate array and refreshes the detail. |
 | [sub_14036C320](../functions/sub_14036C320.md) | `0x14036C320` | Recomputes the two-handed word from the five candidate words and renders the equip detail record. |
+| [sub_14036E5DC](../functions/sub_14036E5DC.md) | `0x14036E5DC` | The world map's location-record builder (proposed name WorldMap_BuildLocationRecords; corrected 2026-11-19, it was first read as a shop screen refresh): for every location it accepts, it builds a 64-byte WorldMapLocat... |
 | [sub_14036EE50](../functions/sub_14036EE50.md) | `0x14036EE50` | Builds the new-arrival notice's item lists: it collects up to 128 item ids into two parallel 16-bit arrays. |
 | [sub_1403793DC](../functions/sub_1403793DC.md) | `0x1403793DC` | Runs one coded UI action for a menu screen: it sets a state flag, chooses a case from the code and calls the screen helper for that case. |
 | [sub_1403DABF0](../functions/sub_1403DABF0.md) | `0x1403DABF0` | Unloads the texture-part resource of a kind-2 record: builds its name from the UITextureParts scheme prefix (the word UITextureParts, a colon, two slashes), finds the resource in the owning widget and unregisters it. |
@@ -425,6 +516,7 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [TabBar_ClearClick](../functions/TabBar_ClearClick.md) | `0x1402A9BD8` | Releases the pressed state of the four tab nodes: for each existing node (kind 5) calls sub_14040ABDC(node, 0) and stops its 'Click' state. |
 | [TabBar_Select](../functions/TabBar_Select.md) | `0x1402A9944` | Selects a tab: puts the cursor / focus on tab 'index' of the bar's nodes and plays Active on it and Deactive on all the others. |
 | [TabBar_SetTable](../functions/TabBar_SetTable.md) | `0x1402A9730` | Sets up a row of up to four tab / button nodes from a row of UI table 139: one title text id per tab, the count and a 'focusable' byte; then picks the layout state ButtonNN for the count and selects tab 0. |
+| [TavernRumourPage_Show](../functions/TavernRumourPage_Show.md) | `0x1401A041C` | Shows a rumour's text and picture. |
 | [TitleMenu_AddEntry](../functions/TitleMenu_AddEntry.md) | `0x1401C43B4` | Appends one row to the title menu: sets the row's label by kind and stores the kind. |
 | [TitleMenu_Build](../functions/TitleMenu_Build.md) | `0x1401C34B4` | Fills the title menu's rows according to the save state and the cleared flag, plays the matching layout state and shows the menu with the cursor on the row the agent asks for. |
 | [TitleMenu_FocusCurrent](../functions/TitleMenu_FocusCurrent.md) | `0x1401C4318` | Focuses the current row; with none, the first row of kind 2 (Continue) when a save exists, else of kind 0 (New Game). |
@@ -432,6 +524,7 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [TitleMenu_MoveCursor](../functions/TitleMenu_MoveCursor.md) | `0x1401C4154` | Moves the current row by a delta, wrapping when its flag is set, and focuses the row's button node. |
 | [TitleMenu_SelectKind](../functions/TitleMenu_SelectKind.md) | `0x1401C4448` | Sets the current row to the first row of a given kind (-1 when there is none). |
 | [TitleMenu_StampInput](../functions/TitleMenu_StampInput.md) | `0x1401C40C8` | Records the time of the last input for the idle timeout. |
+| [Town_GetMapPosition](../functions/Town_GetMapPosition.md) | `0x14015CC00` | Returns a location's map position. |
 | [UI_FrameUpdate](../functions/UI_FrameUpdate.md) | `0x1400E3B20` | Per-frame update of the UI: sets the UI frame time, runs a pending cursor restart, updates the agents (the hand's glide) and hands the frame time to the GUI core. |
 | [UI_GetHelpSlotState](../functions/UI_GetHelpSlotState.md) | `0x1402BB604` | Decides whether the shared help-description slot is visible and returns a masked UI state word for the caller. |
 | [UIAddon_CanTakeInput](../functions/UIAddon_CanTakeInput.md) | `0x1401D21D8` | Vtable slot 3: true unless the add-on is showing (+42) or hiding (+43). |
@@ -559,16 +652,36 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [WindowPattern_Build](../functions/WindowPattern_Build.md) | `0x140332330` | Builds the pixel pattern of a legacy window frame row by row and, in mode 2, uploads it to VRAM. |
 | [WindowPattern_FillRow](../functions/WindowPattern_FillRow.md) | `0x1403324F8` | Fills one row of a window frame pattern from a six-word template. |
 | [WindowRect_AnimateCurve](../functions/WindowRect_AnimateCurve.md) | `0x1402DDFE8` | Opens or closes a window by moving two rectangles along one of the five animation step lists. |
+| [WorldMapBaseScreen_Open](../functions/WorldMapBaseScreen_Open.md) | `0x1401582D0` | Opens a location's own world-map screen file. |
+| [WorldMapLocationPanel_Fill](../functions/WorldMapLocationPanel_Fill.md) | `0x1401607D4` | Fills the world-map location info panel from a location record. |
+| [WorldMapNode_PlayTexChange](../functions/WorldMapNode_PlayTexChange.md) | `0x140158E30` | Plays the texture-change state of a location's base node. |
+| [WorldMapProgress_GetObjectiveCaption](../functions/WorldMapProgress_GetObjectiveCaption.md) | `0x14015E0FC` | Returns the world-map objective line for a progress row. |
+| [WorldMapRoute_Refresh](../functions/WorldMapRoute_Refresh.md) | `0x14015B3AC` | Shows or hides one route on the world map and sets its grey state. |
+| [WorldMapRoute_SetGrey](../functions/WorldMapRoute_SetGrey.md) | `0x14015DFCC` | Plays a route's grey or default colour state. |
+| [WorldMapRoute_StartGrow](../functions/WorldMapRoute_StartGrow.md) | `0x140157E88` | Starts the grow animation of a route between two locations. |
+| [WorldMapRouteGrow_OnState](../functions/WorldMapRouteGrow_OnState.md) | `0x140162344` | Plays the state of the route-grow effect. |
 | [WorldMapScreen_BindNodes](../functions/WorldMapScreen_BindNodes.md) | `0x140159304` | Binds the world-map screen's nodes: the widget's root, MapAll with its Route and Bases groups, the 48 base/point nodes, and each base's TextBoardMapName title. |
+| [WorldMapScreen_ScrollToProgress](../functions/WorldMapScreen_ScrollToProgress.md) | `0x14015DAE4` | Computes the map scroll target of the current progress row. |
+| [WorldMapScreen_SetProgress](../functions/WorldMapScreen_SetProgress.md) | `0x14015A754` | Stores the current story progress on the world-map screen and shows the objective line. |
+| [WorldMapScreen_SetRoute](../functions/WorldMapScreen_SetRoute.md) | `0x140157D74` | Records the route being opened on the world-map screen. |
+| [ZodiacStone_AnyMet](../functions/ZodiacStone_AnyMet.md) | `0x14016BC30` | Tells whether any ZodiacStone row has its user_situation met. |
+| [ZodiacStone_AnyMetAndNew](../functions/ZodiacStone_AnyMetAndNew.md) | `0x14016BDB8` | Tells whether any ZodiacStone row is met and still carries its new mark. |
+| [ZodiacStone_ClearNewMarks](../functions/ZodiacStone_ClearNewMarks.md) | `0x14016BF68` | Clears the new mark of every ZodiacStone row that is met. |
+| [ZodiacStone_FillDetail](../functions/ZodiacStone_FillDetail.md) | `0x14016E218` | Fills the stone's detail page (icons, name, description, Clear mark). |
+| [ZodiacStone_FillTip](../functions/ZodiacStone_FillTip.md) | `0x14016D72C` | Fills the stone's tip (icon, name, summary). |
+| [ZodiacStoneBoard_Setup](../functions/ZodiacStoneBoard_Setup.md) | `0x14016C414` | Sets up the Zodiac Stone board: for each of the 13 stones picks the row to show, plays the stone's state and sets its name. |
 
-## Structures (126)
+## Structures (134)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [AvailabilityFlag](../structs/AvailabilityFlag.md) | 1 | One row of the GridAvailableTemplate table. |
+| [BgmModeScreen](../structs/BgmModeScreen.md) |  | The music player screen (UIAddonFFTOBGMMode): its two track lists and the state of the list and title language. |
 | [CharGridCell](../structs/CharGridCell.md) | 1 | One row of the CharGridOrder table. |
+| [ClassicSubtitleStepper](../structs/ClassicSubtitleStepper.md) |  | The stepper of the classic-movie subtitle window (ClassicSubtitles_Step): the current layout state and the keep-shown byte. |
 | [CodePointerRow](../structs/CodePointerRow.md) | 8 | One row of UiLegacyLayoutScriptOps. |
 | [ColourPair](../structs/ColourPair.md) | 4 | One row of the EquipPanelColourPairs table. |
+| [CreditRoll](../structs/CreditRoll.md) |  | The credit roll object stepped by CreditRoll_Step: the script position, the line templates and the y position. |
 | [CursorPosition](../structs/CursorPosition.md) | 2 | One row of the LegacyCursorPositions table. |
 | [EaseEndpoints](../structs/EaseEndpoints.md) | 8 | One row of the EaseCurvesSetG table. |
 | [EaseSample](../structs/EaseSample.md) | 4 | One row of the EaseCurvesSetA table. |
@@ -577,14 +690,18 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [GlyphCodeTripleRow](../structs/GlyphCodeTripleRow.md) | 3 | One row of UiGlyphCodeTriples. |
 | [GradientWindowVertexPaletteIndex](../structs/GradientWindowVertexPaletteIndex.md) | 1 | One row of the GradientWindowVertexPalette table. |
 | [GridHelpRow](../structs/GridHelpRow.md) | 24 | One row of the GridHelpRows tables. |
+| [GuideQueueEntry](../structs/GuideQueueEntry.md) | 12 | One entry of the queue of guides waiting to open, at [[qword_143CD9DA8+16]+264] +88. |
+| [GuideSlot](../structs/GuideSlot.md) |  | One slot of a guide bar or window entry (GuideSlot_DrawButtons): up to four buttons given as actions or icon numbers. |
 | [GUILayer](../structs/GUILayer.md) | 592 | A UI layer: a component drawn offscreen and composited with its effects (mask, drop shadow, glow). |
 | [GUINode](../structs/GUINode.md) | 224 | Size from the 224-byte free in GUILayerNode's destructor. |
 | [GUINodeState](../structs/GUINodeState.md) | 208 | One state (timeline) of a component: its clock, its loop range, its flags and the channel sets and entries it applies. |
 | [GUINodeStateEntry](../structs/GUINodeStateEntry.md) | 64 | One entry of a state's entry list (GUINodeState.entries): a jump marker, a trigger, a state link, a state reset or a part trigger, built from the state's special tracks by UIAnim_ApplyTrack and UIAnim_ApplyComponentTr... |
+| [JournalListEntry](../structs/JournalListEntry.md) | 12 | One 12-byte entry of the Chronicle Events list that JournalList_Build fills for each Journal row that is met. |
 | [KeyTrack](../structs/KeyTrack.md) |  | A keyframe track of one property of one target: sorted keys, the first four stored inline. |
 | [KeyTrackKey](../structs/KeyTrackKey.md) | 16 | One keyframe: its frame, the curve that shapes the interval to the next key, and the value. |
 | [LauncherButtonIdRow](../structs/LauncherButtonIdRow.md) | 4 | One row of UiLauncherButtonOrder. |
 | [LauncherFocusRow](../structs/LauncherFocusRow.md) | 24 | One row of UiLauncherFocusNeighborsAlt. |
+| [LauncherGuide](../structs/LauncherGuide.md) |  | The launcher's guide pages state (UIAddonFFTOLauncher): the page set and the nodes the page builders use. |
 | [LegacyAbilityMenuSkillsetByTabRow](../structs/LegacyAbilityMenuSkillsetByTabRow.md) | 1 | One row of the LegacyAbilityMenuSkillsetByTab table. |
 | [LegacyBounceProfileRow](../structs/LegacyBounceProfileRow.md) | 2 | One row of the LegacyBounceProfile table. |
 | [LegacyButtonIconGroupStartsRow](../structs/LegacyButtonIconGroupStartsRow.md) | 1 | One row of a LegacyButtonIconGroupStarts table. |
@@ -691,11 +808,13 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [WindowGroupStartRow](../structs/WindowGroupStartRow.md) | 1 | One row of UiLegacyWindowGroupStartsLang0. |
 | [WindowGrowStep](../structs/WindowGrowStep.md) | 1 | One row of the WindowGrowSteps table. |
 | [WindowPatternWord](../structs/WindowPatternWord.md) | 2 | One row of the WindowPatternTiles table. |
+| [WorldMapLocationRecord](../structs/WorldMapLocationRecord.md) | 64 | One 64-byte record per world-map location that the location-list builder accepts (location ids 0..46): what is on offer there and its state at the current story progress. |
 
-## Globals (7)
+## Globals (8)
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
+| [g_GameUIManager](../globals/g_GameUIManager.md) | `0x143CD9DC8` | `void *` | The game's UI manager object: the movie controller flags are at +0xE0 and the movie host at +200 (record MovieController). |
 | [g_ListAlias](../globals/g_ListAlias.md) | `0x14184A9B0` | `uint8 *` | A second published alias of the list object, written by the task functions that open a list (the command task, the event runner and others). |
 | [g_ListObject](../globals/g_ListObject.md) | `0x1418716A0` | `uint8[1024]` | The static list object: u16 cell words at +0 (stride 2), a property word array at +0xA4, the bare-id array at +0x148 and five byte arrays after it. |
 | [g_ListObjectPtr](../globals/g_ListObjectPtr.md) | `0x141871698` | `uint8 *` | The published pointer to the static list object. |
@@ -704,10 +823,15 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [g_StatusIconWord](../globals/g_StatusIconWord.md) | `0x143D1B590` | `uint16` | The packed page-and-palette word of the status/item icon the status screen last set. |
 | [g_UIChosenItemId](../globals/g_UIChosenItemId.md) | `0x143C518F0` | `uint16` | The 16-bit UI field that holds the item id the player picked in the shop list. |
 
-## Registries (7)
+## Registries (12)
 
 | Name | Summary |
 |---|---|
+| [AchievementNotificationTypes](../registries/AchievementNotificationTypes.md) | The type number of each achievement notification class: the virtual function at +8 of the notification's vtable returns it, and the achievement classes compare it in their match functions. |
+| [ClassicSubtitleState](../registries/ClassicSubtitleState.md) | The state names of the classic-movie subtitle window and the UIClassicSubtitles line_layout value that picks each. |
+| [CreditLineType](../registries/CreditLineType.md) | The line types of UICreditRow (line_type) and the builder CreditRoll_Step calls for each. |
+| [GuideIconGlyph](../registries/GuideIconGlyph.md) | The guide icon numbers (UIButtonGuide guide_icon / guide_icon_2) and the glyph GuideIcon_ToGlyph draws for them. |
+| [MovieControllerFlag](../registries/MovieControllerFlag.md) | The movie controller flag bits Movie_Start sets from the MovieData row (MovieController +24). |
 | [TitleMenuEntryKinds](../registries/TitleMenuEntryKinds.md) | The six kinds of row of the Enhanced title menu: the kind byte stored in each row, the text id of its label (UI table, nxd id 19) and what choosing it does. |
 | [TitleModeSelectButtons](../registries/TitleModeSelectButtons.md) | The button ids of the mode select screen as `UILauncher_OnMenuAction` handles them. |
 | [UIAddonRows](../registries/UIAddonRows.md) | Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `path` names the layout file a screen loads. |
@@ -728,28 +852,37 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [TitleMenuLayout](../formats/TitleMenuLayout.md) | `.uib` | `ui/ffto/title/ffto_title_enhanced.uib` (pack 0008), the layout of the Enhanced title menu: nine components, of which `Menu` carries the row layouts the add-on plays by name. |
 | [TitleScreenLayout](../formats/TitleScreenLayout.md) | `.uib` | `ffto_title_enhanced.uib` (pack 0008): the title screen behind the menu: backdrop, logo, version, copyright and the `Menu` component with its six buttons. |
 
-## Flows (4)
+## Flows (6)
 
 | Name | Summary |
 |---|---|
+| [ChronicleEventReplay](../flows/ChronicleEventReplay.md) | What happens when the player replays an entry of the Chronicle Events list: from the action to the event running. |
 | [CursorGloveFrame](../flows/CursorGloveFrame.md) | What happens to the finger cursor's glove in one UI frame, in order: its Loop clock advances, scrubs the Hand's Loop, the Hand's IconHand position is sampled as an integer, and the cursor reference node glides toward ... |
 | [GeneralOptionsOpenAndClose](../flows/GeneralOptionsOpenAndClose.md) | How the settings screen opens from the mode select or the in-game menu and closes again, through the System agent. |
+| [MovieStart](../flows/MovieStart.md) | How a movie starts and ends: row read, controller flags, sound banks, subtitle window, skip rules. |
 | [ScreenAddonCreation](../flows/ScreenAddonCreation.md) | How a screen (add-on) is made and shown: allocate, construct, attach to the agent, load its layout from the screen table, then show or hide it. |
 | [TitleMenuAction](../flows/TitleMenuAction.md) | From a press on a title menu row to the action: the button event reaches the agent, which dispatches on the row's kind. |
 
-## Observed behaviours (19)
+## Observed behaviours (30)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [AchievementClassesMatchByColumn](../behaviors/AchievementClassesMatchByColumn.md) | engine (achievements) | Which Achievement column an achievement class tests: a counter, a book or a Chronicle event. |
 | [BattleCommandMenuStates](../behaviors/BattleCommandMenuStates.md) | battle, own turn: command menu, Abilities list, Move tile selection, target selection, facing prompt | How to tell the screens of an own battle turn apart and which row the command menu cursor is on, from game state only: the glove position, the focused widget and the text of the instruction-message widget. |
 | [BattleHudAndUnitFields](../behaviors/BattleHudAndUnitFields.md) | the Jobs screen and a battle's first turn | What the game shows from the Jobs screen into a battle, as seen live. |
 | [BattleTextOverlaysAndPreview](../behaviors/BattleTextOverlaysAndPreview.md) | battle: event dialogue, notice banner, attack / item preview, deployment placement | Where the battle's dialogue, notices and action preview are drawn, how placement works, and what the preview numbers meant in play, as seen live. |
+| [BookPageTextIsReadFromTheNovelTableOfPageTable](../behaviors/BookPageTextIsReadFromTheNovelTableOfPageTable.md) | engine (book reader) | A book's pages are the rows of one of five Novel tables, chosen by the Book page_table value; the page number is the row key and the text is the row's string. |
+| [ClearMarkAppearsOnFourScreens](../behaviors/ClearMarkAppearsOnFourScreens.md) | engine (Zodiac Stone, Events, Chronicle period, glossary) | Four tables carry a one-byte clear_mark column; each shows a node 'Clear' that plays 'Enable' when the byte is set and 'Disable' otherwise. |
 | [CursorGloveBob](../behaviors/CursorGloveBob.md) | finger cursor (the glove on the Job Tree) | The glove's idle bob: a 40-frame, looping, position track on the IconHand node of the Hand component, played on the UI frame time, sampled as an integer, and added to the glove's glide only in the node matrices. |
+| [GlossaryPagesAreMetRowsOfOneEntry](../behaviors/GlossaryPagesAreMetRowsOfOneEntry.md) | engine (glossary) | A glossary entry is a first key; its rows (second key) are pages that appear as their user_situation is met, and a row flagged replaces_previous overwrites the page before it instead of being a page of its own. |
 | [GuideBarLayout](../behaviors/GuideBarLayout.md) | the footer button guide bar | The guide bar shows one UIButtonGuide key at a time: up to 8 slots, left ones first then right ones from x 1920; a sub-row mask hides sub-rows. |
+| [GuideListsAndAutoShowRule](../behaviors/GuideListsAndAutoShowRule.md) | engine (tutorials and lessons) | A guide's window type, category and bit number decide where it is listed, where its seen or unlocked bit lives and when it opens by itself. |
 | [GUITextNodeStringSource](../behaviors/GUITextNodeStringSource.md) | where a text node's string comes from: the UI table or the code | A text node shows the string of its UI table text id while that id is not 0; with text id 0 it keeps a string set in code. |
+| [IconGroup4kPaths](../behaviors/IconGroup4kPaths.md) | engine (icon paths) | Icons in a group with select_4k set load their '_4k_' file instead of a '_2k_' one; the stock data names no '_2k_' path. |
 | [JobsEquipmentShopScreens](../behaviors/JobsEquipmentShopScreens.md) | Units > Status, Jobs, equipment list, Outfitter (Buy) | Screen identities, cell layouts and the memory handles (job byte, item id, gil) of the world map management screens, as seen live. |
 | [JobTreeLayerList](../behaviors/JobTreeLayerList.md) | the layer slots of a UI frame and, for the Job Tree screen, which component opens each one and how its float rectangle is made | A UI layer is not tied to a component by any pointer: the layer records hold no component link (only the mask component of a masked layer is stored). |
 | [ListGadgetInputPath](../behaviors/ListGadgetInputPath.md) | why a list cursor moves only when the screen calls the list input | A list gadget's cursor moves by pad or keyboard only when the screen's input handler calls the list's own input; the Left / Right branches of the settings screen return before that call. |
+| [MovieSkipKinds](../behaviors/MovieSkipKinds.md) | engine (movies) | Classic movies and the first four movies end on one press; the enhanced story movies open the pause window, from which they can be skipped. |
 | [SettingsCloseSavesSystemFile](../behaviors/SettingsCloseSavesSystemFile.md) | what closing the settings screen writes | Closing the settings screen requests a settings save, and the save rewrites the SYSTEM save file with the settings and the save manager's bytes +656..+895, among them the game-cleared byte. |
 | [TextNodeDrawGate](../behaviors/TextNodeDrawGate.md) | UI text nodes (GUITextNode_Draw) | GUITextNode_Draw returns before drawing unless a byte at node +0xCC is non-zero, a byte at +0x91 is zero, the string size at +0xE8 is non-zero and a font-table / font-set lookup returns true. |
 | [TitleAndSaveListScreens](../behaviors/TitleAndSaveListScreens.md) | title screens, Continue / Load Game save list | The screens between launch and a loaded game, the keys they take, and how the save list is built, as seen live. |
@@ -758,8 +891,12 @@ Functions: 552, Structures: 126, Globals: 7, Registries: 7, File formats: 7, Flo
 | [TitleMenuRowStorage](../behaviors/TitleMenuRowStorage.md) | where the title add-on keeps its rows and what lies after them | The title add-on stores six 24-byte rows at +72; the count, current row, last input tick and flags follow at +216..+230, and no instruction of the title code touches +231..+239, so a seventh row would overlap those fi... |
 | [UIAddonBaseEventRouting](../behaviors/UIAddonBaseEventRouting.md) | how a screen's events reach its handlers | Every add-on's event handler calls UIAddon_OnEventBase first; input reaches the add-on's slot 12 only when its id is not excluded, byte +47 is clear and slot 3 allows it. |
 | [UIStateClock](../behaviors/UIStateClock.md) | every UIB state (timeline) | How the clock of a UI state runs: real elapsed time per UI frame (never less than 1/60 s), summed in single precision, frame = time * 60.0 as a float; the end or a loop resets frame and time and drops the overshoot. |
+| [UiTableColumnsNeverRead](../behaviors/UiTableColumnsNeverRead.md) | engine (table readers) | No code reads the first dword of UIKeyAssign, UIPadDefine, Icon, SystemBonusEntitlement, UIButtonGuide, BattleVoiceGroupRate and the other UI rows read here; the tables DebugMap (78) and DebugFIdSound (89) are never f... |
 | [WidgetRootsAreLayers](../behaviors/WidgetRootsAreLayers.md) | every UI widget (the Job Tree, the finger cursor, the footer guides) | Every widget's root component is drawn into its own layer record, whether or not it has an effect: the renderer's feature byte at r+606621 is 1 from the initialiser and the widget byte at +83 is 1 for all 51 widgets o... |
 | [WorldMapLocationsAndBattleEntry](../behaviors/WorldMapLocationsAndBattleEntry.md) | world map free roam, Locations list, travel to a battleground, battle deployment | How a battle is entered from the world map, and which screens and memory fields show it, as seen live. |
+| [WorldMapObjectiveLineIsTheNearestCaptionRow](../behaviors/WorldMapObjectiveLineIsTheNearestCaptionRow.md) | engine (world map) | The objective line of the world map is the caption of the current progress row, or of the nearest earlier row of the same first key whose sets_objective byte is set. |
+| [WorldMapRoutesAndLocationsFollowProgress](../behaviors/WorldMapRoutesAndLocationsFollowProgress.md) | engine (world map) | Routes are shown, hidden and greyed by the story progress row; a route grows between its two end points, forward or reversed; locations go into three lists by locations_list and are positioned by map_x / map_y. |
+| [ZodiacStoneBoardShowsStonesByHeldState](../behaviors/ZodiacStoneBoardShowsStonesByHeldState.md) | engine (Zodiac Stone screen) | Each of the 13 stones shows the row with the highest second key whose user_situation is met; the owner-timeline column decides whether the stone is shown held, or as not yet acquired with the owner's portrait state. |
 
 ## Tables (234)
 

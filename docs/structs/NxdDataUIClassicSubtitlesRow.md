@@ -14,13 +14,13 @@ One row of the nxd.ui_classic_subtitles table (English text table; the other lan
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: 0 in every row. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: empty in every row. |
 | <a id="subtitle"></a>`0x8` | subtitle | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 77 distinct values, 16 empty. |
 | <a id="starts_at"></a>`0xC` | starts_at | `float32` | M | Measured over every stock row: Seconds, rising down the table, each before its end value. Observed in the stock rows: -1 to 216.5, 81 distinct values. |
 | <a id="ends_at"></a>`0x10` | ends_at | `float32` | M | Measured over every stock row: Seconds, each after its start value. Observed in the stock rows: -1 to 223.8, 81 distinct values. |
-| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4, 3 distinct values. |
-| <a id="unknown18"></a>`0x18` | unknown18 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="line_layout"></a>`0x14` | line_layout | `int32` | V | Read in the code: Picks the state the classic-movie subtitle window plays for the line: 0 -> 'Line01', 1 -> 'Line02', 2 -> 'Line03', 3 -> 'Line04', 4 -> 'Line05' (any other value -> 'Line01'). Observed in the stock rows: 0 to 4, 3 distinct values. |
+| <a id="keep_shown"></a>`0x18` | keep_shown | `uint8` | V | Read in the code: When set, the subtitle stays on screen after its end time (the window is not hidden) until the next line replaces it. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -32,4 +32,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 4 of 7 columns not decoded.
+None recorded.

@@ -14,15 +14,15 @@ One row of the nxd.battle_message_text table (English text table; the other lang
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 1384 distinct values, 236 empty. |
-| <a id="unknown08"></a>`0x8` | unknown08 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 7 distinct values, 1728 empty. |
-| <a id="unknown0c"></a>`0xC` | unknown0c | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: 0 in every row. |
+| <a id="text"></a>`0x4` | text | `string (int32 offset)` | V | Read in the code: The message text (strings at +4 / +8 / +0xC are offsets from +4). Observed in the stock rows: 1384 distinct values, 236 empty. |
+| <a id="singular"></a>`0x8` | singular | `string (int32 offset)` | V | Read in the code: The singular form used by the text tags that count a noun (count 1); empty -> text is used. Observed in the stock rows: 7 distinct values, 1728 empty. |
+| <a id="plural"></a>`0xC` | plural | `string (int32 offset)` | V | Read in the code: The plural form used by the counting text tags for counts of 2 or more. Observed in the stock rows: empty in every row. |
 | <a id="unknown10"></a>`0x10` | unknown10 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="unknown11"></a>`0x11` | unknown11 | `uint8` | ? | Not decoded. Observed in the stock rows: 1 in every row. |
 | <a id="unknown12"></a>`0x12` | unknown12 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="unknown13"></a>`0x13` | unknown13 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown14"></a>`0x14` | unknown14 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="error_banner"></a>`0x14` | error_banner | `uint8` | V | Read in the code: When set, the battle message is shown as the timed red error banner (window state 'Error' with its 'timer', UI sound cue 0x6A) instead of the normal message box. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -34,4 +34,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 9 of 9 columns not decoded.
+? 4 of 9 columns not decoded.

@@ -14,7 +14,7 @@ pointer to the situation store UserSituation_TestCheck reads: a bank flag byte a
 
 - Observed behaviours: [TavernErrandsOpenAtSituationCounter450](../behaviors/TavernErrandsOpenAtSituationCounter450.md)
 - Read by: [UserSituation_TestCheck](../functions/UserSituation_TestCheck.md)
-- Written by: [UserSituation_SetValue](../functions/UserSituation_SetValue.md)
+- Written by: [EventViewer_StartReplay](../functions/EventViewer_StartReplay.md), [UserSituation_SetValue](../functions/UserSituation_SetValue.md)
 
 ## Open questions
 

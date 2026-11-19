@@ -29,7 +29,7 @@ Binds an icon image, chosen by its Icon table key, to a UI image object; used by
 
 ## Referenced by
 
-- Called by: [GuideWindow_ShowPage](GuideWindow_ShowPage.md), [sub_14029BCD4](sub_14029BCD4.md)
+- Called by: [BookShelf_Fill](BookShelf_Fill.md), [CreditRoll_AddPictureLine](CreditRoll_AddPictureLine.md), [GlossaryDetail_Fill](GlossaryDetail_Fill.md), [GuideWindow_ShowPage](GuideWindow_ShowPage.md), [ItemObtainedPanel_Fill](ItemObtainedPanel_Fill.md), [ZodiacStone_FillDetail](ZodiacStone_FillDetail.md), [ZodiacStone_FillTip](ZodiacStone_FillTip.md), [sub_14029BCD4](sub_14029BCD4.md)
 
 ## Notes
 

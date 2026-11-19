@@ -18,7 +18,7 @@ Shows or hides the guide bar (calls the guide agent's 0x14013C740).
 
 ## Referenced by
 
-- Called by: [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [TavernMenu_OnCommand](TavernMenu_OnCommand.md), [UIAddonFFTOConfig_BindNodes](UIAddonFFTOConfig_BindNodes.md)
+- Called by: [BgmMode_ToggleTitleLanguage](BgmMode_ToggleTitleLanguage.md), [Book_ShowGuide](Book_ShowGuide.md), [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [JournalScreen_OnAction](JournalScreen_OnAction.md), [TavernMenu_OnCommand](TavernMenu_OnCommand.md), [UIAddonFFTOConfig_BindNodes](UIAddonFFTOConfig_BindNodes.md)
 - Observed behaviours: [GuideBarLayout](../behaviors/GuideBarLayout.md)
 
 ## Open questions

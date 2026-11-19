@@ -21,6 +21,11 @@ Copies a texture path into out (255 characters at most) and, when the path conta
 
 - Calls: [sub_14002620C](sub_14002620C.md)
 
+## Referenced by
+
+- Called by: [IconPath_FromIconId](IconPath_FromIconId.md)
+- Observed behaviours: [IconGroup4kPaths](../behaviors/IconGroup4kPaths.md)
+
 ## Notes
 
 The name is ours (IDB: sub_1403DB0EC). The caller keeps the returned flag in byte +35 of the 40-byte auxiliary record.

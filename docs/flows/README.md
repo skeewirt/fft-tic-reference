@@ -2,7 +2,7 @@
 
 Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters.
 
-26 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
+30 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -11,18 +11,22 @@ Ordered sequences across functions and state: what happens in which order (a fra
 | [AutoSaveWrite](AutoSaveWrite.md) | [Save data](../areas/save-data.md) | Where a resume entry comes from and when it is written: the per-frame flush turns dirty group buffers into named entries, stamps each with a CRC, and one write kick sends the whole container. |
 | [BattleMessageBanner](BattleMessageBanner.md) | [Battle](../areas/battle.md) | How a message descriptor becomes text in the battle's centre banner: a battle handler calls the banner function, which resolves the descriptor to a message id and a template, fills the format arguments, sets the text ... |
 | [BattleResumeRestoresTheLooks](BattleResumeRestoresTheLooks.md) | [Graphics](../areas/graphics.md) | How a battle resumed from a payload gets its looks back: the setup clears the pool's sprite bytes, the payload fills the snapshot region, and Battle_RestoreSceneVars copies the units, the load queue and the 15 pool re... |
+| [BattleVoiceLine](BattleVoiceLine.md) | [Battle](../areas/battle.md) | How a battle event becomes a spoken voice cue: suppress test, status gate, chance roll, replacement, play or queue. |
+| [ChronicleEventReplay](ChronicleEventReplay.md) | [UI framework](../areas/ui-framework.md) | What happens when the player replays an entry of the Chronicle Events list: from the action to the event running. |
 | [CrystalAbilityLearning](CrystalAbilityLearning.md) | [Battle](../areas/battle.md) | A unit that stops on a Crystal or Chest unit's tile triggers a roll of the abilities the dead unit had learned in jobs the picker has unlocked, a window where a player-controlled unit chooses between learning them and... |
 | [CursorGloveFrame](CursorGloveFrame.md) | [UI framework](../areas/ui-framework.md) | What happens to the finger cursor's glove in one UI frame, in order: its Loop clock advances, scrubs the Hand's Loop, the Hand's IconHand position is sampled as an integer, and the cursor reference node glides toward ... |
 | [EquipPanelBlockFill](EquipPanelBlockFill.md) | [Battle](../areas/battle.md) | How the five hand words travel from a unit record to the two panel blocks and what the two flag-aware panels do with them. |
 | [EquipSessionFlagFlow](EquipSessionFlagFlow.md) | [Items and shops](../areas/items.md) | The Outfitter/equip session: build candidates, buy or apply a slot word with bit 15, then commit (strip the bit, charge the price, save) or cancel (restore the override). |
 | [FrameUiSubmission](FrameUiSubmission.md) | [Graphics](../areas/graphics.md) | How one frame's UI reaches the GPU, and why the order matters: commands are packed on the CPU in one order and executed by sort key in another, and every pass inherits the context state it does not set. |
 | [GeneralOptionsOpenAndClose](GeneralOptionsOpenAndClose.md) | [UI framework](../areas/ui-framework.md) | How the settings screen opens from the mode select or the in-game menu and closes again, through the System agent. |
+| [InputBindingBuild](InputBindingBuild.md) | [Input](../areas/input.md) | How the UIKeyAssign rows become the live bindings of the input module and how a binding is read each frame. |
 | [ItemMenuListLifecycle](ItemMenuListLifecycle.md) | [Items and shops](../areas/items.md) | Where a shop or equip list word is written, reordered and read: one producer fills g_MenuList for the screen, the saved-order filter rewrites it right after a mode-1 build, and seven functions read single words back, ... |
 | [ItemNameToScreen](ItemNameToScreen.md) | [Data access](../areas/data.md) | How an item id becomes a name on screen, by two independent routes: the 0x3800 text id (a pool id decoded by sub_140226208, carried in a 2-byte list cell or a 32-bit message argument) and the Item-en row lookup (ItemT... |
 | [JobScreenFrame](JobScreenFrame.md) | [Job tree](../areas/job-tree.md) | How the Job Tree gets input and a chance to run code each frame: the party-menu scene's frame function runs the current screen's update through a function table, the job screen's update runs the screen dispatch, and t... |
 | [LayerDropShadow](LayerDropShadow.md) | [Graphics](../areas/graphics.md) | The drop shadow of a UI layer, end to end (decoded and reproduced from mid-frame GPU captures). |
 | [LayerGlowHalfSize](LayerGlowHalfSize.md) | [Graphics](../areas/graphics.md) | The glow of a UI layer with a blur radius from 3.2 to 6.4 (the Job Tree selection ring: radius 4.0), stage by stage, each stage reproduced from a mid-frame GPU capture (2026-10-30). |
 | [MapRendererBuildPath](MapRendererBuildPath.md) | [Battle](../areas/battle.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
+| [MovieStart](MovieStart.md) | [UI framework](../areas/ui-framework.md) | How a movie starts and ends: row read, controller flags, sound banks, subtitle window, skip rules. |
 | [NxdMultiKeyLookup](NxdMultiKeyLookup.md) | [Data access](../areas/data.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](NxdTableLoad.md) | [Data access](../areas/data.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
 | [PartyMenuFaceChain](PartyMenuFaceChain.md) | [Graphics](../areas/graphics.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |

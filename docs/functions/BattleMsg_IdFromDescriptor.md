@@ -25,7 +25,7 @@ Turns a message descriptor into the row id used by NXD table 172 (C_Mes_Id_Sampl
 
 ## Referenced by
 
-- Called by: [BattleMsg_BuildArgs](BattleMsg_BuildArgs.md), [BattleMsg_ResolveEntry](BattleMsg_ResolveEntry.md), [BattleMsg_TextFromDescriptor](BattleMsg_TextFromDescriptor.md)
+- Called by: [BattleMsg_BuildArgs](BattleMsg_BuildArgs.md), [BattleMsg_ResolveEntry](BattleMsg_ResolveEntry.md), [BattleMsg_TextFromDescriptor](BattleMsg_TextFromDescriptor.md), [CMesId_IsErrorBanner](CMesId_IsErrorBanner.md)
 
 ## Notes
 

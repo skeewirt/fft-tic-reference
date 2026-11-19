@@ -24,7 +24,7 @@ Returns the entry at a row position; null when the position is not below the row
 
 ## Referenced by
 
-- Called by: [NxdTable_GetRowById](NxdTable_GetRowById.md), [StatusLists_BuildOrder](StatusLists_BuildOrder.md)
+- Called by: [BonusEntitlements_Setup](BonusEntitlements_Setup.md), [GuideLessons_UpdateUnlocked](GuideLessons_UpdateUnlocked.md), [GuideList_BuildLessons](GuideList_BuildLessons.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [StatusLists_BuildOrder](StatusLists_BuildOrder.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes

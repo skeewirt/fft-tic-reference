@@ -28,6 +28,7 @@ Resolves the category name and key of a <category=key> text tag to a table row a
 
 ## Referenced by
 
+- Called by: [TextTag_CountedNounArticle](TextTag_CountedNounArticle.md), [TextTag_CountedNounForms](TextTag_CountedNounForms.md), [TextTag_CountedNounIndexed](TextTag_CountedNounIndexed.md), [TextTag_CountedNounPlain](TextTag_CountedNounPlain.md), [TextTag_ExpandKeyIcon](TextTag_ExpandKeyIcon.md)
 - Reads tables: [Ability](../tables/Ability.md), [C_Mes_Id_Sample](../tables/C_Mes_Id_Sample.md), [Item](../tables/Item.md), [JobCommand](../tables/JobCommand.md), [PoachItem](../tables/PoachItem.md)
 
 ## Notes

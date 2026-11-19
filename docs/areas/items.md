@@ -2,9 +2,9 @@
 
 Item records and categories, and the shops.
 
-Functions: 103, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 9, Tables: 33.
+Functions: 102, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 9, Tables: 33.
 
-## Functions (103)
+## Functions (102)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -104,7 +104,6 @@ Functions: 103, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed b
 | [sub_14036C3EC](../functions/sub_14036C3EC.md) | `0x14036C3EC` | Builds the item list for one shop tab, choosing between the shop's stock list and the party's inventory depending on a flag, and returns the number of ids produced. |
 | [sub_14036C468](../functions/sub_14036C468.md) | `0x14036C468` | Returns the sell price of the shop row the player has selected, for the sell confirmation panel. |
 | [sub_14036C49C](../functions/sub_14036C49C.md) | `0x14036C49C` | Opens the shop's sell screen: it builds the tab-zero list from the party inventory, fills the entries in sell mode and binds the list for the sell panel. |
-| [sub_14036E5DC](../functions/sub_14036E5DC.md) | `0x14036E5DC` | The shop screen's refresh: it decides which of the thirty shop slots are open, rebuilds a five-category list for each one to learn which item categories it can show, and redraws the shop gadget and its rows. |
 | [sub_140393250](../functions/sub_140393250.md) | `0x140393250` | The item screen's row-icon callback: it maps one list index to the item record's category byte and publishes the two palette bytes and the fixed icon state the row draw reads. |
 | [sub_1403932C8](../functions/sub_1403932C8.md) | `0x1403932C8` | The item screen's second row-icon callback: it takes one list index, masks the table word to an item id and hands it to `ItemIcon_Set`. |
 | [sub_140396174](../functions/sub_140396174.md) | `0x140396174` | Copies the 261 inventory counts to byte_143C52740 and adds every item worn by a used roster entry. |

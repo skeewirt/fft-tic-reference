@@ -2,7 +2,7 @@
 
 Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json).
 
-213 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
+222 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
@@ -44,6 +44,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_BitReaderCursor](g_BitReaderCursor.md) | `0x140906AAC` | `int` | current bit index (7..0) |
 | [g_BitReaderPtr](g_BitReaderPtr.md) | `0x143C49BF8` | `ptr` | current byte pointer for BitStream_ReadBits |
 | [g_BitReaderReset](g_BitReaderReset.md) | `0x142FF3CA7` | `flag` | set to 1 to restart BitStream_ReadBits at bit 7 of the first byte |
+| [g_BookProgressWords](g_BookProgressWords.md) | `0x1411A756E` | `UI system` | 5 words at a 56-byte stride, one per book (id 0..4): a progress or bookmark value of the reading shelf; Book_ShowGuide picks guide 15005 when the word of the book is above 0, else 15004; sub_1401662B0 reads it too (me... |
 | [g_CharaRectSizeTable](g_CharaRectSizeTable.md) | `0x140673940` | `uint16[]` | Width and height of a frame rectangle by its size code, in 8-pixel units (width at 2 * code, height at 2 * code + 4 words): read by CharaRender_DrawFrame. |
 | [g_CharaRenderer](g_CharaRenderer.md) | `0x143CC96B8` | `CharaRenderer *` | The unit sprite renderer: 36-byte job records at +0 (4096, count +147456), sub-objects at +148080 .. +148144 (+148128 LUT manager, +148136 target state, +148144 config: size 256, ground (128, 192), scale 2.0f, then 25... |
 | [g_CharaRenderMgr](g_CharaRenderMgr.md) | `0x143CD9DC0` | `CharaRenderMgr *` | UI-side manager of the unit render slots: 112-byte slot entries at +14920 (slot id = panel + 80 for the job tree). |
@@ -64,6 +65,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_CurrentSpawnEntry](g_CurrentSpawnEntry.md) | `0x1411A3868` | `unit data` | Pointer to the spawn entry being built: set by Battle_PlaceEntryUnits and sub_1402841D0 before each Unit_BuildFromRecord; Unit_ApplySpawnRecord copies its bytes +33..+39 into unit +407..+413, and Battle_PlaceEntryUnit... |
 | [g_DefaultSamplerWord](g_DefaultSamplerWord.md) | `0x141D8BC7C` | `uint32` | Default sampler word every render context is reset to (masked with 0x7FFFFFFF). |
 | [g_DialogueFaceSlot0](g_DialogueFaceSlot0.md) | `0x142FF9EDC` | `int32[3]` | Dialogue face slot values 0..2 (0x142FF9EDC, EE0, EE4): unmapped portrait codes; Unit_GetSpriteSetId writes slot 0 with the save-record branch's code; read by the event and dialogue face windows. |
+| [g_EffectCameraBlock](g_EffectCameraBlock.md) | `0x1411A3860` | `void *` | Pointer to the effect section whose two 21-entry tables of 6-byte word triples (at +5392.. / +5518.. and +5856.. / +5982..) are zeroed and shifted by a RefinedVFXCameraControl row when an effect row is loaded. |
 | [g_EffectFileBase](g_EffectFileBase.md) | `0x143740220` | `battle action data` | 512 pointers, all set to unk_1418A2E00 by EffectFile_ResetBasePointers: the loaded effect file's address, indexed by effect number (one shared buffer, so one resident effect) |
 | [g_EffectFileTableA](g_EffectFileTableA.md) | `0x1406739C0` | `battle action data` | 512 rows x 8 bytes (file number, size in bytes), indexed by effect number; the table used with the English pack (effect 260 = file 1133, size 45056). |
 | [g_EffectFileTableB](g_EffectFileTableB.md) | `0x1406749C0` | `battle action data` | 512 x 8 bytes, same shape as g_EffectFileTableA with every file number one lower (the other language flag). |
@@ -97,10 +99,13 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_FastForwardStateTable](g_FastForwardStateTable.md) | `0x142FCF730` | `uint8[256]` | Per battle state (index g_BattleState): non-zero = fast-forward allowed. |
 | [g_FormulaBlock](g_FormulaBlock.md) | `0x1407B0770` | `uint8[16]` | The block the action resolver and the formula handlers share, 0x48 bytes from 0x1407B0770: the request's action type, the ability being worked out (the word at +8, address 0x1407B0778), the weapon or item word, the in... |
 | [g_FrameTimestamp](g_FrameTimestamp.md) | `0x143CD9B68` | `int64 (1/300000 s)` | Latest accepted frame timestamp, written by App_RunFrame and read by the frame limiter. |
+| [g_GameUIManager](g_GameUIManager.md) | `0x143CD9DC8` | `void *` | The game's UI manager object: the movie controller flags are at +0xE0 and the movie host at +200 (record MovieController). |
 | [g_GlobalWork](g_GlobalWork.md) | `0x143CD9DD0` | `GlobalWork *` | Singleton ffto::Game::GlobalWork (136 bytes, vtable 0x140713EA8, created by sub_1400B532C): fast-forward level +0x58, frame step +0x5C, fast-forward mode +0x60 (record GlobalWork). |
 | [g_GraphicsLevel](g_GraphicsLevel.md) | `0x142C81554` | `float` | Graphics level; Unit_GetSpriteSetId's save-record branch and the battle palette upload test it against 2.0 (I: 2.0 and up = enhanced graphics). |
 | [g_GUIActorTable](g_GUIActorTable.md) | `0x143CDA290` | `GUIActorTable *` | Owner (addon) lookup by id; GUIOwners_PostEvent resolves every node owner id here and calls the owner's vtable slot 2. |
 | [g_GUICore](g_GUICore.md) | `0x143CDAA98` | `GUICore *` | The UI core singleton: widget list +24..+32, handler list +56..+64, event queue +80, screen-to-UI layer transforms +216 (144 B each), pointer x/y ints +1880/+1884, hover key +1920, focus key +1968. |
+| [g_GuideLessonReadBits](g_GuideLessonReadBits.md) | `0x1411A7522` | `save data` | 23 bytes (184 bits) that follow the 146-byte job flag block (g_UnitJobFlags +146): the lesson read bits, one per Guide seen_bit number (1-based: byte n / 8, bit (n - 1) % 8). |
+| [g_GuideLessonUnlockedBits](g_GuideLessonUnlockedBits.md) | `0x1411A7539` | `save data` | 23 bytes (184 bits) at g_UnitJobFlags +169: the lesson unlocked bits, same numbering as g_GuideLessonReadBits. |
 | [g_GUIFontSlots](g_GUIFontSlots.md) | `0x143CDA288` | `FontSlot[18]` | Per-UIFontType render slots (16 B each): byte +145 'loaded', signed byte at 16*(id+9) = renderer font slot. |
 | [g_GUIFontTable](g_GUIFontTable.md) | `0x143CDAA48` | `GUIFontTable *` | Singleton font table: UIFontSet rows (80 B each) at +16..+24; +40 flag selects the alternate nominal-size float. |
 | [g_HdFaceSlotValues](g_HdFaceSlotValues.md) | `0x142E7FCAC` | `int32[]` | HD-layer face slot values (stride 4 dwords per slot); Unit_GetSpriteSetId writes [0]; HdLayer_BindSheetTexture and sub_14041DAA4 read [4 * slot]. |
@@ -162,6 +167,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_PostBattleCalc](g_PostBattleCalc.md) | `0x143CDA750` | `PostBattleCalc *` | Pointer to the PostBattleCalc object of the running battle: 106 per-formula post-processing rows. |
 | [g_PreviewUnitTable](g_PreviewUnitTable.md) | `0x141853CE0` | `data` | 21 x 512 bytes; +0 marker, +3 job, +6 flags (0x40 female), +399 shape, +400 palette, +508 name id |
 | [g_ReactionGateTable](g_ReactionGateTable.md) | `0x14067F730` | `uint8[32]` | One byte per reaction id 422..453: the reaction executor refuses (returns 0 at once) an id whose byte has 1 in its low two bits. |
+| [g_RefinedEffectTexturesOn](g_RefinedEffectTexturesOn.md) | `0x142E801FC` | `int` | Non-zero when the refined effect textures are on; with it the effects whose RefinedVFXTexture own_texture byte is set use their own texture. |
 | [g_RenderDevice](g_RenderDevice.md) | `0x140C696A8` | `RenderDevice *` | The render device: name-to-slot tables for constant buffers (+5056), textures (+5064) and samplers (+5072), the render-context array (+4984, stride 6032, count +5088) and the command-memory pool counters (+5144..+5152). |
 | [g_Renderer](g_Renderer.md) | `0x143CDA098` | `Renderer *` | The renderer object: output size (+6568 / +6572), the render-target table (+20832, 40 B per target), the per-type target and slot tables (+23736, +24224) and the UI manager (+37936). |
 | [g_RumourNewFlags](g_RumourNewFlags.md) | `0x1411A7299` | `event system` | uint8[64][2]: per rumour id, {new, new arrival}; set to {1, 1} by the new-game reset (sub_14033FB84), cleared by TavernMenu_OnCommand when a rumour is read, tested by TavernRumours_BuildList and Tavern_HasNewEntries. |
@@ -181,6 +187,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_SceneTaskSlots](g_SceneTaskSlots.md) | `0x14114B150` | `uint8[1512]` | Nine scene-task data records of 0xA8 bytes, parsed from u16 token streams during the battle map setup and captured in a kind-1 snapshot. |
 | [g_SceneUnitSlots](g_SceneUnitSlots.md) | `0x140D30038` | `SceneUnitSlot[16]` | The 16 scene-unit records (stride 0x548); the in-use dword is 8 bytes before each. |
 | [g_ScreenFade](g_ScreenFade.md) | `0x142FF9E08` | `uint64` | The fade and skip state: the low dword is the fade alpha, the high dword the skip state (0 none, 1 requested, 2 skipping). |
+| [g_SelectedCharaSkin](g_SelectedCharaSkin.md) | `0x1411A7550` | `uint16` | The selected character skin: its high byte is the skin CharaColorSkin_Resolve returns. |
 | [g_SelectedShopIndex](g_SelectedShopIndex.md) | `0x141811684` | `uint16` | The selected shop number the shop screens pass to Shop_BuildItemList and sub_1402D7640. |
 | [g_SelectedUnitIndex](g_SelectedUnitIndex.md) | `0x141811428` | `uint16` | The selected unit index the item, shop and equip screens read as their unit argument (sub_140287D9C, sub_1402D7640, sub_1403331F8, sub_140333FE0, sub_140366FE0). |
 | [g_SellScreenActive](g_SellScreenActive.md) | `0x141874A14` | `uint16` | Non-zero while the sell screen owns a list; the row price helper returns 0 without reading the list while it is zero. |
@@ -216,6 +223,8 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_ZeroPair](g_ZeroPair.md) | `0x143D12018` | `int32[2]` | A pair of zeros in uninitialised data (no writer; the database shows -1 for it because the bytes are not stored in the file, but the running game reads 0, live 2026-10-30). |
 | [qword_141801100](qword_141801100.md) | `0x141801100` | `PartyUnitB *` | Pointer to a 640-byte scratch party record (unk_143749CA0). |
 | [tbl_AiStatusValue](tbl_AiStatusValue.md) | `0x1407B22F0` | `battle ai` | int16[40]: how much each status (index = status id) is worth to a unit in the AI's score of a simulated outcome, on the scale where full HP is 128: Crystal / KO / Chest -192, Traitor -231, Stone / Vampire -116, Doom -... |
+| [tbl_GlossaryTabCategory](tbl_GlossaryTabCategory.md) | `0x14070E768` | `UI system` | dword per glossary tab: the LoreDictionary_BuildList category of the tab (4 = all). |
+| [tbl_ObtainedBookIds](tbl_ObtainedBookIds.md) | `0x140671EF0` | `UI system` | 5 dwords: the item-obtained ids that stand for books; ItemObtainedPanel_Fill reads the Book row (id - 17) for them and a Collection row (table 121) for every other id. |
 | [tbl_StatusBattleSignal](tbl_StatusBattleSignal.md) | `0x140672CC0` | `battle ui` | uint8[40]: the BattleSignal row of each status id (index = id), 0 = no label: ids 2 KO, 21 Chicken and 22 Toad map to 0 (KO's row is 0; Chicken and Toad have labels of their own, 65 / 66); 24 Poison -> 13. |
 | [xmmword_141876E90](xmmword_141876E90.md) | `0x141876E90` | `EquipPanelBlock` | The field equip screens' 64-byte copy of the selected party record bytes +0x30..+0x6F; its hand words at +0x24 are a raw copy of g_PartyUnits +0x54..+0x5C. |
 | [xmmword_141D3B880](xmmword_141D3B880.md) | `0x141D3B880` | `EquipPanelBlock` | The battle module's copy of the same 64-byte record slice (+0x30..+0x6F), with its five hand words at +0x24; read by the battle panel sub_140399A64. |

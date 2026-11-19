@@ -2,15 +2,16 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flows: 5, Observed behaviours: 46, Tables: 89.
+Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 48, Tables: 89.
 
-## Functions (321)
+## Functions (347)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [Action_BuildCurrentAction](../functions/Action_BuildCurrentAction.md) | `0x140320504` | Turns one packed four-byte action entry into the game's current-action block at `0x1418716A0`: it resolves the command, fills the action's range and presentation fields from the ability or item data, and for the item ... |
 | [Action_PickTargetEquipment](../functions/Action_PickTargetEquipment.md) | `0x1403065C4` | Chooses which equipment slot a steal or break action aims at, from the target unit's hand and body slots, and reports the chosen slot and item to the action builder. |
 | [Action_SetWeaponItem](../functions/Action_SetWeaponItem.md) | `0x1403098CC` | Fills the weapon item id of a battle action from the acting unit's equipped weapon, with 255 standing for empty hands and zero written for an empty or out-of-range id. |
+| [ActiveUnit_OverheadMark](../functions/ActiveUnit_OverheadMark.md) | `0x140265284` | Places the overhead mark of the active unit. |
 | [Ai_ActionWorthOnUnit](../functions/Ai_ActionWorthOnUnit.md) | `0x14038B34C` | Tells the AI whether the action in g_AiCurrentAction is worth trying on unit `slot`: 0 no, 1 yes, 2 yes (a stronger case). |
 | [Ai_StatusLastsTurns](../functions/Ai_StatusLastsTurns.md) | `0x14038BAB4` | Tells the battle AI whether a unit has a status and will still have it after the given number of its turns. |
 | [Ai_SurveyTargets](../functions/Ai_SurveyTargets.md) | `0x14031FD40` | Before planning, goes over every unit and every action in the acting unit's action list and notes what those actions could do to each unit (hurt it, help it), then marks which of its own actions are worth planning with. |
@@ -107,6 +108,18 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [BattleTask_Slot13Entry](../functions/BattleTask_Slot13Entry.md) | `0x140229D24` | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state and runs the battle event/message runner that ends the task. |
 | [BattleUnit_BuildCursorRecord](../functions/BattleUnit_BuildCursorRecord.md) | `0x140281248` | Builds the seven-byte cursor record a unit contributes to the targeting display: slot and flags, level, terrain height and the tile the cursor should sit on. |
 | [BattleUnit_SetStatusVisual](../functions/BattleUnit_SetStatusVisual.md) | `0x1401FB064` | Sets or clears a status's visual bits on the unit's scene object: the tint / pose word or the sprite-change word. |
+| [BattleVoice_AssignPatterns](../functions/BattleVoice_AssignPatterns.md) | `0x1401EDB88` | Gives a battle unit's voice controller its pattern, from the unit's job and name key. |
+| [BattleVoice_AssignSharedPattern](../functions/BattleVoice_AssignSharedPattern.md) | `0x1401ED240` | Sets the pattern of one shared voice controller. |
+| [BattleVoice_IsSuppressed](../functions/BattleVoice_IsSuppressed.md) | `0x1401ED4E0` | Decides by sides whether a battle voice line is spoken: 0 speak, or a reason 1..5 to suppress (CharacterBattleVoiceController virtual, slot 5). |
+| [BattleVoice_ResolveLine](../functions/BattleVoice_ResolveLine.md) | `0x1401ECF84` | Resolves a BattleVoice line to the cue number to play, with the three replacement rules. |
+| [BattleVoice_RollAndPlay](../functions/BattleVoice_RollAndPlay.md) | `0x1401EC958` | Rolls the play chance of a voice line and plays it at once or queues it with its delay. |
+| [BattleVoice_SetPattern](../functions/BattleVoice_SetPattern.md) | `0x1401EC530` | Gives a voice controller its voice pattern: group key, flags and voice bank. |
+| [BattleVoice_Speak](../functions/BattleVoice_Speak.md) | `0x1401ED3A0` | Speaks a line unless the speaker's statuses forbid it (controller virtual, slot 3). |
+| [BattleVoice_SpeakAbilityPhase](../functions/BattleVoice_SpeakAbilityPhase.md) | `0x1401ECC90` | Picks the voice line of an ability from the Ability row's voice list by the request phase and speaks it. |
+| [BattleVoice_SpeakSwapped](../functions/BattleVoice_SpeakSwapped.md) | `0x1401ECC44` | Speaks a replaceable line, swapped for row 3 or 2 by the request flags. |
+| [BattleVoice_TickQueue](../functions/BattleVoice_TickQueue.md) | `0x1401EC6F8` | Counts down the delays of queued voice cues and plays the ones that are due. |
+| [BattleVoice_UsesRows2And3](../functions/BattleVoice_UsesRows2And3.md) | `0x1401ECEFC` | Tells whether a voice line may be swapped for rows 2 or 3. |
+| [BattleVoiceGroupRate_Chance](../functions/BattleVoiceGroupRate_Chance.md) | `0x1401ED12C` | Returns the play chance in percent of a voice line for the speaker's group. |
 | [BTurn_FinishUnit](../functions/BTurn_FinishUnit.md) | `0x140310650` | Ends one unit's turn: clears the active flag and applies the post-turn CT bonus. |
 | [BTurn_IsUnitDone](../functions/BTurn_IsUnitDone.md) | `0x140310704` | Decides whether the active unit has nothing left to do this turn, including the two-unit (partner) case. |
 | [BTurn_MarkActionDone](../functions/BTurn_MarkActionDone.md) | `0x1403105B0` | Records that a unit has used its action and ends the turn if the move was already used. |
@@ -120,6 +133,8 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [BUi_BattleMenuWindowsCtor](../functions/BUi_BattleMenuWindowsCtor.md) | `0x1401012A0` | Creates the two addons of the battle menu-windows agent: the battle HUD (`BattleMain4`) and the command menu (`BattleCommand`). |
 | [BUi_BattleMenuWindowsSetPage](../functions/BUi_BattleMenuWindowsSetPage.md) | `0x1401015FC` | The command menu's show/hide entry point: maps a caller's state to a page show or hide. |
 | [BUi_CommandAddonCtor](../functions/BUi_CommandAddonCtor.md) | `0x140153020` | Constructs the 5640-byte command-menu addon: vtable, sub-objects and idle field values. |
+| [CMesId_IsErrorBanner](../functions/CMesId_IsErrorBanner.md) | `0x1400FCCFC` | Tells whether a battle message is shown as the timed red error banner. |
+| [CursorUnit_TopPoint](../functions/CursorUnit_TopPoint.md) | `0x1402643F8` | Projects the point above the unit at the cursor tile: the unit's base plus its shape height along the renderer's direction vector. |
 | [Effect_AbilityHasNoEffect](../functions/Effect_AbilityHasNoEffect.md) | `0x140319D74` | True when an effect word has no effect file (g_AbilityEffectNumber < 0), except 146 and 405..413. |
 | [Effect_ClearCurrent](../functions/Effect_ClearCurrent.md) | `0x14031A7E0` | Clears the running effect: resets its bookkeeping and sets the current effect number to -1. |
 | [Effect_PatchPolygonSeams](../functions/Effect_PatchPolygonSeams.md) | `0x140381834` | Nudges the texture coordinates of a few primitives of five stock effects by one or two units, keyed by the effect number. |
@@ -132,10 +147,15 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [EffectFile_ResetBasePointers](../functions/EffectFile_ResetBasePointers.md) | `0x1402741BC` | Points every entry of the 512-slot effect base array at the one shared effect buffer. |
 | [EffectFile_UploadTexture](../functions/EffectFile_UploadTexture.md) | `0x1402741E0` | Registers the two palettes and copies the picture stored at the end of the loaded effect file into the 1024 by 512 video page. |
 | [EffectFlash_Start](../functions/EffectFlash_Start.md) | `0x140313F34` | Sequence kind 4 handler: the screen flash effect that tints the view with an element colour. |
+| [EffectNxd_AdjustSpriteKind](../functions/EffectNxd_AdjustSpriteKind.md) | `0x1400D2D30` | Changes an effect sprite's draw kind when the effect row's flag asks for it. |
+| [EffectNxd_DepthBiasFloat](../functions/EffectNxd_DepthBiasFloat.md) | `0x1400D2D6C` | Returns the depth bias float of a DepthBias table row. |
 | [EffectNxd_HasFlag24](../functions/EffectNxd_HasFlag24.md) | `0x1400D2AB8` | Reports whether the RefinedVFXTexture row of an effect has its byte at +24 set. |
 | [EffectNxd_HasFlag25](../functions/EffectNxd_HasFlag25.md) | `0x1400D2B4C` | Reports whether the RefinedVFXTexture row of an effect has its byte at +25 set. |
 | [EffectNxd_HasFlag28](../functions/EffectNxd_HasFlag28.md) | `0x1400D2BE0` | Reports whether the RefinedVFXTexture row of an effect has its byte at +28 set. |
 | [EffectNxd_LoadRow](../functions/EffectNxd_LoadRow.md) | `0x1400D258C` | Reads the Enhanced parameter row of the current effect from the RefinedVFXTexture table (id 202) and applies it to the effect renderer and to the loaded effect data. |
+| [EffectNxd_SelectPageTexture](../functions/EffectNxd_SelectPageTexture.md) | `0x1400D2C74` | Picks the texture slot for an effect sprite on a refined texture page (6, 7 or 8) and records its flag. |
+| [EffectNxd_SpriteKindA](../functions/EffectNxd_SpriteKindA.md) | `0x1400D28E4` | Chooses an effect sprite's draw kind, then, when the effect has its own texture, its texture slot. |
+| [EffectNxd_SpriteKindB](../functions/EffectNxd_SpriteKindB.md) | `0x1400D2964` | A second form of EffectNxd_SpriteKindA used by the piece emitter. |
 | [EffectPalette_Step](../functions/EffectPalette_Step.md) | `0x140315620` | Sequence kind 18 handler: a full screen palette effect that starts from six seed colours. |
 | [EffectParticle_StepPhysics](../functions/EffectParticle_StepPhysics.md) | `0x140388170` | Moves every effect particle one step: position by velocity, velocity by gravity, drag and force, force by its change or by homing. |
 | [EffectScript_OpCallCallback](../functions/EffectScript_OpCallCallback.md) | `0x14031AC98` | Effect script opcode: runs one effect callback at once. |
@@ -151,6 +171,7 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [EffectSprite_EmitPieces](../functions/EffectSprite_EmitPieces.md) | `0x140380878` | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](../functions/EffectSprite_StepAnimation.md) | `0x140387B70` | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
 | [EffectSprites_Spawn](../functions/EffectSprites_Spawn.md) | `0x140313210` | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
+| [ErrorBanner_Show](../functions/ErrorBanner_Show.md) | `0x14015293C` | Shows a battle refusal message as the timed red banner. |
 | [EventUnitStatus_DispatchActiveIcons](../functions/EventUnitStatus_DispatchActiveIcons.md) | `0x140241080` | For one preview unit of an event scene, sends the status icon updater a message for every status the unit currently has. |
 | [EventUnitStatus_SaveAndHide](../functions/EventUnitStatus_SaveAndHide.md) | `0x140241128` | For an event scene, saves the status state of a unit into the event unit store and clears the statuses the scene must not show. |
 | [Job_ReadLearnedBitsForBattle](../functions/Job_ReadLearnedBitsForBattle.md) | `0x14020D190` | Walks the skillset of a work record's current job and tests each slot's learned bit (3 bytes at C +162 + 3*index). |
@@ -307,6 +328,7 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [sub_14038D65C](../functions/sub_14038D65C.md) | `0x14038D65C` | AI action evaluation: it builds the action, evaluates its target set and stores the chosen target. |
 | [sub_14039651C](../functions/sub_14039651C.md) | `0x14039651C` | Copies the unit's hands into a preview record so the equip preview shows the same items the unit carries. |
 | [sub_140399A64](../functions/sub_140399A64.md) | `0x140399A64` | The battle-side flag-aware equip panel. |
+| [TileCursor_Draw](../functions/TileCursor_Draw.md) | `0x140264658` | Draws the tile cursor marker over the unit at the cursor tile. |
 | [TurnList_Build](../functions/TurnList_Build.md) | `0x14030FFC4` | Builds the 40-entry turn-order forecast: simulates each unit's CT until it reaches 100, inserts entries sorted by time, and adds the entries of pending (charging) actions. |
 | [TurnList_InsertEntry](../functions/TurnList_InsertEntry.md) | `0x140310490` | Inserts one 4-byte entry into a 40-entry turn-order list, sorted by its time key; a pending-action entry also carries the unit's ability (9 bits). |
 | [TurnPanel_FillUnitEntry](../functions/TurnPanel_FillUnitEntry.md) | `0x14010C1FC` | Fills one entry (448 bytes at panel + 448 x index) of a battle turn panel: the unit's numbers, name and its status byte list. |
@@ -315,12 +337,15 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [Unit_BuildInnateStatuses](../functions/Unit_BuildInnateStatuses.md) | `0x140278688` | Builds the three innate status groups of a unit from its job row, its equipment attributes and its permanent extra set, restores the battle-applied set, and refreshes the status display. |
 | [Unit_ChangeBattleStat](../functions/Unit_ChangeBattleStat.md) | `0x14030C080` | Applies one stat change of an action result to a unit stat byte, clamped, and keeps the stat total in step. |
 | [Unit_GetReachHeight](../functions/Unit_GetReachHeight.md) | `0x14027EDA4` | The height (in half-steps) the weapon reach rules measure from: the unit's own tile without its water depth, raised when the unit is mounted or floating, with the depth added back for some movement flags. |
+| [Unit_GetVoicePatternId](../functions/Unit_GetVoicePatternId.md) | `0x1401EDD50` | Returns the voice pattern id of a unit: from its job row, else by a rule over the CharaName rows. |
 | [Unit_HasStatusGroup](../functions/Unit_HasStatusGroup.md) | `0x140278FA8` | Tests whether a unit carries any status of one of the ten party-wide status groups by ANDing its five status bytes against that group's five-byte mask. |
 | [Unit_InitBattleStatusState](../functions/Unit_InitBattleStatusState.md) | `0x140278E0C` | Sets up the status state of a unit that has just been built into the battle: the applied set, the countdowns and the KO counter. |
 | [Unit_ListItemCommandItems](../functions/Unit_ListItemCommandItems.md) | `0x14030E680` | Builds the item list for the Item command: it takes the usable ability list of the command's skill set and rewrites each of the fourteen item abilities into the item id the command offers. |
 | [Unit_ListThrowableItems](../functions/Unit_ListThrowableItems.md) | `0x14030E7B4` | Builds the candidate list for the Throw command: the item ids in the unit's inventory that the game considers throwable, ordered for the menu. |
+| [Unit_MouseHitTest](../functions/Unit_MouseHitTest.md) | `0x1401F6E7C` | Tests the mouse position against the hit areas of the units on the field. |
 | [Unit_ReactionVoiceAllowed](../functions/Unit_ReactionVoiceAllowed.md) | `0x1402178C0` | Answers a yes / no question about a unit's reaction voice line by the rule row of its current ability. |
 | [Unit_ReinitStatusCountdowns](../functions/Unit_ReinitStatusCountdowns.md) | `0x140278600` | Re-initialises the countdown bytes of a unit after its innate status set has been rebuilt: it merges the saved innate status bytes into the effective set and starts a duration for every battle-applied status that has ... |
+| [Unit_ScreenSpan](../functions/Unit_ScreenSpan.md) | `0x1402219F0` | Returns the screen x and the y of a unit's base and of its base plus its shape height. |
 | [Unit_SetChargeStateBits](../functions/Unit_SetChargeStateBits.md) | `0x140279370` | Sets which of the four action states Readying, Jumping, Evading, Performing (statuses 4..7) a unit is in, and the charge counter that goes with it. |
 | [UnitInfo_FillFromBattleUnit](../functions/UnitInfo_FillFromBattleUnit.md) | `0x1402CBCA0` | Fills the unit information record a battle panel draws (the deployment carousel's unit card, an event's unit preview) from a battle unit record: its job line, face, level, HP / MP / CT, Brave and Faith. |
 | [UnitPage_Task](../functions/UnitPage_Task.md) | `0x1402FAA28` | Task of the legacy unit page: builds the cells and the fifteen number fields of the unit page. |
@@ -328,9 +353,10 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [UnitPanel_FillJobLine](../functions/UnitPanel_FillJobLine.md) | `0x14029B5CC` | Fills the job line of a unit panel from a 148-byte job record: the job icon, the job level, the JP and the JP to the next level. |
 | [UnitPanel_SetSignalList](../functions/UnitPanel_SetSignalList.md) | `0x14010A284` | Turns a status list (ids, bit 0x80 = removed) into the panel's list of BattleSignal ids. |
 | [UnitPanel_SetStatusBytes](../functions/UnitPanel_SetStatusBytes.md) | `0x14010A42C` | Fills a battle unit panel's status byte list (the icons on the panel) from a five-byte status set. |
+| [UnitSprite_DepthSort](../functions/UnitSprite_DepthSort.md) | `0x14026D9C8` | Computes the depth value of a unit sprite for sorting. |
 | [VramPage_CopyRect](../functions/VramPage_CopyRect.md) | `0x14025FA60` | Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPage) and marks that area for upload. |
 
-## Structures (66)
+## Structures (68)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -347,6 +373,8 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [BattlePanelHandWord](../structs/BattlePanelHandWord.md) | 2 | One hand word as the flag-aware panels read it: the item id in bits 0..8 and a two-bit value in bits 14..15. |
 | [BattleRangeMarkRecord](../structs/BattleRangeMarkRecord.md) | 5 | One record of g_BattleRangeMarks, parallel to BattleTileRecord (512 records, layer 1 at +0x500). |
 | [BattleTileRecord](../structs/BattleTileRecord.md) | 8 | One tile of the battle map in g_BattleTileTable: 256 records per layer, two layers (layer 1 at +0x800), index x + y * width. |
+| [BattleVoiceController](../structs/BattleVoiceController.md) | 136 | One battle voice controller (ffto CharacterBattleVoiceController, vtable 0x140713F68): the voice pattern of a unit or of a shared group, the flags that pick replacement lines and the queue of delayed cues. |
+| [BattleVoiceRequest](../structs/BattleVoiceRequest.md) |  | The request a battle event hands to a voice controller: which ability, which phase, which units and what flags. |
 | [CommandKindMessageOffset](../structs/CommandKindMessageOffset.md) | 1 | One row of the CommandKindMessageOffsets table. |
 | [CommandKindParam](../structs/CommandKindParam.md) | 4 | One row of the CommandKindParams table. |
 | [CornerColour](../structs/CornerColour.md) | 4 | One row of the BannerWordColours table. |
@@ -401,7 +429,7 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [UiNumberField](../structs/UiNumberField.md) | 32 | One row of the StatusNumbersActorA table and the tables that share its shape. |
 | [WeaponHitSoundCuesRow](../structs/WeaponHitSoundCuesRow.md) | 1 | One row of BattleWeaponHitSoundCues. |
 
-## Globals (48)
+## Globals (50)
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
@@ -433,6 +461,7 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [g_CommandKind](../globals/g_CommandKind.md) | `0x14067E010` | `uint8[256]` | Command id to command kind, one byte per row: 256 stock rows indexed by the command (skillset) byte. |
 | [g_CurrentActionBlock](../globals/g_CurrentActionBlock.md) | `0x1418716A0` | `uint8[?]` | The current-action block Action_BuildCurrentAction fills for the AI and the action preview: command at +0, packed action word at +2, item id at +6, flags at +0x10 and the ability aux flags further in. |
 | [g_CurrentMapId](../globals/g_CurrentMapId.md) | `0x140784478` | `int` | 32-bit id of the map being loaded or in play, stored by the map load task before it calls Map_LoadBattleData; MapResource_Read indexes the per-map resource pointer tables with it; 0x77777777 means no map; the other re... |
+| [g_EffectCameraBlock](../globals/g_EffectCameraBlock.md) | `0x1411A3860` | `void *` | Pointer to the effect section whose two 21-entry tables of 6-byte word triples (at +5392.. / +5518.. and +5856.. / +5982..) are zeroed and shifted by a RefinedVFXCameraControl row when an effect row is loaded. |
 | [g_FastForwardStateTable](../globals/g_FastForwardStateTable.md) | `0x142FCF730` | `uint8[256]` | Per battle state (index g_BattleState): non-zero = fast-forward allowed. |
 | [g_FormulaBlock](../globals/g_FormulaBlock.md) | `0x1407B0770` | `uint8[16]` | The block the action resolver and the formula handlers share, 0x48 bytes from 0x1407B0770: the request's action type, the ability being worked out (the word at +8, address 0x1407B0778), the weapon or item word, the in... |
 | [g_LoadedMapId](../globals/g_LoadedMapId.md) | `0x142FF9EB8` | `int` | 32-bit id of the map the loader last accepted (a map with a block); read by the battle setup and the scene update, which compare it with stock map numbers; cleared by the scene reset |
@@ -447,6 +476,7 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [g_MoveTileFlags](../globals/g_MoveTileFlags.md) | `0x141882880` | `uint8[512]` | Per-tile flag byte of the move-range builder: 0x01 frontier, 0x02 one-axis slope, 0x04 occupied, 0x08 unit that can be stepped onto, 0x10 standable, 0x20 mountable ally, 0x40 steep, 0x80 blocked. |
 | [g_PostBattleCalc](../globals/g_PostBattleCalc.md) | `0x143CDA750` | `PostBattleCalc *` | Pointer to the PostBattleCalc object of the running battle: 106 per-formula post-processing rows. |
 | [g_ReactionGateTable](../globals/g_ReactionGateTable.md) | `0x14067F730` | `uint8[32]` | One byte per reaction id 422..453: the reaction executor refuses (returns 0 at once) an id whose byte has 1 in its low two bits. |
+| [g_RefinedEffectTexturesOn](../globals/g_RefinedEffectTexturesOn.md) | `0x142E801FC` | `int` | Non-zero when the refined effect textures are on; with it the effects whose RefinedVFXTexture own_texture byte is set use their own texture. |
 | [g_SceneTaskSlots](../globals/g_SceneTaskSlots.md) | `0x14114B150` | `uint8[1512]` | Nine scene-task data records of 0xA8 bytes, parsed from u16 token streams during the battle map setup and captured in a kind-1 snapshot. |
 | [g_StatusGroupMasks](../globals/g_StatusGroupMasks.md) | `0x1411A6A70` | `uint8[10][5]` | The ten party-wide status group masks, five bytes each: a group test ANDs these bytes against the unit status bytes at +0x61..+0x65. |
 | [g_StatusIconFlags](../globals/g_StatusIconFlags.md) | `0x1406735D0` | `uint32[]` | The per-status flag words the status panel update reads: index status+1, no bound check. |
@@ -454,11 +484,12 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [xmmword_141876E90](../globals/xmmword_141876E90.md) | `0x141876E90` | `EquipPanelBlock` | The field equip screens' 64-byte copy of the selected party record bytes +0x30..+0x6F; its hand words at +0x24 are a raw copy of g_PartyUnits +0x54..+0x5C. |
 | [xmmword_141D3B880](../globals/xmmword_141D3B880.md) | `0x141D3B880` | `EquipPanelBlock` | The battle module's copy of the same 64-byte record slice (+0x30..+0x6F), with its five hand words at +0x24; read by the battle panel sub_140399A64. |
 
-## Registries (1)
+## Registries (2)
 
 | Name | Summary |
 |---|---|
 | [BattleMsgKindBase](../registries/BattleMsgKindBase.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
+| [BattleVoiceSuppressReason](../registries/BattleVoiceSuppressReason.md) | The result of BattleVoice_IsSuppressed: 0 speak, or the reason a line is not spoken. |
 
 ## File formats (1)
 
@@ -466,17 +497,18 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 |---|---|---|
 | [EffectSoundTracks](../formats/EffectSoundTracks.md) |  | An effect file names its sounds in three places: three sound tracks in section 7 say when, a slot list in section 6 says which value, and section 8 gives the cue base. |
 
-## Flows (5)
+## Flows (6)
 
 | Name | Summary |
 |---|---|
 | [BattleMessageBanner](../flows/BattleMessageBanner.md) | How a message descriptor becomes text in the battle's centre banner: a battle handler calls the banner function, which resolves the descriptor to a message id and a template, fills the format arguments, sets the text ... |
+| [BattleVoiceLine](../flows/BattleVoiceLine.md) | How a battle event becomes a spoken voice cue: suppress test, status gate, chance roll, replacement, play or queue. |
 | [CrystalAbilityLearning](../flows/CrystalAbilityLearning.md) | A unit that stops on a Crystal or Chest unit's tile triggers a roll of the abilities the dead unit had learned in jobs the picker has unlocked, a window where a player-controlled unit chooses between learning them and... |
 | [EquipPanelBlockFill](../flows/EquipPanelBlockFill.md) | How the five hand words travel from a unit record to the two panel blocks and what the two flag-aware panels do with them. |
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (46)
+## Observed behaviours (48)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -491,9 +523,11 @@ Functions: 321, Structures: 66, Globals: 48, Registries: 1, File formats: 1, Flo
 | [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md) | a battle resumed from one autosave and driven by the same scripted input in two runs | A battle can be forked only at a save point: the autosave restores the world work copy and a battle image, but not the random stream, the frame counters, the input state or the thread/GPU state. |
 | [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md) | engine (battle map id storage) | The battle map id travels as a 32-bit global (0x140D3A838) set from scene variable 51 or from one of two signed 16-bit event words (-1 means none); the current-map global used for resources is another 32-bit global (0... |
 | [BattlePanelJobLineShowsDashesAtLevelZero](../behaviors/BattlePanelJobLineShowsDashesAtLevelZero.md) | engine | The job line of a battle unit panel shows 'Lv. |
+| [BattleRefusalBanner](../behaviors/BattleRefusalBanner.md) | engine (battle messages) | Battle refusal messages (C_Mes_Id keys 2001..2037, 18000, 18001) are shown as the timed red banner, not as a message box. |
 | [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md) | engine | Unit_ChangeBattleStat changes PA / MA / Speed at the base +0x38..+0x3A with the totals +0x3E..+0x40; Move / Jump are at +0x42 / +0x43; the Haste / Slow CT step is in phase 0 of Battle_TurnEngine; Protect and Shell sca... |
 | [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md) | battle unit +0x1B5 | Battle unit byte +0x1B5 (437): 1 placed on the field, 0 not placed (benched), 0xFF an empty slot. |
 | [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md) | engine (battle unit table, random battle start) | In a random battle the unit table holds up to nine enemy rows from the start, but only the rows with the slot byte (+0x01) equal to their own slot and the on-field byte (+0x1B5) equal to 1 stand on the field; the othe... |
+| [BattleVoiceChance](../behaviors/BattleVoiceChance.md) | engine (battle voices) | Whether a line plays is a roll of the speaker group's percentage in the line's column; fast-forward silences voices. |
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md) | The 106 ability formula handlers and the blocks they call | What a formula handler may assume and has to leave behind, read from the stock handlers and from Battle_ResolveAction: the frame it is called in, how it says 'no effect', which result fields go together, why it must n... |

@@ -2,7 +2,7 @@
 
 The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.
 
-Functions: 138, Structures: 12, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10.
+Functions: 138, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10.
 
 ## Functions (138)
 
@@ -147,7 +147,7 @@ Functions: 138, Structures: 12, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [sub_1402CF768](../functions/sub_1402CF768.md) | `0x1402CF768` | The reverse of the slot-record builder: it takes the work copy and writes its sections back into live state, including the ten item order lists. |
 | [sub_140327004](../functions/sub_140327004.md) | `0x140327004` | Moves the ten item order lists between a work record and the live arrays, in either direction. |
 
-## Structures (12)
+## Structures (13)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -158,6 +158,7 @@ Functions: 138, Structures: 12, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [ClassicSaveWindowAOtherLanguagesRecord](../structs/ClassicSaveWindowAOtherLanguagesRecord.md) |  | One row of the ClassicSaveWindowAOtherLanguages table. |
 | [ClassicSaveWindowBLanguage0Record](../structs/ClassicSaveWindowBLanguage0Record.md) |  | One row of the ClassicSaveWindowBLanguage0 table. |
 | [ClassicSaveWindowBOtherLanguagesRecord](../structs/ClassicSaveWindowBOtherLanguagesRecord.md) |  | One row of the ClassicSaveWindowBOtherLanguages table. |
+| [SaveBlockUiMarks](../structs/SaveBlockUiMarks.md) | 7780 | The parts of the save block behind qword_143CD9DC8 that hold the 'new' marks and the current position of the Zodiac Stone, Chronicle, Events and glossary screens. |
 | [SaveEquipSet](../structs/SaveEquipSet.md) | 88 | One saved equipment set of a unit (three per unit record). |
 | [SaveErrorMessage](../structs/SaveErrorMessage.md) | 8 | One row of the SaveErrorMessages table. |
 | [SaveFieldDescriptor](../structs/SaveFieldDescriptor.md) | 88 | One field of a saved record, as the save walker reads it (built on the stack by each schema function). |

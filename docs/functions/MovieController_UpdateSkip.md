@@ -27,7 +27,8 @@ Per-frame movie pause / skip handling of the GameUI MovieController (a virtual o
 
 ## Referenced by
 
-- Observed behaviours: [SceneSkipState](../behaviors/SceneSkipState.md)
+- Appears in flows: [MovieStart](../flows/MovieStart.md)
+- Observed behaviours: [MovieSkipKinds](../behaviors/MovieSkipKinds.md), [SceneSkipState](../behaviors/SceneSkipState.md)
 
 ## Notes
 

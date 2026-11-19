@@ -2,16 +2,18 @@
 
 Unit save, work and party records, stat and growth computation, egg hatching and scripted battle entries.
 
-Functions: 73, Structures: 4, Globals: 5, Registries: 2, Observed behaviours: 3, Tables: 1.
+Functions: 75, Structures: 4, Globals: 6, Registries: 2, Observed behaviours: 3, Tables: 1.
 
-## Functions (73)
+## Functions (75)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [Battle_BuildEntryUnits](../functions/Battle_BuildEntryUnits.md) | `0x14030428C` | Builds the battle units of the current battle from its 16 entries: fetches the entry block, lets the battle's OverrideEntryData rows overwrite the entries, then places the units. |
 | [Battle_GetEntryBlock](../functions/Battle_GetEntryBlock.md) | `0x14028416C` | The 16 spawn entries (40 bytes each, 640 bytes) of the current battle inside the loaded entry data. |
 | [Battle_PlaceEntryUnits](../functions/Battle_PlaceEntryUnits.md) | `0x14027128C` | Builds battle unit i (g_PreviewUnitTable + 512 x i) from entry i for the 16 entries of a battle, decides who is placed and queues each placed unit's look. |
+| [CharaColorSkin_Resolve](../functions/CharaColorSkin_Resolve.md) | `0x1401E39BC` | Resolves a CharCLUT chara_color_skin value to the skin to use. |
 | [CharaName_GetDisplayName](../functions/CharaName_GetDisplayName.md) | `0x1401E8B7C` | Returns the display name of a name key: the CharaName table's name, or the unit's own stored name string when the row says so. |
+| [CharClut_GetColorSkin](../functions/CharClut_GetColorSkin.md) | `0x1401E3A10` | Reads the chara_color_skin column (+0x10) of the CharCLUT row (key, 0) and resolves it. |
 | [GameState_ResetParty](../functions/GameState_ResetParty.md) | `0x140284500` | Resets the party-wide item state for a new game or a partial reset: the roster markers, the inventory counts, the Poachers' Den stock, the item badge block and the poach arrays, then the starting inventory and gil. |
 | [Item_CanUnitEquip](../functions/Item_CanUnitEquip.md) | `0x1402886D0` | Answers whether a unit's job may equip an item, combining the job's equip-category bits with a small set of item ids the game special-cases. |
 | [Item_CanUnitEquipPreview](../functions/Item_CanUnitEquipPreview.md) | `0x140396F1C` | The preview-record twin of the equip check: it decides whether the job shown in an equip preview could equip the candidate item. |
@@ -91,12 +93,13 @@ Functions: 73, Structures: 4, Globals: 5, Registries: 2, Observed behaviours: 3,
 | [UnitSaveRecord](../structs/UnitSaveRecord.md) | 600 | A unit as the save keeps it (54 records at g_UnitSaveData; copied whole into the save slot at +1304 + 600 n). |
 | [UnitWorkRecord](../structs/UnitWorkRecord.md) | 512 | The working copy of a unit: the 21 battle units (g_BattleUnits) and temporary copies for previews and the job screens. |
 
-## Globals (5)
+## Globals (6)
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
 | [g_BattleEntrySource](../globals/g_BattleEntrySource.md) | `0x141856930` | `unit data` | 16 bytes: dword +0 the battle key (set from scene variable 50 by BattleLoad_StepFresh, read by Battle_GetEntryBlock and Battle_BuildEntryUnits as the OverrideEntryData key), qword +8 the base of the loaded entry data ... |
 | [g_CurrentSpawnEntry](../globals/g_CurrentSpawnEntry.md) | `0x1411A3868` | `unit data` | Pointer to the spawn entry being built: set by Battle_PlaceEntryUnits and sub_1402841D0 before each Unit_BuildFromRecord; Unit_ApplySpawnRecord copies its bytes +33..+39 into unit +407..+413, and Battle_PlaceEntryUnit... |
+| [g_SelectedCharaSkin](../globals/g_SelectedCharaSkin.md) | `0x1411A7550` | `uint16` | The selected character skin: its high byte is the skin CharaColorSkin_Resolve returns. |
 | [g_UnitEquipOverride](../globals/g_UnitEquipOverride.md) | `0x14184A680` | `uint16[]` | Five override equipment words per unit, ten bytes per unit index: when the pair is non-zero the equip pickers use it in place of the unit record's own hand words. |
 | [g_UnitSaveData](../globals/g_UnitSaveData.md) | `0x1411A7D10` | `data` | 54 x 600 bytes; builder sub_140275C70 -> sub_140275B84 -> sub_140276758 |
 | [qword_141801100](../globals/qword_141801100.md) | `0x141801100` | `PartyUnitB *` | Pointer to a 640-byte scratch party record (unk_143749CA0). |

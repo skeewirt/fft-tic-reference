@@ -2,15 +2,17 @@
 
 Entry, frame loop, message pump, clock, exception handling and the startup debug/capture gates.
 
-Functions: 17, Structures: 2, Globals: 2, Observed behaviours: 4, Tables: 2.
+Functions: 19, Structures: 3, Globals: 2, Observed behaviours: 5, Tables: 2.
 
-## Functions (17)
+## Functions (19)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [App_LaunchClassic](../functions/App_LaunchClassic.md) | `0x1401DDB5C` | Starts the Classic executable and ends this one. |
 | [App_ProcessMessages](../functions/App_ProcessMessages.md) | `0x14002F728` | Drains up to ten Win32 messages per call. |
 | [App_RunFrame](../functions/App_RunFrame.md) | `0x14002A1F0` | One iteration of the game's application loop: frame pacing, the debug/capture gate, Steam callbacks, the UI/render/audio update chain and the secondary frame-rate wait. |
+| [BonusEntitlement_IsOwned](../functions/BonusEntitlement_IsOwned.md) | `0x1401006F4` | Answers whether the bonus entitlement of a SystemBonusEntitlement row is owned. |
+| [BonusEntitlements_Setup](../functions/BonusEntitlements_Setup.md) | `0x1400FFE14` | Builds the application's entitlement list from the SystemBonusEntitlement table and collects the bonus content paths of each entitlement. |
 | [Cursor_Apply](../functions/Cursor_Apply.md) | `0x14001DC14` | Makes the cursor table's current entry the OS cursor, or hides the cursor. |
 | [Cursor_LoadTable](../functions/Cursor_LoadTable.md) | `0x1400103E4` | Loads the game's mouse cursors into the cursor object's table (index -> HCURSOR) and applies the current one. |
 | [Debug_DetectCaptureTools](../functions/Debug_DetectCaptureTools.md) | `0x140082894` | Returns 1 when a known graphics-capture/injection layer is loaded, or when a GPU/COM query on `hostObject+3504` succeeds. |
@@ -26,10 +28,11 @@ Functions: 17, Structures: 2, Globals: 2, Observed behaviours: 4, Tables: 2.
 | [TopLevelExceptionFilter](../functions/TopLevelExceptionFilter.md) | `0x14002EAE0` | The unhandled-exception filter installed by Startup_InstallExceptionHandling. |
 | [WorldMap_UpdateFastForward](../functions/WorldMap_UpdateFastForward.md) | `0x14015C0DC` | On the world map (mode 3) sets the fast-forward level to 1 while action 89 is held, else 0. |
 
-## Structures (2)
+## Structures (3)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
+| [EntitlementListNode](../structs/EntitlementListNode.md) | 40 | One node of the application's entitlement list (g_Application +1488), built by BonusEntitlements_Setup. |
 | [GlobalWork](../structs/GlobalWork.md) | 136 | ffto::Game::GlobalWork (vtable 0x140713EA8), the singleton at g_GlobalWork. |
 | [ImportSlotRow](../structs/ImportSlotRow.md) | 8 | One row of SteamApiImportSlots. |
 
@@ -40,11 +43,12 @@ Functions: 17, Structures: 2, Globals: 2, Observed behaviours: 4, Tables: 2.
 | [g_FastForwardMultipliers](../globals/g_FastForwardMultipliers.md) | `0x140672018` | `int32[3]` | Game steps per displayed frame by fast-forward level: 1, 3, 5 (GlobalWork_GetSpeedMultiplier). |
 | [g_GlobalWork](../globals/g_GlobalWork.md) | `0x143CD9DD0` | `GlobalWork *` | Singleton ffto::Game::GlobalWork (136 bytes, vtable 0x140713EA8, created by sub_1400B532C): fast-forward level +0x58, frame step +0x5C, fast-forward mode +0x60 (record GlobalWork). |
 
-## Observed behaviours (4)
+## Observed behaviours (5)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [AFaultInAGameTaskFreezesTheGame](../behaviors/AFaultInAGameTaskFreezesTheGame.md) | engine | Game logic runs in task threads that the main thread hands control to each frame (GameTasks_RunFrameSteps waits on them). |
+| [BonusEntitlementGroupMatch](../behaviors/BonusEntitlementGroupMatch.md) | engine (bonus entitlements) | The bonus entitlement setup matches the entitlement row's group number against the group number of every DLCPathList row; it does not look the path list up by key. |
 | [FastForwardState](../behaviors/FastForwardState.md) | battle, event scripts (story scenes, battle dialogue) and the world map, enhanced edition | How the fast-forward hold and the dialogue auto-advance toggle become state, how to read 'fast-forward is active now' from memory with no input, what gates a hold, and what the state changes. |
 | [QuitLoopExit](../behaviors/QuitLoopExit.md) | how the quit request ends the main loop | Game_Main runs App_RunFrame in a loop and leaves it when it returns 0; App_RunFrame returns whether the quit request byte is 0. |
 | [QuitRequest](../behaviors/QuitRequest.md) | how the game ends itself or hands over to the Classic executable | The quit request byte of the application object and every path that sets it. |

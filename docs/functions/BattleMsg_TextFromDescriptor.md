@@ -26,7 +26,7 @@ Returns the template text for a message descriptor from one of two text sources.
 
 ## Referenced by
 
-- Called by: [UIMessageBanner_Show](UIMessageBanner_Show.md)
+- Called by: [ErrorBanner_Show](ErrorBanner_Show.md), [UIMessageBanner_Show](UIMessageBanner_Show.md)
 
 ## Notes
 

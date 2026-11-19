@@ -20,7 +20,7 @@ Pushes a pause id onto the PauseManager's small stack (max depth 3), applying th
 
 ## Referenced by
 
-- Called by: [EventControl_TryOpenPause](EventControl_TryOpenPause.md)
+- Called by: [EventControl_TryOpenPause](EventControl_TryOpenPause.md), [Guide_OpenWindow](Guide_OpenWindow.md)
 
 ## Notes
 

@@ -26,7 +26,7 @@ Fills the format-argument vector for the banner: first asks the message-id-speci
 
 ## Referenced by
 
-- Called by: [UIMessageBanner_Show](UIMessageBanner_Show.md)
+- Called by: [ErrorBanner_Show](ErrorBanner_Show.md), [UIMessageBanner_Show](UIMessageBanner_Show.md)
 
 ## Notes
 

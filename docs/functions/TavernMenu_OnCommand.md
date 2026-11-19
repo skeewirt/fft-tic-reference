@@ -16,7 +16,7 @@ I: the tavern screens' command handler: marks a rumour or an errand as read, tak
 
 - V: command 0 from the rumour page: writes 0 to the new flag of rumour `id` (0x1411A7280 + 25 + 2 * id), guarded by a test of the low byte of the id (0..63).
 - V: command 0 from the errand page: writes 0 to the errand new flag (0x1411A7280 + 153 + 2 * id) when the low byte of the id is below 0x60.
-- V: command 1: when the Gossip row of `id` has a situation (+4) whose progress is below the row's +8, sets that progress and writes the event variables listed by the row's two arrays (+20 variables, +28 values; a variable of 102 multiplies the next value by 10).
+- V: command 1: when the Gossip row of `id` has both counter (+4) and counter_value (+8) non-zero and the counter's progress is below counter_value, sets the counter to counter_value (UserSituation_SetValue) and writes the event variables of the row's two arrays (event_vars at +0x14, event_var_values at +0x1C, count at +0x18), pair by pair. A variable of 102 is a prefix, not a variable: it sets a base of 10 * its value, and the next pair is written to variable (number + base) with its value, after which the base is reset to 0. (Corrected 2026-11-19: it was first read as multiplying the next value.)
 - V (seen live): moving the cursor onto a rumour clears its new marker.
 
 ## State touched
@@ -25,11 +25,11 @@ I: the tavern screens' command handler: marks a rumour or an errand as read, tak
 
 ## Referenced by
 
-- Observed behaviours: [RumourNewFlagsAreIndexedByTheLowByteOfTheId](../behaviors/RumourNewFlagsAreIndexedByTheLowByteOfTheId.md)
+- Observed behaviours: [RumourNewFlagsAreIndexedByTheLowByteOfTheId](../behaviors/RumourNewFlagsAreIndexedByTheLowByteOfTheId.md), [RumourReadWritesEventVariables](../behaviors/RumourReadWritesEventVariables.md)
 
 ## Notes
 
-Rows 20 and 21 of Gossip (The Haunted Mine, The Cursed Isle of Nelveska) are the stock quest rumours (situations 2 / values 20 and 90).
+Rows 20 and 21 of Gossip (The Haunted Mine, The Cursed Isle of Nelveska) are the stock quest rumours (situations 2 / values 20 and 90); their stock arrays write event variables 166 = 1 (key 20) and 170 = 1 (key 21).
 
 ## Open questions
 

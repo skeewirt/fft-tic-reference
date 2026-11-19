@@ -23,6 +23,7 @@ Reports whether the RefinedVFXTexture row of an effect has its byte at +28 set.
 
 ## Referenced by
 
+- Called by: [EffectNxd_AdjustSpriteKind](EffectNxd_AdjustSpriteKind.md)
 - Observed behaviours: [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md)
 - Reads tables: [NxdDataRefinedVFXTexture](../tables/NxdDataRefinedVFXTexture.md)
 

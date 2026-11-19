@@ -23,7 +23,7 @@ Plays the header state that belongs to tab `index` and stops the other three.
 
 ## Referenced by
 
-- Called by: [sub_140197BCC](sub_140197BCC.md)
+- Called by: [ZodiacStoneBoard_Setup](ZodiacStoneBoard_Setup.md), [sub_140197BCC](sub_140197BCC.md)
 
 ## Notes
 

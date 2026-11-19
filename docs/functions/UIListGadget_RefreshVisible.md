@@ -16,6 +16,10 @@ Posts event 0x1E (draw row) for every visible row.
 
 - V: read from the decompilation.
 
+## Referenced by
+
+- Called by: [BgmMode_PlaySelected](BgmMode_PlaySelected.md), [BgmMode_ToggleTitleLanguage](BgmMode_ToggleTitleLanguage.md)
+
 ## Open questions
 
 None recorded.

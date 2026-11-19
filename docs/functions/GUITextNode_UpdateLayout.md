@@ -26,6 +26,7 @@ Per-frame update of a text node: when its font is loaded (and its icons are, for
 
 ## Referenced by
 
+- Called by: [Launcher_FillControls](Launcher_FillControls.md)
 - Observed behaviours: [GUITextNodeStringSource](../behaviors/GUITextNodeStringSource.md)
 
 ## Notes

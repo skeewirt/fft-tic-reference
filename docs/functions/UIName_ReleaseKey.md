@@ -21,7 +21,7 @@ Drops one reference to an interned UI name; frees the string and shrinks the buc
 
 ## Referenced by
 
-- Called by: [BarTop_Setup](BarTop_Setup.md), [Battle_InitScene](Battle_InitScene.md), [FaceWidget_SetFace](FaceWidget_SetFace.md), [GUIFontSlotGroup_Destroy](GUIFontSlotGroup_Destroy.md), [GUIList_SetCount](GUIList_SetCount.md), [JobChange_RunPreviewAnim](JobChange_RunPreviewAnim.md), [ScrollHelper_Bind](ScrollHelper_Bind.md), [StatusScreen_DrawLists](StatusScreen_DrawLists.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [UiNames_InstallCoreNames](UiNames_InstallCoreNames.md), [sub_1401560D0](sub_1401560D0.md), [sub_1402C6514](sub_1402C6514.md), [sub_1402C72B8](sub_1402C72B8.md)
+- Called by: [BarTop_Setup](BarTop_Setup.md), [Battle_InitScene](Battle_InitScene.md), [ClassicSubtitles_SetState](ClassicSubtitles_SetState.md), [FaceWidget_SetFace](FaceWidget_SetFace.md), [GUIFontSlotGroup_Destroy](GUIFontSlotGroup_Destroy.md), [GUIList_SetCount](GUIList_SetCount.md), [GuideEntry_Fill](GuideEntry_Fill.md), [GuideSlot_DrawButtons](GuideSlot_DrawButtons.md), [JobChange_RunPreviewAnim](JobChange_RunPreviewAnim.md), [Launcher_DrawControlsPage](Launcher_DrawControlsPage.md), [Launcher_DrawStartPage](Launcher_DrawStartPage.md), [ScrollHelper_Bind](ScrollHelper_Bind.md), [StatusScreen_DrawLists](StatusScreen_DrawLists.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [UiNames_InstallCoreNames](UiNames_InstallCoreNames.md), [sub_1401560D0](sub_1401560D0.md), [sub_1402C6514](sub_1402C6514.md), [sub_1402C72B8](sub_1402C72B8.md)
 
 ## Notes
 

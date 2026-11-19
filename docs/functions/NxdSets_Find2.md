@@ -24,7 +24,7 @@ Finds the set of a key1 in a double-keyed file: binary search over the 12-byte s
 
 ## Referenced by
 
-- Called by: [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetEntryCount](NxdTable_GetEntryCount.md), [NxdTable_GetSetEntries](NxdTable_GetSetEntries.md)
+- Called by: [GuideLessons_UpdateUnlocked](GuideLessons_UpdateUnlocked.md), [GuideList_BuildLessons](GuideList_BuildLessons.md), [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetEntryCount](NxdTable_GetEntryCount.md), [NxdTable_GetSetEntries](NxdTable_GetSetEntries.md), [WorldMapProgress_GetObjectiveCaption](WorldMapProgress_GetObjectiveCaption.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes

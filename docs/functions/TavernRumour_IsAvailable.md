@@ -16,7 +16,7 @@ Answers whether rumour `id` may be listed in the tavern of `town`.
 
 - V: false when the Gossip row of the id is missing and the town test below fails; the row is read with UITable_GetRowByKey(181, id).
 - V: false when the row's condition (+36, a UserSituation id) is nonzero and UserSituation_IsMet says no.
-- V: true when the row's flag (+44) is nonzero.
+- V: true when the row's flag (+44, column always_listed) is nonzero: the rumour is then listed in every tavern, without the town mask and without its unlock variable 721 + id; only the +36 condition above still applies.
 - V: otherwise, when town >= 0, false unless bit (0x4000 >> town) of g_RumourTownMasks[id] is set; then true only when event variable 721 + id reads nonzero.
 
 ## State touched

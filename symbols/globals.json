@@ -342,6 +342,15 @@
       },
       "doc": "docs/globals/g_BitReaderReset.md"
     },
+    "g_BookProgressWords": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a756e"
+        }
+      },
+      "doc": "docs/globals/g_BookProgressWords.md"
+    },
     "g_CMesIdTable": {
       "area": "battle",
       "builds": {
@@ -521,6 +530,15 @@
         }
       },
       "doc": "docs/globals/g_DialogueFaceSlot0.md"
+    },
+    "g_EffectCameraBlock": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a3860"
+        }
+      },
+      "doc": "docs/globals/g_EffectCameraBlock.md"
     },
     "g_EffectFileBase": {
       "area": "",
@@ -855,6 +873,15 @@
       },
       "doc": "docs/globals/g_GUIFontTable.md"
     },
+    "g_GameUIManager": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x3cd9dc8"
+        }
+      },
+      "doc": "docs/globals/g_GameUIManager.md"
+    },
     "g_GlobalWork": {
       "area": "app-startup",
       "builds": {
@@ -872,6 +899,24 @@
         }
       },
       "doc": "docs/globals/g_GraphicsLevel.md"
+    },
+    "g_GuideLessonReadBits": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a7522"
+        }
+      },
+      "doc": "docs/globals/g_GuideLessonReadBits.md"
+    },
+    "g_GuideLessonUnlockedBits": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a7539"
+        }
+      },
+      "doc": "docs/globals/g_GuideLessonUnlockedBits.md"
     },
     "g_HdFaceSlotValues": {
       "area": "graphics",
@@ -1404,6 +1449,15 @@
       },
       "doc": "docs/globals/g_ReactionGateTable.md"
     },
+    "g_RefinedEffectTexturesOn": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x2e801fc"
+        }
+      },
+      "doc": "docs/globals/g_RefinedEffectTexturesOn.md"
+    },
     "g_RenderDevice": {
       "area": "graphics",
       "builds": {
@@ -1574,6 +1628,15 @@
         }
       },
       "doc": "docs/globals/g_ScreenFade.md"
+    },
+    "g_SelectedCharaSkin": {
+      "area": "unit-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x11a7550"
+        }
+      },
+      "doc": "docs/globals/g_SelectedCharaSkin.md"
     },
     "g_SelectedShopIndex": {
       "area": "items",
@@ -1889,6 +1952,24 @@
         }
       },
       "doc": "docs/globals/tbl_AiStatusValue.md"
+    },
+    "tbl_GlossaryTabCategory": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x70e768"
+        }
+      },
+      "doc": "docs/globals/tbl_GlossaryTabCategory.md"
+    },
+    "tbl_ObtainedBookIds": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x671ef0"
+        }
+      },
+      "doc": "docs/globals/tbl_ObtainedBookIds.md"
     },
     "tbl_StatusBattleSignal": {
       "area": "",

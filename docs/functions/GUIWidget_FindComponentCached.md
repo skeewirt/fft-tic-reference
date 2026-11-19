@@ -21,7 +21,7 @@ Finds a component by two name keys (+280 and +504) with a caller-owned cache cel
 
 ## Referenced by
 
-- Called by: [ComponentEffects_Collect](ComponentEffects_Collect.md), [GUIComponentList_GetHScroll](GUIComponentList_GetHScroll.md), [GUIComponentList_GetSlotComponent](GUIComponentList_GetSlotComponent.md), [GUIComponentList_GetVScroll](GUIComponentList_GetVScroll.md), [GUIComponentList_LayoutSlots](GUIComponentList_LayoutSlots.md), [GUIComponentScrollBar_StepKnob](GUIComponentScrollBar_StepKnob.md), [GUIComponent_ApplyStateAnims](GUIComponent_ApplyStateAnims.md), [GUIComponent_Disable](GUIComponent_Disable.md), [GUIComponent_Enable](GUIComponent_Enable.md), [GUIComponent_UpdateNodeTree](GUIComponent_UpdateNodeTree.md), [GUINode_ClearVisibleSubtree](GUINode_ClearVisibleSubtree.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md)
+- Called by: [ComponentEffects_Collect](ComponentEffects_Collect.md), [CreditRoll_AddPictureLine](CreditRoll_AddPictureLine.md), [GUIComponentList_GetHScroll](GUIComponentList_GetHScroll.md), [GUIComponentList_GetSlotComponent](GUIComponentList_GetSlotComponent.md), [GUIComponentList_GetVScroll](GUIComponentList_GetVScroll.md), [GUIComponentList_LayoutSlots](GUIComponentList_LayoutSlots.md), [GUIComponentScrollBar_StepKnob](GUIComponentScrollBar_StepKnob.md), [GUIComponent_ApplyStateAnims](GUIComponent_ApplyStateAnims.md), [GUIComponent_Disable](GUIComponent_Disable.md), [GUIComponent_Enable](GUIComponent_Enable.md), [GUIComponent_UpdateNodeTree](GUIComponent_UpdateNodeTree.md), [GUINode_ClearVisibleSubtree](GUINode_ClearVisibleSubtree.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md)
 
 ## Notes
 

@@ -26,7 +26,7 @@ Evaluates all property tracks of a named state at one frame and writes the resul
 
 ## Referenced by
 
-- Called by: [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [TitleMenu_Build](TitleMenu_Build.md)
+- Called by: [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [Launcher_DrawControlsPage](Launcher_DrawControlsPage.md), [Launcher_DrawInfoPage](Launcher_DrawInfoPage.md), [Launcher_DrawStartPage](Launcher_DrawStartPage.md), [TitleMenu_Build](TitleMenu_Build.md)
 
 ## Notes
 

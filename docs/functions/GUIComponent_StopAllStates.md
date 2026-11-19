@@ -22,7 +22,7 @@ Stops every state of a component.
 
 ## Referenced by
 
-- Called by: [Battle_MenuHidePage](Battle_MenuHidePage.md), [Battle_MenuShowPage](Battle_MenuShowPage.md), [UIAddonFingerCursor_FreezePose](UIAddonFingerCursor_FreezePose.md), [UIAgentCursor_Hide](UIAgentCursor_Hide.md)
+- Called by: [Battle_MenuHidePage](Battle_MenuHidePage.md), [Battle_MenuShowPage](Battle_MenuShowPage.md), [UIAddonFingerCursor_FreezePose](UIAddonFingerCursor_FreezePose.md), [UIAgentCursor_Hide](UIAgentCursor_Hide.md), [WorldMapRouteGrow_OnState](WorldMapRouteGrow_OnState.md)
 
 ## Notes
 

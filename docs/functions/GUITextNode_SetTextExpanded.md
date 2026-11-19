@@ -26,7 +26,7 @@ Expands placeholders in text using args into a temporary std::string, then sets 
 ## Referenced by
 
 - Appears in flows: [BattleMessageBanner](../flows/BattleMessageBanner.md)
-- Called by: [GUITextNode_SetTextById](GUITextNode_SetTextById.md), [GUITextNode_SetTextExpandedTemp](GUITextNode_SetTextExpandedTemp.md), [UIMessageBanner_Show](UIMessageBanner_Show.md), [sub_1401560D0](sub_1401560D0.md)
+- Called by: [ErrorBanner_Show](ErrorBanner_Show.md), [GUITextNode_SetTextById](GUITextNode_SetTextById.md), [GUITextNode_SetTextExpandedTemp](GUITextNode_SetTextExpandedTemp.md), [UIMessageBanner_Show](UIMessageBanner_Show.md), [sub_1401560D0](sub_1401560D0.md)
 
 ## Notes
 

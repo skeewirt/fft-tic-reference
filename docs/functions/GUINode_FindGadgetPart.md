@@ -23,7 +23,7 @@ Finds a named part inside a named gadget: looks up the gadget node, then searche
 
 ## Referenced by
 
-- Called by: [MainTab_BindNodes](MainTab_BindNodes.md), [ScrollHelper_Bind](ScrollHelper_Bind.md), [WorldMapScreen_BindNodes](WorldMapScreen_BindNodes.md)
+- Called by: [Launcher_DrawInfoPage](Launcher_DrawInfoPage.md), [Launcher_DrawStartPage](Launcher_DrawStartPage.md), [MainTab_BindNodes](MainTab_BindNodes.md), [ScrollHelper_Bind](ScrollHelper_Bind.md), [WorldMapScreen_BindNodes](WorldMapScreen_BindNodes.md)
 
 ## Notes
 

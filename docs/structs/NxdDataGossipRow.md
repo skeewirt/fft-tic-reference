@@ -15,15 +15,15 @@ One row of the nxd.gossip table (English text table; the other languages share t
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown04"></a>`0x4` | unknown04 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 2, 2 distinct values. |
-| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 90, 3 distinct values. |
+| <a id="counter"></a>`0x4` | counter | `int32` | V | Read in the code: Id of a UserSituation counter that reading the rumour raises to the value at +8 (and that, while below it, keeps the rumour marked and shows its picture). Observed in the stock rows: 0 to 2, 2 distinct values. |
+| <a id="counter_value"></a>`0x8` | counter_value | `int32` | V | Read in the code: Value the counter at +4 is raised to when the rumour is read (only if it is lower). Observed in the stock rows: 0 to 90, 3 distinct values. |
 | <a id="title"></a>`0xC` | title | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 23 distinct values, 0 empty. |
 | <a id="text"></a>`0x10` | text | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 23 distinct values, 0 empty. |
-| <a id="unknown14"></a>`0x14` | unknown14 | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 3 distinct values. |
-| <a id="unknown1c"></a>`0x1C` | unknown1c | `int32[] {int32 offset; uint32 count}` | ? | Not decoded. Observed in the stock rows: 3 distinct values. |
+| <a id="event_vars"></a>`0x14` | event_vars | `int32[] {int32 offset; uint32 count}` | V | Read in the code: List of event variable numbers written when the rumour first raises its counter; 102 is not a variable but a prefix: its value times 10 is added to the next variable number. Observed in the stock rows: 3 distinct values. |
+| <a id="event_var_values"></a>`0x1C` | event_var_values | `int32[] {int32 offset; uint32 count}` | V | Read in the code: The values written to the event variables of +0x14, pair by pair (for the 102 prefix: the multiplier). Observed in the stock rows: 3 distinct values. |
 | <a id="user_situation"></a>`0x24` | user_situation | `int32` | M | Measured over every stock row: Every value is a key of nxd.UserSituation. Observed in the stock rows: 0 to 3510, 4 distinct values. |
-| <a id="unknown28"></a>`0x28` | unknown28 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 26, 3 distinct values. |
-| <a id="unknown2c"></a>`0x2C` | unknown2c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="picture"></a>`0x28` | picture | `int32` | V | Read in the code: Number of the picture shown beside the rumour text: it fills the path pattern of Icon row 21 ('base/textureparts/base_%02d_uitx') and is drawn when the row's +4 and +8 are both non-zero (state 'ShowImage', else 'Default'). Observed in the stock rows: 0 to 26, 3 distinct values. |
+| <a id="always_listed"></a>`0x2C` | always_listed | `uint8` | V | Read in the code: When set the rumour is listed in every tavern without the per-town mask (g_RumourTownMasks) and without its unlock event variable (721 + id); only the user_situation (+0x24) test still applies. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -35,4 +35,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 7 of 10 columns not decoded.
+? 1 of 10 columns not decoded.

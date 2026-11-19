@@ -14,7 +14,7 @@ One row of the nxd.novel_00 table (English text table; the other languages share
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: 0 to 1, 2 distinct values. |
 | <a id="text"></a>`0x4` | text | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 213 distinct values, 42 empty. |
 
 ## Referenced by
@@ -27,4 +27,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 1 of 2 columns not decoded.
+None recorded.

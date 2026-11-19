@@ -24,4 +24,4 @@ Applies the world-map progress rows that the story counters select to the world-
 
 ## Open questions
 
-? where the location values are stored for the map screens.
+? where the location values are stored for the map screens (I: the progress row's keys are kept at world-map screen +3308 / +3312 by WorldMapScreen_SetProgress and compared with location ids by sub_14036E5DC, which marks the location records with state 3 / 2).

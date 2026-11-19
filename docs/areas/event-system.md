@@ -2,7 +2,7 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 18, Tables: 29.
+Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 19, Tables: 29.
 
 ## Functions (199)
 
@@ -257,7 +257,7 @@ Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 |---|---|---|
 | [SoundBankSab](../formats/SoundBankSab.md) |  | sound/common/sound.sab (0006.pac, 78 MB, stored uncompressed): a SEAD sound bank ('sabf' version 2) whose 690 sounds are the ids SoundCue_Play accepts (0..0x2B1); the audio is CRI HCA, not encrypted. |
 
-## Observed behaviours (18)
+## Observed behaviours (19)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -268,6 +268,7 @@ Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord](../behaviors/MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord.md) | engine (audio command queue, kind 1) | Every stock producer of a kind 1 (play music) entry of the audio command queue passes either a small constant or the 16-bit command word of the command state; no stock parameter has a bit above 0x2FF set, so bits 12 a... |
 | [MusicTrackFilesAreOpenedByNameThroughTheFileManager](../behaviors/MusicTrackFilesAreOpenedByNameThroughTheFileManager.md) | engine (music) | A music change queued on the audio command queue ends in EventMusic_LoadTrack, which builds the file name sound/music/music_NNNNN.sab from the track number (the music id minus 1) and opens it through the game's file m... |
 | [RumourNewFlagsAreIndexedByTheLowByteOfTheId](../behaviors/RumourNewFlagsAreIndexedByTheLowByteOfTheId.md) | engine (tavern rumours) | Every reader and the writer of the rumour new flags guards the index with a test of the LOW BYTE of the id (taken as a signed byte, it must be 0..63, and that byte is the index), so an id whose low byte is 0..63 index... |
+| [RumourReadWritesEventVariables](../behaviors/RumourReadWritesEventVariables.md) | engine (tavern) | Reading a rumour that has a counter raises the counter once and then writes the event variables listed in its row; the variable number 102 is a prefix, not a variable. |
 | [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md) | engine (scenario setup, battle capture) | The scenario setup records are turned into one 16-bit word per EVENT NUMBER (an 887-word array indexed by scene variable 39); a word holds a 10-bit link to another record by event number plus flag bits, and the battle... |
 | [SceneSkipState](../behaviors/SceneSkipState.md) | every skippable story scene: event scripts (world map, town, battle) and movies | Whether the scene on screen can be skipped with the pause overlay + hold, and which kind of scene it is, read from memory without any input. |
 | [ScreenMusicComesFromBGMTransitionRows](../behaviors/ScreenMusicComesFromBGMTransitionRows.md) | engine (music) | Screens such as the title's play-mode page, the save and load list and the tavern start their music through sub_1401D9174 with a BGMTransition row number: the row names a SoundEnhanced row, whose Unknown10 is the musi... |

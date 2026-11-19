@@ -19,7 +19,7 @@ Returns the in-memory row of an nxd table by table id and row index (null when t
 
 ## Referenced by
 
-- Called by: [EventSubquestPanel_Run](EventSubquestPanel_Run.md), [GUIFontTable_Load](GUIFontTable_Load.md), [GUITextNode_Draw](GUITextNode_Draw.md), [GUITextNode_FinishLine](GUITextNode_FinishLine.md), [GUITextNode_HandleTag](GUITextNode_HandleTag.md), [GUITextNode_PlaceIcon](GUITextNode_PlaceIcon.md), [Input_UpdateActionRow](Input_UpdateActionRow.md), [UIText_Get](UIText_Get.md), [sub_1400F69BC](sub_1400F69BC.md)
+- Called by: [CreditRoll_Step](CreditRoll_Step.md), [EventSubquestPanel_Run](EventSubquestPanel_Run.md), [GUIFontTable_Load](GUIFontTable_Load.md), [GUITextNode_Draw](GUITextNode_Draw.md), [GUITextNode_FinishLine](GUITextNode_FinishLine.md), [GUITextNode_HandleTag](GUITextNode_HandleTag.md), [GUITextNode_PlaceIcon](GUITextNode_PlaceIcon.md), [IconPath_FromIconId](IconPath_FromIconId.md), [InputGlyph_AppendPadButton](InputGlyph_AppendPadButton.md), [InputRows_ApplyKeyBindings](InputRows_ApplyKeyBindings.md), [InputRows_ApplyPadLayout](InputRows_ApplyPadLayout.md), [Input_UpdateActionRow](Input_UpdateActionRow.md), [TextTag_ExpandKeyIcon](TextTag_ExpandKeyIcon.md), [UIText_Get](UIText_Get.md), [sub_1400F69BC](sub_1400F69BC.md)
 
 ## Notes
 

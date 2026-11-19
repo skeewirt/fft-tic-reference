@@ -30,6 +30,10 @@ Opens a game resource by path through the mounted packs, after normalising the p
 
 - Calls: [Resource_AcquireHandle](Resource_AcquireHandle.md)
 
+## Referenced by
+
+- Called by: [BattleVoice_SetPattern](BattleVoice_SetPattern.md)
+
 ## Notes
 
 - V: head and the whole normalisation loop were read; the reader open is Resource_AcquireHandle (0x1400912B4).

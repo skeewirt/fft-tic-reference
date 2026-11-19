@@ -22,6 +22,10 @@ Finds the header (MainTab/Tab) nodes of a screen and keeps them in the controlle
 - Calls: [UIName_Key](UIName_Key.md), [GUINode_FindDescendant](GUINode_FindDescendant.md), [GUINode_FindPartByName](GUINode_FindPartByName.md), [GUINode_FindGadgetPart](GUINode_FindGadgetPart.md)
 - Reads: [GUINode.kind](../structs/GUINode.md#kind), [g_UINameTable](../globals/g_UINameTable.md)
 
+## Referenced by
+
+- Called by: [ZodiacStoneBoard_Setup](ZodiacStoneBoard_Setup.md)
+
 ## Notes
 
 JobTree_RefreshAddon calls it with the 'JobTree' node, then MainTab_SelectTab(ctl, 1), then writes text id 3885 into ctl[4] (+248; the byte +316 = 1 marks it dirty). UI-en row 3885 is 'Job Tree'. Live read (debugger, 2026-10-28): the Title node is kind 3, size (60,120), pivot (30,60), text id +248 = 0xF2D = 3885.

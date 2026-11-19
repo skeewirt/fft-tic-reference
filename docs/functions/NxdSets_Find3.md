@@ -24,7 +24,7 @@ Finds the set of a key1 in a triple-keyed file: the same search over 20-byte set
 
 ## Referenced by
 
-- Called by: [MapMesh_FindNodeRows](MapMesh_FindNodeRows.md), [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetEntryByKeysIndex3](NxdTable_GetEntryByKeysIndex3.md), [NxdTable_GetEntryCount](NxdTable_GetEntryCount.md), [NxdTable_GetLeafCount3](NxdTable_GetLeafCount3.md)
+- Called by: [GuideLessons_UpdateUnlocked](GuideLessons_UpdateUnlocked.md), [GuideList_BuildLessons](GuideList_BuildLessons.md), [MapMesh_FindNodeRows](MapMesh_FindNodeRows.md), [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetEntryByKeysIndex3](NxdTable_GetEntryByKeysIndex3.md), [NxdTable_GetEntryCount](NxdTable_GetEntryCount.md), [NxdTable_GetLeafCount3](NxdTable_GetLeafCount3.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Open questions

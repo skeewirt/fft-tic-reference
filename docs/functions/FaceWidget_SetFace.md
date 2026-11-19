@@ -25,6 +25,7 @@ Points a face widget at the texture of a face number and colour, and restarts it
 ## Referenced by
 
 - Appears in flows: [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md)
+- Called by: [GlossaryCharacterPage_Fill](GlossaryCharacterPage_Fill.md), [GlossaryDetail_Fill](GlossaryDetail_Fill.md)
 
 ## Notes
 

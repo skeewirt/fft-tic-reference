@@ -16,6 +16,10 @@ Plays the list's Show state.
 
 - V: read from the decompilation.
 
+## Referenced by
+
+- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md)
+
 ## Open questions
 
 None recorded.

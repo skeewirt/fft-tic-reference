@@ -14,7 +14,7 @@ One action of the input module (g_InputModule + 1360 + 48 * action id, 256 rows;
 
 | Offset | Field | Type | Conf | Meaning | Written by | Read by |
 |---|---|---|---|---|---|---|
-| <a id="binding"></a>`0x0` | binding | `uint32` | V | Low word: pad button id (first binding) or key code (second and third); flag 0x10000 long press, 0x20000 short press; 0 = unbound. |  |  |
+| <a id="binding"></a>`0x0` | binding | `uint32` | V | Low word: pad button id (first binding) or key code (second and third); flag 0x10000 long press, 0x20000 short press; 0 = unbound. | [InputRows_ApplyKeyBindings](../functions/InputRows_ApplyKeyBindings.md), [InputRows_ApplyPadLayout](../functions/InputRows_ApplyPadLayout.md) |  |
 | <a id="press_time"></a>`0x4` | press_time | `uint32` | V | UI clock (ms) when the value last rose from 0. | [Input_UpdateActionRow](../functions/Input_UpdateActionRow.md) |  |
 | <a id="value"></a>`0x8` | value | `uint8` | V | Current value, 0 or 100 for a button (a trigger or stick gives 0..100). | [Input_UpdateActionRow](../functions/Input_UpdateActionRow.md) |  |
 | <a id="value_copy"></a>`0x9` | value_copy | `uint8` | V | Second copy of the value; its previous content decides 'released'. |  |  |

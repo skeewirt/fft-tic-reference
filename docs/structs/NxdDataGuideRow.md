@@ -16,17 +16,17 @@ One row of the nxd.guide table (English text table; the other languages share th
 |---|---|---|---|---|
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
 | <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
-| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 4, 4 distinct values. |
-| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 12, 10 distinct values. |
+| <a id="window_type"></a>`0x8` | window_type | `int32` | V | Read in the code: How the guide is shown and where its 'seen' bit lives: 1 -> large guide window (UI row 181, pauses the game), 2 -> guide window (UI row 182, pauses), 3 -> GuideTip (UI row 184); kinds 1 and 2 keep their seen bit in the config bits (g_ConfigData +204), kinds 4..6 their read bit in the job flag block (+146); 0 = not shown. Observed in the stock rows: 0 to 4, 4 distinct values. |
+| <a id="category"></a>`0xC` | category | `int32` | V | Read in the code: List (tab) the guide belongs to: 1..3 are the three tutorial lists (category - 1 = tab), 7..12 the six Lessons lists (category - 7 = tab); 0 and other values are in no list. Observed in the stock rows: 0 to 12, 10 distinct values. |
 | <a id="guide_page"></a>`0x10` | guide_page | `int32` | M | Measured over every stock row: Every value is a key of nxd.GuidePage-en. Observed in the stock rows: 0 to 3277, 226 distinct values. |
-| <a id="unknown14"></a>`0x14` | unknown14 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 59, 19 distinct values. |
+| <a id="job_type"></a>`0x14` | job_type | `int32` | V | Read in the code: JobType (table JobType) key: a lesson with a non-zero value is unlocked and listed only while that job type's disable flag (g_UnitJobFlags +21 + value, 125 flags) is 0. Observed in the stock rows: 0 to 59, 19 distinct values. |
 | <a id="user_situation"></a>`0x18` | user_situation | `int32` | M | Measured over every stock row: Every value is a key of nxd.UserSituation. Observed in the stock rows: 0 to 60016, 13 distinct values. |
 | <a id="user_situation_2"></a>`0x1C` | user_situation_2 | `int32` | M | Measured over every stock row: Every value is a key of nxd.UserSituation. Observed in the stock rows: 0 to 12700, 8 distinct values. |
-| <a id="unknown20"></a>`0x20` | unknown20 | `float32` | ? | Not decoded. Observed in the stock rows: 0 to 2.8, 14 distinct values. |
+| <a id="delay"></a>`0x20` | delay | `float32` | V | Read in the code: Seconds of input pause before an auto-shown guide opens (0 = none); the value is also queued with the guide id. Observed in the stock rows: 0 to 2.8, 14 distinct values. |
 | <a id="title"></a>`0x24` | title | `string (int32 offset)` | M | Measured over every stock row: The plain word for what the column holds. Observed in the stock rows: 166 distinct values, 77 empty. |
-| <a id="unknown28"></a>`0x28` | unknown28 | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 3600, 115 distinct values. |
-| <a id="unknown2a"></a>`0x2A` | unknown2a | `int16` | ? | Not decoded. Observed in the stock rows: 0 to 165, 166 distinct values. |
-| <a id="unknown2c"></a>`0x2C` | unknown2c | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="sort_order"></a>`0x28` | sort_order | `int16` | V | Read in the code: The guide lists are sorted by this value, ascending: the comparator used by the list builders compares the u16 at row +0x28 of the two guide rows. Observed in the stock rows: 0 to 3600, 115 distinct values. |
+| <a id="seen_bit"></a>`0x2A` | seen_bit | `int16` | V | Read in the code: 1-based number of the guide's bit: for window types 1/2 in the config bits g_ConfigData +204 (seen; values below 80), for lessons in two bit sets of the job flag block (+169 unlocked, +146 read; values below 184); 0 = no bit (always shown again). Observed in the stock rows: 0 to 165, 166 distinct values. |
+| <a id="unlocked_by_story"></a>`0x2C` | unlocked_by_story | `uint8` | V | Read in the code: A guide with this set counts as unlocked (listed) once UserSituation 10200 is met, even if it was never shown. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
 
@@ -38,4 +38,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 9 of 13 columns not decoded.
+? 2 of 13 columns not decoded.

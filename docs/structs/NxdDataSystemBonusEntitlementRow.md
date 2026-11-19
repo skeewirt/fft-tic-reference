@@ -14,10 +14,10 @@ One row of the nxd.system_bonus_entitlement table (data table). The key is not s
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
-| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: empty in every row. |
-| <a id="unknown08"></a>`0x8` | unknown08 | `string (int32 offset)` | ? | Not decoded. Observed in the stock rows: 4 distinct values, 28 empty. |
-| <a id="dlc_path_list"></a>`0xC` | dlc_path_list | `int32` | M | Measured over every stock row: Every value is a key of nxd.DLCPathList. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown00"></a>`0x0` | unknown00 | `int32` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: empty in every row. |
+| <a id="entitlement"></a>`0x8` | entitlement | `string (int32 offset)` | V | Read in the code: The entitlement code: each code gets an entry (16 characters) in the application's entitlement list; sub_1401006F4 answers 'owned' for a row by matching this code. Observed in the stock rows: 4 distinct values, 28 empty. |
+| <a id="dlc_path_group"></a>`0xC` | dlc_path_group | `int32` | V | Read in the code: Group number of the bonus content's files: every DLCPathList row whose group equals it gives one path of the entitlement's file list; 0 = no files. Observed in the stock rows: 0 to 1, 2 distinct values. |
 | <a id="unknown10"></a>`0x10` | unknown10 | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
 
 ## Referenced by
@@ -30,4 +30,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 4 of 5 columns not decoded.
+? 1 of 5 columns not decoded.

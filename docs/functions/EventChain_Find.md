@@ -20,7 +20,7 @@ Looks an event number up in a 9-entry table of chained events and records the en
 
 ## Referenced by
 
-- Called by: [EventViewer_EntryPage](EventViewer_EntryPage.md), [ScenarioSetup_ApplyRecord](ScenarioSetup_ApplyRecord.md)
+- Called by: [EventViewer_EntryPage](EventViewer_EntryPage.md), [EventViewer_StartReplay](EventViewer_StartReplay.md), [ScenarioSetup_ApplyRecord](ScenarioSetup_ApplyRecord.md)
 
 ## Notes
 

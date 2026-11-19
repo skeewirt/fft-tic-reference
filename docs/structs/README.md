@@ -2,7 +2,7 @@
 
 Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.
 
-515 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
+529 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
 
 | Name | Size (bytes) | Area | Summary |
 |---|---|---|---|
@@ -35,6 +35,9 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [BattleSnapshot](BattleSnapshot.md) | 668112 | [Save data](../areas/save-data.md) | The 668,112-byte battle image a kind-1 resume entry carries, as the capture builds it in g_BattleState: a battle context, five blocks (A..E), the 21 x 512-byte unit records and 3,000 more bytes of scene-task state. |
 | [BattleSpawnEntry](BattleSpawnEntry.md) | 40 | [Unit data](../areas/unit-data.md) | One 40-byte entry of a scripted battle's entry block: the description of one unit to build. |
 | [BattleTileRecord](BattleTileRecord.md) | 8 | [Battle](../areas/battle.md) | One tile of the battle map in g_BattleTileTable: 256 records per layer, two layers (layer 1 at +0x800), index x + y * width. |
+| [BattleVoiceController](BattleVoiceController.md) | 136 | [Battle](../areas/battle.md) | One battle voice controller (ffto CharacterBattleVoiceController, vtable 0x140713F68): the voice pattern of a unit or of a shared group, the flags that pick replacement lines and the queue of delayed cues. |
+| [BattleVoiceRequest](BattleVoiceRequest.md) |  | [Battle](../areas/battle.md) | The request a battle event hands to a voice controller: which ability, which phase, which units and what flags. |
+| [BgmModeScreen](BgmModeScreen.md) |  | [UI framework](../areas/ui-framework.md) | The music player screen (UIAddonFFTOBGMMode): its two track lists and the state of the list and title language. |
 | [BlendModeAlphaEntry](BlendModeAlphaEntry.md) | 1 | [Graphics](../areas/graphics.md) | One row of the BlendModeAlpha table. |
 | [BlockSectorStart](BlockSectorStart.md) | 4 | [Resource](../areas/resource.md) | One row of the sector start tables of the packed UI and event blocks. |
 | [BoneLinkPairsRow](BoneLinkPairsRow.md) | 16 | [Graphics](../areas/graphics.md) | One row of the BoneLinkPairs table. |
@@ -52,6 +55,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [ClassicSaveWindowAOtherLanguagesRecord](ClassicSaveWindowAOtherLanguagesRecord.md) |  | [Save data](../areas/save-data.md) | One row of the ClassicSaveWindowAOtherLanguages table. |
 | [ClassicSaveWindowBLanguage0Record](ClassicSaveWindowBLanguage0Record.md) |  | [Save data](../areas/save-data.md) | One row of the ClassicSaveWindowBLanguage0 table. |
 | [ClassicSaveWindowBOtherLanguagesRecord](ClassicSaveWindowBOtherLanguagesRecord.md) |  | [Save data](../areas/save-data.md) | One row of the ClassicSaveWindowBOtherLanguages table. |
+| [ClassicSubtitleStepper](ClassicSubtitleStepper.md) |  | [UI framework](../areas/ui-framework.md) | The stepper of the classic-movie subtitle window (ClassicSubtitles_Step): the current layout state and the keep-shown byte. |
 | [ClutBank](ClutBank.md) | 2450 | [Graphics](../areas/graphics.md) | One of the 14 banks of the palette manager (g_ClutManager, from +8): 16 rows of 16 colours with a timer per row, the state of every colour and the bank's base rows. |
 | [CodePointerRow](CodePointerRow.md) | 8 | [UI framework](../areas/ui-framework.md) | One row of UiLegacyLayoutScriptOps. |
 | [ColourPair](ColourPair.md) | 4 | [UI framework](../areas/ui-framework.md) | One row of the EquipPanelColourPairs table. |
@@ -59,6 +63,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [CommandKindParam](CommandKindParam.md) | 4 | [Battle](../areas/battle.md) | One row of the CommandKindParams table. |
 | [CommandKindRow](CommandKindRow.md) | 1 | [Job data](../areas/job-data.md) | One byte per skillset id. |
 | [CornerColour](CornerColour.md) | 4 | [Battle](../areas/battle.md) | One row of the BannerWordColours table. |
+| [CreditRoll](CreditRoll.md) |  | [UI framework](../areas/ui-framework.md) | The credit roll object stepped by CreditRoll_Step: the script position, the line templates and the y position. |
 | [CrystalRollResult](CrystalRollResult.md) | 1393 | [Battle](../areas/battle.md) | The block Unit_RollAbilityLearning fills at dword_1411A6AB0 (1393 bytes, the next data starts at 0x1411A7024) when a unit stops on a crystal or chest. |
 | [CursorPosition](CursorPosition.md) | 2 | [UI framework](../areas/ui-framework.md) | One row of the LegacyCursorPositions table. |
 | [DataBlockPointerRow](DataBlockPointerRow.md) | 8 | [Resource](../areas/resource.md) | One row of AudioDspCoefficientBlockPointers. |
@@ -76,6 +81,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [EffectSpriteSpawnRecordsRow](EffectSpriteSpawnRecordsRow.md) | 46 | [Battle](../areas/battle.md) | One row of the EffectSpriteSpawnRecords table. |
 | [ElementColoursRow](ElementColoursRow.md) | 3 | [Battle](../areas/battle.md) | One row of the ElementColours table. |
 | [ElementMaskOrderRow](ElementMaskOrderRow.md) | 1 | [Battle](../areas/battle.md) | One row of the ElementMaskOrder table. |
+| [EntitlementListNode](EntitlementListNode.md) | 40 | [Application and startup](../areas/app-startup.md) | One node of the application's entitlement list (g_Application +1488), built by BonusEntitlements_Setup. |
 | [EquipmentOrderListPointer](EquipmentOrderListPointer.md) | 8 | [Items and shops](../areas/items.md) | One row of the EquipmentOrderLists table. |
 | [EquipPanelBlock](EquipPanelBlock.md) | 64 | [Battle](../areas/battle.md) | A 64-byte copy of a party or battle record's bytes +0x30..+0x6F, kept at 0x141876E90 for the field equip screens and at 0x141D3B880 for the battle panels. |
 | [EquipSetBlock](EquipSetBlock.md) | 64 | [Items and shops](../areas/items.md) | The equip screen's computed set at 0x141876C40: stat deltas at +0x00..+0x23, the five candidate equipment words at +0x24..+0x2D, a five-word display array at +0x2E..+0x37, and unclassified words at +0x38..+0x3F. It is... |
@@ -102,6 +108,8 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [GlyphCodeTripleRow](GlyphCodeTripleRow.md) | 3 | [UI framework](../areas/ui-framework.md) | One row of UiGlyphCodeTriples. |
 | [GradientWindowVertexPaletteIndex](GradientWindowVertexPaletteIndex.md) | 1 | [UI framework](../areas/ui-framework.md) | One row of the GradientWindowVertexPalette table. |
 | [GridHelpRow](GridHelpRow.md) | 24 | [UI framework](../areas/ui-framework.md) | One row of the GridHelpRows tables. |
+| [GuideQueueEntry](GuideQueueEntry.md) | 12 | [UI framework](../areas/ui-framework.md) | One entry of the queue of guides waiting to open, at [[qword_143CD9DA8+16]+264] +88. |
+| [GuideSlot](GuideSlot.md) |  | [UI framework](../areas/ui-framework.md) | One slot of a guide bar or window entry (GuideSlot_DrawButtons): up to four buttons given as actions or icon numbers. |
 | [GUILayer](GUILayer.md) | 592 | [UI framework](../areas/ui-framework.md) | A UI layer: a component drawn offscreen and composited with its effects (mask, drop shadow, glow). |
 | [GUINode](GUINode.md) | 224 |  | Size from the 224-byte free in GUILayerNode's destructor. |
 | [GUINodeState](GUINodeState.md) | 208 | [UI framework](../areas/ui-framework.md) | One state (timeline) of a component: its clock, its loop range, its flags and the channel sets and entries it applies. |
@@ -112,6 +120,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [ImportSlotRow](ImportSlotRow.md) | 8 | [Application and startup](../areas/app-startup.md) | One row of SteamApiImportSlots. |
 | [InflictRecordRow](InflictRecordRow.md) | 6 | [Items and shops](../areas/items.md) | One added-effect record. |
 | [InputActionRow](InputActionRow.md) | 48 | [Input](../areas/input.md) | One action of the input module (g_InputModule + 1360 + 48 * action id, 256 rows; ids are UIKeyAssign keys): three 16-byte bindings, the pad button first, then two keys. |
+| [InputModule](InputModule.md) |  | [Input](../areas/input.md) | The UI input module (g_InputModule): device state, the 256 action rows and the binding settings. |
 | [InputStateAxes](InputStateAxes.md) | 1352 | [Input](../areas/input.md) | The analog part of the 0x548-byte input state that the UI listeners receive (copied whole by sub_1400EFB50 and by GUICore_OnInputState): four signed stick bytes, two trigger bytes and the button dwords. |
 | [ItemAccessoryRow](ItemAccessoryRow.md) | 2 | [Items and shops](../areas/items.md) | Accessory sub-record. |
 | [ItemArmorRow](ItemArmorRow.md) | 2 | [Items and shops](../areas/items.md) | Armor sub-record. |
@@ -137,11 +146,13 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [JobTableRow](JobTableRow.md) | 49 | [Job data](../areas/job-data.md) | One 49-byte row of the stock job table: skillset, always-on abilities, equipment classes, growth constants, move, jump, evade, status and element sets and three look bytes. |
 | [JobTreeAddon](JobTreeAddon.md) | 13312 |  | STOCK layout (20 panels). |
 | [JobTreePanel](JobTreePanel.md) | 456 |  | Stride 456 bytes (stock: 20 panels). |
+| [JournalListEntry](JournalListEntry.md) | 12 | [UI framework](../areas/ui-framework.md) | One 12-byte entry of the Chronicle Events list that JournalList_Build fills for each Journal row that is met. |
 | [KeyRepeatPreset](KeyRepeatPreset.md) | 6 | [Input](../areas/input.md) | One row of the KeyRepeatPresets table. |
 | [KeyTrack](KeyTrack.md) |  | [UI framework](../areas/ui-framework.md) | A keyframe track of one property of one target: sorted keys, the first four stored inline. |
 | [KeyTrackKey](KeyTrackKey.md) | 16 | [UI framework](../areas/ui-framework.md) | One keyframe: its frame, the curve that shapes the interval to the next key, and the value. |
 | [LauncherButtonIdRow](LauncherButtonIdRow.md) | 4 | [UI framework](../areas/ui-framework.md) | One row of UiLauncherButtonOrder. |
 | [LauncherFocusRow](LauncherFocusRow.md) | 24 | [UI framework](../areas/ui-framework.md) | One row of UiLauncherFocusNeighborsAlt. |
+| [LauncherGuide](LauncherGuide.md) |  | [UI framework](../areas/ui-framework.md) | The launcher's guide pages state (UIAddonFFTOLauncher): the page set and the nodes the page builders use. |
 | [LayoutPointer](LayoutPointer.md) | 8 | [Battle](../areas/battle.md) | One row of the StatusPanelLayoutsLanguage0 table. |
 | [LegacyAbilityMenuSkillsetByTabRow](LegacyAbilityMenuSkillsetByTabRow.md) | 1 | [UI framework](../areas/ui-framework.md) | One row of the LegacyAbilityMenuSkillsetByTab table. |
 | [LegacyBounceProfileRow](LegacyBounceProfileRow.md) | 2 | [UI framework](../areas/ui-framework.md) | One row of the LegacyBounceProfile table. |
@@ -447,6 +458,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [RgbaColourRow](RgbaColourRow.md) | 4 | [Graphics](../areas/graphics.md) | One row of GfxColourCubePalette. |
 | [RoadPointListPointer](RoadPointListPointer.md) | 8 | [Event system](../areas/event-system.md) | One row of the RoadPointLists table. |
 | [RuntimeJobListEntry](RuntimeJobListEntry.md) | 2 | [Job data](../areas/job-data.md) | One entry of the Change Job list as built by the game. |
+| [SaveBlockUiMarks](SaveBlockUiMarks.md) | 7780 | [Save data](../areas/save-data.md) | The parts of the save block behind qword_143CD9DC8 that hold the 'new' marks and the current position of the Zodiac Stone, Chronicle, Events and glossary screens. |
 | [SaveEquipSet](SaveEquipSet.md) | 88 | [Save data](../areas/save-data.md) | One saved equipment set of a unit (three per unit record). |
 | [SaveErrorMessage](SaveErrorMessage.md) | 8 | [Save data](../areas/save-data.md) | One row of the SaveErrorMessages table. |
 | [SaveFieldDescriptor](SaveFieldDescriptor.md) | 88 | [Save data](../areas/save-data.md) | One field of a saved record, as the save walker reads it (built on the stack by each schema function). |
@@ -487,6 +499,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [TerrainPropertiesRow](TerrainPropertiesRow.md) | 1 | [Battle](../areas/battle.md) | One byte of a TerrainProperties block (two blocks of 64). |
 | [TextPackPathsRow](TextPackPathsRow.md) | 8 | [Resource](../areas/resource.md) | One row of the TextPackPaths table. |
 | [TextPointerRow](TextPointerRow.md) | 8 | [Resource](../areas/resource.md) | One row of a table of text pointers (audio loader errors, mixer names, XML status names, value type names). |
+| [TextTagRecord](TextTagRecord.md) |  | [Data access](../areas/data.md) | The record UIText_ResolveCategoryRow gives the counted-noun text tag builders: three strings and four grammar bytes. |
 | [TextureIdRow](TextureIdRow.md) | 4 | [Graphics](../areas/graphics.md) | One row of SpriteShapeHdTexture. |
 | [TextureWindowWordRow](TextureWindowWordRow.md) | 2 | [Graphics](../areas/graphics.md) | One row of GfxTextureWindowParams. |
 | [TownMenuKind](TownMenuKind.md) | 4 | [Event system](../areas/event-system.md) | One row of the TownMenuKindBySettlement table. |
@@ -520,4 +533,5 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [WindowGroupStartRow](WindowGroupStartRow.md) | 1 | [UI framework](../areas/ui-framework.md) | One row of UiLegacyWindowGroupStartsLang0. |
 | [WindowGrowStep](WindowGrowStep.md) | 1 | [UI framework](../areas/ui-framework.md) | One row of the WindowGrowSteps table. |
 | [WindowPatternWord](WindowPatternWord.md) | 2 | [UI framework](../areas/ui-framework.md) | One row of the WindowPatternTiles table. |
+| [WorldMapLocationRecord](WorldMapLocationRecord.md) | 64 | [UI framework](../areas/ui-framework.md) | One 64-byte record per world-map location that the location-list builder accepts (location ids 0..46): what is on offer there and its state at the current story progress. |
 | [WorldMapRoad](WorldMapRoad.md) | 8 | [Event system](../areas/event-system.md) | One row of the WorldMapRoads table. |

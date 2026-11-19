@@ -24,7 +24,7 @@ The row of (key1, key2) of a double-keyed table (for a triple-keyed table: the f
 
 ## Referenced by
 
-- Called by: [GuideWindow_ShowPage](GuideWindow_ShowPage.md), [sub_1400F7378](sub_1400F7378.md)
+- Called by: [CharaColorSkin_Resolve](CharaColorSkin_Resolve.md), [GuideEntry_Fill](GuideEntry_Fill.md), [GuideWindow_ShowPage](GuideWindow_ShowPage.md), [WorldMapScreen_SetProgress](WorldMapScreen_SetProgress.md), [sub_1400F7378](sub_1400F7378.md)
 
 ## Notes
 

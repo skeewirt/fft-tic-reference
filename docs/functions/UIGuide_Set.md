@@ -22,7 +22,7 @@ Sets the guide bar's key and sub-row mask.
 
 ## Referenced by
 
-- Called by: [ConfigMenu_UpdateFooter](ConfigMenu_UpdateFooter.md)
+- Called by: [ConfigMenu_UpdateFooter](ConfigMenu_UpdateFooter.md), [JournalScreen_OnAction](JournalScreen_OnAction.md)
 - Observed behaviours: [GuideBarLayout](../behaviors/GuideBarLayout.md)
 
 ## Open questions

@@ -24,7 +24,7 @@ Gets a kind-3 (image) slot for a name: reuses an existing one (refcount +1) or r
 
 ## Referenced by
 
-- Called by: [GUIFontSlotGroup_SetImageByName](GUIFontSlotGroup_SetImageByName.md)
+- Called by: [GUIFontSlotGroup_SetImageByName](GUIFontSlotGroup_SetImageByName.md), [IconImage_AcquireById](IconImage_AcquireById.md)
 
 ## Notes
 

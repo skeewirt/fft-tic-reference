@@ -24,7 +24,7 @@ The body of opcode 0xA7: for every entry in the sound object's entry list whose 
 
 ## Referenced by
 
-- Called by: [sub_1400F4C54](sub_1400F4C54.md)
+- Called by: [CreditRoll_StartMusic](CreditRoll_StartMusic.md), [sub_1400F4C54](sub_1400F4C54.md)
 
 ## Notes
 

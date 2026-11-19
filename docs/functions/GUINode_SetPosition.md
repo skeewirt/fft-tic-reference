@@ -20,7 +20,7 @@ Sets a node's integer position; the track sampler, the finger cursor's glide and
 ## Referenced by
 
 - Appears in flows: [CursorGloveFrame](../flows/CursorGloveFrame.md), [JobScreenFrame](../flows/JobScreenFrame.md)
-- Called by: [CharaRender_PlaceSlotImage](CharaRender_PlaceSlotImage.md), [GUIComponentList_LayoutSlots](GUIComponentList_LayoutSlots.md), [GUIComponentScrollBar_StepKnob](GUIComponentScrollBar_StepKnob.md), [GUICursorHand_StepToward](GUICursorHand_StepToward.md), [GUICursorHand_Update](GUICursorHand_Update.md), [GUINode_ApplyAnimChannels](GUINode_ApplyAnimChannels.md), [GUINode_BuildFromFile](GUINode_BuildFromFile.md), [GUITextBoardComponent_Update](GUITextBoardComponent_Update.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [UIGadgetFFTOVScrollText_ApplyScroll](UIGadgetFFTOVScrollText_ApplyScroll.md), [UIPosFollow_Snap](UIPosFollow_Snap.md)
+- Called by: [CharaRender_PlaceSlotImage](CharaRender_PlaceSlotImage.md), [CreditRoll_AddPictureLine](CreditRoll_AddPictureLine.md), [GUIComponentList_LayoutSlots](GUIComponentList_LayoutSlots.md), [GUIComponentScrollBar_StepKnob](GUIComponentScrollBar_StepKnob.md), [GUICursorHand_StepToward](GUICursorHand_StepToward.md), [GUICursorHand_Update](GUICursorHand_Update.md), [GUINode_ApplyAnimChannels](GUINode_ApplyAnimChannels.md), [GUINode_BuildFromFile](GUINode_BuildFromFile.md), [GUITextBoardComponent_Update](GUITextBoardComponent_Update.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [UIGadgetFFTOVScrollText_ApplyScroll](UIGadgetFFTOVScrollText_ApplyScroll.md), [UIPosFollow_Snap](UIPosFollow_Snap.md)
 - Observed behaviours: [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md), [JobTreeViewControl](../behaviors/JobTreeViewControl.md)
 
 ## Notes

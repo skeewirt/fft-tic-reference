@@ -24,7 +24,7 @@ After the text of a scroll-text gadget changed: lays the text out, sizes the tex
 
 ## Referenced by
 
-- Called by: [StatusScreen_SetCaption](StatusScreen_SetCaption.md)
+- Called by: [Launcher_DrawInfoPage](Launcher_DrawInfoPage.md), [Launcher_DrawStartPage](Launcher_DrawStartPage.md), [StatusScreen_SetCaption](StatusScreen_SetCaption.md)
 
 ## Notes
 

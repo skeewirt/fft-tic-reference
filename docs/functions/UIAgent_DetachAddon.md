@@ -23,7 +23,7 @@ Removes an add-on from its agent's list, hides it and calls its slot 5.
 ## Referenced by
 
 - Appears in flows: [GeneralOptionsOpenAndClose](../flows/GeneralOptionsOpenAndClose.md)
-- Called by: [UIAgentFFTOSystem_FreeAddons](UIAgentFFTOSystem_FreeAddons.md)
+- Called by: [Movie_Start](Movie_Start.md), [UIAgentFFTOSystem_FreeAddons](UIAgentFFTOSystem_FreeAddons.md)
 
 ## Open questions
 

@@ -24,7 +24,7 @@ Answers whether a UserSituation condition (nxd table 90, keyed by situation and 
 
 ## Referenced by
 
-- Called by: [BarTop_Setup](BarTop_Setup.md), [MapRow_SelectVariation](MapRow_SelectVariation.md), [TavernRumour_IsAvailable](TavernRumour_IsAvailable.md), [WorldMap_ApplyProgressInfo](WorldMap_ApplyProgressInfo.md)
+- Called by: [BarTop_Setup](BarTop_Setup.md), [CharaColorSkin_Resolve](CharaColorSkin_Resolve.md), [ChroniclePeriod_ListUnlocked](ChroniclePeriod_ListUnlocked.md), [GuideLessons_AnyNewlyUnlockable](GuideLessons_AnyNewlyUnlockable.md), [GuideLessons_UpdateUnlocked](GuideLessons_UpdateUnlocked.md), [GuideList_BuildLessons](GuideList_BuildLessons.md), [Guide_IsUnlocked](Guide_IsUnlocked.md), [Guide_TryAutoShow](Guide_TryAutoShow.md), [JournalList_Build](JournalList_Build.md), [LoreDictionary_BuildList](LoreDictionary_BuildList.md), [LoreDictionary_CurrentRow](LoreDictionary_CurrentRow.md), [LoreDictionary_PageCount](LoreDictionary_PageCount.md), [MapRow_SelectVariation](MapRow_SelectVariation.md), [TavernRumour_IsAvailable](TavernRumour_IsAvailable.md), [Unit_GetVoicePatternId](Unit_GetVoicePatternId.md), [WorldMapLocationPanel_Fill](WorldMapLocationPanel_Fill.md), [WorldMapRoute_Refresh](WorldMapRoute_Refresh.md), [WorldMap_ApplyProgressInfo](WorldMap_ApplyProgressInfo.md), [ZodiacStoneBoard_Setup](ZodiacStoneBoard_Setup.md), [ZodiacStone_AnyMet](ZodiacStone_AnyMet.md), [ZodiacStone_AnyMetAndNew](ZodiacStone_AnyMetAndNew.md), [ZodiacStone_ClearNewMarks](ZodiacStone_ClearNewMarks.md)
 - Observed behaviours: [TavernErrandsOpenAtSituationCounter450](../behaviors/TavernErrandsOpenAtSituationCounter450.md)
 
 ## Notes

@@ -2,9 +2,9 @@
 
 NXD table accessors, the table registry and other game-data lookups.
 
-Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flows: 3, Observed behaviours: 7, Tables: 116.
+Functions: 60, Structures: 111, Globals: 2, Registries: 2, File formats: 5, Flows: 3, Observed behaviours: 8, Tables: 116.
 
-## Functions (55)
+## Functions (60)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -59,12 +59,17 @@ Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flow
 | [sub_1402EC9D0](../functions/sub_1402EC9D0.md) | `0x1402EC9D0` | The menu-side text-id command thunk. |
 | [sub_140332B48](../functions/sub_140332B48.md) | `0x140332B48` | Returns the string pool that belongs to a text kind; the kind selects a pool, which is prepared and then returned by pointer. |
 | [TextKind25_LoadPool](../functions/TextKind25_LoadPool.md) | `0x140284098` | Loads the text pool that serves text kind 25 (base 0xC800): it sizes the buffer from the current pool count, allocates it, and reads one of five sectors into it. |
+| [TextTag_CountedNounArticle](../functions/TextTag_CountedNounArticle.md) | `0x1400F3F94` | Counted-noun text tag builder that first adds an article or form string from a per-language table. |
+| [TextTag_CountedNounForms](../functions/TextTag_CountedNounForms.md) | `0x1400F4200` | Counted-noun text tag builder that adds a form string chosen by two record bytes. |
+| [TextTag_CountedNounIndexed](../functions/TextTag_CountedNounIndexed.md) | `0x1400F4558` | Counted-noun text tag builder that indexes a per-language form table with three record bytes. |
+| [TextTag_CountedNounPlain](../functions/TextTag_CountedNounPlain.md) | `0x1400F4718` | Counted-noun text tag builder with no article or form string. |
+| [TextTag_ExpandKeyIcon](../functions/TextTag_ExpandKeyIcon.md) | `0x1400F2648` | Expands the in-text tags of the UI text engine; the 'keyicon' tag inserts the button glyph of a named input action. |
 | [UITable_GetRowByKey](../functions/UITable_GetRowByKey.md) | `0x1403DBC74` | Returns the row of an NXD table by table id and row key, or null when the table or row is missing. |
 | [UIText_Get](../functions/UIText_Get.md) | `0x1403DBE88` | Returns the UI text string for an id from UI table 19, or a shared empty string when the row is missing. |
 | [UIText_ResolveCategoryRow](../functions/UIText_ResolveCategoryRow.md) | `0x1400F3BB0` | Resolves the category name and key of a <category=key> text tag to a table row and fills a 28-byte result record with three string pointers and four flag bytes. |
 | [Utf8_DecodeUnit](../functions/Utf8_DecodeUnit.md) | `0x1403BF9D4` | Decodes one UTF-8 sequence to a 16-bit code unit and returns the number of bytes used. |
 
-## Structures (110)
+## Structures (111)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -178,6 +183,7 @@ Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flow
 | [NxdDataWorldSituationBalloonRow](../structs/NxdDataWorldSituationBalloonRow.md) | 76 | One row of the nxd.world_situation_balloon table (data table). |
 | [NxdTable](../structs/NxdTable.md) | 80 | One table object of the nxd registry (NxdRegistry_LoadRootNxl allocates one per root.nxl line); NxdTable_BindRows fills its entries from the loaded file and every row lookup reads it. |
 | [PowerOfTen](../structs/PowerOfTen.md) | 4 | One row of the PowersOfTen table. |
+| [TextTagRecord](../structs/TextTagRecord.md) |  | The record UIText_ResolveCategoryRow gives the counted-noun text tag builders: three strings and four grammar bytes. |
 
 ## Globals (2)
 
@@ -211,13 +217,14 @@ Functions: 55, Structures: 110, Globals: 2, Registries: 2, File formats: 5, Flow
 | [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](../flows/NxdTableLoad.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
 
-## Observed behaviours (7)
+## Observed behaviours (8)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [CharShapeRowsANewLookNeeds](../behaviors/CharShapeRowsANewLookNeeds.md) | engine (sprite rows in the NXD data) | The CharShape rows (NXD table 174, keyed by look number) end at key 158 and twelve functions look a look up there. |
 | [FirstDwordOfTableRowsIsNeverRead](../behaviors/FirstDwordOfTableRowsIsNeverRead.md) | engine (nxd table access) | No shared code reads the first dword of a table row; a row is found through the key / offset index record, so the value there decides nothing. |
 | [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md) | engine (sprite sheets and palettes) | How a sprite number becomes a sheet and a palette: a g2d entry pair through the HD table and the pack's unchecked index table, and a palette from the classic file named in the classic table. |
+| [KeyIconTag](../behaviors/KeyIconTag.md) | engine (UI text) | A 'keyicon' text tag names an input action and the text engine inserts that action's current button glyph. |
 | [SkillsetNamesAndHelpAreKeyedBySetId](../behaviors/SkillsetNamesAndHelpAreKeyedBySetId.md) | engine | A skillset's name and help are found by the set id alone: the name token is 0xB000 \| set (text kind 22) and the help token 0x9800 \| set (kind 19), both 11-bit indexes; the name row is the JobCommand-en NXD row keyed b... |
 | [SpriteSheetsAndClassicFilesByNumber](../behaviors/SpriteSheetsAndClassicFilesByNumber.md) | engine (asset loading) | HD sprite sheets are read by number and the loader accepts any number; classic sprite files are read by name only. |
 | [TextLanguage](../behaviors/TextLanguage.md) | the text language: where it comes from, where it is read, how the text files are chosen | How the game picks and applies its text language. |

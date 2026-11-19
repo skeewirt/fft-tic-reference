@@ -16,6 +16,10 @@ Moves the cursor to a row and focuses the row.
 
 - V: read from the decompilation.
 
+## Referenced by
+
+- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md)
+
 ## Open questions
 
 None recorded.

@@ -20,6 +20,10 @@ Copies one of four Job-en string slots (+8, +12, +16, +20) into out, chosen by l
 
 - Calls: [UITable_GetRowByKey](UITable_GetRowByKey.md)
 
+## Referenced by
+
+- Called by: [TextTag_ExpandKeyIcon](TextTag_ExpandKeyIcon.md)
+
 ## Notes
 
 Table 0x2E = 46 = Job-en.

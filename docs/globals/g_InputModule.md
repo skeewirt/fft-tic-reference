@@ -13,7 +13,7 @@ The UI input module: a copy of the device state at +8, 256 action rows of 48 byt
 
 ## Referenced by
 
-- Read by: [BattleControl_FrameUpdate](../functions/BattleControl_FrameUpdate.md), [EventControl_RunningTick](../functions/EventControl_RunningTick.md), [WorldMap_UpdateFastForward](../functions/WorldMap_UpdateFastForward.md)
+- Read by: [BattleControl_FrameUpdate](../functions/BattleControl_FrameUpdate.md), [EventControl_RunningTick](../functions/EventControl_RunningTick.md), [InputRows_ApplyKeyBindings](../functions/InputRows_ApplyKeyBindings.md), [InputRows_ApplyPadLayout](../functions/InputRows_ApplyPadLayout.md), [InputRows_Rebuild](../functions/InputRows_Rebuild.md), [WorldMap_UpdateFastForward](../functions/WorldMap_UpdateFastForward.md)
 
 ## Open questions
 

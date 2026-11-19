@@ -32,8 +32,8 @@ Configures one guide slot for table 33 row `row`: sets the text, the up to four 
 
 ## Notes
 
-The 'four direction buttons' reading of the 19 / 20 group is I (ids 0x21..0x24 are the actions the direction helpers test).
+The 'four direction buttons' reading of the 19 / 20 group is I (ids 0x21..0x24 are the actions the direction helpers test). Column names of table 33 (UIButtonGuide, 2026-11-19): +4 guide_icon, +0xC title_text, +0x10 guide_icon_2, +0x1C key_texture, +0x20 key_texture_2, +0x25 right_aligned (the placement byte); +8 / +0x14 are the actions ui_key_assign / ui_key_assign_2.
 
 ## Open questions
 
-? names of the row columns of table 33; the exact meaning of dwords +28 / +32. ? partly an unverified guess that this is the on-screen button hints bar (the only strings read are the Show/Hide Nth button states).
+Answered 2026-11-19: the dwords +28 / +32 are key_texture / key_texture_2 (V: in keyboard mode with +28 non-zero the slot icons are (+28, +32) flagged as keyboard keys, drawn from the key texture path 'ui/platform/win/textureparts/key_%03d_uitx' by sub_14028BE4C); the placement byte (+37) is right_aligned: GuideBar_Layout lays rows out twice, rightPass 0 from the left margin (g+2232) and rightPass 1 from 1920 minus the margin. ? the bar's role is still I (button hints), the Show / Hide Nth button states being the only strings read.

@@ -22,7 +22,7 @@ Formats 'ui/ffto/icon/<path>' (or the same path with a texture-parts URI prefix)
 
 ## Referenced by
 
-- Called by: [GuiImage_SetIconById](GuiImage_SetIconById.md), [ItemIcon_FormatLargePath](ItemIcon_FormatLargePath.md), [ItemIcon_FormatSmallPath](ItemIcon_FormatSmallPath.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md)
+- Called by: [CreditRoll_AddPictureLine](CreditRoll_AddPictureLine.md), [GuiImage_SetIconById](GuiImage_SetIconById.md), [IconBase_FormatPath](IconBase_FormatPath.md), [ItemIcon_FormatLargePath](ItemIcon_FormatLargePath.md), [ItemIcon_FormatSmallPath](ItemIcon_FormatSmallPath.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [ZodiacStoneBoard_Setup](ZodiacStoneBoard_Setup.md)
 - Reads file formats: [ItemIconPath](../formats/ItemIconPath.md)
 
 ## Notes

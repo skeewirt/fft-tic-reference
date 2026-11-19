@@ -16,6 +16,10 @@ Copies the first n keys of the row an entry points to (the record's leading dwor
 
 - V: kind = qword 0 without bit 63; kind below n returns false; else out[i] = pointer dword i for i < n (none when out is null or n is 0), true.
 
+## Referenced by
+
+- Called by: [GuideLessons_UpdateUnlocked](GuideLessons_UpdateUnlocked.md), [GuideList_BuildLessons](GuideList_BuildLessons.md), [WorldMapProgress_GetObjectiveCaption](WorldMapProgress_GetObjectiveCaption.md)
+
 ## Open questions
 
 None recorded.
