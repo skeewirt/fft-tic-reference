@@ -11,26 +11,21 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Bequeath Bacon: a self-sacrifice effect that writes HP/MP values and applies a status to the caster.
+Sacrifice: fills the target's HP and MP words with its own maximums, then, when the target is below level 99, turns the result into a stat change (flag word 0x80) and applies the ability's status to the caster.
 
 ## Behavior
 
-- V: Current-build decompilation confirms the chain and arithmetic shown above.
+- V: Current-build decompilation confirms the chain and arithmetic shown above (re-read 2026-11-18: the maximums and the level test are the target's, g_BattleActingUnit, not the caster's).
 - V: Current-build symbol size is 146 bytes.
 - V: Typical abilities: Bequeath Bacon.
 
 ## Calculation
 
 ```text
-Sets HP-damage field = caster MaxHP, MP-heal field = caster MaxMP
-Initial flags: 0x90 (HP_Damage | MP_Healing)
-Then sub_1402FCFDC processes the values
-If caster level < 99: flags OVERWRITTEN to 1 (StatChange)
-    Swaps pointers → applies status to the caster via F56
-    Then restores pointers
-If caster level ≥ 99: auto-miss
-Note: the 0x90 flag is overwritten before engine reads it,
-so HP/MP fields may only matter for sub_1402FCFDC processing.
+R+6 = target max HP, R+12 = target max MP, kind bits 0x90, then Formula_HealSwap
+Target level (+0x29) < 99: kind bits = 1 (stat change), flag word (+18) = 0x80;
+    the unit and result pointers are swapped and Formula_56 applies the status to the caster
+Target level 99: hit 0, reason 7, hit percent 0
 ```
 
 ## Notes

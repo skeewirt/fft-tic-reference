@@ -97,7 +97,7 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_84_MPRestorationMagicBased](../functions/Formula_84_MPRestorationMagicBased.md) | `0x140308FA0` | MP restoration: MA x Y MP healing with caster boost and Zodiac; always succeeds. |
 | [Formula_85_PeckPhysicalHitPADrain](../functions/Formula_85_PeckPhysicalHitPADrain.md) | `0x140308FF8` | Peck: a magic hit that reduces the target's PA. |
 | [Formula_86_BeamPhysicalHitMADrain](../functions/Formula_86_BeamPhysicalHitMADrain.md) | `0x14030902C` | Beam: a magic hit that reduces the target's MA. |
-| [Formula_87_BequeathBaconSelfSacrifice](../functions/Formula_87_BequeathBaconSelfSacrifice.md) | `0x140309060` | Bequeath Bacon: a self-sacrifice effect that writes HP/MP values and applies a status to the caster. |
+| [Formula_87_BequeathBaconSelfSacrifice](../functions/Formula_87_BequeathBaconSelfSacrifice.md) | `0x140309060` | Sacrifice: fills the target's HP and MP words with its own maximums, then, when the target is below level 99, turns the result into a stat change (flag word 0x80) and applies the ability's status to the caster. |
 | [Formula_88_MalboroSporesMagicHitRecruitment](../functions/Formula_88_MalboroSporesMagicHitRecruitment.md) | `0x1403090F4` | Malboro Spores: a magic hit check that validates the target and sets the recruit/charm flag. |
 | [Formula_89_LevelDrainPhysicalHitLevelSteal](../functions/Formula_89_LevelDrainPhysicalHitLevelSteal.md) | `0x14030918C` | Level Drain: a magic hit that sets the level-drain flag. |
 | [Formula_90_DragonSCharmSpeciesGatedStatus](../functions/Formula_90_DragonSCharmSpeciesGatedStatus.md) | `0x1403091D8` | Dragon's Charm: a species-gated status with no hit check. |
@@ -108,7 +108,7 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_95_NanoflareReDispatchesToF30](../functions/Formula_95_NanoflareReDispatchesToF30.md) | `0x140307C10` | Nanoflare: shares the F30 target. |
 | [Formula_96_MagicAveraged](../functions/Formula_96_MagicAveraged.md) | `0x140309310` | Averaged magic damage: A = MA, B = (MA + Y) / 2, then the magic damage tail (a thunk to Formula_MagicAvgDamage). |
 | [Formula_97_MagicBasedBraveModify](../functions/Formula_97_MagicBasedBraveModify.md) | `0x140309318` | Magic-based Brave modify: a magic hit check that adjusts the target's Brave. |
-| [Formula_98_PhysicalBasedBraveModify](../functions/Formula_98_PhysicalBasedBraveModify.md) | `0x14030934C` | Brave modify using the single-faith magic chain. |
+| [Formula_98_PhysicalBasedBraveModify](../functions/Formula_98_PhysicalBasedBraveModify.md) | `0x14030934C` | Brave change with a magic roll that ignores Faith: the magic evade gate, then a MA + X chance; on a hit the target's Brave changes by Y. |
 | [Formula_99_SpeedTimesWeaponPower](../functions/Formula_99_SpeedTimesWeaponPower.md) | `0x140309380` | Thrown weapon: damage = the caster's Speed x the weapon's WP through the physical modifiers; a target with the catch reaction may catch it on a Brave roll. |
 | [Formula_BardDancerGate](../functions/Formula_BardDancerGate.md) | `0x140304D5C` | The Bard and Dancer hit roll: scales the shown percent by X and rolls a miss against X. |
 | [Formula_CasterMagMods](../functions/Formula_CasterMagMods.md) | `0x140305CB0` | The caster's magic damage modifiers: two passive bits scale A. |

@@ -11,20 +11,20 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Brave modify using the single-faith magic chain.
+Brave change with a magic roll that ignores Faith: the magic evade gate, then a MA + X chance; on a hit the target's Brave changes by Y.
 
 ## Behavior
 
-- V: Current-build decompilation confirms the chain and arithmetic shown above.
+- V: Current-build decompilation confirms the chain and arithmetic shown above (re-read 2026-11-18: the earlier calculation called the hit physical).
 - V: Current-build symbol size is 50 bytes.
 - V: Typical abilities: Dread Gaze.
 
 ## Calculation
 
 ```text
-Hit check: physical hit check (evade-based)
-On success: target's Brave adjusted by Y & 0x7F
-(uses PHYSICAL hit check, evade-dependent)
+Gate: sub_140306D70 (shield and accessory evade)
+Hit: Formula_MagicHitNoFaith (MA + X with the magic modifiers, no Faith)
+On success: Brave change byte (R+24) = Y & 0x7F, kind bits 1
 ```
 
 ## Notes
