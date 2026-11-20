@@ -21,7 +21,7 @@ Screen identities, cell layouts and the memory handles (job byte, item id, gil) 
 
 ## Notes
 
-Cell positions are node offsets summed down the widget tree; the debugger's `pick` command uses them.
+Cell positions are node offsets summed down the widget tree.
 
 ## Open questions
 

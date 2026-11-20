@@ -27,7 +27,7 @@ Resolves the focus key triple (core+1968) to the live widget and node; returns 0
 
 ## Notes
 
-Live read with the debugger's `call`: widget = the ffto_job_tree.uib widget, node screen rect (1220, 517, 1284, 597), so the hand target is (left, centre y) = (1220, 557).
+Live read: widget = the ffto_job_tree.uib widget, node screen rect (1220, 517, 1284, 597), so the hand target is (left, centre y) = (1220, 557).
 
 ## Open questions
 

@@ -32,10 +32,6 @@ Builds the target tiles of the Attack command (and of command kind 10): clears t
 
 - Observed behaviours: [AttackWeaponReach](../behaviors/AttackWeaponReach.md)
 
-## Notes
-
-The debugger models this rule set (attack_cells of its reach module).
-
 ## Open questions
 
 None recorded.

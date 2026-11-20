@@ -38,7 +38,7 @@ Prepares the globals the move-range expansion reads: it copies the acting unit m
 
 ## Notes
 
-Whole function read (1336 bytes). The range scratch globals and the blocker table are the ones the C5 cursor/range study names. Revised 2026-11-09 with the full read for the debugger's move-range port: the earlier lines about a large-monster bit and about sub_14027AD6C clearing state were wrong.
+Whole function read (1336 bytes). The range scratch globals and the blocker table are the ones the C5 cursor/range study names. Revised 2026-11-09 with the full read: the earlier lines about a large-monster bit and about sub_14027AD6C clearing state were wrong.
 
 ## Open questions
 

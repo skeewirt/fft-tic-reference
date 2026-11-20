@@ -26,7 +26,7 @@ Which tiles a unit's basic Attack can target: one weapon is chosen, its flag byt
 
 ## Notes
 
-The debugger models these rules (its reach module, with an offline self-test). Detail and evidence: the function sheets linked from this page.
+Detail and evidence: the function sheets linked from this page.
 
 ## Open questions
 

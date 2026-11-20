@@ -20,10 +20,6 @@ How a battle is entered from the world map, and which screens and memory fields 
 - V (live): the footer (ffto_footer_02.uib) tells the two phases apart: 'Zoom | Select Tile | Previous Unit | Commence Battle' on the deployment screen; during the enemy and guest turns it reads 'Pause Battle', 'Next', 'Status', 'View Battlefield', 'Center on Ramza', 'Change Combat Set' (the first label alternates between 'Pause Battle' and 'Change Display' every few seconds). The 'Next' in that footer is a permanent hint, not a message page.
 - V (live): Esc opens ffto_pause.uib during this phase ('Esc resumes, hold Space skips the cutscene'); closing it brings up a ffto_battle_dialog.uib screen and a notice-dialog agent with no text drawn.
 
-## Notes
-
-Window capture: the debugger's `shot` command (window capture that works while the game is in the background).
-
 ## Open questions
 
 ? Why the focus, event and turn fields keep the deployment and cutscene values during the opening enemy and guest turns. ? Whether any input shortens that wait (none of the tried keys did). ? Which battles let the player choose the party before Commence.

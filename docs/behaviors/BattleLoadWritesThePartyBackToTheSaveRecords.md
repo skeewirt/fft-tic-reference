@@ -13,7 +13,7 @@ While a battle loads, the game writes every party work record back into its save
 
 ## Behavior
 
-- V: seen live 2026-11-09 (Mandalia Plain from the world map, debugger tracepoint on PartyUnit_WriteBackToSave): seven calls with the party index 0..6 in the first argument, all from one thread in one frame, before the deployment screen.
+- V: seen live 2026-11-09 (Mandalia Plain from the world map, a trace of PartyUnit_WriteBackToSave): seven calls with the party index 0..6 in the first argument, all from one thread in one frame, before the deployment screen.
 - ?: which caller of PartyUnit_WriteBackToSave runs at the battle load (ten callers listed on its sheet).
 
 ## Open questions

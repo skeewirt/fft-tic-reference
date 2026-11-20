@@ -28,7 +28,7 @@ Finds the header (MainTab/Tab) nodes of a screen and keeps them in the controlle
 
 ## Notes
 
-JobTree_RefreshAddon calls it with the 'JobTree' node, then MainTab_SelectTab(ctl, 1), then writes text id 3885 into ctl[4] (+248; the byte +316 = 1 marks it dirty). UI-en row 3885 is 'Job Tree'. Live read (debugger, 2026-10-28): the Title node is kind 3, size (60,120), pivot (30,60), text id +248 = 0xF2D = 3885.
+JobTree_RefreshAddon calls it with the 'JobTree' node, then MainTab_SelectTab(ctl, 1), then writes text id 3885 into ctl[4] (+248; the byte +316 = 1 marks it dirty). UI-en row 3885 is 'Job Tree'. Live read (2026-10-28): the Title node is kind 3, size (60,120), pivot (30,60), text id +248 = 0xF2D = 3885.
 
 ## Open questions
 

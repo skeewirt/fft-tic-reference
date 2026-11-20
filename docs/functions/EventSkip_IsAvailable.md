@@ -32,7 +32,7 @@ Says whether the running event script may be skipped now. The event pause overla
 
 ## Notes
 
-The debugger's 'allowed' read (low dword of 0x142FF9E4C) is not part of this test; it is the event-viewer flag (see g_EventSkipFlags). The 'armed' read (0x142FF9E50) is.
+The low dword of 0x142FF9E4C is not part of this test; it is the event-viewer flag (see g_EventSkipFlags). The dword at 0x142FF9E50 is.
 
 ## Open questions
 

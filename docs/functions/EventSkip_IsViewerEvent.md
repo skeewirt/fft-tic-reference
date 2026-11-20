@@ -29,7 +29,7 @@ The second way an event becomes skippable: event variable 508 set (an event star
 
 ## Notes
 
-Event variable 508 is a flag bit: store + 556, bit 28, in the layout the debugger's event-variable reader uses (I: layout taken from that reader).
+Event variable 508 is a flag bit: store + 556, bit 28 (I: the layout of the event-variable store).
 
 ## Open questions
 

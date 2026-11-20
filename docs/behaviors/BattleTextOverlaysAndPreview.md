@@ -26,7 +26,7 @@ Where the battle's dialogue, notices and action preview are drawn, how placement
 
 ## Notes
 
-The preview and dialogue layouts are the game's own. Read with the project debugger (state reads and the UI text scanner).
+The preview and dialogue layouts are the game's own.
 
 ## Open questions
 

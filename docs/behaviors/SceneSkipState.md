@@ -28,7 +28,7 @@ Whether the scene on screen can be skipped with the pause overlay + hold, and wh
 
 ## Notes
 
-Debugger reads (dbg.py _event_info): 'allowed' = low dword of 0x142FF9E4C is the viewer flag, 0 in normal play by design; 'armed' = 0x142FF9E50 is the real per-event flag; 'veto' = 0x142FF9E54 is 1 only while a battle scene is built; 'state' = 0x142FF9E0C is the skip state (0 none, 1 requested, 2 skipping). Detail and evidence: the function sheets named on this page.
+The low dword of 0x142FF9E4C is the viewer flag, 0 in normal play by design; 0x142FF9E50 is the real per-event flag; 0x142FF9E54 is 1 only while a battle scene is built; 0x142FF9E0C is the skip state (0 none, 1 requested, 2 skipping). Detail and evidence: the function sheets named on this page.
 
 ## Open questions
 

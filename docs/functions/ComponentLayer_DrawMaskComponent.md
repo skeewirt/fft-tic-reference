@@ -31,7 +31,7 @@ Draws a component's mask component (ctx+392, with the Mask node as its property 
 
 ## Notes
 
-The name is ours. Live (debugger backtrace at the Job Tree title's GUITextNode_Draw): GUIComponentRef_Draw (TextMask reference) -> ComponentLayer_Begin -> this function -> GUINode_DrawChildren -> GUITextNode_Draw, so the title text is drawn into the mask layer, not into the screen. Live: every glyph record of the title text (node+328, 36 bytes each, byte +28) has the bold run flag = 1.
+The name is ours. Live (call stack at the Job Tree title's GUITextNode_Draw): GUIComponentRef_Draw (TextMask reference) -> ComponentLayer_Begin -> this function -> GUINode_DrawChildren -> GUITextNode_Draw, so the title text is drawn into the mask layer, not into the screen. Live: every glyph record of the title text (node+328, 36 bytes each, byte +28) has the bold run flag = 1.
 
 ## Open questions
 

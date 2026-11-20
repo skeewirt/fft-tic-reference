@@ -18,7 +18,7 @@ The zodiac compatibility step on A: raises or lowers it by the pair of signs.
 - V: the class is byte table 0x140682F20 indexed by |caster sign - target sign| (0, 0, 0, 1, 2, 0, 3, 0, 2, 1, 0, 0 for 0..11); class 3 (opposite signs) becomes 5 unless the caster or the target has bit 0x20 of +6 set, in which case it becomes 1.
 - V: percents by class from dword table 0x140723720 plus two constants: 0 = 100, 1 = 75, 2 = 125, 3 = 100, 4 = 50, 5 = 150 (a class of 6 or more = 100).
 - V: A = A * (percent - 100) / 100 + A, raised to 1 when it falls below 1.
-- I: class 4 (50 percent) is not reachable from the table; only 75, 100, 125 and 150 have been seen in play (playbook).
+- I: class 4 (50 percent) is not reachable from the table; only 75, 100, 125 and 150 have been seen in play.
 
 ## Referenced by
 

@@ -9,7 +9,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-Which tiles a unit can stop on: a budget of Move + 1 spreads from its tile by steps and straight jumps under height, headroom, terrain-cost and occupancy rules; a final pass keeps the tiles it may stop on. Reproduced exactly by the debugger port on eight live captures.
+Which tiles a unit can stop on: a budget of Move + 1 spreads from its tile by steps and straight jumps under height, headroom, terrain-cost and occupancy rules; a final pass keeps the tiles it may stop on. Checked against eight ranges captured live: identical.
 
 ## Behavior
 
@@ -31,7 +31,7 @@ Which tiles a unit can stop on: a budget of Move + 1 spreads from its tile by st
 
 ## Notes
 
-The debugger port (its moverange module) runs the same passes in the same order as the routine, with an offline self-test over the captures. Detail and evidence: the function sheets linked from this page.
+Detail and evidence: the function sheets linked from this page.
 
 ## Open questions
 
