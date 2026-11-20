@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2249 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2254 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -353,7 +353,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [EventChain_Find](EventChain_Find.md) | `0x14033D840` | [Event system](../areas/event-system.md) | Looks an event number up in a 9-entry table of chained events and records the entry's two bytes. |
 | [EventChannel_BindStepTask](EventChannel_BindStepTask.md) | `0x1402421AC` | [Event system](../areas/event-system.md) | The task started by event opcode 0x6B: releases a keyed object, binds or selects its channel, then runs the same frame loop as opcode 0x6A. |
 | [EventChannel_StepTask](EventChannel_StepTask.md) | `0x14024223C` | [Event system](../areas/event-system.md) | The task started by event opcode 0x6A: runs a per-frame refresh of a keyed object's channel for a set number of frames, then releases or keeps the key. |
-| [EventCharaSprite_SetTable256Entry](EventCharaSprite_SetTable256Entry.md) | `0x1400D1B74` | [Event system](../areas/event-system.md) | Loads a table-256 entry into a sub-object of the unit sprite renderer and sets how long the change takes. |
+| [EventCharaSprite_SetTable256Entry](EventCharaSprite_SetTable256Entry.md) | `0x1400D1B74` | [Event system](../areas/event-system.md) | Loads a table-256 (PostEffectGlare) row into a sub-object of the unit sprite renderer and sets how long the change takes. |
 | [EventCmd_ActivateSlotParam](EventCmd_ActivateSlotParam.md) | `0x1402F26F0` | [Event commands](../areas/event-commands.md) | Class 39 handler. |
 | [EventCmd_AddOffsetIfVarMatches](EventCmd_AddOffsetIfVarMatches.md) | `0x1402F2B28` | [Event commands](../areas/event-commands.md) | Class 51 handler: reads event variable 24 and, when it equals byte 11, adds bytes 9 and 10 plus 0x8000 to the word at 0x141862452. |
 | [EventCmd_AddOffsetWord](EventCmd_AddOffsetWord.md) | `0x1402F2320` | [Event commands](../areas/event-commands.md) | Class 26 event command: adds a 16-bit argument to the word at offset 2 of the global xmmword_141862450. |
@@ -1115,6 +1115,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [MapMesh_Reset](MapMesh_Reset.md) | `0x1400CA258` | [Battle](../areas/battle.md) | Clears the mesh set: node arrays, layer data and counts. |
 | [MapMesh_StockNodeOffset](MapMesh_StockNodeOffset.md) | `0x1400C8D94` | [Battle](../areas/battle.md) | A hard-coded list of position offsets for single nodes of nine stock maps; 0 for every other map and node. |
 | [MapRenderer_ApplyMapRow](MapRenderer_ApplyMapRow.md) | `0x1400D5374` | [Battle](../areas/battle.md) | Tears down a mesh set that belongs to another map or variation, then applies the chosen variation of the map's Map row to the renderer's post-effect settings. |
+| [MapRenderer_ApplyVariationEffects](MapRenderer_ApplyVariationEffects.md) | `0x1400CF2A8` | [Battle](../areas/battle.md) | Loads the four post-effect rows that a Map variation element names (glare, colour lookup, depth lookup, depth of field) into the renderer sub-object. |
 | [MapRenderer_ReuseLoadedMesh](MapRenderer_ReuseLoadedMesh.md) | `0x1400D55C4` | [Battle](../areas/battle.md) | Re-runs the node setup of an already loaded mesh set (a second battle on the same map). |
 | [MapResource_Read](MapResource_Read.md) | `0x140251640` | [Resource](../areas/resource.md) | Reads one resource file of the current battle map, using the per-map file list when the request carries the marker id. |
 | [MapRow_SelectVariation](MapRow_SelectVariation.md) | `0x140254B8C` | [Battle](../areas/battle.md) | Chooses which variation struct of a map's Map row applies now, and a kind code, from four scene variables. |
@@ -1123,6 +1124,8 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [MapTextures_NameOfFrame](MapTextures_NameOfFrame.md) | `0x1400CAA54` | [Battle](../areas/battle.md) | Builds the file name of one frame of one slot of the map's textures; null when there is none. |
 | [MapTextures_Reset](MapTextures_Reset.md) | `0x1400CA95C` | [Battle](../areas/battle.md) | Releases every map and system texture of the texture set and sets its id fields to none. |
 | [MapTextures_SlotVariantCode](MapTextures_SlotVariantCode.md) | `0x1400CACDC` | [Battle](../areas/battle.md) | Returns the per-variation integer of a texture row minus one (0 when the entry is 0 or the row is absent). |
+| [MapTitle_SetFromMapId](MapTitle_SetFromMapId.md) | `0x140148D24` | [Battle](../areas/battle.md) | Writes the title text of a map into the window's map-title label from the map id's Map row. |
+| [MapTitleLabel_SetText](MapTitleLabel_SetText.md) | `0x140149148` | [UI framework](../areas/ui-framework.md) | Fills the 'Text' and 'Text00' nodes of the 'TextMapGrade' label of a window and plays its 'En' or 'Ja' state. |
 | [Matrix2x3_Invert](Matrix2x3_Invert.md) | `0x1403D8208` | [Math](../areas/math.md) | Inverts a 2x3 affine matrix (1/det with det = m0*m3 - m1*m2). |
 | [Matrix2x3_Multiply](Matrix2x3_Multiply.md) | `0x1403D82F0` | [Math](../areas/math.md) | Concatenates two 2x3 affine matrices (a applied first, then b); the UI's node and layer transforms use this layout [m0 m1 m2 m3 tx ty]. |
 | [Matrix2x3_Rotate](Matrix2x3_Rotate.md) | `0x1403D83FC` | [Math](../areas/math.md) | Rotates a 2x3 matrix by angle radians (single-precision sinf / cosf), applied AFTER m. |
@@ -1214,6 +1217,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [PauseManager_Push](PauseManager_Push.md) | `0x1400B4618` | [Input](../areas/input.md) | Pushes a pause id onto the PauseManager's small stack (max depth 3), applying the previous top's "off" controls and the new top's "on" controls. |
 | [PauseManager_Tick](PauseManager_Tick.md) | `0x1400B467C` | [Input](../areas/input.md) | Ticks the pause overlay: when a pause is on the stack, loads its duration from NXD table 282 into the remaining-time float. |
 | [Pixels_ExpandToRgba](Pixels_ExpandToRgba.md) | `0x14041DDB0` | [Graphics](../areas/graphics.md) | Expands a block of 4-, 8-, 16- or 32-bit pixels into 32-bit texels. |
+| [PlaceName_GetText](PlaceName_GetText.md) | `0x1400FB44C` | [Battle](../areas/battle.md) | Returns the text of a PlaceName row (table 85) by its key, or the empty string. |
 | [Poach_GiveResult](Poach_GiveResult.md) | `0x14030AB70` | [Battle](../areas/battle.md) | Gives the result of a Poach action: an item, or gil when the stock is full, and sends the poach notification. |
 | [PoachersDen_AddStock](PoachersDen_AddStock.md) | `0x140287564` | [Items and shops](../areas/items.md) | Adds a signed delta to the Poachers' Den stock count of one item id and returns the resulting count, clamped to the byte range the store uses; the shop list builder calls it with a zero delta, so in the shop path it i... |
 | [PoachList_Build](PoachList_Build.md) | `0x1401AFFC4` | [Items and shops](../areas/items.md) | Builds the poacher shop's list: one 48-byte entry for each poach id (1..96) with a non-zero held count. |
@@ -1342,6 +1346,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [ScenarioSetup_ApplyRecord](ScenarioSetup_ApplyRecord.md) | `0x1402FB7C8` | [Event system](../areas/event-system.md) | At a scene start, applies the scenario setup record of the scene's event to the scene variables and rebuilds the per-event word table; in the mid-event refresh it only re-reads two scene bytes through the event's link. |
 | [Scene_StartMusic](Scene_StartMusic.md) | `0x1402FC484` | [Event system](../areas/event-system.md) | At a scene start, keeps the running music when the scene's track is the one already playing, otherwise starts the scene's tracks. |
 | [SceneCallback_Dispatch](SceneCallback_Dispatch.md) | `0x1402F7D1C` | [Event system](../areas/event-system.md) | Calls the callback in the global function pointer `qword_140D40940` for modes 0 to 6. |
+| [SceneColourPair_WriteVertexColours](SceneColourPair_WriteVertexColours.md) | `0x14024A6E8` | [Battle](../areas/battle.md) | Writes the scene's two-colour pair (qword_14114A4E8) into the colour entries of four vertices of a render block, a two-colour vertical gradient. |
 | [SceneGroup_ResolveId](SceneGroup_ResolveId.md) | `0x140240888` | [Event system](../areas/event-system.md) | Reads an operand id and decides whether it names one unit or a group: ids 1 to 255 are resolved to a unit id, and ids 0 and 256 and up select a group mode for SceneUnit_TestGroupMember. |
 | [SceneGroup_SetFlag04](SceneGroup_SetFlag04.md) | `0x140241F54` | [Event system](../areas/event-system.md) | The shared body of opcodes 0x6C and 0x6D: sets or clears bit 0x04 of byte +143 of each unit selected by the operand. |
 | [SceneMsgTask_Run](SceneMsgTask_Run.md) | `0x140231D7C` | [Event system](../areas/event-system.md) | Scene task that reads the current scene's message word and dispatches a message descriptor built from it. |

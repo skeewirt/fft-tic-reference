@@ -2,7 +2,7 @@
 
 NXD table accessors, the table registry and other game-data lookups.
 
-Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 12, Tables: 116.
+Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 13, Tables: 116.
 
 ## Functions (60)
 
@@ -219,7 +219,7 @@ Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flow
 | [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](../flows/NxdTableLoad.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
 
-## Observed behaviours (12)
+## Observed behaviours (13)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -229,6 +229,7 @@ Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flow
 | [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md) | engine (sprite sheets and palettes) | How a sprite number becomes a sheet and a palette: a g2d entry pair through the HD table and the pack's unchecked index table, and a palette from the classic file named in the classic table. |
 | [JobNameAndHelpTextTags](../behaviors/JobNameAndHelpTextTags.md) | engine (UI text tags) | The text tags 'jobname' and 'jobhelp' print a Job row's name or help text; each takes a key and a variant, and a variant whose string is empty falls back to the other. |
 | [KeyIconTag](../behaviors/KeyIconTag.md) | engine (UI text) | A 'keyicon' text tag names an input action and the text engine inserts that action's current button glyph. |
+| [MapTablesBytesAndTablesNothingReads](../behaviors/MapTablesBytesAndTablesNothingReads.md) | engine (Map, MapVariationEvent, MapVariationRandomBattle) | Columns and a whole table of the battle map tables that no code reads, found by listing every fetch of each table and every use of the fetched rows, so the stored values decide nothing. |
 | [RecordBytesTheGameNeverReads](../behaviors/RecordBytesTheGameNeverReads.md) | engine (fixed tables in the executable) | Bytes and bits of several fixed tables that no function of the game reads, found by listing every code reference to each table, so the stored values decide nothing. |
 | [SkillsetNamesAndHelpAreKeyedBySetId](../behaviors/SkillsetNamesAndHelpAreKeyedBySetId.md) | engine | A skillset's name and help are found by the set id alone: the name token is 0xB000 \| set (text kind 22) and the help token 0x9800 \| set (kind 19), both 11-bit indexes; the name row is the JobCommand-en NXD row keyed b... |
 | [SpriteSheetsAndClassicFilesByNumber](../behaviors/SpriteSheetsAndClassicFilesByNumber.md) | engine (asset loading) | HD sprite sheets are read by number and the loader accepts any number; classic sprite files are read by name only. |

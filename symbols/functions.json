@@ -18836,6 +18836,23 @@
       },
       "doc": "docs/functions/MapRenderer_ApplyMapRow.md"
     },
+    "MapRenderer_ApplyVariationEffects": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:2fba6bb2bdc1dfd5c0f5ae11e745bcdb18dd203769fa89a6b08316b61e573d5d",
+            "insn_count": 47,
+            "mnemonics": "sha256:15363e0b245af76f7d23a520858387cdc0a6714939923ae8f0ccb4979690ac89",
+            "size": 209
+          },
+          "rva": "0xcf2a8",
+          "size": 209
+        }
+      },
+      "doc": "docs/functions/MapRenderer_ApplyVariationEffects.md"
+    },
     "MapRenderer_ReuseLoadedMesh": {
       "area": "battle",
       "builds": {
@@ -18971,6 +18988,40 @@
         }
       },
       "doc": "docs/functions/MapTextures_SlotVariantCode.md"
+    },
+    "MapTitleLabel_SetText": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:68f1d64d89b5dd84ddab18b810835956da3d07faa763e840c4e9f00a72791e80",
+            "insn_count": 48,
+            "mnemonics": "sha256:f0e0c0d4265dec9feb84c8eae8c155fc5454af3abd5784ddb6a7789f1781a704",
+            "size": 673
+          },
+          "rva": "0x149148",
+          "size": 673
+        }
+      },
+      "doc": "docs/functions/MapTitleLabel_SetText.md"
+    },
+    "MapTitle_SetFromMapId": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:20d30e5efb51368d31fdcf41f0263795aed9e1b7ccd0f46eb8d20e943799b422",
+            "insn_count": 48,
+            "mnemonics": "sha256:820edcd3c0bb8ab78d9a4726b047a55e15568a4016faec246284811d08b2d52f",
+            "size": 191
+          },
+          "rva": "0x148d24",
+          "size": 191
+        }
+      },
+      "doc": "docs/functions/MapTitle_SetFromMapId.md"
     },
     "Map_LoadBattleData": {
       "area": "battle",
@@ -20535,6 +20586,23 @@
         }
       },
       "doc": "docs/functions/Pixels_ExpandToRgba.md"
+    },
+    "PlaceName_GetText": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:ea4214ff0c2eff162d53d1c582509c4fcd5218c2898072a192b4e2e1c37351bb",
+            "insn_count": 42,
+            "mnemonics": "sha256:221ccbdad85dde0a24296981860d699c9d1eac5754a55d835bc4b573ce7b4f45",
+            "size": 141
+          },
+          "rva": "0xfb44c",
+          "size": 141
+        }
+      },
+      "doc": "docs/functions/PlaceName_GetText.md"
     },
     "PoachList_Build": {
       "area": "items",
@@ -22932,6 +23000,23 @@
         }
       },
       "doc": "docs/functions/SceneCallback_Dispatch.md"
+    },
+    "SceneColourPair_WriteVertexColours": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 13,
+            "calls": "sha256:980e6ab33c1686e49048368119dd28d859a932e43d69c77914b1fc09cbad7b9d",
+            "insn_count": 48,
+            "mnemonics": "sha256:c693e97c913c4e84878c9ff4045b57281da0fed8b48756db109c94275b88bd2e",
+            "size": 4073
+          },
+          "rva": "0x24a6e8",
+          "size": 4073
+        }
+      },
+      "doc": "docs/functions/SceneColourPair_WriteVertexColours.md"
     },
     "SceneGroup_ResolveId": {
       "area": "event-system",

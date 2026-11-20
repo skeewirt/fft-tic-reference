@@ -188,7 +188,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [LookQueueEntry](LookQueueEntry.md) | 32 | [Graphics](../areas/graphics.md) | One entry of the 16-entry load queue that Battle_BuildRosterTeam, Battle_AddJoinedUnit and the scene preview code fill (LookQueue_Add) and CharaPalette_ReloadForShape consumes; entry n starts at 0x141856728 + 32 * n, ... |
 | [MapDrawIndexListRecord](MapDrawIndexListRecord.md) | 24 | [Graphics](../areas/graphics.md) | One row of the MapDrawIndexLists table. |
 | [MapResourceFileListPointer](MapResourceFileListPointer.md) | 8 | [Resource](../areas/resource.md) | One row of the MapResourceFilesLanguage0 table. |
-| [MapVariationStruct](MapVariationStruct.md) | 72 | [Battle](../areas/battle.md) | One 72-byte variation struct of a Map row (nxd 60): which scene conditions it applies under. |
+| [MapVariationStruct](MapVariationStruct.md) | 72 | [Battle](../areas/battle.md) | One 72-byte variation element of a Map row (nxd 60, the array named by the row's variations offset at +0x14 with the count in the dword at +0x18; both are counted from the start of the row): the scene conditions it ap... |
 | [MenuCursorDefault](MenuCursorDefault.md) | 16 | [Battle](../areas/battle.md) | One row of the MenuCursorDefaults table. |
 | [MenuListWord](MenuListWord.md) | 2 | [Items and shops](../areas/items.md) | One entry of g_MenuList, the array the shop, equip, item and ability screens reuse: the id in bits 0..9, bit 14 "cannot equip / cannot learn / current", and the list-kind-specific bits 12 and 13. |
 | [MonsterSkillsetRow](MonsterSkillsetRow.md) | 5 | [Job data](../areas/job-data.md) | One 5-byte monster skillset: one flag byte and four low ability id bytes. |

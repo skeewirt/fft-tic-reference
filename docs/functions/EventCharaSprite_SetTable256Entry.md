@@ -10,7 +10,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Loads a table-256 entry into a sub-object of the unit sprite renderer and sets how long the change takes.
+Loads a table-256 (PostEffectGlare) row into a sub-object of the unit sprite renderer and sets how long the change takes. The name is kept, but the table is the glare setting of the picture, not a sprite table.
 
 ## Behavior
 
@@ -20,17 +20,19 @@ Loads a table-256 entry into a sub-object of the unit sprite renderer and sets h
 - V: when the row is missing, or its first qword is non-negative and its data pointer is null, nothing else happens.
 - V: copies four dwords from the row data into the sub-object: data +20 to +3888, data +16 to +3892, data +12 to +3896, and data +8 (zero-extended, 8 bytes) to +3900.
 - V: stores the entry id at +3912 and the float at +3908.
+- V: table 256 is PostEffectGlare; the key a map variation passes is its post_effect_glare member (Map variation element +0x14).
 - V: when the float is negative, copies the 16 bytes at +3888 to +3856 and to +3872, then calls sub_1400D1CB8 on the sub-object. Otherwise it copies the 16 bytes at +3856 to +3872 only.
 - I: sub_1400D1CB8 computes four positions from the dwords at sub-object +4448 and +4452. It was only partly read.
 
 ## Referenced by
 
+- Called by: [MapRenderer_ApplyVariationEffects](MapRenderer_ApplyVariationEffects.md)
 - Called by event opcodes: [0xCB](../opcodes/README.md)
 - Reads tables: [NxdDataPostEffectGlare](../tables/NxdDataPostEffectGlare.md)
 
 ## Notes
 
-The third argument is passed in a float register, and the two unset arguments of sub_1403D3AE8 are not set by the callers in the 0xCB path.
+The third argument is passed in a float register, and the two unset arguments of sub_1403D3AE8 are not set by the callers in the 0xCB path. The name does not fit what the function loads: table 256 is PostEffectGlare (four floats of a row go to +3888..+3900, the key to +3912). Its callers are the event script command and the map variation applier (MapRenderer_ApplyVariationEffects passes the Map variation element post_effect_glare key).
 
 ## Open questions
 

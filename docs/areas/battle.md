@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 56, Tables: 89.
+Functions: 366, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 59, Tables: 89.
 
-## Functions (362)
+## Functions (366)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -192,6 +192,7 @@ Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapMesh_Reset](../functions/MapMesh_Reset.md) | `0x1400CA258` | Clears the mesh set: node arrays, layer data and counts. |
 | [MapMesh_StockNodeOffset](../functions/MapMesh_StockNodeOffset.md) | `0x1400C8D94` | A hard-coded list of position offsets for single nodes of nine stock maps; 0 for every other map and node. |
 | [MapRenderer_ApplyMapRow](../functions/MapRenderer_ApplyMapRow.md) | `0x1400D5374` | Tears down a mesh set that belongs to another map or variation, then applies the chosen variation of the map's Map row to the renderer's post-effect settings. |
+| [MapRenderer_ApplyVariationEffects](../functions/MapRenderer_ApplyVariationEffects.md) | `0x1400CF2A8` | Loads the four post-effect rows that a Map variation element names (glare, colour lookup, depth lookup, depth of field) into the renderer sub-object. |
 | [MapRenderer_ReuseLoadedMesh](../functions/MapRenderer_ReuseLoadedMesh.md) | `0x1400D55C4` | Re-runs the node setup of an already loaded mesh set (a second battle on the same map). |
 | [MapRow_SelectVariation](../functions/MapRow_SelectVariation.md) | `0x140254B8C` | Chooses which variation struct of a map's Map row applies now, and a kind code, from four scene variables. |
 | [MapTextures_LoadMapSlots](../functions/MapTextures_LoadMapSlots.md) | `0x1400CA690` | Requests the map's colour and lighting textures from the RefinedBgTexture rows, deduplicating equal names. |
@@ -199,6 +200,7 @@ Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapTextures_NameOfFrame](../functions/MapTextures_NameOfFrame.md) | `0x1400CAA54` | Builds the file name of one frame of one slot of the map's textures; null when there is none. |
 | [MapTextures_Reset](../functions/MapTextures_Reset.md) | `0x1400CA95C` | Releases every map and system texture of the texture set and sets its id fields to none. |
 | [MapTextures_SlotVariantCode](../functions/MapTextures_SlotVariantCode.md) | `0x1400CACDC` | Returns the per-variation integer of a texture row minus one (0 when the entry is 0 or the row is absent). |
+| [MapTitle_SetFromMapId](../functions/MapTitle_SetFromMapId.md) | `0x140148D24` | Writes the title text of a map into the window's map-title label from the map id's Map row. |
 | [MessageWindow_OpenMode0](../functions/MessageWindow_OpenMode0.md) | `0x1402E092C` | Opens the legacy unit info message window for the acting unit with level and experience (mode 0). |
 | [MessageWindow_OpenMode1](../functions/MessageWindow_OpenMode1.md) | `0x1402E09DC` | Opens the legacy unit info message window for the acting unit with the hit chance, after a preview of the action (mode 1). |
 | [MessageWindow_OpenMode2](../functions/MessageWindow_OpenMode2.md) | `0x1402E0C2C` | Opens the legacy unit info message window for the target unit with the hit chance (mode 2). |
@@ -206,10 +208,12 @@ Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MoveFind_ApplyTrap](../functions/MoveFind_ApplyTrap.md) | `0x14030C39C` | Applies the trap of a unit's tile to the unit as an action result. |
 | [MoveFind_ProbeTile](../functions/MoveFind_ProbeTile.md) | `0x140271D80` | Reports what a battle tile hides: another unit, a Move-Find item not yet taken and a trap kind. |
 | [MoveFind_TakeItem](../functions/MoveFind_TakeItem.md) | `0x140271CA8` | Gives a unit the Move-Find item of its tile: rolls common against rare by Brave and marks the tile taken. |
+| [PlaceName_GetText](../functions/PlaceName_GetText.md) | `0x1400FB44C` | Returns the text of a PlaceName row (table 85) by its key, or the empty string. |
 | [Poach_GiveResult](../functions/Poach_GiveResult.md) | `0x14030AB70` | Gives the result of a Poach action: an item, or gil when the stock is full, and sends the poach notification. |
 | [ResultLabel_QueueFromUnit](../functions/ResultLabel_QueueFromUnit.md) | `0x14026801C` | Fills a unit's label task from the unit's action-result block: which number and text labels to show, and the queue of status labels (BattleSignal ids) for the statuses the action added or removed. |
 | [ResultLabel_ShowNext](../functions/ResultLabel_ShowNext.md) | `0x140266A68` | Shows the next pending label over a unit: a number (HP / MP / stat change), a fixed text, or the next queued status label. |
 | [Scenario_CheckBattleRecord](../functions/Scenario_CheckBattleRecord.md) | `0x14020DFA8` | Finds the scenario setup record of the current event and lets the battle set-up continue only for a battle record. |
+| [SceneColourPair_WriteVertexColours](../functions/SceneColourPair_WriteVertexColours.md) | `0x14024A6E8` | Writes the scene's two-colour pair (qword_14114A4E8) into the colour entries of four vertices of a render block, a two-colour vertical gradient. |
 | [StatsPanel_Build](../functions/StatsPanel_Build.md) | `0x14022AC18` | Builds the detailed stats panel (display script 6): draws its numbers into VRAM and places its sprite cells. |
 | [StatsScreen_Task](../functions/StatsScreen_Task.md) | `0x1402E1890` | Task of the legacy stats screen: builds its eighteen cell primitives and the stat number strips, then waits for a close. |
 | [Status_ListCategory](../functions/Status_ListCategory.md) | `0x1400FAAB4` | Returns the list category of a status from its UIStatusEffect text row: 1 a gain, 2 an ailment, anything else not listed. |
@@ -410,7 +414,7 @@ Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [FormulaBlock](../structs/FormulaBlock.md) | 72 | The state of the one action being resolved: Battle_ResolveAction fills it per target and every formula handler reads and writes it. |
 | [ItemListCells](../structs/ItemListCells.md) |  | The static item-list cell store: 82 two-byte cells (kind tag in bits 15..11, id in bits 10..0) and the parallel per-cell arrays beside them. |
 | [LayoutPointer](../structs/LayoutPointer.md) | 8 | One row of the StatusPanelLayoutsLanguage0 table. |
-| [MapVariationStruct](../structs/MapVariationStruct.md) | 72 | One 72-byte variation struct of a Map row (nxd 60): which scene conditions it applies under. |
+| [MapVariationStruct](../structs/MapVariationStruct.md) | 72 | One 72-byte variation element of a Map row (nxd 60, the array named by the row's variations offset at +0x14 with the count in the dword at +0x18; both are counted from the start of the row): the scene conditions it ap... |
 | [MenuCursorDefault](../structs/MenuCursorDefault.md) | 16 | One row of the MenuCursorDefaults table. |
 | [MoveBlockerRecord](../structs/MoveBlockerRecord.md) | 7 | One entry of g_MoveBlockers: another unit on the map as the move-range builder sees it. |
 | [MoveFindRow](../structs/MoveFindRow.md) | 24 | One row of the MoveFindItems table. |
@@ -525,7 +529,7 @@ Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (56)
+## Observed behaviours (59)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -554,13 +558,16 @@ Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [FormulaPostHooksAreKeyedByFormulaId](../behaviors/FormulaPostHooksAreKeyedByFormulaId.md) | engine | After a formula handler runs, sub_14030A11C looks the formula byte up in a 106-row hook table (PostBattleCalc) and runs the row's callback, if any: twelve formulas have an Undead rule there. |
 | [HitLabelsAndThePanelEffectLineAreSeparateLists](../behaviors/HitLabelsAndThePanelEffectLineAreSeparateLists.md) | engine | The status label over a unit hit by an action and the effect line of the unit status panel are two different lists. |
 | [KoLeavesSomeStatusesOnTheUnit](../behaviors/KoLeavesSomeStatusesOnTheUnit.md) | engine | KO does not end every status: its property row (status 2) cancels the action states 4..7, Confusion, Vampire, Float, Invisibility, Berserk, Critical and every status 23..39, and leaves Undead, Stone, Traitor, Blindnes... |
+| [MapBackgroundColourPairOverride](../behaviors/MapBackgroundColourPairOverride.md) | engine (map block light command 50, Map variation element +0x38..+0x42) | A variation element can replace the two background colours that the map block's light command sets; the pair is then written into the colours of four vertices as a two-colour gradient. |
 | [MapDrawListRowsAreSearchedLinearlyToABoundOfFifty](../behaviors/MapDrawListRowsAreSearchedLinearlyToABoundOfFifty.md) | engine (battle map draw lists) | MapDrawLists_Load clears two 513-byte bitsets, then searches the 50 rows of the draw-list table for the row whose 16-bit map id equals the loaded map and sets, for each 0xFFFF-terminated list the row points at, the bi... |
 | [MapLoaderIndexesThreeTablesByASixteenBitMapId](../behaviors/MapLoaderIndexesThreeTablesByASixteenBitMapId.md) | engine (battle map load) | Map_LoadBattleData takes the battle map id as a 16-bit value and uses it, with no bound, as the row of three tables: the Move-Find rows (24 bytes), the map-block file numbers of the two text-language copies (4 bytes),... |
 | [MapMeshAndAnimFilesCarryTheirOwnMapId](../behaviors/MapMeshAndAnimFilesCarryTheirOwnMapId.md) | engine (map mesh and anim files) | The mesh file and the anim file of a battle map hold the map id in their header, and the loaders refuse a file whose id is not the one requested. |
 | [MapRendererTableRowFallbacks](../behaviors/MapRendererTableRowFallbacks.md) | engine (map renderer tables) | What each renderer table gives the build when a map has no row: nodes get default flags (visible), polygon overrides do nothing, system textures use the stock default file, map textures are an empty set, the anim file... |
 | [MapResourceFilesAreFileNumberAndSizePairsPerMap](../behaviors/MapResourceFilesAreFileNumberAndSizePairsPerMap.md) | engine (battle map resources) | MapResource_Read reads one resource file of the current map: a request record either carries a file number and a size itself, or carries the marker value 0xFEEDBACC (as a 32-bit number) and a pair number, which select... |
+| [MapRowPlaceNameKeys](../behaviors/MapRowPlaceNameKeys.md) | engine (Map row, PlaceName table 85) | A Map row holds three keys of the PlaceName table: the full place name of the map, a shorter area name and a part name; the title uses the first, the save list prefers the second and adds the third. |
 | [MapTextureRowsAreReadOnlyForMapIdsUpToOneTwentySeven](../behaviors/MapTextureRowsAreReadOnlyForMapIdsUpToOneTwentySeven.md) | engine (map texture set) | The loader of the map's colour and lighting textures reads the RefinedBgTexture rows only when the map id is 127 or less; for a larger id it requests no map texture at all. |
 | [MapTextureRowsPairEveryNameWithAFrameCount](../behaviors/MapTextureRowsPairEveryNameWithAFrameCount.md) | engine (map texture rows) | A RefinedBgTexture row has two name lists and, beside each, a list of frame counts stored as plain signed 32-bit integers. |
+| [MapVariationChosenBySceneVariables](../behaviors/MapVariationChosenBySceneVariables.md) | engine (Map row variation elements, scene variables 35, 36, 39 and 48) | Which variation element of a map's Map row is drawn is decided once per map load from four scene variables in a story battle, and from the weather and night alone in a random battle. |
 | [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md) | engine (Move-Find state) | Which hidden tiles of a map have been taken is kept as four bits per map, two maps per byte, in a 128-byte array indexed by scene variable 51 (the current map id): map ids 0..255 fit, and the bytes after the array bel... |
 | [MoveRangeRules](../behaviors/MoveRangeRules.md) | battle: the tiles lit when the Move command opens (and the same builder for the AI and for another unit's range) | Which tiles a unit can stop on: a budget of Move + 1 spreads from its tile by steps and straight jumps under height, headroom, terrain-cost and occupancy rules; a final pass keeps the tiles it may stop on. |
 | [PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId](../behaviors/PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId.md) | engine (battle title card, pause menu, save list) | The title card, the objective header of the pause menu and the place label of the save list all show the place name belonging to the loaded map id's Map row, and a mid-battle autosave resumes the battle on the saved id. |

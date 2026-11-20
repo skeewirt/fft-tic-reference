@@ -20,6 +20,10 @@ Returns the depth bias float of a DepthBias table row.
 
 - Calls: [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
 
+## Referenced by
+
+- Called by: [MapRenderer_ApplyMapRow](MapRenderer_ApplyMapRow.md)
+
 ## Notes
 
 Name is ours.

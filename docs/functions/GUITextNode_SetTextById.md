@@ -24,7 +24,7 @@ Looks up a localised text id and sets it on the node with argument expansion.
 
 ## Referenced by
 
-- Called by: [Launcher_FillControls](Launcher_FillControls.md), [SaveLoadList_FillItem](SaveLoadList_FillItem.md), [ShopItemList_SetPrice](ShopItemList_SetPrice.md), [UIGadgetFFTOJobDetailWindow_SetJob](UIGadgetFFTOJobDetailWindow_SetJob.md)
+- Called by: [Launcher_FillControls](Launcher_FillControls.md), [MapTitleLabel_SetText](MapTitleLabel_SetText.md), [SaveLoadList_FillItem](SaveLoadList_FillItem.md), [ShopItemList_SetPrice](ShopItemList_SetPrice.md), [UIGadgetFFTOJobDetailWindow_SetJob](UIGadgetFFTOJobDetailWindow_SetJob.md)
 
 ## Notes
 

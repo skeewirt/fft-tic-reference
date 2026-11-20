@@ -26,7 +26,7 @@ Fills one save/load list item from an entry: slot number, level, location, next 
 
 ## Referenced by
 
-- Observed behaviours: [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md), [PlayModeDamagePercent](../behaviors/PlayModeDamagePercent.md), [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md)
+- Observed behaviours: [MapRowPlaceNameKeys](../behaviors/MapRowPlaceNameKeys.md), [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md), [PlayModeDamagePercent](../behaviors/PlayModeDamagePercent.md), [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md)
 - Reads tables: [NxdDataChapter](../tables/NxdDataChapter.md), [NxdDataContinuousSortieConfirm](../tables/NxdDataContinuousSortieConfirm.md), [NxdDataEventId](../tables/NxdDataEventId.md)
 
 ## Notes

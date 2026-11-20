@@ -2,9 +2,9 @@
 
 GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.
 
-Functions: 662, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Flows: 6, Observed behaviours: 30, Tables: 234.
+Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Flows: 6, Observed behaviours: 30, Tables: 234.
 
-## Functions (662)
+## Functions (663)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -392,6 +392,7 @@ Functions: 662, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [LoreDictionary_SortList](../functions/LoreDictionary_SortList.md) | `0x1401E50D4` | Sorts a glossary list by a mode. |
 | [MainTab_BindNodes](../functions/MainTab_BindNodes.md) | `0x1402AC048` | Finds the header (MainTab/Tab) nodes of a screen and keeps them in the controller: the tab, the TextMask mask node, the title text node and the other tab title boards. |
 | [MainTab_SelectTab](../functions/MainTab_SelectTab.md) | `0x1402AC2E8` | Plays the header state that belongs to tab `index` and stops the other three. |
+| [MapTitleLabel_SetText](../functions/MapTitleLabel_SetText.md) | `0x140149148` | Fills the 'Text' and 'Text00' nodes of the 'TextMapGrade' label of a window and plays its 'En' or 'Ja' state. |
 | [Movie_Start](../functions/Movie_Start.md) | `0x1400D8304` | Starts the playback of a movie from its MovieData row: picks the file, the sound banks, the subtitle window and the controller flags. |
 | [MovieControl_IdleHint](../functions/MovieControl_IdleHint.md) | `0x14027A128` | While a movie plays unpaused, shows the 'Pause' button hint for about 5 seconds after any input. |
 | [MovieControl_PausedTick](../functions/MovieControl_PausedTick.md) | `0x14027A1CC` | Paused frame of the movie overlay: a completed hold with byte +25 set takes the skip (state 3); the pause or back action resumes. |
