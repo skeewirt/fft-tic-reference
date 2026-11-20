@@ -23,7 +23,7 @@ Appends one entry to the 16-entry look load queue that CharaPalette_ReloadForSha
 ## Referenced by
 
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
-- Called by: [Battle_AddJoinedUnit](Battle_AddJoinedUnit.md), [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md)
+- Called by: [Battle_AddJoinedUnit](Battle_AddJoinedUnit.md), [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md), [ScenePreview_ShowEntry](ScenePreview_ShowEntry.md)
 - Observed behaviours: [BattlePaletteSourceByLookRange](../behaviors/BattlePaletteSourceByLookRange.md), [LookSlotsAlreadyInTheGame](../behaviors/LookSlotsAlreadyInTheGame.md), [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md)
 
 ## Notes

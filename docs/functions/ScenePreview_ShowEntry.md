@@ -4,7 +4,7 @@
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `int64_t ScenePreview_ShowEntry(int slot, int flag)`
 - **Callers:** EventScript_Run (opcode 0x45, at 0x14023C3F9, 0x14023C4F9 and 0x14023CA88); EventUnitBlock_RunTask (at 0x140235E65).
-- **Callees:** sub_1402718CC (claim a preview entry), sub_1403041A4 (queues one draw entry)
+- **Callees:** BattleUnit_RevealOnField, LookQueue_Add (queues one draw entry)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -15,15 +15,20 @@ Shows the preview-table entry for a slot: clears the preview globals, claims the
 ## Behavior
 
 - V: clears dword_141856720, the qword at xmmword_140CE3240, the dword at +8 of that global and qword_140CE3250.
-- V: when slot is 0 to 20 it uses the record g_BattleUnitTable + slot*512; otherwise the record pointer is null.
-- V: calls sub_1402718CC(slot) to claim the entry for the slot if it is free (see ScenePreview_ClaimForUnit).
+- V: when slot is 0 to 20 it uses the record g_PreviewUnitTable + slot*512; otherwise the record pointer is null.
+- V: calls BattleUnit_RevealOnField(slot): the preview table is the battle unit table, so a parked entry record (slot byte 0xFF, on-field byte 0) is put on the field.
 - V: calls sub_1403041A4 with the record's byte +79, byte +80, byte +81 bit 7, byte +81 low nibble, the word from +399 (0x18F) as the fifth argument, the word from +400 (0x190) as the sixth, 255 as the seventh, the record pointer as the eighth and flag as the ninth.
 - V: returns 1.
+
+## State touched
+
+- Calls: [BattleUnit_RevealOnField](BattleUnit_RevealOnField.md), [LookQueue_Add](LookQueue_Add.md)
 
 ## Referenced by
 
 - Called by: [EventUnitBlock_RunTask](EventUnitBlock_RunTask.md)
 - Called by event opcodes: [0x45](../opcodes/README.md)
+- Observed behaviours: [BattleUnitsAreFixedAtLoadAndRevealedLater](../behaviors/BattleUnitsAreFixedAtLoadAndRevealedLater.md)
 
 ## Notes
 

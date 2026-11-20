@@ -1700,6 +1700,23 @@
       },
       "doc": "docs/functions/BattleUnit_BuildJobRecord.md"
     },
+    "BattleUnit_RevealOnField": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 22,
+            "mnemonics": "sha256:20ee74f36c74d097a098b00d3b486feaa9c72030bac049326c592dd5346df9d6",
+            "size": 93
+          },
+          "rva": "0x2718cc",
+          "size": 93
+        }
+      },
+      "doc": "docs/functions/BattleUnit_RevealOnField.md"
+    },
     "BattleUnit_SetStatusVisual": {
       "area": "battle",
       "builds": {

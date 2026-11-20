@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2268 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2269 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -148,6 +148,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BattleTask_Slot13Entry](BattleTask_Slot13Entry.md) | `0x140229D24` | [Battle](../areas/battle.md) | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state and runs the battle event/message runner that ends the task. |
 | [BattleUnit_BuildCursorRecord](BattleUnit_BuildCursorRecord.md) | `0x140281248` | [Battle](../areas/battle.md) | Builds the seven-byte cursor record a unit contributes to the targeting display: slot and flags, level, terrain height and the tile the cursor should sit on. |
 | [BattleUnit_BuildJobRecord](BattleUnit_BuildJobRecord.md) | `0x1400FCF80` | [Job data](../areas/job-data.md) | Builds the 148-byte job record of battle unit `slot` for the battle panels: its job, levels and JP, through JobRecord_FromJobId. |
+| [BattleUnit_RevealOnField](BattleUnit_RevealOnField.md) | `0x1402718CC` | [Battle](../areas/battle.md) | Puts a battle unit record that is off the field onto it, without building anything: the record must already exist. |
 | [BattleUnit_SetStatusVisual](BattleUnit_SetStatusVisual.md) | `0x1401FB064` | [Battle](../areas/battle.md) | Sets or clears a status's visual bits on the unit's scene object: the tint / pose word or the sprite-change word. |
 | [BattleVoice_AssignPatterns](BattleVoice_AssignPatterns.md) | `0x1401EDB88` | [Battle](../areas/battle.md) | Gives a battle unit's voice controller its pattern, from the unit's job and name key. |
 | [BattleVoice_AssignSharedPattern](BattleVoice_AssignSharedPattern.md) | `0x1401ED240` | [Battle](../areas/battle.md) | Sets the pattern of one shared voice controller. |

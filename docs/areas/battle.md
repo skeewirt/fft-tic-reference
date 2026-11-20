@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 380, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 67, Tables: 89.
+Functions: 381, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 68, Tables: 89.
 
-## Functions (380)
+## Functions (381)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -109,6 +109,7 @@ Functions: 380, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleRange_SpreadDiamond](../functions/BattleRange_SpreadDiamond.md) | `0x14027EBF8` | Spreads the seeded marks outward one tile per pass for range passes, so every tile within Manhattan distance range of a seed gets a non-zero mark byte 0; heights are not looked at. |
 | [BattleTask_Slot13Entry](../functions/BattleTask_Slot13Entry.md) | `0x140229D24` | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state and runs the battle event/message runner that ends the task. |
 | [BattleUnit_BuildCursorRecord](../functions/BattleUnit_BuildCursorRecord.md) | `0x140281248` | Builds the seven-byte cursor record a unit contributes to the targeting display: slot and flags, level, terrain height and the tile the cursor should sit on. |
+| [BattleUnit_RevealOnField](../functions/BattleUnit_RevealOnField.md) | `0x1402718CC` | Puts a battle unit record that is off the field onto it, without building anything: the record must already exist. |
 | [BattleUnit_SetStatusVisual](../functions/BattleUnit_SetStatusVisual.md) | `0x1401FB064` | Sets or clears a status's visual bits on the unit's scene object: the tint / pose word or the sprite-change word. |
 | [BattleVoice_AssignPatterns](../functions/BattleVoice_AssignPatterns.md) | `0x1401EDB88` | Gives a battle unit's voice controller its pattern, from the unit's job and name key. |
 | [BattleVoice_AssignSharedPattern](../functions/BattleVoice_AssignSharedPattern.md) | `0x1401ED240` | Sets the pattern of one shared voice controller. |
@@ -543,7 +544,7 @@ Functions: 380, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (67)
+## Observed behaviours (68)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -562,6 +563,7 @@ Functions: 380, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleRefusalBanner](../behaviors/BattleRefusalBanner.md) | engine (battle messages) | Battle refusal messages (C_Mes_Id keys 2001..2037, 18000, 18001) are shown as the timed red banner, not as a message box. |
 | [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md) | engine | Unit_ChangeBattleStat changes PA / MA / Speed at the base +0x38..+0x3A with the totals +0x3E..+0x40; Move / Jump are at +0x42 / +0x43; the Haste / Slow CT step is in phase 0 of Battle_TurnEngine; Protect and Shell sca... |
 | [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md) | battle unit +0x1B5 | Battle unit byte +0x1B5 (437): 1 placed on the field, 0 not placed (benched), 0xFF an empty slot. |
+| [BattleUnitsAreFixedAtLoadAndRevealedLater](../behaviors/BattleUnitsAreFixedAtLoadAndRevealedLater.md) | engine (battle unit records over a battle) | A battle's unit records are set at load (the 16 entries) and at deployment (the party); afterwards event scripts only reveal records that are off the field and take units off, so the most units a battle can show is bo... |
 | [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md) | engine (battle unit table) | The 21 records of the live battle unit table are two groups: records 0..15 are the 16 entries of a battle (enemies, guests and other scripted units), records 16..20 take the party units placed at deployment, units tha... |
 | [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md) | engine (battle unit table, random battle start) | In a random battle the unit table holds up to nine enemy rows from the start, but only the rows with the slot byte (+0x01) equal to their own slot and the on-field byte (+0x1B5) equal to 1 stand on the field; the othe... |
 | [BattleVoiceChance](../behaviors/BattleVoiceChance.md) | engine (battle voices) | Whether a line plays is a roll of the speaker group's percentage in the line's column; fast-forward silences voices. |

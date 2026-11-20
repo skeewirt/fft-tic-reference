@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-255 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+256 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -40,6 +40,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [BattleStatChangeAndCtGainSteps](BattleStatChangeAndCtGainSteps.md) | engine | Unit_ChangeBattleStat changes PA / MA / Speed at the base +0x38..+0x3A with the totals +0x3E..+0x40; Move / Jump are at +0x42 / +0x43; the Haste / Slow CT step is in phase 0 of Battle_TurnEngine; Protect and Shell sca... |
 | [BattleTextOverlaysAndPreview](BattleTextOverlaysAndPreview.md) | battle: event dialogue, notice banner, attack / item preview, deployment placement | Where the battle's dialogue, notices and action preview are drawn, how placement works, and what the preview numbers meant in play, as seen live. |
 | [BattleUnitOnFieldByte](BattleUnitOnFieldByte.md) | battle unit +0x1B5 | Battle unit byte +0x1B5 (437): 1 placed on the field, 0 not placed (benched), 0xFF an empty slot. |
+| [BattleUnitsAreFixedAtLoadAndRevealedLater](BattleUnitsAreFixedAtLoadAndRevealedLater.md) | engine (battle unit records over a battle) | A battle's unit records are set at load (the 16 entries) and at deployment (the party); afterwards event scripts only reveal records that are off the field and take units off, so the most units a battle can show is bo... |
 | [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md) | engine (battle unit table) | The 21 records of the live battle unit table are two groups: records 0..15 are the 16 entries of a battle (enemies, guests and other scripted units), records 16..20 take the party units placed at deployment, units tha... |
 | [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md) | engine (battle unit table, random battle start) | In a random battle the unit table holds up to nine enemy rows from the start, but only the rows with the slot byte (+0x01) equal to their own slot and the on-field byte (+0x1B5) equal to 1 stand on the field; the othe... |
 | [BattleVoiceChance](BattleVoiceChance.md) | engine (battle voices) | Whether a line plays is a roll of the speaker group's percentage in the line's column; fast-forward silences voices. |

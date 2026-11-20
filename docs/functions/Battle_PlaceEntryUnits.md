@@ -31,7 +31,7 @@ Builds battle unit i (g_PreviewUnitTable + 512 x i) from entry i for the 16 entr
 
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
 - Called by: [Battle_BuildEntryUnits](Battle_BuildEntryUnits.md)
-- Observed behaviours: [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md), [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md), [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md), [StockBattleEntryListsHoldAtMostSixteenUnits](../behaviors/StockBattleEntryListsHoldAtMostSixteenUnits.md), [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
+- Observed behaviours: [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md), [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md), [BattleUnitsAreFixedAtLoadAndRevealedLater](../behaviors/BattleUnitsAreFixedAtLoadAndRevealedLater.md), [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md), [StockBattleEntryListsHoldAtMostSixteenUnits](../behaviors/StockBattleEntryListsHoldAtMostSixteenUnits.md), [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
 
 ## Notes
 
