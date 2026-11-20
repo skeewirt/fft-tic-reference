@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-256 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+257 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -156,6 +156,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [NamedCharactersKeepTheirOwnLookWhateverTheirJob](NamedCharactersKeepTheirOwnLookWhateverTheirJob.md) | engine (unit look by character byte) | A named character (character byte +0 of the save, party or battle record below 0x80, e.g. |
 | [NewUnitsGetStartingJpInEveryJob](NewUnitsGetStartingJpInEveryJob.md) | engine (starting JP of a new unit) | A new unit (a spawn: battle entries, the New Game party, recruits built by Unit_BuildFromRecord) gets starting JP in every job by the game's own rule for stock jobs (Unit_InitJobJp: the curve's value at the level plus... |
 | [NxdTableRebinding](NxdTableRebinding.md) | loaded nxd tables and the localized reload | An nxd table can take a new file while the game runs: its load callback NxdTable_BindRows may run again on a bound table, and the game's own language switch reloads every localized handle through it. |
+| [OnlyTenDistinctLooksDrawCorrectly](OnlyTenDistinctLooksDrawCorrectly.md) | engine (battle unit looks, Enhanced) | A battle can load up to 15 distinct looks (the look pool), but only the units whose look takes pool records 0..9 draw correctly; looks in records 10..14 draw as scrambled pieces, and a 16th distinct look crashes the g... |
 | [OrderInsideItemGroup](OrderInsideItemGroup.md) | the order of item ids inside one menu group (the item menu, the equip screen and the shop list) | Three rules decide the order, in this priority: the saved order list is the order, membership maintenance inserts a newly owned id at the front and removes a lost one, and an explicit sort replaces the order with a fi... |
 | [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md) | engine (Outfitter preview) | The Outfitter preview builder, the equip-clear price step and the equip commit each reduce a party hand word to an item id with an AND that must strip the session flag (bit 15); an AND whose mask keeps bit 15 turns th... |
 | [PartyJobWordIsSixteenBits](PartyJobWordIsSixteenBits.md) | engine (party and save records, Jobs screen) | The party record's 16-bit job word (+0x24) carries a job id above 255 through the Jobs screen, the status header and the skillset lookup; only the save record's byte (+2) cannot. |

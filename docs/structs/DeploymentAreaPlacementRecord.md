@@ -23,7 +23,7 @@ One 12-byte placement record of the deployment areas (the table at 0x1407AE2D0, 
 
 ## Behavior
 
-- V: Deployment_SelectArea and Deployment_LoadAreaPlacement select it by 12 * area id; GridScreen_Task and sub_1402FB4F8 read it too.
+- V: Deployment_SelectArea and Deployment_LoadAreaPlacement select it by 12 * area id; GridScreen_Task and Deployment_PrepareCandidates read it too (the latter copies the count byte into scene variable 57 for a battle without a scenario record).
 
 ## Notes
 

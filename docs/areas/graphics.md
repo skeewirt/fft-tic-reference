@@ -2,7 +2,7 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 48, Tables: 48.
+Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 49, Tables: 48.
 
 ## Functions (170)
 
@@ -318,7 +318,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (48)
+## Observed behaviours (49)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -349,6 +349,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [LookSumSeesTheBaseJob](../behaviors/LookSumSeesTheBaseJob.md) | engine (portrait look index) | Five functions compute a save unit's portrait look index from its job byte (2 * job - 52, + 1 for marker 0x81), each against its own copy of the portrait code words. |
 | [MidBattleJoinLoadsLooks](../behaviors/MidBattleJoinLoadsLooks.md) | engine (battle join) | A unit that joins mid-battle is queued by Battle_AddJoinedUnit and loaded by running the look loader once per frame until it returns 0; the loader's file reads are synchronous. |
 | [NamedCharactersKeepTheirOwnLookWhateverTheirJob](../behaviors/NamedCharactersKeepTheirOwnLookWhateverTheirJob.md) | engine (unit look by character byte) | A named character (character byte +0 of the save, party or battle record below 0x80, e.g. |
+| [OnlyTenDistinctLooksDrawCorrectly](../behaviors/OnlyTenDistinctLooksDrawCorrectly.md) | engine (battle unit looks, Enhanced) | A battle can load up to 15 distinct looks (the look pool), but only the units whose look takes pool records 0..9 draw correctly; looks in records 10..14 draw as scrambled pieces, and a 16th distinct look crashes the g... |
 | [PoolRecordKeepsItsSpriteAcrossTheReset](../behaviors/PoolRecordKeepsItsSpriteAcrossTheReset.md) | engine (battle sprite loading) | A look pool record keeps the sprite it holds (byte +1) after LookPool_ResetForBattleLoad, and the load pass skips the classic file of a queued sprite that any record's +1 already names; only the battle setup clears +1... |
 | [PortraitCodeIsAByteOnTheSaveRecordPath](../behaviors/PortraitCodeIsAByteOnTheSaveRecordPath.md) | engine (party faces) | On the save-record path a portrait code can only carry 256 distinct faces: the code reader refuses a code with bit 8 or 9 and the cell function returns the low byte. |
 | [RasterizerSnapsTo1_256Px](../behaviors/RasterizerSnapsTo1_256Px.md) | GPU (the test machine's GPU and driver) | Vertex positions are snapped to 1/256 of a pixel (rounded to nearest) before rasterization, so a UI quad at a third of a pixel (the 2/3 screen scale) is drawn from slightly moved corners and samples its texture at sli... |

@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2269 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2274 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -114,6 +114,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BattleFormation_DrawUnits](BattleFormation_DrawUnits.md) | `0x140216EB4` | [Graphics](../areas/graphics.md) | The battle formation draw (called from sub_140213F14): per unit index 0..20 it reads the CharShape row of the scene object's sprite byte for the draw height. |
 | [BattleLabel_ShowReactionSignal](BattleLabel_ShowReactionSignal.md) | `0x14014BFFC` | [Battle](../areas/battle.md) | Draws a plain text label (a BattleSignal title) over a unit, in the TextReaction node. |
 | [BattleLabel_ShowStatusSignal](BattleLabel_ShowStatusSignal.md) | `0x14014B87C` | [Battle](../areas/battle.md) | Draws a styled status label over a unit: the BattleSignal row's title with the icon of the status that names the row. |
+| [BattleLoad_ClearPartyReserve](BattleLoad_ClearPartyReserve.md) | `0x14033D7E4` | [Battle](../areas/battle.md) | Battle load step (state 1) that sets three script data pointers and writes scene variable 57 = 0. |
 | [BattleLoad_StepFresh](BattleLoad_StepFresh.md) | `0x1403044EC` | [Graphics](../areas/graphics.md) | State machine of one battle scene load: prepares, builds the roster queue, loads every queued look through CharaPalette_ReloadForShape and starts the battle turn engine. |
 | [BattleMain_SetPanelJobRecord](BattleMain_SetPanelJobRecord.md) | `0x14010141C` | [Battle](../areas/battle.md) | Stores a job record (the first 92 bytes) into one of the battle main screen's two unit panel blocks. |
 | [BattleMenu_ConfirmRow](BattleMenu_ConfirmRow.md) | `0x140237B18` | [Battle](../areas/battle.md) | Acts on a confirmed battle command menu row: picks the follow-up screen code and starts the scene task that shows it. |
@@ -293,6 +294,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Deployment_CountUnitsInArea](Deployment_CountUnitsInArea.md) | `0x1401EE830` | [Battle](../areas/battle.md) | Counts the units that stand on the deployment cells of area 0 or 1. |
 | [Deployment_FindPlacedUnitArea](Deployment_FindPlacedUnitArea.md) | `0x1401F3E3C` | [Battle](../areas/battle.md) | Finds which deployment area a placed party unit (by its battle slot) stands in, and its order among the placed units of that area. |
 | [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md) | `0x140303408` | [Battle](../areas/battle.md) | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
+| [Deployment_PrepareCandidates](Deployment_PrepareCandidates.md) | `0x1402FB4F8` | [Battle](../areas/battle.md) | Battle setup step that builds the deployment candidate list from the roster and, for a battle without a scenario record, sets scene variable 57 to the first deployment area's party count. |
 | [Deployment_ResetState](Deployment_ResetState.md) | `0x1401EE518` | [Battle](../areas/battle.md) | Resets the deployment state: capacity 0, no placed unit, no candidate. |
 | [Deployment_SelectArea](Deployment_SelectArea.md) | `0x140303380` | [Battle](../areas/battle.md) | Makes the deployment area of the scene (index 0 or 1) the current one and returns a count byte of its placement record. |
 | [Deployment_SelectTile](Deployment_SelectTile.md) | `0x1401F474C` | [Battle](../areas/battle.md) | Runs when A is pressed on the deployment tile cursor: selects the placed unit on the tile, or opens the carousel for an empty cell of an area that has room. |
@@ -1365,6 +1367,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [SceneObject_FindBySlot](SceneObject_FindBySlot.md) | `0x140260A98` | [Event system](../areas/event-system.md) | Finds the object list node for a slot number. |
 | [SceneObject_FindByUnitIndex](SceneObject_FindByUnitIndex.md) | `0x140260ABC` | [Graphics](../areas/graphics.md) | Walks the scene object list and returns the object whose battle unit record has the given unit index, or null. |
 | [SceneObject_SnapFieldBands](SceneObject_SnapFieldBands.md) | `0x140272B6C` | [Event system](../areas/event-system.md) | Walks the linked list at qword_140D3A410 and sets a 16-bit field of each entry from that entry's low 12 bits of another field; EventScript_Run calls it at the start of the 0xE3 transition path. |
+| [SceneObjects_StepStates](SceneObjects_StepStates.md) | `0x14026E194` | [Battle](../areas/battle.md) | Per-update pass over the drawn units: runs three per-unit helpers and, for a unit whose two state bits read 'gone', takes it off the field and releases its drawing. |
 | [ScenePad_UpdateRepeat](ScenePad_UpdateRepeat.md) | `0x14023970C` | [Event system](../areas/event-system.md) | Updates the held-button repeat for the second task table. |
 | [ScenePlacement_WriteGroup](ScenePlacement_WriteGroup.md) | `0x140241FF0` | [Event system](../areas/event-system.md) | Writes a 7-byte placement record for each unit of a unit or group that passes the group test against the 21 keys, each record headed from a cell position given by the operands. |
 | [ScenePlacement_WritePair](ScenePlacement_WritePair.md) | `0x140240D5C` | [Event system](../areas/event-system.md) | Writes 7-byte placement records for a pair of units: the second unit for each valid, different unit that passes the group test, and the first unit too when flag is 0, with headings computed from the two units' positio... |
@@ -1397,6 +1400,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [SceneUnit_LoadExtraPage](SceneUnit_LoadExtraPage.md) | `0x14026C2E8` | [Graphics](../areas/graphics.md) | Gives a scene unit one of the two extra sprite pages for its second-sheet frames (special poses such as a punch) and points that page's HD sheet slot at the unit's second sheet entry. |
 | [SceneUnit_MeasureRange](SceneUnit_MeasureRange.md) | `0x1403130C4` | [Event system](../areas/event-system.md) | The callback that opcode 0x87 installs in the global qword_140D40940: it measures a scaled distance from a source unit to a target unit, or to a fixed three-word point when no target unit has a preview index, and retu... |
 | [SceneUnit_Oscillate120](SceneUnit_Oscillate120.md) | `0x140240A78` | [Event system](../areas/event-system.md) | Runs a 120-frame sequence on one unit: a callback, a helper call, two SceneUnit_ResetAndQueue4 calls with +31 and then -31, waits of 10, 50 and 60 frames, and a final clear of two bytes of the unit's preview record. |
+| [SceneUnit_Release](SceneUnit_Release.md) | `0x14026E0F4` | [Battle](../areas/battle.md) | Frees a drawn unit's scene unit (drawing slot) and, when no other drawn unit uses the same look pool record, frees that record too. |
 | [SceneUnit_ReleasePartner](SceneUnit_ReleasePartner.md) | `0x1401FB398` | [Event system](../areas/event-system.md) | When the unit node's low status bits equal 1, clears the unit's and its partner's status fields and calls the release routine for both. |
 | [SceneUnit_ResetAndQueue4](SceneUnit_ResetAndQueue4.md) | `0x140270864` | [Event system](../areas/event-system.md) | Resets a unit's state bytes and words and queues an action (code 4) with the given values through sub_1402F7C20. |
 | [SceneUnit_ResetFields](SceneUnit_ResetFields.md) | `0x140272E98` | [Event system](../areas/event-system.md) | Resets the state fields of one unit node and calls the partner release routine on it. |
@@ -1408,6 +1412,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [SceneUnit_TintOwnRow](SceneUnit_TintOwnRow.md) | `0x14026929C` | [Graphics](../areas/graphics.md) | Picks the 16-colour row a scene unit is drawn with and passes it to UnitClut_TintRow with the caller's mode and offsets. |
 | [SceneUnit_UpdateNearFlag](SceneUnit_UpdateNearFlag.md) | `0x140273838` | [Event system](../areas/event-system.md) | Sets or clears one flag byte of a unit node by comparing two values from sub_140262808, only when the global mode dword_140782A94 equals 386. |
 | [SceneUnit_ZeroPosAndReset](SceneUnit_ZeroPosAndReset.md) | `0x1402356B0` | [Event system](../areas/event-system.md) | Zeroes the three position words of the unit named by its operands and then calls the unit reset routine on it, with one preview-table byte set to 6 for the duration of that call. |
+| [SceneUnits_ReleaseAll](SceneUnits_ReleaseAll.md) | `0x14020DE64` | [Battle](../areas/battle.md) | Releases every drawn unit (SceneUnit_Release on each node of g_SceneObjectList) after clearing 32 pending dwords and their 8 linked bytes. |
 | [SceneUnits_SaveRestore](SceneUnits_SaveRestore.md) | `0x1401D46B0` | [Graphics](../areas/graphics.md) | Copies the scene units, the scene list, the CLUT image and the CLUT manager to or from the battle capture. |
 | [SceneVar_Alu](SceneVar_Alu.md) | `0x140242700` | [Event system](../areas/event-system.md) | The second task group's event variable arithmetic unit. |
 | [SceneVar_Read](SceneVar_Read.md) | `0x1402332D8` | [Event system](../areas/event-system.md) | Reads one event variable by index through the second task group's copy of the variable system. |

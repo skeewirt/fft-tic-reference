@@ -20,7 +20,7 @@ Keeps the list of distinct sprite numbers met while the entry units of a battle 
 
 ## Referenced by
 
-- Observed behaviours: [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md)
+- Observed behaviours: [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md), [OnlyTenDistinctLooksDrawCorrectly](../behaviors/OnlyTenDistinctLooksDrawCorrectly.md)
 
 ## Notes
 

@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 381, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 68, Tables: 89.
+Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 68, Tables: 89.
 
-## Functions (381)
+## Functions (386)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -85,6 +85,7 @@ Functions: 381, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleControl_FrameUpdate](../functions/BattleControl_FrameUpdate.md) | `0x1401EA110` | Per-frame update of the battle control object; its first part sets the fast-forward level in battle straight from the held buttons. |
 | [BattleLabel_ShowReactionSignal](../functions/BattleLabel_ShowReactionSignal.md) | `0x14014BFFC` | Draws a plain text label (a BattleSignal title) over a unit, in the TextReaction node. |
 | [BattleLabel_ShowStatusSignal](../functions/BattleLabel_ShowStatusSignal.md) | `0x14014B87C` | Draws a styled status label over a unit: the BattleSignal row's title with the icon of the status that names the row. |
+| [BattleLoad_ClearPartyReserve](../functions/BattleLoad_ClearPartyReserve.md) | `0x14033D7E4` | Battle load step (state 1) that sets three script data pointers and writes scene variable 57 = 0. |
 | [BattleMain_SetPanelJobRecord](../functions/BattleMain_SetPanelJobRecord.md) | `0x14010141C` | Stores a job record (the first 92 bytes) into one of the battle main screen's two unit panel blocks. |
 | [BattleMenu_ConfirmRow](../functions/BattleMenu_ConfirmRow.md) | `0x140237B18` | Acts on a confirmed battle command menu row: picks the follow-up screen code and starts the scene task that shows it. |
 | [BattleMenu_RunStep](../functions/BattleMenu_RunStep.md) | `0x1402381C4` | Runs one step of the battle menu step table: sets the current menu and starts the step's task. |
@@ -144,6 +145,7 @@ Functions: 381, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [Deployment_CountUnitsInArea](../functions/Deployment_CountUnitsInArea.md) | `0x1401EE830` | Counts the units that stand on the deployment cells of area 0 or 1. |
 | [Deployment_FindPlacedUnitArea](../functions/Deployment_FindPlacedUnitArea.md) | `0x1401F3E3C` | Finds which deployment area a placed party unit (by its battle slot) stands in, and its order among the placed units of that area. |
 | [Deployment_LoadAreaPlacement](../functions/Deployment_LoadAreaPlacement.md) | `0x140303408` | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
+| [Deployment_PrepareCandidates](../functions/Deployment_PrepareCandidates.md) | `0x1402FB4F8` | Battle setup step that builds the deployment candidate list from the roster and, for a battle without a scenario record, sets scene variable 57 to the first deployment area's party count. |
 | [Deployment_ResetState](../functions/Deployment_ResetState.md) | `0x1401EE518` | Resets the deployment state: capacity 0, no placed unit, no candidate. |
 | [Deployment_SelectArea](../functions/Deployment_SelectArea.md) | `0x140303380` | Makes the deployment area of the scene (index 0 or 1) the current one and returns a count byte of its placement record. |
 | [Deployment_SelectTile](../functions/Deployment_SelectTile.md) | `0x1401F474C` | Runs when A is pressed on the deployment tile cursor: selects the placed unit on the tile, or opens the carousel for an empty cell of an area that has room. |
@@ -226,6 +228,9 @@ Functions: 381, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [ResultLabel_ShowNext](../functions/ResultLabel_ShowNext.md) | `0x140266A68` | Shows the next pending label over a unit: a number (HP / MP / stat change), a fixed text, or the next queued status label. |
 | [Scenario_CheckBattleRecord](../functions/Scenario_CheckBattleRecord.md) | `0x14020DFA8` | Finds the scenario setup record of the current event and lets the battle set-up continue only for a battle record. |
 | [SceneColourPair_WriteVertexColours](../functions/SceneColourPair_WriteVertexColours.md) | `0x14024A6E8` | Writes the scene's two-colour pair (qword_14114A4E8) into the colour entries of four vertices of a render block, a two-colour vertical gradient. |
+| [SceneObjects_StepStates](../functions/SceneObjects_StepStates.md) | `0x14026E194` | Per-update pass over the drawn units: runs three per-unit helpers and, for a unit whose two state bits read 'gone', takes it off the field and releases its drawing. |
+| [SceneUnit_Release](../functions/SceneUnit_Release.md) | `0x14026E0F4` | Frees a drawn unit's scene unit (drawing slot) and, when no other drawn unit uses the same look pool record, frees that record too. |
+| [SceneUnits_ReleaseAll](../functions/SceneUnits_ReleaseAll.md) | `0x14020DE64` | Releases every drawn unit (SceneUnit_Release on each node of g_SceneObjectList) after clearing 32 pending dwords and their 8 linked bytes. |
 | [StatsPanel_Build](../functions/StatsPanel_Build.md) | `0x14022AC18` | Builds the detailed stats panel (display script 6): draws its numbers into VRAM and places its sprite cells. |
 | [StatsScreen_Task](../functions/StatsScreen_Task.md) | `0x1402E1890` | Task of the legacy stats screen: builds its eighteen cell primitives and the stat number strips, then waits for a close. |
 | [Status_ListCategory](../functions/Status_ListCategory.md) | `0x1400FAAB4` | Returns the list category of a status from its UIStatusEffect text row: 1 a gain, 2 an ailment, anything else not listed. |

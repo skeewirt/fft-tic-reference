@@ -18,10 +18,12 @@ While the 16 entry units of a battle are placed, two budgets drop units: at most
 - V: the same loop counts the kept units and keeps one only while the count is below the budget + 7 (16 - scene variable 57); a unit past it gets +1 = 0xFF and +0x1B5 = 0xFF.
 - V: slot argument 255 clears the sprite list and slot 0 starts it with the sprite as its only member; its only caller, Battle_PlaceEntryUnits, passes the entry index 0..15, so entry 0 always restarts the list and is never dropped by it.
 - V: the party units placed at deployment do not pass through this check (they enter through Battle_AddJoinedUnit).
-- ?: scene variable 57 is read only here; no code write was found by operand, so it is set by event scripts or scenario data (not traced).
-- V (seen live): in a random battle at Mandalia Plain (event 401, one deployment area of 5) scene variable 57 read 5 with one party unit placed, so that battle kept at most 4 distinct entry sprites and 11 entry units; 4 entry units stood on the field.
-- I: variable 57 holds the room kept for the party (its capacity), so entry units plus party stay within 9 distinct sprites and 16 units.
+- V: scene variable 57 has three writers (no event script writes it; all 560 scripts scanned): ScenarioSetup_ApplyRecord writes 0 whenever the scene has a scenario setup record (it also sets word_140D407CC); BattleLoad_ClearPartyReserve writes 0 in battle load state 1, before the units are built in state 5; Deployment_PrepareCandidates writes the count byte (+8) of the first deployment area's placement record (scene variable 53) when word_140D407CC is 0, that is when no scenario record was applied.
+- V: so a story battle (one with a scenario setup record) always places its units with variable 57 = 0: at most 9 distinct sprites and 16 kept units; a random battle (no record: variable 39 is 0) uses its area's count: the 57 random-battle areas (rows 513..569) all hold 5, so at most 4 distinct sprites and 11 kept units.
+- V (seen live, random battle at Mandalia Plain, twice): variable 57 was written 5 -> 0 -> 5 by the event thread, both writes before Battle_PlaceEntryUnits ran (breakpoint at its entry: 5); at Orbonne Monastery (the first story battle) it read 0, with 11 units on the field using 9 distinct sprites.
+- V: the budgets are checked only by Battle_PlaceEntryUnits at load: the deployed party (Battle_AddJoinedUnit) and units revealed later (BattleUnit_RevealOnField) never pass through them.
+- V: in Deployment_PrepareCandidates' second branch (scene variable 510 set) the area row is picked by the map id (row byte +9), variables 52..54 are written (two areas) and the row's count byte is rewritten to 4 after variable 57 takes the old count.
 
 ## Open questions
 
-? what sets scene variable 57 and its value in story battles and in two-area battles.
+? what scene variable 510 marks (the branch that rewrites an area count to 4).

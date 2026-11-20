@@ -30,7 +30,7 @@ Returns the shared twenty-byte wrapper object for a resource slot, creating and 
 
 ## Referenced by
 
-- Called by: [Battle_InitScene](Battle_InitScene.md), [ClassicMenu_LoadPageArtPack](ClassicMenu_LoadPageArtPack.md), [LegacyMenu_InitWorld](LegacyMenu_InitWorld.md), [Shop_Open](Shop_Open.md), [sub_1402C6514](sub_1402C6514.md), [sub_1402C72B8](sub_1402C72B8.md)
+- Called by: [BattleLoad_ClearPartyReserve](BattleLoad_ClearPartyReserve.md), [Battle_InitScene](Battle_InitScene.md), [ClassicMenu_LoadPageArtPack](ClassicMenu_LoadPageArtPack.md), [Deployment_PrepareCandidates](Deployment_PrepareCandidates.md), [LegacyMenu_InitWorld](LegacyMenu_InitWorld.md), [Shop_Open](Shop_Open.md), [sub_1402C6514](sub_1402C6514.md), [sub_1402C72B8](sub_1402C72B8.md)
 - Reads tables: [TextPackPaths](../tables/TextPackPaths.md)
 
 ## Notes

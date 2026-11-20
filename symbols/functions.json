@@ -1122,6 +1122,23 @@
       },
       "doc": "docs/functions/BattleLabel_ShowStatusSignal.md"
     },
+    "BattleLoad_ClearPartyReserve": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:166e4470c8447e31b8e00244a1a50aad2e6b00c4e4097f7c604c44874a065c49",
+            "insn_count": 19,
+            "mnemonics": "sha256:dfb1315430e1ed0daadf6d23d2a92dbfc36e3c21c25f866b88af483ad44ae6b4",
+            "size": 92
+          },
+          "rva": "0x33d7e4",
+          "size": 92
+        }
+      },
+      "doc": "docs/functions/BattleLoad_ClearPartyReserve.md"
+    },
     "BattleLoad_StepFresh": {
       "area": "graphics",
       "builds": {
@@ -4895,6 +4912,23 @@
         }
       },
       "doc": "docs/functions/Deployment_LoadAreaPlacement.md"
+    },
+    "Deployment_PrepareCandidates": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 6,
+            "calls": "sha256:c7f990c93d83cae8e9138892e6a452fb64d8e38180422bfbee6d9b9589e9722c",
+            "insn_count": 48,
+            "mnemonics": "sha256:a6ca5cdff6ac734afaea242a6fc23f88c07eb9b0f0c14277585d7c644088a745",
+            "size": 719
+          },
+          "rva": "0x2fb4f8",
+          "size": 719
+        }
+      },
+      "doc": "docs/functions/Deployment_PrepareCandidates.md"
     },
     "Deployment_ResetState": {
       "area": "battle",
@@ -23324,6 +23358,23 @@
       },
       "doc": "docs/functions/SceneObject_SnapFieldBands.md"
     },
+    "SceneObjects_StepStates": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 6,
+            "calls": "sha256:2978cb36741f71141c72d980c74854e33550c9171ff6c4b4af80f3a537615584",
+            "insn_count": 48,
+            "mnemonics": "sha256:598d23cddc2d05a47a806816ee13e0476e58b86c36bca68af0438ead757c911a",
+            "size": 297
+          },
+          "rva": "0x26e194",
+          "size": 297
+        }
+      },
+      "doc": "docs/functions/SceneObjects_StepStates.md"
+    },
     "ScenePad_UpdateRepeat": {
       "area": "event-system",
       "builds": {
@@ -23868,6 +23919,23 @@
       },
       "doc": "docs/functions/SceneUnit_Oscillate120.md"
     },
+    "SceneUnit_Release": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 39,
+            "mnemonics": "sha256:d8cafd67096e3e51b936db232ee5a22e98953950ccebe15595ec0e8232a68ea8",
+            "size": 160
+          },
+          "rva": "0x26e0f4",
+          "size": 160
+        }
+      },
+      "doc": "docs/functions/SceneUnit_Release.md"
+    },
     "SceneUnit_ReleasePartner": {
       "area": "event-system",
       "builds": {
@@ -24054,6 +24122,23 @@
         }
       },
       "doc": "docs/functions/SceneUnit_ZeroPosAndReset.md"
+    },
+    "SceneUnits_ReleaseAll": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:41f46fd2cf60c8c181740786543ecd349d6f87baf6e589487b25f157a88357b3",
+            "insn_count": 29,
+            "mnemonics": "sha256:c12e416e1ca876d4b8946a9f34db5fda31a13651b7ec2683034dc732d4cb0532",
+            "size": 103
+          },
+          "rva": "0x20de64",
+          "size": 103
+        }
+      },
+      "doc": "docs/functions/SceneUnits_ReleaseAll.md"
     },
     "SceneUnits_SaveRestore": {
       "area": "graphics",

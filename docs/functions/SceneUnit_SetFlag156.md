@@ -26,7 +26,7 @@ Marks a unit's flag byte at +0x156 as set (0 during event 54) and clears two of 
 
 ## Referenced by
 
-- Called by: [EventSubScript_RunTask](EventSubScript_RunTask.md)
+- Called by: [EventSubScript_RunTask](EventSubScript_RunTask.md), [SceneObjects_StepStates](SceneObjects_StepStates.md)
 - Called by event opcodes: [0x46](../opcodes/README.md)
 
 ## Notes

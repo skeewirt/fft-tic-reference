@@ -22,7 +22,7 @@ Finds or claims the look pool record for a sprite number and returns its index, 
 ## Referenced by
 
 - Called by: [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md)
-- Observed behaviours: [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [LookSlotsAlreadyInTheGame](../behaviors/LookSlotsAlreadyInTheGame.md), [PoolRecordKeepsItsSpriteAcrossTheReset](../behaviors/PoolRecordKeepsItsSpriteAcrossTheReset.md)
+- Observed behaviours: [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [LookSlotsAlreadyInTheGame](../behaviors/LookSlotsAlreadyInTheGame.md), [OnlyTenDistinctLooksDrawCorrectly](../behaviors/OnlyTenDistinctLooksDrawCorrectly.md), [PoolRecordKeepsItsSpriteAcrossTheReset](../behaviors/PoolRecordKeepsItsSpriteAcrossTheReset.md)
 
 ## Notes
 
