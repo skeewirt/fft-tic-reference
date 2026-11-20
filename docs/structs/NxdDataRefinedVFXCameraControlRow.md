@@ -16,9 +16,15 @@ One row of the nxd.refined_vfx_camera_control table (data table). The key is not
 |---|---|---|---|---|
 | <a id="unknown00"></a>`0x0` | unknown00 | `int32` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: 0 in every row. |
 | <a id="unknown04"></a>`0x4` | unknown04 | `string (int32 offset)` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: empty in every row. |
-| <a id="unknown08"></a>`0x8` | unknown08 | `int32` | V | Read in the code: Two 16-bit offsets (+8 x, +0xA y) added to the x / y words of the 21 effect points in the two tables of qword_1411A3860 (+5518.. and +5982..). Observed in the stock rows: 327680 in every row. |
-| <a id="unknown0c"></a>`0xC` | unknown0c | `int32` | V | Read in the code: +0xC (16 bits) is the z offset added like offset_x; the bytes +0xE / +0xF are flags: +0xE sets two words (+5812, +6276) to -1 instead of applying offsets, +0xF zeroes the x words of the tables at +5392.. / +5856.. first. Observed in the stock rows: 0 in every row. |
-| <a id="unknown10"></a>`0x10` | unknown10 | `int32` | V | Read in the code: Byte +0x10 zeroes the y words (and byte +0x11 the z words) of the tables at +5392.. / +5856.. before the offsets are added. Observed in the stock rows: 0 in every row. |
+| <a id="offset_x"></a>`0x8` | offset_x | `int16` | V | Read in the code: Added to the first word (x) of each of the 21 three-word points of the effect's second point table, in both copies of it, when an effect row that names this row is loaded. Observed in the stock rows: 0 in every row. |
+| <a id="offset_y"></a>`0xA` | offset_y | `int16` | V | Read in the code: Added to the second word (y) of each of the 21 points, like offset_x. |
+| <a id="offset_z"></a>`0xC` | offset_z | `int16` | V | Read in the code: Added to the third word (z) of each of the 21 points, like offset_x. Observed in the stock rows: 0 in every row. |
+| <a id="unknown0e"></a>`0xE` | unknown0e | `uint8` | V | Read in the code: When set, two words of the effect's camera block are set to -1 and the rest of the row is not applied; what the two words are is not established. |
+| <a id="zero_x"></a>`0xF` | zero_x | `uint8` | V | Read in the code: When set, the first word (x) of each of the 21 points of the effect's first point table is set to 0, in both copies, before the offsets are added to the second table. |
+| <a id="zero_y"></a>`0x10` | zero_y | `uint8` | V | Read in the code: When set, the second word (y) of each of the 21 points of the first point table is set to 0, like zero_x. Observed in the stock rows: 0 in every row. |
+| <a id="zero_z"></a>`0x11` | zero_z | `uint8` | V | Read in the code: When set, the third word (z) of each of the 21 points of the first point table is set to 0, like zero_x. |
+| <a id="unknown12"></a>`0x12` | unknown12 | `uint8` | V | Read in the code: No code of the game reads this column. |
+| <a id="unknown13"></a>`0x13` | unknown13 | `uint8` | V | Read in the code: No code of the game reads this column. |
 
 ## Referenced by
 
