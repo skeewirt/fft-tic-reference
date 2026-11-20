@@ -1,4 +1,4 @@
-# StockBattlesFillAtMostSeventeenOfTwentyOneRecords
+# StockBattleEntryListsHoldAtMostSixteenUnits
 
 - **Kind:** observed behaviour
 - **Scope:** engine data (battle unit counts)
@@ -9,7 +9,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-Counted over the stock data, no battle fills all 21 unit records at its start: among battles the commence check lets start, the most is 12 entry units plus a deployment of 5 (17); random formations list up to 16 entry units, but the entry budget keeps at most 16 minus scene variable 57 of them.
+Counted over the stock data, a battle's entry list (not the units on the field) holds at most 12 units in battles the commence check lets start, 12 plus a deployment of 5 making 17 listed; an entry's presence bits decide which of them start on the field (key 432: 5 of its 12). Random formations list up to 16 entry units, but the entry budget keeps at most 16 minus scene variable 57 of them.
 
 ## Behavior
 
@@ -18,6 +18,7 @@ Counted over the stock data, no battle fills all 21 unit records at its start: a
 - M: records with no deployment area list up to 16 entries (key 387 on events 3..6 and 586..589, key 308 on events 326..327 with 15).
 - M: of the entry keys 1..228 that no scenario record names (I: the random-battle formations), 220 hold units: 20 list 16 entries and 10 list 15.
 - V: an OverrideEntryData row can only clear an entry (row byte +0x8D clears entry byte 0), never fill an empty one, so these counts are upper bounds; the entry budget (EntryUnitsShareADistinctLookBudget) and event actors that start off the field lower them further.
+- M: key 432 (events 284..287, the 12-entry two-area battle): presence bits (entry byte +24 & 0xC0) are 0x80 'placed' on entries 0..4, 0x00 'off the field' on 5..8 and 0xC0 'built, not placed' on 9..11, so 5 of its 12 units start on the field.
 - ?: units that event scripts add after the start (Battle_JoinUnitAndLoad from event commands) are not counted here.
 
 ## Open questions

@@ -25,7 +25,7 @@ Makes the deployment area of the scene (index 0 or 1) the current one and return
 ## Referenced by
 
 - Called by: [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md), [Deployment_SelectTile](Deployment_SelectTile.md), [sub_1401EF0D8](sub_1401EF0D8.md)
-- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [StockBattlesFillAtMostSeventeenOfTwentyOneRecords](../behaviors/StockBattlesFillAtMostSeventeenOfTwentyOneRecords.md), [TwoDeploymentAreasShareOneCapacity](../behaviors/TwoDeploymentAreasShareOneCapacity.md)
+- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [StockBattleEntryListsHoldAtMostSixteenUnits](../behaviors/StockBattleEntryListsHoldAtMostSixteenUnits.md), [TwoDeploymentAreasShareOneCapacity](../behaviors/TwoDeploymentAreasShareOneCapacity.md)
 
 ## Open questions
 
