@@ -2,7 +2,7 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 46, Tables: 48.
+Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 47, Tables: 48.
 
 ## Functions (170)
 
@@ -318,7 +318,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (46)
+## Observed behaviours (47)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -365,6 +365,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md) | engine (battle unit colours) | A battle unit's 16 colours are its palette row put through one tint rule (status tints, ambient light), then moved by the palette manager's timed fades; the result is uploaded to the emulated video memory, where the H... |
 | [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md) | engine (small unit portraits) | The small unit face is chosen from the sprite number through three portrait-code tables, then a face number, and the face number is capped at 0xCD; the status card's large job picture follows a different path through ... |
 | [UnitFaceIndexReadsTheTableAfterTheHdTable](../behaviors/UnitFaceIndexReadsTheTableAfterTheHdTable.md) | engine (party faces) | Unit_GetFaceIndex reads the face index of a monster job from the table right after the HD sheet entry table, through a virtual base that falls inside the HD table, so an address-range census counts it as an HD reader ... |
+| [UnitFigureRenderSlotNumbers](../behaviors/UnitFigureRenderSlotNumbers.md) | engine (menu unit figures) | Every unit figure a menu draws is registered under a render slot number 0..255; the Change Job list, the Job Tree and the Status header each use fixed numbers, so two figures registered under one number draw as one. |
 | [UnitMovementAnimationTables](../behaviors/UnitMovementAnimationTables.md) | engine (unit sprite animation) | Eight data tables, one per sprite class, hold the unit's movement animations only (standing, walking, floating, turning, jumping, a few single-frame poses): a row per step, keyed by animation id and step number; attac... |
 | [UnormStoreRoundsHalfDown](../behaviors/UnormStoreRoundsHalfDown.md) | GPU (the test machine's GPU and driver) | When a shader stores a float into an 8-bit UNORM target, an exact half rounds down: 16.5 stores 16, 9.5 stores 9. |
 | [VertexColourBytesTruncated](../behaviors/VertexColourBytesTruncated.md) | engine (UI node colours) | A UI node's vertex colour reaches the shader as bytes: each channel is the product of the node colour and its opacity, truncated to an integer. |

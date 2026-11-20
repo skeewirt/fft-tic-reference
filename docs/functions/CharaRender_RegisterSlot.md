@@ -24,6 +24,7 @@ Registers a UI image node as the display for one unit render slot and applies th
 ## Referenced by
 
 - Called by: [JobList_ApplyCellRecord](JobList_ApplyCellRecord.md), [JobTree_SetPanelRecord](JobTree_SetPanelRecord.md), [SaveLoadList_FillItem](SaveLoadList_FillItem.md), [sub_1402C6514](sub_1402C6514.md), [sub_1402C72B8](sub_1402C72B8.md)
+- Observed behaviours: [UnitFigureRenderSlotNumbers](../behaviors/UnitFigureRenderSlotNumbers.md)
 
 ## Notes
 

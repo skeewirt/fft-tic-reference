@@ -29,7 +29,7 @@ Per-frame state machine of the job screen (states 1400..1412): reads the job-cha
 ## Referenced by
 
 - Appears in flows: [JobScreenFrame](../flows/JobScreenFrame.md), [JobScreenFrame](../flows/JobScreenFrame.md)
-- Observed behaviours: [JobChangeTransitionShapeFromTheListEntryByte](../behaviors/JobChangeTransitionShapeFromTheListEntryByte.md), [JobListEntryWordMeaning](../behaviors/JobListEntryWordMeaning.md), [RuntimeJobListCanLiveInAnyBlockWithinReach](../behaviors/RuntimeJobListCanLiveInAnyBlockWithinReach.md), [RuntimeJobListIs48WordsFollowedByAnotherGlobal](../behaviors/RuntimeJobListIs48WordsFollowedByAnotherGlobal.md)
+- Observed behaviours: [JobChangeTransitionShapeFromTheListEntryByte](../behaviors/JobChangeTransitionShapeFromTheListEntryByte.md), [JobListEntryWordMeaning](../behaviors/JobListEntryWordMeaning.md), [RuntimeJobListCanLiveInAnyBlockWithinReach](../behaviors/RuntimeJobListCanLiveInAnyBlockWithinReach.md), [RuntimeJobListIs48WordsFollowedByAnotherGlobal](../behaviors/RuntimeJobListIs48WordsFollowedByAnotherGlobal.md), [UnitFigureRenderSlotNumbers](../behaviors/UnitFigureRenderSlotNumbers.md)
 - Reads tables: [RuntimeJobList](../tables/RuntimeJobList.md)
 
 ## Notes

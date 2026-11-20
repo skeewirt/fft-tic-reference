@@ -28,7 +28,7 @@ Stores a job record into the tree panel slot and sets the panel's Lock/Unlock/Lv
 ## Referenced by
 
 - Called by: [JobTree_FillJobRecords](JobTree_FillJobRecords.md)
-- Observed behaviours: [JobTreeLockState](../behaviors/JobTreeLockState.md), [JobTreePanelCountLimits](../behaviors/JobTreePanelCountLimits.md), [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md)
+- Observed behaviours: [JobTreeLockState](../behaviors/JobTreeLockState.md), [JobTreePanelCountLimits](../behaviors/JobTreePanelCountLimits.md), [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md), [UnitFigureRenderSlotNumbers](../behaviors/UnitFigureRenderSlotNumbers.md)
 
 ## Notes
 

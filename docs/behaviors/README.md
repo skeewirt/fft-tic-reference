@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-245 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+246 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -239,6 +239,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [UnitEventFlagWord](UnitEventFlagWord.md) | engine (battle unit table) | A battle unit's dword +504 holds one bit per OverrideEntryData flag byte (bits 0..10) and bit 11 from the equipment build. |
 | [UnitFaceFromSpriteNumber](UnitFaceFromSpriteNumber.md) | engine (small unit portraits) | The small unit face is chosen from the sprite number through three portrait-code tables, then a face number, and the face number is capped at 0xCD; the status card's large job picture follows a different path through ... |
 | [UnitFaceIndexReadsTheTableAfterTheHdTable](UnitFaceIndexReadsTheTableAfterTheHdTable.md) | engine (party faces) | Unit_GetFaceIndex reads the face index of a monster job from the table right after the HD sheet entry table, through a virtual base that falls inside the HD table, so an address-range census counts it as an HD reader ... |
+| [UnitFigureRenderSlotNumbers](UnitFigureRenderSlotNumbers.md) | engine (menu unit figures) | Every unit figure a menu draws is registered under a render slot number 0..255; the Change Job list, the Job Tree and the Status header each use fixed numbers, so two figures registered under one number draw as one. |
 | [UnitMovementAnimationTables](UnitMovementAnimationTables.md) | engine (unit sprite animation) | Eight data tables, one per sprite class, hold the unit's movement animations only (standing, walking, floating, turning, jumping, a few single-frame poses): a row per step, keyed by animation id and step number; attac... |
 | [UnitThatBlocksItsAlliesInMoveRanges](UnitThatBlocksItsAlliesInMoveRanges.md) | engine (job table row +25 bit 7) | A job whose table row has bit 7 of byte +25 set makes its units block the tiles they stand on for their own side's movement, unless the moving unit has the bit too. |
 | [UnlockMaskStreamRunsIntoLearnedBitsPastIndex23](UnlockMaskStreamRunsIntoLearnedBitsPastIndex23.md) | engine (per-unit job state) | The unit's unlock mask is 3 bytes (24 bits) read through a bit stream, and the learned-ability bits follow it directly in the same record, so a bit read at a job index of 24 or more lands in the learned bits of the fi... |
