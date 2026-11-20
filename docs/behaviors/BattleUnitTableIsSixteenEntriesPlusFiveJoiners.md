@@ -21,4 +21,4 @@ The 21 records of the live battle unit table are two groups: records 0..15 are t
 
 ## Open questions
 
-? whether a placement past record 20 falls into a free entry record in play (the fallback in state 83 was not reached in the live test).
+? a placement past record 20 in a battle whose 16 entry records are all used (no free record: -1 and nothing added, by the code). Answered: in play, a sixth placed unit took the first free entry record and fought as a party unit (DeploymentAcceptsOneToFivePlacedUnits).

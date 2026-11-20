@@ -3,7 +3,7 @@
 - **Address:** `0x1401EE734`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int Deployment_AreaOfPlacedUnit(DeploymentState *state, int n)`
-- **Callers:** sub_1401F3858, sub_1401F3E3C, sub_1401F49EC, sub_1401F5078
+- **Callers:** sub_1401F3858, Deployment_FindPlacedUnitArea, sub_1401F49EC, sub_1401F5078
 - **Callees:** SceneObject_FindByUnitIndex, SceneVar_Read, Deployment_LoadAreaPlacement, Battle_FindUnitNodeAt
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -23,6 +23,7 @@ Returns the deployment area (0 or 1) that placed party entry n stands in, or -1.
 
 ## Referenced by
 
+- Called by: [Deployment_FindPlacedUnitArea](Deployment_FindPlacedUnitArea.md)
 - Observed behaviours: [PartyResultsAreFoundBySaveIndexInAllRecords](../behaviors/PartyResultsAreFoundBySaveIndexInAllRecords.md)
 
 ## Open questions

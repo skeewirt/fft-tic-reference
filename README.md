@@ -2,13 +2,13 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-4292 records in 12 kinds; 2265 functions.
+4295 records in 12 kinds; 2268 functions.
 
 ## By kind
 
 | Kind | Records | What it covers |
 |---|---|---|
-| [Functions](docs/functions/README.md) | 2265 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
+| [Functions](docs/functions/README.md) | 2268 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
 | [Structures](docs/structs/README.md) | 535 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
 | [Globals](docs/globals/README.md) | 222 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
@@ -27,7 +27,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 |---|---|
 | [Ability data](docs/areas/ability-data.md) | Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 14 |
 | [Application and startup](docs/areas/app-startup.md) | Functions: 19, Structures: 3, Globals: 2, Observed behaviours: 5, Tables: 2 |
-| [Battle](docs/areas/battle.md) | Functions: 377, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 66, Tables: 89 |
+| [Battle](docs/areas/battle.md) | Functions: 380, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 66, Tables: 89 |
 | [Data access](docs/areas/data.md) | Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 13, Tables: 116 |
 | [Display](docs/areas/display.md) | Functions: 3, Structures: 5, Tables: 5 |
 | [Errands](docs/areas/errands.md) | Functions: 29, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11 |

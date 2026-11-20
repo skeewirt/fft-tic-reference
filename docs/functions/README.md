@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2265 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2268 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -289,9 +289,12 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Deployment_AreaOfPlacedUnit](Deployment_AreaOfPlacedUnit.md) | `0x1401EE734` | [Battle](../areas/battle.md) | Returns the deployment area (0 or 1) that placed party entry n stands in, or -1. |
 | [Deployment_CompactPlaced](Deployment_CompactPlaced.md) | `0x1401EE6DC` | [Battle](../areas/battle.md) | Moves the placed party indices of the deployment state to the front of their array. |
 | [Deployment_CountPlaced](Deployment_CountPlaced.md) | `0x1401EE6AC` | [Battle](../areas/battle.md) | Counts the placed party units of the deployment state. |
+| [Deployment_CountUnitsInArea](Deployment_CountUnitsInArea.md) | `0x1401EE830` | [Battle](../areas/battle.md) | Counts the units that stand on the deployment cells of area 0 or 1. |
+| [Deployment_FindPlacedUnitArea](Deployment_FindPlacedUnitArea.md) | `0x1401F3E3C` | [Battle](../areas/battle.md) | Finds which deployment area a placed party unit (by its battle slot) stands in, and its order among the placed units of that area. |
 | [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md) | `0x140303408` | [Battle](../areas/battle.md) | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
 | [Deployment_ResetState](Deployment_ResetState.md) | `0x1401EE518` | [Battle](../areas/battle.md) | Resets the deployment state: capacity 0, no placed unit, no candidate. |
 | [Deployment_SelectArea](Deployment_SelectArea.md) | `0x140303380` | [Battle](../areas/battle.md) | Makes the deployment area of the scene (index 0 or 1) the current one and returns a count byte of its placement record. |
+| [Deployment_SelectTile](Deployment_SelectTile.md) | `0x1401F474C` | [Battle](../areas/battle.md) | Runs when A is pressed on the deployment tile cursor: selects the placed unit on the tile, or opens the carousel for an empty cell of an area that has room. |
 | [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md) | `0x1401EE890` | [Battle](../areas/battle.md) | Decides whether the deployment screen may start the battle with the units placed: returns a result code, 1 meaning go. |
 | [DepthStencilDesc_FromWord](DepthStencilDesc_FromWord.md) | `0x140051438` | [Graphics](../areas/graphics.md) | Unpacks the packed depth-stencil word of a pipeline state into the Direct3D 12 depth-stencil description. |
 | [Effect_AbilityHasNoEffect](Effect_AbilityHasNoEffect.md) | `0x140319D74` | [Battle](../areas/battle.md) | True when an effect word has no effect file (g_AbilityEffectNumber < 0), except 146 and 405..413. |

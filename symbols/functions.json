@@ -4828,6 +4828,40 @@
       },
       "doc": "docs/functions/Deployment_CountPlaced.md"
     },
+    "Deployment_CountUnitsInArea": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:8288fcba043450dd1413b85057a806907525bc504fd47de869c0ab467f8b8880",
+            "insn_count": 28,
+            "mnemonics": "sha256:c2a76ed81c93ffaed60e5d85c535709e2e26d4c6cc14bf27aef1b295e626f2e0",
+            "size": 93
+          },
+          "rva": "0x1ee830",
+          "size": 93
+        }
+      },
+      "doc": "docs/functions/Deployment_CountUnitsInArea.md"
+    },
+    "Deployment_FindPlacedUnitArea": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:fa15512f262fe480419b703b0ebc3df515f3a79dd7befa718e0511f29b47f918",
+            "insn_count": 48,
+            "mnemonics": "sha256:56822a532d713460efc43e82ed22e6da0d454a43c24dc2c222e71843a7c5cc8b",
+            "size": 184
+          },
+          "rva": "0x1f3e3c",
+          "size": 184
+        }
+      },
+      "doc": "docs/functions/Deployment_FindPlacedUnitArea.md"
+    },
     "Deployment_LoadAreaPlacement": {
       "area": "battle",
       "builds": {
@@ -4878,6 +4912,23 @@
         }
       },
       "doc": "docs/functions/Deployment_SelectArea.md"
+    },
+    "Deployment_SelectTile": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:7ab3ee367c2c2e91277c5a96b094c715c472a69fdb34eef621d086e01acf8e9c",
+            "insn_count": 48,
+            "mnemonics": "sha256:c3cae59ecaf1068f6253b23de83304ae7895d387a63cf4ae38e9ccee50d30e1e",
+            "size": 330
+          },
+          "rva": "0x1f474c",
+          "size": 330
+        }
+      },
+      "doc": "docs/functions/Deployment_SelectTile.md"
     },
     "DepthStencilDesc_FromWord": {
       "area": "graphics",

@@ -18,6 +18,7 @@ Counts the placed party units of the deployment state.
 
 ## Referenced by
 
+- Called by: [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md)
 - Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md)
 
 ## Notes

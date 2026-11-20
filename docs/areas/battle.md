@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 377, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 66, Tables: 89.
+Functions: 380, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 66, Tables: 89.
 
-## Functions (377)
+## Functions (380)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -140,9 +140,12 @@ Functions: 377, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [Deployment_AreaOfPlacedUnit](../functions/Deployment_AreaOfPlacedUnit.md) | `0x1401EE734` | Returns the deployment area (0 or 1) that placed party entry n stands in, or -1. |
 | [Deployment_CompactPlaced](../functions/Deployment_CompactPlaced.md) | `0x1401EE6DC` | Moves the placed party indices of the deployment state to the front of their array. |
 | [Deployment_CountPlaced](../functions/Deployment_CountPlaced.md) | `0x1401EE6AC` | Counts the placed party units of the deployment state. |
+| [Deployment_CountUnitsInArea](../functions/Deployment_CountUnitsInArea.md) | `0x1401EE830` | Counts the units that stand on the deployment cells of area 0 or 1. |
+| [Deployment_FindPlacedUnitArea](../functions/Deployment_FindPlacedUnitArea.md) | `0x1401F3E3C` | Finds which deployment area a placed party unit (by its battle slot) stands in, and its order among the placed units of that area. |
 | [Deployment_LoadAreaPlacement](../functions/Deployment_LoadAreaPlacement.md) | `0x140303408` | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
 | [Deployment_ResetState](../functions/Deployment_ResetState.md) | `0x1401EE518` | Resets the deployment state: capacity 0, no placed unit, no candidate. |
 | [Deployment_SelectArea](../functions/Deployment_SelectArea.md) | `0x140303380` | Makes the deployment area of the scene (index 0 or 1) the current one and returns a count byte of its placement record. |
+| [Deployment_SelectTile](../functions/Deployment_SelectTile.md) | `0x1401F474C` | Runs when A is pressed on the deployment tile cursor: selects the placed unit on the tile, or opens the carousel for an empty cell of an area that has room. |
 | [DeploymentGrid_CommenceCheck](../functions/DeploymentGrid_CommenceCheck.md) | `0x1401EE890` | Decides whether the deployment screen may start the battle with the units placed: returns a result code, 1 meaning go. |
 | [Effect_AbilityHasNoEffect](../functions/Effect_AbilityHasNoEffect.md) | `0x140319D74` | True when an effect word has no effect file (g_AbilityEffectNumber < 0), except 146 and 405..413. |
 | [Effect_ClearCurrent](../functions/Effect_ClearCurrent.md) | `0x14031A7E0` | Clears the running effect: resets its bookkeeping and sets the current effect number to -1. |
@@ -563,7 +566,7 @@ Functions: 377, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleUnitTableListsEnemyRowsThatAreNotOnTheField](../behaviors/BattleUnitTableListsEnemyRowsThatAreNotOnTheField.md) | engine (battle unit table, random battle start) | In a random battle the unit table holds up to nine enemy rows from the start, but only the rows with the slot byte (+0x01) equal to their own slot and the on-field byte (+0x1B5) equal to 1 stand on the field; the othe... |
 | [BattleVoiceChance](../behaviors/BattleVoiceChance.md) | engine (battle voices) | Whether a line plays is a roll of the speaker group's percentage in the line's column; fast-forward silences voices. |
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
-| [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; a placed ... |
+| [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; each area... |
 | [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md) | engine (battle deployment screen state) | The fields of the deployment screen's state object that hold the capacity, the placed party, the candidate list and the unit being placed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md) | engine (scripted battle spawn) | While the 16 entry units of a battle are placed, two budgets drop units: at most 9 minus scene variable 57 distinct sprite numbers (the battle's unique-sprite limit of 9 when the variable is 0) and at most 16 minus sc... |
