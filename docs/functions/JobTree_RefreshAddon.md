@@ -15,8 +15,8 @@ UIAddonFFTOUnitJobTree vtable slot 4. Builds the tree: finds the 'JobTree' root,
 ## Behavior
 
 - V: runs at BOOT (title screen), not when the tree opens (exec breakpoint fires about 5 s after launch).
-- V: panel loop bound 20 (the immediate is at 0x140133944).
-- V: node name = sub_140134980(table, i): job index -> stem ('Squire'..'Mime'); an index beyond the stock panels falls to the default Str1.
+- V: stock panel loop bound is 20 (the immediate at 0x140133944).
+- V: node name = sub_140134980(table, i): job index -> stem ('Squire'..'Mime'); the index past the stock 20 falls to the default Str1.
 - V: stores node at addon+72+456*i, Unit gadget at +8, name gadget at +16, title at +24.
 - V: requirement lines come from GeneralJob rows (nxd table 189): node names 'Line%sLv%02d' / 'Line%s%s'; missing line nodes are null-checked.
 - V: the name format is chosen by the requirement's position code, not by which node exists: code 5 or 6 -> 'Line<required>Lv<level>' (one node shared by every requirement on that job at that level: the stock Squire / Chemist two-branch arrows), any other code -> 'Line<required><job>'. Codes 3, 5 and 6 all select the B label board.
@@ -26,7 +26,7 @@ UIAddonFFTOUnitJobTree vtable slot 4. Builds the tree: finds the 'JobTree' root,
 - V: sharing one board is how the stock tree labels arrows that leave one side at one level: Squire's B board shows one 'Lv. 2' for both Chemist and Knight; seen live 2026-11-12 (three Lv. 2 arrows under Squire, one label).
 - V (stock uib, offline): the boards are References to the 40 x 20 component TextBoardJobLv at scale 1.2, pivot = centre, in UnitJob's LayerRoot (origin (0, 8)): centres relative to the panel node L (-54, 90), R (116, 90), T (32, -38), B (32, 136), the disc centre being (31, 88). Every one of the 30 stock arrows leaves its side on the centre lane (L / R at y 87..90, B at x 26..36), so each board sits on its side's centre lane just outside the panel box.
 - V: the same pass records the reverse edge in the required job's dependents table (record +0x118, 6 entries x {line, board, child job, level}); more than 6 dependents are dropped.
-- V: the loop tail copies the job's 8-direction navigation pairs (cursor grid) from the GeneralJob row into the panel record at +0x1A8.
+- V: the loop tail copies the job's 8-direction navigation pairs (cursor grid) from the GeneralJob row into the panel record at +0x1A8: per direction, candidate 0 takes the low byte of the dword at row +0x28 + 4 * direction and the flag byte at row +0x68 + direction, candidate 1 the low byte of the dword at row +0x48 + 4 * direction and the flag byte at row +0x70 + direction (columns cursor_<direction>, cursor_<direction>_2, cursor_<direction>_primary_only, cursor_<direction>_2_primary_only); record byte 4 * direction + 2 * candidate = panel index (0..19, 20 = none), the next byte = the flag. See behavior JobTreeCursorNeighbourTable.
 
 ## State touched
 
@@ -35,11 +35,11 @@ UIAddonFFTOUnitJobTree vtable slot 4. Builds the tree: finds the 'JobTree' root,
 
 ## Referenced by
 
-- Observed behaviours: [JobTreePanelCountLimits](../behaviors/JobTreePanelCountLimits.md), [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md)
+- Observed behaviours: [JobTreeCursorNeighbourTable](../behaviors/JobTreeCursorNeighbourTable.md), [JobTreePanelCountLimits](../behaviors/JobTreePanelCountLimits.md), [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md)
 
 ## Notes
 
-Panel stride is 456 bytes; the addon is 0x2FD8 bytes in stock (allocated in JobTree_Create). Limits in this function: 6 requirements per job, 6 dependents per job, 4 label boards per panel (one per side).
+The panel record offsets (+0x88, +0x90, +0x98, +0x9C, +0x118, +0x1A8) are reached through a running pointer into the 456-byte record, so they appear only as sums in the body. Panel stride is 456 bytes; the addon is 0x2FD8 bytes in stock (allocated in JobTree_Create). Limits in this function: 6 requirements per job, 6 dependents per job, 4 label boards per panel (one per side).
 
 ## Open questions
 

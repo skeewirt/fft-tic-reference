@@ -20,6 +20,14 @@ Builds the poacher shop's list: one 48-byte entry for each poach id (1..96) with
 
 - Calls: [Item_CountEquippedByParty](Item_CountEquippedByParty.md), [Item_CountTotal](Item_CountTotal.md), [UITable_GetRowByKey](UITable_GetRowByKey.md)
 
+## Referenced by
+
+- Observed behaviours: [PoachListSortOrders](../behaviors/PoachListSortOrders.md)
+
+## Notes
+
+The list is sorted by sub_1401CAFE0 (sort_name strings of the PoachItem rows); the other poach list sorters are sub_1401CAB50 and sub_1401CAC8C, the row label is built by sub_1402A6710.
+
 ## Open questions
 
 None recorded.

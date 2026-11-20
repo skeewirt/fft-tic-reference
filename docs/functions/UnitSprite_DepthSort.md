@@ -17,6 +17,10 @@ Computes the depth value of a unit sprite for sorting.
 - V: for a scene object whose dword +0x15C has bit 4 set it adds the render object's byte +964 (the CharShape unknown_2d column, signed, copied there by sub_14027032C) to the unit's y before the depth value is computed.
 - V: the same flag makes BattleFormation_DrawUnits use the alternate height (CharShape height_2).
 
+## Referenced by
+
+- Observed behaviours: [CharShapeDepthSortOffset](../behaviors/CharShapeDepthSortOffset.md)
+
 ## Notes
 
 Name is ours.

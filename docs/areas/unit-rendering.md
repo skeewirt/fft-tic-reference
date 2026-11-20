@@ -2,9 +2,9 @@
 
 Unit preview, sprite records, CharaRender/CharaSlot, palettes and renderer pages.
 
-Functions: 38, Structures: 17, Tables: 20.
+Functions: 39, Structures: 18, Observed behaviours: 1, Tables: 20.
 
-## Functions (38)
+## Functions (39)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -41,13 +41,14 @@ Functions: 38, Structures: 17, Tables: 20.
 | [sub_140266890](../functions/sub_140266890.md) | `0x140266890` | Copies a classic item-icon tile state into the unit's icon sprite record, so the unit's item overlay uses that tile. |
 | [sub_14026A7B8](../functions/sub_14026A7B8.md) | `0x14026A7B8` | Refreshes a unit's sprite palette for the item it holds, branching on the unit's current pose/shape. |
 | [sub_14026C2E8](../functions/sub_14026C2E8.md) | `0x14026C2E8` | Loads or refreshes the high-definition sprite entry for one render slot. |
+| [sub_14027032C](../functions/sub_14027032C.md) | `0x14027032C` | Looks up the sprite shape's LUT parameter record for a scene unit and stores it, with two CharShape bytes, in the scene object's block +960..+979. |
 | [sub_1402F74D8](../functions/sub_1402F74D8.md) | `0x1402F74D8` | Expands one 16-colour RGB555 palette into the two working palette forms a unit sprite slot uses. |
 | [sub_1402F7594](../functions/sub_1402F7594.md) | `0x1402F7594` | Builds one 16-colour palette block for a sprite slot and records that the slot is ready, so later calls for the same slot return at once. |
 | [Unit_BuildPreviewSpriteRecord](../functions/Unit_BuildPreviewSpriteRecord.md) | `0x1402C1D40` | Builds the sprite record for a party unit's preview. |
 | [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md) | `0x1402C06D4` | Resolves a unit's sprite number for the event and scene code. |
 | [Unit_ResolvePreviewShape](../functions/Unit_ResolvePreviewShape.md) | `0x140278EDC` | Returns the sprite shape id for a unit/job pair (and a palette byte for special units). |
 
-## Structures (17)
+## Structures (18)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -65,9 +66,16 @@ Functions: 38, Structures: 17, Tables: 20.
 | [NxdDataCharShapeRow](../structs/NxdDataCharShapeRow.md) | 48 | One row of the nxd.char_shape table (data table). |
 | [NxdDataCharShapeShadowSizeRow](../structs/NxdDataCharShapeShadowSizeRow.md) | 12 | One row of the nxd.char_shape_shadow_size table (data table). |
 | [NxdDataCharTacticalViewParamRow](../structs/NxdDataCharTacticalViewParamRow.md) | 32 | One row of the nxd.char_tactical_view_param table (data table). |
+| [SceneObjectLutBlock](../structs/SceneObjectLutBlock.md) |  | The block of a scene unit object at +960..+979 that sub_14027032C fills from the shape's LUT parameter lookup (CharaRender_LookupLutParams) and two bytes of the CharShape row. |
 | [SectorAndSize](../structs/SectorAndSize.md) | 8 | One row of the BattleSpriteFilesLanguage0 table and the tables that share its shape. |
 | [SpriteDirectionFlag](../structs/SpriteDirectionFlag.md) | 2 | One row of the SpriteDirection16MirrorFlags table. |
 | [SpritePaletteLimit](../structs/SpritePaletteLimit.md) | 1 | One row of the SpritePaletteLimits table. |
+
+## Observed behaviours (1)
+
+| Name | Scope | Summary |
+|---|---|---|
+| [CharShapeDepthSortOffset](../behaviors/CharShapeDepthSortOffset.md) | engine (unit sprites) | CharShape +0x2D is a signed byte added to the unit's height coordinate before the sprite depth value is computed; +0x2E is copied into the scene object and read by nothing. |
 
 ## Tables (20)
 

@@ -25,6 +25,7 @@ Scene-variable element modifier on R+6: damage of some elements is cut or raised
 ## Referenced by
 
 - Called by: [Formula_04_MagicGun](Formula_04_MagicGun.md), [Formula_MagicDamageTail](Formula_MagicDamageTail.md)
+- Observed behaviours: [ScenarioWeatherLevelAndNightFlag](../behaviors/ScenarioWeatherLevelAndNightFlag.md)
 
 ## Notes
 

@@ -31,7 +31,7 @@ Clears the range marks, gives every tile its movement flag byte (slope, standabl
 ## Referenced by
 
 - Called by: [Battle_MoveRange_Build](Battle_MoveRange_Build.md)
-- Observed behaviours: [MoveRangeRules](../behaviors/MoveRangeRules.md)
+- Observed behaviours: [MoveRangeRules](../behaviors/MoveRangeRules.md), [UnitThatBlocksItsAlliesInMoveRanges](../behaviors/UnitThatBlocksItsAlliesInMoveRanges.md)
 
 ## Notes
 
@@ -39,4 +39,4 @@ Flag bits of g_MoveTileFlags: 0x01 frontier, 0x02 one-axis slope, 0x04 occupied,
 
 ## Open questions
 
-? What unit record byte +0 == 73 is. ? What bit 6 of a unit's facing byte means (the 'stepped onto' case); no capture has it.
+? What unit record byte +0 == 73 is. ? What 0x08 on a same-side tile does in the expansion (I: the tile cannot be entered or crossed, the flag an enemy's tile gets in movement mode 0). V: bit 6 of unit byte +81 is the JobTable blocks-allies bit (row +25 bit 7), copied to the blocker's layer byte bit 7 by Battle_MoveRangeSetup.

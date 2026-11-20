@@ -57,7 +57,8 @@ The working copy of a unit: the 21 battle units (g_BattleUnits) and temporary co
 | <a id="faith"></a>`0x2D` | faith | `uint8` | V | Faith (spawn entry +7, same rule as Brave). |  |  |  |
 | <a id="name_string"></a>`0x14C` | name_string | `uint8[64]` | V | The unit's own name string (UnitWork_SetNameKey: save record +0xDC). |  |  |  |
 | <a id="spawn_tail"></a>`0x197` | spawn_tail | `uint8[7]` | V | Copied from spawn entry +33..+39 (Unit_ApplySpawnRecord). |  |  |  |
-| <a id="spawn_flags"></a>`0x1F8` | spawn_flags | `uint32` | V | The spawn flag set: OverrideEntryData flag bytes as bits 0..10, stored by Battle_PlaceEntryUnits. Bit 0x04 = objective target (BattleObjective_ShowsTarget); bits 0x18 and 0x01 are read by the turn panel. |  |  |  |
+| <a id="spawn_flags"></a>`0x1F8` | spawn_flags | `uint32` | V | The spawn flag set: OverrideEntryData flag bytes as bits 0..10, stored by Battle_PlaceEntryUnits. One bit per flag byte (OverrideEntryData +0x8E..+0x97 and +0x99 as bits 0..10, bit 11 from the equipment build): see the registry UnitEventFlagBit and the behaviour UnitEventFlagWord. |  |  |  |
+| <a id="growth_pairs"></a>`0x8A` | growth_pairs | `uint8[10]` | V | Five (growth constant, multiplier) byte pairs for the stats HP, MP, Speed, PA, MA in that order (Unit_ComputeStats reads work +138 + 2 i); sub_1401EA910 adds the OverrideEntryData play-mode arrays to the HP pair (+138 / +139) and the Speed pair (+142 / +143). |  |  |  |
 | <a id="name_key"></a>`0x1FC` | name_key | `uint32` | V | Name key (CharaName table), set by UnitWork_SetNameKey; read by CharaName_GetDisplayName callers. |  |  |  |
 | <a id="ko_counter"></a>`0x7` | ko_counter | `uint8` | V | The KO counter: Unit_SetStatusCountdown sets it to 3 when KO is applied (0xFF when +5 bit 2 or +6 bits 0x09 are set: the unit never crystallises); BTurn_OnTurnStartStatus counts it down at the turn start; at 0 the unit becomes a crystal or a chest. |  |  | [Unit_InitBattleStatusState](../functions/Unit_InitBattleStatusState.md) |
 | <a id="innate_status_a"></a>`0x57` | innate_status_a | `uint8[5]` | V | Status set (40 bits, status s = bit 0x80 >> (s & 7) of byte s >> 3): the statuses the unit always has = job row status_a \| equipment status_a (UnitWork_ApplyJobRow, Unit_ReloadFromJobRow, Unit_ApplyEquipment). Timed statuses (24..39) in it never expire. | [EventUnitStatus_SaveAndHide](../functions/EventUnitStatus_SaveAndHide.md), [Unit_InitBattleStatusState](../functions/Unit_InitBattleStatusState.md), [Unit_SetChargeStateBits](../functions/Unit_SetChargeStateBits.md) |  |  |
@@ -93,6 +94,7 @@ The working copy of a unit: the 21 battle units (g_BattleUnits) and temporary co
 
 ## Referenced by
 
+- Observed behaviours: [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
 - Read by: [Unit_HasStatusGroup](../functions/Unit_HasStatusGroup.md)
 - Written by: [BattleAction_ApplyRequest](../functions/BattleAction_ApplyRequest.md), [Unit_BuildInnateStatuses](../functions/Unit_BuildInnateStatuses.md), [Unit_ReinitStatusCountdowns](../functions/Unit_ReinitStatusCountdowns.md)
 

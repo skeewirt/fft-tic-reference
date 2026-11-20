@@ -25,7 +25,7 @@ Lists the statuses a result block adds and removes, as one byte per status, sort
 
 ## Referenced by
 
-- Called by: [UnitPanel_FillEffectLine](UnitPanel_FillEffectLine.md)
+- Called by: [UnitPanel_FillEffectLine](UnitPanel_FillEffectLine.md), [sub_140217A7C](sub_140217A7C.md)
 - Observed behaviours: [HitLabelsAndThePanelEffectLineAreSeparateLists](../behaviors/HitLabelsAndThePanelEffectLineAreSeparateLists.md), [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md)
 
 ## Notes

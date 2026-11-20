@@ -24,6 +24,7 @@ Returns the executable's per-ability auxiliary record and an extra category-spec
 ## Referenced by
 
 - Called by: [BattleCommand_BuildScreen](BattleCommand_BuildScreen.md), [sub_140153CA0](sub_140153CA0.md), [sub_140206F90](sub_140206F90.md), [sub_14022F868](sub_14022F868.md), [sub_140238444](sub_140238444.md), [sub_14028A474](sub_14028A474.md), [sub_1402A21B0](sub_1402A21B0.md)
+- Observed behaviours: [AbilityLearnedByBeingHit](../behaviors/AbilityLearnedByBeingHit.md)
 - Reads tables: [AbilityAux](../tables/AbilityAux.md), [AbilityKind1_ItemByAbility](../tables/AbilityKind1_ItemByAbility.md), [AbilityKind2_ThrowCategory](../tables/AbilityKind2_ThrowCategory.md), [AbilityKind3_JumpReach](../tables/AbilityKind3_JumpReach.md), [AbilityKind4_Charge](../tables/AbilityKind4_Charge.md), [AbilityKind5_MathMask](../tables/AbilityKind5_MathMask.md), [AbilityKind6_PassiveIndex](../tables/AbilityKind6_PassiveIndex.md), [StatusProperties](../tables/StatusProperties.md)
 
 ## Notes

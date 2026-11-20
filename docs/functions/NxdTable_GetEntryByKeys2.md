@@ -26,7 +26,7 @@ The row entry of (key1, key2): for a double-keyed table the binary search over t
 ## Referenced by
 
 - Appears in flows: [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md)
-- Called by: [CharClut_GetColorSkin](CharClut_GetColorSkin.md), [Launcher_DrawPage](Launcher_DrawPage.md), [LoreDictionary_GetEntry](LoreDictionary_GetEntry.md), [NxdTable_GetEntryByIndex](NxdTable_GetEntryByIndex.md), [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetSetEntries](NxdTable_GetSetEntries.md), [UITable_GetRowByKeys](UITable_GetRowByKeys.md), [Unit_GetVoicePatternId](Unit_GetVoicePatternId.md), [WorldMap_ApplyProgressInfo](WorldMap_ApplyProgressInfo.md), [ZodiacStone_FillDetail](ZodiacStone_FillDetail.md), [sub_14036E5DC](sub_14036E5DC.md)
+- Called by: [CharClut_GetColorSkin](CharClut_GetColorSkin.md), [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md), [Launcher_DrawPage](Launcher_DrawPage.md), [LoreDictionary_GetEntry](LoreDictionary_GetEntry.md), [NxdTable_GetEntryByIndex](NxdTable_GetEntryByIndex.md), [NxdTable_GetEntryByKeyIndex](NxdTable_GetEntryByKeyIndex.md), [NxdTable_GetSetEntries](NxdTable_GetSetEntries.md), [UITable_GetRowByKeys](UITable_GetRowByKeys.md), [Unit_GetVoicePatternId](Unit_GetVoicePatternId.md), [WorldMap_ApplyProgressInfo](WorldMap_ApplyProgressInfo.md), [ZodiacStone_FillDetail](ZodiacStone_FillDetail.md), [sub_14036E5DC](sub_14036E5DC.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes

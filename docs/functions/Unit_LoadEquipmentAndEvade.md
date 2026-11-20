@@ -28,7 +28,7 @@ Fills the unit work record's weapon and evade bytes (+68..+78) from the job row 
 
 ## Referenced by
 
-- Called by: [Unit_BuildInnateStatuses](Unit_BuildInnateStatuses.md)
+- Called by: [Unit_BuildInnateStatuses](Unit_BuildInnateStatuses.md), [sub_1402760E8](sub_1402760E8.md)
 
 ## Notes
 

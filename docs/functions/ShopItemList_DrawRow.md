@@ -24,6 +24,10 @@ Draws one shop list row: fills it (ShopItemList_FillRow), colours the owned coun
 - Calls: [ShopItemList_FillRow](ShopItemList_FillRow.md), [ShopItemList_SetPrice](ShopItemList_SetPrice.md), [SceneVar_Read](SceneVar_Read.md), [GUINode_FindState](GUINode_FindState.md), [GUINode_PlayState](GUINode_PlayState.md), [GUINode_StopState](GUINode_StopState.md)
 - Reads: [ShopEntry.price](../structs/ShopEntry.md#price), [ShopEntry.owned](../structs/ShopEntry.md#owned)
 
+## Referenced by
+
+- Observed behaviours: [ItemRowGrammarBytesAndGates](../behaviors/ItemRowGrammarBytesAndGates.md)
+
 ## Open questions
 
 None recorded.

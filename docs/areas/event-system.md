@@ -2,9 +2,9 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 19, Tables: 29.
+Functions: 203, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 20, Tables: 29.
 
-## Functions (199)
+## Functions (203)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -71,6 +71,7 @@ Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventSequencer_TakeTurn](../functions/EventSequencer_TakeTurn.md) | `0x1402334FC` | Waits for the shared sequencer to be free, claims it by writing the caller's tag, waits until it is released, and ends the caller when the flag word at word_140D408F8 is 1. |
 | [EventSkip_IsAvailable](../functions/EventSkip_IsAvailable.md) | `0x140239834` | Says whether the running event script may be skipped now. |
 | [EventSkip_IsViewerEvent](../functions/EventSkip_IsViewerEvent.md) | `0x1402397F8` | The second way an event becomes skippable: event variable 508 set (an event started from a viewer path), with the event number outside 410..425 and a blocking flag clear. |
+| [EventSlot_LoadTrack](../functions/EventSlot_LoadTrack.md) | `0x1402B1D58` | Loads a music track number into an event music slot when that slot is free. |
 | [EventSlot_SetParam](../functions/EventSlot_SetParam.md) | `0x1402B1FB4` | Stores an event parameter record: -996, 100 * level / 127 and b into xmmword_140D3A910, and level into dword_1418623B8, when qword_1418623A8 is set. |
 | [EventSlots_ResetAll](../functions/EventSlots_ResetAll.md) | `0x1402B2004` | Resets the event's parameter slots and empties the event sound entry list. |
 | [EventSoundEntry_Append](../functions/EventSoundEntry_Append.md) | `0x1401D7AF8` | The body of opcode 0xA6: looks the id up in data table 280 and then, through a value in that row, in data table 279; when both rows are valid it creates a 56-byte sound resource that carries the id and appends it to t... |
@@ -109,8 +110,10 @@ Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventVoice_PlayTask](../functions/EventVoice_PlayTask.md) | `0x140221488` | The task started by event opcode 0xC2 when the enhanced flag is set: starts a table entry for its id, keeps it in the list while it is present, and stops it when the object or the skip test says so. |
 | [GameData_ReadSectors](../functions/GameData_ReadSectors.md) | `0x1402F40C4` | The game's general data read entry point, expressed in the original disc layout: it reads a run of 2048-byte sectors of one kind of game file, and sends event scripts (kind 17) to EventScript_LoadFile. |
 | [IdRemap_Lookup](../functions/IdRemap_Lookup.md) | `0x1402BA9C8` | Remaps an id above 0xA7 through the 406-row table `g_IdRemapPairs` (7 pairs of two dwords per row, 56 bytes); returns the replacement, or the id itself when it is not in the table. |
+| [Music_StartSceneTracks](../functions/Music_StartSceneTracks.md) | `0x140234990` | Starts a scene's music: resets the event slots, loads the two tracks into music slots 1 and 2, then starts slot 1. |
 | [MusicSlot_FetchRecord](../functions/MusicSlot_FetchRecord.md) | `0x1402B1F08` | Activates an event sound slot: loads its sound id and the three record dwords into the music state. |
 | [ScenarioSetup_ApplyRecord](../functions/ScenarioSetup_ApplyRecord.md) | `0x1402FB7C8` | At a scene start, applies the scenario setup record of the scene's event to the scene variables and rebuilds the per-event word table; in the mid-event refresh it only re-reads two scene bytes through the event's link. |
+| [Scene_StartMusic](../functions/Scene_StartMusic.md) | `0x1402FC484` | At a scene start, keeps the running music when the scene's track is the one already playing, otherwise starts the scene's tracks. |
 | [SceneCallback_Dispatch](../functions/SceneCallback_Dispatch.md) | `0x1402F7D1C` | Calls the callback in the global function pointer `qword_140D40940` for modes 0 to 6. |
 | [SceneGroup_ResolveId](../functions/SceneGroup_ResolveId.md) | `0x140240888` | Reads an operand id and decides whether it names one unit or a group: ids 1 to 255 are resolved to a unit id, and ids 0 and 256 and up select a group mode for SceneUnit_TestGroupMember. |
 | [SceneGroup_SetFlag04](../functions/SceneGroup_SetFlag04.md) | `0x140241F54` | The shared body of opcodes 0x6C and 0x6D: sets or clears bit 0x04 of byte +143 of each unit selected by the operand. |
@@ -164,6 +167,7 @@ Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [sub_1401DEC14](../functions/sub_1401DEC14.md) | `0x1401DEC14` | Walks the inline text of an event instruction: it steps byte by byte, handles the three control codes it knows, measures each text run and advances to the next instruction. |
 | [sub_1401DF120](../functions/sub_1401DF120.md) | `0x1401DF120` | Answers whether a text needs two or more lines at a given width: it decodes the text, measures it and divides the measurement by the width. |
 | [sub_1401E1618](../functions/sub_1401E1618.md) | `0x1401E1618` | One step of the event command task: it starts the task, runs one queued command per step, and tears the task down when the script ends. |
+| [sub_1401EA2F0](../functions/sub_1401EA2F0.md) | `0x1401EA2F0` | The objective camera tour of a battle: visits each unit marked as an objective target, an attack target or a boss, holding the camera on it for 120 frames with a sound. |
 | [sub_14024138C](../functions/sub_14024138C.md) | `0x14024138C` | Applies or clears a status on a preview unit from an event command, then refreshes the unit's status display. |
 | [sub_1402BAB78](../functions/sub_1402BAB78.md) | `0x1402BAB78` | Applies the pending music request: starts the requested track, stops the current one, and runs the pending fade. |
 | [sub_1402C6514](../functions/sub_1402C6514.md) | `0x1402C6514` | One of the scene-task bodies event opcode 0x78 starts (mode 5): it places the units of the scene, shows their speech balloons and unit markers, and runs until the task is stopped. |
@@ -257,10 +261,11 @@ Functions: 199, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 |---|---|---|
 | [SoundBankSab](../formats/SoundBankSab.md) |  | sound/common/sound.sab (0006.pac, 78 MB, stored uncompressed): a SEAD sound bank ('sabf' version 2) whose 690 sounds are the ids SoundCue_Play accepts (0..0x2B1); the audio is CRI HCA, not encrypted. |
 
-## Observed behaviours (19)
+## Observed behaviours (20)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [EntryRowMarksEventSkipOnce](../behaviors/EntryRowMarksEventSkipOnce.md) | engine (event skip) | An entry override row can mark its battle's events as skippable only once: the interpreter checks bytes +0x93, +0x94 and +0x95 of the battle's first row along with the EventId skip-once byte. |
 | [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md) | engine (event script load, EventId table) | When the current event changes and skipping is enabled, EventScript_LoadCurrent looks up the EventId row (data table 156) of the event number and reads its byte +32 without testing the lookup result: an event number w... |
 | [EventSoundGroupAndMusicSlotOperandWidths](../behaviors/EventSoundGroupAndMusicSlotOperandWidths.md) | engine (event sound commands) | The event sound group number reaches the player as a byte of a command record (class 44), as the replay of that byte from a word of the command state, or as the value of event variable 93 (a 32-bit cell); the music sl... |
 | [MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero](../behaviors/MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero.md) | engine (event command state) | The 16-bit word at 0x14186246A (the music id and slot of the command state) is addressed by eighteen instructions in seven functions; six of them only clear it or test it for nonzero, twelve read the id or the slot or... |

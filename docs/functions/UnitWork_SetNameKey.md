@@ -19,6 +19,10 @@ Sets a unit's name key (work dword +508) and name string (work +332).
 - V: clears work +475..+484.
 - M: every non-zero value of the OverrideEntryData chara_name column is a key of the CharaName table.
 
+## Referenced by
+
+- Called by: [sub_1402760E8](sub_1402760E8.md)
+
 ## Open questions
 
 ? what work +475..+484 holds.

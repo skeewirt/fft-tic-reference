@@ -18,7 +18,7 @@ Returns the JobCommand-en row (table 41, cache qword_143CDA2E0).
 
 ## Referenced by
 
-- Called by: [TurnPanel_SetUnitPanel](TurnPanel_SetUnitPanel.md), [sub_1401560D0](sub_1401560D0.md)
+- Called by: [JobCommand_SameGroup](JobCommand_SameGroup.md), [TurnPanel_SetUnitPanel](TurnPanel_SetUnitPanel.md), [sub_1401560D0](sub_1401560D0.md), [sub_1402A20A4](sub_1402A20A4.md)
 - Observed behaviours: [SkillsetIdsPastTheByte](../behaviors/SkillsetIdsPastTheByte.md), [SkillsetNamesAndHelpAreKeyedBySetId](../behaviors/SkillsetNamesAndHelpAreKeyedBySetId.md)
 - Reads tables: [JobCommand](../tables/JobCommand.md)
 

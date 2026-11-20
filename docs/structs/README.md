@@ -2,7 +2,7 @@
 
 Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.
 
-529 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
+535 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
 
 | Name | Size (bytes) | Area | Summary |
 |---|---|---|---|
@@ -67,6 +67,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [CrystalRollResult](CrystalRollResult.md) | 1393 | [Battle](../areas/battle.md) | The block Unit_RollAbilityLearning fills at dword_1411A6AB0 (1393 bytes, the next data starts at 0x1411A7024) when a unit stops on a crystal or chest. |
 | [CursorPosition](CursorPosition.md) | 2 | [UI framework](../areas/ui-framework.md) | One row of the LegacyCursorPositions table. |
 | [DataBlockPointerRow](DataBlockPointerRow.md) | 8 | [Resource](../areas/resource.md) | One row of AudioDspCoefficientBlockPointers. |
+| [DeploymentAreaPlacementRecord](DeploymentAreaPlacementRecord.md) | 12 | [Battle](../areas/battle.md) | One 12-byte placement record of the deployment areas (the table at 0x1407AE2D0, indexed by the area id that ScenarioSetupRow entry_area / entry_area_2 name; the same id is the first key of EntryArea, nxd 244). |
 | [DissolveStep](DissolveStep.md) | 64 | [Graphics](../areas/graphics.md) | One row of the DissolveOffsets table. |
 | [EaseEndpoints](EaseEndpoints.md) | 8 | [UI framework](../areas/ui-framework.md) | One row of the EaseCurvesSetG table. |
 | [EaseSample](EaseSample.md) | 4 | [UI framework](../areas/ui-framework.md) | One row of the EaseCurvesSetA table. |
@@ -90,6 +91,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [ErrandJobFitRow](ErrandJobFitRow.md) | 22 | [Errands](../areas/errands.md) | Job fit scores of one errand category or type row. |
 | [ErrandMilestoneRow](ErrandMilestoneRow.md) | 1 | [Errands](../areas/errands.md) | One treasure milestone. |
 | [ErrandRecordRow](ErrandRecordRow.md) | 23 | [Errands](../areas/errands.md) | One errand record in the errand data block. |
+| [ErrandReportEntry](ErrandReportEntry.md) |  | [Errands](../areas/errands.md) | The errand entry the errand report and detail windows read: three 104-byte unit blocks, then the errand id. |
 | [EventControl](EventControl.md) | 64 | [Event system](../areas/event-system.md) | ffto::Game::Event::EventControl (vtable 0x140713658), the singleton at g_EventControl: the event-script pause overlay and its hold-to-skip. |
 | [EventGenericLookSet](EventGenericLookSet.md) | 32 | [Event system](../areas/event-system.md) | One row of the EventGenericLookSets table. |
 | [EventOperandLengthRow](EventOperandLengthRow.md) | 1 | [Event system](../areas/event-system.md) | Operand length of one opcode. |
@@ -145,6 +147,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [JobRecord](JobRecord.md) | 148 |  | Only the listed offsets are verified; the rest of the 148 bytes is copied wholesale. |
 | [JobTableRow](JobTableRow.md) | 49 | [Job data](../areas/job-data.md) | One 49-byte row of the stock job table: skillset, always-on abilities, equipment classes, growth constants, move, jump, evade, status and element sets and three look bytes. |
 | [JobTreeAddon](JobTreeAddon.md) | 13312 |  | STOCK layout (20 panels). |
+| [JobTreeNavRecord](JobTreeNavRecord.md) | 32 | [Job tree](../areas/job-tree.md) | The 32-byte cursor neighbour record inside a Job Tree panel record (panel +0x1A8): for each of the eight pad directions two candidate neighbour panels, each with a flag byte. |
 | [JobTreePanel](JobTreePanel.md) | 456 |  | Stride 456 bytes (stock: 20 panels). |
 | [JournalListEntry](JournalListEntry.md) | 12 | [UI framework](../areas/ui-framework.md) | One 12-byte entry of the Chronicle Events list that JournalList_Build fills for each Journal row that is met. |
 | [KeyRepeatPreset](KeyRepeatPreset.md) | 6 | [Input](../areas/input.md) | One row of the KeyRepeatPresets table. |
@@ -185,6 +188,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [LookQueueEntry](LookQueueEntry.md) | 32 | [Graphics](../areas/graphics.md) | One entry of the 16-entry load queue that Battle_BuildRosterTeam, Battle_AddJoinedUnit and the scene preview code fill (LookQueue_Add) and CharaPalette_ReloadForShape consumes; entry n starts at 0x141856728 + 32 * n, ... |
 | [MapDrawIndexListRecord](MapDrawIndexListRecord.md) | 24 | [Graphics](../areas/graphics.md) | One row of the MapDrawIndexLists table. |
 | [MapResourceFileListPointer](MapResourceFileListPointer.md) | 8 | [Resource](../areas/resource.md) | One row of the MapResourceFilesLanguage0 table. |
+| [MapVariationStruct](MapVariationStruct.md) | 72 | [Battle](../areas/battle.md) | One 72-byte variation struct of a Map row (nxd 60): which scene conditions it applies under. |
 | [MenuCursorDefault](MenuCursorDefault.md) | 16 | [Battle](../areas/battle.md) | One row of the MenuCursorDefaults table. |
 | [MenuListWord](MenuListWord.md) | 2 | [Items and shops](../areas/items.md) | One entry of g_MenuList, the array the shop, equip, item and ability screens reuse: the id in bits 0..9, bit 14 "cannot equip / cannot learn / current", and the list-kind-specific bits 12 and 13. |
 | [MonsterSkillsetRow](MonsterSkillsetRow.md) | 5 | [Job data](../areas/job-data.md) | One 5-byte monster skillset: one flag byte and four low ability id bytes. |
@@ -465,6 +469,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [SaveManager](SaveManager.md) |  | [Save data](../areas/save-data.md) | The two singletons the save path runs on, with the fields it uses: the save-I/O state object that holds the frame step's command and sub-state, and the save manager object that holds the 50-slot image the `fftsave.bin... |
 | [SaveRequestRecord](SaveRequestRecord.md) | 328 | [Save data](../areas/save-data.md) | One queued file request of the save container manager: the consumer object, the entry name, the delivery buffer and its status. |
 | [ScenarioSetupRow](ScenarioSetupRow.md) | 24 | [Event system](../areas/event-system.md) | One row of the ScenarioSetup table: the scene setup of one story event, keyed by the event number; read field by field by ScenarioSetup_ApplyRecord (scene variables) and turned into the per-event word. |
+| [SceneObjectLutBlock](SceneObjectLutBlock.md) |  | [Unit rendering](../areas/unit-rendering.md) | The block of a scene unit object at +960..+979 that sub_14027032C fills from the shape's LUT parameter lookup (CharaRender_LookupLutParams) and two bytes of the CharShape row. |
 | [SceneSpriteFaceRow](SceneSpriteFaceRow.md) | 4 | [Graphics](../areas/graphics.md) | One face number. |
 | [SceneUnitSlot](SceneUnitSlot.md) | 1352 | [Graphics](../areas/graphics.md) | One of the 16 scene-unit records at 0x140D30038 (stride 0x548) that SceneUnit_BuildFromQueueEntry builds for a queued unit; the code addresses it by the pointer it returns, the in-use dword sits 8 bytes before that po... |
 | [SceneWindowColourRow](SceneWindowColourRow.md) | 20 | [UI framework](../areas/ui-framework.md) | One row of BattleSceneWindowColours. |
@@ -499,6 +504,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [TerrainPropertiesRow](TerrainPropertiesRow.md) | 1 | [Battle](../areas/battle.md) | One byte of a TerrainProperties block (two blocks of 64). |
 | [TextPackPathsRow](TextPackPathsRow.md) | 8 | [Resource](../areas/resource.md) | One row of the TextPackPaths table. |
 | [TextPointerRow](TextPointerRow.md) | 8 | [Resource](../areas/resource.md) | One row of a table of text pointers (audio loader errors, mixer names, XML status names, value type names). |
+| [TextTagNounRecord](TextTagNounRecord.md) | 28 | [Data access](../areas/data.md) | The 28-byte result record of UIText_ResolveCategoryRow for a <category=key> text tag: three string pointers and four bytes. |
 | [TextTagRecord](TextTagRecord.md) |  | [Data access](../areas/data.md) | The record UIText_ResolveCategoryRow gives the counted-noun text tag builders: three strings and four grammar bytes. |
 | [TextureIdRow](TextureIdRow.md) | 4 | [Graphics](../areas/graphics.md) | One row of SpriteShapeHdTexture. |
 | [TextureWindowWordRow](TextureWindowWordRow.md) | 2 | [Graphics](../areas/graphics.md) | One row of GfxTextureWindowParams. |

@@ -15,7 +15,7 @@ Gives the result of a Poach action: an item, or gil when the stock is full, and 
 ## Behavior
 
 - V: runs only when not simulating and action block +18 bit 0x20 is set.
-- V: picks the common (job table 46 row +0x24) or the rare (+0x28) poach id by Rng_Percent(256, 31).
+- V: picks the poach id from the acting unit's Job row (table 46) by Rng_Percent(256, 31), which is true when 256 * rand15 / 0x8000 >= 31 (225 of 256 draws): true -> Job +0x24 (column poach_item), false -> Job +0x28 (column poach_item_rare, about 12 %). The id is a PoachItem row (table 236).
 - V: when the id is above 96 or its held count is below 99 it adds the item (sub_1400D6FB0); otherwise it gives PoachItem row +0x28 / 2 gil (sub_140284684, sub_1400EC5F4) and flags the gil message.
 - V: then it sends BattleActionPoachNotification.
 
@@ -23,6 +23,14 @@ Gives the result of a Poach action: an item, or gil when the stock is full, and 
 
 - Calls: [sub_1400D6FB0](sub_1400D6FB0.md)
 
+## Referenced by
+
+- Observed behaviours: [PoachResultFromJob](../behaviors/PoachResultFromJob.md)
+
+## Notes
+
+The constant 0x8000 in the roll rule belongs to the callee Rng_Percent (256 * rand15 / 0x8000 >= 31).
+
 ## Open questions
 
-? the two job-table columns that hold the common and the rare poach ids.
+None recorded.

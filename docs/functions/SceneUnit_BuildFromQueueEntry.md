@@ -28,7 +28,7 @@ Builds the scene unit of one look queue entry: takes a scene-unit slot, claims t
 
 ## State touched
 
-- Calls: [LookPool_ClaimForSprite](LookPool_ClaimForSprite.md), [sub_14026E838](sub_14026E838.md), [SceneUnit_BuildPalette](SceneUnit_BuildPalette.md), [SceneUnit_SetFlag12C](SceneUnit_SetFlag12C.md), [ItemSprite_LoadPalettes](ItemSprite_LoadPalettes.md), [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
+- Calls: [LookPool_ClaimForSprite](LookPool_ClaimForSprite.md), [sub_14027032C](sub_14027032C.md), [sub_14026E838](sub_14026E838.md), [SceneUnit_BuildPalette](SceneUnit_BuildPalette.md), [SceneUnit_SetFlag12C](SceneUnit_SetFlag12C.md), [ItemSprite_LoadPalettes](ItemSprite_LoadPalettes.md), [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
 - Reads: [g_UnitLookPoolIndex](../globals/g_UnitLookPoolIndex.md), [g_UnitSceneSlotIndex](../globals/g_UnitSceneSlotIndex.md), [g_SceneUnitSlots](../globals/g_SceneUnitSlots.md)
 - Writes: [g_UnitLookPoolIndex](../globals/g_UnitLookPoolIndex.md), [g_UnitSceneSlotIndex](../globals/g_UnitSceneSlotIndex.md), [g_HdSheetEntryBySlot](../globals/g_HdSheetEntryBySlot.md)
 

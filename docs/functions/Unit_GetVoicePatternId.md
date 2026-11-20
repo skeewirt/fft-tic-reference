@@ -14,7 +14,7 @@ Returns the voice pattern id of a unit: from its job row, else by a rule over th
 
 ## Behavior
 
-- V: the Job row's voice pattern column (+0x1C) when set; otherwise a rule over CharaName rows (checked with UserSituation_IsMet).
+- V: the Job row's voice_pattern column (+0x1C, Job table 46) when non-zero is returned as the unit's voice pattern id; otherwise a rule over CharaName rows (checked with UserSituation_IsMet).
 
 ## State touched
 

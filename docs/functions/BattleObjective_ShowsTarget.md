@@ -21,6 +21,11 @@ True when a unit's spawn flag set marks it as an objective target and the curren
 
 - Calls: [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
 
+## Referenced by
+
+- Called by: [sub_1401EA2F0](sub_1401EA2F0.md)
+- Observed behaviours: [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
+
 ## Open questions
 
 None recorded.

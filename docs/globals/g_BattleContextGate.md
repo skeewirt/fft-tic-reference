@@ -23,7 +23,7 @@ Battle context gate: while it is non-zero the reaction and secondary-action path
 
 ## Notes
 
-The same address carries two names: g_BattleContextGate here and g_BattleSimulating in the IDA database. The values are 0 (a real action), 1 and 2 (forecast levels, 2 set around reaction and secondary actions).
+The same address carries two names: g_BattleContextGate here and g_BattleSimulating in the IDA database; g_BattleStateGate (0x14186AF9C) is another dword. The values are 0 (a real action), 1 and 2 (forecast levels, 2 set around reaction and secondary actions).
 
 ## Open questions
 

@@ -16,6 +16,10 @@ Chooses the projectile of a throw motion by the effect word.
 
 - V: word 148 (Throw Stone): projectile 6 (the stone); 382 or 368..393 (Throw item): 16; else byte_140673678[obj +0x152]; then sub_140310C24.
 
+## Referenced by
+
+- Called by: [EquipSprite_BuildPieces](EquipSprite_BuildPieces.md)
+
 ## Notes
 
 One of the equality tests on stock ids (the effect word of a stock ability): an id not tested gets the weapon-kind projectile.

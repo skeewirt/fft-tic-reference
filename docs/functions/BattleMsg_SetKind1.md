@@ -27,7 +27,7 @@ Sets one battle message entry to kind 1 and stores its id.
 
 ## Referenced by
 
-- Called by: [BattleMsg_Dispatch](BattleMsg_Dispatch.md), [sub_140323D1C](sub_140323D1C.md)
+- Called by: [BattleMsg_Dispatch](BattleMsg_Dispatch.md), [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md), [sub_140323D1C](sub_140323D1C.md)
 
 ## Notes
 

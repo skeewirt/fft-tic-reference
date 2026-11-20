@@ -23,6 +23,10 @@ Fills the 'obtained' panel for a book or a collection entry (part read).
 - Calls: [UITable_GetRowByKey](UITable_GetRowByKey.md), [GuiImage_SetIconById](GuiImage_SetIconById.md), [FormatArgs_Push](FormatArgs_Push.md)
 - Reads: [tbl_ObtainedBookIds](../globals/tbl_ObtainedBookIds.md)
 
+## Referenced by
+
+- Called by: [sub_1401A4188](sub_1401A4188.md)
+
 ## Notes
 
 Only the part that reads the Book row was read.

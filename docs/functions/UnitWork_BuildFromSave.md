@@ -23,7 +23,7 @@ Builds the 512-byte unit work record C from a save unit record A. It first refre
 
 ## State touched
 
-- Calls: [Unit_BuildJobUnlockMask](Unit_BuildJobUnlockMask.md), [UnitWork_CopySaveFields](UnitWork_CopySaveFields.md), [UnitWork_ApplyJobRow](UnitWork_ApplyJobRow.md)
+- Calls: [Unit_BuildJobUnlockMask](Unit_BuildJobUnlockMask.md), [UnitWork_CopySaveFields](UnitWork_CopySaveFields.md), [UnitWork_ApplyJobRow](UnitWork_ApplyJobRow.md), [sub_1402760E8](sub_1402760E8.md)
 
 ## Referenced by
 

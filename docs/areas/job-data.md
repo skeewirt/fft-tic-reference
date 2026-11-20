@@ -2,31 +2,32 @@
 
 Job table accessors, job records, skillsets, learning and job icon paths.
 
-Functions: 35, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed behaviours: 27, Tables: 15.
+Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed behaviours: 28, Tables: 15.
 
-## Functions (35)
+## Functions (38)
 
 | Name | Address | Purpose |
 |---|---|---|
 | [BattleUnit_BuildJobRecord](../functions/BattleUnit_BuildJobRecord.md) | `0x1400FCF80` | Builds the 148-byte job record of battle unit `slot` for the battle panels: its job, levels and JP, through JobRecord_FromJobId. |
-| [GameState_ResetJobFlags](../functions/GameState_ResetJobFlags.md) | `0x14028433C` | New-game reset that initialises byte_1411A7490: 125 per-jobtype flags (at +21) to 1 and 21 per-generic-job flags (at +0) to (GeneralJob.Unknown78 == 0), then clears a block of party/story state. |
+| [GameState_ResetJobFlags](../functions/GameState_ResetJobFlags.md) | `0x14028433C` | New-game reset that initialises byte_1411A7490: 125 per-jobtype flags (at +21) to 1 and 21 per-generic-job flags (at +0) to (GeneralJob byte +0x78 == 0), then clears a block of party/story state. |
 | [GuiImage_SetIconById](../functions/GuiImage_SetIconById.md) | `0x1402A8F40` | Binds an icon image, chosen by its Icon table key, to a UI image object; used by many screens that show job, command or ability icons. |
 | [Icon_FormatPath](../functions/Icon_FormatPath.md) | `0x1400FC9A8` | Formats 'ui/ffto/icon/<path>' (or the same path with a texture-parts URI prefix) from Icon row iconKey (table 118, cache qword_143CDA328). |
 | [Job_BuildTabAbilityList](../functions/Job_BuildTabAbilityList.md) | `0x14028A400` | The tab-filtered ability list of a job's skillset (its JobTable row byte 0), or of `defaultSkillset` when no row holds that skillset. |
 | [Job_GetJpForLevel](../functions/Job_GetJpForLevel.md) | `0x1402CC008` | Returns job_level_jp[level] of the GeneralJob row (table 189, cache qword_143CD9F00): u16 at row-data + 4 * level where the list offset is the dword at row +8. |
-| [Job_HasMonsterPair](../functions/Job_HasMonsterPair.md) | `0x1402CBF60` | True when Job row +36 or +40 (Unknown10 / Unknown11) is nonzero: the job has a monster sprite/portrait pair. |
+| [Job_HasMonsterPair](../functions/Job_HasMonsterPair.md) | `0x1402CBF60` | True when the Job row's poach_item (+0x24) or poach_item_rare (+0x28) is nonzero: the job can be poached. |
 | [Job_IsChemistType](../functions/Job_IsChemistType.md) | `0x140270C58` | True when the Job row of the unit's job byte (unit+3) has jobtype +24 == 31. |
 | [Job_IsHiddenFromTree](../functions/Job_IsHiddenFromTree.md) | `0x1402CBED4` | Returns 1 when the Job row (table 46, row = job id) has a nonzero hidden_from_job_list byte at +60, else 0. |
 | [Job_LearnAbilityByMenu](../functions/Job_LearnAbilityByMenu.md) | `0x14028936C` | Marks an ability as learned in the current party member's record when the player buys it in the job menu, then refreshes the hidden Onion Knight level and posts the learning notification. |
 | [Job_LevelFromTotalJp](../functions/Job_LevelFromTotalJp.md) | `0x140278D5C` | Returns the job level (0..8) a total JP gives: how many of the 8 GeneralJob thresholds it reaches. |
 | [JobAbilityList_Build](../functions/JobAbilityList_Build.md) | `0x1402867BC` | Builds the list of abilities shown for a job (skill-set abilities filtered by tab) for the job screen, learn menu and job-list availability tests. |
+| [JobCommand_SameGroup](../functions/JobCommand_SameGroup.md) | `0x1400F7334` | True when two job command ids are the same command: equal ids, or rows with the same group key. |
 | [JobCommandTable_GetRow](../functions/JobCommandTable_GetRow.md) | `0x1400F84F4` | Returns the JobCommand-en row (table 41, cache qword_143CDA2E0). |
 | [JobLearnList_ReadSelectedJp](../functions/JobLearnList_ReadSelectedJp.md) | `0x1402B9384` | The JP the Learn Abilities list shows: the selected party unit's JP in the job the Jobs screen has selected. |
 | [JobList_BuildForPartyUnit](../functions/JobList_BuildForPartyUnit.md) | `0x14028662C` | Builds the job list of one party unit: points the bit reader at its unlock mask and calls JobList_Build with its job, marker and flags. |
 | [JobRecord_FromJobId](../functions/JobRecord_FromJobId.md) | `0x1400FBB7C` | Builds the 148-byte job record used by the job tree and job-change screens from a job key and the unit's job arrays. |
 | [JobScreen_BuildTabList](../functions/JobScreen_BuildTabList.md) | `0x140367A30` | Builds the list of one tab of the ability screen of the selected party unit into word_142E93E40: tab 1 = the secondary skillsets as (job, skillset) entries, tabs 2..5 = sub_14028A8B0's lists. |
 | [JobScreen_FindJobOfSkillset](../functions/JobScreen_FindJobOfSkillset.md) | `0x140367888` | Finds which job a secondary skillset belongs to for the selected party unit: the first (job, skillset) pair of the unit's secondary list whose skillset matches, else the unit's own job; then hands (job, skillset) on. |
-| [JobTable_GetNameText](../functions/JobTable_GetNameText.md) | `0x1400F4800` | Copies one of four Job-en string slots (+8, +12, +16, +20) into out, chosen by language (0/1) and variant (0/1), falling back to the other. |
+| [JobTable_GetNameText](../functions/JobTable_GetNameText.md) | `0x1400F4800` | Copies one of the four Job text slots (name +8, name_2 +0x0C, description +0x10, description_2 +0x14) into out, chosen by the kind (0 name, 1 help text) and the variant (0 or 1), falling back to the other variant when... |
 | [JobTable_GetRow](../functions/JobTable_GetRow.md) | `0x1400F8574` | Returns the Job-en row for a job key (null if missing). |
 | [Party_CountMasteredJobs](../functions/Party_CountMasteredJobs.md) | `0x140348828` | Counts the generic jobs whose every ability is learned and returns half of that count, capped at 7. |
 | [Skillset_BuildAbilityList](../functions/Skillset_BuildAbilityList.md) | `0x140275980` | Builds the 24-entry ability list of a skillset into a shared static buffer, keeping only the ability classes the caller's mask allows. |
@@ -41,6 +42,8 @@ Functions: 35, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 | [Unit_AwardJobJp](../functions/Unit_AwardJobJp.md) | `0x140283664` | Adds JP to one job of a battle unit: current JP and total JP (both capped at 9999), recomputes the job's level from the total and rebuilds the unit's unlock mask. |
 | [Unit_CollectJobSkillsetPairs](../functions/Unit_CollectJobSkillsetPairs.md) | `0x14028A7C0` | Lists (job, skillset) pairs of the jobs a party unit can take as its secondary skill: 8-byte entries, 0xFFFF in the second word ends the list. |
 | [Unit_SpendJp](../functions/Unit_SpendJp.md) | `0x1402B9AD0` | Subtracts the ability's JP cost from the unit's JP of the given job: *(u16 *)(g_PartyUnits[unit] + 2 * Job_IdToIndex(jobId) + 202) -= cost. |
+| [UnitList_Compare](../functions/UnitList_Compare.md) | `0x14028ADF8` | Compares two party units for the unit list sort by one key kind: the sign is negated for a row of table 44 whose byte +6 is 0. |
+| [UnitList_SortKey](../functions/UnitList_SortKey.md) | `0x14028AEFC` | Returns the value a party unit list is sorted by for one sort mode (key kind 0..18), read from the unit's save record. |
 | [UnitWork_FindJobBySkillset](../functions/UnitWork_FindJobBySkillset.md) | `0x14028AC50` | The first job of a work record's job list whose JobTable row holds `skillset`; the record's own job (+3) when none does. |
 | [UnitWork_PackJobLevels](../functions/UnitWork_PackJobLevels.md) | `0x140278DA8` | Rebuilds the packed job-level nibbles of a save record from the unit total-JP array, two jobs per byte. |
 
@@ -83,7 +86,7 @@ Functions: 35, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 |---|---|
 | [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md) | How a scripted battle gets its units: the battle key picks 16 entries, the OverrideEntryData rows of the key overwrite them in place, and battle unit i is built from entry i with row i. |
 
-## Observed behaviours (27)
+## Observed behaviours (28)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -111,6 +114,7 @@ Functions: 35, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 | [RuntimeJobListCanLiveInAnyBlockWithinReach](../behaviors/RuntimeJobListCanLiveInAnyBlockWithinReach.md) | engine (runtime job list) | Every reference to g_RuntimeJobList is a 32-bit displacement (four rip-relative `lea`, six reads through the image base plus a sign-extended index), the list is in the zero-filled tail of the data section and no data ... |
 | [RuntimeJobListIs48WordsFollowedByAnotherGlobal](../behaviors/RuntimeJobListIs48WordsFollowedByAnotherGlobal.md) | engine (runtime job list) | g_RuntimeJobList is 96 bytes (48 words) and the next object in memory is g_UIChosenItemId, so the list cannot grow in place; the length is a signed 16-bit word kept at another address. |
 | [SecondarySkillsetListsTakeEveryUnlockedJob](../behaviors/SecondarySkillsetListsTakeEveryUnlockedJob.md) | engine (secondary skillset lists) | Both secondary-skillset collectors build the unit's job list into a 24-word stack buffer, and write into lists that hold 145 entries: the three lists the game builds them into (g_MenuList, g_JobAbilityPairList, JobScr... |
+| [SortOrderColumnsOfJobAndAbilityTables](../behaviors/SortOrderColumnsOfJobAndAbilityTables.md) | engine (job and ability lists) | The sort_order columns of the Job and Ability tables and the order keys the lists use. |
 | [SpawnedUnitsCarryAOneByteJob](../behaviors/SpawnedUnitsCarryAOneByteJob.md) | engine (spawn records, scripted battle entries) | A spawned unit's job is one byte of its spawn record (+10), copied into the work record's job byte; the scripted-battle table OverrideEntryData has a 32-bit job column, but the copy keeps only its low byte. |
 | [StockJobRowData](../behaviors/StockJobRowData.md) | stock job-related table rows | Facts about the stock job rows of job.en, generaljob and jobtype: unused rows still carry numbers, the generic jobs map to texture part indices, and Ramza's jobs share the Squire's job type. |
 | [UnlockMaskStreamRunsIntoLearnedBitsPastIndex23](../behaviors/UnlockMaskStreamRunsIntoLearnedBitsPastIndex23.md) | engine (per-unit job state) | The unit's unlock mask is 3 bytes (24 bits) read through a bit stream, and the learned-ability bits follow it directly in the same record, so a bit read at a job index of 24 or more lands in the learned bits of the fi... |

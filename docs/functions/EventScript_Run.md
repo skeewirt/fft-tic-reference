@@ -22,6 +22,8 @@ The event interpreter: it walks the loaded event script one instruction at a tim
 - V: starts 21 task bodies through SceneTask_Start, waits with SceneTask_WaitFrame 74 times, reads variables with SceneVar_Read (15 times) and writes them with SceneVar_Write (14 times), and calls SceneVar_Alu directly for the variable opcodes.
 - V: uses EventScript_IsSkipStop (twice) to find the next instruction that matters when it skips forward.
 - I: opcodes that take time (waits, walks, messages, camera moves) are handled by starting a task and waiting for it, while simple opcodes run inline.
+- V: at the start of an event it tests byte +36 (skip_once) of the EventId row of the event variable; when that is 0 it reads the OverrideEntryData row for g_BattleEntrySource and tests bytes +0x93, +0x94 and +0x95 (guest_join_panel, withdrawal_panel, betrayal_panel). I: a non-zero byte there acts like the EventId byte: g_EventSkipOnce is set to 1 (the event may be skipped only once); otherwise it is cleared (see the behaviour EntryRowMarksEventSkipOnce).
+- V: the objective camera tour sub_1401EA2F0 is called from this function.
 - V: opcode 0x43 (scene set-up) is the default arm of the switch for opcodes 0x2D to 0x44; its behavior, by mode:
 - V: opcode 0x43, the section is the default arm of the switch for opcodes 0x2D to 0x44 that has no case of its own; no case for 0x43 exists in the switches around it, so opcode 0x43 reaches this arm.
 - V: opcode 0x43, the mode is the byte at +1 of the instruction. The section does nothing else with the operand bytes at +2 and +3.
@@ -60,7 +62,7 @@ The event interpreter: it walks the loaded event script one instruction at a tim
 
 - Called by: [EventScript_TaskMain](EventScript_TaskMain.md)
 - Called by event opcodes: [0x1F](../opcodes/README.md), [0x43](../opcodes/README.md)
-- Observed behaviours: [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md), [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [PseudoEffectWordIsASixteenBitEventOperand](../behaviors/PseudoEffectWordIsASixteenBitEventOperand.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
+- Observed behaviours: [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md), [EntryRowMarksEventSkipOnce](../behaviors/EntryRowMarksEventSkipOnce.md), [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [PseudoEffectWordIsASixteenBitEventOperand](../behaviors/PseudoEffectWordIsASixteenBitEventOperand.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
 - Reads tables: [NxdDataEventId](../tables/NxdDataEventId.md), [NxdDataOverrideEntryData](../tables/NxdDataOverrideEntryData.md)
 
 ## Notes

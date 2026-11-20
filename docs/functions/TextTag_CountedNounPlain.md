@@ -14,11 +14,16 @@ Counted-noun text tag builder with no article or form string.
 
 ## Behavior
 
-- V: resolves the tag row and picks the string by the count (0 plain, 1 singular, 2 or more plural), then replaces '[n]' with the count.
+- V: resolves the tag row and picks the string by the count (count 0 = record pointer +16, 1 = +0, 2 or more = +8), then replaces '[n]' with the count.
+- V: reads none of the four record bytes.
 
 ## State touched
 
 - Calls: [UIText_ResolveCategoryRow](UIText_ResolveCategoryRow.md), [Str_Format](Str_Format.md)
+
+## Referenced by
+
+- Observed behaviours: [CountedNounTagRecord](../behaviors/CountedNounTagRecord.md)
 
 ## Notes
 

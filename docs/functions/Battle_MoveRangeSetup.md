@@ -34,7 +34,7 @@ Prepares the globals the move-range expansion reads: it copies the acting unit m
 ## Referenced by
 
 - Called by: [Battle_MoveRange_Build](Battle_MoveRange_Build.md)
-- Observed behaviours: [MoveRangeRules](../behaviors/MoveRangeRules.md)
+- Observed behaviours: [MoveRangeRules](../behaviors/MoveRangeRules.md), [UnitThatBlocksItsAlliesInMoveRanges](../behaviors/UnitThatBlocksItsAlliesInMoveRanges.md)
 
 ## Notes
 

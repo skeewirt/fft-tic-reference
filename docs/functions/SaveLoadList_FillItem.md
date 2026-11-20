@@ -17,6 +17,7 @@ Fills one save/load list item from an entry: slot number, level, location, next 
 - V: level via `TextBoardNameLv` / `TextLv`, location via the UITable 0x34 row (`text_map`), next event `text_todo`, date from the timestamp (localtime), play time, clear / auto marks.
 - V: `CharaRender_RegisterSlot` at 0x140187625, once per sprite record.
 - V: nothing in it reads summary bytes +257..+274 (hero name, job).
+- V: reads the DifficultyLevel row (nxd 111) whose key is the entry's play mode (entry dword +16) and shows its +0x18 (column ui_text, a key of the UI text table) as the play mode's name; no other DifficultyLevel column is read here (the four damage percentages belong to Battle_ScaleByDifficulty).
 
 ## State touched
 
@@ -25,7 +26,7 @@ Fills one save/load list item from an entry: slot number, level, location, next 
 
 ## Referenced by
 
-- Observed behaviours: [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md), [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md)
+- Observed behaviours: [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md), [PlayModeDamagePercent](../behaviors/PlayModeDamagePercent.md), [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md)
 - Reads tables: [NxdDataChapter](../tables/NxdDataChapter.md), [NxdDataContinuousSortieConfirm](../tables/NxdDataContinuousSortieConfirm.md), [NxdDataEventId](../tables/NxdDataEventId.md)
 
 ## Notes

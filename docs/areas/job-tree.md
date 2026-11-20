@@ -2,9 +2,9 @@
 
 The Job Tree screen: JobTree_* and JobRecord_* pages.
 
-Functions: 44, Structures: 3, Flows: 1, Observed behaviours: 5.
+Functions: 45, Structures: 4, Flows: 1, Observed behaviours: 7.
 
-## Functions (44)
+## Functions (45)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -42,6 +42,7 @@ Functions: 44, Structures: 3, Flows: 1, Observed behaviours: 5.
 | [sub_1401332A0](../functions/sub_1401332A0.md) | `0x1401332A0` | Sets the visibility byte (+144) of the first kind-13 part of every one of the 19 cell nodes and of one extra node. |
 | [sub_140133DB8](../functions/sub_140133DB8.md) | `0x140133DB8` | UnitJobTree addon vtable slot 7: posts command 126 to the addon owner. |
 | [sub_14028A474](../functions/sub_14028A474.md) | `0x14028A474` | Builds a list of the first 24 ability slots of a party unit's job, tagging each id with display bits, in 9 modes selected by a6. |
+| [sub_1402A20A4](../functions/sub_1402A20A4.md) | `0x1402A20A4` | Sets the description text of the job command detail window: the second description once its condition holds. |
 | [sub_140366ABC](../functions/sub_140366ABC.md) | `0x140366ABC` | Job screen routine that fills the help panel and the ability list for the selected job, then handles the page input. |
 | [sub_140367AA0](../functions/sub_140367AA0.md) | `0x140367AA0` | Builds the job screen's ability page from one 4-byte ability menu entry: it maps the job, prices the ability, lays out the tab rows and passes the ability id to the page builder. |
 | [sub_140392620](../functions/sub_140392620.md) | `0x140392620` | Builds the ability-token list for a job in a job-tree screen, restricted to an id window chosen by a3, tagging each id. |
@@ -50,15 +51,16 @@ Functions: 44, Structures: 3, Flows: 1, Observed behaviours: 5.
 | [sub_140392884](../functions/sub_140392884.md) | `0x140392884` | Job screen reader: it writes the third word of the job state block after mapping the job id. |
 | [sub_1403928D4](../functions/sub_1403928D4.md) | `0x1403928D4` | Job screen reader: it converts the party's JP into a job level through Job_GetJpForLevel and stores it. |
 | [sub_14039297C](../functions/sub_14039297C.md) | `0x14039297C` | Job screen task: it runs the job page's input loop and calls the four job-state readers to refresh the page. |
-| [UIGadgetFFTOJobDetailWindow_SetJob](../functions/UIGadgetFFTOJobDetailWindow_SetJob.md) | `0x1402A7474` | Fills the job detail window for one job record: the name / level texts, the job icon, the Show / Hide / ShowNext states and the up to four innate ability slots (Sp0..Sp3, with Good / Bad colouring); then calls virtual... |
+| [UIGadgetFFTOJobDetailWindow_SetJob](../functions/UIGadgetFFTOJobDetailWindow_SetJob.md) | `0x1402A7474` | Fills the job detail window for one job record: the name / level texts, the job icon, the Show / Hide / ShowNext states and the up to four innate ability slots (Sp0..Sp3, with Good / Bad colouring: Bad for an ability ... |
 | [UIGadgetFFTOJobDetailWindowWithButton_SetJobArgs](../functions/UIGadgetFFTOJobDetailWindowWithButton_SetJobArgs.md) | `0x1402A7C38` | Slot 8 of the 'with button' job detail window (called from UIGadgetFFTOJobDetailWindow_SetJob through virtual +64): resets the text argument list at w+1168, pushes the job id and a flag, refreshes the text and refits ... |
 
-## Structures (3)
+## Structures (4)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
 | [JobRecord](../structs/JobRecord.md) | 148 | Only the listed offsets are verified; the rest of the 148 bytes is copied wholesale. |
 | [JobTreeAddon](../structs/JobTreeAddon.md) | 13312 | STOCK layout (20 panels). |
+| [JobTreeNavRecord](../structs/JobTreeNavRecord.md) | 32 | The 32-byte cursor neighbour record inside a Job Tree panel record (panel +0x1A8): for each of the eight pad directions two candidate neighbour panels, each with a flag byte. |
 | [JobTreePanel](../structs/JobTreePanel.md) | 456 | Stride 456 bytes (stock: 20 panels). |
 
 ## Flows (1)
@@ -67,10 +69,12 @@ Functions: 44, Structures: 3, Flows: 1, Observed behaviours: 5.
 |---|---|
 | [JobScreenFrame](../flows/JobScreenFrame.md) | How the Job Tree gets input and a chance to run code each frame: the party-menu scene's frame function runs the current screen's update through a function table, the job screen's update runs the screen dispatch, and t... |
 
-## Observed behaviours (5)
+## Observed behaviours (7)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [JobAndAbilityDisplayFlagColumns](../behaviors/JobAndAbilityDisplayFlagColumns.md) | engine (job and ability windows) | Small flag columns of the Job, Ability and JobCommand tables that only change how a window draws. |
+| [JobTreeCursorNeighbourTable](../behaviors/JobTreeCursorNeighbourTable.md) | engine (Job Tree) | The Job Tree pad cursor does not search the screen for the nearest panel: each job row of the GeneralJob table names, for each of eight pad directions, up to two panels to move to. |
 | [JobTreeHoverFade](../behaviors/JobTreeHoverFade.md) | the focused Job Tree panel while its UnitJob CursorOver state plays | Focusing a panel plays the UnitJob component's CursorOver state at 60 Hz: the ring (UnitSelect) opacity 0 -> 1, the sprite (Unit) scale 1.125 -> 1.2 and the name tag fade in over frames 0 - 6 with the curves of the UI... |
 | [JobTreeLockState](../behaviors/JobTreeLockState.md) | every Job Tree panel, for the viewed unit | A panel is in one of three states: Unlock (the viewed unit has the job), LockReleased (it does not, but another party member does: shaded) or LockUnreleased (nobody in the party has it: black silhouette). |
 | [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md) | the per-panel lookups, the pad step and the scrolling root of the Job Tree | The tree is built for panel numbers 0..19. |

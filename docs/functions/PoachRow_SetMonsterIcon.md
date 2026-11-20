@@ -16,6 +16,10 @@ Sets the monster icon of a poacher list row.
 
 - V: IconMonster plays 'Rare' or 'Normal' by PoachItem +0x34 (column rare); its Icon part frame is PoachItem +0x30 (column icon).
 
+## Referenced by
+
+- Observed behaviours: [PoachListSortOrders](../behaviors/PoachListSortOrders.md)
+
 ## Open questions
 
 None recorded.

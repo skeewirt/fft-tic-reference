@@ -15,7 +15,7 @@ Returns the sort key of a status in the Status screen lists, from its UIStatusEf
 ## Behavior
 
 - V: the same bound (-1 for an id above 39) and the same row lookup as Status_ListCategory (nxd 57, key status + 1).
-- V: returns the signed word at row +0x20 (the Unknown20 column: 1 Protect, 2 Shell, 3 Regen, 21 Poison, 39 Doom ...).
+- V: returns the signed word at row +0x20 (the sort_order column: 1 Protect, 2 Shell, 3 Regen, 21 Poison, 39 Doom ...).
 - V: its only caller is CompareFunction, the qsort comparator of the Status screen lists (smaller key first).
 
 ## State touched
@@ -24,7 +24,7 @@ Returns the sort key of a status in the Status screen lists, from its UIStatusEf
 
 ## Referenced by
 
-- Observed behaviours: [StatusScreenReadersAndIconPath](../behaviors/StatusScreenReadersAndIconPath.md)
+- Observed behaviours: [StatusScreenReadersAndIconPath](../behaviors/StatusScreenReadersAndIconPath.md), [StatusSignalAndVoiceColumns](../behaviors/StatusSignalAndVoiceColumns.md)
 
 ## Notes
 

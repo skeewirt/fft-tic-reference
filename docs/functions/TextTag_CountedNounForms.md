@@ -15,15 +15,20 @@ Counted-noun text tag builder that adds a form string chosen by two record bytes
 ## Behavior
 
 - V: same count rule as TextTag_CountedNounArticle (0 plain, 1 singular, 2 or more plural, '[n]' replaced by the count).
-- V: the added form string comes from sub_1400F40D8 (a UI table row by key), chosen by tag record bytes +26 and +27.
+- V: record byte +26 is the initial form index (replaced by 3 for a count of 2 or more); a non-zero byte +27, or a string containing the marker [t], skips the extra word that is otherwise put before the string (not for a count of 0); the form strings come from sub_1400F40D8(language, index) (UI table 0xE5, 14 per-language form strings per row).
+- V: after the string is written the markers [t], [p], [pa], [a] and [n] are replaced (the count for [n]; [t], [pa] and [a] by form strings of the same table, [p] by an empty string when the string has no [p]).
 
 ## State touched
 
 - Calls: [UIText_ResolveCategoryRow](UIText_ResolveCategoryRow.md), [Str_Format](Str_Format.md)
 
+## Referenced by
+
+- Observed behaviours: [CountedNounTagRecord](../behaviors/CountedNounTagRecord.md)
+
 ## Notes
 
-Name is ours.
+Name is ours. The UI table id 0xE5 is read inside the callee sub_1400F40D8, not in this body.
 
 ## Open questions
 

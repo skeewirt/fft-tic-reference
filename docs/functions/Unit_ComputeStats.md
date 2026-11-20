@@ -27,6 +27,7 @@ Turns a work record's five 24-bit stat accumulators and the job row's growth pai
 ## Referenced by
 
 - Called by: [Unit_ApplyEquipment](Unit_ApplyEquipment.md), [Unit_BuildFromRecord](Unit_BuildFromRecord.md), [sub_140275EF4](sub_140275EF4.md)
+- Observed behaviours: [EntryGrowthBonusesByPlayMode](../behaviors/EntryGrowthBonusesByPlayMode.md)
 
 ## Notes
 

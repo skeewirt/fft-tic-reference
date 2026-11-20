@@ -23,7 +23,7 @@ Sets a text node's string; marks the layout dirty only when it differs. Always s
 
 ## Referenced by
 
-- Called by: [GUITextNode_SetTextExpanded](GUITextNode_SetTextExpanded.md), [GUITextNode_SetTextFormat](GUITextNode_SetTextFormat.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [UIGadgetFFTOJobDetailWindow_SetJob](UIGadgetFFTOJobDetailWindow_SetJob.md), [sub_1401560D0](sub_1401560D0.md)
+- Called by: [GUITextNode_SetTextExpanded](GUITextNode_SetTextExpanded.md), [GUITextNode_SetTextFormat](GUITextNode_SetTextFormat.md), [GuideBar_LayoutRow](GuideBar_LayoutRow.md), [UIGadgetFFTOJobDetailWindow_SetJob](UIGadgetFFTOJobDetailWindow_SetJob.md), [sub_1401560D0](sub_1401560D0.md), [sub_1401A1D78](sub_1401A1D78.md)
 - Observed behaviours: [GUITextNodeStringSource](../behaviors/GUITextNodeStringSource.md)
 
 ## Notes

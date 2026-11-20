@@ -28,7 +28,13 @@ Answers whether the party owns an item, either in the inventory or equipped on o
 - Calls: [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
 - Reads: [g_InventoryCounts](../globals/g_InventoryCounts.md), [g_PartyUnits](../globals/g_PartyUnits.md)
 
+## Referenced by
+
+- Observed behaviours: [ItemRowGrammarBytesAndGates](../behaviors/ItemRowGrammarBytesAndGates.md)
+
 ## Notes
+
+V: the Item column at +0x2C is named unknown2c in the table row structure; the only caller is the scenario condition of type 81, which answers 'item owned' only for items whose byte is non-zero.
 
 The name is ours (IDB: sub_140100F78). The veto at row byte +44 is the reading the bytes support: the byte at +0x2C is tested after the row lookup and a zero returns false; every stock Item-en row has 0 in the column at +0x2C, so the meaning of the veto is still open.
 

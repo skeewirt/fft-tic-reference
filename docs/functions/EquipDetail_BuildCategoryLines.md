@@ -20,6 +20,7 @@ Builds the text of the equipment detail category lines (UIStatusEffectCategory, 
 - V: key 3 (Applies): starts from the 5 bytes at +9..+13 and adds the statuses of the set at +24 whose UIStatusEffect row +8 is 3.
 - V: keys 8, 10 and 11 use record bytes +32, +31 and +30; key 9 uses +19..+23; key 13 reads two item ids at +36 and +40 through UITable 0x2D and their UIStatusEffect rows (sorted by row word +0x20).
 - V: status names are drawn with sub_1400FA2C4 from the UIStatusEffect name string.
+- V: while building the ordered status lines it skips a status whose UIStatusEffect byte +0x22 (column hidden_in_equipment_detail) is non-zero.
 
 ## State touched
 

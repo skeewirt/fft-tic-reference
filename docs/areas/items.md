@@ -2,9 +2,9 @@
 
 Item records and categories, and the shops.
 
-Functions: 102, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 9, Tables: 33.
+Functions: 106, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 12, Tables: 33.
 
-## Functions (102)
+## Functions (106)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -56,6 +56,9 @@ Functions: 102, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed b
 | [sub_140153CA0](../functions/sub_140153CA0.md) | `0x140153CA0` | Binds one item or ability to a UI cell: it sets the cell's icon path and name from a 16-bit text id, reads the inventory count for an item, and records the cell state. |
 | [sub_1401ABE14](../functions/sub_1401ABE14.md) | `0x1401ABE14` | Rebuilds the row list of the Poachers' Den screen from the saved poach ordering, taking a vector of 40-byte entry records as its input. |
 | [sub_1401AEEF0](../functions/sub_1401AEEF0.md) | `0x1401AEEF0` | Refreshes the equip and possession detail panel for one item, including its shop-new flag, and rebuilds the panel's text and icon slots. |
+| [sub_1401CAB50](../functions/sub_1401CAB50.md) | `0x1401CAB50` | Insertion sort of a list of 24-byte poach entries by the poach item's sort name, ascending; ties fall back to the id. |
+| [sub_1401CAC8C](../functions/sub_1401CAC8C.md) | `0x1401CAC8C` | Insertion sort of 24-byte poach entries by the PoachItem sort byte (+0x35), larger value first; ties fall back to the id, smaller first. |
+| [sub_1401CAFE0](../functions/sub_1401CAFE0.md) | `0x1401CAFE0` | The same sort name order for the 48-byte entries of the poacher list (PoachListEntry). |
 | [sub_140278FEC](../functions/sub_140278FEC.md) | `0x140278FEC` | Inventory count plus the copies worn by roster units and by the battle units. |
 | [sub_140285B10](../functions/sub_140285B10.md) | `0x140285B10` | Sorts a 0xFFFF-terminated item list in place by one of eight preset field orders. |
 | [sub_140285F2C](../functions/sub_140285F2C.md) | `0x140285F2C` | Copies the shared display list into the saved order list of one menu group, so that the order the player left the menu list in becomes the stored order. |
@@ -69,6 +72,7 @@ Functions: 102, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed b
 | [sub_14028B180](../functions/sub_14028B180.md) | `0x14028B180` | Compares two item ids by one named record field and returns a signed ordering value. |
 | [sub_14028B354](../functions/sub_14028B354.md) | `0x14028B354` | Produces the numeric sort key of one item for one field. |
 | [sub_14028B510](../functions/sub_14028B510.md) | `0x14028B510` | Marks the items sold in any open shop. |
+| [sub_1402B89F8](../functions/sub_1402B89F8.md) | `0x1402B89F8` | Returns the Item row byte +0x1A (column noun_class_2) of an item, or -1 when the row is missing. |
 | [sub_1402B8C74](../functions/sub_1402B8C74.md) | `0x1402B8C74` | Returns the 8-byte weapon sub-record (I: range, attack flags, formula, -, power, evade, element, status effect), or null when the item is not of this kind. |
 | [sub_1402B8CD4](../functions/sub_1402B8CD4.md) | `0x1402B8CD4` | Returns the 2-byte shield sub-record (copied into the unit's evade group, I: physical / magic evade), or null when the item is not of this kind. |
 | [sub_1402B8D3C](../functions/sub_1402B8D3C.md) | `0x1402B8D3C` | Returns the 2-byte head / body sub-record (added to the unit's max HP / MP, capped 999: Unit_ApplyEquipment), or null when the item is not of this kind. |
@@ -192,7 +196,7 @@ Functions: 102, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed b
 | [EquipSessionFlagFlow](../flows/EquipSessionFlagFlow.md) | The Outfitter/equip session: build candidates, buy or apply a slot word with bit 15, then commit (strip the bit, charge the price, save) or cancel (restore the override). |
 | [ItemMenuListLifecycle](../flows/ItemMenuListLifecycle.md) | Where a shop or equip list word is written, reordered and read: one producer fills g_MenuList for the screen, the saved-order filter rewrites it right after a mode-1 build, and seven functions read single words back, ... |
 
-## Observed behaviours (9)
+## Observed behaviours (12)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -202,9 +206,12 @@ Functions: 102, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed b
 | [ItemDisplayInShopAndEquipPanels](../behaviors/ItemDisplayInShopAndEquipPanels.md) | the shop lists and the equipment detail panel for an item id | What a shop row and the detail panel show for an item, all keyed by the item id: name and description from the Item-en row, price from the item record, icon files named by the id. |
 | [ItemIdSpace](../behaviors/ItemIdSpace.md) | the item functions and every bound on an item id | Item ids are u16 wherever they are stored for units (roster, party, battle and preview records), but the code bounds them in three ways: the item functions serve 0..0x104 (two stock record arrays split at 0x100), abou... |
 | [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md) | engine (shop and equip list) | A shop or equip list word holds the item id in its low bits and the 'cannot equip' mark in bit 14; an item id can be up to 15 bits wide, so for an id of 16,384 and above the id's own bit 14 and the mark are the same bit. |
+| [ItemRowGrammarBytesAndGates](../behaviors/ItemRowGrammarBytesAndGates.md) | engine (item rows) | Item row bytes +0x18..+0x1B are the four grammar bytes of the counted-noun record; +0x2C gates the 'item owned' story condition and the flagged state of the sell list row. |
 | [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md) | g_MenuList and the three list kinds that reuse it (shop, equip, ability), plus the job list | The two high bits of the 16-bit list words are per-list-kind state, not part of the id: bit 14 is cannot-equip / cannot-learn / current, bit 15 is not written to g_MenuList at all but marks the equip-candidate buffers. |
 | [OrderInsideItemGroup](../behaviors/OrderInsideItemGroup.md) | the order of item ids inside one menu group (the item menu, the equip screen and the shop list) | Three rules decide the order, in this priority: the saved order list is the order, membership maintenance inserts a newly owned id at the front and removes a lost one, and an explicit sort replaces the order with a fi... |
 | [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](../behaviors/OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md) | engine (Outfitter preview) | The Outfitter preview builder, the equip-clear price step and the equip commit each reduce a party hand word to an item id with an AND that must strip the session flag (bit 15); an AND whose mask keeps bit 15 turns th... |
+| [PoachListSortOrders](../behaviors/PoachListSortOrders.md) | engine (poacher screens) | The poacher lists are sorted by one of two insertion sorts: by the PoachItem sort_name string, or by the sort_order byte; the list labels use a notice form by two other columns. |
+| [PoachResultFromJob](../behaviors/PoachResultFromJob.md) | engine (Poach action) | A successful Poach gives the PoachItem named by the target unit's job: usually the job's poach_item, about one time in eight its poach_item_rare. |
 
 ## Tables (33)
 

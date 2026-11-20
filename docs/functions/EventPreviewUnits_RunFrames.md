@@ -29,8 +29,12 @@ Runs the per-frame preview-unit update for opcode 0xC1: it applies flagged previ
 
 ## State touched
 
-- Calls: [sub_1400F4BCC](sub_1400F4BCC.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [UITable_GetRowByKey](UITable_GetRowByKey.md)
+- Calls: [sub_140214404](sub_140214404.md), [sub_140214610](sub_140214610.md), [sub_1400F4BCC](sub_1400F4BCC.md), [sub_14013F71C](sub_14013F71C.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [UITable_GetRowByKey](UITable_GetRowByKey.md)
 - Reads: [g_CharaRenderMgr](../globals/g_CharaRenderMgr.md)
+
+## Referenced by
+
+- Observed behaviours: [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
 
 ## Notes
 

@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 48, Tables: 89.
+Functions: 362, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 56, Tables: 89.
 
-## Functions (347)
+## Functions (362)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -135,6 +135,9 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BUi_CommandAddonCtor](../functions/BUi_CommandAddonCtor.md) | `0x140153020` | Constructs the 5640-byte command-menu addon: vtable, sub-objects and idle field values. |
 | [CMesId_IsErrorBanner](../functions/CMesId_IsErrorBanner.md) | `0x1400FCCFC` | Tells whether a battle message is shown as the timed red error banner. |
 | [CursorUnit_TopPoint](../functions/CursorUnit_TopPoint.md) | `0x1402643F8` | Projects the point above the unit at the cursor tile: the unit's base plus its shape height along the renderer's direction vector. |
+| [Deployment_LoadAreaPlacement](../functions/Deployment_LoadAreaPlacement.md) | `0x140303408` | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
+| [Deployment_SelectArea](../functions/Deployment_SelectArea.md) | `0x140303380` | Makes the deployment area of the scene (index 0 or 1) the current one and returns a count byte of its placement record. |
+| [DeploymentGrid_CommenceCheck](../functions/DeploymentGrid_CommenceCheck.md) | `0x1401EE890` | Decides whether the deployment screen may start the battle with the units placed: returns a result code, 1 meaning go. |
 | [Effect_AbilityHasNoEffect](../functions/Effect_AbilityHasNoEffect.md) | `0x140319D74` | True when an effect word has no effect file (g_AbilityEffectNumber < 0), except 146 and 405..413. |
 | [Effect_ClearCurrent](../functions/Effect_ClearCurrent.md) | `0x14031A7E0` | Clears the running effect: resets its bookkeeping and sets the current effect number to -1. |
 | [Effect_PatchPolygonSeams](../functions/Effect_PatchPolygonSeams.md) | `0x140381834` | Nudges the texture coordinates of a few primitives of five stock effects by one or two units, keyed by the effect number. |
@@ -171,6 +174,7 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [EffectSprite_EmitPieces](../functions/EffectSprite_EmitPieces.md) | `0x140380878` | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](../functions/EffectSprite_StepAnimation.md) | `0x140387B70` | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
 | [EffectSprites_Spawn](../functions/EffectSprites_Spawn.md) | `0x140313210` | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
+| [EquipSprite_BuildPieces](../functions/EquipSprite_BuildPieces.md) | `0x14026BC60` | Builds the sprite piece records of a unit's held item for one animation frame. |
 | [ErrorBanner_Show](../functions/ErrorBanner_Show.md) | `0x14015293C` | Shows a battle refusal message as the timed red banner. |
 | [EventUnitStatus_DispatchActiveIcons](../functions/EventUnitStatus_DispatchActiveIcons.md) | `0x140241080` | For one preview unit of an event scene, sends the status icon updater a message for every status the unit currently has. |
 | [EventUnitStatus_SaveAndHide](../functions/EventUnitStatus_SaveAndHide.md) | `0x140241128` | For an event scene, saves the status state of a unit into the event unit store and clears the statuses the scene must not show. |
@@ -216,11 +220,18 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [StatusScreen_DrawLists](../functions/StatusScreen_DrawLists.md) | `0x140112B48` | Draws the Status screen's status list: one list item per gain, then per ailment, and the caption of the first. |
 | [StatusScreen_SetCaption](../functions/StatusScreen_SetCaption.md) | `0x140113388` | Shows the caption (the help text) of the selected status on the Status screen. |
 | [StatusScreen_SetEntry](../functions/StatusScreen_SetEntry.md) | `0x140112E84` | Sets one entry of the Status screen list: the status icon and the status name. |
+| [StatusVoice_CacheLines](../functions/StatusVoice_CacheLines.md) | `0x1401EB468` | Copies the battle_voice column of UIStatusEffect rows 1..40 into an array of 40 dwords in the battle control at +693504. |
+| [StatusVoice_SpeakEvent](../functions/StatusVoice_SpeakEvent.md) | `0x1401ECDB4` | Speaks the voice line of a status event: the line is read from the UIStatusEffect rows of every status in the event's mask and spoken only when the non-zero values agree. |
 | [sub_1400E615C](../functions/sub_1400E615C.md) | `0x1400E615C` | A guarded variant of the item-row text setter: it forwards an item id and four caller values to the item-row builder, but only when three UI subsystems are alive and the caller's kind is the one it serves. |
+| [sub_140107914](../functions/sub_140107914.md) | `0x140107914` | Plays the show / hide states of the battle command list cursor for one cursor event of the battle main window. |
 | [sub_140109134](../functions/sub_140109134.md) | `0x140109134` | Refreshes a battle-side panel object from a packed text id or from the panel's own selection fields. |
 | [sub_140109F0C](../functions/sub_140109F0C.md) | `0x140109F0C` | A smaller sibling of sub_140109134: it finds one named text part of a UI object and fills it from a packed text id, choosing item, ability or a third source by the text kind. |
+| [sub_14013F71C](../functions/sub_14013F71C.md) | `0x14013F71C` | Runs the guest-join announcement panel of a unit and clears its guest-join flag. |
 | [sub_1401560D0](../functions/sub_1401560D0.md) | `0x1401560D0` | Fills the four command radio buttons of a command screen: each button gets the icon and the title of the skillset named by its text token (name token 0xB000 \| set), so it is the one place a skillset's name is read str... |
 | [sub_1401EC01C](../functions/sub_1401EC01C.md) | `0x1401EC01C` | Walks the forty battle message entries and resolves each one through the shared resolver. |
+| [sub_1401ECBBC](../functions/sub_1401ECBBC.md) | `0x1401ECBBC` | Routes one battle voice event to its handler by the event kind. |
+| [sub_1401EE9B4](../functions/sub_1401EE9B4.md) | `0x1401EE9B4` | Sets up a battle window object. |
+| [sub_1401F5AFC](../functions/sub_1401F5AFC.md) | `0x1401F5AFC` | Tests whether the unit the cursor refers to counts as valid: its slot byte +1 is 0xFF or its flag dword +504 has bit 1. |
 | [sub_1401F92A8](../functions/sub_1401F92A8.md) | `0x1401F92A8` | Fills the 106 rows of the PostBattleCalc object, one per formula id: the 12 formulas with an after-damage rule get a hook row, every other row holds the do-nothing marker. |
 | [sub_1401F9CC4](../functions/sub_1401F9CC4.md) | `0x1401F9CC4` | A small preview of an item's effect amount: it repeats the HP-item formula's arithmetic but only when the battle state is in an item-preview phase, and writes the result into the same result block. |
 | [sub_14020261C](../functions/sub_14020261C.md) | `0x14020261C` | Posts a battle message that depends on the current map, then marks the unit's action as done. |
@@ -243,7 +254,10 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [sub_14020C704](../functions/sub_14020C704.md) | `0x14020C704` | The cast handler: it sets the effect word and the charge pose for the action the unit is about to take. |
 | [sub_14020CC50](../functions/sub_14020CC50.md) | `0x14020CC50` | The hit sequence of an action: it picks the impact animation and voice from the effect word and starts the notification. |
 | [sub_140210AF0](../functions/sub_140210AF0.md) | `0x140210AF0` | The battle state machine: one step per frame from command input through action resolution to the next turn. |
+| [sub_140214404](../functions/sub_140214404.md) | `0x140214404` | Runs the withdrawal announcement of a unit and clears its withdrawal flag. |
+| [sub_140214610](../functions/sub_140214610.md) | `0x140214610` | Runs the betrayal announcement of a unit and clears its betrayal flag. |
 | [sub_140217630](../functions/sub_140217630.md) | `0x140217630` | For a party unit given by its save index, builds the unit's battle command byte list on a scratch unit and answers the first command whose list holds a usable entry (the twin of sub_14030E010, which builds the live me... |
+| [sub_140217A7C](../functions/sub_140217A7C.md) | `0x140217A7C` | Builds the battle signal list of the statuses a pending action result applies (the same list UnitPanel_SetSignalList builds for the unit panel) and returns its length. |
 | [sub_140226E44](../functions/sub_140226E44.md) | `0x140226E44` | Refreshes the battle unit panel when an item is selected, checking the item's record category and then its weapon sub-record to decide what the panel shows. |
 | [sub_14022EFF4](../functions/sub_14022EFF4.md) | `0x14022EFF4` | Refreshes a battle help panel from the currently selected 16-bit word. |
 | [sub_140233588](../functions/sub_140233588.md) | `0x140233588` | A battle scene task that shows a message with three arguments and a kind-3 message entry. |
@@ -316,6 +330,7 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [sub_14033A37C](../functions/sub_14033A37C.md) | `0x14033A37C` | A battle unit panel variant, the third of the five builders, with the same hand-slot loop and the same top-two-bit flag read as the other flagged variant. |
 | [sub_14033B420](../functions/sub_14033B420.md) | `0x14033B420` | A battle unit panel builder that fills the unit's equipment rows and the small slot markers next to them. |
 | [sub_14033E394](../functions/sub_14033E394.md) | `0x14033E394` | Selects a battle record from the table at 0x141D3B7A0 and copies its +0x30..+0x6F slice to the battle panel block at 0x141D3B880, which puts the record's hand words at block +0x24. |
+| [sub_14036099C](../functions/sub_14036099C.md) | `0x14036099C` | Gives the side category of the unit a unit-info record names: 1 own side, 2 enemy side, 3 'special' ally, 0 none. |
 | [sub_140364408](../functions/sub_140364408.md) | `0x140364408` | The second battle item panel initialiser, the twin of sub_140323D1C: it sets up the panel for a unit and its current item. |
 | [sub_140388EB4](../functions/sub_140388EB4.md) | `0x140388EB4` | AI search pass: tries the abilities of four skillsets with action-record flag 0x40 against combinations of two sub-abilities. |
 | [sub_140389D84](../functions/sub_140389D84.md) | `0x140389D84` | AI targeting step: it picks a target area, calls the ring-range helper and returns the chosen cells. |
@@ -356,7 +371,7 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [UnitSprite_DepthSort](../functions/UnitSprite_DepthSort.md) | `0x14026D9C8` | Computes the depth value of a unit sprite for sorting. |
 | [VramPage_CopyRect](../functions/VramPage_CopyRect.md) | `0x14025FA60` | Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPage) and marks that area for upload. |
 
-## Structures (68)
+## Structures (70)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -379,6 +394,7 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [CommandKindParam](../structs/CommandKindParam.md) | 4 | One row of the CommandKindParams table. |
 | [CornerColour](../structs/CornerColour.md) | 4 | One row of the BannerWordColours table. |
 | [CrystalRollResult](../structs/CrystalRollResult.md) | 1393 | The block Unit_RollAbilityLearning fills at dword_1411A6AB0 (1393 bytes, the next data starts at 0x1411A7024) when a unit stops on a crystal or chest. |
+| [DeploymentAreaPlacementRecord](../structs/DeploymentAreaPlacementRecord.md) | 12 | One 12-byte placement record of the deployment areas (the table at 0x1407AE2D0, indexed by the area id that ScenarioSetupRow entry_area / entry_area_2 name; the same id is the first key of EntryArea, nxd 244). |
 | [EffectBlendWeightsRow](../structs/EffectBlendWeightsRow.md) | 7 | One row of the EffectBlendWeights table. |
 | [EffectFileLocatorRow](../structs/EffectFileLocatorRow.md) | 8 | One row of EffectFileLocatorsLangOther. |
 | [EffectFlashProfilesRow](../structs/EffectFlashProfilesRow.md) | 14 | One row of the EffectFlashProfiles table. |
@@ -394,6 +410,7 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [FormulaBlock](../structs/FormulaBlock.md) | 72 | The state of the one action being resolved: Battle_ResolveAction fills it per target and every formula handler reads and writes it. |
 | [ItemListCells](../structs/ItemListCells.md) |  | The static item-list cell store: 82 two-byte cells (kind tag in bits 15..11, id in bits 10..0) and the parallel per-cell arrays beside them. |
 | [LayoutPointer](../structs/LayoutPointer.md) | 8 | One row of the StatusPanelLayoutsLanguage0 table. |
+| [MapVariationStruct](../structs/MapVariationStruct.md) | 72 | One 72-byte variation struct of a Map row (nxd 60): which scene conditions it applies under. |
 | [MenuCursorDefault](../structs/MenuCursorDefault.md) | 16 | One row of the MenuCursorDefaults table. |
 | [MoveBlockerRecord](../structs/MoveBlockerRecord.md) | 7 | One entry of g_MoveBlockers: another unit on the map as the move-range builder sees it. |
 | [MoveFindRow](../structs/MoveFindRow.md) | 24 | One row of the MoveFindItems table. |
@@ -508,11 +525,12 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (48)
+## Observed behaviours (56)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [AbilityAboveStockBoundaryHasNoMpCheckOrCost](../behaviors/AbilityAboveStockBoundaryHasNoMpCheckOrCost.md) | engine (action start and preview) | The MP check and payment (sub_1402828E4) and its preview twin (sub_14030B1A0) only look at ids up to 0x16F (367): an ability id above that boundary pays no MP, has no MP check and shows no cost. |
+| [AbilityLearnedByBeingHit](../behaviors/AbilityLearnedByBeingHit.md) | engine (ability aux flags3 bit 0x20) | An ability whose AbilityAux flags3 has bit 0x20 can be learned by a unit it hits, when the unit's job skillset lists it. |
 | [AFailedMeshLoadSkipsEveryLaterRendererStep](../behaviors/AFailedMeshLoadSkipsEveryLaterRendererStep.md) | engine (map renderer) | When MapMesh_Load returns anything but 0 (missing file, oversize, wrong header, ids 15 and 33) the texture, system-texture and anim steps are not run and the mesh set's loaded-id field stays at none; the map block's t... |
 | [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md) | engine (battle action result) | At the end of Battle_ApplyActionResult the unit held in g_BattleActingUnit is tested for passive reactions in a fixed order; the first one present goes to a Brave-roll helper, and the reaction executor then handles on... |
 | [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md) | engine | An AI-controlled unit weighs statuses in two places, both limited to the 40 statuses of the five status bytes: the test of whether an action is worth trying on a unit compares the action's status bytes (from its infli... |
@@ -530,6 +548,7 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleVoiceChance](../behaviors/BattleVoiceChance.md) | engine (battle voices) | Whether a line plays is a roll of the speaker group's percentage in the line's column; fast-forward silences voices. |
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
+| [EventUnitFaceOfAScenarioRecord](../behaviors/EventUnitFaceOfAScenarioRecord.md) | engine (turn panel portrait) | A scenario setup record can name one event unit and a portrait code: the turn panel shows that unit's small face with the code instead of the face of its look. |
 | [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md) | The 106 ability formula handlers and the blocks they call | What a formula handler may assume and has to leave behind, read from the stock handlers and from Battle_ResolveAction: the frame it is called in, how it says 'no effect', which result fields go together, why it must n... |
 | [FormulaIdsWithNoHandlerBody](../behaviors/FormulaIdsWithNoHandlerBody.md) | Formula ids 17, 19, 24, 25 and 70 of the formula registry | Five formula ids have no formula of their own: their registry rows point at an empty function, so an action with one of them keeps the reset result (a hit with no amount and no status) and only the post-processing runs. |
 | [FormulaPostHooksAreKeyedByFormulaId](../behaviors/FormulaPostHooksAreKeyedByFormulaId.md) | engine | After a formula handler runs, sub_14030A11C looks the formula byte up in a 106-row hook table (PostBattleCalc) and runs the row's callback, if any: twelve formulas have an Undead rule there. |
@@ -547,18 +566,24 @@ Functions: 347, Structures: 68, Globals: 50, Registries: 2, File formats: 1, Flo
 | [PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId](../behaviors/PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId.md) | engine (battle title card, pause menu, save list) | The title card, the objective header of the pause menu and the place label of the save list all show the place name belonging to the loaded map id's Map row, and a mid-battle autosave resumes the battle on the saved id. |
 | [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md) | engine (battle HUD, save list, title card) | The battle's place text reads the place-name id at row +8 of the Map row of variable 51; the save list reads row +12 (else +8) of the Map row of the low byte of the map id for a battle save, and the Town row of the lo... |
 | [PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows](../behaviors/PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows.md) | engine (battle deployment) | The origin of the player's deployment grid comes from a 12-byte-row table of 768 rows in the executable (row number in the u16 at +10), indexed by the deployment area ids in variables 53 and 54 with no bound check; th... |
+| [PlayModeDamagePercent](../behaviors/PlayModeDamagePercent.md) | engine (play mode) | The play mode (configuration byte +196) is the key of a DifficultyLevel row; the row's four percentages scale the HP and MP damage of every resolved action, one pair for each side of the target and a second pair for c... |
 | [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md) | engine | Poison and Regen change HP when the turn of the unit ends: Battle_TurnEngine phase 19 writes max HP / 8 as damage (Poison) or as a heal (Regen, only when not poisoned) into the result block of the unit, which the game... |
 | [PseudoEffectWordIsASixteenBitEventOperand](../behaviors/PseudoEffectWordIsASixteenBitEventOperand.md) | engine (effect selection) | An effect word of 512 or more selects a row of the 37-word pseudo effect table (row = word - 512, row 0 when 37 or more) and the effect number is masked to 9 bits; event command class 0x18 sets the word, which the eve... |
 | [RandomBattleModeSelectsTheLightingVariantOfAMapsTextures](../behaviors/RandomBattleModeSelectsTheLightingVariantOfAMapsTextures.md) | engine (map variation, map textures) | A battle started from a random encounter runs MapRow_SelectVariation in its 'random battle' branch, which always yields a kind code from 1 to 6, and the name builder then reads the second name array of each texture ro... |
 | [RandomEncounterRowByte22IsTheBattleMapId](../behaviors/RandomEncounterRowByte22IsTheBattleMapId.md) | engine (random battle start) | A random battle at a battleground takes its battle map from byte 22 of the encounter row, not from a scenario setup record: the row's byte 22 becomes variable 51 when the world-map screen ends, the chosen formation by... |
+| [ScenarioMapStateIsOnlyAMapVariationSelector](../behaviors/ScenarioMapStateIsOnlyAMapVariationSelector.md) | engine (scene variable 48) | The map state (0..15) of a scenario setup record, scene variable 48, has two readers only: the Map row variation selector and the mesh set that remembers it. |
+| [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md) | engine (deployment screen, scene variable 511) | A scenario setup record with a deployment area and the Ramza flag set makes the deployment screen place party member 0 first and refuse to start the battle without that member. |
 | [ScenarioSetupRecordFeedsTheBattleSceneVariables](../behaviors/ScenarioSetupRecordFeedsTheBattleSceneVariables.md) | engine (scene entry of an event or battle) | When a scene starts, the routine that applies the scenario setup record finds the record of the current event number (scene variable 39) in the 24-byte table of 887 records and writes the scene variables the battle lo... |
+| [ScenarioWeatherLevelAndNightFlag](../behaviors/ScenarioWeatherLevelAndNightFlag.md) | engine (scene variables 35 and 36) | The weather level (0..4) and the night flag (0 / 1) that a scenario setup record gives a scene decide which variation of the battle map is drawn, bow hit chances, the movement cost of terrain, an elemental modifier an... |
 | [SpawnRecordPassiveWords](../behaviors/SpawnRecordPassiveWords.md) | engine | A battle spawn record's reaction / support / movement word below 0x1FE names an ability and 0x1FE or above asks for a random one of the unit's skillset slots 16..21. |
 | [StatusBitWritersAndTheRemovalPath](../behaviors/StatusBitWritersAndTheRemovalPath.md) | engine | The effective set +0x61 of a unit is written at the end of a fixed group of functions; the applied set is written only from the pending sets, from its own saved copy or derived from +0x61; the game removes a status on... |
 | [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md) | engine | A unit's statuses are 40-bit sets (status s = bit 0x80 >> (s & 7) of byte s >> 3) kept in eight regions of the battle unit record: innate a, innate b, the effective set, the applied set, the pending add and remove pai... |
 | [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md) | engine | The status pipeline (Battle_StatusResolve) runs a filter, a refresh and an apply loop over the status ids in order; the inflict copy of a result is read only by formula 56; the battle task clears the unit table at its... |
 | [StatusScreenReadersAndIconPath](../behaviors/StatusScreenReadersAndIconPath.md) | engine | The battle Status screen lists a unit's statuses in two dword lists (gains, ailments) and reads each one's name, category, sort key and caption from its UIStatusEffect row (key id + 1); the icon path s_%03d is formatt... |
+| [StatusSignalAndVoiceColumns](../behaviors/StatusSignalAndVoiceColumns.md) | engine (battle status effects) | Three UIStatusEffect columns decide what a status does in the battle UI: whether it is listed and raises a signal, which BattleSignal popup it shows, and which battle voice line it speaks. |
 | [StatusVisualMasks](../behaviors/StatusVisualMasks.md) | scene unit status visuals | A scene unit carries set and clear masks for status visuals; SceneUnit_ApplyStatusVisuals applies them and redraws the pose, and a scene unit build zeroes the words. |
 | [TurnOrderEntryKeepsNineBitsOfTheAbility](../behaviors/TurnOrderEntryKeepsNineBitsOfTheAbility.md) | engine | A turn-order entry keeps 9 bits of the pending ability (byte 1 plus bit 7 of byte 0 for 256), so the combat timeline names an ability of 512 or more by the stock ability 256 + its low byte (512 = Vengeance). |
+| [UnitThatBlocksItsAlliesInMoveRanges](../behaviors/UnitThatBlocksItsAlliesInMoveRanges.md) | engine (job table row +25 bit 7) | A job whose table row has bit 7 of byte +25 set makes its units block the tiles they stand on for their own side's movement, unless the moving unit has the bit too. |
 | [UsableAbilityListLearnedBitGroup](../behaviors/UsableAbilityListLearnedBitGroup.md) | engine | The usable-ability list reads a unit's learned bits per job group. |
 
 ## Tables (89)

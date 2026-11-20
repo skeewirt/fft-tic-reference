@@ -20,8 +20,8 @@ Looks up the per-shape rows that drive a unit's shadow size and LUT region: shap
 
 ## Referenced by
 
-- Called by: [CharaRender_DrawFrame](CharaRender_DrawFrame.md)
-- Observed behaviours: [CharShapeRowsANewLookNeeds](../behaviors/CharShapeRowsANewLookNeeds.md)
+- Called by: [CharaRender_DrawFrame](CharaRender_DrawFrame.md), [sub_14027032C](sub_14027032C.md)
+- Observed behaviours: [CharShapeDepthSortOffset](../behaviors/CharShapeDepthSortOffset.md), [CharShapeRowsANewLookNeeds](../behaviors/CharShapeRowsANewLookNeeds.md)
 - Reads tables: [NxdDataCharShape](../tables/NxdDataCharShape.md), [NxdDataCharShapeLUTParam](../tables/NxdDataCharShapeLUTParam.md), [NxdDataCharShapeShadowSize](../tables/NxdDataCharShapeShadowSize.md)
 
 ## Notes

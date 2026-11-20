@@ -20,6 +20,12 @@ At a scene start, applies the scenario setup record of the scene's event to the 
 - V: then it searches the records for the scene's event (var 39, or the resume copy when the resume flag is 1); no record: variables 48 and 39 are set to 0 and it returns.
 - V: with a record it reads the fields into scene variables: map byte +2 -> 51 (event 93 keeps 51), +3 nibbles -> 48 / 35, +4 -> 36, +7 or +15 -> 50, +9 / +11 -> 53 / 54 and their count -> 52, +17 -> 511, the two scene bytes +13 / +14, and collects the scene's characters from the EnhancedBattleEvent rows of the key at +22 (it returns before writing variable 51 when that key has no row, has 16 or more entries, or the list reaches 512 words).
 - V: event numbers are read sign-extended from 16 bits in every search.
+- V: byte +3 low nibble is the weather level (scene variable 35, 0..4) and the high nibble the map state (variable 48, 0..15); byte +4 is the night flag (variable 36). What they select: see the behaviours ScenarioWeatherLevelAndNightFlag and ScenarioMapStateIsOnlyAMapVariationSelector.
+- V: bytes +5 and +6 are stored sign-extended in the scene words 0x140D407C4 / 0x140D407C8, the music tracks of music slots 1 and 2 (0 = none); Scene_StartMusic reads them and starts them through Music_StartSceneTracks.
+- V: byte +13 is a portrait code (stored at 0x140C6AD7A) and byte +14 the event unit number that shows it (0x140C6AD76); the turn panel small-face code (sub_14022AA88) gives a unit whose +401 equals the second byte the first byte as face code, and the portrait cache builder sub_140300768 takes the code of its entry 54 from it.
+- V: byte +15 replaces +7 as the unit entry number while scene variable 508 is set and dword_142FF9F4C is 0; the event viewer entry page (sub_1402D28C8) writes variable 508 = 1 for a replay.
+- V: byte +17 is copied to variable 511 only when the area at +9 is non-zero: with 511 set the deployment grid pre-fills its first free cell with party member 0 and the commence check (DeploymentGrid_CommenceCheck) refuses a formation without member 0.
+- V: byte +21 is read by neither ScenarioSetup_ApplyRecord nor Scenario_CheckBattleRecord, and no other code refers to the record block (whole-image operand census).
 - V: each word of the character list collected from the EnhancedBattleEvent rows is the row's 16-bit condition opcode (column condition, row +4); a row whose value is 0 is skipped, any other value is appended to the word list at 0x140D3F550 as the trigger-condition opcode.
 
 ## State touched
@@ -29,7 +35,7 @@ At a scene start, applies the scenario setup record of the scene's event to the 
 
 ## Referenced by
 
-- Observed behaviours: [PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows](../behaviors/PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows.md), [ScenarioSetupRecordFeedsTheBattleSceneVariables](../behaviors/ScenarioSetupRecordFeedsTheBattleSceneVariables.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
+- Observed behaviours: [EventUnitFaceOfAScenarioRecord](../behaviors/EventUnitFaceOfAScenarioRecord.md), [PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows](../behaviors/PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows.md), [ScenarioMapStateIsOnlyAMapVariationSelector](../behaviors/ScenarioMapStateIsOnlyAMapVariationSelector.md), [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md), [ScenarioSetupRecordFeedsTheBattleSceneVariables](../behaviors/ScenarioSetupRecordFeedsTheBattleSceneVariables.md), [ScenarioWeatherLevelAndNightFlag](../behaviors/ScenarioWeatherLevelAndNightFlag.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
 
 ## Notes
 
@@ -37,4 +43,4 @@ Read: the whole decompilation and the three loops in the disassembly; the charac
 
 ## Open questions
 
-?: what the flag bits 8, 9 and 12..15 of the word mean to the battle functions that test them; what the scene bytes 0x140C6AD7A / 0x140C6AD76 select.
+?: what the flag bits 8, 9 and 12..15 of the word mean to the battle functions that test them.

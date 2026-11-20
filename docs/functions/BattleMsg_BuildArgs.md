@@ -28,7 +28,7 @@ Fills the format-argument vector for a message descriptor: selects the message i
 
 ## State touched
 
-- Calls: [BattleMsg_IdFromDescriptor](BattleMsg_IdFromDescriptor.md), [ItemTable_GetName](ItemTable_GetName.md), [FormatArgs_Push](FormatArgs_Push.md), [sub_14002620C](sub_14002620C.md)
+- Calls: [BattleMsg_IdFromDescriptor](BattleMsg_IdFromDescriptor.md), [ItemTable_GetName](ItemTable_GetName.md), [FormatArgs_Push](FormatArgs_Push.md), [sub_1402B89F8](sub_1402B89F8.md), [sub_14002620C](sub_14002620C.md)
 
 ## Referenced by
 

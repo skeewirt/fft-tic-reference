@@ -17,7 +17,7 @@ Per-frame pad input for the tree: confirm, back and 8-way cursor movement over t
 - V: reached from sub_140115EA8 on event 1409 (focus) as a direct call with the focused input object; it is NOT addon vtable slot 26 (that slot is JobTree_ReleaseCharaSlots, slot 27 is JobTree_OnFocusChange).
 - V: confirm (Input_TestAction(0, 0, 26)) or the held flag addon+12241: sends message 128 with the selected index (index-1 when >= 18, because of the Bard/Dancer pair) and returns code 1400. Back (Input_TestAction(0, 0, 27)): sound 15, code 1400.
 - V: direction = two groups of four pad bytes at qword_143CD9EE8 + 13648..13651 and + 13652..13655, each ordered down, left, up, right; up wins over down and right over left, giving up 0, up-right 1, right 2, down-right 3, down 4, down-left 5, left 6, up-left 7, none -1; the first group is used unless it gives none.
-- V: neighbour lookup: panel record +0x1A8 (addressed as addon + 496 + 456 x panel: the record starts at addon + 72) holds a navigation table, 8 directions x 2 candidates x (panel byte, flag byte) = 32 B; a candidate equal to the hidden gender slot (17 or 18 by addon+12240) is skipped; with the second group a candidate whose flag byte is set is skipped too.
+- V: neighbour lookup (columns cursor_<direction>, cursor_<direction>_2 and the _primary_only flags of the GeneralJob row, see behavior JobTreeCursorNeighbourTable): panel record +0x1A8 (addressed as addon + 496 + 456 x panel: the record starts at addon + 72) holds a navigation table, 8 directions x 2 candidates x (panel byte, flag byte) = 32 B; a candidate equal to the hidden gender slot (17 or 18 by addon+12240) is skipped; with the second group a candidate whose flag byte is set is skipped too.
 - V: the starting panel is addon+12232 (the panel under the cursor) when it is a panel; otherwise addon+12236 when it is below the panel count (at least 0), else the constant 20 at 0x140671F04. The chosen neighbour is focused with GUICore_FocusNode(addon + 72 + 456 * panel) when it is below the panel count.
 
 ## State touched
@@ -28,12 +28,12 @@ Per-frame pad input for the tree: confirm, back and 8-way cursor movement over t
 ## Referenced by
 
 - Appears in flows: [JobScreenFrame](../flows/JobScreenFrame.md)
-- Observed behaviours: [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md), [JobTreeViewControl](../behaviors/JobTreeViewControl.md)
+- Observed behaviours: [JobTreeCursorNeighbourTable](../behaviors/JobTreeCursorNeighbourTable.md), [JobTreePanelLookups](../behaviors/JobTreePanelLookups.md), [JobTreeViewControl](../behaviors/JobTreeViewControl.md)
 
 ## Notes
 
-The navigation table is copied into the panel record at refresh time from the GeneralJob row (JobTree_RefreshAddon loop tail). V (live): the stock rows never name a class panel, so the pad skipped class panels.
+The panel record +0x1A8 is reached as the panel address (addon + 72 + 456 * panel) plus a computed offset, so the constant 0x1A8 does not appear in the body. The navigation table is copied into the panel record at refresh time from the GeneralJob row (JobTree_RefreshAddon loop tail).
 
 ## Open questions
 
-? In game: the position step and the scroll on a tree with class panels below the screen (built 2026-11-08, not yet run).
+None recorded.

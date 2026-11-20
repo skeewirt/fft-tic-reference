@@ -26,7 +26,7 @@ Fills the unit information record a battle panel draws (the deployment carousel'
 
 ## Referenced by
 
-- Called by: [sub_140217630](sub_140217630.md)
+- Called by: [sub_14013F71C](sub_14013F71C.md), [sub_140214404](sub_140214404.md), [sub_140214610](sub_140214610.md), [sub_140217630](sub_140217630.md)
 
 ## Notes
 

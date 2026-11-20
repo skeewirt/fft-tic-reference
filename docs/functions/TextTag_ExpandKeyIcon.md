@@ -15,7 +15,8 @@ Expands the in-text tags of the UI text engine; the 'keyicon' tag inserts the bu
 ## Behavior
 
 - V: for the tag 'keyicon' it loops UIKeyAssign rows 1..255 and compares the tag argument with the row's name string (+0x18); on a match it writes the glyph of that action with InputGlyph_AppendPadButton (action 57 asks for the alternate glyph).
-- V: other tags call UIText_ResolveCategoryRow and the four counted-noun builders (sub_1400F3F94, sub_1400F4200, sub_1400F4558, sub_1400F4718), job-name text (JobTable_GetNameText) and others not read here.
+- V: other tags call UIText_ResolveCategoryRow and the four counted-noun builders (sub_1400F3F94, sub_1400F4200, sub_1400F4558, sub_1400F4718).
+- V: the tags 'jobname' and 'jobhelp' (compared as packed constants) take one argument pair {key, variant} and call JobTable_GetNameText with kind 0 (name) or 1 (help).
 
 ## State touched
 
@@ -23,7 +24,7 @@ Expands the in-text tags of the UI text engine; the 'keyicon' tag inserts the bu
 
 ## Referenced by
 
-- Observed behaviours: [KeyIconTag](../behaviors/KeyIconTag.md)
+- Observed behaviours: [JobNameAndHelpTextTags](../behaviors/JobNameAndHelpTextTags.md), [KeyIconTag](../behaviors/KeyIconTag.md)
 
 ## Notes
 

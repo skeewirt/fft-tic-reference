@@ -23,7 +23,7 @@ Calls the callback in the global function pointer `qword_140D40940` for modes 0 
 
 ## Referenced by
 
-- Called by: [EventPanel_QueueAndWait](EventPanel_QueueAndWait.md), [EventPanel_ShowTask](EventPanel_ShowTask.md), [EventScript_SkipTick](EventScript_SkipTick.md), [EventUnitStatus_DispatchActiveIcons](EventUnitStatus_DispatchActiveIcons.md), [EventUnitStatus_SetBit](EventUnitStatus_SetBit.md), [sub_14024138C](sub_14024138C.md)
+- Called by: [EventPanel_QueueAndWait](EventPanel_QueueAndWait.md), [EventPanel_ShowTask](EventPanel_ShowTask.md), [EventScript_SkipTick](EventScript_SkipTick.md), [EventUnitStatus_DispatchActiveIcons](EventUnitStatus_DispatchActiveIcons.md), [EventUnitStatus_SetBit](EventUnitStatus_SetBit.md), [Music_StartSceneTracks](Music_StartSceneTracks.md), [Scene_StartMusic](Scene_StartMusic.md), [sub_14024138C](sub_14024138C.md)
 - Called by event opcodes: [0x28](../opcodes/README.md), [0x44](../opcodes/README.md), [0x45](../opcodes/README.md), [0x87](../opcodes/README.md)
 
 ## Notes

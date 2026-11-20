@@ -2,7 +2,7 @@
 
 Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning.
 
-28 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
+30 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -26,6 +26,7 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [SpriteNumberTables](SpriteNumberTables.md) | [Graphics](../areas/graphics.md) | Every table the executable indexes by sprite number, with the row count, the bound the code applies. |
 | [TextIdKinds](TextIdKinds.md) | [Data access](../areas/data.md) | The 32 text-id kinds: the 5 bits of a text id, their base (kind x 0x800) and the pool or source each selects. |
 | [TextLanguageCodes](TextLanguageCodes.md) | [Data access](../areas/data.md) | The text language codes the game keeps at `g_LanguageInfo`+8, with the language pack and the name suffix each one selects. |
+| [TextTagName](TextTagName.md) | [Data access](../areas/data.md) | The first 40 records of the UI text engine's tag-name table (16 bytes each: a name pointer and a flag dword). |
 | [TitleMenuEntryKinds](TitleMenuEntryKinds.md) | [UI framework](../areas/ui-framework.md) | The six kinds of row of the Enhanced title menu: the kind byte stored in each row, the text id of its label (UI table, nxd id 19) and what choosing it does. |
 | [TitleModeSelectButtons](TitleModeSelectButtons.md) | [UI framework](../areas/ui-framework.md) | The button ids of the mode select screen as `UILauncher_OnMenuAction` handles them. |
 | [UIAddonRows](UIAddonRows.md) | [UI framework](../areas/ui-framework.md) | Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `path` names the layout file a screen loads. |
@@ -33,4 +34,5 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [UIButtonGuideKeysOfGeneralOptions](UIButtonGuideKeysOfGeneralOptions.md) | [UI framework](../areas/ui-framework.md) | The guide bar keys (`UIButtonGuide` rows, UI table 33) the settings screen uses, with the text id of each sub-row; 'right' marks sub-rows drawn on the right (byte +37 `Unknown25`). |
 | [UIDialogRowsOfSettings](UIDialogRowsOfSettings.md) | [UI framework](../areas/ui-framework.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
 | [UISoundIdsOfSettings](UISoundIdsOfSettings.md) | [UI framework](../areas/ui-framework.md) | The UI sound ids (`sub_1400F4BCC(_, id)`, UI table 0x45) the settings screen plays. |
+| [UnitEventFlagBit](UnitEventFlagBit.md) | [Unit data](../areas/unit-data.md) | The bits of the unit flag word at battle unit +504, which the battle build stores from the entry override row: one bit per flag byte (OverrideEntryData +0x8E..+0x97 and +0x99), plus bit 11 set by the equipment build. |
 | [UnitIdentityIds](UnitIdentityIds.md) | [Unit data](../areas/unit-data.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |

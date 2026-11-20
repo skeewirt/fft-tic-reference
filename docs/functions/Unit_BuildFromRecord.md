@@ -23,7 +23,7 @@ Builds a unit work record from a spawn record: applies the record, sets up job s
 
 ## State touched
 
-- Calls: [Unit_ApplySpawnRecord](Unit_ApplySpawnRecord.md), [UnitWork_InitFromSpawnRecord](UnitWork_InitFromSpawnRecord.md), [Unit_InitAbilitiesFromJob](Unit_InitAbilitiesFromJob.md), [Unit_ComputeStats](Unit_ComputeStats.md), [UnitWork_ApplyStartingEquipment](UnitWork_ApplyStartingEquipment.md), [sub_1401EA910](sub_1401EA910.md)
+- Calls: [Unit_ApplySpawnRecord](Unit_ApplySpawnRecord.md), [UnitWork_InitFromSpawnRecord](UnitWork_InitFromSpawnRecord.md), [Unit_InitAbilitiesFromJob](Unit_InitAbilitiesFromJob.md), [Unit_ComputeStats](Unit_ComputeStats.md), [UnitWork_ApplyStartingEquipment](UnitWork_ApplyStartingEquipment.md), [sub_1401EA910](sub_1401EA910.md), [sub_1402760E8](sub_1402760E8.md)
 
 ## Referenced by
 

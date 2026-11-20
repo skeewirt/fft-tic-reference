@@ -26,8 +26,8 @@ One row of the nxd.char_shape table (data table). The key is not stored in the r
 | <a id="unknown24"></a>`0x24` | unknown24 | `uint32` | V | Read in the code: No code of the game reads this column. Observed in the stock rows: 2 in every row. |
 | <a id="char_mouse_collision"></a>`0x28` | char_mouse_collision | `int32` | V | Read in the code: A key of CharMouseCollision (table 334): the shape's mouse hit area. Observed in the stock rows: 1 to 36, 35 distinct values. |
 | <a id="height"></a>`0x2C` | height | `int8` | V | Read in the code: The unit's height above its tile (signed byte): the battle code adds it to the unit's base point to place things drawn over the unit (the tile cursor marker, the screen point above the unit, the formation-screen label). Observed in the stock rows: 0 to 108, 7 distinct values. |
-| <a id="unknown2d"></a>`0x2D` | unknown2d | `int8` | ? | Not decoded. Observed in the stock rows: 0 in every row. |
-| <a id="unknown2e"></a>`0x2E` | unknown2e | `uint8` | ? | Not decoded. Observed in the stock rows: 0 to 1, 2 distinct values. |
+| <a id="depth_sort_height_offset"></a>`0x2D` | depth_sort_height_offset | `int8` | V | Read in the code: Signed byte added to the unit's height coordinate before the sprite's depth sort value is computed, only for scene objects whose flag word +0x15C has mask 0x4 (bit 2; the alternate shape variant). Observed in the stock rows: 0 in every row. |
+| <a id="unknown2e"></a>`0x2E` | unknown2e | `uint8` | V | Read in the code: Copied into the unit's draw object, where no code reads it: changing it has no effect. Observed in the stock rows: 0 to 1, 2 distinct values. |
 | <a id="height_2"></a>`0x2F` | height_2 | `int8` | V | Read in the code: A second height used instead of height (+0x2C) by the formation screen when the unit's flag byte +0x15C & 4 is set and this value is non-zero. Observed in the stock rows: 0 to 36, 2 distinct values. |
 
 ## Referenced by
@@ -40,4 +40,4 @@ Offsets are bytes from the row start; strings are stored as offsets into the fil
 
 ## Open questions
 
-? 2 of 15 columns not decoded.
+None recorded.

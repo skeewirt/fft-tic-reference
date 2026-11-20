@@ -2,9 +2,9 @@
 
 The timed dispatch system: records, scoring, rewards, start and finish.
 
-Functions: 25, Structures: 9, Globals: 2, Observed behaviours: 2, Tables: 11.
+Functions: 29, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11.
 
-## Functions (25)
+## Functions (29)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -28,13 +28,17 @@ Functions: 25, Structures: 9, Globals: 2, Observed behaviours: 2, Tables: 11.
 | [Errand_Start](../functions/Errand_Start.md) | `0x14036A7D8` | Starts an errand from the prepared board selection: pays the fee, creates the active record and marks the errand started. |
 | [Errand_TreasureMilestone](../functions/Errand_TreasureMilestone.md) | `0x1402D3520` | After a successful errand, reports whether the number of treasures found has reached a milestone. |
 | [sub_14016E60C](../functions/sub_14016E60C.md) | `0x14016E60C` | Event handler of an errand screen: on event 0x10001 shows the two treasure-progress gauges (milestone counts). |
+| [sub_14016E7F4](../functions/sub_14016E7F4.md) | `0x14016E7F4` | Builds the errand board's list: one 8-byte entry (errand id, sort value) for each errand whose progress variable has bit 2, sorted by the sort value. |
+| [sub_14016FFC8](../functions/sub_14016FFC8.md) | `0x14016FFC8` | Opens the errand report: resets the cursor, and shows the report window's title from the selected errand's Profit row. |
 | [sub_1401A161C](../functions/sub_1401A161C.md) | `0x1401A161C` | The menu screen's decide step: it counts the entries in a list owned by the screen, reads the selected record's kind and switches the screen to the matching sub-state or help page. |
+| [sub_1401A1D78](../functions/sub_1401A1D78.md) | `0x1401A1D78` | Fills the errand detail panel: the errand's title and description, and the client's name. |
+| [sub_1401A4188](../functions/sub_1401A4188.md) | `0x1401A4188` | Fills the errand report window: the title line and the report text chosen by the grade of the result. |
 | [sub_1402CCEE0](../functions/sub_1402CCEE0.md) | `0x1402CCEE0` | Checks the errand state on a world tick: it reads the active errand slots and their delay bytes, ages the eggs, and posts the result message when an errand is due. |
 | [sub_14036A294](../functions/sub_14036A294.md) | `0x14036A294` | Errand board painter: it seeds the board object, fills the 0x5C-byte board record and lays out the title, counter and per-errand text cells. |
 | [Tavern_TopInput](../functions/Tavern_TopInput.md) | `0x1402D5210` | The tavern top screen's input step: rumors, errands, or leave. |
 | [TownMenu_BuildItems](../functions/TownMenu_BuildItems.md) | `0x1403449B0` | Lists the town menu items of a settlement (Outfitter, Tavern, Warriors' Guild, Poachers' Den). |
 
-## Structures (9)
+## Structures (10)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -43,6 +47,7 @@ Functions: 25, Structures: 9, Globals: 2, Observed behaviours: 2, Tables: 11.
 | [ErrandJobFitRow](../structs/ErrandJobFitRow.md) | 22 | Job fit scores of one errand category or type row. |
 | [ErrandMilestoneRow](../structs/ErrandMilestoneRow.md) | 1 | One treasure milestone. |
 | [ErrandRecordRow](../structs/ErrandRecordRow.md) | 23 | One errand record in the errand data block. |
+| [ErrandReportEntry](../structs/ErrandReportEntry.md) |  | The errand entry the errand report and detail windows read: three 104-byte unit blocks, then the errand id. |
 | [NxdDataProfitBonusItemRow](../structs/NxdDataProfitBonusItemRow.md) | 12 | One row of the nxd.profit_bonus_item table (English text table; the other languages share the layout). |
 | [NxdDataProfitClientNameRow](../structs/NxdDataProfitClientNameRow.md) | 8 | One row of the nxd.profit_client_name table (English text table; the other languages share the layout). |
 | [NxdDataProfitRow](../structs/NxdDataProfitRow.md) | 40 | One row of the nxd.profit table (English text table; the other languages share the layout). |
@@ -55,10 +60,11 @@ Functions: 25, Structures: 9, Globals: 2, Observed behaviours: 2, Tables: 11.
 | [g_ErrandActive](../globals/g_ErrandActive.md) | `0x1411A71A0` | `uint8[8][9]` | The eight active errand slot records, nine bytes each: flags, errand id, town and the three dispatched unit ids. |
 | [g_ErrandDelay](../globals/g_ErrandDelay.md) | `0x1411A7140` | `uint8[96]` | The per-errand delay byte, one per errand id 0..95, saved with the game. |
 
-## Observed behaviours (2)
+## Observed behaviours (3)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [ErrandReportTextByGrade](../behaviors/ErrandReportTextByGrade.md) | engine (errand report) | The errand report window shows one of four Profit texts, chosen by the grade of the result and by whether a second unit was sent. |
 | [ErrandStateIsSpreadOverFiveStores](../behaviors/ErrandStateIsSpreadOverFiveStores.md) | engine | An errand is an index 0..95 into five stores: its 23-byte record, a 4-bit state nibble in the event variables (864 + id), a delay byte, 9 bits of finish date and two new flags, plus the eight active slots that name it... |
 | [TavernErrandsOpenAtSituationCounter450](../behaviors/TavernErrandsOpenAtSituationCounter450.md) | engine | The tavern's errand row is open only when UserSituation 3220 holds: situation counter 0 (the dword at g_UserSituation +24, or +104 with the bank bit) is at least 450, which event opcode 0xE9 raises with the story. |
 

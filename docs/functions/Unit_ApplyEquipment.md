@@ -29,8 +29,8 @@ Adds the armor and attribute contributions of a unit's equipped items to the uni
 
 ## Referenced by
 
-- Called by: [Unit_BuildInnateStatuses](Unit_BuildInnateStatuses.md)
-- Observed behaviours: [AnUnservedIdFromASaveFreezesTheGame](../behaviors/AnUnservedIdFromASaveFreezesTheGame.md), [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md)
+- Called by: [Unit_BuildInnateStatuses](Unit_BuildInnateStatuses.md), [sub_1402760E8](sub_1402760E8.md)
+- Observed behaviours: [AnUnservedIdFromASaveFreezesTheGame](../behaviors/AnUnservedIdFromASaveFreezesTheGame.md), [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md), [EntryGrowthBonusesByPlayMode](../behaviors/EntryGrowthBonusesByPlayMode.md)
 - Reads tables: [ItemAttributes](../tables/ItemAttributes.md)
 
 ## Notes

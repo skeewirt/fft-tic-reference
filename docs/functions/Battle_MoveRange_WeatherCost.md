@@ -25,6 +25,7 @@ The movement cost of the weather-dependent terrains: 1, 2 or 3 from event variab
 ## Referenced by
 
 - Called by: [Battle_MoveRangeSetup](Battle_MoveRangeSetup.md)
+- Observed behaviours: [ScenarioWeatherLevelAndNightFlag](../behaviors/ScenarioWeatherLevelAndNightFlag.md)
 
 ## Notes
 

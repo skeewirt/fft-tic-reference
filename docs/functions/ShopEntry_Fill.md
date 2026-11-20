@@ -31,7 +31,7 @@ Fills the 40-byte shop list entry of list index `index`: id and counts (ShopEntr
 
 - Appears in flows: [ItemMenuListLifecycle](../flows/ItemMenuListLifecycle.md)
 - Called by: [ShopList_BuildEntries](ShopList_BuildEntries.md), [sub_14036B5D0](sub_14036B5D0.md)
-- Observed behaviours: [ItemDisplayInShopAndEquipPanels](../behaviors/ItemDisplayInShopAndEquipPanels.md), [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md), [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md)
+- Observed behaviours: [ItemDisplayInShopAndEquipPanels](../behaviors/ItemDisplayInShopAndEquipPanels.md), [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md), [ItemRowGrammarBytesAndGates](../behaviors/ItemRowGrammarBytesAndGates.md), [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md)
 
 ## Notes
 

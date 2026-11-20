@@ -26,12 +26,13 @@ One action record of an ability.
 | <a id="inflict"></a>`0xB` | inflict | `uint8` | V | Index of an inflict record (InflictRecords). |
 | <a id="charge_time"></a>`0xC` | charge_time | `uint8` | V | Charge time. |
 | <a id="mp_cost"></a>`0xD` | mp_cost | `uint8` | V | MP cost. |
-| <a id="unused_a"></a>`0xE` | unused_a | `uint8[2]` | ? | Zero in every record. |
-| <a id="unused_b"></a>`0x10` | unused_b | `uint8[4]` | ? | 0xFF in every record. |
+| <a id="unknown14"></a>`0xE` | unknown14 | `uint8[2]` | V | Read by no function of the game (bytes +14 and +15; they travel only inside a 16-byte block save and restore of the current action); zero in every record. |
+| <a id="unknown16"></a>`0x10` | unknown16 | `uint8[4]` | V | Read by no function of the game (bytes +16..+19; only the block save and restore of the current action copies them, and one dword clear writes them); 0xFF in every record. |
 
 ## Referenced by
 
 - Described by tables: [AbilityActionRecords](../tables/AbilityActionRecords.md), [AbilityActionWorking](../tables/AbilityActionWorking.md)
+- Observed behaviours: [RecordBytesTheGameNeverReads](../behaviors/RecordBytesTheGameNeverReads.md)
 
 ## Open questions
 

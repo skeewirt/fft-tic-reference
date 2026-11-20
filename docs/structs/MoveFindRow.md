@@ -15,13 +15,14 @@ One row of the MoveFindItems table.
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
 | <a id="tile_xy[0]"></a>`0x0` | tile_xy[0] | `uint8` | V | hidden tile 0: x << 4 \| y (repeats every 6 bytes for tiles 1..3 at +6, +12, +18) |
-| <a id="flags[0]"></a>`0x1` | flags[0] | `uint8` | V | bit 7 = height layer; 0x01 trap kind 0, 0x02 kind 1, 0x04 kind 2, 0x08 kind 3; 0x10 = no trap; 0x20 = no item |
+| <a id="flags[0]"></a>`0x1` | flags[0] | `uint8` | V | bit 7 = height layer; 0x01 trap kind 0, 0x02 kind 1, 0x04 kind 2, 0x08 kind 3; 0x10 = no trap; 0x20 = no item. Bit 0x40 is read by nothing (MoveFind_ProbeTile, the only reader of the loaded row, tests 0x80, 0x20, 0x10 and 0x0F) |
 | <a id="common_item[0]"></a>`0x2` | common_item[0] | `int16` | V | item id found with probability Brave % |
 | <a id="rare_item[0]"></a>`0x4` | rare_item[0] | `int16` | V | item id found with probability (100 - Brave) % (+25 points under one support condition, capped at 100) |
 
 ## Referenced by
 
 - Described by tables: [MoveFindItems](../tables/MoveFindItems.md)
+- Observed behaviours: [RecordBytesTheGameNeverReads](../behaviors/RecordBytesTheGameNeverReads.md)
 
 ## Open questions
 

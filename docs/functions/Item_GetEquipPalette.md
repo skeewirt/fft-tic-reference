@@ -37,7 +37,7 @@ Returns the palette-selector row of an item, chosen by the item's equipment cate
 
 ## Referenced by
 
-- Called by: [ItemSprite_LoadPalettes](ItemSprite_LoadPalettes.md)
+- Called by: [EquipSprite_BuildPieces](EquipSprite_BuildPieces.md), [ItemSprite_LoadPalettes](ItemSprite_LoadPalettes.md)
 - Reads tables: [ItemCategoryTypes](../tables/ItemCategoryTypes.md), [ItemEquipPalettes](../tables/ItemEquipPalettes.md), [ItemEquipPalettesHigh](../tables/ItemEquipPalettesHigh.md)
 
 ## Notes

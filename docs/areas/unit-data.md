@@ -2,9 +2,9 @@
 
 Unit save, work and party records, stat and growth computation, egg hatching and scripted battle entries.
 
-Functions: 75, Structures: 4, Globals: 6, Registries: 2, Observed behaviours: 3, Tables: 1.
+Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 6, Tables: 1.
 
-## Functions (75)
+## Functions (76)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -34,8 +34,9 @@ Functions: 75, Structures: 4, Globals: 6, Registries: 2, Observed behaviours: 3,
 | [sub_1400DC4C8](../functions/sub_1400DC4C8.md) | `0x1400DC4C8` | One of the battle targeting predicates: it decides whether a unit (or its target list) qualifies, and in this variant it accepts only a Mime and then walks the unit's stored target list through the caller's callback. |
 | [sub_1400DDC70](../functions/sub_1400DDC70.md) | `0x1400DDC70` | The complement of the Mime predicate: it accepts a battle unit that is not a Mime and carries a particular marker, then walks the target list looking for an entry that is flagged. |
 | [sub_1400FA7AC](../functions/sub_1400FA7AC.md) | `0x1400FA7AC` | Adds an equipped item's attribute record and added-effect statuses to a unit's status state. |
-| [sub_1401EA910](../functions/sub_1401EA910.md) | `0x1401EA910` | Adds an OverrideEntryData row's HP and MP growth bonuses to a unit work record, by an index from a global record. |
+| [sub_1401EA910](../functions/sub_1401EA910.md) | `0x1401EA910` | Adds an OverrideEntryData row's HP and Speed growth bonuses to a unit work record, by the play mode (the configuration byte +196). |
 | [sub_140275EF4](../functions/sub_140275EF4.md) | `0x140275EF4` | Builds a unit's working stats from its job row and its equipment words, one of the two paths that turn equipped items into stats. |
+| [sub_1402760E8](../functions/sub_1402760E8.md) | `0x1402760E8` | The end of a unit build: loads the unit's equipment, applies the equipment attributes and the move and jump bonuses, then sets the name key. |
 | [sub_140285A6C](../functions/sub_140285A6C.md) | `0x140285A6C` | Writes every party unit's record back to its save row. |
 | [sub_140287118](../functions/sub_140287118.md) | `0x140287118` | The stat calculator behind `sub_140287354`: it masks the five unit and candidate words and computes the attack/defence differences into the block. |
 | [sub_14028728C](../functions/sub_14028728C.md) | `0x14028728C` | Computes the equip block's stat deltas from the unit's live words and the candidate array, comparing each pair masked to ten bits. |
@@ -104,20 +105,24 @@ Functions: 75, Structures: 4, Globals: 6, Registries: 2, Observed behaviours: 3,
 | [g_UnitSaveData](../globals/g_UnitSaveData.md) | `0x1411A7D10` | `data` | 54 x 600 bytes; builder sub_140275C70 -> sub_140275B84 -> sub_140276758 |
 | [qword_141801100](../globals/qword_141801100.md) | `0x141801100` | `PartyUnitB *` | Pointer to a 640-byte scratch party record (unk_143749CA0). |
 
-## Registries (2)
+## Registries (3)
 
 | Name | Summary |
 |---|---|
 | [NewUnitStartRows](../registries/NewUnitStartRows.md) | The four start rows that Unit_RollStartingStats reads: base and random span of the five stat accumulators in whole raw units, and the seven starting equipment words; a new unit's row is its kind (gender), never its job. |
+| [UnitEventFlagBit](../registries/UnitEventFlagBit.md) | The bits of the unit flag word at battle unit +504, which the battle build stores from the entry override row: one bit per flag byte (OverrideEntryData +0x8E..+0x97 and +0x99), plus bit 11 set by the equipment build. |
 | [UnitIdentityIds](../registries/UnitIdentityIds.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |
 
-## Observed behaviours (3)
+## Observed behaviours (6)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [EntryAbilityListsOfPreplacedUnits](../behaviors/EntryAbilityListsOfPreplacedUnits.md) | engine (battle unit build) | A pre-placed unit's OverrideEntryData row can name abilities its skillsets start with learned and abilities that the learning pass leaves out, and can turn off the JP cost of the learning. |
+| [EntryGrowthBonusesByPlayMode](../behaviors/EntryGrowthBonusesByPlayMode.md) | engine (battle unit build) | A pre-placed unit's OverrideEntryData row can hold four arrays indexed by the play mode that add to the unit's HP and Speed growth pairs, and one word that adds to its final Speed. |
 | [PassiveAbilitiesAreAPerUnitBitMap](../behaviors/PassiveAbilitiesAreAPerUnitBitMap.md) | engine (battle unit record) | A battle unit's reactions, supports and movement abilities are kept as an 88-bit map (ids 422..509) in bytes +0x94..+0x9E of its record, rebuilt from the innate ability words and the three equipped words; the game's t... |
 | [PerJobSlotStateLayouts](../behaviors/PerJobSlotStateLayouts.md) | engine (party, battle and save unit records) | Per-job state (learned flags, level nibbles, JP, total JP) sits in several unit layouts at different offsets, indexed by the job slot that Job_IdToIndex returns. |
 | [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md) | engine (scripted battle entries) | A pre-placed unit of a scripted battle takes its starting equipment from one-byte item ids, so no item above id 255 can be a starting item. |
+| [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md) | engine (battle unit table) | A battle unit's dword +504 holds one bit per OverrideEntryData flag byte (bits 0..10) and bit 11 from the equipment build. |
 
 ## Tables (1)
 

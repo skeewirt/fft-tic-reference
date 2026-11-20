@@ -14,8 +14,8 @@ Palette selector of one item.
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="palettes"></a>`0x0` | palettes | `uint8` | V | Two 4-bit indices of 32-byte palettes at 0x140D35750 loaded into palette slots 5 (high nibble) and 6 (low nibble); I: the weapon and shield sprite palettes. |
-| <a id="byte1"></a>`0x1` | byte1 | `uint8` | ? | No reader found. |
+| <a id="palettes"></a>`0x0` | palettes | `uint8` | V | Two 4-bit indices of 32-byte palettes at 0x140D35750 loaded into palette slots 5 (high nibble) and 6 (low nibble) by ItemSprite_LoadPalettes; I: the weapon and shield sprite palettes. |
+| <a id="sheet_row"></a>`0x1` | sheet_row | `uint8` | V | Row of the item picture in the equipment sprite sheet, in steps of 8 pixels: EquipSprite_BuildPieces adds it to the row of every piece it builds for the held item (piece v = 8 * (this + the frame row)). I: one picture per item, from the stock values. |
 
 ## Referenced by
 

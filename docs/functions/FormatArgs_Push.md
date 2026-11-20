@@ -25,7 +25,7 @@ Appends one 264-byte format-argument record to a format-argument vector.
 
 ## Referenced by
 
-- Called by: [BattleMsg_BuildArgs](BattleMsg_BuildArgs.md), [BattleMsg_FillArgs](BattleMsg_FillArgs.md), [ItemCell_BindIconAndName](ItemCell_BindIconAndName.md), [ItemObtainedPanel_Fill](ItemObtainedPanel_Fill.md), [UIGadgetFFTOJobDetailWindowWithButton_SetJobArgs](UIGadgetFFTOJobDetailWindowWithButton_SetJobArgs.md), [sub_140109134](sub_140109134.md), [sub_140142014](sub_140142014.md)
+- Called by: [BattleMsg_BuildArgs](BattleMsg_BuildArgs.md), [BattleMsg_FillArgs](BattleMsg_FillArgs.md), [ItemCell_BindIconAndName](ItemCell_BindIconAndName.md), [ItemObtainedPanel_Fill](ItemObtainedPanel_Fill.md), [UIGadgetFFTOJobDetailWindowWithButton_SetJobArgs](UIGadgetFFTOJobDetailWindowWithButton_SetJobArgs.md), [sub_140109134](sub_140109134.md), [sub_140142014](sub_140142014.md), [sub_14016FFC8](sub_14016FFC8.md), [sub_1401A4188](sub_1401A4188.md)
 
 ## Notes
 

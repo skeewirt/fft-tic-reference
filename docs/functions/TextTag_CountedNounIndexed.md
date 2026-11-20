@@ -15,11 +15,15 @@ Counted-noun text tag builder that indexes a per-language form table with three 
 ## Behavior
 
 - V: same count rule as TextTag_CountedNounArticle.
-- V: the form string comes from sub_1400F4430 at index 4 * (record +24 + 2 * record +26) plus a variant, with record +25 and +27 also read.
+- V: block = 4 * (record +24 + 2 * record +26) of sub_1400F4430(language, index): a non-zero record byte +27 adds form 0 of the block before the string (singular or plural by the count); otherwise record byte +25 chooses the form: 0 adds form 3 and uses the singular string, 1 adds form 1 for a count of 1 and form 2 for a larger count, 2 adds form 2 and uses the plural string. A count of 0 adds nothing.
 
 ## State touched
 
 - Calls: [UIText_ResolveCategoryRow](UIText_ResolveCategoryRow.md), [Str_Format](Str_Format.md)
+
+## Referenced by
+
+- Observed behaviours: [CountedNounTagRecord](../behaviors/CountedNounTagRecord.md)
 
 ## Notes
 

@@ -19,6 +19,7 @@ Speaks a replaceable line, swapped for row 3 or 2 by the request flags.
 ## Referenced by
 
 - Appears in flows: [BattleVoiceLine](../flows/BattleVoiceLine.md)
+- Called by: [sub_1401ECBBC](sub_1401ECBBC.md)
 
 ## Notes
 

@@ -16,7 +16,8 @@ Returns the list category of a status from its UIStatusEffect text row: 1 a gain
 
 - V: returns -1 at once for a status above 39 (an unsigned compare of the id with 39 and a jump when above).
 - V: finds nxd table 57 (UIStatusEffect) through NxdRegistry_Find once and keeps it in qword_143CDA3D0, looks up the row whose key is the status + 1 with NxdTable_GetRowById, and returns -1 when the table or the row is missing.
-- V: returns the dword at row +0x14 (the Unknown14 column: 1 for Float, Reraise, Regen, Protect, Shell, Haste, Faith, Atheist, Reflect; 2 for KO, Stone, Poison, Slow, Stop, Doom and the other ailments; 0 for Readying, Jumping, Evading, Performing).
+- V: returns the dword at row +0x14 (the list_category column: 1 for Float, Reraise, Regen, Protect, Shell, Haste, Faith, Atheist, Reflect; 2 for KO, Stone, Poison, Slow, Stop, Doom and the other ailments; 0 for Readying, Jumping, Evading, Performing).
+- V: a non-zero value is also what the battle signal list needs (UnitPanel_SetSignalList, sub_140217A7C): a status with 0 here raises no signal.
 
 ## State touched
 
@@ -24,7 +25,7 @@ Returns the list category of a status from its UIStatusEffect text row: 1 a gain
 
 ## Referenced by
 
-- Observed behaviours: [StatusScreenReadersAndIconPath](../behaviors/StatusScreenReadersAndIconPath.md)
+- Observed behaviours: [StatusScreenReadersAndIconPath](../behaviors/StatusScreenReadersAndIconPath.md), [StatusSignalAndVoiceColumns](../behaviors/StatusSignalAndVoiceColumns.md)
 
 ## Notes
 

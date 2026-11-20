@@ -27,7 +27,7 @@ Reads the map's mesh file into the mesh set and sets up its node rows; 0 = built
 
 - Appears in flows: [MapRendererBuildPath](../flows/MapRendererBuildPath.md)
 - Called by: [MapBlock_ApplyLayerCommand](MapBlock_ApplyLayerCommand.md)
-- Observed behaviours: [AFailedMeshLoadSkipsEveryLaterRendererStep](../behaviors/AFailedMeshLoadSkipsEveryLaterRendererStep.md), [MapMeshAndAnimFilesCarryTheirOwnMapId](../behaviors/MapMeshAndAnimFilesCarryTheirOwnMapId.md)
+- Observed behaviours: [AFailedMeshLoadSkipsEveryLaterRendererStep](../behaviors/AFailedMeshLoadSkipsEveryLaterRendererStep.md), [MapMeshAndAnimFilesCarryTheirOwnMapId](../behaviors/MapMeshAndAnimFilesCarryTheirOwnMapId.md), [ScenarioMapStateIsOnlyAMapVariationSelector](../behaviors/ScenarioMapStateIsOnlyAMapVariationSelector.md)
 
 ## Open questions
 

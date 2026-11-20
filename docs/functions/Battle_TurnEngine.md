@@ -24,7 +24,7 @@ It returns an action code `slot | 0x100/0x200/0x300/0x400` (or `0xFF00` on the l
 - V: phase 0 (`0x14030F46C`): for every unit with `BTurn_StatusFlags & 1 == 0`,
   `CT = min(CT + speed, 0xFE)` with speed `+0x40`, halved on Slow (`flags & 0x20`) and x1.5 on Haste (`flags & 0x10`).
 - V: phase 1 (`0x14030F349`): picks the highest CT `> 99` (ties to the lowest slot), or the unit with dword
-  `+0x1F8 & 0x400`; sets the winner's CT to `CT % 100` (255 -> 0), clears the extra-turn bit, sets `+0x1B8 = 1`,
+  `+0x1F8 & 0x400` (bit 10 of the unit flag word, the OverrideEntryData acts_first column; V: it is only considered once some unit has CT above 99, the unit with the bit then acts first whatever its CT, its CT is first set to the highest CT found and the bit cleared); sets the winner's CT to `CT % 100` (255 -> 0), clears the extra-turn bit, sets `+0x1B8 = 1`,
   `+0x2E = 1`, `+0x1BA = 0`, sets phase 10 and `dword_1407B0708 = slot`, returns `slot | 0x100`.
   A unit with `+0x61 & 4` is skipped with CT forced to 99.
 - V: phase 9 (`0x14030F4C8`) is the first turn: highest CT without the 100 threshold (initial CT is 1..99 from
@@ -44,7 +44,7 @@ It returns an action code `slot | 0x100/0x200/0x300/0x400` (or `0xFF00` on the l
 ## Referenced by
 
 - Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [Battle_AITurnRun](Battle_AITurnRun.md), [Battle_TurnStep](Battle_TurnStep.md), [sub_14030476C](sub_14030476C.md)
-- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md)
+- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md), [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
 
 ## Notes
 

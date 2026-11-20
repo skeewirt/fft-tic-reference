@@ -21,6 +21,10 @@ Stride 456 bytes (stock: 20 panels). Edge slots are indexed job*19 + j (19 x 24 
 | <a id="dependents[6]"></a>`0x118` | dependents[6] | `Edge` | V | 24 B each: +0 line, +8 board, +16 int32 childJob, +20 int32 level; the arrows leaving this job |
 | <a id="nav[8][2][2]"></a>`0x1A8` | nav[8][2][2] | `uint8` | V | 8 directions x 2 candidates x {panel index, flag}; read by JobTree_HandleInput |
 
+## Referenced by
+
+- Observed behaviours: [JobTreeCursorNeighbourTable](../behaviors/JobTreeCursorNeighbourTable.md)
+
 ## Notes
 
 Source: addon+72+456*i.

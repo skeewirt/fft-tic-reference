@@ -19,6 +19,10 @@ Resets the event's parameter slots and empties the event sound entry list.
 - V: calls sub_1401D9784 on the list at qword_143CD9DD8 + 1384, which calls EventSoundEntry_SetStateById for every entry of the list and empties it.
 - I: EventControl_PausedTick runs it on a skip unless the EventId skip_no_reset byte is set (the test is in the caller).
 
+## Referenced by
+
+- Called by: [Music_StartSceneTracks](Music_StartSceneTracks.md)
+
 ## Open questions
 
 None recorded.

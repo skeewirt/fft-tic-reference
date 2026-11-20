@@ -2,7 +2,7 @@
 
 NXD table accessors, the table registry and other game-data lookups.
 
-Functions: 60, Structures: 111, Globals: 2, Registries: 2, File formats: 5, Flows: 3, Observed behaviours: 8, Tables: 116.
+Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 12, Tables: 116.
 
 ## Functions (60)
 
@@ -69,7 +69,7 @@ Functions: 60, Structures: 111, Globals: 2, Registries: 2, File formats: 5, Flow
 | [UIText_ResolveCategoryRow](../functions/UIText_ResolveCategoryRow.md) | `0x1400F3BB0` | Resolves the category name and key of a <category=key> text tag to a table row and fills a 28-byte result record with three string pointers and four flag bytes. |
 | [Utf8_DecodeUnit](../functions/Utf8_DecodeUnit.md) | `0x1403BF9D4` | Decodes one UTF-8 sequence to a 16-bit code unit and returns the number of bytes used. |
 
-## Structures (111)
+## Structures (112)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -183,6 +183,7 @@ Functions: 60, Structures: 111, Globals: 2, Registries: 2, File formats: 5, Flow
 | [NxdDataWorldSituationBalloonRow](../structs/NxdDataWorldSituationBalloonRow.md) | 76 | One row of the nxd.world_situation_balloon table (data table). |
 | [NxdTable](../structs/NxdTable.md) | 80 | One table object of the nxd registry (NxdRegistry_LoadRootNxl allocates one per root.nxl line); NxdTable_BindRows fills its entries from the loaded file and every row lookup reads it. |
 | [PowerOfTen](../structs/PowerOfTen.md) | 4 | One row of the PowersOfTen table. |
+| [TextTagNounRecord](../structs/TextTagNounRecord.md) | 28 | The 28-byte result record of UIText_ResolveCategoryRow for a <category=key> text tag: three string pointers and four bytes. |
 | [TextTagRecord](../structs/TextTagRecord.md) |  | The record UIText_ResolveCategoryRow gives the counted-noun text tag builders: three strings and four grammar bytes. |
 
 ## Globals (2)
@@ -192,12 +193,13 @@ Functions: 60, Structures: 111, Globals: 2, Registries: 2, File formats: 5, Flow
 | [g_MessageArgBlock](../globals/g_MessageArgBlock.md) | `0x140783210` | `uint32[16]` | The current-message argument vector: 0x40 bytes, sixteen dwords. |
 | [g_TextPoolTable](../globals/g_TextPoolTable.md) | `0x140D40990` | `char *[32]` | The thirty-two text-pool pointers the generic decoder indexes by a text id's five kind bits. |
 
-## Registries (2)
+## Registries (3)
 
 | Name | Summary |
 |---|---|
 | [TextIdKinds](../registries/TextIdKinds.md) | The 32 text-id kinds: the 5 bits of a text id, their base (kind x 0x800) and the pool or source each selects. |
 | [TextLanguageCodes](../registries/TextLanguageCodes.md) | The text language codes the game keeps at `g_LanguageInfo`+8, with the language pack and the name suffix each one selects. |
+| [TextTagName](../registries/TextTagName.md) | The first 40 records of the UI text engine's tag-name table (16 bytes each: a name pointer and a flag dword). |
 
 ## File formats (5)
 
@@ -217,18 +219,22 @@ Functions: 60, Structures: 111, Globals: 2, Registries: 2, File formats: 5, Flow
 | [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](../flows/NxdTableLoad.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
 
-## Observed behaviours (8)
+## Observed behaviours (12)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [CharShapeRowsANewLookNeeds](../behaviors/CharShapeRowsANewLookNeeds.md) | engine (sprite rows in the NXD data) | The CharShape rows (NXD table 174, keyed by look number) end at key 158 and twelve functions look a look up there. |
+| [CountedNounTagRecord](../behaviors/CountedNounTagRecord.md) | engine (UI text tags) | How the four counted-noun tag builders use the four grammar bytes of a text tag record. |
 | [FirstDwordOfTableRowsIsNeverRead](../behaviors/FirstDwordOfTableRowsIsNeverRead.md) | engine (nxd table access) | No shared code reads the first dword of a table row; a row is found through the key / offset index record, so the value there decides nothing. |
 | [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md) | engine (sprite sheets and palettes) | How a sprite number becomes a sheet and a palette: a g2d entry pair through the HD table and the pack's unchecked index table, and a palette from the classic file named in the classic table. |
+| [JobNameAndHelpTextTags](../behaviors/JobNameAndHelpTextTags.md) | engine (UI text tags) | The text tags 'jobname' and 'jobhelp' print a Job row's name or help text; each takes a key and a variant, and a variant whose string is empty falls back to the other. |
 | [KeyIconTag](../behaviors/KeyIconTag.md) | engine (UI text) | A 'keyicon' text tag names an input action and the text engine inserts that action's current button glyph. |
+| [RecordBytesTheGameNeverReads](../behaviors/RecordBytesTheGameNeverReads.md) | engine (fixed tables in the executable) | Bytes and bits of several fixed tables that no function of the game reads, found by listing every code reference to each table, so the stored values decide nothing. |
 | [SkillsetNamesAndHelpAreKeyedBySetId](../behaviors/SkillsetNamesAndHelpAreKeyedBySetId.md) | engine | A skillset's name and help are found by the set id alone: the name token is 0xB000 \| set (text kind 22) and the help token 0x9800 \| set (kind 19), both 11-bit indexes; the name row is the JobCommand-en NXD row keyed b... |
 | [SpriteSheetsAndClassicFilesByNumber](../behaviors/SpriteSheetsAndClassicFilesByNumber.md) | engine (asset loading) | HD sprite sheets are read by number and the loader accepts any number; classic sprite files are read by name only. |
 | [TextLanguage](../behaviors/TextLanguage.md) | the text language: where it comes from, where it is read, how the text files are chosen | How the game picks and applies its text language. |
 | [TextReferenceIsABankAndAnElevenBitIndex](../behaviors/TextReferenceIsABankAndAnElevenBitIndex.md) | engine (event text lookup) | An event message is named by a 16-bit reference: the top five bits select one of 32 text banks (each a resource), the low 11 bits are the message index inside it; the lookup counts message terminators from the start o... |
+| [UnreadColumnsOfJobAbilityStatusTables](../behaviors/UnreadColumnsOfJobAbilityStatusTables.md) | engine (nxd tables) | Columns of the GeneralJob, Job, JobCommand, JobType, Ability and UIStatusEffect tables that no code of the game reads; their values change nothing in play. |
 
 ## Tables (116)
 

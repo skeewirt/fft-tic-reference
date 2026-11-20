@@ -26,7 +26,7 @@ Chooses which variation struct of a map's Map row applies now, and a kind code, 
 
 - Appears in flows: [MapRendererBuildPath](../flows/MapRendererBuildPath.md)
 - Called by: [MapBlock_ApplyLayerCommand](MapBlock_ApplyLayerCommand.md)
-- Observed behaviours: [MapRendererTableRowFallbacks](../behaviors/MapRendererTableRowFallbacks.md), [RandomBattleModeSelectsTheLightingVariantOfAMapsTextures](../behaviors/RandomBattleModeSelectsTheLightingVariantOfAMapsTextures.md)
+- Observed behaviours: [MapRendererTableRowFallbacks](../behaviors/MapRendererTableRowFallbacks.md), [RandomBattleModeSelectsTheLightingVariantOfAMapsTextures](../behaviors/RandomBattleModeSelectsTheLightingVariantOfAMapsTextures.md), [ScenarioMapStateIsOnlyAMapVariationSelector](../behaviors/ScenarioMapStateIsOnlyAMapVariationSelector.md), [ScenarioWeatherLevelAndNightFlag](../behaviors/ScenarioWeatherLevelAndNightFlag.md)
 
 ## Open questions
 

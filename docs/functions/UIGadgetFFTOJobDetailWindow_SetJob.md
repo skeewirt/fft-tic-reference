@@ -10,7 +10,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Purpose
 
-Fills the job detail window for one job record: the name / level texts, the job icon, the Show / Hide / ShowNext states and the up to four innate ability slots (Sp0..Sp3, with Good / Bad colouring); then calls virtual +64 so the derived class can add its own arguments.
+Fills the job detail window for one job record: the name / level texts, the job icon, the Show / Hide / ShowNext states and the up to four innate ability slots (Sp0..Sp3, with Good / Bad colouring: Bad for an ability whose drawback column is 2); then calls virtual +64 so the derived class can add its own arguments.
 
 ## Behavior
 
@@ -19,7 +19,7 @@ Fills the job detail window for one job record: the name / level texts, the job 
 - V (rec+103 == 0): text ids are set to 3882 (binding 0, w+176), 1021 (binding 1, w+280) and 1023 (binding 3, w+488); binding 2 (w+384) gets 1022 when rec+68 (level) < 8, otherwise its string is emptied, its id is 80 and the text is set to '--' (and its pointer slot is 0). The binding pointers w+664 = binding 0, +672 = binding 3, +680 = binding 1, +688 = binding 2 (or 0).
 - V: then JobTreePanel_FillTexts(w+24, w+648, rec, 0) fills the level texts from the record, and sub_14029BCD4(w+496, rec+92, 0) sets the job icon.
 - V (node w+40): stops 'Hide' / 'Show' and plays 'Show' when rec+101 != 0 else 'Hide' (state +104 = 1, GUINode_PlayState). Node w+64: plays 'ShowNext' (found by FindState). Node w+72: sub_1400F638C(node, rec+102, 0, 0, 0) = show / hide that node (Show / Hide states, animated).
-- V (innate abilities, only when node w+32 exists): the job id rec+72 (>= 0xAE is replaced by a dummy pointer) indexes g_JobTable (0x140785E30, 49-byte rows): the pointer used is row + 1 = the four u16 innate ability ids (the JobTable layout). For j = 0..3: stops state 'Sp<j>' on node w+32; when the id != 0: sets the ability name string into the name node at w+704+16*k (k = count of non-zero ids so far, AbilityTable_GetRow(id): string at row + *(int)(row+8) + 8; the node's text-id dword +248 is cleared and its dirty byte +316 set first) and plays 'Good' or 'Bad' on the node at w+696+16*k ('Good' when the ability row's dword +48 equals 2, else 'Bad'); k += 1. Empty ids are skipped, so the shown abilities are packed.
+- V (innate abilities, only when node w+32 exists): the job id rec+72 (>= 0xAE is replaced by a dummy pointer) indexes g_JobTable (0x140785E30, 49-byte rows): the pointer used is row + 1 = the four u16 innate ability ids (the JobTable layout). For j = 0..3: stops state 'Sp<j>' on node w+32; when the id != 0: sets the ability name string into the name node at w+704+16*k (k = count of non-zero ids so far, AbilityTable_GetRow(id): string at row + *(int)(row+8) + 8; the node's text-id dword +248 is cleared and its dirty byte +316 set first) and plays 'Good' or 'Bad' on the node at w+696+16*k (the ability row's dword +0x30, column drawback: a value of 2 plays 'Bad', any other value plays 'Good': the code stops the state that is not wanted and plays the other); k += 1. Empty ids are skipped, so the shown abilities are packed.
 - V: after the loop plays state 'Sp<k>' on node w+32 (k = number of shown innate abilities, 0..4), then calls virtual +64 of the window (a1, rec) (UIGadgetFFTOJobDetailWindowWithButton slot 8 = sub_1402A7C38 passes the job id and a flag as text arguments).
 
 ## State touched
@@ -29,11 +29,12 @@ Fills the job detail window for one job record: the name / level texts, the job 
 
 ## Referenced by
 
+- Observed behaviours: [JobAndAbilityDisplayFlagColumns](../behaviors/JobAndAbilityDisplayFlagColumns.md)
 - Reads tables: [JobTable](../tables/JobTable.md)
 
 ## Notes
 
-Name proposed (IDB: sub_1402A7474). This is what the hover shows beside the job list: job name / level texts, the job icon, and the job's four INNATE ability names (JobTable row + 1) with a Good / Bad frame. 'Sp<k>' state selects the layout for k slots. The text ids 3882 / 1021 / 1022 / 1023 are UI-table ids (strings not read here).
+Name proposed (IDB: sub_1402A7474). The job table address 0x140785E30 is reached through the table-pointer helper, not as an immediate in this body. This is what the hover shows beside the job list: job name / level texts, the job icon, and the job's four INNATE ability names (JobTable row + 1) with a Good / Bad frame. 'Sp<k>' state selects the layout for k slots. The text ids 3882 / 1021 / 1022 / 1023 are UI-table ids (strings not read here).
 
 - V (2026-10-29): one of the 15 JobTable bound-readers (the `0xAE` guard at 0x1402A7765); it reads the whole 49-byte row (all 23 fields: stats, innate abilities, equipment, statuses, elements) through the table pointer.
 
