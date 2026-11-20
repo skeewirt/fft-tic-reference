@@ -3,7 +3,7 @@
 - **Address:** `0x140315620`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `long EffectPalette_Step(void)`
-- **Callers:** EffectSequence_Run (slot 18 of exe.battle.effect_sequence_handlers)
+- **Callers:** EffectSequence_Run (slot 18 of the effect sequence handler table (0x140682F30))
 - **Callees:** not recorded
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -14,8 +14,8 @@ Sequence kind 18 handler: a full screen palette effect that starts from six seed
 
 ## Behavior
 
-- V: state 1 clears the effect's sprite records and writes the six 5-bit RGB seed colours of exe.battle.effect_palette_seeds, packed into 15-bit colour words, twice into the live palette (12 words).
-- V: state 2 steps the palette using words of the entry; the kind's parameter word is read from exe.battle.effect_kind_records (+2).
+- V: state 1 clears the effect's sprite records and writes the six 5-bit RGB seed colours of EffectPaletteSeeds, packed into 15-bit colour words, twice into the live palette (12 words).
+- V: state 2 steps the palette using words of the entry; the kind's parameter word is read from EffectKindRecords (+2).
 - ?: the states after the first were not decoded.
 
 ## Referenced by

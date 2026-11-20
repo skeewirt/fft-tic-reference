@@ -15,7 +15,7 @@ Returns the mixer bus number for a bus name, or 0xFFFF when there is none.
 ## Behavior
 
 - V: when the audio library object exists, has its bus table and a version above 0x1090000, asks the library's own name search.
-- V: otherwise compares the name with the first eight entries of exe.audio.bus_and_effect_names (BUS0..BUS7) and returns the matching index; a name equal to the master output name returns 0.
+- V: otherwise compares the name with the first eight entries of AudioBusAndEffectNames (BUS0..BUS7) and returns the matching index; a name equal to the master output name returns 0.
 - V: no match returns 0xFFFF.
 
 ## Referenced by

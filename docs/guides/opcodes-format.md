@@ -37,7 +37,7 @@ One JSON object per line, UTF-8, LF line endings, keys in this order. Every fiel
 4. **No code, bytes, instruction text or private paths** in any field. The audit checks this.
 5. **Enums are exact.** `conf` and `blocks` use only the values above.
 6. **Names are ours.** Chosen from verified behavior, PascalCase, no community-name guessing. Rename freely; ids (`op`) never change.
-7. **When an opcode is verified,** update `opcodes_source.py`, regenerate, audit, then commit and push both repos like any function sheet.
+7. **When an opcode is verified,** update its record, regenerate and audit, then publish it like any function sheet.
 8. **Cross-reference by name.** `calls` and `starts_task` use function-sheet names so a reader can jump to the sheet; each name must exist in the symbol map.
 9. **Run-time facts stay on the sheets.** Variable layouts, task tables and the length rule are documented on `EventVar_*`, `SceneVar_*`, `EventScript_InstructionLength` and friends; records point to them.
 

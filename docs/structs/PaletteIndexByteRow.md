@@ -14,7 +14,7 @@ One row of GfxColourCubeIndexImage.
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="index"></a>`0x0` | index | `uint8` | I | palette index into exe.gfx.colour_cube_palette; the values are mostly 1 with small groups of 2, 4, 5, 7 |
+| <a id="index"></a>`0x0` | index | `uint8` | I | palette index into GfxColourCubePalette; the values are mostly 1 with small groups of 2, 4, 5, 7 |
 
 ## Referenced by
 

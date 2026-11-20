@@ -14,7 +14,7 @@ One row of the LegacyCursorRowsLangOther table.
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="row"></a>`0x0` | row | `bytes[24]` | V | same row layout as exe.ui.legacy_cursor_rows.lang0 |
+| <a id="row"></a>`0x0` | row | `bytes[24]` | V | same row layout as LegacyCursorRowsLang0 |
 
 ## Referenced by
 

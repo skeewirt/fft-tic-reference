@@ -5,7 +5,7 @@
 - **Storage:** Executable (initialised data)
 - **Address:** `0x140806A60`
 - **Rows:** 204 rows of 12 bytes
-- **Keyed by:** cell index (runs given by exe.ui.banner_word_ranges)
+- **Keyed by:** cell index (runs given by BannerWordRanges)
 - **Read by:** [BannerWord_Draw](../functions/BannerWord_Draw.md)
 - **Row layout:** [UiSpriteCell](../structs/UiSpriteCell.md)
 

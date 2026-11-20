@@ -16,7 +16,7 @@ Registers the 43 core UI event and part names in the UI name table and loads the
 
 - V: returns 0 at once when the data registry is missing or not ready, or when the renderer's ready flag (+44415) is clear or its busy flag (+44416) is set.
 - V: copies the text language index (language record +8, 1 when there is no record) into the UI environment object (+216).
-- V: walks the 43 name pointers of exe.ui.core_name_keys; for each, resets a 16-byte slot of the UI name table (from +4584), interns the name with UIName_Intern, and releases the key that slot held before.
+- V: walks the 43 name pointers of UiCoreNameKeys; for each, resets a 16-byte slot of the UI name table (from +4584), interns the name with UIName_Intern, and releases the key that slot held before.
 - V: then loads the GUI font table, runs the font slot setup for the language and sets the bezier pattern image on the font slot group of the caller's object (+208).
 - V: returns 1 when it ran to the end.
 

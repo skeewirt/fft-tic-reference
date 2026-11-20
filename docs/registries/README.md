@@ -6,8 +6,8 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 
 | Name | Area | Summary |
 |---|---|---|
-| [AbilityAuxFlagBits](AbilityAuxFlagBits.md) | [Ability data](../areas/ability-data.md) | The meaning of the bits of exe.ability.aux flags3 (byte +3) and flags4 (u32 at +4) as named here: flags3 holds the ability type in bits 0..4 and three flags in bits 5..7, flags4 the AI behaviour flags, one bit each. |
-| [AbilityTypes](AbilityTypes.md) | [Ability data](../areas/ability-data.md) | The ability type nibble in the low five bits of exe.ability.aux flags3, with names. |
+| [AbilityAuxFlagBits](AbilityAuxFlagBits.md) | [Ability data](../areas/ability-data.md) | The meaning of the bits of AbilityAux flags3 (byte +3) and flags4 (u32 at +4) as named here: flags3 holds the ability type in bits 0..4 and three flags in bits 5..7, flags4 the AI behaviour flags, one bit each. |
+| [AbilityTypes](AbilityTypes.md) | [Ability data](../areas/ability-data.md) | The ability type nibble in the low five bits of AbilityAux flags3, with names. |
 | [AchievementNotificationTypes](AchievementNotificationTypes.md) | [UI framework](../areas/ui-framework.md) | The type number of each achievement notification class: the virtual function at +8 of the notification's vtable returns it, and the achievement classes compare it in their match functions. |
 | [BattleMsgKindBase](BattleMsgKindBase.md) | [Battle](../areas/battle.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
 | [BattleVoiceSuppressReason](BattleVoiceSuppressReason.md) | [Battle](../areas/battle.md) | The result of BattleVoice_IsSuppressed: 0 speak, or the reason a line is not spoken. |

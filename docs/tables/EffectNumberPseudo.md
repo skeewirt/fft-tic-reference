@@ -13,7 +13,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-Effect number per pseudo effect word. The per ability effect numbers are a different, already catalogued table (exe.ability.anim). Verdict: designer-data.
+Effect number per pseudo effect word. The per ability effect numbers are a different, already catalogued table (AbilityAnim). Verdict: designer-data.
 
 ## Behavior
 

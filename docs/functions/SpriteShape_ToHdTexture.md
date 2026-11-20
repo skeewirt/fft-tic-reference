@@ -15,7 +15,7 @@ Returns the HD texture id of a sprite shape number, or -1 when the shape has non
 ## Behavior
 
 - V: shape 205 is first replaced by 76.
-- V: shapes 0..81 read exe.sprite.shape_hd_texture directly (the table has 82 entries).
+- V: shapes 0..81 read SpriteShapeHdTexture directly (the table has 82 entries).
 - V: shapes 84..89, 104, 105 and 106..111 return fixed ids from 822 to 829 by compare chains; every other shape returns -1.
 
 ## Referenced by

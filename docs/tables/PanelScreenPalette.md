@@ -13,7 +13,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-UI palette block of the second panel screen; the first 62 bytes equal exe.ui.equip_screen_palette. Verdict: designer-data.
+UI palette block of the second panel screen; the first 62 bytes equal EquipScreenPalette. Verdict: designer-data.
 
 ## Behavior
 

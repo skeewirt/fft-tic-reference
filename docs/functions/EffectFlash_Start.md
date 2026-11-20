@@ -3,7 +3,7 @@
 - **Address:** `0x140313F34`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `long EffectFlash_Start(void)`
-- **Callers:** EffectSequence_Run (slot 4 of exe.battle.effect_sequence_handlers)
+- **Callers:** EffectSequence_Run (slot 4 of the effect sequence handler table (0x140682F30))
 - **Callees:** not recorded
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -14,9 +14,9 @@ Sequence kind 4 handler: the screen flash effect that tints the view with an ele
 
 ## Behavior
 
-- V: state 1 reads the effect kind from the entry (word +4) and the element mask (word +6); the kind's parameter word (exe.battle.effect_kind_records, +2) picks a row of exe.battle.effect_flash_profiles.
-- V: the element mask is matched against ElementMaskOrder (nine masks) and replaced by the position of the first match, which later picks the tint of exe.battle.element_colours (three bytes per slot).
-- V: copies the seven profile words into the live flash state; the high byte of the last word picks a row of exe.battle.effect_blend_weights, whose seven weights scale the tint (weight * colour >> 8) while the flash runs.
+- V: state 1 reads the effect kind from the entry (word +4) and the element mask (word +6); the kind's parameter word (EffectKindRecords, +2) picks a row of EffectFlashProfiles.
+- V: the element mask is matched against ElementMaskOrder (nine masks) and replaced by the position of the first match, which later picks the tint of ElementColours (three bytes per slot).
+- V: copies the seven profile words into the live flash state; the high byte of the last word picks a row of EffectBlendWeights, whose seven weights scale the tint (weight * colour >> 8) while the flash runs.
 - I: later states animate the flash and write the scaled colours into the sprite colour records.
 
 ## Referenced by

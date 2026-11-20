@@ -8,7 +8,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-The ability type nibble in the low five bits of exe.ability.aux flags3, with names.
+The ability type nibble in the low five bits of AbilityAux flags3, with names.
 
 ## Entries
 

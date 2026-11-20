@@ -19,7 +19,7 @@ Initialises a deflate compression stream (the embedded zlib-style compressor): v
 - V: window bits: negative = raw stream (wrapper 0), above 15 = gzip wrapper (2, bits - 16), else the zlib wrapper (1).
 - V: argument check: memLevel 1..9, method 8, window bits 8..15, level 0..9, strategy 0..4; otherwise returns -2 (stream error). A window of 8 bits is raised to 9.
 - V: allocates the state (5920 bytes), the window (2 x window size), the previous-chain and head arrays (hash size 2^(memLevel+7)) and the pending buffer (2^(memLevel+6) x 4 bytes).
-- V: when any allocation fails sets the state mark to 666, stores the message 'insufficient memory' (entry 6 of exe.text.deflate_error_messages) in the stream, frees what it has and returns -4.
+- V: when any allocation fails sets the state mark to 666, stores the message 'insufficient memory' (entry 6 of DeflateErrorMessages) in the stream, frees what it has and returns -4.
 - V: otherwise stores the level, strategy and method in the state and returns the result of the stream reset function sub_14040EF50.
 
 ## Referenced by

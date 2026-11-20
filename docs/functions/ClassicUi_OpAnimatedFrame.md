@@ -23,7 +23,7 @@ Opcode 18: a window frame that grows open over the first 8 page redraws.
 
 ## Notes
 
-Read: the counter test and the plate; the table values are listed with exe.ui.legacy_cursor_positions.
+Read: the counter test and the plate; the table values are listed with LegacyCursorPositions.
 
 ## Open questions
 

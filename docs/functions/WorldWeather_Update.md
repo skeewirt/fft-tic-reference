@@ -15,7 +15,7 @@ Updates the world map weather level when the calendar advances.
 ## Behavior
 
 - I: reads scene variables 46 (month) and 47 (day) and 35 (the current weather level).
-- V: finds the calendar span by comparing (month, day) with the four boundary pairs of exe.world.weather_by_season, maps the span to a row of ten adjustments and draws one with the random generator.
+- V: finds the calendar span by comparing (month, day) with the four boundary pairs of WeatherBySeason, maps the span to a row of ten adjustments and draws one with the random generator.
 - V: new level = level + adjustment, clamped to 0..4; stored in scene variable 35 unless a flag word says the map is busy, then a one in three random value is stored in scene variable 36.
 
 ## State touched

@@ -14,7 +14,7 @@ Creates the sprites of one effect sprite group when the effect is inside the gro
 
 ## Behavior
 
-- V: the record of the group is exe.battle.effect_sprite_spawn_records (46 bytes per group); it spawns only while the effect's frame word lies in the window of bytes +2 / +3 and its live count is below byte +4.
+- V: the record of the group is EffectSpriteSpawnRecords (46 bytes per group); it spawns only while the effect's frame word lies in the window of bytes +2 / +3 and its live count is below byte +4.
 - V: creates up to the count at +42 sprites: takes a free sprite slot, sets up the sprite from the record with the sprite setup routine, marks it active (0x80) and increments the live count.
 - V: the sprite definition pointer comes from a list indexed by byte +0 of the record.
 

@@ -15,7 +15,7 @@ Runs the opcodes of one effect script until it yields or ends.
 ## Behavior
 
 - V: the script context of a slot is a 312-byte record (156 words); +6 is the instruction offset and +8 the script base pointer.
-- V: loops: opcode = the word at the instruction offset masked with 0x1FF, handler = the 120-slot table (exe.battle.effect_script_handlers), called with the context.
+- V: loops: opcode = the word at the instruction offset masked with 0x1FF, handler = the 120-slot table (0x1406830F0), called with the context.
 - V: a handler result of 0 yields for this frame (the function returns 1), a non-zero result goes on with the next opcode and a result of 2 ends the script (clears the running-script global and returns 0).
 - V: when the pause manager flag 8 or the stepping flag 2 is set it restores the saved instruction position afterwards, so a paused script does not advance.
 

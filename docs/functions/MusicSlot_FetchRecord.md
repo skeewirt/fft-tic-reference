@@ -15,7 +15,7 @@ Activates an event sound slot: loads its sound id and the three record dwords in
 ## Behavior
 
 - V: clears the music state (resets it from a default block); a slot of 0 returns 0.
-- V: stores slot - 1 as the active slot, loads the sound id of the slot into the music state and copies the three dwords of the sound's record (exe.event.music_slot_records, stride 12) into words 1..3.
+- V: stores slot - 1 as the active slot, loads the sound id of the slot into the music state and copies the three dwords of the sound's record (MusicSlotRecords, stride 12) into words 1..3.
 - V: when the slot has an object, remembers it as the current slot object and returns it.
 
 ## Referenced by

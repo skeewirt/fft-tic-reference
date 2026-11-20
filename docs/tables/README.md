@@ -538,7 +538,7 @@ Where the game keeps its data tables, NXD files and the fixed tables inside the 
 | [OpeningStepMaps](OpeningStepMaps.md) | Executable |  | 40 rows of 1 bytes | Byte step maps of the opening sequence plus three resource path strings (the title texture and two message texture files). |
 | [PaletteFormats](PaletteFormats.md) | Executable |  | 2 rows of 16 bytes | Two palette format descriptors (16- and 256-colour palettes). |
 | [PanelCellGroupPointers](PanelCellGroupPointers.md) | Executable (initialised data) |  | 32 rows of 8 bytes | Pointers to the sprite cell groups of the status window frame (four languages of eight modes). |
-| [PanelScreenPalette](PanelScreenPalette.md) | Executable (initialised data) |  | 256 rows of 2 bytes | UI palette block of the second panel screen; the first 62 bytes equal exe.ui.equip_screen_palette. |
+| [PanelScreenPalette](PanelScreenPalette.md) | Executable (initialised data) |  | 256 rows of 2 bytes | UI palette block of the second panel screen; the first 62 bytes equal EquipScreenPalette. |
 | [PanelSlideCurve](PanelSlideCurve.md) | Executable |  | 12 rows of 2 bytes | Easing curve (symmetric, peak 144) a battle unit panel uses to slide a part of the panel in and out. |
 | [PanelStateOffsets](PanelStateOffsets.md) | Executable |  | 16 rows of 1 bytes | A short list of signed offsets a unit panel row builder adds to a position; the bytes 0x2E, 0, 0, 0, 0, 0, 13, 13, 31, 31, 0, 0, -2, -1, -1, -1. |
 | [PartyFaceIndex](PartyFaceIndex.md) | Executable |  | 74 rows of 1 byte | Maps a unit marker or job to a face record index. |

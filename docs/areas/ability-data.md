@@ -36,8 +36,8 @@ Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, T
 
 | Name | Summary |
 |---|---|
-| [AbilityAuxFlagBits](../registries/AbilityAuxFlagBits.md) | The meaning of the bits of exe.ability.aux flags3 (byte +3) and flags4 (u32 at +4) as named here: flags3 holds the ability type in bits 0..4 and three flags in bits 5..7, flags4 the AI behaviour flags, one bit each. |
-| [AbilityTypes](../registries/AbilityTypes.md) | The ability type nibble in the low five bits of exe.ability.aux flags3, with names. |
+| [AbilityAuxFlagBits](../registries/AbilityAuxFlagBits.md) | The meaning of the bits of AbilityAux flags3 (byte +3) and flags4 (u32 at +4) as named here: flags3 holds the ability type in bits 0..4 and three flags in bits 5..7, flags4 the AI behaviour flags, one bit each. |
+| [AbilityTypes](../registries/AbilityTypes.md) | The ability type nibble in the low five bits of AbilityAux flags3, with names. |
 
 ## Flows (1)
 

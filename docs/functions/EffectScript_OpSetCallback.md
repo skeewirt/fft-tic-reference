@@ -14,7 +14,7 @@ Effect script opcode: attaches one of the effect callbacks to a live callback sl
 
 ## Behavior
 
-- V: unless the game is paused or stepping, stores the callback pointer chosen by the signed word at instruction offset + 2 (exe.battle.effect_callbacks) into slot ((byte at +1) >> 2) & 0x3F of the live callback list.
+- V: unless the game is paused or stepping, stores the callback pointer chosen by the signed word at instruction offset + 2 (the effect callback table at 0x1406759C0) into slot ((byte at +1) >> 2) & 0x3F of the live callback list.
 - V: always advances the instruction offset by 4 and returns 1 (go on with the next opcode).
 
 ## Referenced by

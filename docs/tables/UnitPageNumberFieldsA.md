@@ -17,7 +17,7 @@ Number fields of the second unit page, first panel. Verdict: designer-data.
 ## Behavior
 
 - V: sub_14033AE90 (unit panel page task, first task id): fifteen number fields with the same labels as the unit panel number fields but other value pointers
-- V: 15 rows of 32 bytes; value pointers differ from exe.ui.unit_panel_number_fields.a (so not a duplicate)
+- V: 15 rows of 32 bytes; value pointers differ from UnitPanelNumberFieldsA (so not a duplicate)
 
 ## Notes
 

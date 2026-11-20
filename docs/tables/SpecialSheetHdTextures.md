@@ -5,7 +5,7 @@
 - **Storage:** Executable
 - **Address:** `0x14071500C`
 - **Rows:** 119 rows of 4 bytes (121 to the next symbol)
-- **Keyed by:** ability presentation byte (exe.ability.anim +1)
+- **Keyed by:** ability presentation byte (AbilityAnim +1)
 - **Row layout:** [HdTextureId](../structs/HdTextureId.md)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

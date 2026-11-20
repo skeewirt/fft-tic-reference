@@ -14,7 +14,7 @@ One row of the BannerWordRanges table.
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="first_cell"></a>`0x0` | first_cell | `uint32` | V | first cell index in exe.ui.banner_word_cells; cells = next entry - this entry |
+| <a id="first_cell"></a>`0x0` | first_cell | `uint32` | V | first cell index in BannerWordCells; cells = next entry - this entry |
 
 ## Referenced by
 

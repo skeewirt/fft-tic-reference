@@ -20,7 +20,7 @@ The game's general data read entry point, expressed in the original disc layout:
 - V: otherwise it reads `size` bytes from the open data pack (`qword_143793118`) at the kind's start offset plus `sectorIndex * 2048`.
 - V: afterwards it clears the high dword of `qword_141856AB0`, calls the hook `sub_14033D6B0(kind, sectorIndex, kind)`, and returns 0.
 - V: about 24 callers, among them the sprite-texture loaders CharaRender_InitTargets and CharaRender_BuildAtlasTexture and the event-script users.
-- V (2026-11-10): sub_14033D6B0 does nothing for a kind above 0x303 other than 772 and 876; CharaPalette_LoadClassic reads a sprite's classic file through here (kind and size from exe.sprite.classic_kind row of the shape, both u32).
+- V (2026-11-10): sub_14033D6B0 does nothing for a kind above 0x303 other than 772 and 876; CharaPalette_LoadClassic reads a sprite's classic file through here (kind and size from SpriteClassicFilesByShape row of the shape, both u32).
 - V (2026-11-12): EventDataLoad_Poll reads a battle effect file through here: GameData_ReadSectors(file number, 0, the table's size, unk_1418A2E00), the file number from EffectFile_GetTrackRow.
 
 ## State touched

@@ -18,7 +18,7 @@ Eight stat number fields (At, Atmagic, Def, Defmgc, Ar, Armagic, Av, Avmagic) of
 ## Behavior
 
 - V: the screen task draws the eight numbers with a digit routine into a VRAM strip
-- V: only the value pointers differ from exe.ui.stats_panel_numbers
+- V: only the value pointers differ from StatsPanelNumbers
 
 ## Notes
 

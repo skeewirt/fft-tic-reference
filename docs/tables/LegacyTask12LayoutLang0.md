@@ -13,7 +13,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Summary
 
-Cell list of the legacy scene task 12, language 0 variant. The records are six-word sprite cells (the shape of exe.ui.msg_window_tag_cells). Verdict: designer-data.
+Cell list of the legacy scene task 12, language 0 variant. The records are six-word sprite cells (the shape of MessageWindowTagCellsDefault). Verdict: designer-data.
 
 ## Behavior
 

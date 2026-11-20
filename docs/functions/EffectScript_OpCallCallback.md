@@ -14,7 +14,7 @@ Effect script opcode: runs one effect callback at once.
 
 ## Behavior
 
-- V: unless paused or stepping, takes the callback from exe.battle.effect_callbacks by the signed word at instruction offset + 2, keeps it in the context (+288) and calls it with the context's word at +2.
+- V: unless paused or stepping, takes the callback from the effect callback table (0x1406759C0) by the signed word at instruction offset + 2, keeps it in the context (+288) and calls it with the context's word at +2.
 - V: always advances the instruction offset by 4 and returns 1.
 
 ## Referenced by

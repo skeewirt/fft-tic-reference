@@ -18,7 +18,7 @@ Cell code grid of a large legacy list body (variant a). Verdict: designer-data.
 ## Behavior
 
 - V: 0x1280 bytes up to the next object; codes are a small set
-- V: ClassicItemListPage_Run (0x140393E70): one of two grids chosen by a page flag; the other is exe.ui.legacy_item_list_body_grid.b
+- V: ClassicItemListPage_Run (0x140393E70): one of two grids chosen by a page flag; the other is LegacyItemListBodyGridB
 
 ## Notes
 

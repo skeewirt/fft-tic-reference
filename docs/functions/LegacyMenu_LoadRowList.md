@@ -14,7 +14,7 @@ Loads the row id list of the legacy menu named by the screen block into the live
 
 ## Behavior
 
-- V: the menu id is the signed word at +872 of the active screen block; the row count comes from exe.ui.legacy_menu_row_counts and the list from exe.ui.legacy_menu_row_list_pointers.
+- V: the menu id is the signed word at +872 of the active screen block; the row count comes from LegacyMenuRowCounts and the list from LegacyMenuRowListPointers.
 - V: each row byte is turned into a text id by subtracting a fixed base and stored in the live row array; at most 7 rows are shown on a page (the first word is the count shown, the second the overflow).
 - V: ends by calling the command screen builder BattleCommand_BuildScreen.
 

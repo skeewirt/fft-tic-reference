@@ -14,7 +14,7 @@ Task body of the legacy menu panes: keeps three pane tasks in step with the menu
 
 ## Behavior
 
-- V: picks a row of exe.ui.legacy_menu_task_setups by the menu state word (values above 3 use row 0).
+- V: picks a row of LegacyMenuTaskSetups by the menu state word (values above 3 use row 0).
 - V: for each of the three panes compares the row's expected owner id with the live pane owner and sets one of two flag patterns in the pane's task slot depending on the match.
 - V: never returns: it loops forever as a task and yields between passes.
 
