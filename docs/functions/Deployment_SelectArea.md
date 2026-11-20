@@ -23,7 +23,8 @@ Makes the deployment area of the scene (index 0 or 1) the current one and return
 
 ## Referenced by
 
-- Called by: [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md)
+- Called by: [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md), [sub_1401EF0D8](sub_1401EF0D8.md)
+- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [TwoDeploymentAreasShareOneCapacity](../behaviors/TwoDeploymentAreasShareOneCapacity.md)
 
 ## Open questions
 

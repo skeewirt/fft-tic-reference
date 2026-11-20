@@ -25,7 +25,7 @@ Decides whether the deployment screen may start the battle with the units placed
 
 ## Referenced by
 
-- Observed behaviours: [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md)
+- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md), [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md), [TwoDeploymentAreasShareOneCapacity](../behaviors/TwoDeploymentAreasShareOneCapacity.md)
 
 ## Open questions
 

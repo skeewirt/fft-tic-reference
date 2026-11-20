@@ -18,11 +18,11 @@ The mid-battle join: runs Battle_AddJoinedUnit, then the look loader once per fr
 
 ## State touched
 
-- Calls: [CharaPalette_ReloadForShape](CharaPalette_ReloadForShape.md)
+- Calls: [Battle_AddJoinedUnit](Battle_AddJoinedUnit.md), [CharaPalette_ReloadForShape](CharaPalette_ReloadForShape.md)
 
 ## Referenced by
 
-- Observed behaviours: [MidBattleJoinLoadsLooks](../behaviors/MidBattleJoinLoadsLooks.md)
+- Observed behaviours: [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md), [MidBattleJoinLoadsLooks](../behaviors/MidBattleJoinLoadsLooks.md)
 
 ## Open questions
 

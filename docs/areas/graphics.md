@@ -2,7 +2,7 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 47, Tables: 48.
+Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 48, Tables: 48.
 
 ## Functions (170)
 
@@ -318,7 +318,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (47)
+## Observed behaviours (48)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -355,6 +355,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md) | engine (battle resume) | A battle resumed from a payload copies the payload twice around the scene-variable restore, builds no scene unit but restores the scene-unit records whole, and rebuilds existing scene units from the restored slot and ... |
 | [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md) | engine (battle unit shape) | A scene unit's shape (sprite byte +0xA) is the sprite word of its load queue entry; a battle unit's shape byte +0x18F is written only by the unit builders and comes back in the battle snapshot, while the save keeps no... |
 | [SixteenColourLimitIsTwoCpuBuilders](../behaviors/SixteenColourLimitIsTwoCpuBuilders.md) | engine (unit sheets) | The 15 colours of a unit sheet (16 with the transparent one) are a property of two CPU routines that expand 4-bit pixels through 16 converted colours; both hand the GPU 32-bit textures, and the battle one already has ... |
+| [SixteenSceneUnitsComeOnlyFromTheLookQueue](../behaviors/SixteenSceneUnitsComeOnlyFromTheLookQueue.md) | engine (battle unit drawing) | A battle unit is drawn through one of 16 scene-unit records, and only SceneUnit_BuildFromQueueEntry creates them, from the 16-entry look queue; with all 16 in use the next unit gets no scene unit. |
 | [SpriteLookupFailuresPastTheTables](../behaviors/SpriteLookupFailuresPastTheTables.md) | engine (sprite readers) | What went wrong in game when a sprite number or job id above the stock range reached a reader: three failures. |
 | [SpriteNumberStoreWidths](../behaviors/SpriteNumberStoreWidths.md) | engine (unit sprite number) | Which stores of a unit's sprite number are bytes and which are wider: the battle path keeps the number in bytes (limit 255) while the menu path carries it as a 32-bit value. |
 | [SpriteSheetPortraitAndPartFiles](../behaviors/SpriteSheetPortraitAndPartFiles.md) | engine (sprite sheet, classic file and portrait files) | A unit sprite is two HD sheet entries plus a classic file whose first 0x200 bytes are its palettes; a portrait is a texture plus a part file that the game asks for by name. |

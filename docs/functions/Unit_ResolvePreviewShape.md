@@ -22,7 +22,7 @@ Returns the sprite shape id for a unit/job pair (and a palette byte for special 
 
 ## Referenced by
 
-- Called by: [Battle_BuildRosterTeam](Battle_BuildRosterTeam.md), [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md), [JobScreen_UpdateState](JobScreen_UpdateState.md), [JobTree_FillJobRecords](JobTree_FillJobRecords.md), [PreviewUnit_BuildRecord](PreviewUnit_BuildRecord.md), [PreviewUnit_ResolveShape](PreviewUnit_ResolveShape.md), [SceneUnit_FillSpriteRecord](SceneUnit_FillSpriteRecord.md)
+- Called by: [Battle_AddJoinedUnit](Battle_AddJoinedUnit.md), [Battle_BuildRosterTeam](Battle_BuildRosterTeam.md), [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md), [Battle_RebuildUnitTable](Battle_RebuildUnitTable.md), [JobScreen_UpdateState](JobScreen_UpdateState.md), [JobTree_FillJobRecords](JobTree_FillJobRecords.md), [PreviewUnit_BuildRecord](PreviewUnit_BuildRecord.md), [PreviewUnit_ResolveShape](PreviewUnit_ResolveShape.md), [SceneUnit_FillSpriteRecord](SceneUnit_FillSpriteRecord.md)
 - Observed behaviours: [GenericUnitSpriteNumberFromJob](../behaviors/GenericUnitSpriteNumberFromJob.md), [JobChangeTransitionShapeFromTheListEntryByte](../behaviors/JobChangeTransitionShapeFromTheListEntryByte.md), [JobTreePanelSprite](../behaviors/JobTreePanelSprite.md), [NamedCharactersKeepTheirOwnLookWhateverTheirJob](../behaviors/NamedCharactersKeepTheirOwnLookWhateverTheirJob.md), [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md), [SpriteNumberStoreWidths](../behaviors/SpriteNumberStoreWidths.md)
 
 ## Notes

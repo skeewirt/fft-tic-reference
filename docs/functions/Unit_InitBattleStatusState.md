@@ -26,6 +26,7 @@ Sets up the status state of a unit that has just been built into the battle: the
 
 ## Referenced by
 
+- Called by: [Battle_AddJoinedUnit](Battle_AddJoinedUnit.md), [Battle_RebuildUnitTable](Battle_RebuildUnitTable.md)
 - Observed behaviours: [StatusBitWritersAndTheRemovalPath](../behaviors/StatusBitWritersAndTheRemovalPath.md)
 
 ## Notes

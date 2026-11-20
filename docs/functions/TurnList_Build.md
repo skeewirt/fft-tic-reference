@@ -37,6 +37,7 @@ time, and adds the entries of pending (charging) actions.
 ## Referenced by
 
 - Called by: [BTurn_PreviewAction](BTurn_PreviewAction.md), [Battle_TimelineBuildList](Battle_TimelineBuildList.md)
+- Observed behaviours: [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md)
 
 ## Notes
 

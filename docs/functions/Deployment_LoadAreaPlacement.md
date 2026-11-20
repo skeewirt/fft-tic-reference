@@ -24,6 +24,11 @@ Loads the deployment area index (scene variable 53 + index): selects its placeme
 
 - Calls: [SceneVar_Read](SceneVar_Read.md), [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdTable_GetEntryCount](NxdTable_GetEntryCount.md), [NxdTable_GetEntryByKeys2](NxdTable_GetEntryByKeys2.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
 
+## Referenced by
+
+- Called by: [Deployment_AreaOfPlacedUnit](Deployment_AreaOfPlacedUnit.md)
+- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md)
+
 ## Open questions
 
 ? EntryArea row byte +4 and the placement record bytes +4..+8 are not decoded.

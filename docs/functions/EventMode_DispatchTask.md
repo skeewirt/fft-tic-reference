@@ -28,7 +28,7 @@ The task started by event opcode 0x78: clears a global and hands the task's mode
 
 ## State touched
 
-- Calls: [SceneTask_FindFree](SceneTask_FindFree.md), [sub_1402C6514](sub_1402C6514.md), [sub_1402C72B8](sub_1402C72B8.md), [SceneTask_Terminate](SceneTask_Terminate.md)
+- Calls: [SceneTask_FindFree](SceneTask_FindFree.md), [sub_1402C53F0](sub_1402C53F0.md), [sub_1402C6514](sub_1402C6514.md), [sub_1402C72B8](sub_1402C72B8.md), [SceneTask_Terminate](SceneTask_Terminate.md)
 
 ## Referenced by
 

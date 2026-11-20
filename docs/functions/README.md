@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2254 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2265 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -37,6 +37,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BannerWords_FillQuads](BannerWords_FillQuads.md) | `0x1402DF154` | [Event system](../areas/event-system.md) | Fills the gradient quads of one banner (a row of word cells) from the legacy banner tables. |
 | [BarTop_Setup](BarTop_Setup.md) | `0x14019F330` | [Errands](../areas/errands.md) | Sets up the tavern's top menu (rumors, errands): the errand row is open only when situation 3220 holds. |
 | [Battle_ActorResultLevels](Battle_ActorResultLevels.md) | `0x14030C704` | [Battle](../areas/battle.md) | Applies the acting unit's action result and returns, in four bytes, what the level-up banners need: two result bytes, the new unit level and the new job level. |
+| [Battle_AddJoinedUnit](Battle_AddJoinedUnit.md) | `0x140270FBC` | [Battle](../areas/battle.md) | Builds a battle unit record for a party unit that enters the battle (a deployment placement or a mid-battle join) in the first free record of 16..20. |
 | [Battle_AITurnPrepare](Battle_AITurnPrepare.md) | `0x14031F534` | [Battle](../areas/battle.md) | Fills the per-unit AI table (visibility, HP/MP ratios, flags) and then runs one AI turn. |
 | [Battle_AITurnRun](Battle_AITurnRun.md) | `0x14038A468` | [Battle](../areas/battle.md) | Runs one AI trial: applies the candidate action on the preview unit table, lets the turn engine play on (up to 255 steps), scores the outcome and restores the engine state. |
 | [Battle_ApplyActionResult](Battle_ApplyActionResult.md) | `0x14030A488` | [Battle](../areas/battle.md) | Applies the pending action result of one unit to that unit: HP/MP damage and healing, stat changes, Brave/Faith changes, EXP/level changes, status sets/clears and the death check. |
@@ -71,6 +72,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md) | `0x14027128C` | [Unit data](../areas/unit-data.md) | Builds battle unit i (g_PreviewUnitTable + 512 x i) from entry i for the 16 entries of a battle, decides who is placed and queues each placed unit's look. |
 | [Battle_PreviewUnitAction](Battle_PreviewUnitAction.md) | `0x140282BDC` | [Battle](../areas/battle.md) | Rebuilds the preview of the action a battle unit currently holds: it resets the per-unit target flags, resolves the action mode and range, and refills the preview block. |
 | [Battle_Rand15](Battle_Rand15.md) | `0x14030D088` | [Battle formulas](../areas/formulas.md) | The battle's random number: a 15-bit value, fixed while a forecast runs. |
+| [Battle_RebuildUnitTable](Battle_RebuildUnitTable.md) | `0x1401F0AFC` | [Battle](../areas/battle.md) | Rebuilds the battle records of the placed party units from their roster records. |
 | [Battle_ResolveAction](Battle_ResolveAction.md) | `0x1403099B0` | [Battle](../areas/battle.md) | Resolves one action request against one target: selects the formula from the action type / ability, runs the formula handler and leaves a 40-byte result record for the apply step. |
 | [Battle_ResolveReaction](Battle_ResolveReaction.md) | `0x140283C00` | [Battle](../areas/battle.md) | Resolves a reaction or secondary action: it copies the action, rebuilds the preview and range, calls the action resolver and then the reaction bookkeeping. |
 | [Battle_RestoreCapture](Battle_RestoreCapture.md) | `0x1402CE7A8` | [Save data](../areas/save-data.md) | Restores the five memory blocks and the live state of a saved battle payload into the running scene, excluding the scene-task block that the game never restored. |
@@ -284,7 +286,11 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [DateBits_Store9](DateBits_Store9.md) | `0x1402CD274` | [Errands](../areas/errands.md) | Stores a date (month, day) as 9 bits at position 9 * index of a bit array: the errand finish dates and the treasure find dates. |
 | [Debug_DetectCaptureTools](Debug_DetectCaptureTools.md) | `0x140082894` | [Application and startup](../areas/app-startup.md) | Returns 1 when a known graphics-capture/injection layer is loaded, or when a GPU/COM query on `hostObject+3504` succeeds. |
 | [Deflate_Init2](Deflate_Init2.md) | `0x14040E9B0` | [Data access](../areas/data.md) | Initialises a deflate compression stream (the embedded zlib-style compressor): validates the arguments, allocates the 5920-byte state and its buffers, then resets the stream. |
+| [Deployment_AreaOfPlacedUnit](Deployment_AreaOfPlacedUnit.md) | `0x1401EE734` | [Battle](../areas/battle.md) | Returns the deployment area (0 or 1) that placed party entry n stands in, or -1. |
+| [Deployment_CompactPlaced](Deployment_CompactPlaced.md) | `0x1401EE6DC` | [Battle](../areas/battle.md) | Moves the placed party indices of the deployment state to the front of their array. |
+| [Deployment_CountPlaced](Deployment_CountPlaced.md) | `0x1401EE6AC` | [Battle](../areas/battle.md) | Counts the placed party units of the deployment state. |
 | [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md) | `0x140303408` | [Battle](../areas/battle.md) | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
+| [Deployment_ResetState](Deployment_ResetState.md) | `0x1401EE518` | [Battle](../areas/battle.md) | Resets the deployment state: capacity 0, no placed unit, no candidate. |
 | [Deployment_SelectArea](Deployment_SelectArea.md) | `0x140303380` | [Battle](../areas/battle.md) | Makes the deployment area of the scene (index 0 or 1) the current one and returns a count byte of its placement record. |
 | [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md) | `0x1401EE890` | [Battle](../areas/battle.md) | Decides whether the deployment screen may start the battle with the units placed: returns a result code, 1 meaning go. |
 | [DepthStencilDesc_FromWord](DepthStencilDesc_FromWord.md) | `0x140051438` | [Graphics](../areas/graphics.md) | Unpacks the packed depth-stencil word of a pipeline state into the Direct3D 12 depth-stencil description. |
@@ -324,6 +330,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [EffectSprite_EmitPieces](EffectSprite_EmitPieces.md) | `0x140380878` | [Battle](../areas/battle.md) | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](EffectSprite_StepAnimation.md) | `0x140387B70` | [Battle](../areas/battle.md) | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
 | [EffectSprites_Spawn](EffectSprites_Spawn.md) | `0x140313210` | [Battle](../areas/battle.md) | Creates the sprites of one effect sprite group when the effect is inside the group's frame window. |
+| [EntryUnits_CheckLookBudget](EntryUnits_CheckLookBudget.md) | `0x140271844` | [Battle](../areas/battle.md) | Keeps the list of distinct sprite numbers met while the entry units of a battle are placed and answers whether a unit's sprite is past the budget. |
 | [EquipDetail_BuildCategoryLines](EquipDetail_BuildCategoryLines.md) | `0x1400F94DC` | [Items and shops](../areas/items.md) | Builds the text of the equipment detail category lines (UIStatusEffectCategory, nxd 56) for the equipment attribute record in the third argument. |
 | [EquipDetail_Refresh](EquipDetail_Refresh.md) | `0x14029F950` | [UI framework](../areas/ui-framework.md) | Refreshes the item detail panel for one selected item: it builds the item's large picture path, then binds the picture and the item name to the panel's parts. |
 | [EquipDetail_SetHelpText](EquipDetail_SetHelpText.md) | `0x1402A0A08` | [UI framework](../areas/ui-framework.md) | Writes one help line of the equipment detail panel: line 0 = the item's description from Item-en, line 1 = three lines built by sub_1402A0E58, line 2 = weapon notes. |
@@ -1201,6 +1208,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [PanelScreen_InitVram](PanelScreen_InitVram.md) | `0x14033D88C` | [UI framework](../areas/ui-framework.md) | Uploads the palette and strips of the second panel screen to VRAM. |
 | [Party_AnyItemBelow99](Party_AnyItemBelow99.md) | `0x1402D6688` | [Items and shops](../areas/items.md) | Answers whether any item held by the party has reached a high count. |
 | [Party_CountMasteredJobs](Party_CountMasteredJobs.md) | `0x140348828` | [Job data](../areas/job-data.md) | Counts the generic jobs whose every ability is learned and returns half of that count, capped at 7. |
+| [Party_CountUnitsAtLevel](Party_CountUnitsAtLevel.md) | `0x1400DC698` | [Battle](../areas/battle.md) | True when at least 5 party units have reached a level. |
 | [Party_EggUpkeep](Party_EggUpkeep.md) | `0x140289900` | [Unit data](../areas/unit-data.md) | Per-step upkeep of monster eggs over the 54 save slots: counts down existing eggs and hatches them, and may also create a new egg from a monster that carries an Egg key. |
 | [Party_GetSlotState](Party_GetSlotState.md) | `0x140289298` | [Unit data](../areas/unit-data.md) | Returns the availability state of one party slot: usable, absent, blocked or a special job, as a small signed code. |
 | [Party_GetSlotStateSpecial](Party_GetSlotStateSpecial.md) | `0x140289320` | [Unit data](../areas/unit-data.md) | Wrapper around the party slot check that replaces the usable result with the special-job code for jobs 161 and 164. |
@@ -1597,6 +1605,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_1401EC01C](sub_1401EC01C.md) | `0x1401EC01C` | [Battle](../areas/battle.md) | Walks the forty battle message entries and resolves each one through the shared resolver. |
 | [sub_1401ECBBC](sub_1401ECBBC.md) | `0x1401ECBBC` | [Battle](../areas/battle.md) | Routes one battle voice event to its handler by the event kind. |
 | [sub_1401EE9B4](sub_1401EE9B4.md) | `0x1401EE9B4` | [Battle](../areas/battle.md) | Sets up a battle window object. |
+| [sub_1401EF0D8](sub_1401EF0D8.md) | `0x1401EF0D8` | [Battle](../areas/battle.md) | Per-frame routine of the deployment screen; at its first step it sets the capacity from the deployment areas. |
 | [sub_1401F3858](sub_1401F3858.md) | `0x1401F3858` | [UI framework](../areas/ui-framework.md) | Refreshes a party/unit panel: it looks up the unit's sprite shape and shows or hides the lock and starting-team icons. |
 | [sub_1401F5AFC](sub_1401F5AFC.md) | `0x1401F5AFC` | [Battle](../areas/battle.md) | Tests whether the unit the cursor refers to counts as valid: its slot byte +1 is 0xFF or its flag dword +504 has bit 1. |
 | [sub_1401F92A8](sub_1401F92A8.md) | `0x1401F92A8` | [Battle](../areas/battle.md) | Fills the 106 rows of the PostBattleCalc object, one per formula id: the 12 formulas with an after-damage rule get a hook row, every other row holds the do-nothing marker. |
@@ -1750,6 +1759,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_1402C185C](sub_1402C185C.md) | `0x1402C185C` | [Job data](../areas/job-data.md) | Builds a unit's detail panel (job line, icon, equipment, ability names) from a party record handed over in three copied parts. |
 | [sub_1402C20F0](sub_1402C20F0.md) | `0x1402C20F0` | [UI framework](../areas/ui-framework.md) | Applies an item id to the first slot that does not already hold it and updates the equip block and the stat readout. |
 | [sub_1402C4D1C](sub_1402C4D1C.md) | `0x1402C4D1C` | [Battle](../areas/battle.md) | One of the battle unit panel builders: it fills the panel rows for a unit's equipment from the unit's item slots. |
+| [sub_1402C53F0](sub_1402C53F0.md) | `0x1402C53F0` | [Battle](../areas/battle.md) | Run as a task by EventMode_DispatchTask; the part read picks the top unit of the placed party for a result page. |
 | [sub_1402C60E4](sub_1402C60E4.md) | `0x1402C60E4` | [Items and shops](../areas/items.md) | Reconciles a unit's equipment words with the inventory: every equipped item is counted, duplicates beyond the cap are sold, and the unit's slots are cleared afterwards. |
 | [sub_1402C6514](sub_1402C6514.md) | `0x1402C6514` | [Event system](../areas/event-system.md) | One of the scene-task bodies event opcode 0x78 starts (mode 5): it places the units of the scene, shows their speech balloons and unit markers, and runs until the task is stopped. |
 | [sub_1402C72B8](sub_1402C72B8.md) | `0x1402C72B8` | [Event system](../areas/event-system.md) | One of the scene-task bodies event opcode 0x78 starts (mode 6): a unit-display scene that also drives the desertion marker, built on the same balloon and unit-marker task skeleton as mode 5. |
@@ -2175,6 +2185,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Unit_BuildPreviewSpriteRecord](Unit_BuildPreviewSpriteRecord.md) | `0x1402C1D40` | [Unit rendering](../areas/unit-rendering.md) | Builds the sprite record for a party unit's preview. |
 | [Unit_BuildRsmAbilityList](Unit_BuildRsmAbilityList.md) | `0x140278358` | [Unit data](../areas/unit-data.md) | Answers a reaction / support / movement request of a spawn record: a fixed id is returned as is, a 'random' request (>= 0x1FE) picks one of the learned RSM abilities of the unit. |
 | [Unit_ChangeBattleStat](Unit_ChangeBattleStat.md) | `0x14030C080` | [Battle](../areas/battle.md) | Applies one stat change of an action result to a unit stat byte, clamped, and keeps the stat total in step. |
+| [Unit_CheckSpawnTile](Unit_CheckSpawnTile.md) | `0x140271178` | [Battle](../areas/battle.md) | Answers whether battle record n may stand on its tile: 0 = yes, -1 = no. |
 | [Unit_CollectJobSkillsetPairs](Unit_CollectJobSkillsetPairs.md) | `0x14028A7C0` | [Job data](../areas/job-data.md) | Lists (job, skillset) pairs of the jobs a party unit can take as its secondary skill: 8-byte entries, 0xFFFF in the second word ends the list. |
 | [Unit_CollectJobSkillsets](Unit_CollectJobSkillsets.md) | `0x1402866E4` | [Job list and unlock](../areas/job-list.md) | Builds the secondary-skillset choice list of a party unit: the skillset byte of every job the unit can take, except its own job and three excluded ids, terminated by 0xFFFF. Returns the count. |
 | [Unit_ComputeStats](Unit_ComputeStats.md) | `0x140276EBC` | [Unit data](../areas/unit-data.md) | Turns a work record's five 24-bit stat accumulators and the job row's growth pairs into the unit's displayed HP, MP, Speed, PA and MA. Called whenever a work record is built or refreshed. |

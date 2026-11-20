@@ -44,7 +44,7 @@ It returns an action code `slot | 0x100/0x200/0x300/0x400` (or `0xFF00` on the l
 ## Referenced by
 
 - Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [Battle_AITurnRun](Battle_AITurnRun.md), [Battle_TurnStep](Battle_TurnStep.md), [sub_14030476C](sub_14030476C.md)
-- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md), [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
+- Observed behaviours: [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md), [BattleStatChangeAndCtGainSteps](../behaviors/BattleStatChangeAndCtGainSteps.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md), [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
 
 ## Notes
 

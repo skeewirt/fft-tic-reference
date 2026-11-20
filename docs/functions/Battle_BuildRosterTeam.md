@@ -40,7 +40,7 @@ list, one team at a time. This is the function that places units on the two side
 ## Referenced by
 
 - Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [sub_14030476C](sub_14030476C.md)
-- Observed behaviours: [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md), [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md)
+- Observed behaviours: [BattleUnitOnFieldByte](../behaviors/BattleUnitOnFieldByte.md), [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md)
 
 ## Notes
 

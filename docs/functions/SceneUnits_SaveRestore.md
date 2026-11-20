@@ -18,7 +18,7 @@ Copies the scene units, the scene list, the CLUT image and the CLUT manager to o
 
 ## Referenced by
 
-- Observed behaviours: [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md)
+- Observed behaviours: [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md), [SixteenSceneUnitsComeOnlyFromTheLookQueue](../behaviors/SixteenSceneUnitsComeOnlyFromTheLookQueue.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md)
 - Reads tables: [SpriteLookAttributes](../tables/SpriteLookAttributes.md)
 
 ## Open questions

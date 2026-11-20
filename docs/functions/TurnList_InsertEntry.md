@@ -22,6 +22,7 @@ Inserts one 4-byte entry into a 40-entry turn-order list, sorted by its time key
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Called by: [TurnList_Build](TurnList_Build.md)
+- Observed behaviours: [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md)
 
 ## Notes
 

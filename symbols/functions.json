@@ -1972,6 +1972,23 @@
       },
       "doc": "docs/functions/Battle_ActorResultLevels.md"
     },
+    "Battle_AddJoinedUnit": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:8ca0dad7e3cc46c2eaf1dd3513eb235e0e3d1e83522e158facf991ba7bbc963e",
+            "insn_count": 48,
+            "mnemonics": "sha256:2cd0b6e2fdc7734ca4be74e1ff6043d17590ffb0f82d6643fbb95c21b2a68071",
+            "size": 442
+          },
+          "rva": "0x270fbc",
+          "size": 442
+        }
+      },
+      "doc": "docs/functions/Battle_AddJoinedUnit.md"
+    },
     "Battle_ApplyActionResult": {
       "area": "battle",
       "builds": {
@@ -2515,6 +2532,23 @@
         }
       },
       "doc": "docs/functions/Battle_Rand15.md"
+    },
+    "Battle_RebuildUnitTable": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:680be343b4a733495bdaeb94d2acde4ad8963b827b01900efa693b4f9d1f1898",
+            "insn_count": 48,
+            "mnemonics": "sha256:10f01d7128f0c10c7f0de1cf5bbbd659142b2c20660b469086b8045e97ab2597",
+            "size": 223
+          },
+          "rva": "0x1f0afc",
+          "size": 223
+        }
+      },
+      "doc": "docs/functions/Battle_RebuildUnitTable.md"
     },
     "Battle_ResolveAction": {
       "area": "battle",
@@ -4743,6 +4777,57 @@
       },
       "doc": "docs/functions/DeploymentGrid_CommenceCheck.md"
     },
+    "Deployment_AreaOfPlacedUnit": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:963652bd57d2f1282fcd0e508941422230f80f6f69a617a477828778787a2945",
+            "insn_count": 48,
+            "mnemonics": "sha256:a35f59c72d72fa38e156956d934f829b425946cbca99aad3d0fcabffb7b165ee",
+            "size": 251
+          },
+          "rva": "0x1ee734",
+          "size": 251
+        }
+      },
+      "doc": "docs/functions/Deployment_AreaOfPlacedUnit.md"
+    },
+    "Deployment_CompactPlaced": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 26,
+            "mnemonics": "sha256:a57b448c3e39869f5066d1c6ca5d2c9f5cb259cdbefa45be3e58f4639052d730",
+            "size": 85
+          },
+          "rva": "0x1ee6dc",
+          "size": 85
+        }
+      },
+      "doc": "docs/functions/Deployment_CompactPlaced.md"
+    },
+    "Deployment_CountPlaced": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 17,
+            "mnemonics": "sha256:a07cacc34ef230e17072b83e91d6bdf8498f6e4be3477693ac535009f2c0ba49",
+            "size": 47
+          },
+          "rva": "0x1ee6ac",
+          "size": 47
+        }
+      },
+      "doc": "docs/functions/Deployment_CountPlaced.md"
+    },
     "Deployment_LoadAreaPlacement": {
       "area": "battle",
       "builds": {
@@ -4759,6 +4844,23 @@
         }
       },
       "doc": "docs/functions/Deployment_LoadAreaPlacement.md"
+    },
+    "Deployment_ResetState": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:937c1d3280b5ade9fdaeede793e1bb8b42c0d978985e755188490ef9b619cbd0",
+            "insn_count": 48,
+            "mnemonics": "sha256:cc15fe23fcd0bf0fefc92af6b901e06c6ead220270e631f5859c41012f52c25b",
+            "size": 403
+          },
+          "rva": "0x1ee518",
+          "size": 403
+        }
+      },
+      "doc": "docs/functions/Deployment_ResetState.md"
     },
     "Deployment_SelectArea": {
       "area": "battle",
@@ -5405,6 +5507,23 @@
         }
       },
       "doc": "docs/functions/Effect_TintByNxdScale.md"
+    },
+    "EntryUnits_CheckLookBudget": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 37,
+            "mnemonics": "sha256:c575d9dda7d71f67cb01f29d198c34fddf94def1791aa67df83a0c9e4571cbae",
+            "size": 135
+          },
+          "rva": "0x271844",
+          "size": 135
+        }
+      },
+      "doc": "docs/functions/EntryUnits_CheckLookBudget.md"
     },
     "EquipDetail_BuildCategoryLines": {
       "area": "items",
@@ -20434,6 +20553,23 @@
       },
       "doc": "docs/functions/Party_CountMasteredJobs.md"
     },
+    "Party_CountUnitsAtLevel": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:57bd45ed0354beb8dd2821cdfa84f79c98d3295791d2e1b26ad74e8ae6d1172f",
+            "insn_count": 48,
+            "mnemonics": "sha256:57129f757dad8babbb1d983c544f338023d11916b00a53ad0ffc1418c337c328",
+            "size": 226
+          },
+          "rva": "0xdc698",
+          "size": 226
+        }
+      },
+      "doc": "docs/functions/Party_CountUnitsAtLevel.md"
+    },
     "Party_EggUpkeep": {
       "area": "unit-data",
       "builds": {
@@ -28815,6 +28951,23 @@
       },
       "doc": "docs/functions/Unit_ChangeBattleStat.md"
     },
+    "Unit_CheckSpawnTile": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:be0d5c4fc092f0cce5426c269ca78271b439c9963d3af9845327e15c4ce0b225",
+            "size": 276
+          },
+          "rva": "0x271178",
+          "size": 276
+        }
+      },
+      "doc": "docs/functions/Unit_CheckSpawnTile.md"
+    },
     "Unit_CollectJobSkillsetPairs": {
       "area": "job-data",
       "builds": {
@@ -32130,6 +32283,23 @@
       },
       "doc": "docs/functions/sub_1401EE9B4.md"
     },
+    "sub_1401EF0D8": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 29,
+            "calls": "sha256:fbdcca400c1b16a39179585809dae399552bcadcd61931574237e7ed872d4105",
+            "insn_count": 48,
+            "mnemonics": "sha256:92d92774aff1818deb952183365d98b200157c01d3e071b14774ab42da1ed35f",
+            "size": 4018
+          },
+          "rva": "0x1ef0d8",
+          "size": 4018
+        }
+      },
+      "doc": "docs/functions/sub_1401EF0D8.md"
+    },
     "sub_1401F3858": {
       "area": "ui-framework",
       "builds": {
@@ -34730,6 +34900,23 @@
         }
       },
       "doc": "docs/functions/sub_1402C4D1C.md"
+    },
+    "sub_1402C53F0": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 29,
+            "calls": "sha256:aec8469f079e92031cb0406ae188c0fa82ae582528799d88d4a5fae9a9737ccd",
+            "insn_count": 48,
+            "mnemonics": "sha256:75cfb5dcafa737f3641c869260ca89a2090ebf36d5798c10700e286aba811370",
+            "size": 1492
+          },
+          "rva": "0x2c53f0",
+          "size": 1492
+        }
+      },
+      "doc": "docs/functions/sub_1402C53F0.md"
     },
     "sub_1402C60E4": {
       "area": "items",
