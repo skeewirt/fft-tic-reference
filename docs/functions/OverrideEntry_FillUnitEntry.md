@@ -31,7 +31,7 @@ Copies one OverrideEntryData row into a 40-byte unit entry of a scripted battle:
 ## Referenced by
 
 - Called by: [OverrideEntry_LoadBattleEntries](OverrideEntry_LoadBattleEntries.md)
-- Observed behaviours: [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md), [SpawnedUnitsCarryAOneByteJob](../behaviors/SpawnedUnitsCarryAOneByteJob.md), [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
+- Observed behaviours: [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md), [SpawnedUnitsCarryAOneByteJob](../behaviors/SpawnedUnitsCarryAOneByteJob.md), [StockBattlesFillAtMostSeventeenOfTwentyOneRecords](../behaviors/StockBattlesFillAtMostSeventeenOfTwentyOneRecords.md), [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md)
 - Reads tables: [NxdDataCharaControlId](../tables/NxdDataCharaControlId.md)
 
 ## Notes
