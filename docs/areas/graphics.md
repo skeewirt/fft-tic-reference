@@ -2,7 +2,7 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 45, Tables: 48.
+Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 46, Tables: 48.
 
 ## Functions (170)
 
@@ -318,7 +318,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (45)
+## Observed behaviours (46)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -337,6 +337,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [FaceNumberCapsClipRawCodesToo](../behaviors/FaceNumberCapsClipRawCodesToo.md) | engine (portrait face numbers) | Sixteen readers cap the face number at 0xCD (205): the twelve caps below and the four readers of the HD face table g_FaceG2dEntryByFace. |
 | [GenericUnitSpriteNumberFromJob](../behaviors/GenericUnitSpriteNumberFromJob.md) | engine (unit sprite selection) | A generic unit has no stored sprite number: the game derives it from the job and the sex, with the same sum in at least ten places, and every other job id falls back to a default. |
 | [HdSheetFromSlotColoursFromRecord](../behaviors/HdSheetFromSlotColoursFromRecord.md) | engine (Enhanced battle sprite) | In Enhanced a pool's HD sheet comes from its sheet slot (the g2d entry) while its colours come from the pool record's palette. |
+| [JobCardPictureOpacityAndPlacement](../behaviors/JobCardPictureOpacityAndPlacement.md) | engine (job card pictures) | A job card (the painting behind the Status panel) is a 400 x 652 picture that is never fully opaque and fades out toward its lower left; its figure touches the top edge with the head left of the middle. |
 | [JobChangeTransitionShapeFromTheListEntryByte](../behaviors/JobChangeTransitionShapeFromTheListEntryByte.md) | engine (Change Job transition sprite) | While a job change plays its light pillar, the Status header figure is drawn in a shape JobScreen_UpdateState asks Unit_ResolvePreviewShape for, passing the Change Job list entry's job as one byte; for a generic unit ... |
 | [LayerAtlasPlacement](../behaviors/LayerAtlasPlacement.md) | every layer of a UI frame that is packed (composited, kind 0 or 1, none of the flags +78 / +486 / +488); the Job Tree frame was checked end to end | Where a UI layer's pixels are placed in the layer atlas each frame: the layers are put in a fixed order (their order key), and a shelf packer places each layer's integer rectangle plus a margin of 2 px (32 px when a b... |
 | [LayerBlitOverFrameTarget](../behaviors/LayerBlitOverFrameTarget.md) | every layer of blend type 0 (normal) | Store 2: the layer is blended onto the frame target by a pixel shader that reads the frame pixel through a UAV and writes it back: frame = layer + frame x (1 - layer alpha) in premultiplied form, per channel, from the... |

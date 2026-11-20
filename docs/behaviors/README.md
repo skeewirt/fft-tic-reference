@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-244 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+245 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -99,6 +99,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [JobArrayAccessesPutTheRecordPointerInTheIndexRegister](JobArrayAccessesPutTheRecordPointerInTheIndexRegister.md) | engine (per-unit job arrays) | Nine accesses of the per-unit job arrays are written with the byte offset in the register that stands first in the address and the pointer into the record in the register that stands second, so the record pointer is n... |
 | [JobArraysInThePartyRecordHoldStockIndicesOnly](JobArraysInThePartyRecordHoldStockIndicesOnly.md) | engine (party record) | In the 640-byte party record the per-job arrays are sized for the stock job indices, so an access with a larger index leaves its own array and, from a certain index, the record. |
 | [JobCardComesFromTheJobTypeRow](JobCardComesFromTheJobTypeRow.md) | engine (job card art on the Status screen) | The job card (the large faded painting behind the right half of the Status panel) is chosen by the job's JobType row, not by the job row's icon_part (that is the small job icon): Job row +24 names a JobType row, whose... |
+| [JobCardPictureOpacityAndPlacement](JobCardPictureOpacityAndPlacement.md) | engine (job card pictures) | A job card (the painting behind the Status panel) is a 400 x 652 picture that is never fully opaque and fades out toward its lower left; its figure touches the top edge with the head left of the middle. |
 | [JobChangeReachesTheSaveRecordOnlyThroughWriteBack](JobChangeReachesTheSaveRecordOnlyThroughWriteBack.md) | engine (Jobs screen, party and save records) | Changing a unit's job on the Jobs screen changes the save record's job byte (+2) in exactly one place: PartyUnit_WriteBackToSave copies the low byte of the party record's job word (+0x24) into it. |
 | [JobChangeTransitionShapeFromTheListEntryByte](JobChangeTransitionShapeFromTheListEntryByte.md) | engine (Change Job transition sprite) | While a job change plays its light pillar, the Status header figure is drawn in a shape JobScreen_UpdateState asks Unit_ResolvePreviewShape for, passing the Change Job list entry's job as one byte; for a generic unit ... |
 | [JobLearnedBitsPointerIsBuiltFromTheUnitRecord](JobLearnedBitsPointerIsBuiltFromTheUnitRecord.md) | engine | The readers of a job's learned bits compute a pointer into the unit record (unit record + 123 + 3 * job index) and hand it to the bit reader, which reads 24 bits = 3 bytes. |
