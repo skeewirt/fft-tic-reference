@@ -2,7 +2,7 @@
 
 Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json).
 
-227 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
+228 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
@@ -118,6 +118,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_HdSheetGroups](g_HdSheetGroups.md) | `0x142EA63E0` | `HdSheetGroup[20]` | The battle HD layer's 20 sheet groups (21144 bytes each): one sheet entry and up to 128 textures per group. |
 | [g_HdSlotClut](g_HdSlotClut.md) | `0x143CC9CB0` | `uint16[379]` | Palette id of each single-texture slot of the battle HD layer. |
 | [g_HdSlotEntry](g_HdSlotEntry.md) | `0x143CC96C0` | `int32[379]` | Sheet entry of each single-texture slot of the battle HD layer (-1 none): the cache key of HdLayer_BuildTextures with g_HdSlotClut. |
+| [g_HdWeaponSheetEntry](g_HdWeaponSheetEntry.md) | `0x142E7FEB4` | `int32` | The g2d entry the battle HD layer's sheet group 2 (held weapons) reads; sub_140260CF0 sets it to 161 whenever it emits a piece of kind 9, and HdLayer_BindSheetTexture reads it for slots 91..106. |
 | [g_HelpIdSlot](g_HelpIdSlot.md) | `0x1418736B4` | `int32` | The item help-id slot of the shop detail panel: 0x6800 plus the per-item help word when the table word is non-zero, -1 when the item has no help. |
 | [g_InputModule](g_InputModule.md) | `0x143CD9EE8` | `void *` | The UI input module: a copy of the device state at +8, 256 action rows of 48 bytes at +1360 (record InputActionRow), the context mask at +13720. |
 | [g_InventoryCounts](g_InventoryCounts.md) | `0x1411A7C00` | `uint8[261]` | The party's inventory: one count per item id 0..260, saved with the game. |

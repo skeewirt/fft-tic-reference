@@ -24,6 +24,8 @@ Loads the two palettes of the unit's equipped weapon or shield into the sprite s
 - V: stores the item id at state +0x150 and the mapped category byte at +0x152.
 - V: five direct call sites in four functions (battle action, event script, two sprite builders).
 - I: the palette is applied to the sprite record the caller passes in, which is the unit's render state.
+- V (2026-11-21): the two palettes go into rows 5 and 6 of the object's palette bank (object +8) through sub_1402F7594(palette, row, bank, 0), which copies the 16 colours at once (sub_1402F74D8); state +0x150 is object +336 and +0x152 is +338.
+- V (2026-11-21): +338 is the animation type: EquipSprite_BuildPieces offsets the weapon's frames by it and BattleAnim_SelectWeaponMotion picks the attack motion from it; types 19..23 have no motion, so 21 draws no swing (behavior WeaponPoseFollowsTheEquipCategory).
 
 ## State touched
 
@@ -32,6 +34,7 @@ Loads the two palettes of the unit's equipped weapon or shield into the sprite s
 ## Referenced by
 
 - Called by: [BattleAct_Step](BattleAct_Step.md), [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md), [sub_14026A7B8](sub_14026A7B8.md)
+- Observed behaviours: [WeaponPoseFollowsTheEquipCategory](../behaviors/WeaponPoseFollowsTheEquipCategory.md)
 
 ## Notes
 
@@ -39,4 +42,4 @@ Loads the two palettes of the unit's equipped weapon or shield into the sprite s
 
 ## Open questions
 
-- ?: the meaning of the 3 and 21 category mappings.
+- ?: why category 35 maps to type 3 (the sword type).

@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-264 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+266 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -96,6 +96,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [HdLayerUnitSheetsAreTenFixedGroups](HdLayerUnitSheetsAreTenFixedGroups.md) | engine (Enhanced battle HD sprites) | The battle HD layer draws unit sheets through fixed sheet groups, one per look pool record 0..9, each owning 16 of the HD layer's 379 texture slots; every group, slot range and slot table is in use or packed against o... |
 | [HdSheetAndClassicPaletteLoading](HdSheetAndClassicPaletteLoading.md) | engine (sprite sheets and palettes) | How a sprite number becomes a sheet and a palette: a g2d entry pair through the HD table and the pack's unchecked index table, and a palette from the classic file named in the classic table. |
 | [HdSheetFromSlotColoursFromRecord](HdSheetFromSlotColoursFromRecord.md) | engine (Enhanced battle sprite) | In Enhanced a pool's HD sheet comes from its sheet slot (the g2d entry) while its colours come from the pool record's palette. |
+| [HeldWeaponsDrawFromOneSheetPageByAByteRow](HeldWeaponsDrawFromOneSheetPageByAByteRow.md) | engine (battle sprites, the weapon a unit holds) | The weapon a unit holds is drawn from one sheet: g2d entry 161, 512 x 512 pixels at 4 bits a pixel in the HD renderer (the classic sheet's 256 x 256 drawn twice the size), in HD sheet group 2. |
 | [HitLabelsAndThePanelEffectLineAreSeparateLists](HitLabelsAndThePanelEffectLineAreSeparateLists.md) | engine | The status label over a unit hit by an action and the effect line of the unit status panel are two different lists. |
 | [IconGroup4kPaths](IconGroup4kPaths.md) | engine (icon paths) | Icons in a group with select_4k set load their '_4k_' file instead of a '_2k_' one; the stock data names no '_2k_' path. |
 | [ItemCommandRelation](ItemCommandRelation.md) | how the Item command and Throw turn an item id into an ability id and back | An Item-command use is an item id plus a paired ability id: the table maps abilities 368..381 to items 240..253, while at use the engine computes ability = item + 0x80 and the current-action builder computes item = ab... |
@@ -265,6 +266,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [UsableAbilityListLearnedBitGroup](UsableAbilityListLearnedBitGroup.md) | engine | The usable-ability list reads a unit's learned bits per job group. |
 | [VertexColourBytesTruncated](VertexColourBytesTruncated.md) | engine (UI node colours) | A UI node's vertex colour reaches the shader as bytes: each channel is the product of the node colour and its opacity, truncated to an integer. |
 | [WarriorsGuildCandidatesAreMadeEachVisit](WarriorsGuildCandidatesAreMadeEachVisit.md) | engine (Warriors' Guild recruit list) | The Warriors' Guild's recruit list is 15 candidate records of 564 bytes at 0x1408E6CB0 (the first 564 bytes of a save record's layout), made by Guild_MakeCandidates each time the guild is opened and never saved; hirin... |
+| [WeaponPoseFollowsTheEquipCategory](WeaponPoseFollowsTheEquipCategory.md) | engine (battle sprites, weapon attack motion) | ItemSprite_LoadPalettes stores a weapon's animation type at object +338 from its equipment category (item record byte +5): category 35 becomes 3, any other category of 32 or more becomes 21, and a category below 32 is... |
 | [WidgetRootsAreLayers](WidgetRootsAreLayers.md) | every UI widget (the Job Tree, the finger cursor, the footer guides) | Every widget's root component is drawn into its own layer record, whether or not it has an effect: the renderer's feature byte at r+606621 is 1 from the initialiser and the widget byte at +83 is 1 for all 51 widgets o... |
 | [WorldMapLocationsAndBattleEntry](WorldMapLocationsAndBattleEntry.md) | world map free roam, Locations list, travel to a battleground, battle deployment | How a battle is entered from the world map, and which screens and memory fields show it, as seen live. |
 | [WorldMapObjectiveLineIsTheNearestCaptionRow](WorldMapObjectiveLineIsTheNearestCaptionRow.md) | engine (world map) | The objective line of the world map is the caption of the current progress row, or of the nearest earlier row of the same first key whose sets_objective byte is set. |

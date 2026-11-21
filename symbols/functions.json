@@ -15810,6 +15810,23 @@
       },
       "doc": "docs/functions/HdLayer_ResolveQuadTexture.md"
     },
+    "HdQuad_SheetRect": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:cd11c51934f7a077b6ea378df687ba655ac98173566ca49613f483b6d1d842f2",
+            "insn_count": 48,
+            "mnemonics": "sha256:7b777006642b3f6c7691f43bde2915bb00240556528262841c899911e8ba1b2d",
+            "size": 578
+          },
+          "rva": "0x41ac00",
+          "size": 578
+        }
+      },
+      "doc": "docs/functions/HdQuad_SheetRect.md"
+    },
     "HdSheetGroup_ClaimClutEntry": {
       "area": "graphics",
       "builds": {

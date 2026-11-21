@@ -28,7 +28,7 @@ Chooses the motion of a plain weapon attack from the attacker's weapon animation
 ## Referenced by
 
 - Called by: [BattleAnim_SelectMotion](BattleAnim_SelectMotion.md)
-- Observed behaviours: [BattleMotionNumbers](../behaviors/BattleMotionNumbers.md)
+- Observed behaviours: [BattleMotionNumbers](../behaviors/BattleMotionNumbers.md), [WeaponPoseFollowsTheEquipCategory](../behaviors/WeaponPoseFollowsTheEquipCategory.md)
 
 ## Notes
 

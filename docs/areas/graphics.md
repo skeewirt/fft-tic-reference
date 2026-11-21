@@ -2,9 +2,9 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 53, Tables: 48.
+Functions: 174, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 53, Tables: 48.
 
-## Functions (173)
+## Functions (174)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -47,6 +47,7 @@ Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [HdLayer_BindSheetTexture](../functions/HdLayer_BindSheetTexture.md) | `0x14041D670` | Binds a sprite sheet texture id of the battle HD layer to the g2d entry that the sheet slot table holds. |
 | [HdLayer_BuildTextures](../functions/HdLayer_BuildTextures.md) | `0x140415D30` | The battle HD layer's texture pass: for every draw record of the frame it finds or builds the texture of its sheet piece and palette, and writes the texture id into the record. |
 | [HdLayer_ResolveQuadTexture](../functions/HdLayer_ResolveQuadTexture.md) | `0x14041AE44` | For a battle HD draw quad, turns its draw id (quad +64) into the HD layer's texture slot and finds or adds the quad's sheet piece in the matching sheet group; then writes the quad's vertices. |
+| [HdQuad_SheetRect](../functions/HdQuad_SheetRect.md) | `0x14041AC00` | Turns a battle HD draw quad's four UV pairs into the sheet rectangle its texture piece is cut from, and makes the quad's UVs relative to that piece. |
 | [HdSheetGroup_ClaimClutEntry](../functions/HdSheetGroup_ClaimClutEntry.md) | `0x14041E448` | Returns the index (0..15) of the palette entry a battle HD sheet group keeps for a draw quad's CLUT word, claiming a free one when the word is new. |
 | [HdSheetGroup_FindOrAddPiece](../functions/HdSheetGroup_FindOrAddPiece.md) | `0x1403D0EF0` | Finds a sheet piece (a 4-dword rectangle) among the 128 piece entries of an HD sheet group, or stores it in the first free entry; returns the entry index (0 when the group is full). |
 | [LayerBinds_Push](../functions/LayerBinds_Push.md) | `0x1403A83B0` | Appends a (slot, resource) pair to the binder's per-layer (mode 1) or per-target (mode 2) vectors; the pairs are replayed into a render command by LayerBinds_Replay. |

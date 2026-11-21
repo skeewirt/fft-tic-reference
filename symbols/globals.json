@@ -1008,6 +1008,15 @@
       },
       "doc": "docs/globals/g_HdSlotEntry.md"
     },
+    "g_HdWeaponSheetEntry": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x2e7feb4"
+        }
+      },
+      "doc": "docs/globals/g_HdWeaponSheetEntry.md"
+    },
     "g_HelpIdSlot": {
       "area": "items",
       "builds": {

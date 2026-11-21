@@ -2,7 +2,7 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 70, Tables: 89.
+Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 72, Tables: 89.
 
 ## Functions (386)
 
@@ -549,7 +549,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (70)
+## Observed behaviours (72)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -581,6 +581,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md) | The 106 ability formula handlers and the blocks they call | What a formula handler may assume and has to leave behind, read from the stock handlers and from Battle_ResolveAction: the frame it is called in, how it says 'no effect', which result fields go together, why it must n... |
 | [FormulaIdsWithNoHandlerBody](../behaviors/FormulaIdsWithNoHandlerBody.md) | Formula ids 17, 19, 24, 25 and 70 of the formula registry | Five formula ids have no formula of their own: their registry rows point at an empty function, so an action with one of them keeps the reset result (a hit with no amount and no status) and only the post-processing runs. |
 | [FormulaPostHooksAreKeyedByFormulaId](../behaviors/FormulaPostHooksAreKeyedByFormulaId.md) | engine | After a formula handler runs, sub_14030A11C looks the formula byte up in a 106-row hook table (PostBattleCalc) and runs the row's callback, if any: twelve formulas have an Undead rule there. |
+| [HeldWeaponsDrawFromOneSheetPageByAByteRow](../behaviors/HeldWeaponsDrawFromOneSheetPageByAByteRow.md) | engine (battle sprites, the weapon a unit holds) | The weapon a unit holds is drawn from one sheet: g2d entry 161, 512 x 512 pixels at 4 bits a pixel in the HD renderer (the classic sheet's 256 x 256 drawn twice the size), in HD sheet group 2. |
 | [HitLabelsAndThePanelEffectLineAreSeparateLists](../behaviors/HitLabelsAndThePanelEffectLineAreSeparateLists.md) | engine | The status label over a unit hit by an action and the effect line of the unit status panel are two different lists. |
 | [KoLeavesSomeStatusesOnTheUnit](../behaviors/KoLeavesSomeStatusesOnTheUnit.md) | engine | KO does not end every status: its property row (status 2) cancels the action states 4..7, Confusion, Vampire, Float, Invisibility, Berserk, Critical and every status 23..39, and leaves Undead, Stone, Traitor, Blindnes... |
 | [MapBackgroundColourPairOverride](../behaviors/MapBackgroundColourPairOverride.md) | engine (map block light command 50, Map variation element +0x38..+0x42) | A variation element can replace the two background colours that the map block's light command sets; the pair is then written into the colours of four vertices as a two-colour gradient. |
@@ -623,6 +624,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [TwoDeploymentAreasShareOneCapacity](../behaviors/TwoDeploymentAreasShareOneCapacity.md) | engine (battle deployment, two squads) | A battle with two deployment areas adds the two areas' counts into one capacity, which the commence check still holds to 1..5; stock scenario rows whose two counts add up to 6 or 7 exist but cannot pass that check. |
 | [UnitThatBlocksItsAlliesInMoveRanges](../behaviors/UnitThatBlocksItsAlliesInMoveRanges.md) | engine (job table row +25 bit 7) | A job whose table row has bit 7 of byte +25 set makes its units block the tiles they stand on for their own side's movement, unless the moving unit has the bit too. |
 | [UsableAbilityListLearnedBitGroup](../behaviors/UsableAbilityListLearnedBitGroup.md) | engine | The usable-ability list reads a unit's learned bits per job group. |
+| [WeaponPoseFollowsTheEquipCategory](../behaviors/WeaponPoseFollowsTheEquipCategory.md) | engine (battle sprites, weapon attack motion) | ItemSprite_LoadPalettes stores a weapon's animation type at object +338 from its equipment category (item record byte +5): category 35 becomes 3, any other category of 32 or more becomes 21, and a category below 32 is... |
 
 ## Tables (89)
 
