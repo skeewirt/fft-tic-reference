@@ -18,6 +18,7 @@ An nxd table can take a new file while the game runs: its load callback NxdTable
 - V: NxdTable_BindRows frees and reallocates the entry array only when the new row count is larger, otherwise rewrites the entries in place; a table without the contiguous-keys flag has its lookup arrays freed and built again on use.
 - V (seen live 2026-11-14): an item name table bound again at the title screen showed the new name in the Outfitter Buy list and the main menu Inventory list on the next screen (item names are read from the bound table when a list is drawn, not cached at start), also after four rebinds in one session; no crash.
 - V (seen live): the weapon power the Outfitter's detail panel shows is read from the weapon record (through the weapon record lookup, 0x1402B8C74) when the panel is drawn: a changed record at the title screen showed on the next visit.
+- V (IDA, 2026-11-21): the weapon record lookup (0x1402B8C74) is the only code that reads the weapon record table (0x14080F690, 128 x 8 bytes): one rip-relative lea at 0x1402B8CBC; no other instruction or data reference reaches the table, image-base relative or not.
 - I: ResourceManager_ReloadLocalized walks the resource hash for handles with flag 8, so a language change reloads the nxd tables through this path; the code says yes, it was not traced live.
 
 ## Open questions
