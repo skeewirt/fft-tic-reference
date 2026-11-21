@@ -20,7 +20,7 @@ Returns the index (0..15) of the palette entry a battle HD sheet group keeps for
 
 ## Referenced by
 
-- Observed behaviours: [HdLayerUnitSheetsAreTenFixedGroups](../behaviors/HdLayerUnitSheetsAreTenFixedGroups.md)
+- Observed behaviours: [AnEleventhLookDrawsInHdWithItsOwnSheetGroup](../behaviors/AnEleventhLookDrawsInHdWithItsOwnSheetGroup.md), [HdLayerUnitSheetsAreTenFixedGroups](../behaviors/HdLayerUnitSheetsAreTenFixedGroups.md)
 
 ## Notes
 

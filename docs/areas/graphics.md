@@ -2,7 +2,7 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 52, Tables: 48.
+Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 53, Tables: 48.
 
 ## Functions (173)
 
@@ -321,10 +321,11 @@ Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (52)
+## Observed behaviours (53)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [AnEleventhLookDrawsInHdWithItsOwnSheetGroup](../behaviors/AnEleventhLookDrawsInHdWithItsOwnSheetGroup.md) | engine (battle unit looks, Enhanced HD) | Look pool 10 draws correctly in HD as soon as it has a sheet group of its own: the scrambled image of looks past the 10th is only the shared sheet word, and nothing else in the HD path stands in the way. |
 | [BattleFaceIsThePoolSpriteByte](../behaviors/BattleFaceIsThePoolSpriteByte.md) | engine (battle faces) | A battle unit's face is not a portrait code: the look pool's sprite byte is stored as the pool's face value and ten readers use it as the face number behind the 0xCD cap; a separate code exists only for one special unit. |
 | [BattleMotionNumbers](../behaviors/BattleMotionNumbers.md) | engine (battle unit animation choice) | A battle action names its animation by a motion number from two tables (one per ability, one per weapon type); the unit stores motion + 1, and the motion number is the pair index of the classic animation file (front v... |
 | [BattlePaletteSourceByLookRange](../behaviors/BattlePaletteSourceByLookRange.md) | engine (battle palette row) | Where a battle unit's palette row comes from depends on its sprite number: the generic looks (96..133) and 159..162 take the unit's byte +4, every other look its CharShape row's colour override or the queue palette. |
