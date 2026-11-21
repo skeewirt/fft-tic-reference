@@ -28,7 +28,7 @@ Before planning, goes over every unit and every action in the acting unit's acti
 ## Referenced by
 
 - Called by: [Ai_UnitTurnStep](Ai_UnitTurnStep.md)
-- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md)
+- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md)
 - Reads tables: [AbilityKind2_ThrowCategory](../tables/AbilityKind2_ThrowCategory.md)
 
 ## Notes

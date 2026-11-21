@@ -53,7 +53,7 @@ commands resolves the item id and the ability that represents it.
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Called by: [Ai_SurveyTargets](Ai_SurveyTargets.md), [sub_1403167E4](sub_1403167E4.md), [sub_14038BC00](sub_14038BC00.md), [sub_14038C8F8](sub_14038C8F8.md), [sub_14038D1EC](sub_14038D1EC.md), [sub_14038D65C](sub_14038D65C.md)
-- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md), [BattleItemsAreUsedThroughItemAbilities](../behaviors/BattleItemsAreUsedThroughItemAbilities.md), [ItemCommandRelation](../behaviors/ItemCommandRelation.md)
+- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md), [BattleItemsAreUsedThroughItemAbilities](../behaviors/BattleItemsAreUsedThroughItemAbilities.md), [ItemCommandRelation](../behaviors/ItemCommandRelation.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md)
 - Reads tables: [AbilityAux](../tables/AbilityAux.md), [AbilityKind3_JumpReach](../tables/AbilityKind3_JumpReach.md), [AbilityKind4_Charge](../tables/AbilityKind4_Charge.md), [InflictRecords](../tables/InflictRecords.md)
 
 ## Notes

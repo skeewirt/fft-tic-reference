@@ -38,7 +38,7 @@ steps), scores the outcome and restores the engine state.
 ## Referenced by
 
 - Called by: [Battle_AITurnPrepare](Battle_AITurnPrepare.md)
-- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md)
+- Observed behaviours: [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md)
 
 ## Notes
 
