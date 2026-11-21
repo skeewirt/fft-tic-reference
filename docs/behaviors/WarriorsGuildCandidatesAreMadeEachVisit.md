@@ -22,7 +22,7 @@ The Warriors' Guild's recruit list is 15 candidate records of 564 bytes at 0x140
 
 ## Notes
 
-Names are ours: Guild_MakeCandidates = sub_1402EFBE0, Guild_RemoveHired = sub_1402EFD00, PartyUnit_BuildFromRecord = sub_14028B7D0.
+Seen live 2026-11-21: a candidate record changed after the list was made (name, job, Brave, Faith) and its display record rebuilt showed the new values in the list and on the candidate page, and the hire copied them into the save record the display record named. Names are ours: Guild_MakeCandidates = sub_1402EFBE0, Guild_RemoveHired = sub_1402EFD00, PartyUnit_BuildFromRecord = sub_14028B7D0.
 
 ## Open questions
 
