@@ -28,7 +28,7 @@ Fetches the 16 pre-placed unit entries of one scripted battle from OverrideEntry
 
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
 - Called by: [Battle_BuildEntryUnits](Battle_BuildEntryUnits.md)
-- Observed behaviours: [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md), [SpawnedUnitsCarryAOneByteJob](../behaviors/SpawnedUnitsCarryAOneByteJob.md)
+- Observed behaviours: [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md), [NewGameCadetsJoinFromEntryKey392](../behaviors/NewGameCadetsJoinFromEntryKey392.md), [SpawnedUnitsCarryAOneByteJob](../behaviors/SpawnedUnitsCarryAOneByteJob.md)
 - Reads tables: [NxdDataOverrideEntryData](../tables/NxdDataOverrideEntryData.md)
 
 ## Notes

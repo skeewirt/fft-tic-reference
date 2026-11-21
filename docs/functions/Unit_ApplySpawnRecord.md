@@ -33,6 +33,7 @@ Applies a 40-byte spawn entry to a unit work record before the job and stat buil
 ## Referenced by
 
 - Called by: [Unit_BuildFromRecord](Unit_BuildFromRecord.md)
+- Observed behaviours: [NewGameCadetsJoinFromEntryKey392](../behaviors/NewGameCadetsJoinFromEntryKey392.md)
 
 ## Notes
 

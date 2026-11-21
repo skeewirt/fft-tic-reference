@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-261 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+262 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -158,6 +158,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord](MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord.md) | engine (audio command queue, kind 1) | Every stock producer of a kind 1 (play music) entry of the audio command queue passes either a small constant or the 16-bit command word of the command state; no stock parameter has a bit above 0x2FF set, so bits 12 a... |
 | [MusicTrackFilesAreOpenedByNameThroughTheFileManager](MusicTrackFilesAreOpenedByNameThroughTheFileManager.md) | engine (music) | A music change queued on the audio command queue ends in EventMusic_LoadTrack, which builds the file name sound/music/music_NNNNN.sab from the track number (the music id minus 1) and opens it through the game's file m... |
 | [NamedCharactersKeepTheirOwnLookWhateverTheirJob](NamedCharactersKeepTheirOwnLookWhateverTheirJob.md) | engine (unit look by character byte) | A named character (character byte +0 of the save, party or battle record below 0x80, e.g. |
+| [NewGameCadetsJoinFromEntryKey392](NewGameCadetsJoinFromEntryKey392.md) | engine (New Game party, chapter 1 opening) | The six level-1 units of a New Game party besides Ramza are not made by the party reset: they are entries 2..7 of entry key 392 (the unit list of events 7 and 8, map 24), each with bit 0x10 of entry +1, and the event ... |
 | [NewUnitsGetStartingJpInEveryJob](NewUnitsGetStartingJpInEveryJob.md) | engine (starting JP of a new unit) | A new unit (a spawn: battle entries, the New Game party, recruits built by Unit_BuildFromRecord) gets starting JP in every job by the game's own rule for stock jobs (Unit_InitJobJp: the curve's value at the level plus... |
 | [NxdTableRebinding](NxdTableRebinding.md) | loaded nxd tables and the localized reload | An nxd table can take a new file while the game runs: its load callback NxdTable_BindRows may run again on a bound table, and the game's own language switch reloads every localized handle through it. |
 | [OnlyTenDistinctLooksDrawCorrectly](OnlyTenDistinctLooksDrawCorrectly.md) | engine (battle unit looks, Enhanced) | A battle can load up to 15 distinct looks (the look pool), but only the units whose look takes pool records 0..9 draw correctly; looks in records 10..14 draw as scrambled pieces, and a 16th distinct look crashes the g... |

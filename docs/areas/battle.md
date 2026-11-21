@@ -2,7 +2,7 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 68, Tables: 89.
+Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 69, Tables: 89.
 
 ## Functions (386)
 
@@ -549,7 +549,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (68)
+## Observed behaviours (69)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -595,6 +595,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapVariationChosenBySceneVariables](../behaviors/MapVariationChosenBySceneVariables.md) | engine (Map row variation elements, scene variables 35, 36, 39 and 48) | Which variation element of a map's Map row is drawn is decided once per map load from four scene variables in a story battle, and from the weather and night alone in a random battle. |
 | [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md) | engine (Move-Find state) | Which hidden tiles of a map have been taken is kept as four bits per map, two maps per byte, in a 128-byte array indexed by scene variable 51 (the current map id): map ids 0..255 fit, and the bytes after the array bel... |
 | [MoveRangeRules](../behaviors/MoveRangeRules.md) | battle: the tiles lit when the Move command opens (and the same builder for the AI and for another unit's range) | Which tiles a unit can stop on: a budget of Move + 1 spreads from its tile by steps and straight jumps under height, headroom, terrain-cost and occupancy rules; a final pass keeps the tiles it may stop on. |
+| [NewGameCadetsJoinFromEntryKey392](../behaviors/NewGameCadetsJoinFromEntryKey392.md) | engine (New Game party, chapter 1 opening) | The six level-1 units of a New Game party besides Ramza are not made by the party reset: they are entries 2..7 of entry key 392 (the unit list of events 7 and 8, map 24), each with bit 0x10 of entry +1, and the event ... |
 | [PartyResultsAreFoundBySaveIndexInAllRecords](../behaviors/PartyResultsAreFoundBySaveIndexInAllRecords.md) | engine (after a battle) | After a battle the game finds each roster unit's battle record by its save index (+2) among all 21 records, not only in the placed range 16..20. |
 | [PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId](../behaviors/PlaceNameOfABattleComesFromTheMapRowOfTheLoadedId.md) | engine (battle title card, pause menu, save list) | The title card, the objective header of the pause menu and the place label of the save list all show the place name belonging to the loaded map id's Map row, and a mid-battle autosave resumes the battle on the saved id. |
 | [PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow](../behaviors/PlaceTextOfAMapIdComesFromTheMapRowAndTheTownRow.md) | engine (battle HUD, save list, title card) | The battle's place text reads the place-name id at row +8 of the Map row of variable 51; the save list reads row +12 (else +8) of the Map row of the low byte of the map id for a battle save, and the Town row of the lo... |

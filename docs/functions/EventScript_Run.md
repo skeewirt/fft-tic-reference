@@ -62,7 +62,7 @@ The event interpreter: it walks the loaded event script one instruction at a tim
 
 - Called by: [EventScript_TaskMain](EventScript_TaskMain.md)
 - Called by event opcodes: [0x1F](../opcodes/README.md), [0x43](../opcodes/README.md)
-- Observed behaviours: [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md), [EntryRowMarksEventSkipOnce](../behaviors/EntryRowMarksEventSkipOnce.md), [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [PseudoEffectWordIsASixteenBitEventOperand](../behaviors/PseudoEffectWordIsASixteenBitEventOperand.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
+- Observed behaviours: [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md), [EntryRowMarksEventSkipOnce](../behaviors/EntryRowMarksEventSkipOnce.md), [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [NewGameCadetsJoinFromEntryKey392](../behaviors/NewGameCadetsJoinFromEntryKey392.md), [PseudoEffectWordIsASixteenBitEventOperand](../behaviors/PseudoEffectWordIsASixteenBitEventOperand.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
 - Reads tables: [NxdDataEventId](../tables/NxdDataEventId.md), [NxdDataOverrideEntryData](../tables/NxdDataOverrideEntryData.md)
 
 ## Notes
