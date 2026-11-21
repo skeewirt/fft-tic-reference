@@ -25,7 +25,7 @@ Resets a texture wrapper: frees pending source buffer and loader object, release
 
 ## Referenced by
 
-- Called by: [HdLayer_BuildTextures](HdLayer_BuildTextures.md), [TextureObj_Commit](TextureObj_Commit.md)
+- Called by: [HdLayer_BuildTextures](HdLayer_BuildTextures.md), [HdSheetGroup_ReleasePiece](HdSheetGroup_ReleasePiece.md), [TextureObj_Commit](TextureObj_Commit.md)
 
 ## Notes
 

@@ -15810,6 +15810,23 @@
       },
       "doc": "docs/functions/HdLayer_ResolveQuadTexture.md"
     },
+    "HdQuad_CopyFromDrawQuad": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:4090c69756f775b8b4f68f85b0cd8a114014d52c498d543d853ecbb14c80cfd2",
+            "insn_count": 48,
+            "mnemonics": "sha256:2af99214a42cc463e52700b6f776dd0f36254c3cb141c1b3826c9b32367da0f7",
+            "size": 1204
+          },
+          "rva": "0x25db94",
+          "size": 1204
+        }
+      },
+      "doc": "docs/functions/HdQuad_CopyFromDrawQuad.md"
+    },
     "HdQuad_SheetRect": {
       "area": "graphics",
       "builds": {
@@ -15844,6 +15861,23 @@
       },
       "doc": "docs/functions/HdSheetGroup_ClaimClutEntry.md"
     },
+    "HdSheetGroup_Construct": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:4f058c2db88cfb1bb1781ff66f82e25bdda2b758e3eb498e1d3aa3fb2916dd37",
+            "insn_count": 48,
+            "mnemonics": "sha256:9cabe6955016d15fa7bd289a3c42f04fb279281e4023f1f45a56a8a179de554c",
+            "size": 194
+          },
+          "rva": "0x3d0d4c",
+          "size": 194
+        }
+      },
+      "doc": "docs/functions/HdSheetGroup_Construct.md"
+    },
     "HdSheetGroup_FindOrAddPiece": {
       "area": "graphics",
       "builds": {
@@ -15860,6 +15894,91 @@
         }
       },
       "doc": "docs/functions/HdSheetGroup_FindOrAddPiece.md"
+    },
+    "HdSheetGroup_ReleasePiece": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:6ac6b1b9de766111fa1ca165d1124ac5eeb506a576d163842cbdda7a696e39ed",
+            "insn_count": 20,
+            "mnemonics": "sha256:d7aa0821c8b8cb091224a4d67d79c415ea5ee142433adba82feea182aaeb7bcf",
+            "size": 70
+          },
+          "rva": "0x3d11dc",
+          "size": 70
+        }
+      },
+      "doc": "docs/functions/HdSheetGroup_ReleasePiece.md"
+    },
+    "HdSheetGroup_Reset": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:c05b2de0b6e5c3a2efa28a7701ebc96e58fad796ae5fafc3dacd34fe4ac35347",
+            "insn_count": 41,
+            "mnemonics": "sha256:3c170caa8e5cec368091d2727fc959053e0a72b2c224f5e6774c687a8c452b89",
+            "size": 157
+          },
+          "rva": "0x3d0e50",
+          "size": 157
+        }
+      },
+      "doc": "docs/functions/HdSheetGroup_Reset.md"
+    },
+    "HdSheetGroups_ClearUsedMarks": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 29,
+            "mnemonics": "sha256:fe1f8410952be39052eb0b16a186ec4c8c547cbe6c5173dbf7bc04fc057928e7",
+            "size": 112
+          },
+          "rva": "0x41e3d8",
+          "size": 112
+        }
+      },
+      "doc": "docs/functions/HdSheetGroups_ClearUsedMarks.md"
+    },
+    "HdSheetGroups_ConstructAll": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:708710f0fbe878bab7585a2d245027a926b2eccdb9f937439f373880f491e1e3",
+            "insn_count": 15,
+            "mnemonics": "sha256:9d0d68d9eeae3a5ce1734dcb4eb15ef2dc04b511344a9d7cb96d2118174e1253",
+            "size": 65
+          },
+          "rva": "0xf094",
+          "size": 65
+        }
+      },
+      "doc": "docs/functions/HdSheetGroups_ConstructAll.md"
+    },
+    "HdSheetGroups_DestroyAll": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:462669dc5d9b1b8068a093f46db12c228d3c8d19232344379e5902cefb086b58",
+            "insn_count": 14,
+            "mnemonics": "sha256:ce0114deb29a0cebe9396e33168a4d7e84996c23a3e68c43710ce92b099a14bc",
+            "size": 54
+          },
+          "rva": "0x60fdb8",
+          "size": 54
+        }
+      },
+      "doc": "docs/functions/HdSheetGroups_DestroyAll.md"
     },
     "IconBase_FormatPath": {
       "area": "ui-framework",

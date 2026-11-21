@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2278 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2285 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -936,9 +936,16 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [HdLayer_BindSheetTexture](HdLayer_BindSheetTexture.md) | `0x14041D670` | [Graphics](../areas/graphics.md) | Binds a sprite sheet texture id of the battle HD layer to the g2d entry that the sheet slot table holds. |
 | [HdLayer_BuildTextures](HdLayer_BuildTextures.md) | `0x140415D30` | [Graphics](../areas/graphics.md) | The battle HD layer's texture pass: for every draw record of the frame it finds or builds the texture of its sheet piece and palette, and writes the texture id into the record. |
 | [HdLayer_ResolveQuadTexture](HdLayer_ResolveQuadTexture.md) | `0x14041AE44` | [Graphics](../areas/graphics.md) | For a battle HD draw quad, turns its draw id (quad +64) into the HD layer's texture slot and finds or adds the quad's sheet piece in the matching sheet group; then writes the quad's vertices. |
+| [HdQuad_CopyFromDrawQuad](HdQuad_CopyFromDrawQuad.md) | `0x14025DB94` | [Graphics](../areas/graphics.md) | Copies a draw quad's colour bytes and, with enhanced graphics, its HD draw id and palette words into the quad record the battle HD layer reads. |
 | [HdQuad_SheetRect](HdQuad_SheetRect.md) | `0x14041AC00` | [Graphics](../areas/graphics.md) | Turns a battle HD draw quad's four UV pairs into the sheet rectangle its texture piece is cut from, and makes the quad's UVs relative to that piece. |
 | [HdSheetGroup_ClaimClutEntry](HdSheetGroup_ClaimClutEntry.md) | `0x14041E448` | [Graphics](../areas/graphics.md) | Returns the index (0..15) of the palette entry a battle HD sheet group keeps for a draw quad's CLUT word, claiming a free one when the word is new. |
+| [HdSheetGroup_Construct](HdSheetGroup_Construct.md) | `0x1403D0D4C` | [Graphics](../areas/graphics.md) | Builds one battle HD sheet group: its 128 texture objects, an empty piece list, 16 free palette entries and no sheet. |
 | [HdSheetGroup_FindOrAddPiece](HdSheetGroup_FindOrAddPiece.md) | `0x1403D0EF0` | [Graphics](../areas/graphics.md) | Finds a sheet piece (a 4-dword rectangle) among the 128 piece entries of an HD sheet group, or stores it in the first free entry; returns the entry index (0 when the group is full). |
+| [HdSheetGroup_ReleasePiece](HdSheetGroup_ReleasePiece.md) | `0x1403D11DC` | [Graphics](../areas/graphics.md) | Forgets the texture of one piece of a battle HD sheet group; with free_texture also resets the texture object and lowers the group's live count. |
+| [HdSheetGroup_Reset](HdSheetGroup_Reset.md) | `0x1403D0E50` | [Graphics](../areas/graphics.md) | Empties one battle HD sheet group: releases its 128 textures, frees its sheet buffer, and frees its pieces and palette entries. |
+| [HdSheetGroups_ClearUsedMarks](HdSheetGroups_ClearUsedMarks.md) | `0x14041E3D8` | [Graphics](../areas/graphics.md) | Called at the end of every HD texture pass: in each of the 20 sheet groups, frees the pieces and palette entries nothing used this frame and clears the used marks for the next one. |
+| [HdSheetGroups_ConstructAll](HdSheetGroups_ConstructAll.md) | `0x14000F094` | [Graphics](../areas/graphics.md) | A static initializer: builds the 20 battle HD sheet groups (HdSheetGroup_Construct on each) and registers HdSheetGroups_DestroyAll to run at exit. |
+| [HdSheetGroups_DestroyAll](HdSheetGroups_DestroyAll.md) | `0x14060FDB8` | [Graphics](../areas/graphics.md) | The exit-time destructor of the 20 battle HD sheet groups, last to first. |
 | [Icon_FormatPath](Icon_FormatPath.md) | `0x1400FC9A8` | [Job data](../areas/job-data.md) | Formats 'ui/ffto/icon/<path>' (or the same path with a texture-parts URI prefix) from Icon row iconKey (table 118, cache qword_143CDA328). |
 | [IconBase_FormatPath](IconBase_FormatPath.md) | `0x1400FC1C0` | [UI framework](../areas/ui-framework.md) | Builds the path of a numbered 'base' picture. |
 | [IconImage_AcquireById](IconImage_AcquireById.md) | `0x1403DB6B8` | [UI framework](../areas/ui-framework.md) | Loads the image of an icon id. |

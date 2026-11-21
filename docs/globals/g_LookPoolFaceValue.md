@@ -14,7 +14,7 @@ Battle face value per look pool record 0..9: sub_14026E838 stores the scene unit
 ## Referenced by
 
 - Described by tables: [LookPoolFaceValue](../tables/LookPoolFaceValue.md)
-- Observed behaviours: [BattleFaceIsThePoolSpriteByte](../behaviors/BattleFaceIsThePoolSpriteByte.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [LooksPastTenShowThePoolNumbersFace](../behaviors/LooksPastTenShowThePoolNumbersFace.md), [OnlyTenDistinctLooksDrawCorrectly](../behaviors/OnlyTenDistinctLooksDrawCorrectly.md)
+- Observed behaviours: [BattleFaceIsThePoolSpriteByte](../behaviors/BattleFaceIsThePoolSpriteByte.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [LooksPastTenShowThePoolNumbersFace](../behaviors/LooksPastTenShowThePoolNumbersFace.md), [OnlyTenDistinctLooksDrawCorrectly](../behaviors/OnlyTenDistinctLooksDrawCorrectly.md), [WordSeventeensArithmeticReachesNewSheetGroups](../behaviors/WordSeventeensArithmeticReachesNewSheetGroups.md)
 - Read by: [TurnPanel_SetTag](../functions/TurnPanel_SetTag.md), [TurnPanel_SetUnitPanel](../functions/TurnPanel_SetUnitPanel.md), [sub_1401F3858](../functions/sub_1401F3858.md), [sub_140214134](../functions/sub_140214134.md), [sub_140221798](../functions/sub_140221798.md), [sub_1402DF374](../functions/sub_1402DF374.md), [sub_140338A28](../functions/sub_140338A28.md), [sub_1403980AC](../functions/sub_1403980AC.md)
 - Written by: [sub_140210AF0](../functions/sub_140210AF0.md), [sub_14026E838](../functions/sub_14026E838.md)
 

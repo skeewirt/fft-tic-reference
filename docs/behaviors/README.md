@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-266 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+267 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -268,6 +268,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [WarriorsGuildCandidatesAreMadeEachVisit](WarriorsGuildCandidatesAreMadeEachVisit.md) | engine (Warriors' Guild recruit list) | The Warriors' Guild's recruit list is 15 candidate records of 564 bytes at 0x1408E6CB0 (the first 564 bytes of a save record's layout), made by Guild_MakeCandidates each time the guild is opened and never saved; hirin... |
 | [WeaponPoseFollowsTheEquipCategory](WeaponPoseFollowsTheEquipCategory.md) | engine (battle sprites, weapon attack motion) | ItemSprite_LoadPalettes stores a weapon's animation type at object +338 from its equipment category (item record byte +5): category 35 becomes 3, any other category of 32 or more becomes 21, and a category below 32 is... |
 | [WidgetRootsAreLayers](WidgetRootsAreLayers.md) | every UI widget (the Job Tree, the finger cursor, the footer guides) | Every widget's root component is drawn into its own layer record, whether or not it has an effect: the renderer's feature byte at r+606621 is 1 from the initialiser and the widget byte at +83 is 1 for all 51 widgets o... |
+| [WordSeventeensArithmeticReachesNewSheetGroups](WordSeventeensArithmeticReachesNewSheetGroups.md) | engine (battle unit looks, Enhanced HD) | Every look past the 10th draws correctly in HD, with its own portrait, once it has a sheet group of its own: the code of sheet word 17 computes slot and group from the draw id by arithmetic that continues past its sto... |
 | [WorldMapLocationsAndBattleEntry](WorldMapLocationsAndBattleEntry.md) | world map free roam, Locations list, travel to a battleground, battle deployment | How a battle is entered from the world map, and which screens and memory fields show it, as seen live. |
 | [WorldMapObjectiveLineIsTheNearestCaptionRow](WorldMapObjectiveLineIsTheNearestCaptionRow.md) | engine (world map) | The objective line of the world map is the caption of the current progress row, or of the nearest earlier row of the same first key whose sets_objective byte is set. |
 | [WorldMapRoutesAndLocationsFollowProgress](WorldMapRoutesAndLocationsFollowProgress.md) | engine (world map) | Routes are shown, hidden and greyed by the story progress row; a route grows between its two end points, forward or reversed; locations go into three lists by locations_list and are positioned by map_x / map_y. |

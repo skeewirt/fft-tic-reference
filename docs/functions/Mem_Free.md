@@ -20,7 +20,7 @@ The engine's free entry: finds the heap that owns a pointer (or uses the one giv
 
 ## Referenced by
 
-- Called by: [ResourceHandle_FreeData](ResourceHandle_FreeData.md), [Unit_InitAbilitiesFromJob](Unit_InitAbilitiesFromJob.md), [sub_140034D7C](sub_140034D7C.md), [sub_1400C30BC](sub_1400C30BC.md), [sub_1402181EC](sub_1402181EC.md)
+- Called by: [HdSheetGroup_Reset](HdSheetGroup_Reset.md), [ResourceHandle_FreeData](ResourceHandle_FreeData.md), [Unit_InitAbilitiesFromJob](Unit_InitAbilitiesFromJob.md), [sub_140034D7C](sub_140034D7C.md), [sub_1400C30BC](sub_1400C30BC.md), [sub_1402181EC](sub_1402181EC.md)
 
 ## Open questions
 

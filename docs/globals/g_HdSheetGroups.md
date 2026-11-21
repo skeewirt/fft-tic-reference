@@ -13,6 +13,7 @@ The battle HD layer's 20 sheet groups (21144 bytes each): one sheet entry and up
 ## Referenced by
 
 - Described by tables: [HdSheetGroups](../tables/HdSheetGroups.md)
+- Observed behaviours: [WordSeventeensArithmeticReachesNewSheetGroups](../behaviors/WordSeventeensArithmeticReachesNewSheetGroups.md)
 
 ## Open questions
 

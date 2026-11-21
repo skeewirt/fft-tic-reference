@@ -2,9 +2,9 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 174, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 53, Tables: 48.
+Functions: 181, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 54, Tables: 48.
 
-## Functions (174)
+## Functions (181)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -47,9 +47,16 @@ Functions: 174, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [HdLayer_BindSheetTexture](../functions/HdLayer_BindSheetTexture.md) | `0x14041D670` | Binds a sprite sheet texture id of the battle HD layer to the g2d entry that the sheet slot table holds. |
 | [HdLayer_BuildTextures](../functions/HdLayer_BuildTextures.md) | `0x140415D30` | The battle HD layer's texture pass: for every draw record of the frame it finds or builds the texture of its sheet piece and palette, and writes the texture id into the record. |
 | [HdLayer_ResolveQuadTexture](../functions/HdLayer_ResolveQuadTexture.md) | `0x14041AE44` | For a battle HD draw quad, turns its draw id (quad +64) into the HD layer's texture slot and finds or adds the quad's sheet piece in the matching sheet group; then writes the quad's vertices. |
+| [HdQuad_CopyFromDrawQuad](../functions/HdQuad_CopyFromDrawQuad.md) | `0x14025DB94` | Copies a draw quad's colour bytes and, with enhanced graphics, its HD draw id and palette words into the quad record the battle HD layer reads. |
 | [HdQuad_SheetRect](../functions/HdQuad_SheetRect.md) | `0x14041AC00` | Turns a battle HD draw quad's four UV pairs into the sheet rectangle its texture piece is cut from, and makes the quad's UVs relative to that piece. |
 | [HdSheetGroup_ClaimClutEntry](../functions/HdSheetGroup_ClaimClutEntry.md) | `0x14041E448` | Returns the index (0..15) of the palette entry a battle HD sheet group keeps for a draw quad's CLUT word, claiming a free one when the word is new. |
+| [HdSheetGroup_Construct](../functions/HdSheetGroup_Construct.md) | `0x1403D0D4C` | Builds one battle HD sheet group: its 128 texture objects, an empty piece list, 16 free palette entries and no sheet. |
 | [HdSheetGroup_FindOrAddPiece](../functions/HdSheetGroup_FindOrAddPiece.md) | `0x1403D0EF0` | Finds a sheet piece (a 4-dword rectangle) among the 128 piece entries of an HD sheet group, or stores it in the first free entry; returns the entry index (0 when the group is full). |
+| [HdSheetGroup_ReleasePiece](../functions/HdSheetGroup_ReleasePiece.md) | `0x1403D11DC` | Forgets the texture of one piece of a battle HD sheet group; with free_texture also resets the texture object and lowers the group's live count. |
+| [HdSheetGroup_Reset](../functions/HdSheetGroup_Reset.md) | `0x1403D0E50` | Empties one battle HD sheet group: releases its 128 textures, frees its sheet buffer, and frees its pieces and palette entries. |
+| [HdSheetGroups_ClearUsedMarks](../functions/HdSheetGroups_ClearUsedMarks.md) | `0x14041E3D8` | Called at the end of every HD texture pass: in each of the 20 sheet groups, frees the pieces and palette entries nothing used this frame and clears the used marks for the next one. |
+| [HdSheetGroups_ConstructAll](../functions/HdSheetGroups_ConstructAll.md) | `0x14000F094` | A static initializer: builds the 20 battle HD sheet groups (HdSheetGroup_Construct on each) and registers HdSheetGroups_DestroyAll to run at exit. |
+| [HdSheetGroups_DestroyAll](../functions/HdSheetGroups_DestroyAll.md) | `0x14060FDB8` | The exit-time destructor of the 20 battle HD sheet groups, last to first. |
 | [LayerBinds_Push](../functions/LayerBinds_Push.md) | `0x1403A83B0` | Appends a (slot, resource) pair to the binder's per-layer (mode 1) or per-target (mode 2) vectors; the pairs are replayed into a render command by LayerBinds_Replay. |
 | [LayerBinds_RecordAllLayers](../functions/LayerBinds_RecordAllLayers.md) | `0x1403A82A8` | Walks every live render layer and records the per-layer shader-resource binds for those flagged as recordable. |
 | [LayerBinds_RecordLayer](../functions/LayerBinds_RecordLayer.md) | `0x1403A8354` | Records two bind entries for one layer: the per-group constant buffer and, if the layer has a render target, that target's buffer. |
@@ -322,7 +329,7 @@ Functions: 174, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (53)
+## Observed behaviours (54)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -379,6 +386,7 @@ Functions: 174, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [UnitMovementAnimationTables](../behaviors/UnitMovementAnimationTables.md) | engine (unit sprite animation) | Eight data tables, one per sprite class, hold the unit's movement animations only (standing, walking, floating, turning, jumping, a few single-frame poses): a row per step, keyed by animation id and step number; attac... |
 | [UnormStoreRoundsHalfDown](../behaviors/UnormStoreRoundsHalfDown.md) | GPU (the test machine's GPU and driver) | When a shader stores a float into an 8-bit UNORM target, an exact half rounds down: 16.5 stores 16, 9.5 stores 9. |
 | [VertexColourBytesTruncated](../behaviors/VertexColourBytesTruncated.md) | engine (UI node colours) | A UI node's vertex colour reaches the shader as bytes: each channel is the product of the node colour and its opacity, truncated to an integer. |
+| [WordSeventeensArithmeticReachesNewSheetGroups](../behaviors/WordSeventeensArithmeticReachesNewSheetGroups.md) | engine (battle unit looks, Enhanced HD) | Every look past the 10th draws correctly in HD, with its own portrait, once it has a sheet group of its own: the code of sheet word 17 computes slot and group from the draw id by arithmetic that continues past its sto... |
 
 ## Tables (48)
 
