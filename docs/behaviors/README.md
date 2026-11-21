@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-259 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+260 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -134,6 +134,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [LookPoolOfFifteenIsWiredIntoFixedSlots](LookPoolOfFifteenIsWiredIntoFixedSlots.md) | engine (battle look pool size) | The look pool's 15 records are not a constant that a same-length change can raise: the record block is followed at once by the scene-unit slots, each pool index owns fixed GPU upload positions or buffers, the HD sheet... |
 | [LookSitesUseTheSaveRecordNotTheSlot](LookSitesUseTheSaveRecordNotTheSlot.md) | engine (portraits and faces) | The six portrait readers compute the look from the unit's marker, job byte and sex each time through six copies of one 211-word table; none of them reads the battle slot, and they are separate from the battle sprite p... |
 | [LookSlotsAlreadyInTheGame](LookSlotsAlreadyInTheGame.md) | engine (battle sprite loading) | The battle loader already assigns small per-battle slots to looks: a 16-entry queue, 15 look pool records shared by equal sprite numbers, 16 scene-unit records and 10 HD sheet entries. |
+| [LooksPastTenShowThePoolNumbersFace](LooksPastTenShowThePoolNumbersFace.md) | engine (battle portraits) | A battle unit whose look took pool record 10 or higher shows the portrait of the sprite whose id equals its pool number, not its own: the face reads keep the pool number when it is 10 or more and pass it on as the fac... |
 | [LookSumSeesTheBaseJob](LookSumSeesTheBaseJob.md) | engine (portrait look index) | Five functions compute a save unit's portrait look index from its job byte (2 * job - 52, + 1 for marker 0x81), each against its own copy of the portrait code words. |
 | [MapBackgroundColourPairOverride](MapBackgroundColourPairOverride.md) | engine (map block light command 50, Map variation element +0x38..+0x42) | A variation element can replace the two background colours that the map block's light command sets; the pair is then written into the colours of four vertices as a two-colour gradient. |
 | [MapDrawListRowsAreSearchedLinearlyToABoundOfFifty](MapDrawListRowsAreSearchedLinearlyToABoundOfFifty.md) | engine (battle map draw lists) | MapDrawLists_Load clears two 513-byte bitsets, then searches the 50 rows of the draw-list table for the row whose 16-bit map id equals the loaded map and sets, for each 0xFFFF-terminated list the row points at, the bi... |

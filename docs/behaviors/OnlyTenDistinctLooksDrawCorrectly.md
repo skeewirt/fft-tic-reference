@@ -26,4 +26,4 @@ A battle can load up to 15 distinct looks (the look pool), but only the units wh
 
 ## Open questions
 
-? what an overwritten dword_1437A5A08 or face-code entry 0..2 does on screen; ? which default face each of the 10 reads keeps for pools 10..14 (not seen live).
+? what an overwritten dword_1437A5A08 or face-code entry 0..2 does on screen.

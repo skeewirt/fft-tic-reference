@@ -17,8 +17,12 @@ The low-resolution (classic) image of a look goes to one of three kinds of place
 - V: g_PoolFrameBuffers has 8 pointers (0x1411A3788; dword_1411A37C8 follows); entry 1 is the 4 KB block area (0x1437B5F4C, itself buffer 1's place), entries 2..7 pools 9..14; buffer 8 would start at 0x1437EDF4C, where event script state lives (EventScript_SkipTick, Battle_SaveCapture and others).
 - V: sub_140260CF0 gives a quad of pools 9..14 the buffer number pool - 7 through an explicit list of the six pools (0x140260E5C), and writes it as (n | 0xFFF8) << 12 into the quad's texture word (+0x1E, 0x140261628): only 3 bits carry the buffer, so a buffer 8 or above aliases buffers 0..7; sub_14025ED60 reads the pointer back by that number.
 - V: SceneUnit_LoadExtraPage has its own explicit list of pools 9..14 (0x14026C3CF) that sends a second sheet to the 4 KB block pool % 8; with pools past 15 the block index wraps onto pool 9's (pool 17 -> 1).
-- I: so a look past 15 has no classic place: it needs a new buffer, a new pointer slot and a texture word that can name it (a hook where the quad is built and where sub_14025ED60 reads it), or the classic path left unused for those pools while HD is on.
+- V: sub_14025CDCC decodes the texture word: (word >> 12) & 7 is the buffer, and sub_14025ED60 returns g_PoolFrameBuffers[n] only for n = 1..7; 0 means the video page. So 7 buffers can be named, not 8.
+- V (seen live 2026-11-20, random battle at Mandalia Plain with 11 enemy looks, HD on): a tracepoint on the buffer return (0x14025EDBC) hit every frame for buffers 2 and 3 (pools 9 and 10), so the classic path runs with HD on.
+- V (seen live, same battle): pool 9's unit was identified on screen by pointing its HD sheet entry (g_HdSheetEntryBySlot slot 29) at pool 8's for a moment (that unit changed look); with buffers 2 and 3 filled with one colour index, that unit drew exactly as before: what the classic buffers hold does not reach the screen while HD is on.
+- V (seen live, same battle): g_GraphicsLevel written from 2.0 to 1.0 in battle made every unit vanish (no classic sprite drawn in their place); written back to 2.0 they drew again. So a live switch is not a classic mode.
+- I: so with HD on, pools past 15 need no classic buffer to be seen; what they need is that their upload (sub_14026E838, SceneUnit_LoadExtraPage) never writes past the 8 buffers and 8 blocks.
 
 ## Open questions
 
-? whether the classic quad of a unit is drawn at all while the HD layer is on (g_GraphicsLevel >= 2); ? what buffer 0 holds.
+? what the classic fetch is used for while HD is on (nothing visible found).

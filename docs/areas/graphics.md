@@ -2,7 +2,7 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 51, Tables: 48.
+Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 52, Tables: 48.
 
 ## Functions (173)
 
@@ -321,7 +321,7 @@ Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (51)
+## Observed behaviours (52)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -351,6 +351,7 @@ Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md) | engine (battle look pool size) | The look pool's 15 records are not a constant that a same-length change can raise: the record block is followed at once by the scene-unit slots, each pool index owns fixed GPU upload positions or buffers, the HD sheet... |
 | [LookSitesUseTheSaveRecordNotTheSlot](../behaviors/LookSitesUseTheSaveRecordNotTheSlot.md) | engine (portraits and faces) | The six portrait readers compute the look from the unit's marker, job byte and sex each time through six copies of one 211-word table; none of them reads the battle slot, and they are separate from the battle sprite p... |
 | [LookSlotsAlreadyInTheGame](../behaviors/LookSlotsAlreadyInTheGame.md) | engine (battle sprite loading) | The battle loader already assigns small per-battle slots to looks: a 16-entry queue, 15 look pool records shared by equal sprite numbers, 16 scene-unit records and 10 HD sheet entries. |
+| [LooksPastTenShowThePoolNumbersFace](../behaviors/LooksPastTenShowThePoolNumbersFace.md) | engine (battle portraits) | A battle unit whose look took pool record 10 or higher shows the portrait of the sprite whose id equals its pool number, not its own: the face reads keep the pool number when it is 10 or more and pass it on as the fac... |
 | [LookSumSeesTheBaseJob](../behaviors/LookSumSeesTheBaseJob.md) | engine (portrait look index) | Five functions compute a save unit's portrait look index from its job byte (2 * job - 52, + 1 for marker 0x81), each against its own copy of the portrait code words. |
 | [MidBattleJoinLoadsLooks](../behaviors/MidBattleJoinLoadsLooks.md) | engine (battle join) | A unit that joins mid-battle is queued by Battle_AddJoinedUnit and loaded by running the look loader once per frame until it returns 0; the loader's file reads are synchronous. |
 | [NamedCharactersKeepTheirOwnLookWhateverTheirJob](../behaviors/NamedCharactersKeepTheirOwnLookWhateverTheirJob.md) | engine (unit look by character byte) | A named character (character byte +0 of the save, party or battle record below 0x80, e.g. |
