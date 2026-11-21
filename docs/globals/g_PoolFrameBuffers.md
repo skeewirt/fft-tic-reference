@@ -12,7 +12,7 @@ Frame buffer pointers of the look pool records from 9 up: sub_14026E838 stores 0
 
 ## Referenced by
 
-- Observed behaviours: [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md)
+- Observed behaviours: [ClassicLookDataHasEightBufferPlaces](../behaviors/ClassicLookDataHasEightBufferPlaces.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md)
 - Written by: [sub_14026E838](../functions/sub_14026E838.md)
 
 ## Open questions

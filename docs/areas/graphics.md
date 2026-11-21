@@ -2,7 +2,7 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 50, Tables: 48.
+Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 51, Tables: 48.
 
 ## Functions (173)
 
@@ -321,7 +321,7 @@ Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (50)
+## Observed behaviours (51)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -332,6 +332,7 @@ Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [BlendTermsRoundedSeparately](../behaviors/BlendTermsRoundedSeparately.md) | GPU (the test machine's GPU and driver), UI draws into a layer target | A UI draw's blend into its 8-bit target behaves as if both terms were rounded to 8 bits before they are added: result = round(source) + round(destination * (1 - source alpha)), not round(source + destination * (1 - so... |
 | [CharShapeKeyByteSites](../behaviors/CharShapeKeyByteSites.md) | engine (CharShape key) | CharShape_ApplyClut takes its key as a byte: the callee's zero-extending byte load of the key at 0x14026C7C0, the menu caller's byte move of the look at 0x14026E806 and the battle copy loop's byte mask at 0x14026E8D0. |
 | [CharShapeRowMissingFaultsTheFormation](../behaviors/CharShapeRowMissingFaultsTheFormation.md) | engine (battle formation) | The battle formation code reads a CharShape row (NXD 174) keyed by the scene unit's sprite byte and, on one path, reads the row's byte +0x2C with no row: a sprite number without a CharShape row faults. |
+| [ClassicLookDataHasEightBufferPlaces](../behaviors/ClassicLookDataHasEightBufferPlaces.md) | engine (battle unit looks, low-resolution path) | The low-resolution (classic) image of a look goes to one of three kinds of place by its pool number, and each kind is full at 15 looks: video memory for pools 0..8, eight 32 KB buffers (2..7 used) for pools 9..14, and... |
 | [ClassicSpriteFilesByNumber](../behaviors/ClassicSpriteFilesByNumber.md) | the sprite pack, classic palettes and portraits of stock shapes | Classic sprite files are numbered entries of fftpack.bin, and the `offset` column of the classic kind tables is that file number; the game has no portrait for shapes 56 and 57. |
 | [CursorDrawnThroughLayerTarget](../behaviors/CursorDrawnThroughLayerTarget.md) | the finger cursor's glove (UI layer) | The glove reaches the screen in two 8-bit stores: it is drawn into a cleared layer target (premultiplied, rounded) and that layer is then blended onto the frame (dst = layer + dst * (1 - layer alpha), rounded again). |
 | [EffectPassesInheritDefaultSampler](../behaviors/EffectPassesInheritDefaultSampler.md) | engine | Layer effect passes read their textures through g_Sampler without setting it; because they are packed before the UI draws that set it, they always get the default word (point filter, wrap). |

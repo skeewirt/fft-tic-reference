@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-258 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+259 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -53,6 +53,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [CharShapeRowMissingFaultsTheFormation](CharShapeRowMissingFaultsTheFormation.md) | engine (battle formation) | The battle formation code reads a CharShape row (NXD 174) keyed by the scene unit's sprite byte and, on one path, reads the row's byte +0x2C with no row: a sprite number without a CharShape row faults. |
 | [CharShapeRowsANewLookNeeds](CharShapeRowsANewLookNeeds.md) | engine (sprite rows in the NXD data) | The CharShape rows (NXD table 174, keyed by look number) end at key 158 and twelve functions look a look up there. |
 | [CheckpointCopyHoldsTheLiveUnitRecords](CheckpointCopyHoldsTheLiveUnitRecords.md) | the checkpoint copy of the slot record (g_SaveCheckpointCopy) | The checkpoint writer packs the party into the work copy, copies the work copy to the checkpoint copy, and then overwrites the checkpoint copy's unit area with the live unit records. |
+| [ClassicLookDataHasEightBufferPlaces](ClassicLookDataHasEightBufferPlaces.md) | engine (battle unit looks, low-resolution path) | The low-resolution (classic) image of a look goes to one of three kinds of place by its pool number, and each kind is full at 15 looks: video memory for pools 0..8, eight 32 KB buffers (2..7 used) for pools 9..14, and... |
 | [ClassicSpriteFilesByNumber](ClassicSpriteFilesByNumber.md) | the sprite pack, classic palettes and portraits of stock shapes | Classic sprite files are numbered entries of fftpack.bin, and the `offset` column of the classic kind tables is that file number; the game has no portrait for shapes 56 and 57. |
 | [ClearMarkAppearsOnFourScreens](ClearMarkAppearsOnFourScreens.md) | engine (Zodiac Stone, Events, Chronicle period, glossary) | Four tables carry a one-byte clear_mark column; each shows a node 'Clear' that plays 'Enable' when the byte is set and 'Disable' otherwise. |
 | [CombatSetJobBytesAreOnlyCopied](CombatSetJobBytesAreOnlyCopied.md) | engine (party and save records) | The three combat-set job bytes of a unit record (party record +462, +550, +638; save record +380, +468, +556) are never read as a job by the status, equipment or combat-set screens: every access seen is a whole-record... |

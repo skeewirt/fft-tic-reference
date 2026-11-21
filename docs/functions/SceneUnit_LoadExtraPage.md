@@ -25,6 +25,10 @@ Gives a scene unit one of the two extra sprite pages for its second-sheet frames
 
 - Calls: [VramPage_CopyRect](VramPage_CopyRect.md)
 
+## Referenced by
+
+- Observed behaviours: [ClassicLookDataHasEightBufferPlaces](../behaviors/ClassicLookDataHasEightBufferPlaces.md)
+
 ## Notes
 
 Slot 16 + page is read by the battle sprite draw (sub_140260CF0, the page-4 path) as the entry of the extra page; a draw that finds it -1 sets it lazily from the drawn object's sprite byte.

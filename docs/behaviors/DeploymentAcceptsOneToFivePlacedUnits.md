@@ -27,6 +27,7 @@ A battle's deployment capacity is data (the count bytes of its one or two deploy
 - V (tested limit): that unit had the player command menu on its turns, acted (an ability and an attack that KO'd an enemy), and after the victory its roster record got EXP and JP like the units in 16..20; a saved and reloaded roster was byte-identical; a mid-battle autosave resumed with all six party records byte-identical and the unit's turns continuing.
 - V (tested limit): the numbering after commence (sub_1401F16F4) left that unit's +401 at 120, the same as record 17's (the test then set it to 124 by hand); the portrait column beside the 'Remaining' counter lists 5 units only.
 - I: the carousel's 5 visible rows (sub_1401F36A0 compares the candidate count +1828 with 5) are a list window, not a capacity.
+- V: Battle_BuildRosterTeam (the battle load's roster team, BattleLoad_StepFresh state 8) builds exactly 5 units from a list of 8-byte entries, into records 16..20 (or 0..4 in its second mode, which also clears 5..15), queues each one's look and returns a bit mask of the entries it could not place (1 << n); its count 5 is a fixed loop count.
 
 ## Open questions
 
