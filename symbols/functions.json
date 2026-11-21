@@ -15793,6 +15793,57 @@
       },
       "doc": "docs/functions/HdLayer_BuildTextures.md"
     },
+    "HdLayer_ResolveQuadTexture": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:60600eb0a7cc836561b6bf9f7aa5496d5146587358f73ee36055d850b58586d9",
+            "insn_count": 48,
+            "mnemonics": "sha256:2595a4c6e5842c11842a9a9a30d82c5fe12c823c46997778402fa470602b90b5",
+            "size": 3561
+          },
+          "rva": "0x41ae44",
+          "size": 3561
+        }
+      },
+      "doc": "docs/functions/HdLayer_ResolveQuadTexture.md"
+    },
+    "HdSheetGroup_ClaimClutEntry": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 36,
+            "mnemonics": "sha256:3c08d8578600c587e3bbbe06c9fb7bf6cb66ce1175c380f15c679a5b97f29334",
+            "size": 128
+          },
+          "rva": "0x41e448",
+          "size": 128
+        }
+      },
+      "doc": "docs/functions/HdSheetGroup_ClaimClutEntry.md"
+    },
+    "HdSheetGroup_FindOrAddPiece": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 46,
+            "mnemonics": "sha256:36ec59b6e900a687ca1c827d21476968df90b6f4771d3e375b629a4d6a0af7ce",
+            "size": 153
+          },
+          "rva": "0x3d0ef0",
+          "size": 153
+        }
+      },
+      "doc": "docs/functions/HdSheetGroup_FindOrAddPiece.md"
+    },
     "IconBase_FormatPath": {
       "area": "ui-framework",
       "builds": {

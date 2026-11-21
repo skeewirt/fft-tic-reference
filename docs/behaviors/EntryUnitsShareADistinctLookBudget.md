@@ -22,6 +22,7 @@ While the 16 entry units of a battle are placed, two budgets drop units: at most
 - V: so a story battle (one with a scenario setup record) always places its units with variable 57 = 0: at most 9 distinct sprites and 16 kept units; a random battle (no record: variable 39 is 0) uses its area's count: the 57 random-battle areas (rows 513..569) all hold 5, so at most 4 distinct sprites and 11 kept units.
 - V (seen live, random battle at Mandalia Plain, twice): variable 57 was written 5 -> 0 -> 5 by the event thread, both writes before Battle_PlaceEntryUnits ran (breakpoint at its entry: 5); at Orbonne Monastery (the first story battle) it read 0, with 11 units on the field using 9 distinct sprites.
 - V: the budgets are checked only by Battle_PlaceEntryUnits at load: the deployed party (Battle_AddJoinedUnit) and units revealed later (BattleUnit_RevealOnField) never pass through them.
+- V: the two numbers are one constant in Battle_PlaceEntryUnits: 9 loaded at 0x14027135B (minus variable 57, 0 when the variable is above 9) is the look budget, and the unit budget is that value + 7 (0x140271389); the sprite list word_143D1A170 has room for 24 sprites before the next global (dword_143D1A1A0), more than the 16 entries can add.
 - V: in Deployment_PrepareCandidates' second branch (scene variable 510 set) the area row is picked by the map id (row byte +9), variables 52..54 are written (two areas) and the row's count byte is rewritten to 4 after variable 57 takes the old count.
 
 ## Open questions

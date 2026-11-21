@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-257 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+258 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -91,6 +91,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [GuideBarLayout](GuideBarLayout.md) | the footer button guide bar | The guide bar shows one UIButtonGuide key at a time: up to 8 slots, left ones first then right ones from x 1920; a sub-row mask hides sub-rows. |
 | [GuideListsAndAutoShowRule](GuideListsAndAutoShowRule.md) | engine (tutorials and lessons) | A guide's window type, category and bit number decide where it is listed, where its seen or unlocked bit lives and when it opens by itself. |
 | [GUITextNodeStringSource](GUITextNodeStringSource.md) | where a text node's string comes from: the UI table or the code | A text node shows the string of its UI table text id while that id is not 0; with text id 0 it keeps a string set in code. |
+| [HdLayerUnitSheetsAreTenFixedGroups](HdLayerUnitSheetsAreTenFixedGroups.md) | engine (Enhanced battle HD sprites) | The battle HD layer draws unit sheets through fixed sheet groups, one per look pool record 0..9, each owning 16 of the HD layer's 379 texture slots; every group, slot range and slot table is in use or packed against o... |
 | [HdSheetAndClassicPaletteLoading](HdSheetAndClassicPaletteLoading.md) | engine (sprite sheets and palettes) | How a sprite number becomes a sheet and a palette: a g2d entry pair through the HD table and the pack's unchecked index table, and a palette from the classic file named in the classic table. |
 | [HdSheetFromSlotColoursFromRecord](HdSheetFromSlotColoursFromRecord.md) | engine (Enhanced battle sprite) | In Enhanced a pool's HD sheet comes from its sheet slot (the g2d entry) while its colours come from the pool record's palette. |
 | [HitLabelsAndThePanelEffectLineAreSeparateLists](HitLabelsAndThePanelEffectLineAreSeparateLists.md) | engine | The status label over a unit hit by an action and the effect line of the unit status panel are two different lists. |

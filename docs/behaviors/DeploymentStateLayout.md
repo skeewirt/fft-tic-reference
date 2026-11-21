@@ -19,7 +19,8 @@ The fields of the deployment screen's state object that hold the capacity, the p
 - V: +1884 a placement step written 0 by sub_1401F3EF4, 1 by Deployment_SelectTile (after storing the cursor tile at +1888..+1890), 2 by sub_1401F22D0 and 3 by sub_1401F5CEC; +1912 the roster index being placed and +1916..+1918 its tile and layer (Battle_JoinUnitAndLoad).
 - I: the steps are choosing a tile (0), a tile chosen (1), the carousel open (2) and a placement done (3).
 - I: +1832 is the first visible carousel row (the carousel shows 5 rows: +1832 + 4 is the last when there are 5 or more candidates).
+- V: the fields after the placed array: the constructor (sub_1401EE21C) sets +84..+91 as one qword, clears +92..+99 and +100, and clears 1024 bytes from +104; Deployment_ResetState clears +88..+103; +96 is a dword the deployment's first step sets to 0 and sub_1401F2C50 requires to be 0 before it runs the numbering after commence (sub_1401F16F4); +100 is a byte sub_1401EE9B4 clears. No code of the deployment screen (0x1401EA000..0x1401F8000) reads +88..+95 through the state, so at most 7 placed indices fit before the live dword +96.
 
 ## Open questions
 
-? +88..+103 and the role of +1888 / +1889 (a remembered tile).
+? the meaning of +96, +100 and the 1024 bytes at +104; ? the role of +1888 / +1889 (a remembered tile).

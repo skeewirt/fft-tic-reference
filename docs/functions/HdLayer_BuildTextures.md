@@ -23,6 +23,7 @@ The battle HD layer's texture pass: for every draw record of the frame it finds 
 - V: groups 15 to 17 hash and convert 256 colours and build with 8-bit pixels (pitch 512 or 256 by a per-group flag); every other group 16 colours and 4-bit pixels with pitch 512.
 - V: at its start it clears the per-frame tables, releases the single textures of the slots 3..7 no record names, and ages the group textures: a texture used in the last pass gets the age 60, an unused one counts down and is freed at 0, or at once while its group holds more than 64 textures (sub_1403D11DC).
 - V: records with a slot below 2048 (+44 up to 0x116) take another path through sub_14041DFB4, sub_14041EA74 and the character renderer's tables, not read here.
+- V (2026-11-20): the slot tables hold exactly 379 slots (0..378; the release loop stops at 379, a record past slot 0x17A takes the other path) and lie back to back: dword_143CC96C0[379] is followed at once by word_143CC9CB0, the texture objects are 379 x 112 bytes from 0x142E9BDA0 with other data right after, and the 20 groups end where qword_142F0D7C0 begins (the ageing loop's end address).
 
 ## State touched
 
@@ -30,11 +31,11 @@ The battle HD layer's texture pass: for every draw record of the frame it finds 
 
 ## Referenced by
 
-- Observed behaviours: [HdSheetFromSlotColoursFromRecord](../behaviors/HdSheetFromSlotColoursFromRecord.md), [SixteenColourLimitIsTwoCpuBuilders](../behaviors/SixteenColourLimitIsTwoCpuBuilders.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
+- Observed behaviours: [HdLayerUnitSheetsAreTenFixedGroups](../behaviors/HdLayerUnitSheetsAreTenFixedGroups.md), [HdSheetFromSlotColoursFromRecord](../behaviors/HdSheetFromSlotColoursFromRecord.md), [SixteenColourLimitIsTwoCpuBuilders](../behaviors/SixteenColourLimitIsTwoCpuBuilders.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
 
 ## Notes
 
-The name is ours (IDB: sub_140415D30). Read: the slot and group paths of the texture pass (the parts that turn sheet pixels and palette colours into textures); the path of records below slot 2048 only in outline. For the entries 602 and 425 it replaces the 16 colours in the video memory by the constants at 0x140722AD0 before it converts them. Which unit uses which group is set where the draw primitives are made (sub_140260CF0): sheet page 4 / 5 -> groups 0 / 1, pages 20..28 -> groups 4..12, page 0x11 -> group 13, with the slot inside the group from sub_14041E448(group, palette id).
+The name is ours (IDB: sub_140415D30). Read: the slot and group paths of the texture pass (the parts that turn sheet pixels and palette colours into textures); the path of records below slot 2048 only in outline. For the entries 602 and 425 it replaces the 16 colours in the video memory by the constants at 0x140722AD0 before it converts them. Which unit uses which group is set where the draw primitives are made (sub_140260CF0): sheet page 4 / 5 -> groups 0 / 1, pages 20..28 -> groups 4..12, page 0x11 -> group 13, with the slot inside the group from sub_14041E448(group, palette id) (HdSheetGroup_ClaimClutEntry).
 
 ## Open questions
 

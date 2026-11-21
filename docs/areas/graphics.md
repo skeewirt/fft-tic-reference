@@ -2,9 +2,9 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 49, Tables: 48.
+Functions: 173, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 50, Tables: 48.
 
-## Functions (170)
+## Functions (173)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -46,6 +46,9 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [HdGroup_BuildPiece](../functions/HdGroup_BuildPiece.md) | `0x1403D0F8C` | Builds one texture of a sheet group: a rectangle of the group's sheet pixels, expanded through a converted palette into 32-bit texels. |
 | [HdLayer_BindSheetTexture](../functions/HdLayer_BindSheetTexture.md) | `0x14041D670` | Binds a sprite sheet texture id of the battle HD layer to the g2d entry that the sheet slot table holds. |
 | [HdLayer_BuildTextures](../functions/HdLayer_BuildTextures.md) | `0x140415D30` | The battle HD layer's texture pass: for every draw record of the frame it finds or builds the texture of its sheet piece and palette, and writes the texture id into the record. |
+| [HdLayer_ResolveQuadTexture](../functions/HdLayer_ResolveQuadTexture.md) | `0x14041AE44` | For a battle HD draw quad, turns its draw id (quad +64) into the HD layer's texture slot and finds or adds the quad's sheet piece in the matching sheet group; then writes the quad's vertices. |
+| [HdSheetGroup_ClaimClutEntry](../functions/HdSheetGroup_ClaimClutEntry.md) | `0x14041E448` | Returns the index (0..15) of the palette entry a battle HD sheet group keeps for a draw quad's CLUT word, claiming a free one when the word is new. |
+| [HdSheetGroup_FindOrAddPiece](../functions/HdSheetGroup_FindOrAddPiece.md) | `0x1403D0EF0` | Finds a sheet piece (a 4-dword rectangle) among the 128 piece entries of an HD sheet group, or stores it in the first free entry; returns the entry index (0 when the group is full). |
 | [LayerBinds_Push](../functions/LayerBinds_Push.md) | `0x1403A83B0` | Appends a (slot, resource) pair to the binder's per-layer (mode 1) or per-target (mode 2) vectors; the pairs are replayed into a render command by LayerBinds_Replay. |
 | [LayerBinds_RecordAllLayers](../functions/LayerBinds_RecordAllLayers.md) | `0x1403A82A8` | Walks every live render layer and records the per-layer shader-resource binds for those flagged as recordable. |
 | [LayerBinds_RecordLayer](../functions/LayerBinds_RecordLayer.md) | `0x1403A8354` | Records two bind entries for one layer: the per-group constant buffer and, if the layer has a render target, that target's buffer. |
@@ -318,7 +321,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [UiLayerComposite](../flows/UiLayerComposite.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |
 
-## Observed behaviours (49)
+## Observed behaviours (50)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -336,6 +339,7 @@ Functions: 170, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [FaceLookupInlineCopiesDisagreeAboveCode159](../behaviors/FaceLookupInlineCopiesDisagreeAboveCode159.md) | engine (portrait face numbers) | The face-number lookup exists as SpriteId_ToShape and ten inline copies; for codes above 0x9F five of the copies answer differently from the function, so one table row cannot stand for all of them. |
 | [FaceNumberCapsClipRawCodesToo](../behaviors/FaceNumberCapsClipRawCodesToo.md) | engine (portrait face numbers) | Sixteen readers cap the face number at 0xCD (205): the twelve caps below and the four readers of the HD face table g_FaceG2dEntryByFace. |
 | [GenericUnitSpriteNumberFromJob](../behaviors/GenericUnitSpriteNumberFromJob.md) | engine (unit sprite selection) | A generic unit has no stored sprite number: the game derives it from the job and the sex, with the same sum in at least ten places, and every other job id falls back to a default. |
+| [HdLayerUnitSheetsAreTenFixedGroups](../behaviors/HdLayerUnitSheetsAreTenFixedGroups.md) | engine (Enhanced battle HD sprites) | The battle HD layer draws unit sheets through fixed sheet groups, one per look pool record 0..9, each owning 16 of the HD layer's 379 texture slots; every group, slot range and slot table is in use or packed against o... |
 | [HdSheetFromSlotColoursFromRecord](../behaviors/HdSheetFromSlotColoursFromRecord.md) | engine (Enhanced battle sprite) | In Enhanced a pool's HD sheet comes from its sheet slot (the g2d entry) while its colours come from the pool record's palette. |
 | [JobCardPictureOpacityAndPlacement](../behaviors/JobCardPictureOpacityAndPlacement.md) | engine (job card pictures) | A job card (the painting behind the Status panel) is a 400 x 652 picture that is never fully opaque and fades out toward its lower left; its figure touches the top edge with the head left of the middle. |
 | [JobChangeTransitionShapeFromTheListEntryByte](../behaviors/JobChangeTransitionShapeFromTheListEntryByte.md) | engine (Change Job transition sprite) | While a job change plays its light pillar, the Status header figure is drawn in a shape JobScreen_UpdateState asks Unit_ResolvePreviewShape for, passing the Change Job list entry's job as one byte; for a generic unit ... |

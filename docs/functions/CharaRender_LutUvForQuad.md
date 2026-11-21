@@ -21,7 +21,7 @@ Computes the LUT texture coordinates at the four corners of a unit quad: the spr
 
 ## Referenced by
 
-- Called by: [CharaRender_DrawFrame](CharaRender_DrawFrame.md)
+- Called by: [CharaRender_DrawFrame](CharaRender_DrawFrame.md), [HdLayer_ResolveQuadTexture](HdLayer_ResolveQuadTexture.md)
 
 ## Notes
 
