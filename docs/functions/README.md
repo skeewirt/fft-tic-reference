@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2285 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2290 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -205,12 +205,15 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [CharaRender_DrawFrame](CharaRender_DrawFrame.md) | `0x1400CD458` | [Unit rendering](../areas/unit-rendering.md) | Renders one unit slot's current animation frame into its 256 x 256 target: builds the atlas textures and LUT cell on demand, turns the frame's rectangles into quads and submits them twice (outline pass, then colour pa... |
 | [CharaRender_FrameCacheUpdate](CharaRender_FrameCacheUpdate.md) | `0x1400CD22C` | [Unit rendering](../areas/unit-rendering.md) | Keeps the 44-byte frame cache entry of a slot in step with the current request (shape, palettes, frame, flags): a changed request invalidates the atlases or the whole frame. |
 | [CharaRender_InitTargets](CharaRender_InitTargets.md) | `0x1400CCEC0` | [Unit rendering](../areas/unit-rendering.md) | Creates the per-slot render targets and vertex buffers (256 slots) and stores the target geometry used by the draw. |
+| [CharaRender_LoadMapLights](CharaRender_LoadMapLights.md) | `0x1400CB870` | [Graphics](../areas/graphics.md) | Fills the light-source part of the HD character renderer's per-slot block from the map's light rows when the map (or a reload flag) changes. |
 | [CharaRender_LookupLutParams](CharaRender_LookupLutParams.md) | `0x1400CBFD0` | [Unit rendering](../areas/unit-rendering.md) | Looks up the per-shape rows that drive a unit's shadow size and LUT region: shape row -> shadow-size row and LUT-parameter row. |
 | [CharaRender_LutUvForQuad](CharaRender_LutUvForQuad.md) | `0x1400CBCE8` | [Unit rendering](../areas/unit-rendering.md) | Computes the LUT texture coordinates at the four corners of a unit quad: the sprite is laid over a small region of the LUT sheet (width/height from CharShapeLUTParam) at the slot's LUT cell. |
 | [CharaRender_PlaceSlotImage](CharaRender_PlaceSlotImage.md) | `0x1400ED7CC` | [Unit rendering](../areas/unit-rendering.md) | Points the slot's UI image node at the unit's render texture and sizes/positions it: size = texture size x (slot scale +60 / entry scale +12), offset from the entry's anchor. |
 | [CharaRender_RegisterSlot](CharaRender_RegisterSlot.md) | `0x1400ED9F8` | [Unit rendering](../areas/unit-rendering.md) | Registers a UI image node as the display for one unit render slot and applies the first sprite request. |
 | [CharaRender_SetSlotRequest](CharaRender_SetSlotRequest.md) | `0x1400EDAE0` | [Unit rendering](../areas/unit-rendering.md) | Writes one unit-preview request (slot id, shape, palette, pose, flags) into the global unit renderer's 92-byte slot entry and restarts its animation when the request changed. |
 | [CharaRender_SubmitQuads](CharaRender_SubmitQuads.md) | `0x1403CF370` | [Unit rendering](../areas/unit-rendering.md) | Binds the atlas (slot 0) and the LUT texture (slots 1..3), sets sampler words and pass constants, copies the quad vertices into the vertex ring and queues the draw. |
+| [CharaRender_UnitFlash](CharaRender_UnitFlash.md) | `0x1400CC258` | [Graphics](../areas/graphics.md) | Updates a drawing slot's 8-byte flash entry in the HD character renderer's per-slot block (+968 + 8 x slot): the highlight colour of a unit (kinds 1..3, a pulsing value that counts down unless paused) and the distance... |
+| [CharaRender_UnitLight](CharaRender_UnitLight.md) | `0x1400CBB50` | [Graphics](../areas/graphics.md) | Updates a drawing slot's 40-byte light record in the HD character renderer's per-slot block (+328 + 40 x slot): its light values and a fade of the light factor toward 1.0 when the light changes. |
 | [CharaRenderer_GlareChain](CharaRenderer_GlareChain.md) | `0x1400D1018` | [Graphics](../areas/graphics.md) | Runs the glare (bloom) passes on the unit renderer's scene target: bright-pass (shader id 1035 GLARE_BRIGHT), blur (1036 GLARE_BLUR) and the composite. |
 | [CharaRenderer_Init](CharaRenderer_Init.md) | `0x1400D4648` | [Unit rendering](../areas/unit-rendering.md) | Builds the unit renderer: allocates its sub-objects, loads the textures it needs and creates the 256 slot targets. |
 | [CharaRenderer_PostFrame](CharaRenderer_PostFrame.md) | `0x1402567E0` | [Graphics](../areas/graphics.md) | End-of-frame pass of the unit (chara) renderer: runs the glare chain when enabled, then the post/resolve steps. |
@@ -246,7 +249,9 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [ClassicUi_OpTileGrid](ClassicUi_OpTileGrid.md) | `0x140390800` | [UI framework](../areas/ui-framework.md) | Opcode 17: fills a rectangle with 8 x 8 tiles. |
 | [ClassicUi_OpWindowFrame](ClassicUi_OpWindowFrame.md) | `0x140390294` | [UI framework](../areas/ui-framework.md) | Opcode 0: draws a bordered window of a given size at a position. |
 | [ClassicUi_RunLayoutScript](ClassicUi_RunLayoutScript.md) | `0x14038FFB8` | [UI framework](../areas/ui-framework.md) | Runs one layout script of the legacy menus: a list of records that draw windows, cells and numbers. |
+| [ClutBank_CopyRow](ClutBank_CopyRow.md) | `0x1402F7594` | [Graphics](../areas/graphics.md) | Copies a 16-colour row (or, with all = 1, all 16 rows) into a bank of the palette manager: its words, its 7-byte colour entries and the uploaded image, unless the bank is held. |
 | [ClutFade_SetTarget](ClutFade_SetTarget.md) | `0x1402F4944` | [Graphics](../areas/graphics.md) | Gives one row of a palette bank (or all 16 rows) a new colour to move to, at once or as a timed fade. |
+| [ClutFade_UnitSlot](ClutFade_UnitSlot.md) | `0x1402F7C20` | [Graphics](../areas/graphics.md) | Starts a colour fade on a drawing slot's rows of palette banks 3 and 4 (sub_1402F7ACC), or on every slot when the slot is 16 or more. |
 | [ClutManager_Update](ClutManager_Update.md) | `0x1402F5F78` | [Graphics](../areas/graphics.md) | The palette manager's step, once a frame from the battle loop: colour cycles, three screen-colour fades and the timed fades of the 14 palette banks. |
 | [ClutManager_Upload](ClutManager_Upload.md) | `0x1402F7964` | [Graphics](../areas/graphics.md) | Copies the palette manager's final image into the emulated video memory when it changed. |
 | [CMesId_GetText](CMesId_GetText.md) | `0x1400FCB2C` | [Data access](../areas/data.md) | Returns the text of one row of NXD table 172 (0xAC, the C_Mes_Id_Sample table) and caches the table pointer. |

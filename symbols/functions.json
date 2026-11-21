@@ -3468,6 +3468,23 @@
       },
       "doc": "docs/functions/CharaRender_InitTargets.md"
     },
+    "CharaRender_LoadMapLights": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 7,
+            "calls": "sha256:ad7f656b1e843b5b7bbbf4e6915e1b6423bde55648f51694442cf686f57d4b93",
+            "insn_count": 48,
+            "mnemonics": "sha256:f38474b55948a302d43734b3a74af07d3e1a5aeb22c64edf7726f3d3a0655833",
+            "size": 736
+          },
+          "rva": "0xcb870",
+          "size": 736
+        }
+      },
+      "doc": "docs/functions/CharaRender_LoadMapLights.md"
+    },
     "CharaRender_LookupLutParams": {
       "area": "unit-rendering",
       "builds": {
@@ -3569,6 +3586,40 @@
         }
       },
       "doc": "docs/functions/CharaRender_SubmitQuads.md"
+    },
+    "CharaRender_UnitFlash": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:57bd45ed0354beb8dd2821cdfa84f79c98d3295791d2e1b26ad74e8ae6d1172f",
+            "insn_count": 48,
+            "mnemonics": "sha256:511c272f2f074d8c2fe61a4b03f64b090a1450613057040b59aa11f3027af0ac",
+            "size": 528
+          },
+          "rva": "0xcc258",
+          "size": 528
+        }
+      },
+      "doc": "docs/functions/CharaRender_UnitFlash.md"
+    },
+    "CharaRender_UnitLight": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:225cdf5c898def29336764e636093c685e8baf30edc56f162185b46882966de6",
+            "size": 408
+          },
+          "rva": "0xcbb50",
+          "size": 408
+        }
+      },
+      "doc": "docs/functions/CharaRender_UnitLight.md"
     },
     "CharaRenderer_GlareChain": {
       "area": "graphics",
@@ -4114,6 +4165,23 @@
       },
       "doc": "docs/functions/ClassicUi_RunLayoutScript.md"
     },
+    "ClutBank_CopyRow": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:b4b1a5ba9fb1896051b5039768f503b6bed7629dbaad53946a10988a39cacd0c",
+            "insn_count": 42,
+            "mnemonics": "sha256:1342a51edde216a658c84529e89090de3c0d75bf3c75793bf1e5f4f130d5094c",
+            "size": 147
+          },
+          "rva": "0x2f7594",
+          "size": 147
+        }
+      },
+      "doc": "docs/functions/ClutBank_CopyRow.md"
+    },
     "ClutFade_SetTarget": {
       "area": "graphics",
       "builds": {
@@ -4130,6 +4198,23 @@
         }
       },
       "doc": "docs/functions/ClutFade_SetTarget.md"
+    },
+    "ClutFade_UnitSlot": {
+      "area": "graphics",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:2cf690795c9eec5e6f93c4c6e209b37c5a75d35d7dd27973534171db32865935",
+            "insn_count": 39,
+            "mnemonics": "sha256:8cf9b9671179d2eb64e94973f234fcb54f29cdf782cb334a8599f846ec5ebeb2",
+            "size": 139
+          },
+          "rva": "0x2f7c20",
+          "size": 139
+        }
+      },
+      "doc": "docs/functions/ClutFade_UnitSlot.md"
     },
     "ClutManager_Update": {
       "area": "graphics",

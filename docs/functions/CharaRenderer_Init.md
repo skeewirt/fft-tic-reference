@@ -23,6 +23,10 @@ Builds the unit renderer: allocates its sub-objects, loads the textures it needs
 - Calls: [CharaRender_InitTargets](CharaRender_InitTargets.md)
 - Reads: [g_CharaRenderer](../globals/g_CharaRenderer.md)
 
+## Referenced by
+
+- Observed behaviours: [TwentyOneUnitsNeedSixPerSlotStoresWidened](../behaviors/TwentyOneUnitsNeedSixPerSlotStoresWidened.md)
+
 ## Notes
 
 The LUT used for the job tree is the second texture (lut_uichara), taken by CharaRender_DrawFrame when present.

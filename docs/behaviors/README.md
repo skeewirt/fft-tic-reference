@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-267 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+268 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -249,6 +249,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage](TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage.md) | engine (calendar counters, second tavern list) | Each of 64 tracked date slots owns one counter byte (cap 99) in a 64-byte block; the daily calendar tick and the jump by N days count a slot when its date is reached; the page of the second tavern list prints the coun... |
 | [TrackedDateLoopsVisitEverySlotBelowTheirBoundAndTheJumpAddsTheYearsToEachOne](TrackedDateLoopsVisitEverySlotBelowTheirBoundAndTheJumpAddsTheYearsToEachOne.md) | engine (calendar counters) | The daily tick and the jump by N days walk the slots from 1 (the tick) or 0 (the jump) up to a bound of 64 and treat every slot they visit alike: the tick counts a slot whose pair equals today, the jump adds the whole... |
 | [TurnOrderEntryKeepsNineBitsOfTheAbility](TurnOrderEntryKeepsNineBitsOfTheAbility.md) | engine | A turn-order entry keeps 9 bits of the pending ability (byte 1 plus bit 7 of byte 0 for 256), so the combat timeline names an ability of 512 or more by the stock ability 256 + its low byte (512 = Vengeance). |
+| [TwentyOneUnitsNeedSixPerSlotStoresWidened](TwentyOneUnitsNeedSixPerSlotStoresWidened.md) | engine (battle units, drawing, AI, Enhanced HD) | A battle can hold all 21 battle unit records on the field with 21 distinct looks once six stores sized for 16 drawing slots, 15 looks or 16 AI numbers are widened: the scene units, the look pool (and its face values),... |
 | [TwoDeploymentAreasShareOneCapacity](TwoDeploymentAreasShareOneCapacity.md) | engine (battle deployment, two squads) | A battle with two deployment areas adds the two areas' counts into one capacity, which the commence check still holds to 1..5; stock scenario rows whose two counts add up to 6 or 7 exist but cannot pass that check. |
 | [UIAddonBaseEventRouting](UIAddonBaseEventRouting.md) | how a screen's events reach its handlers | Every add-on's event handler calls UIAddon_OnEventBase first; input reaches the add-on's slot 12 only when its id is not excluded, byte +47 is clear and slot 3 allows it. |
 | [UIStateClock](UIStateClock.md) | every UIB state (timeline) | How the clock of a UI state runs: real elapsed time per UI frame (never less than 1/60 s), summed in single precision, frame = time * 60.0 as a float; the end or a loop resets frame and time and drops the overshoot. |

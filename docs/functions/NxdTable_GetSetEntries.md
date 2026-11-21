@@ -25,7 +25,7 @@ The rows of one set of a double-keyed table as a span of bound entries: (entry o
 ## Referenced by
 
 - Appears in flows: [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md)
-- Called by: [MapMesh_ApplyPolygonRows](MapMesh_ApplyPolygonRows.md), [ZodiacStone_AnyMet](ZodiacStone_AnyMet.md)
+- Called by: [CharaRender_LoadMapLights](CharaRender_LoadMapLights.md), [MapMesh_ApplyPolygonRows](MapMesh_ApplyPolygonRows.md), [ZodiacStone_AnyMet](ZodiacStone_AnyMet.md)
 - Reads file formats: [NxdMultiKeyIndex](../formats/NxdMultiKeyIndex.md)
 
 ## Notes

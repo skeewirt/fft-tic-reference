@@ -24,7 +24,7 @@ The battle side's tint rule: turns one 16-colour palette row into a unit slot's 
 ## Referenced by
 
 - Called by: [SceneUnit_TintOwnRow](SceneUnit_TintOwnRow.md), [UnitClut_TintRowPlain](UnitClut_TintRowPlain.md)
-- Observed behaviours: [SixteenSceneUnitsComeOnlyFromTheLookQueue](../behaviors/SixteenSceneUnitsComeOnlyFromTheLookQueue.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
+- Observed behaviours: [SixteenSceneUnitsComeOnlyFromTheLookQueue](../behaviors/SixteenSceneUnitsComeOnlyFromTheLookQueue.md), [TwentyOneUnitsNeedSixPerSlotStoresWidened](../behaviors/TwentyOneUnitsNeedSixPerSlotStoresWidened.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
 
 ## Notes
 

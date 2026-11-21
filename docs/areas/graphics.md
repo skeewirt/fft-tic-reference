@@ -2,9 +2,9 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 181, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 54, Tables: 48.
+Functions: 186, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 54, Tables: 48.
 
-## Functions (181)
+## Functions (186)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -17,9 +17,14 @@ Functions: 181, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [Camera_UpdateSecondaryView](../functions/Camera_UpdateSecondaryView.md) | `0x1403A5ECC` | Tail of Camera_UpdateMatrices: builds the second view (the one belonging to the render target object at target+32), its view-projection and inverse, with the same epsilon dirty tracking. |
 | [Camera_UploadSceneConstants](../functions/Camera_UploadSceneConstants.md) | `0x1403A6240` | Second camera vtable function (0x140720B00): updates the camera-relative origin, the double-buffered matrix history, and writes the 1040-byte scene constant block (matrices current and previous) into a mapped GPU cons... |
 | [CharaPalette_ReloadForShape](../functions/CharaPalette_ReloadForShape.md) | `0x14026FB28` | Step function that walks the look queue and, for each entry, loads its frame file, its sequence file and its classic sprite file, then builds the scene unit; returns 0 when the queue is done, 1 or 2 while work remains. |
+| [CharaRender_LoadMapLights](../functions/CharaRender_LoadMapLights.md) | `0x1400CB870` | Fills the light-source part of the HD character renderer's per-slot block from the map's light rows when the map (or a reload flag) changes. |
+| [CharaRender_UnitFlash](../functions/CharaRender_UnitFlash.md) | `0x1400CC258` | Updates a drawing slot's 8-byte flash entry in the HD character renderer's per-slot block (+968 + 8 x slot): the highlight colour of a unit (kinds 1..3, a pulsing value that counts down unless paused) and the distance... |
+| [CharaRender_UnitLight](../functions/CharaRender_UnitLight.md) | `0x1400CBB50` | Updates a drawing slot's 40-byte light record in the HD character renderer's per-slot block (+328 + 40 x slot): its light values and a fade of the light factor toward 1.0 when the light changes. |
 | [CharaRenderer_GlareChain](../functions/CharaRenderer_GlareChain.md) | `0x1400D1018` | Runs the glare (bloom) passes on the unit renderer's scene target: bright-pass (shader id 1035 GLARE_BRIGHT), blur (1036 GLARE_BLUR) and the composite. |
 | [CharaRenderer_PostFrame](../functions/CharaRenderer_PostFrame.md) | `0x1402567E0` | End-of-frame pass of the unit (chara) renderer: runs the glare chain when enabled, then the post/resolve steps. |
+| [ClutBank_CopyRow](../functions/ClutBank_CopyRow.md) | `0x1402F7594` | Copies a 16-colour row (or, with all = 1, all 16 rows) into a bank of the palette manager: its words, its 7-byte colour entries and the uploaded image, unless the bank is held. |
 | [ClutFade_SetTarget](../functions/ClutFade_SetTarget.md) | `0x1402F4944` | Gives one row of a palette bank (or all 16 rows) a new colour to move to, at once or as a timed fade. |
+| [ClutFade_UnitSlot](../functions/ClutFade_UnitSlot.md) | `0x1402F7C20` | Starts a colour fade on a drawing slot's rows of palette banks 3 and 4 (sub_1402F7ACC), or on every slot when the slot is 16 or more. |
 | [ClutManager_Update](../functions/ClutManager_Update.md) | `0x1402F5F78` | The palette manager's step, once a frame from the battle loop: colour cycles, three screen-colour fades and the timed fades of the 14 palette banks. |
 | [ClutManager_Upload](../functions/ClutManager_Upload.md) | `0x1402F7964` | Copies the palette manager's final image into the emulated video memory when it changed. |
 | [ComponentDrawContext_ComputeMatrix](../functions/ComponentDrawContext_ComputeMatrix.md) | `0x14040A914` | Gives ComponentDrawContext_Build the component's local 2 x 3 matrix and a two-float scale; when comp+540 = 1 it scales the matrix by the ratio of two sizes, otherwise it copies both straight from the property block. |

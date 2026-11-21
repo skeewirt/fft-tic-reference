@@ -20,7 +20,7 @@ The AI's candidate action table: 16 rows (one per AI unit) of 34 four-byte entri
 
 ## Referenced by
 
-- Observed behaviours: [BattleCommandMenuCarriesSetsAsBytes](../behaviors/BattleCommandMenuCarriesSetsAsBytes.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md)
+- Observed behaviours: [BattleCommandMenuCarriesSetsAsBytes](../behaviors/BattleCommandMenuCarriesSetsAsBytes.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md), [TwentyOneUnitsNeedSixPerSlotStoresWidened](../behaviors/TwentyOneUnitsNeedSixPerSlotStoresWidened.md)
 - Written by: [sub_140316B04](../functions/sub_140316B04.md), [sub_140316D24](../functions/sub_140316D24.md)
 
 ## Notes

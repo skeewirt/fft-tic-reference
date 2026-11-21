@@ -31,7 +31,7 @@ Gives one row of a palette bank (or all 16 rows) a new colour to move to, at onc
 ## Referenced by
 
 - Called by: [ClutManager_Update](ClutManager_Update.md)
-- Observed behaviours: [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
+- Observed behaviours: [TwentyOneUnitsNeedSixPerSlotStoresWidened](../behaviors/TwentyOneUnitsNeedSixPerSlotStoresWidened.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
 
 ## Notes
 

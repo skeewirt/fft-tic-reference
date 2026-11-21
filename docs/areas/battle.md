@@ -2,7 +2,7 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 72, Tables: 89.
+Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 73, Tables: 89.
 
 ## Functions (386)
 
@@ -549,7 +549,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (72)
+## Observed behaviours (73)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -621,6 +621,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [StockBattleEntryListsHoldAtMostSixteenUnits](../behaviors/StockBattleEntryListsHoldAtMostSixteenUnits.md) | engine data (battle unit counts) | Counted over the stock data, a battle's entry list (not the units on the field) holds at most 12 units in battles the commence check lets start, 12 plus a deployment of 5 making 17 listed; an entry's presence bits dec... |
 | [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md) | engine (battle AI) | The battle AI numbers the units on the field 0, 1, 2... and works only when every number is below 16: with a 17th unit on the field (any team) no AI-controlled unit acts at all, and the first player move-range build o... |
 | [TurnOrderEntryKeepsNineBitsOfTheAbility](../behaviors/TurnOrderEntryKeepsNineBitsOfTheAbility.md) | engine | A turn-order entry keeps 9 bits of the pending ability (byte 1 plus bit 7 of byte 0 for 256), so the combat timeline names an ability of 512 or more by the stock ability 256 + its low byte (512 = Vengeance). |
+| [TwentyOneUnitsNeedSixPerSlotStoresWidened](../behaviors/TwentyOneUnitsNeedSixPerSlotStoresWidened.md) | engine (battle units, drawing, AI, Enhanced HD) | A battle can hold all 21 battle unit records on the field with 21 distinct looks once six stores sized for 16 drawing slots, 15 looks or 16 AI numbers are widened: the scene units, the look pool (and its face values),... |
 | [TwoDeploymentAreasShareOneCapacity](../behaviors/TwoDeploymentAreasShareOneCapacity.md) | engine (battle deployment, two squads) | A battle with two deployment areas adds the two areas' counts into one capacity, which the commence check still holds to 1..5; stock scenario rows whose two counts add up to 6 or 7 exist but cannot pass that check. |
 | [UnitThatBlocksItsAlliesInMoveRanges](../behaviors/UnitThatBlocksItsAlliesInMoveRanges.md) | engine (job table row +25 bit 7) | A job whose table row has bit 7 of byte +25 set makes its units block the tiles they stand on for their own side's movement, unless the moving unit has the bit too. |
 | [UsableAbilityListLearnedBitGroup](../behaviors/UsableAbilityListLearnedBitGroup.md) | engine | The usable-ability list reads a unit's learned bits per job group. |
