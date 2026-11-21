@@ -2,7 +2,7 @@
 
 Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json).
 
-222 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
+227 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
@@ -15,6 +15,11 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_ActionItemIdByte](g_ActionItemIdByte.md) | `0x1407B077E` | `uint8` | The item-id byte the battle action resolver leaves for the item formulas: the item id's low byte plus 0x10, so the formulas rebuild the id by adding 0xF0. |
 | [g_AiCommandTable](g_AiCommandTable.md) | `0x141872598` | `AiCommandEntry[16][34]` | The AI's candidate action table: 16 rows (one per AI unit) of 34 four-byte entries; each entry is an ability word and the command (skillset) byte it came from. |
 | [g_AiCurrentAction](g_AiCurrentAction.md) | `0x1418716A0` | `battle ai` | 16 bytes (+0x10 / +0x20 more): the action the AI is looking at, filled by Action_BuildCurrentAction: +0 command, +1 its charge time (I: AbilityAction +12; added to turn counts), +2 ability id (word), +4 a byte (? rang... |
+| [g_AiLookAheadBuffer](g_AiLookAheadBuffer.md) | `0x1417FFCE0` | `battle ai` | 2048 bytes of scratch (next referenced data at 0x1418004E0) shared with the move-range code (sub_14027E5D4 copies its first 1024 bytes); the AI points qword_141873070 at it (sub_1403166C0) and keeps 70 bytes per AI nu... |
+| [g_AiLookAheadSave20](g_AiLookAheadSave20.md) | `0x141872374` | `battle ai` | 20 bytes per AI number (room for 16, next data at 0x1418724B4): unit bytes saved by sub_14038AED4 and put back by sub_14038B104 around the AI's look-ahead in Battle_AITurnRun (16 bytes + a dword). |
+| [g_AiLookAheadSave8](g_AiLookAheadSave8.md) | `0x1418724F8` | `battle ai` | 8 bytes per AI number (room for 16, next data at 0x141872578): the short save of sub_14038AED4 / sub_14038B104 (their mode 1). |
+| [g_AiUnitNumber](g_AiUnitNumber.md) | `0x141873038` | `battle ai` | byte[21], one per battle unit record: the AI's running number of the unit (0, 1, 2... over the records whose +0x01 is not 0xFF; 0xFF = not present), written by sub_1403166C0; the index of the AI's per-number tables (g... |
+| [g_AiUnitTraits](g_AiUnitTraits.md) | `0x141872E20` | `battle ai` | 8 bytes per AI number (room for 16; the AI unit pointer follows at 0x141872EA0): flags built by sub_140316B04 from the unit's two equipped items (+4 the item id read by sub_140316D24); read by Action_BuildCurrentAction. |
 | [g_Application](g_Application.md) | `0x140C6AD30` | `object *` | Application object passed to App_RunFrame, Game_Main and the application vfuncs. |
 | [g_BattleActingUnit](g_BattleActingUnit.md) | `0x14186AF68` | `ptr` | Pointer to the unit record the current battle action is worked out on: the TARGET of the action (the unit hit), although the name says acting; its byte at +0x97 carries the reaction flags and its byte at +0x61 the ite... |
 | [g_BattleActionBlock](g_BattleActionBlock.md) | `0x14186AF70` | `ActionResult *` | Pointer to the result block of the current action on its target: unit +0x1BE of the target's slot (the formula handlers' R). |

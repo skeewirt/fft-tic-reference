@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-263 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+264 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -264,6 +264,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [UnreadColumnsOfJobAbilityStatusTables](UnreadColumnsOfJobAbilityStatusTables.md) | engine (nxd tables) | Columns of the GeneralJob, Job, JobCommand, JobType, Ability and UIStatusEffect tables that no code of the game reads; their values change nothing in play. |
 | [UsableAbilityListLearnedBitGroup](UsableAbilityListLearnedBitGroup.md) | engine | The usable-ability list reads a unit's learned bits per job group. |
 | [VertexColourBytesTruncated](VertexColourBytesTruncated.md) | engine (UI node colours) | A UI node's vertex colour reaches the shader as bytes: each channel is the product of the node colour and its opacity, truncated to an integer. |
+| [WarriorsGuildCandidatesAreMadeEachVisit](WarriorsGuildCandidatesAreMadeEachVisit.md) | engine (Warriors' Guild recruit list) | The Warriors' Guild's recruit list is 15 candidate records of 564 bytes at 0x1408E6CB0 (the first 564 bytes of a save record's layout), made by Guild_MakeCandidates each time the guild is opened and never saved; hirin... |
 | [WidgetRootsAreLayers](WidgetRootsAreLayers.md) | every UI widget (the Job Tree, the finger cursor, the footer guides) | Every widget's root component is drawn into its own layer record, whether or not it has an effect: the renderer's feature byte at r+606621 is 1 from the initialiser and the widget byte at +83 is 1 for all 51 widgets o... |
 | [WorldMapLocationsAndBattleEntry](WorldMapLocationsAndBattleEntry.md) | world map free roam, Locations list, travel to a battleground, battle deployment | How a battle is entered from the world map, and which screens and memory fields show it, as seen live. |
 | [WorldMapObjectiveLineIsTheNearestCaptionRow](WorldMapObjectiveLineIsTheNearestCaptionRow.md) | engine (world map) | The objective line of the world map is the caption of the current progress row, or of the nearest earlier row of the same first key whose sets_objective byte is set. |

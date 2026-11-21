@@ -20,7 +20,7 @@ Returns 1 when the Job row (table 46, row = job id) has a nonzero hidden_from_jo
 
 ## Referenced by
 
-- Called by: [JobAbilityList_Build](JobAbilityList_Build.md), [JobScreen_BuildLearnableList](JobScreen_BuildLearnableList.md), [Party_GetSlotState](Party_GetSlotState.md), [UnitWork_BuildForSlot](UnitWork_BuildForSlot.md), [sub_14028A474](sub_14028A474.md), [sub_140392620](sub_140392620.md)
+- Called by: [JobAbilityList_Build](JobAbilityList_Build.md), [JobScreen_BuildLearnableList](JobScreen_BuildLearnableList.md), [PartyUnit_FillFromWork](PartyUnit_FillFromWork.md), [Party_GetSlotState](Party_GetSlotState.md), [UnitWork_BuildForSlot](UnitWork_BuildForSlot.md), [sub_14028A474](sub_14028A474.md), [sub_140392620](sub_140392620.md)
 
 ## Notes
 

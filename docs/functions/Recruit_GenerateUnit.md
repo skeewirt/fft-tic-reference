@@ -3,7 +3,7 @@
 - **Address:** `0x140275310`
 - **Area:** [Unit data](../areas/unit-data.md)
 - **Prototype:** `int Recruit_GenerateUnit(uint8_t *save, unsigned int kind)`
-- **Callers:** sub_14027528C (one new recruit, called by GameState_ResetParty and Party_EggUpkeep), sub_1402EFBE0 (the starting roster loop)
+- **Callers:** sub_14027528C (one new recruit, called by GameState_ResetParty and Party_EggUpkeep), Guild_MakeCandidates (the Warriors' Guild's 15 recruit candidates)
 - **Callees:** Unit_RollStartingStats, sub_140279328, sub_140279508
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -30,11 +30,12 @@ Fills a fresh save record with a newly generated unit: identity marker, starting
 
 ## Referenced by
 
+- Observed behaviours: [WarriorsGuildCandidatesAreMadeEachVisit](../behaviors/WarriorsGuildCandidatesAreMadeEachVisit.md)
 - Resolves registries: [NewUnitStartRows](../registries/NewUnitStartRows.md), [UnitIdentityIds](../registries/UnitIdentityIds.md)
 
 ## Notes
 
-sub_1402EFBE0 draws the kind of each roster unit from one random bit (0 or 1) and forces the other kind once a counter reaches 8 (I: at most 8 of either gender; which counter is which was not traced). The displayed level-1 stats of a male or female Squire follow from the roll and the Squire row (M = 100, 75, 100, 90, 80): male HP 30 or 31, MP 10 or 11, SP 6, PA 4, MA 3; female HP 28 or 29, MP 11, SP 6, PA 3, MA 4 (computed from the formula in Unit_ComputeStats, not read from a running game).
+Guild_MakeCandidates draws the kind of each candidate from one random bit (0 or 1) and forces the other kind once 8 of one kind are made (V: at most 8 of either sex among the 15). The displayed level-1 stats of a male or female Squire follow from the roll and the Squire row (M = 100, 75, 100, 90, 80): male HP 30 or 31, MP 10 or 11, SP 6, PA 4, MA 3; female HP 28 or 29, MP 11, SP 6, PA 3, MA 4 (computed from the formula in Unit_ComputeStats, not read from a running game).
 
 ## Open questions
 

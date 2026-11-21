@@ -3,7 +3,7 @@
 - **Address:** `0x140275B84`
 - **Area:** [Unit data](../areas/unit-data.md)
 - **Prototype:** `int UnitWork_BuildFromSave(uint8_t *work, uint8_t *save, int slot)`
-- **Callers:** sub_140275C70 (build by save index), sub_14028B7D0, SceneUnit_FillSpriteRecord
+- **Callers:** sub_140275C70 (build by save index), PartyUnit_BuildFromRecord, SceneUnit_FillSpriteRecord
 - **Callees:** sub_140278DA8, Unit_BuildJobUnlockMask, UnitWork_CopySaveFields, UnitWork_ApplyJobRow, sub_140276DF4, sub_140276EBC, sub_14027788C, sub_1402760E8
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -28,6 +28,7 @@ Builds the 512-byte unit work record C from a save unit record A. It first refre
 ## Referenced by
 
 - Called by: [SceneUnit_FillSpriteRecord](SceneUnit_FillSpriteRecord.md)
+- Observed behaviours: [WarriorsGuildCandidatesAreMadeEachVisit](../behaviors/WarriorsGuildCandidatesAreMadeEachVisit.md)
 - Reads tables: [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes

@@ -2,7 +2,7 @@
 
 Unit save, work and party records, stat and growth computation, egg hatching and scripted battle entries.
 
-Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 6, Tables: 1.
+Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 7, Tables: 1.
 
 ## Functions (76)
 
@@ -25,7 +25,7 @@ Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 6,
 | [Party_GetSlotStateSpecial](../functions/Party_GetSlotStateSpecial.md) | `0x140289320` | Wrapper around the party slot check that replaces the usable result with the special-job code for jobs 161 and 164. |
 | [Party_ReturnHandItems](../functions/Party_ReturnHandItems.md) | `0x140288A24` | Returns a party unit's equipment to the inventory and clears its slots, with special handling for the two-handed and dual-wield cases. |
 | [PartyUnit_FaceIndexForJob](../functions/PartyUnit_FaceIndexForJob.md) | `0x1402897B4` | Maps a job id to the face (portrait) record index of a generic unit. |
-| [PartyUnit_FillFromWork](../functions/PartyUnit_FillFromWork.md) | `0x140284A08` | Builds the 640-byte party record B from a work record (the save row image) and the save row. |
+| [PartyUnit_FillFromWork](../functions/PartyUnit_FillFromWork.md) | `0x140284A08` | Builds the 640-byte party record B from a work record C and the save record A. B is the record the status and job screens read, including the job unlock mask they test. |
 | [PartyUnit_FillFromWorkRecord](../functions/PartyUnit_FillFromWorkRecord.md) | `0x140360048` | Builds a party record B from a work record C alone (the per-job arrays come from C). |
 | [PartyUnit_GetFaceRecord](../functions/PartyUnit_GetFaceRecord.md) | `0x140289548` | Selects the face / portrait record of a party unit and writes it to the output: 12 bytes copied from `g_PartyFaceRecords` plus a rebuilt face-variant word. |
 | [PartyUnit_ReloadEquipment](../functions/PartyUnit_ReloadEquipment.md) | `0x1402BD924` | Rebuilds the selected unit's work record from its save row and refreshes the three screen records: the 0x1407B27xx party record, the 0x141876E90 panel block and the per-unit stat block. |
@@ -113,7 +113,7 @@ Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 6,
 | [UnitEventFlagBit](../registries/UnitEventFlagBit.md) | The bits of the unit flag word at battle unit +504, which the battle build stores from the entry override row: one bit per flag byte (OverrideEntryData +0x8E..+0x97 and +0x99), plus bit 11 set by the equipment build. |
 | [UnitIdentityIds](../registries/UnitIdentityIds.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |
 
-## Observed behaviours (6)
+## Observed behaviours (7)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -123,6 +123,7 @@ Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 6,
 | [PerJobSlotStateLayouts](../behaviors/PerJobSlotStateLayouts.md) | engine (party, battle and save unit records) | Per-job state (learned flags, level nibbles, JP, total JP) sits in several unit layouts at different offsets, indexed by the job slot that Job_IdToIndex returns. |
 | [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md) | engine (scripted battle entries) | A pre-placed unit of a scripted battle takes its starting equipment from one-byte item ids, so no item above id 255 can be a starting item. |
 | [UnitEventFlagWord](../behaviors/UnitEventFlagWord.md) | engine (battle unit table) | A battle unit's dword +504 holds one bit per OverrideEntryData flag byte (bits 0..10) and bit 11 from the equipment build. |
+| [WarriorsGuildCandidatesAreMadeEachVisit](../behaviors/WarriorsGuildCandidatesAreMadeEachVisit.md) | engine (Warriors' Guild recruit list) | The Warriors' Guild's recruit list is 15 candidate records of 564 bytes at 0x1408E6CB0 (the first 564 bytes of a save record's layout), made by Guild_MakeCandidates each time the guild is opened and never saved; hirin... |
 
 ## Tables (1)
 

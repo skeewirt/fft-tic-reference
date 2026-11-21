@@ -81,6 +81,51 @@
       },
       "doc": "docs/globals/g_AiCurrentAction.md"
     },
+    "g_AiLookAheadBuffer": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x17ffce0"
+        }
+      },
+      "doc": "docs/globals/g_AiLookAheadBuffer.md"
+    },
+    "g_AiLookAheadSave20": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x1872374"
+        }
+      },
+      "doc": "docs/globals/g_AiLookAheadSave20.md"
+    },
+    "g_AiLookAheadSave8": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x18724f8"
+        }
+      },
+      "doc": "docs/globals/g_AiLookAheadSave8.md"
+    },
+    "g_AiUnitNumber": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x1873038"
+        }
+      },
+      "doc": "docs/globals/g_AiUnitNumber.md"
+    },
+    "g_AiUnitTraits": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x1872e20"
+        }
+      },
+      "doc": "docs/globals/g_AiUnitTraits.md"
+    },
     "g_Application": {
       "area": "",
       "builds": {

@@ -34,7 +34,7 @@ Builds the 24-bit job-unlock mask for a unit. Bit (0x400000 >> r) is job index r
 
 ## Referenced by
 
-- Called by: [Errand_ApplyResult](Errand_ApplyResult.md), [UnitWork_BuildFromSave](UnitWork_BuildFromSave.md), [UnitWork_InitFromSpawnRecord](UnitWork_InitFromSpawnRecord.md), [Unit_AwardJobJp](Unit_AwardJobJp.md), [sub_140275EF4](sub_140275EF4.md)
+- Called by: [Errand_ApplyResult](Errand_ApplyResult.md), [PartyUnit_FillFromWork](PartyUnit_FillFromWork.md), [UnitWork_BuildFromSave](UnitWork_BuildFromSave.md), [UnitWork_InitFromSpawnRecord](UnitWork_InitFromSpawnRecord.md), [Unit_AwardJobJp](Unit_AwardJobJp.md), [sub_140275EF4](sub_140275EF4.md)
 - Observed behaviours: [UnlockMaskStreamRunsIntoLearnedBitsPastIndex23](../behaviors/UnlockMaskStreamRunsIntoLearnedBitsPastIndex23.md)
 - Reads tables: [JobMasteryIds](../tables/JobMasteryIds.md), [JobNeedLevelRows](../tables/JobNeedLevelRows.md)
 
