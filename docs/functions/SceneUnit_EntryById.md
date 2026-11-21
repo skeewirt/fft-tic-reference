@@ -15,6 +15,7 @@ Returns a scene unit entry of the selector scenes (564 bytes each at 0x1408E6CB0
 ## Behavior
 
 - V: id 0 to 15 and a scene id word (0x141848BB0) of 21, 43, 44 or 51 give 0x1408E6CB0 + 564 * id; anything else null.
+- V: sub_1402C1628 does not test the null: an id above 15 in those scenes faults there.
 
 ## State touched
 
