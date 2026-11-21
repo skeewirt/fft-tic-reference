@@ -969,6 +969,23 @@
       },
       "doc": "docs/functions/BattleAnim_StartMotion.md"
     },
+    "BattleCapture_CopyFaceValues": {
+      "area": "save-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:c4c9ba9173a393a489d51eb10f85f5063aa29659d6501e4c9da56932afcc73e3",
+            "size": 367
+          },
+          "rva": "0x304bec",
+          "size": 367
+        }
+      },
+      "doc": "docs/functions/BattleCapture_CopyFaceValues.md"
+    },
     "BattleCommand_BuildMenu": {
       "area": "battle",
       "builds": {

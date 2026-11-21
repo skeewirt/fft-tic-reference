@@ -4,7 +4,7 @@
 - **Area:** [Save data](../areas/save-data.md)
 - **Prototype:** `void Battle_SaveCapture(int mode)`
 - **Callers:** sub_140210AF0
-- **Callees:** SceneVar_Read, memmove, sub_140302D60, sub_140243A60, sub_1401D46B0, sub_14002630C, sub_140226C2C, sub_14030D740, Battle_SnapshotLiveState, sub_140327004, SaveWork_CopyErrandState, sub_140304BEC, sub_1402CD788, sub_14041FAE0
+- **Callees:** SceneVar_Read, memmove, sub_140302D60, sub_140243A60, sub_1401D46B0, sub_14002630C, sub_140226C2C, sub_14030D740, Battle_SnapshotLiveState, sub_140327004, SaveWork_CopyErrandState, BattleCapture_CopyFaceValues, sub_1402CD788, sub_14041FAE0
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -26,12 +26,12 @@ Captures the battle state into the autosave battle payload: the scene variables,
 
 ## State touched
 
-- Calls: [SceneVar_Read](SceneVar_Read.md), [sub_140243A60](sub_140243A60.md), [Battle_SnapshotLiveState](Battle_SnapshotLiveState.md), [sub_140327004](sub_140327004.md), [SaveWork_CopyErrandState](SaveWork_CopyErrandState.md)
+- Calls: [SceneVar_Read](SceneVar_Read.md), [sub_140243A60](sub_140243A60.md), [Battle_SnapshotLiveState](Battle_SnapshotLiveState.md), [sub_140327004](sub_140327004.md), [SaveWork_CopyErrandState](SaveWork_CopyErrandState.md), [BattleCapture_CopyFaceValues](BattleCapture_CopyFaceValues.md)
 - Reads: [g_CurrentActionBlock](../globals/g_CurrentActionBlock.md)
 
 ## Referenced by
 
-- Observed behaviours: [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md), [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md)
+- Observed behaviours: [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md), [TheBattleCaptureCopiesFixedCounts](../behaviors/TheBattleCaptureCopiesFixedCounts.md), [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md)
 
 ## Notes
 

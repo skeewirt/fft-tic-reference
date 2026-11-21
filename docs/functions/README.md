@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2290 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2291 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -105,6 +105,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BattleAnim_SelectWeaponMotion](BattleAnim_SelectWeaponMotion.md) | `0x140269790` | [Battle](../areas/battle.md) | Chooses the motion of a plain weapon attack from the attacker's weapon animation type and, for some types, from how high the target stands, then starts it. |
 | [BattleAnim_SetChargeMotion](BattleAnim_SetChargeMotion.md) | `0x140269920` | [Battle](../areas/battle.md) | Sets the charging motion from the charge byte of g_AbilityAnim (the effect word +0x142). |
 | [BattleAnim_StartMotion](BattleAnim_StartMotion.md) | `0x140268E04` | [Battle](../areas/battle.md) | Starts a motion on a battle unit's scene object: stores the animation number and the facing value the unit's animation will use. |
+| [BattleCapture_CopyFaceValues](BattleCapture_CopyFaceValues.md) | `0x140304BEC` | [Save data](../areas/save-data.md) | Copies the 10 battle face values of the look pool and the globals after them to (mode 0) or from (mode 1) the battle capture. |
 | [BattleCommand_BuildMenu](BattleCommand_BuildMenu.md) | `0x1402EAD14` | [Battle](../areas/battle.md) | The battle command task: it reads the cell text of the command menu, starts the list and screen tasks, and runs the menu until the unit action is chosen. |
 | [BattleCommand_BuildScreen](BattleCommand_BuildScreen.md) | `0x1402E600C` | [Battle](../areas/battle.md) | Builds the battle command/ability screen: the unit panels, the job record, the ability list entries and the equip detail panel the player navigates during a turn. |
 | [BattleCommand_BuildUnitList](BattleCommand_BuildUnitList.md) | `0x1402EB174` | [Battle](../areas/battle.md) | Builds the command list for the active unit: it asks the list builder for the commands, resolves their text and writes the cell words the menu reads. |

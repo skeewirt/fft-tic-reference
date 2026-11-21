@@ -2,9 +2,9 @@
 
 The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.
 
-Functions: 138, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10.
+Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10.
 
-## Functions (138)
+## Functions (139)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -12,6 +12,7 @@ Functions: 138, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [Battle_RestoreSceneVars](../functions/Battle_RestoreSceneVars.md) | `0x1402CE5C8` | Puts a saved battle's scene state back from the battle snapshot region: seven scene variables, the live stores, the battle unit table, the look queue and the look pool. |
 | [Battle_SaveCapture](../functions/Battle_SaveCapture.md) | `0x1402CDBC4` | Captures the battle state into the autosave battle payload: the scene variables, the five memory blocks A..E, the live item and unit state and the item order record. |
 | [Battle_SnapshotLiveState](../functions/Battle_SnapshotLiveState.md) | `0x140279BF4` | Captures or restores the live save state the battle image carries: the item stores and the unit save records, copied between the live globals and a save work block in the direction the second argument selects. |
+| [BattleCapture_CopyFaceValues](../functions/BattleCapture_CopyFaceValues.md) | `0x140304BEC` | Copies the 10 battle face values of the look pool and the globals after them to (mode 0) or from (mode 1) the battle capture. |
 | [CardSlot_IsValid](../functions/CardSlot_IsValid.md) | `0x140245C34` | Tests that a slot of the cache starts with the `SC` magic: returns 0 when valid, -1 otherwise. |
 | [ConfigFile_Serialize](../functions/ConfigFile_Serialize.md) | `0x1400C5868` | Describes the config file body: the settings and guide records, the output id, window position, resolution, refresh rate and the cleared, classic-started and enhanced-started flags. |
 | [ConfigGuideFlag_Serialize](../functions/ConfigGuideFlag_Serialize.md) | `0x1400C4BD4` | Describes the guide flag. |

@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-268 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+269 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -240,6 +240,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [TextNodeDrawGate](TextNodeDrawGate.md) | UI text nodes (GUITextNode_Draw) | GUITextNode_Draw returns before drawing unless a byte at node +0xCC is non-zero, a byte at +0x91 is zero, the string size at +0xE8 is non-zero and a font-table / font-set lookup returns true. |
 | [TextReferenceIsABankAndAnElevenBitIndex](TextReferenceIsABankAndAnElevenBitIndex.md) | engine (event text lookup) | An event message is named by a 16-bit reference: the top five bits select one of 32 text banks (each a resource), the low 11 bits are the message index inside it; the lookup counts message terminators from the start o... |
 | [TheAiHandlesSixteenUnitsOnTheField](TheAiHandlesSixteenUnitsOnTheField.md) | engine (battle AI) | The battle AI numbers the units on the field 0, 1, 2... and works only when every number is below 16: with a 17th unit on the field (any team) no AI-controlled unit acts at all, and the first player move-range build o... |
+| [TheBattleCaptureCopiesFixedCounts](TheBattleCaptureCopiesFixedCounts.md) | engine (battle capture, mid-battle resume) | The battle capture (Battle_SaveCapture / Battle_RestoreCapture, the data a mid-battle save writes) copies fixed counts: 16 scene units, 15 look pool records, 10 face values and the AI block's first 0x19D0 bytes, which... |
 | [TitleAndSaveListScreens](TitleAndSaveListScreens.md) | title screens, Continue / Load Game save list | The screens between launch and a loaded game, the keys they take, and how the save list is built, as seen live. |
 | [TitleBackdropAndInputFlag](TitleBackdropAndInputFlag.md) | the title screen behind another screen | Hiding the title add-on hides its backdrop; input reaches an add-on only when its byte +47 is clear. |
 | [TitleMenuRows](TitleMenuRows.md) | which rows the Enhanced title menu shows and how they are laid out | The Enhanced title menu shows 3 to 6 rows chosen by the save state and the cleared flag; the layout file has a state for each count. |

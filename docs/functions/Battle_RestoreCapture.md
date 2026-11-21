@@ -4,7 +4,7 @@
 - **Area:** [Save data](../areas/save-data.md)
 - **Prototype:** `void Battle_RestoreCapture(void)`
 - **Callers:** sub_140210AF0
-- **Callees:** memmove, sub_140302D60, sub_140243A60, sub_1401D46B0, sub_14002630C, sub_1401FA530, sub_140255D8C, sub_140226C2C, sub_14030D740, sub_1402550FC, sub_140327004, SaveWork_CopyErrandState, sub_140304BEC, sub_1402CD9D8, sub_1401009E8, sub_1400B6CF8, sub_14041FAE0
+- **Callees:** memmove, sub_140302D60, sub_140243A60, sub_1401D46B0, sub_14002630C, sub_1401FA530, sub_140255D8C, sub_140226C2C, sub_14030D740, sub_1402550FC, sub_140327004, SaveWork_CopyErrandState, BattleCapture_CopyFaceValues, sub_1402CD9D8, sub_1401009E8, sub_1400B6CF8, sub_14041FAE0
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -26,11 +26,11 @@ Restores the five memory blocks and the live state of a saved battle payload int
 
 ## State touched
 
-- Calls: [sub_140243A60](sub_140243A60.md), [sub_140327004](sub_140327004.md), [SaveWork_CopyErrandState](SaveWork_CopyErrandState.md)
+- Calls: [sub_140243A60](sub_140243A60.md), [sub_140327004](sub_140327004.md), [SaveWork_CopyErrandState](SaveWork_CopyErrandState.md), [BattleCapture_CopyFaceValues](BattleCapture_CopyFaceValues.md)
 
 ## Referenced by
 
-- Observed behaviours: [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md), [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md)
+- Observed behaviours: [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [TheAiHandlesSixteenUnitsOnTheField](../behaviors/TheAiHandlesSixteenUnitsOnTheField.md), [TheBattleCaptureCopiesFixedCounts](../behaviors/TheBattleCaptureCopiesFixedCounts.md), [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md)
 
 ## Notes
 
