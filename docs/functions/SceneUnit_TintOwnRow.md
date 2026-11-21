@@ -25,7 +25,7 @@ Picks the 16-colour row a scene unit is drawn with and passes it to UnitClut_Tin
 ## Referenced by
 
 - Called by: [SceneUnit_ApplyStatusTint](SceneUnit_ApplyStatusTint.md)
-- Observed behaviours: [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
+- Observed behaviours: [SixteenSceneUnitsComeOnlyFromTheLookQueue](../behaviors/SixteenSceneUnitsComeOnlyFromTheLookQueue.md), [UnitColoursAreATintThenAFade](../behaviors/UnitColoursAreATintThenAFade.md)
 
 ## Notes
 
