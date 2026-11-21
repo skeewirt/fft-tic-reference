@@ -18,6 +18,8 @@ The battle HD layer draws unit sheets through fixed sheet groups, one per look p
 - V: the 20 groups (g_HdSheetGroups, 21144 bytes each, 0x142EA63E0) are all referenced: 0..3 the extra pages and the sprites 160 / 161, 4..13 the ten pool sheets, 14 sprite 158, 15..17 the effect pages, 18 / 19 the alternates of words 4 / 5; qword_142F0D7C0 (other data) follows group 19.
 - V: the sheet slot dwords sit inside a larger block of video state: indices 11..15 and 36.. are other variables (EventSprite_LoadTask, VideoState_InitDefaults, Video_RefreshState and others).
 - V: the HD layer's per-slot tables in HdLayer_BuildTextures are exactly 379 wide and lie back to back (the entry table, the palette-id table, the texture objects of 112 bytes).
+- V: HdLayer_BuildTextures refuses a slot above 378 (cmp r8d, 17Ah at 0x1404161E5) and turns slots 0x10B..0x11A (pool 9's) into group (slot - 0x7B) / 16 + 13 and rectangle 5 x the quad's rectangle index inside g_HdSheetGroups (0x1404163B5..0x1404163E8); groups are reached only by index from g_HdSheetGroups (index x 0x5298), never by a pointer. Its mark loop (0x140415EC7) writes a stack mark at the handle (0x800 + slot) for every handle of 0x800 or more, so a handle for a slot above 378 would write past the stack table.
+- I: so a further unit sheet can live outside the image only at a whole multiple of 0x5298 from g_HdSheetGroups, and each step that indexes by slot (the 379 cap, the slot-to-group map, the stack mark) must be bypassed for the new slots; the per-frame passes over the 20 groups (the used marks cleared by sub_14041E3D8, the piece aging in HdLayer_BuildTextures from 0x140415FF8) and the reset of the 20 groups in sub_1401E7440 do not reach a new group, which then needs its own.
 
 ## Open questions
 
