@@ -27,4 +27,4 @@ A battle unit is drawn through one of 16 scene-unit records, and only SceneUnit_
 
 ## Open questions
 
-? a chest and a picked-up crystal (by the code: the pickup takes the unit off through SceneObjects_StepStates, which releases it; not seen); ? what a reveal past 16 drawn units does (SceneUnit_BuildFromQueueEntry returns null: by the code the unit is on the field but not drawn; not tried).
+? whether a battle load can pass 16 queued entries: the units brought on later (Battle_AddJoinedUnit, ScenePreview_ShowEntry) clear the count and queue one, the entries queue one each (16 at most), but BattleLoad_StepFresh builds the roster team (Battle_BuildRosterTeam, up to 5 more) in state 8 after consuming the queue in state 7 with no count reset found; ? a chest and a picked-up crystal (by the code: the pickup takes the unit off through SceneObjects_StepStates, which releases it; not seen); ? what a reveal past 16 drawn units does (SceneUnit_BuildFromQueueEntry returns null: by the code the unit is on the field but not drawn; not tried).

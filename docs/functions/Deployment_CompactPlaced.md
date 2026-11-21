@@ -15,6 +15,7 @@ Moves the placed party indices of the deployment state to the front of their arr
 ## Behavior
 
 - V: does nothing when the capacity (+64) is above 5; otherwise copies the 5 dwords from +68 to the stack, sets all 5 to -1 and writes back the ones that are not -1 in order.
+- V: both loops count exactly 5; the stack buffer is 40 bytes (room for 10 dwords).
 
 ## Referenced by
 
