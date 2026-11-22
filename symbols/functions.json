@@ -30124,6 +30124,23 @@
       },
       "doc": "docs/functions/WorldEncounter_Roll.md"
     },
+    "WorldEncounter_StartBattle": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:ebefbf3603697da88e637cb1ca7ddb0c93aeea6c3130e1cfbc6332f90400216c",
+            "insn_count": 31,
+            "mnemonics": "sha256:de468c0c9467c0aca6b6e08d872ba72fe41d48807f47c7803a01fabc0fdf2e25",
+            "size": 161
+          },
+          "rva": "0x248254",
+          "size": 161
+        }
+      },
+      "doc": "docs/functions/WorldEncounter_StartBattle.md"
+    },
     "WorldMapBaseScreen_Open": {
       "area": "ui-framework",
       "builds": {

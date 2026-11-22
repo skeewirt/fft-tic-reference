@@ -22,6 +22,10 @@ Battle setup step that builds the deployment candidate list from the roster and,
 
 - Calls: [Resource_GetSlotObject](Resource_GetSlotObject.md), [UnitWork_BuildForSlot](UnitWork_BuildForSlot.md), [SceneVar_Read](SceneVar_Read.md), [SceneVar_Write](SceneVar_Write.md)
 
+## Referenced by
+
+- Observed behaviours: [DeploymentRowsOfEachBattle](../behaviors/DeploymentRowsOfEachBattle.md)
+
 ## Notes
 
 Behavior: EntryUnitsShareADistinctLookBudget.

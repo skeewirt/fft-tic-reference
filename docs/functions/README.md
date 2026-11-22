@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2295 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2296 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -2277,6 +2277,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [WindowPattern_FillRow](WindowPattern_FillRow.md) | `0x1403324F8` | [UI framework](../areas/ui-framework.md) | Fills one row of a window frame pattern from a six-word template. |
 | [WindowRect_AnimateCurve](WindowRect_AnimateCurve.md) | `0x1402DDFE8` | [UI framework](../areas/ui-framework.md) | Opens or closes a window by moving two rectangles along one of the five animation step lists. |
 | [WorldEncounter_Roll](WorldEncounter_Roll.md) | `0x140248BE4` | [Event system](../areas/event-system.md) | Decides whether a random battle starts at a battleground and which formation it uses. |
+| [WorldEncounter_StartBattle](WorldEncounter_StartBattle.md) | `0x140248254` | [Battle](../areas/battle.md) | Starts the random battle WorldEncounter_Roll picked: writes the scene variables the battle load reads (the entry, one deployment area and its row) and clears the story event number. |
 | [WorldMap_ApplyProgressInfo](WorldMap_ApplyProgressInfo.md) | `0x140341094` | [Event system](../areas/event-system.md) | Applies the world-map progress rows that the story counters select to the world-map location values. |
 | [WorldMap_InitLocations](WorldMap_InitLocations.md) | `0x14033EC0C` | [Event system](../areas/event-system.md) | Sets up the world-map screen: the sprite piece list, the location markers and the road markers. |
 | [WorldMap_UpdateFastForward](WorldMap_UpdateFastForward.md) | `0x14015C0DC` | [Application and startup](../areas/app-startup.md) | On the world map (mode 3) sets the fast-forward level to 1 while action 89 is held, else 0. |

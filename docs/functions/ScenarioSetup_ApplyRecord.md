@@ -35,7 +35,7 @@ At a scene start, applies the scenario setup record of the scene's event to the 
 
 ## Referenced by
 
-- Observed behaviours: [EventUnitFaceOfAScenarioRecord](../behaviors/EventUnitFaceOfAScenarioRecord.md), [PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows](../behaviors/PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows.md), [ScenarioMapStateIsOnlyAMapVariationSelector](../behaviors/ScenarioMapStateIsOnlyAMapVariationSelector.md), [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md), [ScenarioSetupRecordFeedsTheBattleSceneVariables](../behaviors/ScenarioSetupRecordFeedsTheBattleSceneVariables.md), [ScenarioWeatherLevelAndNightFlag](../behaviors/ScenarioWeatherLevelAndNightFlag.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
+- Observed behaviours: [DeploymentRowsOfEachBattle](../behaviors/DeploymentRowsOfEachBattle.md), [EventUnitFaceOfAScenarioRecord](../behaviors/EventUnitFaceOfAScenarioRecord.md), [PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows](../behaviors/PlayerDeploymentAreaTableHasSevenHundredSixtyEightRows.md), [ScenarioMapStateIsOnlyAMapVariationSelector](../behaviors/ScenarioMapStateIsOnlyAMapVariationSelector.md), [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md), [ScenarioSetupRecordFeedsTheBattleSceneVariables](../behaviors/ScenarioSetupRecordFeedsTheBattleSceneVariables.md), [ScenarioWeatherLevelAndNightFlag](../behaviors/ScenarioWeatherLevelAndNightFlag.md), [ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture](../behaviors/ScenarioWordLinksRecordsByATenBitKeyAndLivesInTheBattleCapture.md)
 
 ## Notes
 

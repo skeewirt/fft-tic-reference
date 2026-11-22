@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 390, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 77, Tables: 89.
+Functions: 391, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 78, Tables: 89.
 
-## Functions (390)
+## Functions (391)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -398,6 +398,7 @@ Functions: 390, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [UnitPanel_SetStatusBytes](../functions/UnitPanel_SetStatusBytes.md) | `0x14010A42C` | Fills a battle unit panel's status byte list (the icons on the panel) from a five-byte status set. |
 | [UnitSprite_DepthSort](../functions/UnitSprite_DepthSort.md) | `0x14026D9C8` | Computes the depth value of a unit sprite for sorting. |
 | [VramPage_CopyRect](../functions/VramPage_CopyRect.md) | `0x14025FA60` | Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPage) and marks that area for upload. |
+| [WorldEncounter_StartBattle](../functions/WorldEncounter_StartBattle.md) | `0x140248254` | Starts the random battle WorldEncounter_Roll picked: writes the scene variables the battle load reads (the entry, one deployment area and its row) and clears the story event number. |
 
 ## Structures (70)
 
@@ -553,7 +554,7 @@ Functions: 390, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (77)
+## Observed behaviours (78)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -581,6 +582,7 @@ Functions: 390, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; each area... |
 | [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md) | engine (battle deployment) | Every place the deployment code reads or writes the five placed party indices of the deployment state (g_GenerateAttackTeamManager +0x44), what each loop over them assumes, and the readers that take the placed party a... |
 | [DeploymentPortraitColumnBoxes](../behaviors/DeploymentPortraitColumnBoxes.md) | engine (battle deployment UI) | The deployment screen's portrait column is a fixed set of named layout boxes, 5 for the first area and 4 for the second, bound by name and filled in placing order. |
+| [DeploymentRowsOfEachBattle](../behaviors/DeploymentRowsOfEachBattle.md) | engine (battle deployment) | Where a battle's deployment rows come from: a story battle's scenario setup records name one or two rows, a random battle's encounter row names one per arrival road; a row's own map byte is not always the battle's map... |
 | [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md) | engine (battle deployment screen state) | The fields of the deployment screen's state object that hold the capacity, the placed party, the candidate list and the unit being placed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md) | engine (scripted battle spawn) | While the 16 entry units of a battle are placed, two budgets drop units: at most 9 minus scene variable 57 distinct sprite numbers (the battle's unique-sprite limit of 9 when the variable is 0) and at most 16 minus sc... |
