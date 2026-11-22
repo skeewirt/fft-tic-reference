@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 76, Tables: 89.
+Functions: 389, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 77, Tables: 89.
 
-## Functions (386)
+## Functions (389)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -231,6 +231,9 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [SceneObjects_StepStates](../functions/SceneObjects_StepStates.md) | `0x14026E194` | Per-update pass over the drawn units: runs three per-unit helpers and, for a unit whose two state bits read 'gone', takes it off the field and releases its drawing. |
 | [SceneUnit_Release](../functions/SceneUnit_Release.md) | `0x14026E0F4` | Frees a drawn unit's scene unit (drawing slot) and, when no other drawn unit uses the same look pool record, frees that record too. |
 | [SceneUnits_ReleaseAll](../functions/SceneUnits_ReleaseAll.md) | `0x14020DE64` | Releases every drawn unit (SceneUnit_Release on each node of g_SceneObjectList) after clearing 32 pending dwords and their 8 linked bytes. |
+| [SortieScreen_BindBoxes](../functions/SortieScreen_BindBoxes.md) | `0x140145AC8` | Binds the deployment screen's layout: among its steps, the portrait column's boxes by name (T<area>_<position>) with their faces' Eye and Mouth parts. |
+| [SortieScreen_SetArea0Face](../functions/SortieScreen_SetArea0Face.md) | `0x140147D94` | Shows one portrait box of the deployment screen's first area with a unit's face, or hides it (face -1). |
+| [SortieScreen_SetArea1Face](../functions/SortieScreen_SetArea1Face.md) | `0x1401480D4` | Shows one portrait box of the deployment screen's second area with a unit's face, or hides it (face -1); SortieScreen_SetArea0Face without the lock icon. |
 | [StatsPanel_Build](../functions/StatsPanel_Build.md) | `0x14022AC18` | Builds the detailed stats panel (display script 6): draws its numbers into VRAM and places its sprite cells. |
 | [StatsScreen_Task](../functions/StatsScreen_Task.md) | `0x1402E1890` | Task of the legacy stats screen: builds its eighteen cell primitives and the stat number strips, then waits for a close. |
 | [Status_ListCategory](../functions/Status_ListCategory.md) | `0x1400FAAB4` | Returns the list category of a status from its UIStatusEffect text row: 1 a gain, 2 an ailment, anything else not listed. |
@@ -549,7 +552,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (76)
+## Observed behaviours (77)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -576,6 +579,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
 | [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; each area... |
 | [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md) | engine (battle deployment) | Every place the deployment code reads or writes the five placed party indices of the deployment state (g_GenerateAttackTeamManager +0x44), what each loop over them assumes, and the readers that take the placed party a... |
+| [DeploymentPortraitColumnBoxes](../behaviors/DeploymentPortraitColumnBoxes.md) | engine (battle deployment UI) | The deployment screen's portrait column is a fixed set of named layout boxes, 5 for the first area and 4 for the second, bound by name and filled in placing order. |
 | [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md) | engine (battle deployment screen state) | The fields of the deployment screen's state object that hold the capacity, the placed party, the candidate list and the unit being placed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md) | engine (scripted battle spawn) | While the 16 entry units of a battle are placed, two budgets drop units: at most 9 minus scene variable 57 distinct sprite numbers (the battle's unique-sprite limit of 9 when the variable is 0) and at most 16 minus sc... |

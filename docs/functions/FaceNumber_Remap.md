@@ -3,7 +3,7 @@
 - **Address:** `0x1400F8338`
 - **Area:** [Graphics](../areas/graphics.md)
 - **Prototype:** `int FaceNumber_Remap(int face)`
-- **Callers:** FaceWidget_SetFace, sub_14010ABE4, sub_1401389C4, sub_140144E24, sub_140147D94, sub_1401480D4
+- **Callers:** FaceWidget_SetFace, sub_14010ABE4, sub_1401389C4, sub_140144E24, SortieScreen_SetArea0Face, SortieScreen_SetArea1Face
 - **Callees:** not recorded
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -21,11 +21,11 @@ Replaces a few face numbers by the face the UI shows for them; every other numbe
 ## Referenced by
 
 - Appears in flows: [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md)
-- Called by: [FaceWidget_SetFace](FaceWidget_SetFace.md)
+- Called by: [FaceWidget_SetFace](FaceWidget_SetFace.md), [SortieScreen_SetArea0Face](SortieScreen_SetArea0Face.md), [SortieScreen_SetArea1Face](SortieScreen_SetArea1Face.md)
 
 ## Notes
 
-So a class's own face number (256 or more) passes through unchanged. The name is ours (IDB: sub_1400F8338).
+So a face number of 256 or more passes through unchanged. The name is ours (IDB: sub_1400F8338).
 
 ## Open questions
 

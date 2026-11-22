@@ -24854,6 +24854,57 @@
       },
       "doc": "docs/functions/Skillset_GetAbility.md"
     },
+    "SortieScreen_BindBoxes": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 11,
+            "calls": "sha256:9806dd4632f3fa51dbe59bccaaa9d457dfebd851c63fd6e516e035c84d9cb49b",
+            "insn_count": 48,
+            "mnemonics": "sha256:355439ae938227342e270a43a6d079e4fce77e52d07a5f18238082cff58f005d",
+            "size": 4043
+          },
+          "rva": "0x145ac8",
+          "size": 4043
+        }
+      },
+      "doc": "docs/functions/SortieScreen_BindBoxes.md"
+    },
+    "SortieScreen_SetArea0Face": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:fe7e15e9137a3e0f99b7bd61103122086e67c89bfd1710886c1969bcc4f7b7ce",
+            "insn_count": 48,
+            "mnemonics": "sha256:08295fd513b03a5015a8513a1ee47faff944336e1f3009ed37db63b275933b61",
+            "size": 832
+          },
+          "rva": "0x147d94",
+          "size": 832
+        }
+      },
+      "doc": "docs/functions/SortieScreen_SetArea0Face.md"
+    },
+    "SortieScreen_SetArea1Face": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:fe7e15e9137a3e0f99b7bd61103122086e67c89bfd1710886c1969bcc4f7b7ce",
+            "insn_count": 48,
+            "mnemonics": "sha256:313700cf30bf32c77142a338ac083304f6f5680157f16a7554f01bb55fca92c7",
+            "size": 621
+          },
+          "rva": "0x1480d4",
+          "size": 621
+        }
+      },
+      "doc": "docs/functions/SortieScreen_SetArea1Face.md"
+    },
     "SoundCue_Play": {
       "area": "event-system",
       "builds": {
