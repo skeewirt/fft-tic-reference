@@ -22,7 +22,7 @@ Every place the deployment code reads or writes the five placed party indices of
 - V: after a successful commence check sub_1401F16F4 numbers the event unit id (+0x191) of records 16..20 from 120 (0x1401F1E12..0x1401F1E60); a record whose character byte (+0) is 1..3 keeps that byte. Records 0..15 are not numbered there.
 - V: readers that take the placed party as records 16..20: sub_1402C53F0 (a result page's top unit), Party_CountUnitsAtLevel (at least 5 of them at a level). SaveHeader_FillBattleFields looks for Ramza in 16..20 and then in 0..15.
 - V: Battle_PlaceEntryUnits' entry budget: 9 - scene variable 57 distinct looks (the constant 9 at 0x14027135B, clamped to 0 when the variable is above 9 at 0x140271370) and that + 7 units (0x140271389); a battle without a scenario record sets the variable to its first area's count byte (Deployment_PrepareCandidates).
-- V (tested limit, Mandalia random battle): with the five indices widened, the checks of 5 raised and the area's count byte at 8, eight party units were placed, three of them in free records of 0..15; each had player turns, the three gained EXP and JP from their own hits, and their roster records held the gains after the victory. With 16 entry units the records 0..15 were all taken: five placed and the battle started.
+- V (tested limit, Mandalia random battle): with the five indices widened, the checks of 5 raised and the area's count byte at 8, eight party units were placed, three of them in free records of 0..15; each had player turns, the two of them that hit an enemy gained EXP and JP from those hits, and their roster records held the gains after the victory. With 16 entry units the records 0..15 were all taken: five placed and the battle started.
 
 ## Open questions
 
