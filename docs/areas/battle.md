@@ -2,7 +2,7 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 75, Tables: 89.
+Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 76, Tables: 89.
 
 ## Functions (386)
 
@@ -549,7 +549,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (75)
+## Observed behaviours (76)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -563,6 +563,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md) | engine | A battle effect is one self-contained file per effect number (0..511): EffectFile_GetTrackRow gives its pack file and size, the loader reads it into one shared buffer and the effect runs from offsets inside the file. |
 | [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md) | engine (battle unit entries) | The entry key (variable 50) selects 16 entries of 40 bytes: keys 1..127 read from file 224, 128..255 from 225, 256..383 from 226, 384..511 from 227 (81,920 bytes each, 128 keys), and keys 512..591 from file 892 (51,20... |
 | [BattleForkDeterminism](../behaviors/BattleForkDeterminism.md) | a battle resumed from one autosave and driven by the same scripted input in two runs | A battle can be forked only at a save point: the autosave restores the world work copy and a battle image, but not the random stream, the frame counters, the input state or the thread/GPU state. |
+| [BattleKoCountsAndGreatestContribution](../behaviors/BattleKoCountsAndGreatestContribution.md) | engine (battle results) | The battle counts the KOs each battle record deals, and the victory page's 'Greatest Contribution' names the party unit in records 16..20 with the most. |
 | [BattleMapIdPathsAndTheirWidths](../behaviors/BattleMapIdPathsAndTheirWidths.md) | engine (battle map id storage) | The battle map id travels as a 32-bit global (0x140D3A838) set from scene variable 51 or from one of two signed 16-bit event words (-1 means none); the current-map global used for resources is another 32-bit global (0... |
 | [BattlePanelJobLineShowsDashesAtLevelZero](../behaviors/BattlePanelJobLineShowsDashesAtLevelZero.md) | engine | The job line of a battle unit panel shows 'Lv. |
 | [BattleRefusalBanner](../behaviors/BattleRefusalBanner.md) | engine (battle messages) | Battle refusal messages (C_Mes_Id keys 2001..2037, 18000, 18001) are shown as the timed red banner, not as a message box. |

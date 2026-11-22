@@ -11,6 +11,10 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 Singleton ffto::Game::Battle::BattleControl (vtable 0x140714058); BattleControl_FrameUpdate is its per-frame update; its destructor clears the fast-forward level and mode.
 
+## Referenced by
+
+- Observed behaviours: [BattleKoCountsAndGreatestContribution](../behaviors/BattleKoCountsAndGreatestContribution.md)
+
 ## Open questions
 
 None recorded.

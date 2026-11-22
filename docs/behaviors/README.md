@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-270 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+271 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -30,6 +30,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [BattleHudAndUnitFields](BattleHudAndUnitFields.md) | the Jobs screen and a battle's first turn | What the game shows from the Jobs screen into a battle, as seen live. |
 | [BattleItemsAreUsedThroughItemAbilities](BattleItemsAreUsedThroughItemAbilities.md) | engine | A battle item is used through an Item ability: the Chemist's Items command lists skillset 6's abilities 368..381 as items through the kind1 table, and the action's ability word is item + 0x80. |
 | [BattleJpGoesToTheJobOfTheUnitsByteNotItsClass](BattleJpGoesToTheJobOfTheUnitsByteNotItsClass.md) | engine (battle JP award and learning) | The battle JP award reads the acting unit's job byte, runs it through Job_IdToIndex and adds the JP to that job's slot: a job id wider than the byte cannot be held in it. |
+| [BattleKoCountsAndGreatestContribution](BattleKoCountsAndGreatestContribution.md) | engine (battle results) | The battle counts the KOs each battle record deals, and the victory page's 'Greatest Contribution' names the party unit in records 16..20 with the most. |
 | [BattleLoadWritesThePartyBackToTheSaveRecords](BattleLoadWritesThePartyBackToTheSaveRecords.md) | loading a story battle from the world map | While a battle loads, the game writes every party work record back into its save record (PartyUnit_WriteBackToSave once per party slot, 0 to 6 with a party of seven). |
 | [BattleMapIdPathsAndTheirWidths](BattleMapIdPathsAndTheirWidths.md) | engine (battle map id storage) | The battle map id travels as a 32-bit global (0x140D3A838) set from scene variable 51 or from one of two signed 16-bit event words (-1 means none); the current-map global used for resources is another 32-bit global (0... |
 | [BattleMotionNumbers](BattleMotionNumbers.md) | engine (battle unit animation choice) | A battle action names its animation by a motion number from two tables (one per ability, one per weapon type); the unit stores motion + 1, and the motion number is the pair index of the classic animation file (front v... |

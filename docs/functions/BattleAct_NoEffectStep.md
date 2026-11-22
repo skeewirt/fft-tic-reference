@@ -20,6 +20,7 @@ Applies the resolved action to every target and starts each target's hit motion:
 - V: on the first successful hit it sets the target's +0x1F5 = the actor's slot and adds one to the actor's hit counter at BattleControl + 4 * slot + 0xA94D4 (capped at 9999).
 - V: effect word 512: copies the object's bytes +0x1C4..+0x1C6 to each target and calls sub_14027192C (the sentinel case).
 - V: word 0 (or a weapon flag case): sub_140269790 (the weapon attack motion); otherwise, when +0x1BF is 0, BattleAnim_SelectMotion.
+- V: for each target its action leaves at 0 HP (+0x30) it writes the acting unit's record index (+0x1BC) to the target's +0x1F5 and adds 1 to that record's KO count at g_BattleControl +0xA9494 + 4 x record, capped at 9999 (record BattleKoCountsAndGreatestContribution).
 
 ## State touched
 
@@ -28,6 +29,7 @@ Applies the resolved action to every target and starts each target's hit motion:
 ## Referenced by
 
 - Called by: [BattleAct_Step](BattleAct_Step.md)
+- Observed behaviours: [BattleKoCountsAndGreatestContribution](../behaviors/BattleKoCountsAndGreatestContribution.md)
 
 ## Notes
 
