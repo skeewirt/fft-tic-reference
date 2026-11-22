@@ -18,6 +18,7 @@ Where a battle's deployment rows come from: a story battle's scenario setup reco
 - V: a random battle: WorldEncounter_StartBattle writes variable 52 = 1 and 53 = 0x200 + the encounter row's byte 1; the 19 battlegrounds have three encounter rows each (one per arrival road; road 0 = unused), each naming its row (Mandalia Plain: 552, 553, 554; seen live: 554; The Siedge Weald: 519, 520).
 - V (data): a placement row's byte +9 is a map id (Deployment_PrepareCandidates matches it in one mode), but it is not always the map the battle runs on: row 232 (byte +9 = 116, a map with no place name) is the first area of event 445, whose scenario record names map 50 (Mullonde Cathedral).
 - V (data): row 324 is the second area of both Mullonde Cathedral battles (events 443 / 444 and event 445), and row 527 is both the Zeklaus Desert story battle's row (events 525..528) and one of the Zeklaus Desert random battle's rows.
+- V (seen live 2026-11-22, the Siedge Weald story battle, row 258: cell_mask 0x77DC0 = 11 cells): with the row's count byte set to 13, the deployment placed 11 units and the 12th A found no free cell (it opened the Status of the unit under the cursor); with the count 13 and all 25 bits of cell_mask set, 13 were placed and 'Remaining' counted down to 0. The cells of the grid bound how many units an area can take, whatever its count.
 
 ## Open questions
 
