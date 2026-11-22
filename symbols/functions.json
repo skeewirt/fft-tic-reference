@@ -24905,6 +24905,23 @@
       },
       "doc": "docs/functions/SortieScreen_SetArea1Face.md"
     },
+    "SortieScreen_ShowAreaBoxes": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:973b3732ee17d4ffac9a1ca2c6085516b0df7363b490184cd8a893a3d5c2b7a7",
+            "insn_count": 48,
+            "mnemonics": "sha256:d4634321de6f890d6487c8afe88f4e719e33c5467d0cd1036a9ccafa1018e505",
+            "size": 365
+          },
+          "rva": "0x147c24",
+          "size": 365
+        }
+      },
+      "doc": "docs/functions/SortieScreen_ShowAreaBoxes.md"
+    },
     "SoundCue_Play": {
       "area": "event-system",
       "builds": {

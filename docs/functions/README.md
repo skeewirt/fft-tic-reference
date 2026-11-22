@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2294 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2295 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -1471,6 +1471,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [SortieScreen_BindBoxes](SortieScreen_BindBoxes.md) | `0x140145AC8` | [Battle](../areas/battle.md) | Binds the deployment screen's layout: among its steps, the portrait column's boxes by name (T<area>_<position>) with their faces' Eye and Mouth parts. |
 | [SortieScreen_SetArea0Face](SortieScreen_SetArea0Face.md) | `0x140147D94` | [Battle](../areas/battle.md) | Shows one portrait box of the deployment screen's first area with a unit's face, or hides it (face -1). |
 | [SortieScreen_SetArea1Face](SortieScreen_SetArea1Face.md) | `0x1401480D4` | [Battle](../areas/battle.md) | Shows one portrait box of the deployment screen's second area with a unit's face, or hides it (face -1); SortieScreen_SetArea0Face without the lock icon. |
+| [SortieScreen_ShowAreaBoxes](SortieScreen_ShowAreaBoxes.md) | `0x140147C24` | [Battle](../areas/battle.md) | Shows as many portrait boxes in each area of the deployment screen as the area's count, by playing the Team component's states. |
 | [Sound_PlayNovelSe](Sound_PlayNovelSe.md) | `0x1402BA7C4` | [Resource](../areas/resource.md) | Plays one of the common novel sound effects by id: it finds a free channel, loads the sound from the shared novel sound bank and starts it. |
 | [SoundCue_Play](SoundCue_Play.md) | `0x1402BAA30` | [Event system](../areas/event-system.md) | Plays a sound cue on the first free sound channel of 13..19: remaps the cue with IdRemap_Lookup, drops it when the result is above 0x2B1, and returns the channel used or -1. |
 | [SpriteAnim_Step](SpriteAnim_Step.md) | `0x14038EDD4` | [UI framework](../areas/ui-framework.md) | Advances one opening / title sprite animation by a tick and queues the cells of its current frame. |

@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 389, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 77, Tables: 89.
+Functions: 390, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 77, Tables: 89.
 
-## Functions (389)
+## Functions (390)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -234,6 +234,7 @@ Functions: 389, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [SortieScreen_BindBoxes](../functions/SortieScreen_BindBoxes.md) | `0x140145AC8` | Binds the deployment screen's layout: among its steps, the portrait column's boxes by name (T<area>_<position>) with their faces' Eye and Mouth parts. |
 | [SortieScreen_SetArea0Face](../functions/SortieScreen_SetArea0Face.md) | `0x140147D94` | Shows one portrait box of the deployment screen's first area with a unit's face, or hides it (face -1). |
 | [SortieScreen_SetArea1Face](../functions/SortieScreen_SetArea1Face.md) | `0x1401480D4` | Shows one portrait box of the deployment screen's second area with a unit's face, or hides it (face -1); SortieScreen_SetArea0Face without the lock icon. |
+| [SortieScreen_ShowAreaBoxes](../functions/SortieScreen_ShowAreaBoxes.md) | `0x140147C24` | Shows as many portrait boxes in each area of the deployment screen as the area's count, by playing the Team component's states. |
 | [StatsPanel_Build](../functions/StatsPanel_Build.md) | `0x14022AC18` | Builds the detailed stats panel (display script 6): draws its numbers into VRAM and places its sprite cells. |
 | [StatsScreen_Task](../functions/StatsScreen_Task.md) | `0x1402E1890` | Task of the legacy stats screen: builds its eighteen cell primitives and the stat number strips, then waits for a close. |
 | [Status_ListCategory](../functions/Status_ListCategory.md) | `0x1400FAAB4` | Returns the list category of a status from its UIStatusEffect text row: 1 a gain, 2 an ailment, anything else not listed. |
