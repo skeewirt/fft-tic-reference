@@ -19,6 +19,7 @@ Moves the placed party indices of the deployment state to the front of their arr
 
 ## Referenced by
 
+- Called by: [Deployment_PlaceUnitAtCursor](Deployment_PlaceUnitAtCursor.md)
 - Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md)
 
 ## Open questions

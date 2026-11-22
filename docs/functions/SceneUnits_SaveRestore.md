@@ -20,7 +20,7 @@ Copies the scene units, the scene list, the CLUT image and the CLUT manager to o
 
 ## Referenced by
 
-- Observed behaviours: [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md), [SixteenSceneUnitsComeOnlyFromTheLookQueue](../behaviors/SixteenSceneUnitsComeOnlyFromTheLookQueue.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md), [TheBattleCaptureCopiesFixedCounts](../behaviors/TheBattleCaptureCopiesFixedCounts.md)
+- Observed behaviours: [BattleRetriesRestoreTheirOwnCapture](../behaviors/BattleRetriesRestoreTheirOwnCapture.md), [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md), [SixteenSceneUnitsComeOnlyFromTheLookQueue](../behaviors/SixteenSceneUnitsComeOnlyFromTheLookQueue.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md), [TheBattleCaptureCopiesFixedCounts](../behaviors/TheBattleCaptureCopiesFixedCounts.md)
 - Reads tables: [SpriteLookAttributes](../tables/SpriteLookAttributes.md)
 
 ## Open questions

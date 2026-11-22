@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-273 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+274 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -38,6 +38,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [BattlePanelJobLineShowsDashesAtLevelZero](BattlePanelJobLineShowsDashesAtLevelZero.md) | engine | The job line of a battle unit panel shows 'Lv. |
 | [BattlePanelsNameTheJobByte](BattlePanelsNameTheJobByte.md) | engine (battle unit panels) | The battle's unit panels and command screens name a unit's job from its job byte (+3) or from the first listed job whose row holds a skillset, never from a party word. |
 | [BattleRefusalBanner](BattleRefusalBanner.md) | engine (battle messages) | Battle refusal messages (C_Mes_Id keys 2001..2037, 18000, 18001) are shown as the timed red banner, not as a message box. |
+| [BattleRetriesRestoreTheirOwnCapture](BattleRetriesRestoreTheirOwnCapture.md) | the battle System Menu's Retry choices | Both Retry choices rebuild the battle from a battle capture, not from the battle as it stands: 'Change Formation and Retry' restores a capture taken after the battle's own units were built and before any party unit jo... |
 | [BattleRosterCopiesCarryTheBattleSlotAt44](BattleRosterCopiesCarryTheBattleSlotAt44.md) | engine (battle party records) | In battle the party records are copies of battle unit records: PartyUnit_FillFromWorkRecord fills the battle roster records from the battle unit table, writing the unit's battle slot at +44 and its save slot at +0x1E,... |
 | [BattleStatChangeAndCtGainSteps](BattleStatChangeAndCtGainSteps.md) | engine | Unit_ChangeBattleStat changes PA / MA / Speed at the base +0x38..+0x3A with the totals +0x3E..+0x40; Move / Jump are at +0x42 / +0x43; the Haste / Slow CT step is in phase 0 of Battle_TurnEngine; Protect and Shell sca... |
 | [BattleTextOverlaysAndPreview](BattleTextOverlaysAndPreview.md) | battle: event dialogue, notice banner, attack / item preview, deployment placement | Where the battle's dialogue, notices and action preview are drawn, how placement works, and what the preview numbers meant in play, as seen live. |

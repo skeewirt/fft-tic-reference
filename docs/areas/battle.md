@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 391, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 78, Tables: 89.
+Functions: 392, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 78, Tables: 89.
 
-## Functions (391)
+## Functions (392)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -145,6 +145,7 @@ Functions: 391, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [Deployment_CountUnitsInArea](../functions/Deployment_CountUnitsInArea.md) | `0x1401EE830` | Counts the units that stand on the deployment cells of area 0 or 1. |
 | [Deployment_FindPlacedUnitArea](../functions/Deployment_FindPlacedUnitArea.md) | `0x1401F3E3C` | Finds which deployment area a placed party unit (by its battle slot) stands in, and its order among the placed units of that area. |
 | [Deployment_LoadAreaPlacement](../functions/Deployment_LoadAreaPlacement.md) | `0x140303408` | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
+| [Deployment_PlaceUnitAtCursor](../functions/Deployment_PlaceUnitAtCursor.md) | `0x1401F3128` | Places the deployment candidate under the carousel glove on the cursor tile: frees the unit standing there, joins the candidate and adds it to the placed list. |
 | [Deployment_PrepareCandidates](../functions/Deployment_PrepareCandidates.md) | `0x1402FB4F8` | Battle setup step that builds the deployment candidate list from the roster and, for a battle without a scenario record, sets scene variable 57 to the first deployment area's party count. |
 | [Deployment_ResetState](../functions/Deployment_ResetState.md) | `0x1401EE518` | Resets the deployment state: capacity 0, no placed unit, no candidate. |
 | [Deployment_SelectArea](../functions/Deployment_SelectArea.md) | `0x140303380` | Makes the deployment area of the scene (index 0 or 1) the current one and returns a count byte of its placement record. |

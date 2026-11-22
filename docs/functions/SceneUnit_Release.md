@@ -19,7 +19,7 @@ Frees a drawn unit's scene unit (drawing slot) and, when no other drawn unit use
 
 ## Referenced by
 
-- Called by: [SceneObjects_StepStates](SceneObjects_StepStates.md), [SceneUnits_ReleaseAll](SceneUnits_ReleaseAll.md)
+- Called by: [Deployment_PlaceUnitAtCursor](Deployment_PlaceUnitAtCursor.md), [SceneObjects_StepStates](SceneObjects_StepStates.md), [SceneUnits_ReleaseAll](SceneUnits_ReleaseAll.md)
 
 ## Notes
 

@@ -27,7 +27,7 @@ Builds a battle unit record for a party unit that enters the battle (a deploymen
 ## Referenced by
 
 - Called by: [Battle_JoinUnitAndLoad](Battle_JoinUnitAndLoad.md)
-- Observed behaviours: [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md)
+- Observed behaviours: [BattleRetriesRestoreTheirOwnCapture](../behaviors/BattleRetriesRestoreTheirOwnCapture.md), [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md)
 
 ## Open questions
 

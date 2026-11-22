@@ -2,7 +2,7 @@
 
 The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.
 
-Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 5, Tables: 10.
+Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 6, Tables: 10.
 
 ## Functions (139)
 
@@ -196,12 +196,13 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [AutoSaveWrite](../flows/AutoSaveWrite.md) | Where a resume entry comes from and when it is written: the per-frame flush turns dirty group buffers into named entries, stamps each with a CRC, and one write kick sends the whole container. |
 | [SaveFrameStep](../flows/SaveFrameStep.md) | How a manual save or load reaches the file: the save screen changes a command, and one frame step does the work once per frame, blocking that frame while the container is read or written. |
 
-## Observed behaviours (5)
+## Observed behaviours (6)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [AnUnservedIdFromASaveFreezesTheGame](../behaviors/AnUnservedIdFromASaveFreezesTheGame.md) | loading a save whose item ids have no row | The game trusts every id in a save: an equipped item with no item row reaches the unit stat builder, which reads the armor record it does not get and faults inside a game task, freezing the game. |
 | [BattleLoadWritesThePartyBackToTheSaveRecords](../behaviors/BattleLoadWritesThePartyBackToTheSaveRecords.md) | loading a story battle from the world map | While a battle loads, the game writes every party work record back into its save record (PartyUnit_WriteBackToSave once per party slot, 0 to 6 with a party of seven). |
+| [BattleRetriesRestoreTheirOwnCapture](../behaviors/BattleRetriesRestoreTheirOwnCapture.md) | the battle System Menu's Retry choices | Both Retry choices rebuild the battle from a battle capture, not from the battle as it stands: 'Change Formation and Retry' restores a capture taken after the battle's own units were built and before any party unit jo... |
 | [CheckpointCopyHoldsTheLiveUnitRecords](../behaviors/CheckpointCopyHoldsTheLiveUnitRecords.md) | the checkpoint copy of the slot record (g_SaveCheckpointCopy) | The checkpoint writer packs the party into the work copy, copies the work copy to the checkpoint copy, and then overwrites the checkpoint copy's unit area with the live unit records. |
 | [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md) | resuming a battle from an autosave: where the live unit records come from | A battle resumed from an autosave gets its live unit records (g_UnitSaveData) from the battle snapshot region through Battle_RestoreSceneVars, and SaveWork_UnpackToLive does not run for it: the resume entry unpacks on... |
 | [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md) | a manual save's slot card | The slot card's job byte (slot image +274) is the low byte of the leader's 16-bit party job word: SaveWork_PackFromParty picks the first party unit whose marker (+114) is 1..3 and passes its word +36 to SaveWork_PackF... |
