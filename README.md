@@ -2,7 +2,7 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-4339 records in 12 kinds; 2291 functions.
+4341 records in 12 kinds; 2291 functions.
 
 ## By kind
 
@@ -11,14 +11,14 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Functions](docs/functions/README.md) | 2291 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
 | [Structures](docs/structs/README.md) | 535 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
-| [Globals](docs/globals/README.md) | 228 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
+| [Globals](docs/globals/README.md) | 229 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
 | [Registries](docs/registries/README.md) | 30 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
 | [Shaders](docs/shaders/README.md) | 9 | GPU shader programs from the game's technique files: stage, interface, bindings and what they compute (in words; no bytecode). |
 | [Shader programs](docs/programs/README.md) | 4 | Engine shader programs: a selector and program index resolved to its vertex and pixel shader, and the passes that use it. |
 | [Render targets](docs/render-targets/README.md) | 8 | GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame. |
 | [File formats](docs/formats/README.md) | 20 | Layouts of the game's file formats (described, never copied): headers, records, string pools. |
 | [Flows](docs/flows/README.md) | 30 | Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters. |
-| [Observed behaviours](docs/behaviors/README.md) | 269 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
+| [Observed behaviours](docs/behaviors/README.md) | 270 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
 | [Tables](docs/tables/README.md) | 673 | Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents. |
 
 ## By area
@@ -27,7 +27,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 |---|---|
 | [Ability data](docs/areas/ability-data.md) | Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 14 |
 | [Application and startup](docs/areas/app-startup.md) | Functions: 19, Structures: 3, Globals: 2, Observed behaviours: 5, Tables: 2 |
-| [Battle](docs/areas/battle.md) | Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 74, Tables: 89 |
+| [Battle](docs/areas/battle.md) | Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 75, Tables: 89 |
 | [Data access](docs/areas/data.md) | Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 13, Tables: 116 |
 | [Display](docs/areas/display.md) | Functions: 3, Structures: 5, Tables: 5 |
 | [Errands](docs/areas/errands.md) | Functions: 29, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11 |

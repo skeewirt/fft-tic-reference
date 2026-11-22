@@ -927,6 +927,15 @@
       },
       "doc": "docs/globals/g_GameUIManager.md"
     },
+    "g_GenerateAttackTeamManager": {
+      "area": "",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "rva": "0x3cda740"
+        }
+      },
+      "doc": "docs/globals/g_GenerateAttackTeamManager.md"
+    },
     "g_GlobalWork": {
       "area": "app-startup",
       "builds": {

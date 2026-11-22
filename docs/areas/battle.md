@@ -2,7 +2,7 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 74, Tables: 89.
+Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 75, Tables: 89.
 
 ## Functions (386)
 
@@ -549,7 +549,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (74)
+## Observed behaviours (75)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -574,6 +574,7 @@ Functions: 386, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleVoiceChance](../behaviors/BattleVoiceChance.md) | engine (battle voices) | Whether a line plays is a roll of the speaker group's percentage in the line's column; fast-forward silences voices. |
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
 | [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; each area... |
+| [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md) | engine (battle deployment) | Every place the deployment code reads or writes the five placed party indices of the deployment state (g_GenerateAttackTeamManager +0x44), what each loop over them assumes, and the readers that take the placed party a... |
 | [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md) | engine (battle deployment screen state) | The fields of the deployment screen's state object that hold the capacity, the placed party, the candidate list and the unit being placed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md) | engine (scripted battle spawn) | While the 16 entry units of a battle are placed, two budgets drop units: at most 9 minus scene variable 57 distinct sprite numbers (the battle's unique-sprite limit of 9 when the variable is 0) and at most 16 minus sc... |

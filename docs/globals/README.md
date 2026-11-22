@@ -2,7 +2,7 @@
 
 Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json).
 
-228 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
+229 records. Format of a record: [kinds/global.json](../../kinds/global.json). Data: [data/globals.jsonl](../../data/globals.jsonl).
 
 | Name | Address | Type | Summary |
 |---|---|---|---|
@@ -105,6 +105,7 @@ Global variables and singletons at fixed addresses of the current build (build-a
 | [g_FormulaBlock](g_FormulaBlock.md) | `0x1407B0770` | `uint8[16]` | The block the action resolver and the formula handlers share, 0x48 bytes from 0x1407B0770: the request's action type, the ability being worked out (the word at +8, address 0x1407B0778), the weapon or item word, the in... |
 | [g_FrameTimestamp](g_FrameTimestamp.md) | `0x143CD9B68` | `int64 (1/300000 s)` | Latest accepted frame timestamp, written by App_RunFrame and read by the frame limiter. |
 | [g_GameUIManager](g_GameUIManager.md) | `0x143CD9DC8` | `void *` | The game's UI manager object: the movie controller flags are at +0xE0 and the movie host at +200 (record MovieController). |
+| [g_GenerateAttackTeamManager](g_GenerateAttackTeamManager.md) | `0x143CDA740` | `GenerateAttackTeamManager *` | The deployment screen's state object (vtable ffto::Game::Battle::GenerateAttackTeamManager, 0xBC0 bytes, allocated and built by Battle_Init, freed by its two destructors with the same size): the capacity at +0x40, the... |
 | [g_GlobalWork](g_GlobalWork.md) | `0x143CD9DD0` | `GlobalWork *` | Singleton ffto::Game::GlobalWork (136 bytes, vtable 0x140713EA8, created by sub_1400B532C): fast-forward level +0x58, frame step +0x5C, fast-forward mode +0x60 (record GlobalWork). |
 | [g_GraphicsLevel](g_GraphicsLevel.md) | `0x142C81554` | `float` | Graphics level; Unit_GetSpriteSetId's save-record branch and the battle palette upload test it against 2.0 (I: 2.0 and up = enhanced graphics). |
 | [g_GUIActorTable](g_GUIActorTable.md) | `0x143CDA290` | `GUIActorTable *` | Owner (addon) lookup by id; GUIOwners_PostEvent resolves every node owner id here and calls the owner's vtable slot 2. |

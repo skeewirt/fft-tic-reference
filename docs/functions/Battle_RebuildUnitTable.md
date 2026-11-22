@@ -22,7 +22,7 @@ Rebuilds the battle records of the placed party units from their roster records.
 
 ## Referenced by
 
-- Observed behaviours: [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md)
+- Observed behaviours: [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md), [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md)
 
 ## Open questions
 

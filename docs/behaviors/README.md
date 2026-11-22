@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-269 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+270 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -63,6 +63,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [CursorDrawnThroughLayerTarget](CursorDrawnThroughLayerTarget.md) | the finger cursor's glove (UI layer) | The glove reaches the screen in two 8-bit stores: it is drawn into a cleared layer target (premultiplied, rounded) and that layer is then blended onto the frame (dst = layer + dst * (1 - layer alpha), rounded again). |
 | [CursorGloveBob](CursorGloveBob.md) | finger cursor (the glove on the Job Tree) | The glove's idle bob: a 40-frame, looping, position track on the IconHand node of the Hand component, played on the UI frame time, sampled as an integer, and added to the glove's glide only in the node matrices. |
 | [DeploymentAcceptsOneToFivePlacedUnits](DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; each area... |
+| [DeploymentPlacedIndicesReaders](DeploymentPlacedIndicesReaders.md) | engine (battle deployment) | Every place the deployment code reads or writes the five placed party indices of the deployment state (g_GenerateAttackTeamManager +0x44), what each loop over them assumes, and the readers that take the placed party a... |
 | [DeploymentStateLayout](DeploymentStateLayout.md) | engine (battle deployment screen state) | The fields of the deployment screen's state object that hold the capacity, the placed party, the candidate list and the unit being placed. |
 | [EffectPassesInheritDefaultSampler](EffectPassesInheritDefaultSampler.md) | engine | Layer effect passes read their textures through g_Sampler without setting it; because they are packed before the UI draws that set it, they always get the default word (point filter, wrap). |
 | [EnhancedBattleMapFilesAreNamedByMapId](EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
