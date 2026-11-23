@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2298 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2300 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -298,8 +298,10 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [Deployment_CompactPlaced](Deployment_CompactPlaced.md) | `0x1401EE6DC` | [Battle](../areas/battle.md) | Moves the placed party indices of the deployment state to the front of their array. |
 | [Deployment_CountPlaced](Deployment_CountPlaced.md) | `0x1401EE6AC` | [Battle](../areas/battle.md) | Counts the placed party units of the deployment state. |
 | [Deployment_CountUnitsInArea](Deployment_CountUnitsInArea.md) | `0x1401EE830` | [Battle](../areas/battle.md) | Counts the units that stand on the deployment cells of area 0 or 1. |
+| [Deployment_FindFreeCell](Deployment_FindFreeCell.md) | `0x1401F5238` | [Battle](../areas/battle.md) | Finds a free placeable cell in one area's grid (25 cell records of Deployment_LoadAreaPlacement): the cell under (x, y, layer) when free, else the nearest free one; writes it back and returns 1, or returns 0. |
 | [Deployment_FindPlacedUnitArea](Deployment_FindPlacedUnitArea.md) | `0x1401F3E3C` | [Battle](../areas/battle.md) | Finds which deployment area a placed party unit (by its battle slot) stands in, and its order among the placed units of that area. |
 | [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md) | `0x140303408` | [Battle](../areas/battle.md) | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
+| [Deployment_MoveCursorToFreeCell](Deployment_MoveCursorToFreeCell.md) | `0x1401F49EC` | [Battle](../areas/battle.md) | Moves the deployment tile cursor to a free cell after a placement or a group switch: per area it finds a free cell, then picks one by the area the state names, the areas' room and the distance from the cursor. |
 | [Deployment_PlaceUnitAtCursor](Deployment_PlaceUnitAtCursor.md) | `0x1401F3128` | [Battle](../areas/battle.md) | Places the deployment candidate under the carousel glove on the cursor tile: frees the unit standing there, joins the candidate and adds it to the placed list. |
 | [Deployment_PrepareCandidates](Deployment_PrepareCandidates.md) | `0x1402FB4F8` | [Battle](../areas/battle.md) | Battle setup step that builds the deployment candidate list from the roster and, for a battle without a scenario record, sets scene variable 57 to the first deployment area's party count. |
 | [Deployment_ResetState](Deployment_ResetState.md) | `0x1401EE518` | [Battle](../areas/battle.md) | Resets the deployment state: capacity 0, no placed unit, no candidate. |

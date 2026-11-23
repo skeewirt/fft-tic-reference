@@ -22,8 +22,8 @@ Counts the units that stand on the deployment cells of area 0 or 1.
 
 ## Referenced by
 
-- Called by: [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md), [Deployment_SelectTile](Deployment_SelectTile.md)
-- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md)
+- Called by: [DeploymentGrid_CommenceCheck](DeploymentGrid_CommenceCheck.md), [Deployment_MoveCursorToFreeCell](Deployment_MoveCursorToFreeCell.md), [Deployment_SelectTile](Deployment_SelectTile.md)
+- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile](../behaviors/DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile.md)
 
 ## Notes
 

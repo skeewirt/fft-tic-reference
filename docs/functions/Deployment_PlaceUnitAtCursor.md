@@ -21,6 +21,7 @@ Places the deployment candidate under the carousel glove on the cursor tile: fre
 - V: with a unit on the tile: when scene variable 511 is set and that unit is roster index 0 it shows message 116 (0x74) and returns 0; otherwise it frees that unit's drawn unit (SceneObject_FindBySlot, SceneUnit_Release), sets its record's slot byte and +0x1B5 to 0xFF, waits 4 frames and drops its roster index from the placed list (Deployment_CompactPlaced, sub_1401F3858).
 - V: with no unit on the tile it shows message 118 (0x76) and returns 0 when the placed count (Deployment_CountPlaced) has reached the capacity +0x40.
 - V: then Battle_JoinUnitAndLoad(state, roster index, -1), the cursor tile into +0x65..+0x67, and the joined unit's roster index read through state +0x18 (its scene object) +0x148 (its record) +2 at 0x1401F330F, with no test of +0x18, into the first free entry of the placed list (+0x44), whose index goes to +0x10.
+- V (seen live 2026-11-22): a placement on a placeable cell whose tile Unit_CheckSpawnTile refuses (a deployment grid opened on a wall, a drop or off the map) joins the unit with no shape and no drawn unit (its record had slot, roster index and tile set, +0x18F 0); +0x18 stays 0 and the same read faults.
 - V (seen live 2026-11-22): when the join builds no drawn unit (every drawing slot in use) +0x18 is 0 and the read at 0x1401F330F faults inside a game task; the game freezes on the deployment screen. In 'Change Formation and Retry' the deployment re-places the locked unit through this function (sub_1401EF0D8) right after the setup (record BattleRetriesRestoreTheirOwnCapture).
 
 ## State touched
@@ -29,7 +30,7 @@ Places the deployment candidate under the carousel glove on the cursor tile: fre
 
 ## Referenced by
 
-- Observed behaviours: [BattleRetriesRestoreTheirOwnCapture](../behaviors/BattleRetriesRestoreTheirOwnCapture.md)
+- Observed behaviours: [BattleRetriesRestoreTheirOwnCapture](../behaviors/BattleRetriesRestoreTheirOwnCapture.md), [DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile](../behaviors/DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile.md)
 
 ## Notes
 

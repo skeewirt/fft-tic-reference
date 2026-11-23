@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 392, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 78, Tables: 89.
+Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 79, Tables: 89.
 
-## Functions (392)
+## Functions (394)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -143,8 +143,10 @@ Functions: 392, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [Deployment_CompactPlaced](../functions/Deployment_CompactPlaced.md) | `0x1401EE6DC` | Moves the placed party indices of the deployment state to the front of their array. |
 | [Deployment_CountPlaced](../functions/Deployment_CountPlaced.md) | `0x1401EE6AC` | Counts the placed party units of the deployment state. |
 | [Deployment_CountUnitsInArea](../functions/Deployment_CountUnitsInArea.md) | `0x1401EE830` | Counts the units that stand on the deployment cells of area 0 or 1. |
+| [Deployment_FindFreeCell](../functions/Deployment_FindFreeCell.md) | `0x1401F5238` | Finds a free placeable cell in one area's grid (25 cell records of Deployment_LoadAreaPlacement): the cell under (x, y, layer) when free, else the nearest free one; writes it back and returns 1, or returns 0. |
 | [Deployment_FindPlacedUnitArea](../functions/Deployment_FindPlacedUnitArea.md) | `0x1401F3E3C` | Finds which deployment area a placed party unit (by its battle slot) stands in, and its order among the placed units of that area. |
 | [Deployment_LoadAreaPlacement](../functions/Deployment_LoadAreaPlacement.md) | `0x140303408` | Loads the deployment area index (scene variable 53 + index): selects its placement record and builds the grid of placeable cells around it. |
+| [Deployment_MoveCursorToFreeCell](../functions/Deployment_MoveCursorToFreeCell.md) | `0x1401F49EC` | Moves the deployment tile cursor to a free cell after a placement or a group switch: per area it finds a free cell, then picks one by the area the state names, the areas' room and the distance from the cursor. |
 | [Deployment_PlaceUnitAtCursor](../functions/Deployment_PlaceUnitAtCursor.md) | `0x1401F3128` | Places the deployment candidate under the carousel glove on the cursor tile: frees the unit standing there, joins the candidate and adds it to the placed list. |
 | [Deployment_PrepareCandidates](../functions/Deployment_PrepareCandidates.md) | `0x1402FB4F8` | Battle setup step that builds the deployment candidate list from the roster and, for a battle without a scenario record, sets scene variable 57 to the first deployment area's party count. |
 | [Deployment_ResetState](../functions/Deployment_ResetState.md) | `0x1401EE518` | Resets the deployment state: capacity 0, no placed unit, no candidate. |
@@ -555,7 +557,7 @@ Functions: 392, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (78)
+## Observed behaviours (79)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -581,6 +583,7 @@ Functions: 392, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleVoiceChance](../behaviors/BattleVoiceChance.md) | engine (battle voices) | Whether a line plays is a roll of the speaker group's percentage in the line's column; fast-forward silences voices. |
 | [CrystalRollMarksAbilitiesBySlotAndId](../behaviors/CrystalRollMarksAbilitiesBySlotAndId.md) | engine | A crystal's roll marks each rolled ability by its skillset slot (that is what is learned) and, for the pickup window, by its id in two 512-bit sets; an id above 0x1FF is learned but not listed. |
 | [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; each area... |
+| [DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile](../behaviors/DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile.md) | engine (battle deployment) | A deployment area's placeable cells come only from its placement record (the 25-bit cell mask, anchor and orientation); nothing checks that a unit can stand on a cell's tile, and an area counts its units by the units ... |
 | [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md) | engine (battle deployment) | Every place the deployment code reads or writes the five placed party indices of the deployment state (g_GenerateAttackTeamManager +0x44), what each loop over them assumes, and the readers that take the placed party a... |
 | [DeploymentPortraitColumnBoxes](../behaviors/DeploymentPortraitColumnBoxes.md) | engine (battle deployment UI) | The deployment screen's portrait column is a fixed set of named layout boxes, 5 for the first area and 4 for the second, bound by name and filled in placing order. |
 | [DeploymentRowsOfEachBattle](../behaviors/DeploymentRowsOfEachBattle.md) | engine (battle deployment) | Where a battle's deployment rows come from: a story battle's scenario setup records name one or two rows, a random battle's encounter row names one per arrival road; a row's own map byte is not always the battle's map... |

@@ -27,8 +27,8 @@ Loads the deployment area index (scene variable 53 + index): selects its placeme
 
 ## Referenced by
 
-- Called by: [Deployment_AreaOfPlacedUnit](Deployment_AreaOfPlacedUnit.md), [Deployment_CountUnitsInArea](Deployment_CountUnitsInArea.md)
-- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md)
+- Called by: [Deployment_AreaOfPlacedUnit](Deployment_AreaOfPlacedUnit.md), [Deployment_CountUnitsInArea](Deployment_CountUnitsInArea.md), [Deployment_MoveCursorToFreeCell](Deployment_MoveCursorToFreeCell.md)
+- Observed behaviours: [DeploymentAcceptsOneToFivePlacedUnits](../behaviors/DeploymentAcceptsOneToFivePlacedUnits.md), [DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile](../behaviors/DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile.md)
 
 ## Open questions
 

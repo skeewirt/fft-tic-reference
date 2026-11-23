@@ -19,7 +19,7 @@ Answers whether battle record n may stand on its tile: 0 = yes, -1 = no.
 ## Referenced by
 
 - Called by: [Battle_AddJoinedUnit](Battle_AddJoinedUnit.md), [Battle_RebuildUnitTable](Battle_RebuildUnitTable.md)
-- Observed behaviours: [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md)
+- Observed behaviours: [BattleUnitTableIsSixteenEntriesPlusFiveJoiners](../behaviors/BattleUnitTableIsSixteenEntriesPlusFiveJoiners.md), [DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile](../behaviors/DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile.md)
 
 ## Notes
 

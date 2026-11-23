@@ -23,7 +23,7 @@ Returns the deployment area (0 or 1) that placed party entry n stands in, or -1.
 
 ## Referenced by
 
-- Called by: [Deployment_FindPlacedUnitArea](Deployment_FindPlacedUnitArea.md)
+- Called by: [Deployment_FindPlacedUnitArea](Deployment_FindPlacedUnitArea.md), [Deployment_MoveCursorToFreeCell](Deployment_MoveCursorToFreeCell.md)
 - Observed behaviours: [DeploymentPlacedIndicesReaders](../behaviors/DeploymentPlacedIndicesReaders.md), [PartyResultsAreFoundBySaveIndexInAllRecords](../behaviors/PartyResultsAreFoundBySaveIndexInAllRecords.md)
 
 ## Open questions

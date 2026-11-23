@@ -4981,6 +4981,23 @@
       },
       "doc": "docs/functions/Deployment_CountUnitsInArea.md"
     },
+    "Deployment_FindFreeCell": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:b7dea6ab76f591386bb0e23e631169b73e4a6a79f07427af4455fdb36e05e7f0",
+            "insn_count": 48,
+            "mnemonics": "sha256:3b172d861665b726dfbd05d4b1c082ff41e494991fe79cbfbf4e3fea8a51818c",
+            "size": 1488
+          },
+          "rva": "0x1f5238",
+          "size": 1488
+        }
+      },
+      "doc": "docs/functions/Deployment_FindFreeCell.md"
+    },
     "Deployment_FindPlacedUnitArea": {
       "area": "battle",
       "builds": {
@@ -5014,6 +5031,23 @@
         }
       },
       "doc": "docs/functions/Deployment_LoadAreaPlacement.md"
+    },
+    "Deployment_MoveCursorToFreeCell": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 13,
+            "calls": "sha256:fbda9831501e504c3c5d941f2bee06706f0fef194e98e335b366e93257aebbb1",
+            "insn_count": 48,
+            "mnemonics": "sha256:700c047782940e72f4f6d81df72d8b5891a6b32c67ca35d2a18d3db303f4e9c2",
+            "size": 1158
+          },
+          "rva": "0x1f49ec",
+          "size": 1158
+        }
+      },
+      "doc": "docs/functions/Deployment_MoveCursorToFreeCell.md"
     },
     "Deployment_PlaceUnitAtCursor": {
       "area": "battle",

@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-275 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+276 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -65,6 +65,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [CursorDrawnThroughLayerTarget](CursorDrawnThroughLayerTarget.md) | the finger cursor's glove (UI layer) | The glove reaches the screen in two 8-bit stores: it is drawn into a cleared layer target (premultiplied, rounded) and that layer is then blended onto the frame (dst = layer + dst * (1 - layer alpha), rounded again). |
 | [CursorGloveBob](CursorGloveBob.md) | finger cursor (the glove on the Job Tree) | The glove's idle bob: a 40-frame, looping, position track on the IconHand node of the Hand component, played on the UI frame time, sampled as an integer, and added to the glove's glide only in the node matrices. |
 | [DeploymentAcceptsOneToFivePlacedUnits](DeploymentAcceptsOneToFivePlacedUnits.md) | engine (battle deployment) | A battle's deployment capacity is data (the count bytes of its one or two deployment areas), but the deployment state holds the placed party indices in a five-entry array and three checks refuse more than 5; each area... |
+| [DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile](DeploymentCellsAreNotCheckedAgainstTheMapAndCountByTile.md) | engine (battle deployment) | A deployment area's placeable cells come only from its placement record (the 25-bit cell mask, anchor and orientation); nothing checks that a unit can stand on a cell's tile, and an area counts its units by the units ... |
 | [DeploymentPlacedIndicesReaders](DeploymentPlacedIndicesReaders.md) | engine (battle deployment) | Every place the deployment code reads or writes the five placed party indices of the deployment state (g_GenerateAttackTeamManager +0x44), what each loop over them assumes, and the readers that take the placed party a... |
 | [DeploymentPortraitColumnBoxes](DeploymentPortraitColumnBoxes.md) | engine (battle deployment UI) | The deployment screen's portrait column is a fixed set of named layout boxes, 5 for the first area and 4 for the second, bound by name and filled in placing order. |
 | [DeploymentRowsOfEachBattle](DeploymentRowsOfEachBattle.md) | engine (battle deployment) | Where a battle's deployment rows come from: a story battle's scenario setup records name one or two rows, a random battle's encounter row names one per arrival road; a row's own map byte is not always the battle's map... |
