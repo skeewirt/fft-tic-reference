@@ -2,9 +2,9 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 203, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 20, Tables: 29.
+Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 20, Tables: 29.
 
-## Functions (203)
+## Functions (204)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -55,6 +55,7 @@ Functions: 203, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventPreviewUnit_StageSlot](../functions/EventPreviewUnit_StageSlot.md) | `0x140214284` | Finds a preview-unit slot for a 16-bit reference, copies its 512-byte record into the staging buffer and sets the staged flag. |
 | [EventPreviewUnits_RunFrames](../functions/EventPreviewUnits_RunFrames.md) | `0x140214A70` | Runs the per-frame preview-unit update for opcode 0xC1: it applies flagged preview-unit slots and, when any were flagged, waits while the UI reports busy. |
 | [EventRef_ResolveSlot](../functions/EventRef_ResolveSlot.md) | `0x140226A18` | Turns a script reference id into the slot number of the object it names. |
+| [EventRef_ResolveSlotForMessage](../functions/EventRef_ResolveSlotForMessage.md) | `0x1402DE204` | The message code's copy of EventRef_ResolveSlot: turns a script reference id into the slot of the object it names (2000 when none). |
 | [EventScene_QueueHelpText](../functions/EventScene_QueueHelpText.md) | `0x1402C08C0` | Prepares a unit preview scene task: it builds the preview sprite record for the selected party unit, queues the shared help-text id as render command 12 and starts the event task. |
 | [EventScript_FindInstruction](../functions/EventScript_FindInstruction.md) | `0x1402425D0` | Scans the loaded event script for an instruction with a given opcode (or an alternative opcode) whose first operand byte has a given value. |
 | [EventScript_FindOpcode](../functions/EventScript_FindOpcode.md) | `0x1402426BC` | Scans the loaded event script from a byte offset for the next instruction with a given opcode and returns its offset. |

@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2297 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2298 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -470,6 +470,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [EventPreviewUnit_StageSlot](EventPreviewUnit_StageSlot.md) | `0x140214284` | [Event system](../areas/event-system.md) | Finds a preview-unit slot for a 16-bit reference, copies its 512-byte record into the staging buffer and sets the staged flag. |
 | [EventPreviewUnits_RunFrames](EventPreviewUnits_RunFrames.md) | `0x140214A70` | [Event system](../areas/event-system.md) | Runs the per-frame preview-unit update for opcode 0xC1: it applies flagged preview-unit slots and, when any were flagged, waits while the UI reports busy. |
 | [EventRef_ResolveSlot](EventRef_ResolveSlot.md) | `0x140226A18` | [Event system](../areas/event-system.md) | Turns a script reference id into the slot number of the object it names. |
+| [EventRef_ResolveSlotForMessage](EventRef_ResolveSlotForMessage.md) | `0x1402DE204` | [Event system](../areas/event-system.md) | The message code's copy of EventRef_ResolveSlot: turns a script reference id into the slot of the object it names (2000 when none). |
 | [EventScene_QueueHelpText](EventScene_QueueHelpText.md) | `0x1402C08C0` | [Event system](../areas/event-system.md) | Prepares a unit preview scene task: it builds the preview sprite record for the selected party unit, queues the shared help-text id as render command 12 and starts the event task. |
 | [EventScript_FindInstruction](EventScript_FindInstruction.md) | `0x1402425D0` | [Event system](../areas/event-system.md) | Scans the loaded event script for an instruction with a given opcode (or an alternative opcode) whose first operand byte has a given value. |
 | [EventScript_FindOpcode](EventScript_FindOpcode.md) | `0x1402426BC` | [Event system](../areas/event-system.md) | Scans the loaded event script from a byte offset for the next instruction with a given opcode and returns its offset. |

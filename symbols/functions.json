@@ -7888,6 +7888,23 @@
       },
       "doc": "docs/functions/EventRef_ResolveSlot.md"
     },
+    "EventRef_ResolveSlotForMessage": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 6,
+            "calls": "sha256:33fd0bac8affdde28eb35377b45170c29d1dad9f7daba1c96881668db0d408f3",
+            "insn_count": 48,
+            "mnemonics": "sha256:4cfb92855eeb723bed6019d2a7c3b31ea5f7053f67e55e5e90f99bb97fb698bb",
+            "size": 529
+          },
+          "rva": "0x2de204",
+          "size": 529
+        }
+      },
+      "doc": "docs/functions/EventRef_ResolveSlotForMessage.md"
+    },
     "EventScene_QueueHelpText": {
       "area": "event-system",
       "builds": {

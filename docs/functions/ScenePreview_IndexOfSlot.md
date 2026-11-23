@@ -25,7 +25,7 @@ Returns the preview index of the object in a slot: byte +444 of the object's pre
 
 ## Referenced by
 
-- Called by: [EventPreviewUnit_StageSlot](EventPreviewUnit_StageSlot.md), [EventRef_ResolveSlot](EventRef_ResolveSlot.md), [EventUnitStatus_ApplyTask](EventUnitStatus_ApplyTask.md), [EventUnitStatus_RunMembers](EventUnitStatus_RunMembers.md), [EventUnitStatus_SetBit](EventUnitStatus_SetBit.md), [SceneUnit_Oscillate120](SceneUnit_Oscillate120.md), [SceneUnit_TestGroupMember](SceneUnit_TestGroupMember.md), [SceneUnit_ZeroPosAndReset](SceneUnit_ZeroPosAndReset.md)
+- Called by: [EventPreviewUnit_StageSlot](EventPreviewUnit_StageSlot.md), [EventRef_ResolveSlot](EventRef_ResolveSlot.md), [EventRef_ResolveSlotForMessage](EventRef_ResolveSlotForMessage.md), [EventUnitStatus_ApplyTask](EventUnitStatus_ApplyTask.md), [EventUnitStatus_RunMembers](EventUnitStatus_RunMembers.md), [EventUnitStatus_SetBit](EventUnitStatus_SetBit.md), [SceneUnit_Oscillate120](SceneUnit_Oscillate120.md), [SceneUnit_TestGroupMember](SceneUnit_TestGroupMember.md), [SceneUnit_ZeroPosAndReset](SceneUnit_ZeroPosAndReset.md)
 
 ## Notes
 
