@@ -2,9 +2,9 @@
 
 GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.
 
-Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234.
+Functions: 781, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234.
 
-## Functions (671)
+## Functions (781)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -26,6 +26,7 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [BgmMode_SwitchTab](../functions/BgmMode_SwitchTab.md) | `0x1401C8308` | Moves the music player between its two lists on the tab input actions. |
 | [BgmMode_ToggleTitleLanguage](../functions/BgmMode_ToggleTitleLanguage.md) | `0x1401C8438` | Toggles the alternate track titles of the music player. |
 | [Book_ShowGuide](../functions/Book_ShowGuide.md) | `0x14016620C` | Opens the guide that explains the reading shelf. |
+| [BookProgress_ResetConfirmInput](../functions/BookProgress_ResetConfirmInput.md) | `0x140372990` | Two-row question about the record of a book (table index 20): one answer clears the book's progress record. |
 | [BookShelf_Fill](../functions/BookShelf_Fill.md) | `0x140166E08` | Fills the five slots of the Reading Materials shelf. |
 | [Boot_MovieFrame](../functions/Boot_MovieFrame.md) | `0x1402F2E40` | Per-frame handler of the boot movie: ends it on the skip rules and copies the decoded frame into three textures. |
 | [ButtonIcon_Draw](../functions/ButtonIcon_Draw.md) | `0x1402BE284` | Draws one animated button icon: the sprite pieces of an icon group with a press animation. |
@@ -35,10 +36,35 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [ChronicleTimeline_Setup](../functions/ChronicleTimeline_Setup.md) | `0x140173E08` | Sets up the Chronicle timeline bar from the unlocked periods. |
 | [ClassicCursorRows_Select](../functions/ClassicCursorRows_Select.md) | `0x14036E28C` | Moves the cursor of a legacy menu to the row chosen in the state record. |
 | [ClassicItemListPage_Run](../functions/ClassicItemListPage_Run.md) | `0x140393E70` | Legacy party menu item list page: draws the list body and its header. |
+| [ClassicItemUi_OpAdvanceOpening](../functions/ClassicItemUi_OpAdvanceOpening.md) | `0x14039D1EC` | Slot 22 of the item page script: advances the opening stage. |
+| [ClassicItemUi_OpDrawIconCell](../functions/ClassicItemUi_OpDrawIconCell.md) | `0x14039B210` | Slot 6 of the item page script: a picture cell from a row callback's descriptor. |
+| [ClassicItemUi_OpDrawLine](../functions/ClassicItemUi_OpDrawLine.md) | `0x14039B110` | Slot 7 of the item page script: a line between two points. |
+| [ClassicItemUi_OpDrawNumber](../functions/ClassicItemUi_OpDrawNumber.md) | `0x14039BE28` | Slot 13 of the item page script: a number or a gauge from a row callback. |
+| [ClassicItemUi_OpDrawWindow](../functions/ClassicItemUi_OpDrawWindow.md) | `0x14039B2C8` | Slot 0 of the item page script: a bordered window and its fill. |
+| [ClassicItemUi_OpDrawWindowOpening](../functions/ClassicItemUi_OpDrawWindowOpening.md) | `0x14039B81C` | Slot 18 of the item page script: the opening window. |
+| [ClassicItemUi_OpFillRect](../functions/ClassicItemUi_OpFillRect.md) | `0x14039AF2C` | Slot 3 of the item page script: a flat-coloured rectangle. |
+| [ClassicItemUi_OpFillTiles](../functions/ClassicItemUi_OpFillTiles.md) | `0x14039B914` | Slot 17 of the item page script: a rectangle filled with 16-pixel tiles. |
+| [ClassicItemUi_OpIf](../functions/ClassicItemUi_OpIf.md) | `0x14039AD90` | Slot 1 of the item page script: the conditional record. |
+| [ClassicItemUi_OpIfElse](../functions/ClassicItemUi_OpIfElse.md) | `0x14039AE40` | Slot 2 of the item page script: the conditional record with an else branch. |
+| [ClassicItemUi_OpQueueRect](../functions/ClassicItemUi_OpQueueRect.md) | `0x14039D14C` | Slot 20 of the item page script: a rectangle from the record. |
+| [ClassicItemUi_OpQueueScreenRect](../functions/ClassicItemUi_OpQueueScreenRect.md) | `0x14039D1B0` | Slot 21 of the item page script: the fixed screen rectangle. |
+| [ClassicItemUi_OpQueueScreenRectOnce](../functions/ClassicItemUi_OpQueueScreenRectOnce.md) | `0x14039D0FC` | Slot 19 of the item page script: the fixed screen rectangle after a window animation. |
+| [ClassicItemUi_OpScrollList](../functions/ClassicItemUi_OpScrollList.md) | `0x14039C784` | Slot 16 of the item page script: a scrolling list. |
+| [ClassicItemUi_OpSetBlendFlag](../functions/ClassicItemUi_OpSetBlendFlag.md) | `0x14039BD14` | Slot 14 of the item page script: the semi-transparency word. |
+| [ClassicItemUi_OpSetDrawMode](../functions/ClassicItemUi_OpSetDrawMode.md) | `0x14039BD28` | Slot 24 of the item page script: a draw-mode change. |
+| [ClassicItemUi_OpSetPageWord](../functions/ClassicItemUi_OpSetPageWord.md) | `0x14039BC98` | Slot 12 of the item page script: the texture-page attribute word. |
+| [ClassicItemUi_OpSetPaletteWord](../functions/ClassicItemUi_OpSetPaletteWord.md) | `0x14039BBD0` | Slot 9 of the item page script: the palette word. |
+| [ClassicItemUi_OpSetPaletteWordAlt](../functions/ClassicItemUi_OpSetPaletteWordAlt.md) | `0x14039BC1C` | Slot 10 of the item page script: the palette word with an alternate operand set. |
+| [ClassicItemUi_OpSetPriority](../functions/ClassicItemUi_OpSetPriority.md) | `0x14039BE14` | Slot 15 of the item page script: the priority word. |
+| [ClassicItemUi_OpSetTint](../functions/ClassicItemUi_OpSetTint.md) | `0x14039BDD0` | Slot 11 of the item page script: the tint colour. |
 | [ClassicItemUsePage_Run](../functions/ClassicItemUsePage_Run.md) | `0x1403934B0` | Legacy party menu item use page: picks an item and applies it to a unit. |
 | [ClassicJobDetailPage_Run](../functions/ClassicJobDetailPage_Run.md) | `0x140392DB8` | Legacy party menu job detail page: four pages of the chosen job with page switching. |
 | [ClassicListPage_BuildRangeList](../functions/ClassicListPage_BuildRangeList.md) | `0x14037B8FC` | Builds the list of entry ids of the current category of a legacy list page and hands it to the list drawer. |
+| [ClassicMenu_HubStep](../functions/ClassicMenu_HubStep.md) | `0x14036D314` | Step of the controller that sits under the other screens (table index 1): after a screen closes it decides, from flag masks of the state dword, which screen opens next. |
 | [ClassicMenu_LoadPageArtPack](../functions/ClassicMenu_LoadPageArtPack.md) | `0x140343770` | Loads the art pack of a legacy menu page (0..5) into the shared menu texture buffer. |
+| [ClassicMenu_PopTownMenu](../functions/ClassicMenu_PopTownMenu.md) | `0x140345EFC` | Pops a menu screen and lowers the window counters for the windows it opened. |
+| [ClassicMenu_RunScreenStack](../functions/ClassicMenu_RunScreenStack.md) | `0x140246078` | The task that runs the classic menus, world map and towns: each frame it calls the input step of the screen on top of a stack of controllers. |
+| [ClassicMenu_ScreenWipeStep](../functions/ClassicMenu_ScreenWipeStep.md) | `0x1402CC42C` | Step of a screen wipe (table index 35): a frame-counted fade and slide of the picture layers, with a phase in the record. |
 | [ClassicPartyMenu_Run](../functions/ClassicPartyMenu_Run.md) | `0x14033E4C4` | Per-frame driver of the legacy party menu: prepares the shared header state and runs the handler of the current mode. |
 | [ClassicSubtitles_SetState](../functions/ClassicSubtitles_SetState.md) | `0x140196C80` | Plays the state of the classic subtitle window. |
 | [ClassicSubtitles_Step](../functions/ClassicSubtitles_Step.md) | `0x1401969CC` | Per-frame step of the classic-movie subtitle window: finds the line whose time window holds the movie time and sets its text and layout state. |
@@ -47,6 +73,10 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [ClassicUi_OpDrawNumber](../functions/ClassicUi_OpDrawNumber.md) | `0x140390BA4` | Opcode 13: draws a number or a row of gauge cells for a value supplied by the page. |
 | [ClassicUi_OpIf](../functions/ClassicUi_OpIf.md) | `0x140390024` | Opcode 1: runs the next records only when a page condition holds, otherwise skips them. |
 | [ClassicUi_OpIfElse](../functions/ClassicUi_OpIfElse.md) | `0x1403900D4` | Opcode 2: as opcode 1 with an else branch. |
+| [ClassicUi_OpQueueRect](../functions/ClassicUi_OpQueueRect.md) | `0x140391B04` | Slot 20 of the layout script table: a rectangle from the record. |
+| [ClassicUi_OpQueueScreenRect](../functions/ClassicUi_OpQueueScreenRect.md) | `0x140391B68` | Slot 21 of the layout script table: the fixed screen rectangle. |
+| [ClassicUi_OpQueueScreenRectOnce](../functions/ClassicUi_OpQueueScreenRectOnce.md) | `0x140391AA4` | Slot 19 of the layout script table: the fixed screen rectangle once. |
+| [ClassicUi_OpScrollList](../functions/ClassicUi_OpScrollList.md) | `0x1403911B4` | Slot 16 of the layout script table: the scrolling list. |
 | [ClassicUi_OpSetBlendWord](../functions/ClassicUi_OpSetBlendWord.md) | `0x140390B0C` | Opcode 12: composes the blend and mode word of the following cells. |
 | [ClassicUi_OpSetLayer](../functions/ClassicUi_OpSetLayer.md) | `0x1403901C0` | Opcode 14: sets the layer word used by the following cells. |
 | [ClassicUi_OpSetPriority](../functions/ClassicUi_OpSetPriority.md) | `0x140390B88` | Opcode 15: sets the draw priority word unless a plate is being built. |
@@ -82,6 +112,25 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [EquipDetail_Refresh](../functions/EquipDetail_Refresh.md) | `0x14029F950` | Refreshes the item detail panel for one selected item: it builds the item's large picture path, then binds the picture and the item name to the panel's parts. |
 | [EquipDetail_SetHelpText](../functions/EquipDetail_SetHelpText.md) | `0x1402A0A08` | Writes one help line of the equipment detail panel: line 0 = the item's description from Item-en, line 1 = three lines built by sub_1402A0E58, line 2 = weapon notes. |
 | [EquipScreen_InitVram](../functions/EquipScreen_InitVram.md) | `0x14033DE68` | Uploads the palette and strips of the equipment screen to VRAM and resets the equipment lists. |
+| [Errand_BoardConfirmInput](../functions/Errand_BoardConfirmInput.md) | `0x1402ED9C8` | Confirm step of an errand window (table index 9): cancel returns to the board, confirm opens the next window (kind 10). |
+| [Errand_FinishDayPage](../functions/Errand_FinishDayPage.md) | `0x140379180` | Step of the page of an entry of list 41 (table index 42): shows the day text of the entry, then returns to the list. |
+| [Errand_FinishListInput](../functions/Errand_FinishListInput.md) | `0x140378E10` | Input step of a list (table index 41): confirm opens the entry's page (kind 42). |
+| [Errand_PickInput](../functions/Errand_PickInput.md) | `0x14036A190` | Choice step of an errand window (table index 12): collects a cancel or a pick, then returns to the board or paints the next board. |
+| [Errand_ProfitEndStep](../functions/Errand_ProfitEndStep.md) | `0x1402D35F8` | Step of the errand end sequence (table index 55): waits, sends the profit-end notification and goes through a short prompt. |
+| [Errand_ProgressListInput](../functions/Errand_ProgressListInput.md) | `0x140377D28` | Input step of a list of entries (table index 38): confirm opens the next list through sub_140377E9C (kind 39). |
+| [Errand_ReportDialogueStep](../functions/Errand_ReportDialogueStep.md) | `0x14036FD50` | Step of the errand report dialogue (table index 16): shows the report, prints the result texts and closes through sub_14037085C. |
+| [Errand_ReportListInput](../functions/Errand_ReportListInput.md) | `0x14036F94C` | Input step of the list of errands with a report ready (table index 14): confirm computes the rewards and opens the report prompt (kind 15). |
+| [Errand_RunningConfirmInput](../functions/Errand_RunningConfirmInput.md) | `0x140371790` | Two-row confirm for a running errand (table index 19): the first row sets a bit in the active errand's record and prints a notice. |
+| [Errand_RunningListInput](../functions/Errand_RunningListInput.md) | `0x140371174` | Input step of the list of running errands (table index 18): confirm opens a question about the entry (kind 19), unless the entry is flagged. |
+| [Errand_StartConfirmInput](../functions/Errand_StartConfirmInput.md) | `0x14036A650` | Two-row confirm of the errand start (table index 13): the first row calls Errand_Start. |
+| [Errand_StatusMenuInput](../functions/Errand_StatusMenuInput.md) | `0x140377530` | Step of a two-row menu (table index 37): the first row opens one list and the second row opens another (kind 41, the errand finish list). |
+| [Errand_UnitListInput](../functions/Errand_UnitListInput.md) | `0x14037808C` | Input step of a list of entries (table index 39): confirm opens the page of the entry (kind 40). |
+| [Errand_UnitStatusInput](../functions/Errand_UnitStatusInput.md) | `0x1403787A4` | Input step of a unit's status page for an errand in progress (table index 40): two direction presses page through the units of the errand. |
+| [ErrandUnitPick_Input](../functions/ErrandUnitPick_Input.md) | `0x14036CC50` | Input step of the unit picker of the errand board (table index 36): reads the unit grid's result code and starts the errand when it is confirmed. |
+| [EventVarEditor_DrawPage](../functions/EventVarEditor_DrawPage.md) | `0x14036DC28` | Draws one page of the event variable editor: ten variable numbers with their current values. |
+| [EventVarEditor_ListInput](../functions/EventVarEditor_ListInput.md) | `0x14036DD60` | Input step of the event variable editor list (table index 11): moves through the variables and opens the value editor. |
+| [EventVarEditor_Open](../functions/EventVarEditor_Open.md) | `0x14036DB30` | Opens the event variable editor: creates its window and pushes kind 11. |
+| [EventVarEditor_ValueInput](../functions/EventVarEditor_ValueInput.md) | `0x14036E064` | Input step of the number entry above the event variable list (table index 48): confirm writes the entered value to the variable. |
 | [EventViewer_StartReplay](../functions/EventViewer_StartReplay.md) | `0x1402D28C8` | Starts the replay of an event from the Chronicle. |
 | [FontPaletteBlock_Equals](../functions/FontPaletteBlock_Equals.md) | `0x1403DCB8C` | Equality test of two font palette blocks (the first 68 bytes of the 80-byte UIFontSet row) used to find an existing SDFPalette entry before appending a new one. |
 | [FreeCursor_StepFromSticks](../functions/FreeCursor_StepFromSticks.md) | `0x14016D440` | Moves a screen-space pointer (the finger cursor) from the left stick or from four direction actions and hit-tests what is under it. |
@@ -322,6 +371,8 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [GUIWidget_Show](../functions/GUIWidget_Show.md) | `0x1403F930C` | Marks a widget shown and plays the Show state of its root component (Hide state stopped); posts owner event 5. |
 | [GUIWidget_Tick](../functions/GUIWidget_Tick.md) | `0x1403FC14C` | Per-frame update of one widget: rebuilds the node lists when flagged, delivers the pending-ready event, ticks the main component, and posts the update event 4 to the widget's owners. |
 | [GUIWidget_UpdateComponentsJob](../functions/GUIWidget_UpdateComponentsJob.md) | `0x1403F94EC` | Work-stealing worker: updates the node tree of the widget's components in chunks of 16, so several threads can share one widget's component vector. |
+| [HelpMessage_Open](../functions/HelpMessage_Open.md) | `0x14036D948` | Opens the help message screen for a text id: starts the scripted message task and pushes kind 3. |
+| [HelpMessage_Wait](../functions/HelpMessage_Wait.md) | `0x14036DA40` | Step of the help message screen (table index 3): waits until the message window has finished, then closes. |
 | [IconBase_FormatPath](../functions/IconBase_FormatPath.md) | `0x1400FC1C0` | Builds the path of a numbered 'base' picture. |
 | [IconImage_AcquireById](../functions/IconImage_AcquireById.md) | `0x1403DB6B8` | Loads the image of an icon id. |
 | [IconPath_FromIconId](../functions/IconPath_FromIconId.md) | `0x1403DB140` | Builds the file path of an icon from its Icon id, using the IconGroup table to decide on the 4k texture variant. |
@@ -393,6 +444,25 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [MainTab_BindNodes](../functions/MainTab_BindNodes.md) | `0x1402AC048` | Finds the header (MainTab/Tab) nodes of a screen and keeps them in the controller: the tab, the TextMask mask node, the title text node and the other tab title boards. |
 | [MainTab_SelectTab](../functions/MainTab_SelectTab.md) | `0x1402AC2E8` | Plays the header state that belongs to tab `index` and stops the other three. |
 | [MapTitleLabel_SetText](../functions/MapTitleLabel_SetText.md) | `0x140149148` | Fills the 'Text' and 'Text00' nodes of the 'TextMapGrade' label of a window and plays its 'En' or 'Ja' state. |
+| [MenuCtl_Entry17](../functions/MenuCtl_Entry17.md) | `0x14036FFE8` | Table index 17: a jump to sub_140370D58, a step with a state in record dword 4. |
+| [MenuCtl_Entry22](../functions/MenuCtl_Entry22.md) | `0x140373784` | Two-row question with a fade (table index 22): the first answer ends with a fade to a new scene, the other leaves. |
+| [MenuCtl_Entry24](../functions/MenuCtl_Entry24.md) | `0x140374304` | Input step of a list (table index 24): confirm opens the detail page (kind 25), the help action opens the list's help. |
+| [MenuCtl_Entry25](../functions/MenuCtl_Entry25.md) | `0x14037472C` | Step of the detail page of a list entry with a picture (table index 25): sets the picture up, runs the paged text, then returns to the list. |
+| [MenuCtl_Entry26](../functions/MenuCtl_Entry26.md) | `0x140371B2C` | Input step of a list (table index 26): confirm opens the page of the entry (sub_140371CAC), the help action opens the list's help. |
+| [MenuCtl_Entry27](../functions/MenuCtl_Entry27.md) | `0x140371F68` | Step of the page of a list entry that has a picture dissolve and a book progress word (table index 27). |
+| [MenuCtl_Entry28](../functions/MenuCtl_Entry28.md) | `0x140375538` | Step of the row menu that opens the other list screens (table index 28): each row opens one list builder. |
+| [MenuCtl_Entry28_ResetRows](../functions/MenuCtl_Entry28_ResetRows.md) | `0x14037544C` | Sets the windows of the row menu (kind 28) to their idle styles before it opens a list. |
+| [MenuCtl_Entry33](../functions/MenuCtl_Entry33.md) | `0x14037680C` | Input step of a list (table index 33): confirm opens the entry's page (kind 34). |
+| [MenuCtl_Entry34](../functions/MenuCtl_Entry34.md) | `0x140376B58` | Step of the page of an entry of list 33 (table index 34): runs a text widget and returns to the list. |
+| [MenuCtl_Entry43](../functions/MenuCtl_Entry43.md) | `0x140318BBC` | Step of a row menu with a short intro and a close animation (table index 43): its rows open kinds 44, 45 and 33 or print a notice. |
+| [MenuCtl_Entry44](../functions/MenuCtl_Entry44.md) | `0x1403193CC` | Step of a list of 7 flagged entries opened from index 43 (table index 44): confirm marks the entry as seen and starts the scene for it. |
+| [MenuCtl_Entry45](../functions/MenuCtl_Entry45.md) | `0x140319860` | Step of a list of 8 flagged entries opened from index 43 (table index 45): confirm marks the entry as seen and starts the event numbered for it. |
+| [MenuCtl_Entry50](../functions/MenuCtl_Entry50.md) | `0x1402D18D0` | Short step of a controller that closes itself once its window is done (table index 50). |
+| [MenuCtl_Entry51](../functions/MenuCtl_Entry51.md) | `0x1403462A4` | Step of a screen that runs the paged text widget under a window with a pending close mask (table index 51). |
+| [MenuCtl_Entry52](../functions/MenuCtl_Entry52.md) | `0x140346428` | Yes or no step with a result (table index 52): confirm applies the number held in word 0x140D498D4 when it is below 512. |
+| [MenuCtl_Entry53](../functions/MenuCtl_Entry53.md) | `0x1402D1ABC` | Step of a controller that walks through a chain of pages (table index 53), moving forward or backward with the record's direction. |
+| [MenuCtl_Entry54](../functions/MenuCtl_Entry54.md) | `0x1402D1DA8` | Step of a one-shot window controller (table index 54): a state dword starts a window action, then it pops. |
+| [MenuCtl_ListCursorStep](../functions/MenuCtl_ListCursorStep.md) | `0x140378B88` | Moves the cursor of a vertical list screen by one row on an up or down press. |
 | [Movie_Start](../functions/Movie_Start.md) | `0x1400D8304` | Starts the playback of a movie from its MovieData row: picks the file, the sound banks, the subtitle window and the controller flags. |
 | [MovieControl_IdleHint](../functions/MovieControl_IdleHint.md) | `0x14027A128` | While a movie plays unpaused, shows the 'Pause' button hint for about 5 seconds after any input. |
 | [MovieControl_PausedTick](../functions/MovieControl_PausedTick.md) | `0x14027A1CC` | Paused frame of the movie overlay: a completed hold with byte +25 set takes the skip (state 3); the pause or back action resumes. |
@@ -406,9 +476,14 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [NovelReader_ShowPage](../functions/NovelReader_ShowPage.md) | `0x1401DFED0` | Shows one page of the open book (vtable slot at 0x143D36238). |
 | [NumberFields_Draw](../functions/NumberFields_Draw.md) | `0x140242C84` | Draws a list of number fields (32-byte records) into a staging buffer. |
 | [Opening_LoadMessageSprites](../functions/Opening_LoadMessageSprites.md) | `0x14037DB9C` | Loads the opening message textures and selects the language's sprite list for the opening text. |
+| [PagedText_DrawPage](../functions/PagedText_DrawPage.md) | `0x14037A940` | Draws one page of a paged message window starting at a given line: rebuilds the window rectangle, positions the extra marker, draws the text and copies the window to the video page. |
+| [PagedText_Init](../functions/PagedText_Init.md) | `0x14037A168` | Sets up a paged message window: reserves four sprite records and one window record, positions them from the info block, measures the message and draws its first page. |
+| [PagedText_Step](../functions/PagedText_Step.md) | `0x14037A3F0` | Per-frame input of a paged message window: confirm turns to the next page, cancel closes it, and holding action 57 scrolls the text line by line. |
+| [PagedText_WaitAndClose](../functions/PagedText_WaitAndClose.md) | `0x14036D870` | Step of a screen that only runs the paged text widget until it finishes (table index 2). |
 | [PanelScreen_InitVram](../functions/PanelScreen_InitVram.md) | `0x14033D88C` | Uploads the palette and strips of the second panel screen to VRAM. |
 | [RangeOverlay_BuildRowMasks](../functions/RangeOverlay_BuildRowMasks.md) | `0x140389B50` | Builds the 18 row words of the range overlay diamond for a given distance. |
 | [ScenePresetOverrides_Apply](../functions/ScenePresetOverrides_Apply.md) | `0x140348038` | Copies the sprite palette and pose entries named by the current scene's preset list into the live sprite tables. |
+| [ScreenReopen_Step](../functions/ScreenReopen_Step.md) | `0x1403797F8` | Step of a short controller (table index 49) that waits a few frames, then re-opens the screen whose kind is in its first dword. |
 | [ScrollBar_SetPosition](../functions/ScrollBar_SetPosition.md) | `0x14040B994` | Game setter for the native scroll bar component (vtable 0x140722238, kind 8 at node+536). |
 | [ScrollHelper_Bind](../functions/ScrollHelper_Bind.md) | `0x1402AADD8` | Binds a screen's scrolling gadget: finds the child named `VScroll` (a scroll bar node, type 8) and its guide part, records the binding and refits the gadget. |
 | [SDFFont_GetKerning](../functions/SDFFont_GetKerning.md) | `0x1403A9114` | Kerning pair lookup: returns (x, y) kerning for a left / right code point pair of the current font, from the font's own kerning rows plus the second .ker table. |
@@ -417,7 +492,10 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [ShopItemList_FillRow](../functions/ShopItemList_FillRow.md) | `0x1402A3578` | Fills one row of an item list (the shop's buy and sell lists and three other lists): icon and name, the equipped and owned counts and the category image of the entry's item. |
 | [ShopItemList_SetPrice](../functions/ShopItemList_SetPrice.md) | `0x1402A5A80` | Prints a price into the row's 'TextPrice' part with UI text 1717 (1753 when greyed). |
 | [ShopList_BuildEntries](../functions/ShopList_BuildEntries.md) | `0x14036B18C` | Builds the entries of the shop's item list from word_141811470: orders the list, sizes the list gadget and fills one entry per id (ShopEntry_Fill). |
+| [ShopPage_OpDrawNumber](../functions/ShopPage_OpDrawNumber.md) | `0x140328D54` | Opcode 14 of the 20-entry page-script table at 0x140683938: draws a right-aligned number with blank padding and returns the next record. |
 | [SpriteAnim_Step](../functions/SpriteAnim_Step.md) | `0x14038EDD4` | Advances one opening / title sprite animation by a tick and queues the cells of its current frame. |
+| [StatusGlossary_Input](../functions/StatusGlossary_Input.md) | `0x14036E360` | Input step of a page of rows linked by direction (table index 56): moves between rows by a link table and shows each row's help text. |
+| [StatusGlossary_Open](../functions/StatusGlossary_Open.md) | `0x14036E1D8` | Opens the help page of a list of cursor rows and pushes kind 56. |
 | [Str_Format](../functions/Str_Format.md) | `0x1400261CC` | snprintf-style formatter (thin wrapper around sub_140026084). |
 | [StringHandle_Release](../functions/StringHandle_Release.md) | `0x140026D9C` | Frees a {allocator, pointer} string-like member. |
 | [sub_14002620C](../functions/sub_14002620C.md) | `0x14002620C` | A bounded string copy: it moves a source string into a caller buffer, stopping at either the destination capacity or an explicit source limit, and terminates the result. |
@@ -509,7 +587,7 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [sub_14036C320](../functions/sub_14036C320.md) | `0x14036C320` | Recomputes the two-handed word from the five candidate words and renders the equip detail record. |
 | [sub_14036E5DC](../functions/sub_14036E5DC.md) | `0x14036E5DC` | The world map's location-record builder (proposed name WorldMap_BuildLocationRecords; corrected 2026-11-19, it was first read as a shop screen refresh): for every location it accepts, it builds a 64-byte WorldMapLocat... |
 | [sub_14036EE50](../functions/sub_14036EE50.md) | `0x14036EE50` | Builds the new-arrival notice's item lists: it collects up to 128 item ids into two parallel 16-bit arrays. |
-| [sub_1403793DC](../functions/sub_1403793DC.md) | `0x1403793DC` | Runs one coded UI action for a menu screen: it sets a state flag, chooses a case from the code and calls the screen helper for that case. |
+| [sub_1403793DC](../functions/sub_1403793DC.md) | `0x1403793DC` | Re-opens a classic menu screen: it prepares the screen of the given kind (27, 28, 29, 43, 44 or 45), then pushes a kind-49 record holding that kind onto the menu screen stack, so ScreenReopen_Step rebuilds the screen ... |
 | [sub_1403DABF0](../functions/sub_1403DABF0.md) | `0x1403DABF0` | Unloads the texture-part resource of a kind-2 record: builds its name from the UITextureParts scheme prefix (the word UITextureParts, a colon, two slashes), finds the resource in the owning widget and unregisters it. |
 | [sub_1403DC1E8](../functions/sub_1403DC1E8.md) | `0x1403DC1E8` | Zeroes 16 bytes (a small bounds / rect struct) and returns the pointer after it. |
 | [sub_1403DC8D0](../functions/sub_1403DC8D0.md) | `0x1403DC8D0` | Loads the numbered key texture part (a key icon) into a widget: builds its path, asks the widget to load it and returns the name. |
@@ -517,6 +595,8 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [TabBar_ClearClick](../functions/TabBar_ClearClick.md) | `0x1402A9BD8` | Releases the pressed state of the four tab nodes: for each existing node (kind 5) calls sub_14040ABDC(node, 0) and stops its 'Click' state. |
 | [TabBar_Select](../functions/TabBar_Select.md) | `0x1402A9944` | Selects a tab: puts the cursor / focus on tab 'index' of the bar's nodes and plays Active on it and Deactive on all the others. |
 | [TabBar_SetTable](../functions/TabBar_SetTable.md) | `0x1402A9730` | Sets up a row of up to four tab / button nodes from a row of UI table 139: one title text id per tab, the count and a 'focusable' byte; then picks the layout state ButtonNN for the count and selects tab 0. |
+| [Tavern_RumorsListInput](../functions/Tavern_RumorsListInput.md) | `0x14036F07C` | Input step of the tavern rumor list (table index 6): reads the list widget's result and opens the chosen rumor. |
+| [Tavern_RumorTextWait](../functions/Tavern_RumorTextWait.md) | `0x14036F398` | Step of the rumor text screen (table index 8): runs the paged text widget, then returns to the rumor list. |
 | [TavernRumourPage_Show](../functions/TavernRumourPage_Show.md) | `0x1401A041C` | Shows a rumour's text and picture. |
 | [TitleMenu_AddEntry](../functions/TitleMenu_AddEntry.md) | `0x1401C43B4` | Appends one row to the title menu: sets the row's label by kind and stores the kind. |
 | [TitleMenu_Build](../functions/TitleMenu_Build.md) | `0x1401C34B4` | Fills the title menu's rows according to the save state and the cleared flag, plays the matching layout state and shows the menu with the cursor on the row the agent asks for. |
@@ -629,6 +709,7 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [UIName_ReleaseKey](../functions/UIName_ReleaseKey.md) | `0x1403D8D1C` | Drops one reference to an interned UI name; frees the string and shrinks the bucket when the count reaches zero. |
 | [UIName_SetKey](../functions/UIName_SetKey.md) | `0x1403D8870` | Re-points a name handle at the interned entry for str (adds a reference to the new entry, drops the old one). |
 | [UiNames_InstallCoreNames](../functions/UiNames_InstallCoreNames.md) | `0x1403D5934` | Registers the 43 core UI event and part names in the UI name table and loads the font data of the current text language. |
+| [UiPage_ChoicePromptInput](../functions/UiPage_ChoicePromptInput.md) | `0x14036FB14` | Input step of a two-choice prompt page (entry 15 of tbl_UiScreenInputSteps, the page dispatcher's table at 0x140681400): moves a two-position cursor, and on confirm or cancel pops the page's records and either runs a ... |
 | [UIPartRef_GetResource](../functions/UIPartRef_GetResource.md) | `0x1403DCA6C` | Returns the resource record of a part reference: the first element of its resource list, or a table entry by id, or the fallback pointer. |
 | [UIPartRef_GetTextureSize](../functions/UIPartRef_GetTextureSize.md) | `0x1403DCA04` | Writes the pixel width and height of the texture a part reference points at (1 x 1 when it has none); the divisor that turns texel rectangles into UVs. |
 | [UIPosFollow_SetTarget](../functions/UIPosFollow_SetTarget.md) | `0x1402AB394` | Starts a position follow: target = base offset (f+40 / f+44) + pos (x, y); records the follower node's current position as the start. |
@@ -645,6 +726,28 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [UIResourceHandle_New](../functions/UIResourceHandle_New.md) | `0x1403D9A00` | Factory: allocates a 104-byte UIResourceHandle through the allocator object at qword_143CDAA80 (+8) and constructs it. |
 | [UISaveLoad_OnEvent](../functions/UISaveLoad_OnEvent.md) | `0x1401833C4` | Maps the save/load screen's event numbers 0..8 to state changes, stored selection values and pause-style prompts. |
 | [UISaveLoad_Open](../functions/UISaveLoad_Open.md) | `0x140183580` | Opens the save/load screen: it selects the load mode, starts the screen's music transition, fades the UI to state 9, and sets the save/load agent's own state machine to state 1. |
+| [UiScript_OpAdvanceOpening](../functions/UiScript_OpAdvanceOpening.md) | `0x140329FEC` | Slot 22: advances the window opening stage. |
+| [UiScript_OpDrawIconCell](../functions/UiScript_OpDrawIconCell.md) | `0x140327CF4` | Slot 6: draws one picture cell whose source rectangle comes from a row callback. |
+| [UiScript_OpDrawLine](../functions/UiScript_OpDrawLine.md) | `0x140327C3C` | Slot 7: queues a line between two points. |
+| [UiScript_OpDrawLineRel](../functions/UiScript_OpDrawLineRel.md) | `0x140327C94` | Slot 28: queues a line from a point by an offset. |
+| [UiScript_OpDrawNumber](../functions/UiScript_OpDrawNumber.md) | `0x140328920` | Slots 13, 25, 26 and 27: draws a number or a gauge for a value supplied by a row callback. |
+| [UiScript_OpDrawWindow](../functions/UiScript_OpDrawWindow.md) | `0x140327DAC` | Slot 0: draws a bordered window of a given size and fills its inside. |
+| [UiScript_OpDrawWindowOpening](../functions/UiScript_OpDrawWindowOpening.md) | `0x140328398` | Slot 18: draws a window that opens over a few redraws, then runs UiScript_OpDrawWindow on the same record. |
+| [UiScript_OpFillRect](../functions/UiScript_OpFillRect.md) | `0x140327AF0` | Slot 3: queues a flat-coloured rectangle. |
+| [UiScript_OpFillTiles](../functions/UiScript_OpFillTiles.md) | `0x140328490` | Slot 17: fills a rectangle with 16-pixel tiles of one texture cell. |
+| [UiScript_OpIf](../functions/UiScript_OpIf.md) | `0x140327954` | Slot 1: runs the next records only while a row callback accepts the current row, otherwise skips them. |
+| [UiScript_OpIfElse](../functions/UiScript_OpIfElse.md) | `0x140327A04` | Slot 2: as slot 1 with an else branch. |
+| [UiScript_OpQueueRect](../functions/UiScript_OpQueueRect.md) | `0x140329F4C` | Slot 20: queues a rectangle from the record when no window animation is running. |
+| [UiScript_OpQueueScreenRect](../functions/UiScript_OpQueueScreenRect.md) | `0x140329FB0` | Slot 21: queues the fixed screen rectangle of slot 19 while no window animation is running. |
+| [UiScript_OpQueueScreenRectOnce](../functions/UiScript_OpQueueScreenRectOnce.md) | `0x140329EFC` | Slot 19: after a window animation, queues a fixed screen rectangle once and clears the animating byte. |
+| [UiScript_OpScrollList](../functions/UiScript_OpScrollList.md) | `0x140329548` | Slot 16: draws a scrolling list: repeats the records that follow once per visible row, reads the up and down input, animates the scroll and draws the marks, thumb and cursor. |
+| [UiScript_OpSetBlendFlag](../functions/UiScript_OpSetBlendFlag.md) | `0x140328878` | Slot 14: sets the semi-transparency word passed to the following primitives. |
+| [UiScript_OpSetDrawMode](../functions/UiScript_OpSetDrawMode.md) | `0x14032888C` | Slot 24: queues a draw-mode change: a blend mode from +2 and 3. |
+| [UiScript_OpSetPageWord](../functions/UiScript_OpSetPageWord.md) | `0x1403287FC` | Slot 12: composes the texture-page and blend attribute word of the following cells. |
+| [UiScript_OpSetPaletteWord](../functions/UiScript_OpSetPaletteWord.md) | `0x140328734` | Slot 9: sets the palette word of the following cells. |
+| [UiScript_OpSetPaletteWordAlt](../functions/UiScript_OpSetPaletteWordAlt.md) | `0x140328780` | Slot 10: as slot 9 with a second operand set for the alternate-value flag. |
+| [UiScript_OpSetPriority](../functions/UiScript_OpSetPriority.md) | `0x14032890C` | Slot 15: sets the draw priority word. |
+| [UiScript_OpSetTint](../functions/UiScript_OpSetTint.md) | `0x1403288C8` | Slot 11: sets the tint colour of the following cells. |
 | [UiScript_Run](../functions/UiScript_Run.md) | `0x1403278EC` | Runs one UI script: the byte-coded layout and behaviour program of a list or panel screen. |
 | [UIState_EndTransition](../functions/UIState_EndTransition.md) | `0x1401DDA5C` | Ends the UI fade state given (fade +24 = 0). |
 | [UITable_GetRow](../functions/UITable_GetRow.md) | `0x1403DBD60` | Returns the in-memory row of an nxd table by table id and row index (null when the table or row is missing). |
@@ -661,6 +764,7 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [WindowPattern_Build](../functions/WindowPattern_Build.md) | `0x140332330` | Builds the pixel pattern of a legacy window frame row by row and, in mode 2, uploads it to VRAM. |
 | [WindowPattern_FillRow](../functions/WindowPattern_FillRow.md) | `0x1403324F8` | Fills one row of a window frame pattern from a six-word template. |
 | [WindowRect_AnimateCurve](../functions/WindowRect_AnimateCurve.md) | `0x1402DDFE8` | Opens or closes a window by moving two rectangles along one of the five animation step lists. |
+| [WorldMap_ScreenInput](../functions/WorldMap_ScreenInput.md) | `0x1402D0EE0` | Input step of the world map screen (table index 0): moves between locations, opens a town menu or starts an encounter. |
 | [WorldMapBaseScreen_Open](../functions/WorldMapBaseScreen_Open.md) | `0x1401582D0` | Opens a location's own world-map screen file. |
 | [WorldMapLocationPanel_Fill](../functions/WorldMapLocationPanel_Fill.md) | `0x1401607D4` | Fills the world-map location info panel from a location record. |
 | [WorldMapNode_PlayTexChange](../functions/WorldMapNode_PlayTexChange.md) | `0x140158E30` | Plays the texture-change state of a location's base node. |
@@ -673,6 +777,12 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [WorldMapScreen_ScrollToProgress](../functions/WorldMapScreen_ScrollToProgress.md) | `0x14015DAE4` | Computes the map scroll target of the current progress row. |
 | [WorldMapScreen_SetProgress](../functions/WorldMapScreen_SetProgress.md) | `0x14015A754` | Stores the current story progress on the world-map screen and shows the objective line. |
 | [WorldMapScreen_SetRoute](../functions/WorldMapScreen_SetRoute.md) | `0x140157D74` | Records the route being opened on the world-map screen. |
+| [WorldMenu_AllocOverlayRecord](../functions/WorldMenu_AllocOverlayRecord.md) | `0x1403426F8` | Takes the next 36-byte world-menu record from a fixed array, registers it and returns its index. |
+| [WorldMenu_AllocWindowRecord](../functions/WorldMenu_AllocWindowRecord.md) | `0x14034275C` | Takes the next 56-byte world-menu window record, registers it and returns its index. |
+| [WorldMenu_RunTopCloseHook](../functions/WorldMenu_RunTopCloseHook.md) | `0x1402D0488` | Calls the second-table hook of the world-menu control on top of the control stack (V: callers run it right after decrementing the stack depth; I: it is the counterpart of the open hook). |
+| [WorldMenu_RunTopOpenHook](../functions/WorldMenu_RunTopOpenHook.md) | `0x1402D0458` | Calls the first-table hook of the world-menu control on top of the control stack (V: callers such as Errand_BoardInput run it right after decrementing the stack depth; I: the hook re-initialises the control that becom... |
+| [WorldMenu_SetFade](../functions/WorldMenu_SetFade.md) | `0x1402CD714` | Requests a UI fade state and then sets the world-menu mode word. |
+| [WorldMenu_SetRecordsFrozen](../functions/WorldMenu_SetRecordsFrozen.md) | `0x1402CCC38` | Sets or clears bit 3 (value 8) of the flag word of every registered world-menu record: set when the argument is 0, cleared otherwise. |
 | [ZodiacStone_AnyMet](../functions/ZodiacStone_AnyMet.md) | `0x14016BC30` | Tells whether any ZodiacStone row has its user_situation met. |
 | [ZodiacStone_AnyMetAndNew](../functions/ZodiacStone_AnyMetAndNew.md) | `0x14016BDB8` | Tells whether any ZodiacStone row is met and still carries its new mark. |
 | [ZodiacStone_ClearNewMarks](../functions/ZodiacStone_ClearNewMarks.md) | `0x14016BF68` | Clears the new mark of every ZodiacStone row that is met. |
@@ -836,11 +946,14 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [g_StatusIconWord](../globals/g_StatusIconWord.md) | `0x143D1B590` | `uint16` | The packed page-and-palette word of the status/item icon the status screen last set. |
 | [g_UIChosenItemId](../globals/g_UIChosenItemId.md) | `0x143C518F0` | `uint16` | The 16-bit UI field that holds the item id the player picked in the shop list. |
 
-## Registries (13)
+## Registries (17)
 
 | Name | Summary |
 |---|---|
 | [AchievementNotificationTypes](../registries/AchievementNotificationTypes.md) | The type number of each achievement notification class: the virtual function at +8 of the notification's vtable returns it, and the achievement classes compare it in their match functions. |
+| [ClassicItemScriptOpcodes](../registries/ClassicItemScriptOpcodes.md) | The 25-slot handler table (image address 0x1406932A0) that the item pages of the legacy party menu run inline (ClassicItemUsePage_Run); the slot layout equals that of UiScriptOpcodes up to slot 24 where both have a ha... |
+| [ClassicLayoutScriptOpcodesPart](../registries/ClassicLayoutScriptOpcodesPart.md) | The slots of the 22-slot layout script table (image address 0x140693110, run by ClassicUi_RunLayoutScript, end opcode 22): the long list handler and three small rectangle handlers. |
+| [ClassicMenuControllers](../registries/ClassicMenuControllers.md) | The per-screen controllers of the classic menu system: one contiguous array of input steps at 0x140681400, 55 filled slots (0 to 45 and 48 to 56; 46, 47 and 57 are null), with a further entry at index 58. |
 | [ClassicSubtitleState](../registries/ClassicSubtitleState.md) | The state names of the classic-movie subtitle window and the UIClassicSubtitles line_layout value that picks each. |
 | [CreditLineType](../registries/CreditLineType.md) | The line types of UICreditRow (line_type) and the builder CreditRoll_Step calls for each. |
 | [GuideIconGlyph](../registries/GuideIconGlyph.md) | The guide icon numbers (UIButtonGuide guide_icon / guide_icon_2) and the glyph GuideIcon_ToGlyph draws for them. |
@@ -852,6 +965,7 @@ Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Fl
 | [UIAnimCurves](../registries/UIAnimCurves.md) | The easing curves of UI keyframes: curve id to blend function of the position t within a key interval (UIAnim_Curve). |
 | [UIButtonGuideKeysOfGeneralOptions](../registries/UIButtonGuideKeysOfGeneralOptions.md) | The guide bar keys (`UIButtonGuide` rows, UI table 33) the settings screen uses, with the text id of each sub-row; 'right' marks sub-rows drawn on the right (byte +37 `Unknown25`). |
 | [UIDialogRowsOfSettings](../registries/UIDialogRowsOfSettings.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
+| [UiScriptOpcodes](../registries/UiScriptOpcodes.md) | The 29-slot handler table (image address 0x1406838F0) that UiScript_Run indexes with the opcode byte of each record; the conditional handlers also index it for the records they govern. |
 | [UISoundIdsOfSettings](../registries/UISoundIdsOfSettings.md) | The UI sound ids (`sub_1400F4BCC(_, id)`, UI table 0x45) the settings screen plays. |
 
 ## File formats (7)

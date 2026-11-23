@@ -2,9 +2,9 @@
 
 The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.
 
-Functions: 143, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flows: 4, Observed behaviours: 6, Tables: 10.
+Functions: 145, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flows: 4, Observed behaviours: 6, Tables: 10.
 
-## Functions (143)
+## Functions (145)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -29,6 +29,7 @@ Functions: 143, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flow
 | [SaveCard_Serialize](../functions/SaveCard_Serialize.md) | `0x1400B75A8` | Describes the memory-card style block header: magic, type, block entry, title, timestamp and icon. |
 | [SaveDarlavon_Serialize](../functions/SaveDarlavon_Serialize.md) | `0x1400BFC68` | Describes the Darlavon opened flag and an arrival flag. |
 | [SaveData_InflateEntry](../functions/SaveData_InflateEntry.md) | `0x14003425C` | Decodes one container entry: unscrambles it and inflates it with zlib using a 32768-byte preset dictionary. |
+| [SaveData_InitHeaderStrings](../functions/SaveData_InitHeaderStrings.md) | `0x140245A88` | Fills the save-data header text slots (a title, a save-slot caption and a data description) in the language the game is running in, sets two size fields and points the slot-cache table pointer at the slot cache. |
 | [SaveData_Scramble](../functions/SaveData_Scramble.md) | `0x1400341BC` | XOR-scrambles (and unscrambles: it is its own inverse) a buffer with the container's fixed key. |
 | [SaveDifficulty_Serialize](../functions/SaveDifficulty_Serialize.md) | `0x1400C1A78` | Describes the difficulty level. |
 | [SaveEquipSet_Serialize](../functions/SaveEquipSet_Serialize.md) | `0x1400B9744` | Describes one saved equipment set: name, item, ability, job and a double-hand flag. |
@@ -36,6 +37,7 @@ Functions: 143, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flow
 | [SaveFftPsp_Serialize](../functions/SaveFftPsp_Serialize.md) | `0x1400C2D5C` | Describes the `m_fftpsp` record, which wraps the save work. |
 | [SaveFile_QueueEntry](../functions/SaveFile_QueueEntry.md) | `0x140033B9C` | Queues one named entry (name, version, data buffer) into the save file object for writing into the PNG container. |
 | [SaveFile_Serialize](../functions/SaveFile_Serialize.md) | `0x1400C2598` | Describes the top level of a save file: the list of sections and which schema fills each. |
+| [SaveFile_StaticInitDescriptor](../functions/SaveFile_StaticInitDescriptor.md) | `0x14000E16C` | Static initialiser of a save-file descriptor object: fills in its product-code string, file name, a mode value and the object's vtable, then registers its own exit-time cleanup. |
 | [SaveGameFlow_Serialize](../functions/SaveGameFlow_Serialize.md) | `0x1400BFD78` | Describes the game-flow record: progress with its flag, and the bonus items. |
 | [SaveGameProgress_Serialize](../functions/SaveGameProgress_Serialize.md) | `0x1400BF970` | Describes story progress and the game flag. |
 | [SaveHeader_FillBattleFields](../functions/SaveHeader_FillBattleFields.md) | `0x1402D0108` | Fills the battle-specific fields of the autosave payload header: the kind, the place bytes and the unit preview records the resume screen reads. |

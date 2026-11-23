@@ -19,6 +19,7 @@ Moves the cursor of a legacy menu to the row chosen in the state record.
 
 ## Referenced by
 
+- Called by: [StatusGlossary_Input](StatusGlossary_Input.md), [StatusGlossary_Open](StatusGlossary_Open.md)
 - Reads tables: [LegacyCursorRowsLang0](../tables/LegacyCursorRowsLang0.md), [LegacyCursorRowsLangOther](../tables/LegacyCursorRowsLangOther.md)
 
 ## Open questions

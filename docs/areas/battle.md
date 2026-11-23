@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89.
+Functions: 423, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89.
 
-## Functions (400)
+## Functions (423)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -91,6 +91,7 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [BattleLabel_ShowStatusSignal](../functions/BattleLabel_ShowStatusSignal.md) | `0x14014B87C` | Draws a styled status label over a unit: the BattleSignal row's title with the icon of the status that names the row. |
 | [BattleLoad_ClearPartyReserve](../functions/BattleLoad_ClearPartyReserve.md) | `0x14033D7E4` | Battle load step (state 1) that sets three script data pointers and writes scene variable 57 = 0. |
 | [BattleMain_SetPanelJobRecord](../functions/BattleMain_SetPanelJobRecord.md) | `0x14010141C` | Stores a job record (the first 92 bytes) into one of the battle main screen's two unit panel blocks. |
+| [BattleMap_GetTileRecord](../functions/BattleMap_GetTileRecord.md) | `0x140249000` | Returns the address of the 8-byte tile record for a map position, clamping every coordinate into the map. |
 | [BattleMenu_ConfirmRow](../functions/BattleMenu_ConfirmRow.md) | `0x140237B18` | Acts on a confirmed battle command menu row: picks the follow-up screen code and starts the scene task that shows it. |
 | [BattleMenu_RunStep](../functions/BattleMenu_RunStep.md) | `0x1402381C4` | Runs one step of the battle menu step table: sets the current menu and starts the step's task. |
 | [BattleMsg_Dispatch](../functions/BattleMsg_Dispatch.md) | `0x1402387C4` | Fills the battle message record from an event: it switches on the message kind, writes the kind and id of the record entries, starts the message scene task and resets the action-list widget state. |
@@ -166,11 +167,16 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [Effect_SelectForAbility](../functions/Effect_SelectForAbility.md) | `0x140319B50` | Picks the effect number for an effect word and starts the effect. |
 | [Effect_TintByNxdScale](../functions/Effect_TintByNxdScale.md) | `0x1403845C0` | Updates one effect node: copies its position and angle into the node record and sets its colour, scaled by the effect number's table row. |
 | [EffectAnchor_GetPoint](../functions/EffectAnchor_GetPoint.md) | `0x140384240` | Gives an effect's caster (index -1) or target (index 0..) position: a unit's scene position or a tile's centre. |
+| [EffectCamera_SetVector](../functions/EffectCamera_SetVector.md) | `0x1403823F0` | Selects the effect view's target vector by a mode in bits 5..8 of the first argument and stores it, with a value and the upper mode bits, in the effect view globals. |
+| [EffectCb_ClearFlagAndWait](../functions/EffectCb_ClearFlagAndWait.md) | `0x14035E2D4` | Effect callback (entry 143 of the effect callback table): on start it clears `byte_140D4003F`; while running it advances the word `word_142FEC530` from 1 to 2. |
+| [EffectCb_SixRequests](../functions/EffectCb_SixRequests.md) | `0x14035E214` | Effect callback (entry 139 of the effect callback table): on its first call it issues six requests through `EventWork_RunCommand` and moves its state byte to running; on a finish request it resets the state. |
+| [EffectCb_StartTimer](../functions/EffectCb_StartTimer.md) | `0x14035E33C` | Effect callback (entry 148 of the effect callback table): on start it sets one global from the script record and the block at `qword_1411A3818`, zeroes a second and stores 150 in a third. |
 | [EffectEmitter_Spawn](../functions/EffectEmitter_Spawn.md) | `0x1403847D8` | Spawns the particles of one effect emitter at time t: count, position, velocity, mass, forces, life, homing and children from its 196-byte record. |
 | [EffectFile_GetTrackRow](../functions/EffectFile_GetTrackRow.md) | `0x1402742CC` | Returns the two numbers that locate the data file of one battle effect: its file number in the game pack and its size in bytes. |
 | [EffectFile_ResetBasePointers](../functions/EffectFile_ResetBasePointers.md) | `0x1402741BC` | Points every entry of the 512-slot effect base array at the one shared effect buffer. |
 | [EffectFile_UploadTexture](../functions/EffectFile_UploadTexture.md) | `0x1402741E0` | Registers the two palettes and copies the picture stored at the end of the loaded effect file into the 1024 by 512 video page. |
 | [EffectFlash_Start](../functions/EffectFlash_Start.md) | `0x140313F34` | Sequence kind 4 handler: the screen flash effect that tints the view with an element colour. |
+| [EffectHeap_Free](../functions/EffectHeap_Free.md) | `0x14038DC58` | Returns a block to the effect heap: removes it from its class's list of live blocks and puts it back into the address-sorted free list, merging with free neighbours. |
 | [EffectNxd_AdjustSpriteKind](../functions/EffectNxd_AdjustSpriteKind.md) | `0x1400D2D30` | Changes an effect sprite's draw kind when the effect row's flag asks for it. |
 | [EffectNxd_DepthBiasFloat](../functions/EffectNxd_DepthBiasFloat.md) | `0x1400D2D6C` | Returns the depth bias float of a DepthBias table row. |
 | [EffectNxd_HasFlag24](../functions/EffectNxd_HasFlag24.md) | `0x1400D2AB8` | Reports whether the RefinedVFXTexture row of an effect has its byte at +24 set. |
@@ -180,6 +186,8 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [EffectNxd_SelectPageTexture](../functions/EffectNxd_SelectPageTexture.md) | `0x1400D2C74` | Picks the texture slot for an effect sprite on a refined texture page (6, 7 or 8) and records its flag. |
 | [EffectNxd_SpriteKindA](../functions/EffectNxd_SpriteKindA.md) | `0x1400D28E4` | Chooses an effect sprite's draw kind, then, when the effect has its own texture, its texture slot. |
 | [EffectNxd_SpriteKindB](../functions/EffectNxd_SpriteKindB.md) | `0x1400D2964` | A second form of EffectNxd_SpriteKindA used by the piece emitter. |
+| [EffectObject_InitMotion](../functions/EffectObject_InitMotion.md) | `0x140387268` | Computes the start position, velocity and a few scalar fields of a spawned effect object from a parameter record, using the effect's anchor points and a random spread. |
+| [EffectObject_Step](../functions/EffectObject_Step.md) | `0x140387FB4` | Advances one effect object by a frame: moves it, updates its motion vectors, steps its small frame script, runs a per-frame helper and reports whether it is still alive. |
 | [EffectPalette_Step](../functions/EffectPalette_Step.md) | `0x140315620` | Sequence kind 18 handler: a full screen palette effect that starts from six seed colours. |
 | [EffectParticle_StepPhysics](../functions/EffectParticle_StepPhysics.md) | `0x140388170` | Moves every effect particle one step: position by velocity, velocity by gravity, drag and force, force by its change or by homing. |
 | [EffectScript_OpCallCallback](../functions/EffectScript_OpCallCallback.md) | `0x14031AC98` | Effect script opcode: runs one effect callback at once. |
@@ -190,7 +198,21 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [EffectScript_Run](../functions/EffectScript_Run.md) | `0x14031D658` | Runs the opcodes of one effect script until it yields or ends. |
 | [EffectScript_RunColourTracks](../functions/EffectScript_RunColourTracks.md) | `0x14031BE2C` | Runs the colour-fade tracks of the effect timeline: palette fades on the screen, the caster and the targets. |
 | [EffectScript_RunEmitterTracks](../functions/EffectScript_RunEmitterTracks.md) | `0x14031BC8C` | Runs the five emitter tracks of the effect timeline: each track is a list of phases, and the emitter of the running phase is asked to spawn particles. |
+| [EffectSequence_HitFlashSprites](../functions/EffectSequence_HitFlashSprites.md) | `0x1403138DC` | Sequence kind 2 handler: flashes the target unit's palette and spawns two sets of sprites, with extra screen values set on the first, third and fifth frames of one sub-kind. |
+| [EffectSequence_HoldTwoFrames](../functions/EffectSequence_HoldTwoFrames.md) | `0x140314A40` | Sequence kind 5 handler: a placeholder entry that only counts its state up and ends on the third frame. |
+| [EffectSequence_ProjectileFlight](../functions/EffectSequence_ProjectileFlight.md) | `0x14031342C` | Sequence kind 1 handler: flies a model along a heading from a start point towards an end point, following the ground height, and ends the flight on arrival. |
 | [EffectSequence_Run](../functions/EffectSequence_Run.md) | `0x14031A3DC` | Per frame driver of the effect sequence entries: runs the handler of every active entry and retires finished ones. |
+| [EffectSequence_SpawnGroup10WithCue](../functions/EffectSequence_SpawnGroup10WithCue.md) | `0x140314A74` | Sequence kind handler: plays the sprites of effect sprite group 10 for the length of that group's frame window and plays sound cue 7 when it starts. |
+| [EffectSequence_SpawnGroup11](../functions/EffectSequence_SpawnGroup11.md) | `0x140316160` | Sequence kind handler: plays the sprites of effect sprite group 11 for the length of that group's frame window. |
+| [EffectSequence_SpawnGroup14Ring](../functions/EffectSequence_SpawnGroup14Ring.md) | `0x140316284` | Sequence kind 22 handler: creates 30 sprites of effect sprite group 14 and moves them in three trailing circles around a point, growing and spinning, then fading them out. |
+| [EffectSequence_SpawnGroup15](../functions/EffectSequence_SpawnGroup15.md) | `0x1403159EC` | Sequence kind handler: plays the sprites of effect sprite group 15 for the length of that group's frame window. |
+| [EffectSequence_SpawnGroup16](../functions/EffectSequence_SpawnGroup16.md) | `0x140313E10` | Sequence kind handler: plays the sprites of effect sprite group 16 for the length of that group's frame window. |
+| [EffectSequence_SpawnGroup3Cluster](../functions/EffectSequence_SpawnGroup3Cluster.md) | `0x14031536C` | Sequence kind 17 handler: spawns sprites of effect sprite group 3 into a shared pool of up to 24 and keeps them until their animations end. |
+| [EffectSequence_SpawnGroup4PerUnit](../functions/EffectSequence_SpawnGroup4PerUnit.md) | `0x14031510C` | Sequence kind 15 handler: plays up to two sprites of effect sprite group 4 for a unit, with the state kept in a small table indexed by the entry's byte +2. |
+| [EffectSequence_SpawnGroup5Rising](../functions/EffectSequence_SpawnGroup5Rising.md) | `0x140314FD4` | Sequence kind handler: plays the sprites of effect sprite group 5 for the length of that group's frame window, moving its start offset by 3 every frame. |
+| [EffectSequence_SpawnGroup6](../functions/EffectSequence_SpawnGroup6.md) | `0x140314BA4` | Sequence kind handler: plays the sprites of effect sprite group 6 for the length of that group's frame window. |
+| [EffectSequence_SpawnGroup7AtTile](../functions/EffectSequence_SpawnGroup7AtTile.md) | `0x140314CC8` | Sequence kind handler: plays the sprites of effect sprite group 7 for the length of that group's frame window at a ground offset worked out from the unit's tile. |
+| [EffectSequence_SpawnGroup8WithCue](../functions/EffectSequence_SpawnGroup8WithCue.md) | `0x140314EA4` | Sequence kind handler: plays the sprites of effect sprite group 8 for the length of that group's frame window and plays sound cue 0x21 when it starts. |
 | [EffectSound_PickSlotValue](../functions/EffectSound_PickSlotValue.md) | `0x14031BBDC` | Picks the value a battle effect's sound slot plays this time, by the slot's mode and its play counter. |
 | [EffectSprite_EmitPieces](../functions/EffectSprite_EmitPieces.md) | `0x140380878` | Turns an effect sprite's current frame pieces into textured quads at the sprite's position. |
 | [EffectSprite_StepAnimation](../functions/EffectSprite_StepAnimation.md) | `0x140387B70` | Steps one effect sprite's animation script and, on a frame change, points the sprite at the new frame's pieces; then draws it. |
@@ -388,6 +410,7 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [Unit_BuildInnateStatuses](../functions/Unit_BuildInnateStatuses.md) | `0x140278688` | Builds the three innate status groups of a unit from its job row, its equipment attributes and its permanent extra set, restores the battle-applied set, and refreshes the status display. |
 | [Unit_ChangeBattleStat](../functions/Unit_ChangeBattleStat.md) | `0x14030C080` | Applies one stat change of an action result to a unit stat byte, clamped, and keeps the stat total in step. |
 | [Unit_CheckSpawnTile](../functions/Unit_CheckSpawnTile.md) | `0x140271178` | Answers whether battle record n may stand on its tile: 0 = yes, -1 = no. |
+| [Unit_GetActionGateState](../functions/Unit_GetActionGateState.md) | `0x14030DD1C` | Classifies a battle unit as 1, 0 or 2 from some status and flag bits and the terrain under it. |
 | [Unit_GetReachHeight](../functions/Unit_GetReachHeight.md) | `0x14027EDA4` | The height (in half-steps) the weapon reach rules measure from: the unit's own tile without its water depth, raised when the unit is mounted or floating, with the depth added back for some movement flags. |
 | [Unit_GetVoicePatternId](../functions/Unit_GetVoicePatternId.md) | `0x1401EDD50` | Returns the voice pattern id of a unit: from its job row, else by a rule over the CharaName rows. |
 | [Unit_HasStatusGroup](../functions/Unit_HasStatusGroup.md) | `0x140278FA8` | Tests whether a unit carries any status of one of the ten party-wide status groups by ANDing its five status bytes against that group's five-byte mask. |
@@ -409,7 +432,7 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [VramPage_CopyRect](../functions/VramPage_CopyRect.md) | `0x14025FA60` | Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPage) and marks that area for upload. |
 | [WorldEncounter_StartBattle](../functions/WorldEncounter_StartBattle.md) | `0x140248254` | Starts the random battle WorldEncounter_Roll picked: writes the scene variables the battle load reads (the entry, one deployment area and its row) and clears the story event number. |
 
-## Structures (70)
+## Structures (71)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -440,6 +463,7 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [EffectLabelRectRow](../structs/EffectLabelRectRow.md) | 4 | One row of BattleEffectLabelRectsLang0. |
 | [EffectNumberPseudoRow](../structs/EffectNumberPseudoRow.md) | 2 | One row of the EffectNumberPseudo table. |
 | [EffectPaletteSeedsRow](../structs/EffectPaletteSeedsRow.md) | 3 | One row of the EffectPaletteSeeds table. |
+| [EffectSequenceEntry](../structs/EffectSequenceEntry.md) | 96 | One entry of the battle effect sequence list (an array at 0x1437A5C40, 96 bytes each). |
 | [EffectSpriteSpawnRecordsRow](../structs/EffectSpriteSpawnRecordsRow.md) | 46 | One row of the EffectSpriteSpawnRecords table. |
 | [ElementColoursRow](../structs/ElementColoursRow.md) | 3 | One row of the ElementColours table. |
 | [ElementMaskOrderRow](../structs/ElementMaskOrderRow.md) | 1 | One row of the ElementMaskOrder table. |
@@ -539,13 +563,14 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [xmmword_141876E90](../globals/xmmword_141876E90.md) | `0x141876E90` | `EquipPanelBlock` | The field equip screens' 64-byte copy of the selected party record bytes +0x30..+0x6F; its hand words at +0x24 are a raw copy of g_PartyUnits +0x54..+0x5C. |
 | [xmmword_141D3B880](../globals/xmmword_141D3B880.md) | `0x141D3B880` | `EquipPanelBlock` | The battle module's copy of the same 64-byte record slice (+0x30..+0x6F), with its five hand words at +0x24; read by the battle panel sub_140399A64. |
 
-## Registries (3)
+## Registries (4)
 
 | Name | Summary |
 |---|---|
 | [BattleMsgKindBase](../registries/BattleMsgKindBase.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
 | [BattleStatusPanelVariants](../registries/BattleStatusPanelVariants.md) | The four variants of the alternate battle unit status panel built by `Battle_UnitStatusFillAlt`. |
 | [BattleVoiceSuppressReason](../registries/BattleVoiceSuppressReason.md) | The result of BattleVoice_IsSuppressed: 0 speak, or the reason a line is not spoken. |
+| [EffectSequenceHandlers](../registries/EffectSequenceHandlers.md) | The 23 sequence kind handlers of the battle effect sequence: the kind byte at +3 of an effect sequence entry indexes this pointer table, and EffectSequence_Run calls the handler once per frame with the entry as the cu... |
 
 ## File formats (1)
 

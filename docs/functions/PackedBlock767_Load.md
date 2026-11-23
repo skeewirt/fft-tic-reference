@@ -19,7 +19,7 @@ Starts loading one block of packed data file 767 into its block buffer.
 
 ## Referenced by
 
-- Called by: [sub_140375E7C](sub_140375E7C.md)
+- Called by: [MenuCtl_Entry28](MenuCtl_Entry28.md), [MenuCtl_Entry43](MenuCtl_Entry43.md), [sub_140375E7C](sub_140375E7C.md)
 - Reads tables: [RecordBlockSectors767](../tables/RecordBlockSectors767.md)
 
 ## Notes

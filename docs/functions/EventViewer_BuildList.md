@@ -26,7 +26,7 @@ Builds the list of replayable story events: for each of 78 positions, one event 
 
 ## Referenced by
 
-- Called by: [EventViewer_EntryPage](EventViewer_EntryPage.md)
+- Called by: [EventViewer_EntryPage](EventViewer_EntryPage.md), [MenuCtl_Entry28](MenuCtl_Entry28.md)
 - Observed behaviours: [StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences](../behaviors/StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences.md)
 
 ## Notes

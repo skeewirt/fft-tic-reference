@@ -20,7 +20,7 @@ Copies a rectangle of 16-bit pixels into the 1024 by 512 video page (g_SaveYoxPa
 
 ## Referenced by
 
-- Called by: [Battle_UnitStatusFillAlt](Battle_UnitStatusFillAlt.md), [ClassicItemListPage_Run](ClassicItemListPage_Run.md), [EquipScreen_InitVram](EquipScreen_InitVram.md), [LegacyOptions_DrawTask](LegacyOptions_DrawTask.md), [OpeningTask_4](OpeningTask_4.md), [PanelScreen_InitVram](PanelScreen_InitVram.md), [SceneUnit_LoadExtraPage](SceneUnit_LoadExtraPage.md), [StatsPanel_Build](StatsPanel_Build.md), [WindowPattern_Build](WindowPattern_Build.md)
+- Called by: [Battle_UnitStatusFillAlt](Battle_UnitStatusFillAlt.md), [ClassicItemListPage_Run](ClassicItemListPage_Run.md), [EquipScreen_InitVram](EquipScreen_InitVram.md), [LegacyOptions_DrawTask](LegacyOptions_DrawTask.md), [OpeningTask_4](OpeningTask_4.md), [PanelScreen_InitVram](PanelScreen_InitVram.md), [SceneUnit_LoadExtraPage](SceneUnit_LoadExtraPage.md), [StatsPanel_Build](StatsPanel_Build.md), [WinRec_CopyToVram](WinRec_CopyToVram.md), [WindowPattern_Build](WindowPattern_Build.md)
 - Reads tables: [ItemScreenPalette](../tables/ItemScreenPalette.md), [ShopScreenPalette](../tables/ShopScreenPalette.md)
 
 ## Notes

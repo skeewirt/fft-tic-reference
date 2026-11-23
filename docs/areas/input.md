@@ -2,9 +2,9 @@
 
 Pointer polling and input state.
 
-Functions: 23, Structures: 12, Globals: 1, Registries: 2, Flows: 1, Observed behaviours: 1, Tables: 9.
+Functions: 24, Structures: 12, Globals: 1, Registries: 2, Flows: 1, Observed behaviours: 1, Tables: 9.
 
-## Functions (23)
+## Functions (24)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -14,6 +14,7 @@ Functions: 23, Structures: 12, Globals: 1, Registries: 2, Flows: 1, Observed beh
 | [Input_IsShiftHeld](../functions/Input_IsShiftHeld.md) | `0x140021F9C` | Returns true when Shift is held and Ctrl is not, no Windows key is down, and the ctx pad bit is clear. |
 | [Input_ListenerBroadcast](../functions/Input_ListenerBroadcast.md) | `0x1400E3AD8` | Delivers the frame's merged input state to the UI core: merges the input object's state into `state`, calls GUICore_OnInputState, then copies the 0x548-byte state back. |
 | [Input_PollCursor](../functions/Input_PollCursor.md) | `0x14001F664` | Reads the mouse: drains the mouse device's relative axes (wheel +24, deltas +28/+32) and stores the client-space cursor position. |
+| [Input_RepeatDirection](../functions/Input_RepeatDirection.md) | `0x1402CC9F0` | Menu auto-repeat for six directional actions: returns an action bit on a fresh press and again at the repeat rate while it stays held. |
 | [Input_TestAction](../functions/Input_TestAction.md) | `0x1400FC598` | The event system's "is this action down" test against the current merged button mask. |
 | [Input_TranslateMessage](../functions/Input_TranslateMessage.md) | `0x14001EC2C` | Turns game-window messages into the input object's action queue: keyboard press/release, characters, focus changes and keyboard-layout refresh. |
 | [Input_UpdateActionRow](../functions/Input_UpdateActionRow.md) | `0x1400EFF18` | Per-frame refresh of one action row: reads the pad button and the two keys bound to the action and writes their value, pressed, released, held and repeat bytes. |

@@ -2,9 +2,9 @@
 
 The battle formula functions, dispatched by formula id.
 
-Functions: 151, Observed behaviours: 1.
+Functions: 153, Observed behaviours: 1.
 
-## Functions (151)
+## Functions (153)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -110,6 +110,8 @@ Functions: 151, Observed behaviours: 1.
 | [Formula_97_MagicBasedBraveModify](../functions/Formula_97_MagicBasedBraveModify.md) | `0x140309318` | Magic-based Brave modify: a magic hit check that adjusts the target's Brave. |
 | [Formula_98_PhysicalBasedBraveModify](../functions/Formula_98_PhysicalBasedBraveModify.md) | `0x14030934C` | Brave change with a magic roll that ignores Faith: the magic evade gate, then a MA + X chance; on a hit the target's Brave changes by Y. |
 | [Formula_99_SpeedTimesWeaponPower](../functions/Formula_99_SpeedTimesWeaponPower.md) | `0x140309380` | Thrown weapon: damage = the caster's Speed x the weapon's WP through the physical modifiers; a target with the catch reaction may catch it on a Brave roll. |
+| [Formula_AdjustEvadeForTargetStatus](../functions/Formula_AdjustEvadeForTargetStatus.md) | `0x14030573C` | Evade-setup step: clears the four evade bytes or halves the baseline byte according to status bits of the target. |
+| [Formula_AdjustHitForTargetFlag](../functions/Formula_AdjustHitForTargetFlag.md) | `0x140305700` | Evade-setup step of the weapon formulas: halves the baseline byte and sets reaction 449 when the target meets two conditions. |
 | [Formula_BardDancerGate](../functions/Formula_BardDancerGate.md) | `0x140304D5C` | The Bard and Dancer hit roll: scales the shown percent by X and rolls a miss against X. |
 | [Formula_CasterMagMods](../functions/Formula_CasterMagMods.md) | `0x140305CB0` | The caster's magic damage modifiers: two passive bits scale A. |
 | [Formula_CasterStatusMods](../functions/Formula_CasterStatusMods.md) | `0x140305D08` | The caster's status modifiers on A: Berserk raises it, Toad flattens it. |

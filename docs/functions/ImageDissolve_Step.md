@@ -19,6 +19,7 @@ One step of a dissolve that reveals an image through scattered pixels.
 
 ## Referenced by
 
+- Called by: [BookProgress_ResetConfirmInput](BookProgress_ResetConfirmInput.md), [MenuCtl_Entry27](MenuCtl_Entry27.md)
 - Reads tables: [DissolveOffsets](../tables/DissolveOffsets.md)
 
 ## Open questions

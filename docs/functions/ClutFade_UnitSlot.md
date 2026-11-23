@@ -20,6 +20,7 @@ Starts a colour fade on a drawing slot's rows of palette banks 3 and 4 (sub_1402
 
 ## Referenced by
 
+- Called by: [EffectSequence_HitFlashSprites](EffectSequence_HitFlashSprites.md)
 - Observed behaviours: [TwentyOneUnitsNeedSixPerSlotStoresWidened](../behaviors/TwentyOneUnitsNeedSixPerSlotStoresWidened.md)
 
 ## Open questions

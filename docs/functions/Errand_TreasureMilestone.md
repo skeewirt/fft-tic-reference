@@ -25,7 +25,7 @@ After a successful errand, reports whether the number of treasures found has rea
 
 ## Referenced by
 
-- Called by: [Errand_Finish](Errand_Finish.md)
+- Called by: [Errand_Finish](Errand_Finish.md), [Errand_ProfitEndStep](Errand_ProfitEndStep.md)
 - Reads tables: [ErrandTreasureMilestones](../tables/ErrandTreasureMilestones.md), [ErrandTreasureMilestones2](../tables/ErrandTreasureMilestones2.md)
 
 ## Notes

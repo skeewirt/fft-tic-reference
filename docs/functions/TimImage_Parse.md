@@ -19,6 +19,10 @@ Reads the header of a legacy-container image (pixel mode, optional palette block
 - V: without a palette: the pixel block rectangle is read from +8..+14 and its data pointer is +16, the palette fields are zeroed.
 - V: writes mode, the pixel rectangle, the pixel data pointer, the palette rectangle and the palette data pointer into the descriptor; returns the palette height.
 
+## Referenced by
+
+- Called by: [BookProgress_ResetConfirmInput](BookProgress_ResetConfirmInput.md), [MenuCtl_Entry25](MenuCtl_Entry25.md), [MenuCtl_Entry27](MenuCtl_Entry27.md)
+
 ## Notes
 
 Read in full (one small function).

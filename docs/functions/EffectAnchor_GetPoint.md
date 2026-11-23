@@ -23,7 +23,7 @@ Gives an effect's caster (index -1) or target (index 0..) position: a unit's sce
 
 ## Referenced by
 
-- Called by: [EffectEmitter_Spawn](EffectEmitter_Spawn.md)
+- Called by: [EffectEmitter_Spawn](EffectEmitter_Spawn.md), [EffectObject_InitMotion](EffectObject_InitMotion.md), [EffectSequence_SpawnGroup14Ring](EffectSequence_SpawnGroup14Ring.md)
 
 ## Notes
 

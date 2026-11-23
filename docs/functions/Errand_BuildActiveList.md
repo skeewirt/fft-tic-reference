@@ -22,6 +22,10 @@ Fills the board list with the errands that are away (dispatched and not yet back
 - Reads: [g_ErrandActive](../globals/g_ErrandActive.md), [g_ErrandActiveCount](../globals/g_ErrandActiveCount.md)
 - Writes: [g_ErrandBoardList](../globals/g_ErrandBoardList.md)
 
+## Referenced by
+
+- Called by: [Errand_RunningConfirmInput](Errand_RunningConfirmInput.md)
+
 ## Notes
 
 Name is ours (was sub_140370F38).

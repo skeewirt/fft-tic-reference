@@ -2,9 +2,9 @@
 
 The renderer: scene targets, glare/bloom, shader techniques and programs, sampler state, render contexts, the UI blur, layer effects and composite passes.
 
-Functions: 186, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 54, Tables: 48.
+Functions: 200, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 54, Tables: 48.
 
-## Functions (186)
+## Functions (200)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -25,17 +25,23 @@ Functions: 186, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [ClutBank_CopyRow](../functions/ClutBank_CopyRow.md) | `0x1402F7594` | Copies a 16-colour row (or, with all = 1, all 16 rows) into a bank of the palette manager: its words, its 7-byte colour entries and the uploaded image, unless the bank is held. |
 | [ClutFade_SetTarget](../functions/ClutFade_SetTarget.md) | `0x1402F4944` | Gives one row of a palette bank (or all 16 rows) a new colour to move to, at once or as a timed fade. |
 | [ClutFade_UnitSlot](../functions/ClutFade_UnitSlot.md) | `0x1402F7C20` | Starts a colour fade on a drawing slot's rows of palette banks 3 and 4 (sub_1402F7ACC), or on every slot when the slot is 16 or more. |
+| [ClutFade_UnitSlotByTerrain](../functions/ClutFade_UnitSlotByTerrain.md) | `0x1402F7ACC` | Starts two palette fades for a scene object, the second one with its colour change negated under the terrain conditions below. |
 | [ClutManager_Update](../functions/ClutManager_Update.md) | `0x1402F5F78` | The palette manager's step, once a frame from the battle loop: colour cycles, three screen-colour fades and the timed fades of the 14 palette banks. |
 | [ClutManager_Upload](../functions/ClutManager_Upload.md) | `0x1402F7964` | Copies the palette manager's final image into the emulated video memory when it changed. |
 | [ComponentDrawContext_ComputeMatrix](../functions/ComponentDrawContext_ComputeMatrix.md) | `0x14040A914` | Gives ComponentDrawContext_Build the component's local 2 x 3 matrix and a two-float scale; when comp+540 = 1 it scales the matrix by the ratio of two sizes, otherwise it copies both straight from the property block. |
 | [CustomResourceHandle_Ctor](../functions/CustomResourceHandle_Ctor.md) | `0x1403BA5B4` | Constructor of the base 'custom' resource handle: runs the base ResourceHandle constructor, sets the CustomResourceHandle vtable and clears its extra fields. |
 | [DepthStencilDesc_FromWord](../functions/DepthStencilDesc_FromWord.md) | `0x140051438` | Unpacks the packed depth-stencil word of a pipeline state into the Direct3D 12 depth-stencil description. |
+| [DrawCmd_PrintNumber](../functions/DrawCmd_PrintNumber.md) | `0x14039C200` | Draw-script command (entry 14 of the 16-entry handler table at 0x1406932E8): prints a number, right-aligned in a field, using a value function chosen by the command, and returns the next command. |
+| [EffectGroup_UpdateChildren](../functions/EffectGroup_UpdateChildren.md) | `0x140313390` | Steps each child effect object of the current effect group and frees the ones that report they are finished. |
+| [EffectObject_Alloc](../functions/EffectObject_Alloc.md) | `0x140310A60` | Takes one object from a pool of 976-byte effect objects and returns its index (0 when the pool is empty). |
+| [EffectObject_Free](../functions/EffectObject_Free.md) | `0x140310AE0` | Returns an effect object to the pool: unlinks it from the used list and pushes it on the free list head. |
 | [FaceNumber_Remap](../functions/FaceNumber_Remap.md) | `0x1400F8338` | Replaces a few face numbers by the face the UI shows for them; every other number passes unchanged. |
 | [FaceTexture_FormatName](../functions/FaceTexture_FormatName.md) | `0x1400FC22C` | Formats the texture name of a face: the format string of UI texture path row 4 with the face number and the colour. |
 | [FaceWidget_SetFace](../functions/FaceWidget_SetFace.md) | `0x14028FF34` | Points a face widget at the texture of a face number and colour, and restarts its blink. |
 | [FrequentUtilRenderer_Construct](../functions/FrequentUtilRenderer_Construct.md) | `0x1403AA900` | Constructor of the FrequentUtilRenderer (copy, blur, mip-generation and model-buffer utility passes): sets its vtable and resets all fields. |
 | [FrequentUtilRenderer_CreateResources](../functions/FrequentUtilRenderer_CreateResources.md) | `0x1403AAA84` | FrequentUtilRenderer set-up: loads shader/FrequentUtil.tec, creates six small constant buffers, loads 16 blue-noise textures, builds a 36-index buffer, looks up 18 texture slots and 10 constant-buffer slots, then crea... |
 | [GaussianKernel_Build](../functions/GaussianKernel_Build.md) | `0x1403ABD50` | Builds the normalised one-sided 64-entry Gaussian weight table for the UI blur and returns the tap count. |
+| [GfxPacket_QueueRect](../functions/GfxPacket_QueueRect.md) | `0x140395698` | Takes the next 32-byte packet from the draw packet pool, fills it with a rectangle and a value and links it at the head of an ordering list. |
 | [GraphicsRenderer_AppendShaderRecord](../functions/GraphicsRenderer_AppendShaderRecord.md) | `0x1403AA8BC` | Renderer vtable slot 8 (shared by SDFFontRenderer and FrequentUtilRenderer): appends a 16-byte record {r+24, 0} (the renderer's shader) to a caller-supplied vector. |
 | [GUILayer_ApplyEffects](../functions/GUILayer_ApplyEffects.md) | `0x1403B6204` | Runs the enabled effect passes of one finished layer in a fixed order, ping-ponging between two scratch render targets, then draws the layer's own pixels and finally the +178 effect group. |
 | [GUILayer_BlitFinal](../functions/GUILayer_BlitFinal.md) | `0x1403B4C2C` | Draws the layer's own pixels onto its parent with the layer blend mode (the pass after the +176 / +177 effects). |
@@ -76,6 +82,9 @@ Functions: 186, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [Pixels_ExpandToRgba](../functions/Pixels_ExpandToRgba.md) | `0x14041DDB0` | Expands a block of 4-, 8-, 16- or 32-bit pixels into 32-bit texels. |
 | [PortraitCode_FillCell](../functions/PortraitCode_FillCell.md) | `0x1402E16A8` | Turns a portrait code into the classic portrait atlas cell of a draw record and its colour, and returns the code's low byte. |
 | [PostTarget_DrawFitted](../functions/PostTarget_DrawFitted.md) | `0x1403CB9C4` | Draws one textured quad from a render-target descriptor (136-byte entries at unk_142C819D0) into the current UI render target, fitted into the 16:9 area of the window, with the layer-composite selector #9 in permutati... |
+| [Prim_QueueDrawModeChange](../functions/Prim_QueueDrawModeChange.md) | `0x14031E238` | Appends a draw-mode change record to a draw list bucket. |
+| [Prim_QueueKind6Record](../functions/Prim_QueueKind6Record.md) | `0x14031E0E8` | Appends a kind-6 record (command byte 0xF3, constant 576) built from a rectangle to a draw list bucket. |
+| [Prim_QueueLine](../functions/Prim_QueueLine.md) | `0x14031D960` | Appends a coloured line primitive to a draw list bucket. |
 | [RenderCommand_Allocate](../functions/RenderCommand_Allocate.md) | `0x140069A38` | Allocates one command of the given size from the context's current 8 KB command block, writes its type, and returns the pointer. |
 | [RenderCommand_ClearTarget](../functions/RenderCommand_ClearTarget.md) | `0x140054C24` | Render-thread executor of the command type 0 that GUILayer_Composite and RenderContext_ResetFrame queue: clears one render target to the colour stored in the command. |
 | [RenderCommand_Submit](../functions/RenderCommand_Submit.md) | `0x140069980` | Appends a finished command to the context's list as a {sort key, command pointer} pair; the list is later executed in key order (the sort itself was not read here). |
@@ -194,6 +203,11 @@ Functions: 186, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [UITexturePath_FromRow](../functions/UITexturePath_FromRow.md) | `0x1400FCA68` | Builds a UITextureParts path (that scheme followed by the row's text) from one row of UI table 0x8F. |
 | [UnitClut_TintRow](../functions/UnitClut_TintRow.md) | `0x1402F7628` | The battle side's tint rule: turns one 16-colour palette row into a unit slot's colours in bank 3 of the palette manager. |
 | [UnitClut_TintRowPlain](../functions/UnitClut_TintRowPlain.md) | `0x1402F78A4` | Calls UnitClut_TintRow with mode 8 (the channels as they are plus the offsets) for a row and a slot. |
+| [WinRec_CopyToVram](../functions/WinRec_CopyToVram.md) | `0x140379BE8` | Copies a window record's rectangle into the video page, at the point its texture page maps to. |
+| [WinRec_PageToVramPoint](../functions/WinRec_PageToVramPoint.md) | `0x140379B8C` | Maps a window texture page number and a rectangle to the point in the video page where the window's pixels live. |
+| [WinRec_PutText](../functions/WinRec_PutText.md) | `0x140379C68` | Draws a message into a window record: hands the text reference, a target buffer and a point plus a record width to `sub_1402EC9D0`. |
+| [WinRec_SetRect](../functions/WinRec_SetRect.md) | `0x140379AAC` | Fills one window record from a rectangle and a texture page number, derives the page's packed texture word, and finishes through `sub_1402B4F0C` with the rectangle's width and height. |
+| [WinRec_SetSource](../functions/WinRec_SetSource.md) | `0x140379D34` | Fills a window record's texture source fields from a packed source descriptor, a flags value and an extra qword. |
 
 ## Structures (53)
 

@@ -25,6 +25,7 @@ Decides whether a random battle starts at a battleground and which formation it 
 
 ## Referenced by
 
+- Called by: [WorldMap_ScreenInput](WorldMap_ScreenInput.md)
 - Observed behaviours: [RandomEncounterRowByte22IsTheBattleMapId](../behaviors/RandomEncounterRowByte22IsTheBattleMapId.md)
 - Reads tables: [RandomEncounters](../tables/RandomEncounters.md)
 

@@ -25,6 +25,7 @@ Sets up the world-map screen: the sprite piece list, the location markers and th
 
 ## Referenced by
 
+- Called by: [ClassicMenu_RunScreenStack](ClassicMenu_RunScreenStack.md)
 - Reads tables: [LocationMarkerOffsets](../tables/LocationMarkerOffsets.md), [SpritePieceTemplates](../tables/SpritePieceTemplates.md)
 
 ## Notes

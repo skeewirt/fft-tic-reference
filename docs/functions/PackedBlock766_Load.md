@@ -19,7 +19,7 @@ Starts loading one block of packed data file 766 into the shared block buffer.
 
 ## Referenced by
 
-- Called by: [WorldMap_InitLocations](WorldMap_InitLocations.md)
+- Called by: [Errand_ReportDialogueStep](Errand_ReportDialogueStep.md), [WorldMap_InitLocations](WorldMap_InitLocations.md)
 - Reads tables: [RecordBlockSectors](../tables/RecordBlockSectors.md)
 
 ## Notes

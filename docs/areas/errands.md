@@ -2,9 +2,9 @@
 
 The timed dispatch system: records, scoring, rewards, start and finish.
 
-Functions: 29, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11.
+Functions: 30, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11.
 
-## Functions (29)
+## Functions (30)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -16,6 +16,7 @@ Functions: 29, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11.
 | [Errand_BuildBoard](../functions/Errand_BuildBoard.md) | `0x1402ED078` | Builds the list of errands the tavern board shows: one entry per errand record, marked as available, dispatched or returning, with the preview of the units on a dispatched errand. |
 | [Errand_BuildBoardEntry](../functions/Errand_BuildBoardEntry.md) | `0x1402EE0F0` | Decides whether an errand that is not dispatched goes on the tavern board and fills its board entry. |
 | [Errand_ComputeRewards](../functions/Errand_ComputeRewards.md) | `0x1402D29C0` | Computes JP and gil rewards, the grade and the bonus loot for one active errand when it ends. |
+| [Errand_ConfirmDialogInput](../functions/Errand_ConfirmDialogInput.md) | `0x1402EDCC0` | Per-frame input handler of a two-choice confirmation dialog in the errand screens: moves the choice, then on confirm tests the errand list with `sub_1402EE37C` (I: that an errand is free) and that the player has enoug... |
 | [Errand_Finish](../functions/Errand_Finish.md) | `0x14036FF30` | Ends an active errand: totals the gil, queues a result entry and applies the result. |
 | [Errand_IsAvailable](../functions/Errand_IsAvailable.md) | `0x1402CCE20` | Decides whether an errand is offered at a town right now. |
 | [Errand_IsOffered](../functions/Errand_IsOffered.md) | `0x1402EE0A4` | Whether an errand is offered at a town now: not dispatched, not completed, no delay left, and available there. |

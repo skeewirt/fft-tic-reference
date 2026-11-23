@@ -21,6 +21,7 @@ Runs one UI script: the byte-coded layout and behaviour program of a list or pan
 ## Referenced by
 
 - Reads tables: [ItemListScriptLanguage0](../tables/ItemListScriptLanguage0.md), [ItemListScriptLanguage1](../tables/ItemListScriptLanguage1.md), [ItemListScriptLanguage2](../tables/ItemListScriptLanguage2.md), [ItemListScriptLanguage3](../tables/ItemListScriptLanguage3.md), [JobLearnListScriptLang1](../tables/JobLearnListScriptLang1.md), [JobLearnListScriptLang2](../tables/JobLearnListScriptLang2.md), [JobLearnListScriptLang3](../tables/JobLearnListScriptLang3.md), [JobUnitRowsScriptLang0](../tables/JobUnitRowsScriptLang0.md), [JobUnitRowsScriptLang1](../tables/JobUnitRowsScriptLang1.md), [JobUnitRowsScriptLang2](../tables/JobUnitRowsScriptLang2.md), [JobUnitRowsScriptLang3](../tables/JobUnitRowsScriptLang3.md)
+- Resolves registries: [UiScriptOpcodes](../registries/UiScriptOpcodes.md)
 
 ## Notes
 

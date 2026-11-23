@@ -18,7 +18,7 @@ Opens the page of one story event list entry: stores the entry index and sets th
 
 ## Referenced by
 
-- Called by: [EventViewer_ListInput](EventViewer_ListInput.md)
+- Called by: [EventViewer_ListInput](EventViewer_ListInput.md), [ScreenReopen_Step](ScreenReopen_Step.md)
 - Observed behaviours: [StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences](../behaviors/StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences.md)
 
 ## Open questions

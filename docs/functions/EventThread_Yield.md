@@ -23,7 +23,7 @@ Hands control from the calling event task back to the scheduler and sleeps until
 
 ## Referenced by
 
-- Called by: [EventCmd_SetBackdrop](EventCmd_SetBackdrop.md), [EventTask_WaitFrame](EventTask_WaitFrame.md), [Game_LoopReset](Game_LoopReset.md), [Game_MainLoop](Game_MainLoop.md), [OpeningMenu_Task](OpeningMenu_Task.md), [OpeningTask_7](OpeningTask_7.md), [Opening_LoadMessageSprites](Opening_LoadMessageSprites.md), [SceneLoop_Run](SceneLoop_Run.md), [SceneLoop_RunAlt](SceneLoop_RunAlt.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md)
+- Called by: [AudioQueue_WaitIdle](AudioQueue_WaitIdle.md), [ClassicMenu_RunScreenStack](ClassicMenu_RunScreenStack.md), [EventCmd_SetBackdrop](EventCmd_SetBackdrop.md), [EventTask_WaitFrame](EventTask_WaitFrame.md), [EventThread_PumpAudioWhileBusy](EventThread_PumpAudioWhileBusy.md), [Game_LoopReset](Game_LoopReset.md), [Game_MainLoop](Game_MainLoop.md), [OpeningMenu_Task](OpeningMenu_Task.md), [OpeningTask_7](OpeningTask_7.md), [Opening_LoadMessageSprites](Opening_LoadMessageSprites.md), [SceneLoop_Run](SceneLoop_Run.md), [SceneLoop_RunAlt](SceneLoop_RunAlt.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md)
 
 ## Notes
 

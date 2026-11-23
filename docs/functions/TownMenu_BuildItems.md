@@ -23,6 +23,7 @@ Lists the town menu items of a settlement (Outfitter, Tavern, Warriors' Guild, P
 
 ## Referenced by
 
+- Called by: [WorldMap_ScreenInput](WorldMap_ScreenInput.md)
 - Reads tables: [TownMenuKindBySettlement](../tables/TownMenuKindBySettlement.md)
 
 ## Notes

@@ -24,7 +24,7 @@ Pushes one entry (a kind and a 32-bit parameter) onto the 16-entry audio command
 
 ## Referenced by
 
-- Called by: [EventCmd_FadeOut](EventCmd_FadeOut.md), [EventViewer_EntryPage](EventViewer_EntryPage.md), [sub_14034004C](sub_14034004C.md), [sub_140372F9C](sub_140372F9C.md)
+- Called by: [Errand_ProfitEndStep](Errand_ProfitEndStep.md), [EventCmd_FadeOut](EventCmd_FadeOut.md), [EventViewer_EntryPage](EventViewer_EntryPage.md), [sub_14034004C](sub_14034004C.md), [sub_140372F9C](sub_140372F9C.md)
 - Observed behaviours: [MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord](../behaviors/MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord.md)
 
 ## Notes

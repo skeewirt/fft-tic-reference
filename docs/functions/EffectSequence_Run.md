@@ -23,6 +23,10 @@ Per frame driver of the effect sequence entries: runs the handler of every activ
 
 - Calls: [Effect_RunStateMachine](Effect_RunStateMachine.md)
 
+## Referenced by
+
+- Resolves registries: [EffectSequenceHandlers](../registries/EffectSequenceHandlers.md)
+
 ## Notes
 
 Name is ours.

@@ -2,9 +2,9 @@
 
 Pack entry lookup, file reading and inflation.
 
-Functions: 36, Structures: 7, Observed behaviours: 1, Tables: 15.
+Functions: 37, Structures: 7, Observed behaviours: 1, Tables: 15.
 
-## Functions (36)
+## Functions (37)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -34,6 +34,7 @@ Functions: 36, Structures: 7, Observed behaviours: 1, Tables: 15.
 | [ResourceHandle_ReadData](../functions/ResourceHandle_ReadData.md) | `0x1400961D4` | Reads the handle's file into its buffer (+56) through its reader object (+48), allocating from the heap the handle's slot 14 returns. |
 | [ResourceHandle_ResolvedPath](../functions/ResourceHandle_ResolvedPath.md) | `0x1400962FC` | The path the reader resolved (+40, a string object whose text is at +8, heap pointer when its capacity +32 is 16 or more), else the requested path (+24), else an empty string. |
 | [ResourceManager_ReloadLocalized](../functions/ResourceManager_ReloadLocalized.md) | `0x1400919A8` | Sets a text language and reloads every localized resource handle (flag 8). |
+| [ResourcePool_AllocBlocks](../functions/ResourcePool_AllocBlocks.md) | `0x1402F3888` | Allocates a run of 2048-byte blocks from a fixed pool of 128 blocks and returns its address, or null. |
 | [Sound_PlayNovelSe](../functions/Sound_PlayNovelSe.md) | `0x1402BA7C4` | Plays one of the common novel sound effects by id: it finds a free channel, loads the sound from the shared novel sound bank and starts it. |
 | [sub_14006BAA8](../functions/sub_14006BAA8.md) | `0x14006BAA8` | Reads a file through the engine's virtual file system: it resolves the path, opens the stream, copies the bytes into the caller's buffer and closes it. |
 | [sub_14006C6F4](../functions/sub_14006C6F4.md) | `0x14006C6F4` | A typed read wrapper over the virtual file system: opens a named file, optionally seeks to an offset, reads a fixed block and closes it. |

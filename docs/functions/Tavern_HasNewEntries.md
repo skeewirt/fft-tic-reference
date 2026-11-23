@@ -24,6 +24,7 @@ I: tells whether the tavern has an entry still marked new (rumours and errands),
 
 ## Referenced by
 
+- Called by: [WorldMap_ScreenInput](WorldMap_ScreenInput.md)
 - Observed behaviours: [RumourNewFlagsAreIndexedByTheLowByteOfTheId](../behaviors/RumourNewFlagsAreIndexedByTheLowByteOfTheId.md), [ScreenMusicComesFromBGMTransitionRows](../behaviors/ScreenMusicComesFromBGMTransitionRows.md)
 
 ## Notes

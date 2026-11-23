@@ -21,6 +21,7 @@ Runs one layout script of the legacy menus: a list of records that draw windows,
 ## Referenced by
 
 - Called by: [ClassicJobDetailPage_Run](ClassicJobDetailPage_Run.md)
+- Resolves registries: [ClassicLayoutScriptOpcodesPart](../registries/ClassicLayoutScriptOpcodesPart.md)
 
 ## Notes
 

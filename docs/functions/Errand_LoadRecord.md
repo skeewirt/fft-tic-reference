@@ -23,7 +23,7 @@ Copies one 23-byte errand (dispatch) definition out of the executable's errand d
 
 ## Referenced by
 
-- Called by: [Errand_BuildBoard](Errand_BuildBoard.md), [Errand_ComputeRewards](Errand_ComputeRewards.md), [Errand_IsAvailable](Errand_IsAvailable.md), [Errand_Recall](Errand_Recall.md), [Errand_SelectBoardEntry](Errand_SelectBoardEntry.md), [sub_14036E5DC](sub_14036E5DC.md)
+- Called by: [ErrandUnitPick_Input](ErrandUnitPick_Input.md), [Errand_BuildBoard](Errand_BuildBoard.md), [Errand_ComputeRewards](Errand_ComputeRewards.md), [Errand_IsAvailable](Errand_IsAvailable.md), [Errand_Recall](Errand_Recall.md), [Errand_SelectBoardEntry](Errand_SelectBoardEntry.md), [sub_14036E5DC](sub_14036E5DC.md)
 - Observed behaviours: [ErrandStateIsSpreadOverFiveStores](../behaviors/ErrandStateIsSpreadOverFiveStores.md)
 - Reads tables: [ErrandBlob](../tables/ErrandBlob.md)
 

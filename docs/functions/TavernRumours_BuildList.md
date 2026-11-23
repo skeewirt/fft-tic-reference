@@ -27,6 +27,7 @@ Builds the tavern's Rumors list: walks rumour ids 0..63, keeps the ones the curr
 
 ## Referenced by
 
+- Called by: [Tavern_RumorTextWait](Tavern_RumorTextWait.md)
 - Observed behaviours: [RumourNewFlagsAreIndexedByTheLowByteOfTheId](../behaviors/RumourNewFlagsAreIndexedByTheLowByteOfTheId.md), [TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable](../behaviors/TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable.md)
 
 ## Notes

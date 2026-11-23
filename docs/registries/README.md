@@ -2,7 +2,7 @@
 
 Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning.
 
-34 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
+39 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -12,8 +12,12 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [BattleMsgKindBase](BattleMsgKindBase.md) | [Battle](../areas/battle.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
 | [BattleStatusPanelVariants](BattleStatusPanelVariants.md) | [Battle](../areas/battle.md) | The four variants of the alternate battle unit status panel built by `Battle_UnitStatusFillAlt`. |
 | [BattleVoiceSuppressReason](BattleVoiceSuppressReason.md) | [Battle](../areas/battle.md) | The result of BattleVoice_IsSuppressed: 0 speak, or the reason a line is not spoken. |
+| [ClassicItemScriptOpcodes](ClassicItemScriptOpcodes.md) | [UI framework](../areas/ui-framework.md) | The 25-slot handler table (image address 0x1406932A0) that the item pages of the legacy party menu run inline (ClassicItemUsePage_Run); the slot layout equals that of UiScriptOpcodes up to slot 24 where both have a ha... |
+| [ClassicLayoutScriptOpcodesPart](ClassicLayoutScriptOpcodesPart.md) | [UI framework](../areas/ui-framework.md) | The slots of the 22-slot layout script table (image address 0x140693110, run by ClassicUi_RunLayoutScript, end opcode 22): the long list handler and three small rectangle handlers. |
+| [ClassicMenuControllers](ClassicMenuControllers.md) | [UI framework](../areas/ui-framework.md) | The per-screen controllers of the classic menu system: one contiguous array of input steps at 0x140681400, 55 filled slots (0 to 45 and 48 to 56; 46, 47 and 57 are null), with a further entry at index 58. |
 | [ClassicSubtitleState](ClassicSubtitleState.md) | [UI framework](../areas/ui-framework.md) | The state names of the classic-movie subtitle window and the UIClassicSubtitles line_layout value that picks each. |
 | [CreditLineType](CreditLineType.md) | [UI framework](../areas/ui-framework.md) | The line types of UICreditRow (line_type) and the builder CreditRoll_Step calls for each. |
+| [EffectSequenceHandlers](EffectSequenceHandlers.md) | [Battle](../areas/battle.md) | The 23 sequence kind handlers of the battle effect sequence: the kind byte at +3 of an effect sequence entry indexes this pointer table, and EffectSequence_Run calls the handler once per frame with the entry as the cu... |
 | [GuideIconGlyph](GuideIconGlyph.md) | [UI framework](../areas/ui-framework.md) | The guide icon numbers (UIButtonGuide guide_icon / guide_icon_2) and the glyph GuideIcon_ToGlyph draws for them. |
 | [InputContext](InputContext.md) | [Input](../areas/input.md) | The input contexts an action row can belong to: the row's mask against the module's context mask. |
 | [ItemCategories](ItemCategories.md) | [Items and shops](../areas/items.md) | The item categories: the stock first-id thresholds of Item_FindCategoryIndex, the record kind of each category (which sub-record table it has) and the menu group sub_1402890C0 gives it. |
@@ -37,6 +41,7 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [UIDialogRowsOfSettings](UIDialogRowsOfSettings.md) | [UI framework](../areas/ui-framework.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
 | [UISaveLoadDialogStates](UISaveLoadDialogStates.md) | [Save data](../areas/save-data.md) | The save/load agent's dialog block states (ids 0..2). |
 | [UISaveLoadStates](UISaveLoadStates.md) | [Save data](../areas/save-data.md) | The save/load agent's eleven states (ids 0..10). |
+| [UiScriptOpcodes](UiScriptOpcodes.md) | [UI framework](../areas/ui-framework.md) | The 29-slot handler table (image address 0x1406838F0) that UiScript_Run indexes with the opcode byte of each record; the conditional handlers also index it for the records they govern. |
 | [UISoundIdsOfSettings](UISoundIdsOfSettings.md) | [UI framework](../areas/ui-framework.md) | The UI sound ids (`sub_1400F4BCC(_, id)`, UI table 0x45) the settings screen plays. |
 | [UnitEventFlagBit](UnitEventFlagBit.md) | [Unit data](../areas/unit-data.md) | The bits of the unit flag word at battle unit +504, which the battle build stores from the entry override row: one bit per flag byte (OverrideEntryData +0x8E..+0x97 and +0x99), plus bit 11 set by the equipment build. |
 | [UnitIdentityIds](UnitIdentityIds.md) | [Unit data](../areas/unit-data.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |

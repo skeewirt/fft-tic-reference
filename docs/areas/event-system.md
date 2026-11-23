@@ -2,13 +2,23 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 21, Tables: 29.
+Functions: 217, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 21, Tables: 29.
 
-## Functions (204)
+## Functions (217)
 
 | Name | Address | Purpose |
 |---|---|---|
+| [AudioQueue_WaitIdle](../functions/AudioQueue_WaitIdle.md) | `0x140340088` | Blocks the calling event thread until the audio command queue has nothing running and nothing queued. |
 | [BannerWords_FillQuads](../functions/BannerWords_FillQuads.md) | `0x1402DF154` | Fills the gradient quads of one banner (a row of word cells) from the legacy banner tables. |
+| [DspDesc_CallBackend0](../functions/DspDesc_CallBackend0.md) | `0x140608A1C` | Slot 0 of the 20-slot descriptor table at 0x14065CB00: packs a parameter block from a state object and calls the first function of the backend table that `sub_140609E2C` returns. |
+| [DspDesc_CallBackend1](../functions/DspDesc_CallBackend1.md) | `0x140608A74` | Slot 1 of the descriptor table at 0x14065CB00: the same parameter block as slot 0, passed with two extra arguments to the second function of the backend table. |
+| [DspDesc_ResetParamsAndFinish](../functions/DspDesc_ResetParamsAndFinish.md) | `0x140608BCC` | Slot 7 of the descriptor table at 0x14065CB00: sets the first two parameters to 1.0 and calls the state's virtual function at offset 40. |
+| [DspDesc_ReturnArg](../functions/DspDesc_ReturnArg.md) | `0x140608B20` | Slots 5 and 15 of the descriptor table at 0x14065CB00: returns its second argument unchanged. |
+| [DspDesc_SetParam](../functions/DspDesc_SetParam.md) | `0x140608B24` | Slot 6 of the descriptor table at 0x14065CB00: sets one of three float parameters of a state object from a normalised value. |
+| [DspDesc_Vfunc16](../functions/DspDesc_Vfunc16.md) | `0x14060242C` | Slot 2 of the descriptor table at 0x14065CB00: calls the object's virtual function at offset 16. |
+| [DspDesc_Vfunc24](../functions/DspDesc_Vfunc24.md) | `0x1406024EC` | Slot 3 of the descriptor table at 0x14065CB00: calls the object's virtual function at offset 24. |
+| [DspDesc_Vfunc32](../functions/DspDesc_Vfunc32.md) | `0x140608AE4` | Slot 4 of the descriptor table at 0x14065CB00: calls the object's virtual function at offset 32 with the fields of an input block and an output block. |
+| [DspDesc_Vfunc40](../functions/DspDesc_Vfunc40.md) | `0x140463CB8` | Slot 8 of the descriptor table at 0x14065CB00: calls the object's virtual function at offset 40. |
 | [EventAngle_Quantize](../functions/EventAngle_Quantize.md) | `0x140240408` | Stores a copy of an angle rounded down to a multiple of 4096 in a global, for angles from -16384 to 16383. |
 | [EventBlock_ApplyOperands](../functions/EventBlock_ApplyOperands.md) | `0x1402355E0` | The callback installed by opcode 0x28: resolves the unit named by its operands and gives it a 128-byte block, a doubled count and a fixed value, using a block helper. |
 | [EventCamera_MoveTask](../functions/EventCamera_MoveTask.md) | `0x1402401A8` | The task started by event opcode 0x1B: moves the camera from its current state to six target values over a number of frames. |
@@ -90,6 +100,7 @@ Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventTasks_Init](../functions/EventTasks_Init.md) | `0x1402EA2F0` | Initialises the first task group: points its task table, variable store and event buffer at their storage. |
 | [EventText_FindMessage](../functions/EventText_FindMessage.md) | `0x1402DDBC8` | Finds an event message in memory from its packed 16-bit reference and returns a pointer to the start of its text. |
 | [EventText_NextChar](../functions/EventText_NextChar.md) | `0x140221404` | Advances through an event message byte stream by one position, following the stream's back-reference codes. |
+| [EventThread_PumpAudioWhileBusy](../functions/EventThread_PumpAudioWhileBusy.md) | `0x140343564` | Loops, one frame at a time, until the high dword of `qword_141856AB0` (0x141856AB4) is zero; each pass services the audio command queue and hands the baton back to the scheduler. |
 | [EventThread_ReturnToEntry](../functions/EventThread_ReturnToEntry.md) | `0x1402F3710` | Restarts the calling event task thread from its saved entry context. |
 | [EventThread_Yield](../functions/EventThread_Yield.md) | `0x1402F377C` | Hands control from the calling event task back to the scheduler and sleeps until that task is resumed. |
 | [EventUnitBlock_RunTask](../functions/EventUnitBlock_RunTask.md) | `0x140235D38` | The task started by event opcode 0x49: runs the instructions after 0x49 up to 0x4A once, handling the unit opcodes 0x45 and 0x82 and skipping the rest, then ends. |
@@ -109,7 +120,9 @@ Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventViewer_ListInput](../functions/EventViewer_ListInput.md) | `0x1402D22A8` | Input handler of the story event list (page kind 29): confirms an entry, cancels, or scrolls. |
 | [EventViewer_OpenEntry](../functions/EventViewer_OpenEntry.md) | `0x1402D2468` | Opens the page of one story event list entry: stores the entry index and sets the entry's text. |
 | [EventVoice_PlayTask](../functions/EventVoice_PlayTask.md) | `0x140221488` | The task started by event opcode 0xC2 when the enhanced flag is set: starts a table entry for its id, keeps it in the list while it is present, and stops it when the object or the skip test says so. |
+| [EventWork_RunCommand](../functions/EventWork_RunCommand.md) | `0x14024F5A0` | A command switch over per-slot work records of the event system: save, restore, select, read and commit commands, chosen by a command number. |
 | [GameData_ReadSectors](../functions/GameData_ReadSectors.md) | `0x1402F40C4` | The game's general data read entry point, expressed in the original disc layout: it reads a run of 2048-byte sectors of one kind of game file, and sends event scripts (kind 17) to EventScript_LoadFile. |
+| [GameData_StartTrackedRead](../functions/GameData_StartTrackedRead.md) | `0x1403434D0` | Waits for any earlier tracked read, records the new request in a status block and starts the sector read. |
 | [IdRemap_Lookup](../functions/IdRemap_Lookup.md) | `0x1402BA9C8` | Remaps an id above 0xA7 through the 406-row table `g_IdRemapPairs` (7 pairs of two dwords per row, 56 bytes); returns the replacement, or the id itself when it is not in the table. |
 | [Music_StartSceneTracks](../functions/Music_StartSceneTracks.md) | `0x140234990` | Starts a scene's music: resets the event slots, loads the two tracks into music slots 1 and 2, then starts slot 1. |
 | [MusicSlot_FetchRecord](../functions/MusicSlot_FetchRecord.md) | `0x1402B1F08` | Activates an event sound slot: loads its sound id and the three record dwords into the music state. |

@@ -26,6 +26,7 @@ Evaluates the condition lists of one row of the settlement event data table (tab
 
 ## Referenced by
 
+- Called by: [WorldMap_ScreenInput](WorldMap_ScreenInput.md)
 - Reads tables: [NxdDataEnhancedWorldEvent](../tables/NxdDataEnhancedWorldEvent.md)
 
 ## Notes

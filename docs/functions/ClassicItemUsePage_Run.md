@@ -24,6 +24,7 @@ Legacy party menu item use page: picks an item and applies it to a unit.
 ## Referenced by
 
 - Reads tables: [LegacyItemUseLayoutLang0](../tables/LegacyItemUseLayoutLang0.md), [LegacyItemUseLayoutLang1](../tables/LegacyItemUseLayoutLang1.md), [LegacyItemUseLayoutLang2](../tables/LegacyItemUseLayoutLang2.md), [LegacyItemUseLayoutLang3](../tables/LegacyItemUseLayoutLang3.md)
+- Resolves registries: [ClassicItemScriptOpcodes](../registries/ClassicItemScriptOpcodes.md)
 
 ## Open questions
 

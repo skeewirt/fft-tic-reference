@@ -26,7 +26,7 @@ Finds an event message in memory from its packed 16-bit reference and returns a 
 
 ## Referenced by
 
-- Called by: [BattleCommand_BuildUnitList](BattleCommand_BuildUnitList.md), [EventMessage_Scripted](EventMessage_Scripted.md), [sub_1401DF120](sub_1401DF120.md), [sub_1402DF374](sub_1402DF374.md), [sub_14036A294](sub_14036A294.md), [sub_140371550](sub_140371550.md)
+- Called by: [BattleCommand_BuildUnitList](BattleCommand_BuildUnitList.md), [EventMessage_Scripted](EventMessage_Scripted.md), [PagedText_Init](PagedText_Init.md), [sub_1401DF120](sub_1401DF120.md), [sub_1402DF374](sub_1402DF374.md), [sub_14036A294](sub_14036A294.md), [sub_140371550](sub_140371550.md)
 - Observed behaviours: [AbilityTextKeysPast2047](../behaviors/AbilityTextKeysPast2047.md), [TextReferenceIsABankAndAnElevenBitIndex](../behaviors/TextReferenceIsABankAndAnElevenBitIndex.md)
 - Reads file formats: [TextId](../formats/TextId.md)
 - Resolves registries: [TextIdKinds](../registries/TextIdKinds.md)

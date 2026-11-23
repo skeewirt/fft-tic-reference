@@ -2,7 +2,7 @@
 
 Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.
 
-539 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
+540 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
 
 | Name | Size (bytes) | Area | Summary |
 |---|---|---|---|
@@ -79,6 +79,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [EffectLabelRectRow](EffectLabelRectRow.md) | 4 | [Battle](../areas/battle.md) | One row of BattleEffectLabelRectsLang0. |
 | [EffectNumberPseudoRow](EffectNumberPseudoRow.md) | 2 | [Battle](../areas/battle.md) | One row of the EffectNumberPseudo table. |
 | [EffectPaletteSeedsRow](EffectPaletteSeedsRow.md) | 3 | [Battle](../areas/battle.md) | One row of the EffectPaletteSeeds table. |
+| [EffectSequenceEntry](EffectSequenceEntry.md) | 96 | [Battle](../areas/battle.md) | One entry of the battle effect sequence list (an array at 0x1437A5C40, 96 bytes each). |
 | [EffectSpriteSpawnRecordsRow](EffectSpriteSpawnRecordsRow.md) | 46 | [Battle](../areas/battle.md) | One row of the EffectSpriteSpawnRecords table. |
 | [ElementColoursRow](ElementColoursRow.md) | 3 | [Battle](../areas/battle.md) | One row of the ElementColours table. |
 | [ElementMaskOrderRow](ElementMaskOrderRow.md) | 1 | [Battle](../areas/battle.md) | One row of the ElementMaskOrder table. |

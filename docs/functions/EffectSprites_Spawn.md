@@ -20,6 +20,7 @@ Creates the sprites of one effect sprite group when the effect is inside the gro
 
 ## Referenced by
 
+- Called by: [EffectSequence_SpawnGroup10WithCue](EffectSequence_SpawnGroup10WithCue.md), [EffectSequence_SpawnGroup11](EffectSequence_SpawnGroup11.md), [EffectSequence_SpawnGroup15](EffectSequence_SpawnGroup15.md), [EffectSequence_SpawnGroup16](EffectSequence_SpawnGroup16.md), [EffectSequence_SpawnGroup5Rising](EffectSequence_SpawnGroup5Rising.md), [EffectSequence_SpawnGroup6](EffectSequence_SpawnGroup6.md), [EffectSequence_SpawnGroup7AtTile](EffectSequence_SpawnGroup7AtTile.md), [EffectSequence_SpawnGroup8WithCue](EffectSequence_SpawnGroup8WithCue.md)
 - Reads tables: [EffectSpriteSpawnRecords](../tables/EffectSpriteSpawnRecords.md)
 
 ## Notes
