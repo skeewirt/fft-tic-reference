@@ -18,7 +18,7 @@ Binds a list gadget to its node.
 
 ## Referenced by
 
-- Called by: [UIAddonFFTOConfig_BindNodes](UIAddonFFTOConfig_BindNodes.md)
+- Called by: [UIAddonFFTOConfig_BindNodes](UIAddonFFTOConfig_BindNodes.md), [WorldMapLocationPanel_Init](WorldMapLocationPanel_Init.md)
 
 ## Open questions
 

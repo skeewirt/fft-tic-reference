@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2520 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2521 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -2501,6 +2501,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [WorldMap_UpdateFastForward](WorldMap_UpdateFastForward.md) | `0x14015C0DC` | [Application and startup](../areas/app-startup.md) | On the world map (mode 3) sets the fast-forward level to 1 while action 89 is held, else 0. |
 | [WorldMapBaseScreen_Open](WorldMapBaseScreen_Open.md) | `0x1401582D0` | [UI framework](../areas/ui-framework.md) | Opens a location's own world-map screen file. |
 | [WorldMapLocationPanel_Fill](WorldMapLocationPanel_Fill.md) | `0x1401607D4` | [UI framework](../areas/ui-framework.md) | Fills the world-map location info panel from a location record. |
+| [WorldMapLocationPanel_Init](WorldMapLocationPanel_Init.md) | `0x14015F730` | [UI framework](../areas/ui-framework.md) | Binds the location panel's nodes (worldmap_base_info.uib) once: the list, the tab buttons, the field and town info, and one node per item category. |
 | [WorldMapNode_PlayTexChange](WorldMapNode_PlayTexChange.md) | `0x140158E30` | [UI framework](../areas/ui-framework.md) | Plays the texture-change state of a location's base node. |
 | [WorldMapProgress_GetObjectiveCaption](WorldMapProgress_GetObjectiveCaption.md) | `0x14015E0FC` | [UI framework](../areas/ui-framework.md) | Returns the world-map objective line for a progress row. |
 | [WorldMapRoute_Refresh](WorldMapRoute_Refresh.md) | `0x14015B3AC` | [UI framework](../areas/ui-framework.md) | Shows or hides one route on the world map and sets its grey state. |

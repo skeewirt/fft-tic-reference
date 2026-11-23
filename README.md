@@ -2,13 +2,13 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-4603 records in 12 kinds; 2520 functions.
+4604 records in 12 kinds; 2521 functions.
 
 ## By kind
 
 | Kind | Records | What it covers |
 |---|---|---|
-| [Functions](docs/functions/README.md) | 2520 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
+| [Functions](docs/functions/README.md) | 2521 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
 | [Structures](docs/structs/README.md) | 540 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
 | [Globals](docs/globals/README.md) | 229 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
@@ -43,7 +43,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Math](docs/areas/math.md) | Functions: 7, Structures: 5, Tables: 6 |
 | [Resource](docs/areas/resource.md) | Functions: 37, Structures: 7, Observed behaviours: 1, Tables: 15 |
 | [Save data](docs/areas/save-data.md) | Functions: 145, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flows: 4, Observed behaviours: 6, Tables: 10 |
-| [UI framework](docs/areas/ui-framework.md) | Functions: 781, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234 |
+| [UI framework](docs/areas/ui-framework.md) | Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234 |
 | [Unit data](docs/areas/unit-data.md) | Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 7, Tables: 1 |
 | [Unit rendering](docs/areas/unit-rendering.md) | Functions: 39, Structures: 18, Observed behaviours: 1, Tables: 20 |
 

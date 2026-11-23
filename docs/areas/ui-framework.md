@@ -2,9 +2,9 @@
 
 GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.
 
-Functions: 781, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234.
+Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234.
 
-## Functions (781)
+## Functions (782)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -767,6 +767,7 @@ Functions: 781, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [WorldMap_ScreenInput](../functions/WorldMap_ScreenInput.md) | `0x1402D0EE0` | Input step of the world map screen (table index 0): moves between locations, opens a town menu or starts an encounter. |
 | [WorldMapBaseScreen_Open](../functions/WorldMapBaseScreen_Open.md) | `0x1401582D0` | Opens a location's own world-map screen file. |
 | [WorldMapLocationPanel_Fill](../functions/WorldMapLocationPanel_Fill.md) | `0x1401607D4` | Fills the world-map location info panel from a location record. |
+| [WorldMapLocationPanel_Init](../functions/WorldMapLocationPanel_Init.md) | `0x14015F730` | Binds the location panel's nodes (worldmap_base_info.uib) once: the list, the tab buttons, the field and town info, and one node per item category. |
 | [WorldMapNode_PlayTexChange](../functions/WorldMapNode_PlayTexChange.md) | `0x140158E30` | Plays the texture-change state of a location's base node. |
 | [WorldMapProgress_GetObjectiveCaption](../functions/WorldMapProgress_GetObjectiveCaption.md) | `0x14015E0FC` | Returns the world-map objective line for a progress row. |
 | [WorldMapRoute_Refresh](../functions/WorldMapRoute_Refresh.md) | `0x14015B3AC` | Shows or hides one route on the world map and sets its grey state. |

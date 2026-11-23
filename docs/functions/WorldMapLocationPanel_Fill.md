@@ -16,7 +16,7 @@ Fills the world-map location info panel from a location record.
 
 - V: skipped when Town locations_list (+0x24) is 1; sub_140158CB0 fills the name, description and picture into the node set at +1816 (or +1792 when Town has_shop (+0x31) is set).
 - V: with has_shop set: 'ShowProfit' / 'HideProfit' by UserSituation_IsMet(3220); 'ProfitDefault' / 'ProfitNone' by any of the record's dwords 0..2 above 0; then three counters through sub_1400FE9D0. Without it: text 1583 or 1584 by record byte +12.
-- V: then 'On' / 'Off' on 35 nodes (from +64) from the 35-byte category mask at record +16.
+- V: then 'On' / 'Off' on 35 nodes (from +64, bound by WorldMapLocationPanel_Init) from the 35-byte category mask at record +16: the count of 35 is loaded into ebx at 0x140160B4B, the node pointer is rdi and the mask pointer rsi, both stepped at 0x140160BAF; a null node is skipped.
 
 ## State touched
 

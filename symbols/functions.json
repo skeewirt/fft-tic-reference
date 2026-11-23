@@ -33881,6 +33881,23 @@
       },
       "doc": "docs/functions/WorldMapLocationPanel_Fill.md"
     },
+    "WorldMapLocationPanel_Init": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 15,
+            "calls": "sha256:6d241970bd2e42d84336ccd8c0f5a1d33dfe18ca428949ccf93ddc4f915c01e4",
+            "insn_count": 48,
+            "mnemonics": "sha256:436b8bc21f150bd505e9da790f18f79f7cd0f09fed9a989416d3e9e0a1d519ac",
+            "size": 2887
+          },
+          "rva": "0x15f730",
+          "size": 2887
+        }
+      },
+      "doc": "docs/functions/WorldMapLocationPanel_Init.md"
+    },
     "WorldMapNode_PlayTexChange": {
       "area": "ui-framework",
       "builds": {
