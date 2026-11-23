@@ -2,7 +2,7 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flows: 7, Observed behaviours: 79, Tables: 89.
+Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89.
 
 ## Functions (400)
 
@@ -565,7 +565,7 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (79)
+## Observed behaviours (80)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -598,6 +598,7 @@ Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flo
 | [DeploymentStateLayout](../behaviors/DeploymentStateLayout.md) | engine (battle deployment screen state) | The fields of the deployment screen's state object that hold the capacity, the placed party, the candidate list and the unit being placed. |
 | [EnhancedBattleMapFilesAreNamedByMapId](../behaviors/EnhancedBattleMapFilesAreNamedByMapId.md) | engine (enhanced renderer map load) | The enhanced renderer loads the battle map's mesh and animation by file name built from the map id (three digits at least), and reads one row of the data table 'Map' (registry table 60, keys 0..128) by the map id for ... |
 | [EntryUnitsShareADistinctLookBudget](../behaviors/EntryUnitsShareADistinctLookBudget.md) | engine (scripted battle spawn) | While the 16 entry units of a battle are placed, two budgets drop units: at most 9 minus scene variable 57 distinct sprite numbers (the battle's unique-sprite limit of 9 when the variable is 0) and at most 16 minus sc... |
+| [EquipCategory35IsAWiredSwordKind](../behaviors/EquipCategory35IsAWiredSwordKind.md) | engine (items, battle formulas, menus) | Equipment category 35 has no stock item, but the code treats it as a kind of sword: it draws and sounds as a sword, counts as a sword for the sword flag, and the weapon formula gives it its own attack value, physical ... |
 | [EventUnitFaceOfAScenarioRecord](../behaviors/EventUnitFaceOfAScenarioRecord.md) | engine (turn panel portrait) | A scenario setup record can name one event unit and a portrait code: the turn panel shows that unit's small face with the code instead of the face of its look. |
 | [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md) | The 106 ability formula handlers and the blocks they call | What a formula handler may assume and has to leave behind, read from the stock handlers and from Battle_ResolveAction: the frame it is called in, how it says 'no effect', which result fields go together, why it must n... |
 | [FormulaIdsWithNoHandlerBody](../behaviors/FormulaIdsWithNoHandlerBody.md) | Formula ids 17, 19, 24, 25 and 70 of the formula registry | Five formula ids have no formula of their own: their registry rows point at an empty function, so an action with one of them keeps the reset result (a hit with no amount and no status) and only the post-processing runs. |

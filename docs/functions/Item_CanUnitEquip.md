@@ -38,6 +38,7 @@ game special-cases.
 ## Referenced by
 
 - Called by: [Inventory_BuildEquipList](Inventory_BuildEquipList.md), [Shop_BuildItemList](Shop_BuildItemList.md), [UnitWork_BuildForSlot](UnitWork_BuildForSlot.md), [sub_140288788](sub_140288788.md), [sub_1402C20F0](sub_1402C20F0.md)
+- Observed behaviours: [EquipCategory35IsAWiredSwordKind](../behaviors/EquipCategory35IsAWiredSwordKind.md)
 
 ## Open questions
 

@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-276 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+277 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -77,6 +77,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [EntryGrowthBonusesByPlayMode](EntryGrowthBonusesByPlayMode.md) | engine (battle unit build) | A pre-placed unit's OverrideEntryData row can hold four arrays indexed by the play mode that add to the unit's HP and Speed growth pairs, and one word that adds to its final Speed. |
 | [EntryRowMarksEventSkipOnce](EntryRowMarksEventSkipOnce.md) | engine (event skip) | An entry override row can mark its battle's events as skippable only once: the interpreter checks bytes +0x93, +0x94 and +0x95 of the battle's first row along with the EventId skip-once byte. |
 | [EntryUnitsShareADistinctLookBudget](EntryUnitsShareADistinctLookBudget.md) | engine (scripted battle spawn) | While the 16 entry units of a battle are placed, two budgets drop units: at most 9 minus scene variable 57 distinct sprite numbers (the battle's unique-sprite limit of 9 when the variable is 0) and at most 16 minus sc... |
+| [EquipCategory35IsAWiredSwordKind](EquipCategory35IsAWiredSwordKind.md) | engine (items, battle formulas, menus) | Equipment category 35 has no stock item, but the code treats it as a kind of sword: it draws and sounds as a sword, counts as a sword for the sword flag, and the weapon formula gives it its own attack value, physical ... |
 | [EquipListsDropRowsAUnitCannotEquip](EquipListsDropRowsAUnitCannotEquip.md) | engine (equip lists) | The Outfitter Fitting list and the Status screen's equipment list leave out the items the unit cannot equip; they do not show them greyed. |
 | [EquipSessionFlagLifecycle](EquipSessionFlagLifecycle.md) | the five party equipment words, the override array and the candidate array during an Outfitter or shop session | Bit 15 marks a slot changed in the current session and priced into dword_143D1AC68; bit 14 is a list-entry 'cannot equip' mark. |
 | [ErrandReportTextByGrade](ErrandReportTextByGrade.md) | engine (errand report) | The errand report window shows one of four Profit texts, chosen by the grade of the result and by whether a second unit was sent. |

@@ -35,6 +35,7 @@ item name to the panel's parts.
 ## Referenced by
 
 - Called by: [BattleCommand_BuildScreen](BattleCommand_BuildScreen.md), [sub_1401AEEF0](sub_1401AEEF0.md)
+- Observed behaviours: [EquipCategory35IsAWiredSwordKind](../behaviors/EquipCategory35IsAWiredSwordKind.md)
 - Reads tables: [JobTable](../tables/JobTable.md), [NxdDataUIEquipDetailNumParam](../tables/NxdDataUIEquipDetailNumParam.md)
 
 ## Notes

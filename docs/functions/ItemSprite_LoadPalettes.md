@@ -34,7 +34,7 @@ Loads the two palettes of the unit's equipped weapon or shield into the sprite s
 ## Referenced by
 
 - Called by: [BattleAct_Step](BattleAct_Step.md), [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md), [sub_14026A7B8](sub_14026A7B8.md)
-- Observed behaviours: [WeaponPoseFollowsTheEquipCategory](../behaviors/WeaponPoseFollowsTheEquipCategory.md)
+- Observed behaviours: [EquipCategory35IsAWiredSwordKind](../behaviors/EquipCategory35IsAWiredSwordKind.md), [WeaponPoseFollowsTheEquipCategory](../behaviors/WeaponPoseFollowsTheEquipCategory.md)
 
 ## Notes
 
