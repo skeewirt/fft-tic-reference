@@ -4,7 +4,7 @@
 - **Area:** [UI framework](../areas/ui-framework.md)
 - **Prototype:** `long ClassicMenu_LoadPageArtPack(int page)`
 - **Callers:** the legacy menu page setup
-- **Callees:** Mem_CopyChecked, Resource_GetSlotObject, sub_1403434D0, sub_140343564
+- **Callees:** Mem_CopyChecked, Resource_GetSlotObject, GameData_StartTrackedRead, EventThread_PumpAudioWhileBusy
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -19,7 +19,7 @@ Loads the art pack of a legacy menu page (0..5) into the shared menu texture buf
 
 ## State touched
 
-- Calls: [Mem_CopyChecked](Mem_CopyChecked.md), [Resource_GetSlotObject](Resource_GetSlotObject.md)
+- Calls: [Mem_CopyChecked](Mem_CopyChecked.md), [Resource_GetSlotObject](Resource_GetSlotObject.md), [GameData_StartTrackedRead](GameData_StartTrackedRead.md), [EventThread_PumpAudioWhileBusy](EventThread_PumpAudioWhileBusy.md)
 
 ## Referenced by
 

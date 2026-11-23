@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int64 EffectSprite_StepAnimation(EffectSpriteNode *node, char r, char g, char b)`
 - **Callers:** (through the effect sprite node list)
-- **Callees:** sub_14038DC58, sub_1403807F4, sub_1400D31CC, EffectSprite_EmitPieces
+- **Callees:** EffectHeap_Free, sub_1403807F4, sub_1400D31CC, EffectSprite_EmitPieces
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -22,7 +22,7 @@ Steps one effect sprite's animation script and, on a frame change, points the sp
 
 ## State touched
 
-- Calls: [EffectSprite_EmitPieces](EffectSprite_EmitPieces.md)
+- Calls: [EffectHeap_Free](EffectHeap_Free.md), [EffectSprite_EmitPieces](EffectSprite_EmitPieces.md)
 
 ## Notes
 

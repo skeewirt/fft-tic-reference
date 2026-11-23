@@ -3,7 +3,7 @@
 - **Address:** `0x1400FABC4`
 - **Area:** [UI framework](../areas/ui-framework.md)
 - **Prototype:** `__int64 sub_1400FABC4(char dirMask, char *geom, int *cursor, int repeatMask)`
-- **Callers:** sub_1402C0DB8, sub_1402C1244, sub_14036CC50 (and itself)
+- **Callers:** sub_1402C0DB8, sub_1402C1244, ErrandUnitPick_Input (and itself)
 - **Callees:** sub_1400F52C8, sub_1400FABC4
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -26,4 +26,4 @@ Not a Job Tree function (item-list style two-pane cursor with 5-wide pages); inc
 
 ## Open questions
 
-? which screens call it live (callers sub_1402C0DB8 / sub_1402C1244 / sub_14036CC50 not named). ? exact geom layout beyond count0 / count1 / flags at +8 / +9 / +10.
+? which screens call it live (callers sub_1402C0DB8 / sub_1402C1244 / ErrandUnitPick_Input not named). ? exact geom layout beyond count0 / count1 / flags at +8 / +9 / +10.

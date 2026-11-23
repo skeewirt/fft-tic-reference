@@ -23,6 +23,10 @@ Starts two palette fades for a scene object, the second one with its colour chan
 
 - Calls: [SceneObject_FindBySlot](SceneObject_FindBySlot.md), [BattleMap_GetTileRecord](BattleMap_GetTileRecord.md), [ClutFade_SetTarget](ClutFade_SetTarget.md)
 
+## Referenced by
+
+- Called by: [ClutFade_UnitSlot](ClutFade_UnitSlot.md)
+
 ## Notes
 
 Whole body read.

@@ -13,7 +13,7 @@ The MP check and payment (sub_1402828E4) and its preview twin (sub_14030B1A0) on
 
 ## Behavior
 
-- V: sub_1402828E4 reads the unit's command byte (+0x1A1) and ability word (+0x1A2), looks the kind up in g_CommandKind and clears g_AbilityMpCost; a unit with status mask 0x04 at +0x65 or a non-zero sub_14030DD1C answer returns that answer + 6; a Toad unit (+0x63 mask 0x02) returns 5 unless the ability is 0, 367 or 29 (a kind of 10 returns 5 whatever the ability).
+- V: sub_1402828E4 reads the unit's command byte (+0x1A1) and ability word (+0x1A2), looks the kind up in g_CommandKind and clears g_AbilityMpCost; a unit with status mask 0x04 at +0x65 or a non-zero Unit_GetActionGateState answer returns that answer + 6; a Toad unit (+0x63 mask 0x02) returns 5 unless the ability is 0, 367 or 29 (a kind of 10 returns 5 whatever the ability).
 - V: an id above 0x16F skips the rest and returns 0; otherwise, for a kind-0 or kind-6 command, the action row's flag byte +5 mask 0x20 together with the unit's +0x62 mask 0x08 returns 2.
 - V: for kind 0, a job byte other than 93 and an id up to 0x16F: the cost is action-row byte +13, halved when unit +0x99 has bit 7; it is stored in g_AbilityMpCost; if the unit's MP (+0x34) is below it the function returns 3; otherwise MP is paid unless the simulate mode is 2.
 - V: sub_14030B1A0 is the same chain without the payment or the return 3: it only stores the cost.

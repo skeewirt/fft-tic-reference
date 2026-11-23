@@ -24,7 +24,7 @@ Functions: 200, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader p
 | [CharaRenderer_PostFrame](../functions/CharaRenderer_PostFrame.md) | `0x1402567E0` | End-of-frame pass of the unit (chara) renderer: runs the glare chain when enabled, then the post/resolve steps. |
 | [ClutBank_CopyRow](../functions/ClutBank_CopyRow.md) | `0x1402F7594` | Copies a 16-colour row (or, with all = 1, all 16 rows) into a bank of the palette manager: its words, its 7-byte colour entries and the uploaded image, unless the bank is held. |
 | [ClutFade_SetTarget](../functions/ClutFade_SetTarget.md) | `0x1402F4944` | Gives one row of a palette bank (or all 16 rows) a new colour to move to, at once or as a timed fade. |
-| [ClutFade_UnitSlot](../functions/ClutFade_UnitSlot.md) | `0x1402F7C20` | Starts a colour fade on a drawing slot's rows of palette banks 3 and 4 (sub_1402F7ACC), or on every slot when the slot is 16 or more. |
+| [ClutFade_UnitSlot](../functions/ClutFade_UnitSlot.md) | `0x1402F7C20` | Starts a colour fade on a drawing slot's rows of palette banks 3 and 4 (ClutFade_UnitSlotByTerrain), or on every slot when the slot is 16 or more. |
 | [ClutFade_UnitSlotByTerrain](../functions/ClutFade_UnitSlotByTerrain.md) | `0x1402F7ACC` | Starts two palette fades for a scene object, the second one with its colour change negated under the terrain conditions below. |
 | [ClutManager_Update](../functions/ClutManager_Update.md) | `0x1402F5F78` | The palette manager's step, once a frame from the battle loop: colour cycles, three screen-colour fades and the timed fades of the 14 palette banks. |
 | [ClutManager_Upload](../functions/ClutManager_Upload.md) | `0x1402F7964` | Copies the palette manager's final image into the emulated video memory when it changed. |

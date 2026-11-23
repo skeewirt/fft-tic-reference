@@ -24,7 +24,7 @@ Draws a message into a window record: hands the text reference, a target buffer 
 
 ## Referenced by
 
-- Called by: [EventVarEditor_DrawPage](EventVarEditor_DrawPage.md), [PagedText_DrawPage](PagedText_DrawPage.md)
+- Called by: [EventVarEditor_DrawPage](EventVarEditor_DrawPage.md), [PagedText_DrawPage](PagedText_DrawPage.md), [sub_14036A294](sub_14036A294.md), [sub_140371550](sub_140371550.md)
 
 ## Notes
 

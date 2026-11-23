@@ -3,7 +3,7 @@
 - **Address:** `0x1402D29C0`
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `void Errand_ComputeRewards(int activeSlot)`
-- **Callers:** `sub_1402ED540`, `sub_14036F94C`
+- **Callers:** `sub_1402ED540`, `Errand_ReportListInput`
 - **Callees:** Errand_LoadRecord, Errand_ScoreParty, Errand_RollBonusLoot
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -31,6 +31,8 @@ Computes JP and gil rewards, the grade and the bonus loot for one active errand 
 - Reads tables: [ErrandBlob](../tables/ErrandBlob.md)
 
 ## Notes
+
+Five blob operands of this function (0x1402D2AEE .. 0x1402D2C22: base, jp/gil tiers, day percentages).
 
 The selector value is 4 in all stock records.
 

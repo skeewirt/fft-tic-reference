@@ -3,8 +3,8 @@
 - **Address:** `0x1402D5210`
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `void Tavern_TopInput(int *state)`
-- **Callers:** sub_140246078
-- **Callees:** sub_1402D50E4, Input_TestAction, sub_1402D541C, sub_1402CD714, sub_14034004C, sub_14019DF88, sub_14019DCD4, sub_1402D5068, Errand_BuildBoard, sub_14036EE50
+- **Callers:** ClassicMenu_RunScreenStack
+- **Callees:** sub_1402D50E4, Input_TestAction, sub_1402D541C, WorldMenu_SetFade, sub_14034004C, sub_14019DF88, sub_14019DCD4, sub_1402D5068, Errand_BuildBoard, sub_14036EE50
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -18,7 +18,7 @@ The tavern top screen's input step: rumors, errands, or leave.
 
 ## State touched
 
-- Calls: [Input_TestAction](Input_TestAction.md), [sub_14034004C](sub_14034004C.md), [Errand_BuildBoard](Errand_BuildBoard.md), [sub_14036EE50](sub_14036EE50.md)
+- Calls: [Input_TestAction](Input_TestAction.md), [WorldMenu_SetFade](WorldMenu_SetFade.md), [sub_14034004C](sub_14034004C.md), [Errand_BuildBoard](Errand_BuildBoard.md), [sub_14036EE50](sub_14036EE50.md)
 
 ## Notes
 

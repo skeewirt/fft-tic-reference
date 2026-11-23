@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `void BattleCommand_BuildUnitList(void)`
 - **Callers:** sub_1402EB408
-- **Callees:** sub_14030E010, EventText_FindMessage, sub_14030DD1C, sub_1400E4BDC, EventVar_Read, sub_1404200F8
+- **Callees:** sub_14030E010, EventText_FindMessage, Unit_GetActionGateState, sub_1400E4BDC, EventVar_Read, sub_1404200F8
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -25,7 +25,7 @@ Builds the command list for the active unit: it asks the list builder for the co
 
 ## State touched
 
-- Calls: [sub_14030E010](sub_14030E010.md), [EventText_FindMessage](EventText_FindMessage.md), [EventVar_Read](EventVar_Read.md)
+- Calls: [sub_14030E010](sub_14030E010.md), [EventText_FindMessage](EventText_FindMessage.md), [Unit_GetActionGateState](Unit_GetActionGateState.md), [EventVar_Read](EventVar_Read.md)
 
 ## Notes
 

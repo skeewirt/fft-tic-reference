@@ -4,7 +4,7 @@
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `int64_t Errand_SelectBoardEntry(int errand)`
 - **Callers:** Errand_BoardInput
-- **Callees:** sub_1402D541C, Errand_LoadRecord, sub_14034275C, sub_140379CCC
+- **Callees:** sub_1402D541C, Errand_LoadRecord, WorldMenu_AllocWindowRecord, sub_140379CCC
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -19,7 +19,7 @@ Opens the detail of a board errand: the tavern keeper's line, the record, and th
 
 ## State touched
 
-- Calls: [Errand_LoadRecord](Errand_LoadRecord.md)
+- Calls: [Errand_LoadRecord](Errand_LoadRecord.md), [WorldMenu_AllocWindowRecord](WorldMenu_AllocWindowRecord.md)
 - Reads: [g_ErrandDelay](../globals/g_ErrandDelay.md)
 
 ## Referenced by

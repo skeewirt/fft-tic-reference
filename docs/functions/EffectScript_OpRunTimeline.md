@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int64 EffectScript_OpRunTimeline(EffectScriptCtx *ctx)`
 - **Callers:** EffectScript_Run (through tbl_EffectScriptHandlers, opcode 0x28)
-- **Callees:** EffectScript_RunEmitterTracks, EffectScript_RunColourTracks, SoundCue_Play, sub_14038387C, sub_140381C08, sub_140381F50, sub_1403823F0, sub_140310B64
+- **Callees:** EffectScript_RunEmitterTracks, EffectScript_RunColourTracks, SoundCue_Play, sub_14038387C, sub_140381C08, sub_140381F50, EffectCamera_SetVector, sub_140310B64
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -20,7 +20,7 @@ Effect script opcode 0x28: runs one step of the effect's timeline (emitter track
 
 ## State touched
 
-- Calls: [EffectScript_RunEmitterTracks](EffectScript_RunEmitterTracks.md), [EffectScript_RunColourTracks](EffectScript_RunColourTracks.md), [SoundCue_Play](SoundCue_Play.md)
+- Calls: [EffectScript_RunEmitterTracks](EffectScript_RunEmitterTracks.md), [EffectScript_RunColourTracks](EffectScript_RunColourTracks.md), [SoundCue_Play](SoundCue_Play.md), [EffectCamera_SetVector](EffectCamera_SetVector.md)
 
 ## Referenced by
 

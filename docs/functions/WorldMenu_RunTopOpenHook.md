@@ -20,7 +20,7 @@ Calls the first-table hook of the world-menu control on top of the control stack
 
 ## Referenced by
 
-- Called by: [ClassicMenu_PopTownMenu](ClassicMenu_PopTownMenu.md), [HelpMessage_Wait](HelpMessage_Wait.md), [MenuCtl_Entry50](MenuCtl_Entry50.md), [MenuCtl_Entry51](MenuCtl_Entry51.md), [MenuCtl_Entry53](MenuCtl_Entry53.md), [MenuCtl_Entry54](MenuCtl_Entry54.md), [PagedText_WaitAndClose](PagedText_WaitAndClose.md), [UiPage_ChoicePromptInput](UiPage_ChoicePromptInput.md)
+- Called by: [ClassicMenu_PopTownMenu](ClassicMenu_PopTownMenu.md), [Errand_BoardInput](Errand_BoardInput.md), [HelpMessage_Wait](HelpMessage_Wait.md), [MenuCtl_Entry50](MenuCtl_Entry50.md), [MenuCtl_Entry51](MenuCtl_Entry51.md), [MenuCtl_Entry53](MenuCtl_Entry53.md), [MenuCtl_Entry54](MenuCtl_Entry54.md), [PagedText_WaitAndClose](PagedText_WaitAndClose.md), [UiPage_ChoicePromptInput](UiPage_ChoicePromptInput.md)
 
 ## Notes
 

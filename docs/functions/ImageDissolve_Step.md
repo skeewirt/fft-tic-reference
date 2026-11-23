@@ -3,7 +3,7 @@
 - **Address:** `0x140372518`
 - **Area:** [UI framework](../areas/ui-framework.md)
 - **Prototype:** `long ImageDissolve_Step(void *job, int step, void *source)`
-- **Callers:** sub_140371F68, sub_14037270C, sub_140372990
+- **Callers:** MenuCtl_Entry27, sub_14037270C, BookProgress_ResetConfirmInput
 - **Callees:** sub_140260718
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

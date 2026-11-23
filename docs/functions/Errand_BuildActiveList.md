@@ -3,7 +3,7 @@
 - **Address:** `0x140370F38`
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `int64_t Errand_BuildActiveList(void)`
-- **Callers:** sub_140371790
+- **Callers:** Errand_RunningConfirmInput
 - **Callees:** sub_140379F3C, sub_140379DF0, Input_ActionBit
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

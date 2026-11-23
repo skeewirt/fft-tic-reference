@@ -22,6 +22,10 @@ Evade-setup step of the weapon formulas: halves the baseline byte and sets react
 
 - Calls: [Unit_GetActionGateState](Unit_GetActionGateState.md)
 
+## Referenced by
+
+- Called by: [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md), [sub_140306C90](sub_140306C90.md), [sub_140306D70](sub_140306D70.md)
+
 ## Notes
 
 Operands taken from the disassembly (the decompile lost the unit register).

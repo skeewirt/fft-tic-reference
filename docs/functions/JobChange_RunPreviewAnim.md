@@ -4,7 +4,7 @@
 - **Area:** [Job list and unlock](../areas/job-list.md)
 - **Prototype:** `bool JobChange_RunPreviewAnim(int16_t jobId)`
 - **Callers:** JobScreen_UpdateState
-- **Callees:** sub_1402888E8, sub_140289548, UIName_Key, GUINode_FindState, UIName_ReleaseKey, sub_1402F3888 (alloc)
+- **Callees:** sub_1402888E8, sub_140289548, UIName_Key, GUINode_FindState, UIName_ReleaseKey, ResourcePool_AllocBlocks (alloc)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -21,7 +21,7 @@ Runs the job-change preview: builds scratch sprite/palette buffers and drives th
 
 ## State touched
 
-- Calls: [sub_1402888E8](sub_1402888E8.md), [UIName_Key](UIName_Key.md), [GUINode_FindState](GUINode_FindState.md), [UIName_ReleaseKey](UIName_ReleaseKey.md)
+- Calls: [sub_1402888E8](sub_1402888E8.md), [UIName_Key](UIName_Key.md), [GUINode_FindState](GUINode_FindState.md), [UIName_ReleaseKey](UIName_ReleaseKey.md), [ResourcePool_AllocBlocks](ResourcePool_AllocBlocks.md)
 - Reads: [g_UINameTable](../globals/g_UINameTable.md)
 
 ## Referenced by

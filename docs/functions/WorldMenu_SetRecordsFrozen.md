@@ -18,6 +18,10 @@ Sets or clears bit 3 (value 8) of the flag word of every registered world-menu r
 - V: returns the last record pointer visited in the first list, or the count `dword_140D4C968` when that list is empty (not a flag word); the second list does not change the return value.
 - I: bit 8 holds the records while a blocking wait runs: callers pass 0 right before `AudioQueue_WaitIdle` and pass 1 before popping a menu level (rests on those call orders).
 
+## Referenced by
+
+- Called by: [sub_1403793DC](sub_1403793DC.md)
+
 ## Notes
 
 Whole body read.

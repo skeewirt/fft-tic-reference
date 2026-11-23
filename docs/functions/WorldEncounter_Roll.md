@@ -3,7 +3,7 @@
 - **Address:** `0x140248BE4`
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `int WorldEncounter_Roll(int location, int arrivalRoad, bool fixedRoll)`
-- **Callers:** sub_1402482F8, sub_1402D0EE0
+- **Callers:** sub_1402482F8, WorldMap_ScreenInput
 - **Callees:** EventVar_Read
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

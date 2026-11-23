@@ -4,7 +4,7 @@
 - **Area:** [Items and shops](../areas/items.md)
 - **Prototype:** `void Shop_Open(int shop_id)`
 - **Callers:** sub_140345FE4
-- **Callees:** __alloca_probe, sub_1402F4238, EventVar_Read, sub_1400FF6B8, sub_1402C4880, sub_1401E2CB8, sub_140260688, sub_14033EA08, sub_1402F41D0, sub_14025FE14, sub_1402F3888, sub_14025FC38, sub_14032A5D0, Shop_GetUiRowId, sub_1400D6DAC, sub_1400EDEE0, sub_1400EDD30, sub_1402B1C84, sub_1402BC46C, sub_14032A230, sub_14032A8A0, Resource_GetSlotObject, EventTask_Start, sub_1402C40BC, sub_1402B1D94, sub_1402B1F08, sub_140303B10, sub_14031E300, sub_140329E1C, sub_1402BD740, sub_1402D7954, UI_GetHelpSlotState, sub_140330E34, sub_1402BC3C4, sub_1402B1E74, sub_1400ECE30, sub_1401E2D64, sub_140285A6C, sub_1402B340C, sub_14033E898, sub_14025FA60, sub_1402F3A04, sub_14041FAE0
+- **Callees:** __alloca_probe, sub_1402F4238, EventVar_Read, sub_1400FF6B8, sub_1402C4880, sub_1401E2CB8, sub_140260688, sub_14033EA08, sub_1402F41D0, sub_14025FE14, ResourcePool_AllocBlocks, sub_14025FC38, sub_14032A5D0, Shop_GetUiRowId, sub_1400D6DAC, sub_1400EDEE0, sub_1400EDD30, sub_1402B1C84, sub_1402BC46C, sub_14032A230, sub_14032A8A0, Resource_GetSlotObject, EventTask_Start, sub_1402C40BC, sub_1402B1D94, sub_1402B1F08, sub_140303B10, sub_14031E300, sub_140329E1C, sub_1402BD740, sub_1402D7954, UI_GetHelpSlotState, sub_140330E34, sub_1402BC3C4, sub_1402B1E74, sub_1400ECE30, sub_1401E2D64, sub_140285A6C, sub_1402B340C, sub_14033E898, sub_14025FA60, sub_1402F3A04, sub_14041FAE0
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -26,7 +26,7 @@ Opens the shop screen for a shop number: it stores the id, resolves the real sho
 
 ## State touched
 
-- Calls: [EventVar_Read](EventVar_Read.md), [sub_14025FC38](sub_14025FC38.md), [Shop_GetUiRowId](Shop_GetUiRowId.md), [Resource_GetSlotObject](Resource_GetSlotObject.md), [EventTask_Start](EventTask_Start.md), [UI_GetHelpSlotState](UI_GetHelpSlotState.md), [sub_140285A6C](sub_140285A6C.md)
+- Calls: [EventVar_Read](EventVar_Read.md), [ResourcePool_AllocBlocks](ResourcePool_AllocBlocks.md), [sub_14025FC38](sub_14025FC38.md), [Shop_GetUiRowId](Shop_GetUiRowId.md), [Resource_GetSlotObject](Resource_GetSlotObject.md), [EventTask_Start](EventTask_Start.md), [UI_GetHelpSlotState](UI_GetHelpSlotState.md), [sub_140285A6C](sub_140285A6C.md)
 - Reads: [g_HelpIdSlot](../globals/g_HelpIdSlot.md)
 - Writes: [g_SelectedShopIndex](../globals/g_SelectedShopIndex.md)
 

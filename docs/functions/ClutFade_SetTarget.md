@@ -3,7 +3,7 @@
 - **Address:** `0x1402F4944`
 - **Area:** [Graphics](../areas/graphics.md)
 - **Prototype:** `int64_t ClutFade_SetTarget(int mode, int duration, int64_t bank, int64_t slot, int all, int16_t dr, int16_t dg, int16_t db, int unused)`
-- **Callers:** sub_1401EAAF8, sub_1401EABB0, sub_1401EABF8, sub_1401EAC44, sub_1401EAC98, sub_1401EACF8, sub_1401EAD60, sub_140268880, ClutManager_Update, sub_1402F7A90, sub_1402F7ACC
+- **Callers:** sub_1401EAAF8, sub_1401EABB0, sub_1401EABF8, sub_1401EAC44, sub_1401EAC98, sub_1401EACF8, sub_1401EAD60, sub_140268880, ClutManager_Update, sub_1402F7A90, ClutFade_UnitSlotByTerrain
 - **Callees:** SceneVar_Read, sub_1400C961C
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

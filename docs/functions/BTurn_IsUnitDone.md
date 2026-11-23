@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `bool __fastcall BTurn_IsUnitDone(uint8_t *unit)`
 - **Callers:** `BTurn_MarkMoveDone`, `BTurn_MarkActionDone`, `Battle_TurnEngine` (`0x14030F5xx`), `sub_14020B90C`
-- **Callees:** `sub_14030DD1C`
+- **Callees:** `Unit_GetActionGateState`
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -18,8 +18,12 @@ Decides whether the active unit has nothing left to do this turn, including the 
   for normal units that id is the unit's own (V: `sub_140260ABC` compares `unit[0x1BC]` to the requested slot).
 - V: `cl` = `(unit[0x65] & 8) != 0` or that record has `+0x1B9 & 3 == 3`; `al` = the same "both bits" test or
   `unit[0x1BA] != 0`.
-- V: returns `cl && (unit[0x1BA] || sub_14030DD1C(unit)) && al` — i.e. both move and action done (or the pair
+- V: returns `cl && (unit[0x1BA] || Unit_GetActionGateState(unit)) && al` — i.e. both move and action done (or the pair
   equivalent), the turn given up flag, and the terrain/actionable check must all agree.
+
+## State touched
+
+- Calls: [Unit_GetActionGateState](Unit_GetActionGateState.md)
 
 ## Referenced by
 
@@ -31,4 +35,4 @@ The function is deliberately conservative: both units of a pair can keep the tur
 
 ## Open questions
 
-The exact role of `sub_14030DD1C`'s return value (0/1/2) in the partner test.
+The exact role of `Unit_GetActionGateState`'s return value (0/1/2) in the partner test.

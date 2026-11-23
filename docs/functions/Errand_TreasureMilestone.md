@@ -3,7 +3,7 @@
 - **Address:** `0x1402D3520`
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `int Errand_TreasureMilestone(void)`
-- **Callers:** Errand_Finish and several UI functions (`sub_1401A4E00`, `sub_1402D3400`, `sub_1402D34D4`, `sub_1402D35F8`, `sub_14036FED4`)
+- **Callers:** Errand_Finish and several UI functions (`sub_1401A4E00`, `sub_1402D3400`, `sub_1402D34D4`, `Errand_ProfitEndStep`, `sub_14036FED4`)
 - **Callees:** EventVar_Read
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -30,7 +30,7 @@ After a successful errand, reports whether the number of treasures found has rea
 
 ## Notes
 
-None.
+The two pool operands are 0x1402D358D (pool 1 at 0x1406806B8) and 0x1402D35D0 (pool 2 at 0x1406807B8); the loops stop at 8 (0x1402D359E, 0x1402D35E1).
 
 ## Open questions
 

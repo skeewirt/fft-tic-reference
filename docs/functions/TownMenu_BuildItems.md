@@ -3,7 +3,7 @@
 - **Address:** `0x1403449B0`
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `unsigned int TownMenu_BuildItems(unsigned int settlement, int *items)`
-- **Callers:** sub_1402D0EE0, sub_1402D50E4, sub_140345FE4
+- **Callers:** WorldMap_ScreenInput, sub_1402D50E4, sub_140345FE4
 - **Callees:** EventVar_Read, UITable_GetRowByKey
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

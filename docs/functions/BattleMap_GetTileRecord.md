@@ -21,7 +21,7 @@ Returns the address of the 8-byte tile record for a map position, clamping every
 
 ## Referenced by
 
-- Called by: [ClutFade_UnitSlotByTerrain](ClutFade_UnitSlotByTerrain.md), [EffectSequence_SpawnGroup7AtTile](EffectSequence_SpawnGroup7AtTile.md)
+- Called by: [ClutFade_UnitSlotByTerrain](ClutFade_UnitSlotByTerrain.md), [EffectAnchor_GetPoint](EffectAnchor_GetPoint.md), [EffectEmitter_Spawn](EffectEmitter_Spawn.md), [EffectSequence_SpawnGroup7AtTile](EffectSequence_SpawnGroup7AtTile.md), [SceneUnit_MeasureRange](SceneUnit_MeasureRange.md), [UnitSprite_DepthSort](UnitSprite_DepthSort.md), [sub_14027032C](sub_14027032C.md), [sub_14034DE90](sub_14034DE90.md)
 
 ## Notes
 

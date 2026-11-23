@@ -3,7 +3,7 @@
 - **Address:** `0x140340AE0`
 - **Area:** [Resource](../areas/resource.md)
 - **Prototype:** `int TimImage_Parse(const unsigned char *afterMagic, TimImageInfo *out)`
-- **Callers:** EventCmd_SetRecordOffset, sub_140344B68 (two sites), sub_140371F68, sub_14037270C, sub_140372990, sub_14037472C
+- **Callers:** EventCmd_SetRecordOffset, sub_140344B68 (two sites), MenuCtl_Entry27, sub_14037270C, BookProgress_ResetConfirmInput, MenuCtl_Entry25
 - **Callees:** not recorded
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

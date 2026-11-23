@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int EffectAnchor_GetPoint(int withHeight, int index, EffectUnitList *list)`
 - **Callers:** EffectEmitter_Spawn
-- **Callees:** SceneObject_FindBySlot, sub_140249000
+- **Callees:** SceneObject_FindBySlot, BattleMap_GetTileRecord
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -14,12 +14,12 @@ Gives an effect's caster (index -1) or target (index 0..) position: a unit's sce
 
 ## Behavior
 
-- V: index -1 reads the caster entry at list +196, index n the target entry at list + 4 + 12 n; an entry with a non-zero first word is a tile: (28 x + 14, -12 height, 28 z + 14) from the map tile (sub_140249000); otherwise the scene object of its slot (SceneObject_FindBySlot) gives the position.
+- V: index -1 reads the caster entry at list +196, index n the target entry at list + 4 + 12 n; an entry with a non-zero first word is a tile: (28 x + 14, -12 height, 28 z + 14) from the map tile (BattleMap_GetTileRecord); otherwise the scene object of its slot (SceneObject_FindBySlot) gives the position.
 - V: with withHeight set the tile height adds the half-step bits (byte +3 >> 5), and a unit is not placed below its tile.
 
 ## State touched
 
-- Calls: [SceneObject_FindBySlot](SceneObject_FindBySlot.md)
+- Calls: [SceneObject_FindBySlot](SceneObject_FindBySlot.md), [BattleMap_GetTileRecord](BattleMap_GetTileRecord.md)
 
 ## Referenced by
 

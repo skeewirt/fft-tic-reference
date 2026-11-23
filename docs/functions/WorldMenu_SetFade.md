@@ -18,6 +18,10 @@ Requests a UI fade state and then sets the world-menu mode word.
 - V: it then jumps to `sub_1402CCCD0` with arguments `16*mode + 2` and 1; that helper does nothing unless bit 1 of its first argument differs from `xmmword_140D8DC40`, in which case it sets bit 3 of `dword_141D32E14`, stores the value or 1 and the second argument, and for bits 0x20 and 0x10 queues four audio commands through `sub_14033FDAC`.
 - V: returns the helper's result.
 
+## Referenced by
+
+- Called by: [EventViewer_EntryPage](EventViewer_EntryPage.md), [JournalPanel_Tick](JournalPanel_Tick.md), [Tavern_TopInput](Tavern_TopInput.md), [sub_140372F9C](sub_140372F9C.md)
+
 ## Notes
 
 Both functions read.

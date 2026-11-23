@@ -4,7 +4,7 @@
 - **Area:** [Unit rendering](../areas/unit-rendering.md)
 - **Prototype:** `void *CharaRender_BuildAtlasTexture(__int64 unused, int width, unsigned shape, int which, short palA, short palB, int flags)`
 - **Callers:** CharaRender_DrawFrame (0x1400CD458)
-- **Callees:** sub_1403D2450, sub_1403D25D8 (pack read), sub_14026E750 / sub_14026C530 (default palettes), sub_1402F3888 / sub_1402F40C4 / sub_1402F3A04 (palette overlays), Rgb555ToRgba8888, sub_1403D0898 / sub_1403D0A80 / sub_1403D0B10 (texture create/upload/finish), sub_140011750 / sub_140011804 (alloc/free)
+- **Callees:** sub_1403D2450, sub_1403D25D8 (pack read), sub_14026E750 / sub_14026C530 (default palettes), ResourcePool_AllocBlocks / sub_1402F40C4 / sub_1402F3A04 (palette overlays), Rgb555ToRgba8888, sub_1403D0898 / sub_1403D0A80 / sub_1403D0B10 (texture create/upload/finish), sub_140011750 / sub_140011804 (alloc/free)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -14,7 +14,7 @@ Builds the unit's atlas texture: loads the shape's sprite file from the FFT pack
 
 ## Behavior
 
-- V: file index = dword_1407151F0[shape] + which (which = 0/1: two textures per slot); shapes 155..158 use index 160 + which; flag bits 0x8000000 -> 1146, 0x60000000 -> 154, 0x10000000 -> 156 pick other sheets. The file is read through the pack (sub_1403D2450/sub_1403D25D8) into a 1 MB buffer. V (data): the index is the g2d.dat entry number: entry n is a 131072-byte (512 x 512, 4 bpp) sheet and entry n + 1 a 118784-byte (512 x 464) sheet, together the 2x redrawn HD version of the classic 256 x 488 sheet.
+- V: file index = dword_1407151F0[shape] + which (which = 0/1: two textures per slot); shapes 155..158 use index 160 + which; flag bits 0x8000000 -> 1146, 0x60000000 -> 154, 0x10000000 -> 156 pick other sheets. The file is read through the pack (sub_1403D2450/sub_1403D25D8) into a 1 MB buffer. V (data): the index is the g2d.dat entry number: entry n is a 131072-byte (512 x 512, 4 bpp) sheet and entry n + 1 a 118784-byte (512 x 464) sheet, together the 2x redrawn HD version of the classic 256 x 488 sheet (the studio's g2d.dat extractor splits the file this way).
 - V: palette entries are RGB555 (PSX); flag-selected modes (v30 = 4: add per-channel offsets; 5: 4-bit channels with offsets, I: a darkened variant; 6: grey (r + 3g + 2b)/6) clamp at 31 and keep colour 0 transparent; with no flags the offsets are 0 and the palette passes through unchanged; then Rgb555ToRgba8888 turns each into RGBA8888.
 - V: texture = 512 rows x 256 source bytes (each byte = two 4-bit pixels, low nibble first, expanded through a 256-entry pair table), uploaded with sub_1403D0A80(tex, buf, 512, 512, 32 bpp): the sheet is exactly one g2d entry, indexed 4 bpp with the unit palette applied here.
 - V: the default palette comes from CharaPalette_LoadClassic(shape, ...) (classic sprite file palette plus the shape's colour-override rows via CharClut_ApplyToPalette).
@@ -24,7 +24,7 @@ Builds the unit's atlas texture: loads the shape's sprite file from the FFT pack
 
 ## State touched
 
-- Calls: [sub_1403D2450](sub_1403D2450.md), [Rgb555ToRgba8888](Rgb555ToRgba8888.md), [sub_1403D0898](sub_1403D0898.md)
+- Calls: [sub_1403D2450](sub_1403D2450.md), [ResourcePool_AllocBlocks](ResourcePool_AllocBlocks.md), [Rgb555ToRgba8888](Rgb555ToRgba8888.md), [sub_1403D0898](sub_1403D0898.md)
 
 ## Referenced by
 

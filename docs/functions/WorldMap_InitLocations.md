@@ -3,8 +3,8 @@
 - **Address:** `0x14033EC0C`
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `void WorldMap_InitLocations(void)`
-- **Callers:** sub_140246078 (the world and town loop)
-- **Callees:** PackedBlock766_Load, EventVar_Read, EventVar_Write, sub_140340FD0, sub_140340B94, sub_1403413C4, sub_140341094, sub_1403426F8
+- **Callers:** ClassicMenu_RunScreenStack (the world and town loop)
+- **Callees:** PackedBlock766_Load, EventVar_Read, EventVar_Write, sub_140340FD0, sub_140340B94, sub_1403413C4, sub_140341094, WorldMenu_AllocOverlayRecord
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -21,7 +21,7 @@ Sets up the world-map screen: the sprite piece list, the location markers and th
 
 ## State touched
 
-- Calls: [PackedBlock766_Load](PackedBlock766_Load.md), [EventVar_Read](EventVar_Read.md), [EventVar_Write](EventVar_Write.md)
+- Calls: [PackedBlock766_Load](PackedBlock766_Load.md), [EventVar_Read](EventVar_Read.md), [EventVar_Write](EventVar_Write.md), [WorldMenu_AllocOverlayRecord](WorldMenu_AllocOverlayRecord.md)
 
 ## Referenced by
 

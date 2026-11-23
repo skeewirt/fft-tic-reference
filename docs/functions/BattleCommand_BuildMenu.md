@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `void BattleCommand_BuildMenu(void)`
 - **Callers:** none found
-- **Callees:** sub_14030DD1C, EventTask_Start, sub_1402BA718, EventTask_Terminate, sub_1402EB96C, sub_1402E9B64, sub_1402EA58C, sub_1402030E0, BattleCommand_BuildScreen, sub_140101CC8, sub_1402EA4C0
+- **Callees:** Unit_GetActionGateState, EventTask_Start, sub_1402BA718, EventTask_Terminate, sub_1402EB96C, sub_1402E9B64, sub_1402EA58C, sub_1402030E0, BattleCommand_BuildScreen, sub_140101CC8, sub_1402EA4C0
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -25,7 +25,7 @@ The battle command task: it reads the cell text of the command menu, starts the 
 
 ## State touched
 
-- Calls: [EventTask_Start](EventTask_Start.md), [EventTask_Terminate](EventTask_Terminate.md), [sub_1402EA58C](sub_1402EA58C.md), [BattleCommand_BuildScreen](BattleCommand_BuildScreen.md)
+- Calls: [Unit_GetActionGateState](Unit_GetActionGateState.md), [EventTask_Start](EventTask_Start.md), [EventTask_Terminate](EventTask_Terminate.md), [sub_1402EA58C](sub_1402EA58C.md), [BattleCommand_BuildScreen](BattleCommand_BuildScreen.md)
 
 ## Referenced by
 

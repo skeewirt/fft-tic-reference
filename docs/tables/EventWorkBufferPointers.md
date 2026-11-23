@@ -17,7 +17,7 @@ Descriptor {flags, count, 8 buffer pointers} of event work buffers. Verdict: poi
 ## Behavior
 
 - V: 8 relocated pointers between two count dwords
-- V: sub_14024F5A0: clears count (dword_14080C5C0 = 9) words of the first buffer; a second descriptor follows at 0x14080C610
+- V: EventWork_RunCommand: clears count (dword_14080C5C0 = 9) words of the first buffer; a second descriptor follows at 0x14080C610
 
 ## Notes
 

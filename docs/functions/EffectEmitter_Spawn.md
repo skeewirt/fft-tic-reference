@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `int64 EffectEmitter_Spawn(int16 ctx, int t, int emitter, EffectParticle *parent)`
 - **Callers:** EffectScript_RunEmitterTracks, EffectScript_OpUpdateParticles (child emitters), sub_14031B964, sub_14031C964 and the sub_14034xxx special renderers
-- **Callees:** EffectAnchor_GetPoint, SceneObject_FindBySlot, sub_14027471C, sub_140274BC0, sub_140274B34, sub_140387AD4, sub_140249000
+- **Callees:** EffectAnchor_GetPoint, SceneObject_FindBySlot, Math_BuildRotationMatrix, Math_RotateTranslateVector, sub_140274B34, sub_140387AD4, BattleMap_GetTileRecord
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -25,7 +25,7 @@ Spawns the particles of one effect emitter at time t: count, position, velocity,
 
 ## State touched
 
-- Calls: [EffectAnchor_GetPoint](EffectAnchor_GetPoint.md), [SceneObject_FindBySlot](SceneObject_FindBySlot.md)
+- Calls: [EffectAnchor_GetPoint](EffectAnchor_GetPoint.md), [SceneObject_FindBySlot](SceneObject_FindBySlot.md), [Math_BuildRotationMatrix](Math_BuildRotationMatrix.md), [Math_RotateTranslateVector](Math_RotateTranslateVector.md), [BattleMap_GetTileRecord](BattleMap_GetTileRecord.md)
 
 ## Referenced by
 

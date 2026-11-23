@@ -20,6 +20,10 @@ Returns a block to the effect heap: removes it from its class's list of live blo
 - V: the return value is a computed pointer that the callers do not use.
 - I: this is the free half of the effect heap whose allocator is `sub_14038DBDC` (rests on the allocator being called with a size and a class; not read).
 
+## Referenced by
+
+- Called by: [EffectSprite_StepAnimation](EffectSprite_StepAnimation.md)
+
 ## Notes
 
 V: whole body read (168 bytes); a first-fit free-list release with coalescing. The name is ours.

@@ -4,7 +4,7 @@
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `int64_t SceneUnit_MeasureRange(int16_t sourceIndex, int16_t *point, int32_t targetIndex)`
 - **Callers:** EventScript_Run, at 0x14023D995 (opcode 0x87, which sets qword_140D40940 to this routine just before the dispatch). One data reference at 0x143D3D870 (a function-pointer table entry, not traced).
-- **Callees:** `sub_1402736D0` (speed value), `sub_140272BD0` (unit point), `sub_140249000` (grid cell lookup), `sub_1402746E8` (scaled square root). Level 2, not traced past its use here: `sub_140260ABC`, `sub_140262AF4`, `sub_140262B20`, `sub_140262808`.
+- **Callees:** `sub_1402736D0` (speed value), `sub_140272BD0` (unit point), `BattleMap_GetTileRecord` (grid cell lookup), `sub_1402746E8` (scaled square root). Level 2, not traced past its use here: `sub_140260ABC`, `sub_140262AF4`, `sub_140262B20`, `sub_140262808`.
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -18,12 +18,16 @@ The callback that opcode 0x87 installs in the global qword_140D40940: it measure
 - V: the source is the unit whose preview index is `sourceIndex`. A unit is found by preview index with `sub_140260ABC`, which returns the scene node whose sub-record byte +444 equals the index.
 - V: source height adjustment: v6 = (2 times the speed of the source) divided by 3 (integer division). The speed comes from `sub_1402736D0`, which returns byte_140673303 at offset 4 times byte +10 of the unit node, or 0 when the node's byte +352 has bits 0x09 set or its byte +348 has bit 0x04 set. The source's height word at word_14186D77A is set to that word minus v6.
 - V: the source point is written by `sub_140272BD0` into the three words at word_14186D778 (x, height, z): x is 28 times sub-record byte +79 plus 14, z is 28 times byte +80 plus 14, and the height comes from `sub_140262B20`.
-- V: when targetIndex is -1: the target x is 28 times point[0] plus 14, the target z is 28 times point[2] plus 14, and the target height is -12 times the unsigned byte at offset 2 of the grid cell that `sub_140249000` returns for (point[0], point[2], point[1]). The target words are at word_14186D780 (x), word_14186D782 (height) and word_14186D784 (z).
+- V: when targetIndex is -1: the target x is 28 times point[0] plus 14, the target z is 28 times point[2] plus 14, and the target height is -12 times the unsigned byte at offset 2 of the grid cell that `BattleMap_GetTileRecord` returns for (point[0], point[2], point[1]). The target words are at word_14186D780 (x), word_14186D782 (height) and word_14186D784 (z).
 - V: when targetIndex is not -1: the target point is the unit's point from `sub_140272BD0` (same layout, into word_14186D780 to word_14186D784). Its height is lowered by v5, which is (3 times the target unit's speed) divided by 4 (integer division).
 - V: D is the sum of the squares of the x, height and z differences between the target and the adjusted source; the height difference uses the adjusted source height. The result is the integer square root of D divided by 8, computed by `sub_1402746E8` as a floating-point square root scaled by 4096 and then shifted back down; a value of 0 or less gives 0.
 - V: the result is stored in dword_14186D770 and returned as an unsigned 32-bit value, zero-extended.
 - V: the opcode 0x87 body does not read the returned value.
 - I: the value is a range measure between the two units. Its use by any other caller is not read.
+
+## State touched
+
+- Calls: [BattleMap_GetTileRecord](BattleMap_GetTileRecord.md)
 
 ## Referenced by
 

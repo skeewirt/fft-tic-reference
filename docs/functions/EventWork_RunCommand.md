@@ -30,7 +30,7 @@ A command switch over per-slot work records of the event system: save, restore, 
 
 ## Referenced by
 
-- Called by: [EffectCb_SixRequests](EffectCb_SixRequests.md)
+- Called by: [EffectCb_SixRequests](EffectCb_SixRequests.md), [Effect_RunStateMachine](Effect_RunStateMachine.md)
 
 ## Notes
 

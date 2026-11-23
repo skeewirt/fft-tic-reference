@@ -4,7 +4,7 @@
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `int64_t EventSprite_LoadTask(void)`
 - **Callers:** Started as a task entry by EventScript_Run for opcode 0x58
-- **Callees:** GameData_ReadSectors, SceneTask_WaitFrame, SceneTask_Terminate, `sub_1402F3888` (allocate), `sub_1402F3A04` (free), the file helpers `sub_1403D2004`, `sub_1403D21F0`, `sub_1403D2358`, `sub_1403D21C8`
+- **Callees:** GameData_ReadSectors, SceneTask_WaitFrame, SceneTask_Terminate, `ResourcePool_AllocBlocks` (allocate), `sub_1402F3A04` (free), the file helpers `sub_1403D2004`, `sub_1403D21F0`, `sub_1403D2358`, `sub_1403D21C8`
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -23,7 +23,7 @@ The task started by event opcode 0x58: loads the sprite data for an event charac
 
 ## State touched
 
-- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [SceneTask_Terminate](SceneTask_Terminate.md)
+- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [SceneTask_Terminate](SceneTask_Terminate.md), [ResourcePool_AllocBlocks](ResourcePool_AllocBlocks.md)
 
 ## Referenced by
 

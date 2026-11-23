@@ -21,7 +21,7 @@ Allocates a run of 2048-byte blocks from a fixed pool of 128 blocks and returns 
 
 ## Referenced by
 
-- Called by: [EffectSequence_HitFlashSprites](EffectSequence_HitFlashSprites.md), [EffectSequence_ProjectileFlight](EffectSequence_ProjectileFlight.md)
+- Called by: [CharaPalette_LoadClassic](CharaPalette_LoadClassic.md), [CharaPalette_ReloadForShape](CharaPalette_ReloadForShape.md), [CharaRender_BuildAtlasTexture](CharaRender_BuildAtlasTexture.md), [EffectSequence_HitFlashSprites](EffectSequence_HitFlashSprites.md), [EffectSequence_ProjectileFlight](EffectSequence_ProjectileFlight.md), [EventSprite_LoadTask](EventSprite_LoadTask.md), [JobChange_RunPreviewAnim](JobChange_RunPreviewAnim.md), [Shop_Open](Shop_Open.md), [TextKind25_LoadPool](TextKind25_LoadPool.md), [sub_140300768](sub_140300768.md), [sub_140315B10](sub_140315B10.md)
 
 ## Notes
 

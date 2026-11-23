@@ -21,7 +21,7 @@ Transforms a 3-component 16-bit vector by the current rotation matrix and transl
 
 ## Referenced by
 
-- Called by: [EffectObject_InitMotion](EffectObject_InitMotion.md), [EffectSequence_ProjectileFlight](EffectSequence_ProjectileFlight.md)
+- Called by: [EffectEmitter_Spawn](EffectEmitter_Spawn.md), [EffectObject_InitMotion](EffectObject_InitMotion.md), [EffectSequence_ProjectileFlight](EffectSequence_ProjectileFlight.md), [WorldRoads_BuildMarkers](WorldRoads_BuildMarkers.md), [sub_14034DE90](sub_14034DE90.md)
 
 ## Notes
 

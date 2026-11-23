@@ -3,7 +3,7 @@
 - **Address:** `0x14036E28C`
 - **Area:** [UI framework](../areas/ui-framework.md)
 - **Prototype:** `short *ClassicCursorRows_Select(int *state)`
-- **Callers:** sub_14036E1D8, sub_14036E360
+- **Callers:** StatusGlossary_Open, StatusGlossary_Input
 - **Callees:** not recorded
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

@@ -21,7 +21,7 @@ A list of replayable story events has 78 entries: 64 plain ones that read event 
 - V (emulation of the pristine code): the entry page reads row 67 (0xFFFF) into variable 39 as 65535 and EventChain_Find misses; no retail script writes variable 430 with the arithmetic opcodes (I: byte pattern of opcodes 0xB0..0xBE over the 560 retail scripts, which find every plain variable 444..507 set once with 0xBE then 0xB0 1) and no exe instruction loads 430 as an EventVar_Write argument, so the entry is never listed in the retail game.
 - I: the entry page also shows the text reference 0x8800 plus the index (bank 17), so an entry has a message in bank 29 (its label) and one in bank 17 (its page).
 - V: the list widget keeps a signed 16-bit cursor and two 16-bit count fields; the confirm writes event variable 508 = 1 and variable 39 = the event number and starts the event.
-- V: the builder's only callers are EventViewer_EntryPage and sub_140375538, both run as tasks of the in-engine task dispatcher sub_140246078 (called from Game_MainLoop).
+- V: the builder's only callers are EventViewer_EntryPage and MenuCtl_Entry28, both run as tasks of the in-engine task dispatcher ClassicMenu_RunScreenStack (called from Game_MainLoop).
 - V (seen live 2026-11-16, Enhanced mode): a software tracepoint on the builder had 0 hits while the tavern's Rumors list and the main menu's Chronicle > Events list were opened and reopened; both of those screens are built from another source.
 
 ## Notes

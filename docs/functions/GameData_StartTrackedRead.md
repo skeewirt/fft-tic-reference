@@ -22,6 +22,10 @@ Waits for any earlier tracked read, records the new request in a status block an
 
 - Calls: [EventThread_PumpAudioWhileBusy](EventThread_PumpAudioWhileBusy.md), [GameData_ReadSectors](GameData_ReadSectors.md)
 
+## Referenced by
+
+- Called by: [ClassicMenu_LoadPageArtPack](ClassicMenu_LoadPageArtPack.md), [PackedBlock766_Load](PackedBlock766_Load.md), [PackedBlock767_Load](PackedBlock767_Load.md)
+
 ## Notes
 
 Whole body read.

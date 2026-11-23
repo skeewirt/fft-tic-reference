@@ -3,7 +3,7 @@
 - **Address:** `0x1400E3B20`
 - **Area:** [UI framework](../areas/ui-framework.md)
 - **Prototype:** `void UI_FrameUpdate(UIModule *ui, float dt)`
-- **Callers:** sub_1400B3770, sub_1400B57FC, sub_140246078, TitleScene_Start
+- **Callers:** sub_1400B3770, sub_1400B57FC, ClassicMenu_RunScreenStack, TitleScene_Start
 - **Callees:** UIAgentCursor_Show, UIAddonFingerCursor_FreezePose, GUICore_BeginFrame, GUICursor_UpdateIndex, sub_1401D1148, sub_1403D6098
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -21,7 +21,7 @@ Per-frame update of the UI: sets the UI frame time, runs a pending cursor restar
 - V: agent = element 1 of the manager's agent vector (UIAgentCursor). When agent+128 == 2: UIAgentCursor_Show(agent) (which now takes the PlayLoop branch) and, when agent+132 != 0, UIAddonFingerCursor_FreezePose(agent+64). Then agent+128 = 0.
 - V: virtual +8 of every agent is called (for the cursor agent: GUICursorHand_Update through a thunk that first requires an active cursor widget); then agent+128 = 1.
 - V: sub_1403D6098(g_GUICore), then GUICore_BeginFrame(g_GUICore, ui+13480, ui+13484) stores the frame times the widgets read.
-- V (disassembly): sub_1400B3770 and sub_1400B57FC compute dt as (float)((double)ticks * scale / 300000.0) from an object whose +8 holds the tick count and +32 a double scale; sub_140246078 passes a float it computed earlier (not read); the title scene start passes 0.
+- V (disassembly): sub_1400B3770 and sub_1400B57FC compute dt as (float)((double)ticks * scale / 300000.0) from an object whose +8 holds the tick count and +32 a double scale; ClassicMenu_RunScreenStack passes a float it computed earlier (not read); the title scene start passes 0.
 - I: that object is the application's frame timer (app+1160 in App_RunFrame): App_RunFrame forms the identical expression from the same two fields.
 
 ## State touched

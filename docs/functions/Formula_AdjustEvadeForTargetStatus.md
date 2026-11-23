@@ -18,6 +18,10 @@ Evade-setup step: clears the four evade bytes or halves the baseline byte accord
 - V: the baseline byte at 0x1407B077F is halved when byte +0x61 has bit 0x02.
 - I: by the status numbering, +0x64 bit 0x02 is Stop, +0x65 bit 0x10 Sleep and bit 0x04 Disable (a unit that cannot react gets no evade).
 
+## Referenced by
+
+- Called by: [Formula_05_WeaponAttackNoElement](Formula_05_WeaponAttackNoElement.md), [sub_140306C90](sub_140306C90.md), [sub_140306D70](sub_140306D70.md)
+
 ## Notes
 
 Disassembly read for the unit register.

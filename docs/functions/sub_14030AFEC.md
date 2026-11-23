@@ -4,7 +4,7 @@
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `void sub_14030AFEC(void)`
 - **Callers:** Battle_ResolveAction
-- **Callees:** sub_140278FA8, sub_14030DD1C, sub_140278E68, Item_GetRecord
+- **Callees:** sub_140278FA8, Unit_GetActionGateState, sub_140278E68, Item_GetRecord
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -23,7 +23,7 @@ for the acting unit, under a set of command, unit-flag and item-category conditi
   and the byte at context +0x29 has bit `0x80`, it writes ability `0x1B8` at action +0x10, copies the word at
   context +8 into action +0x28, clears action +0x2C and action +0, and sets action +2 to 9.
 - V: it returns when action +0x10 is already set or when the state dword is nonzero.
-- V: it calls sub_140278FA8 with the unit and the constant 4, then sub_14030DD1C; a nonzero result from either ends
+- V: it calls sub_140278FA8 with the unit and the constant 4, then Unit_GetActionGateState; a nonzero result from either ends
   the function.
 - V: when the unit's byte at +0x97 has bit 4 and the byte at context +0x2A has bit `0x10`, it writes 100 minus the
   unit's byte at +0x2B into action +0x2C, then calls sub_140278E68 with 100 and that same unit byte.
@@ -41,7 +41,7 @@ for the acting unit, under a set of command, unit-flag and item-category conditi
 
 ## State touched
 
-- Calls: [Item_GetRecord](Item_GetRecord.md)
+- Calls: [Unit_GetActionGateState](Unit_GetActionGateState.md), [Item_GetRecord](Item_GetRecord.md)
 - Reads: [g_BattleActingUnit](../globals/g_BattleActingUnit.md), [g_BattleActionBlock](../globals/g_BattleActionBlock.md), [g_BattleContextGate](../globals/g_BattleContextGate.md), [g_BattleStateGate](../globals/g_BattleStateGate.md)
 - Writes: [g_BattleActionBlock](../globals/g_BattleActionBlock.md)
 

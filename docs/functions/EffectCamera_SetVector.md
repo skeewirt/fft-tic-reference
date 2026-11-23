@@ -21,7 +21,7 @@ Selects the effect view's target vector by a mode in bits 5..8 of the first argu
 
 ## Referenced by
 
-- Called by: [EffectSequence_HitFlashSprites](EffectSequence_HitFlashSprites.md)
+- Called by: [EffectScript_OpRunTimeline](EffectScript_OpRunTimeline.md), [EffectSequence_HitFlashSprites](EffectSequence_HitFlashSprites.md)
 
 ## Notes
 

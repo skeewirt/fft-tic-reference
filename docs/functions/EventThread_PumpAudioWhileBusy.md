@@ -24,7 +24,7 @@ Loops, one frame at a time, until the high dword of `qword_141856AB0` (0x141856A
 
 ## Referenced by
 
-- Called by: [GameData_StartTrackedRead](GameData_StartTrackedRead.md)
+- Called by: [ClassicMenu_LoadPageArtPack](ClassicMenu_LoadPageArtPack.md), [EventCmd_SetBackdrop](EventCmd_SetBackdrop.md), [EventCmd_SetRecordOffset](EventCmd_SetRecordOffset.md), [GameData_StartTrackedRead](GameData_StartTrackedRead.md), [PackedBlock766_Load](PackedBlock766_Load.md), [PackedBlock767_Load](PackedBlock767_Load.md)
 
 ## Notes
 

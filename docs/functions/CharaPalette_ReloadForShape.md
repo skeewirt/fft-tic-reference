@@ -4,7 +4,7 @@
 - **Area:** [Graphics](../areas/graphics.md)
 - **Prototype:** `int CharaPalette_ReloadForShape(void)`
 - **Callers:** BattleLoad_StepFresh, sub_14030476C, sub_1401F2E4C, sub_14023A0B4
-- **Callees:** GameData_ReadSectors, sub_14026E194, sub_14026E2C0, sub_14026E484, SceneUnit_BuildFromQueueEntry, sub_1402F3888, sub_1402F3A04
+- **Callees:** GameData_ReadSectors, sub_14026E194, sub_14026E2C0, sub_14026E484, SceneUnit_BuildFromQueueEntry, ResourcePool_AllocBlocks, sub_1402F3A04
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -25,7 +25,7 @@ Step function that walks the look queue and, for each entry, loads its frame fil
 
 ## State touched
 
-- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md)
+- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [SceneUnit_BuildFromQueueEntry](SceneUnit_BuildFromQueueEntry.md), [ResourcePool_AllocBlocks](ResourcePool_AllocBlocks.md)
 
 ## Referenced by
 

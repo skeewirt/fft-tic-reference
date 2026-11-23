@@ -27,7 +27,7 @@ Per-frame input of a paged message window: confirm turns to the next page, cance
 
 ## Referenced by
 
-- Called by: [Errand_FinishDayPage](Errand_FinishDayPage.md), [MenuCtl_Entry25](MenuCtl_Entry25.md), [MenuCtl_Entry27](MenuCtl_Entry27.md), [MenuCtl_Entry51](MenuCtl_Entry51.md), [PagedText_WaitAndClose](PagedText_WaitAndClose.md), [Tavern_RumorTextWait](Tavern_RumorTextWait.md)
+- Called by: [Errand_FinishDayPage](Errand_FinishDayPage.md), [EventViewer_EntryPage](EventViewer_EntryPage.md), [MenuCtl_Entry25](MenuCtl_Entry25.md), [MenuCtl_Entry27](MenuCtl_Entry27.md), [MenuCtl_Entry51](MenuCtl_Entry51.md), [PagedText_WaitAndClose](PagedText_WaitAndClose.md), [Tavern_RumorTextWait](Tavern_RumorTextWait.md)
 
 ## Notes
 

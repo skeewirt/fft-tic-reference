@@ -22,7 +22,7 @@ Classifies a battle unit as 1, 0 or 2 from some status and flag bits and the ter
 
 ## Referenced by
 
-- Called by: [Formula_AdjustHitForTargetFlag](Formula_AdjustHitForTargetFlag.md)
+- Called by: [BTurn_IsUnitDone](BTurn_IsUnitDone.md), [BattleCommand_BuildMenu](BattleCommand_BuildMenu.md), [BattleCommand_BuildUnitList](BattleCommand_BuildUnitList.md), [Formula_AdjustHitForTargetFlag](Formula_AdjustHitForTargetFlag.md), [Formula_ReactionPrecheck](Formula_ReactionPrecheck.md), [sub_1402828E4](sub_1402828E4.md), [sub_1403055F0](sub_1403055F0.md), [sub_14030AFEC](sub_14030AFEC.md), [sub_14030B1A0](sub_14030B1A0.md), [sub_14030B278](sub_14030B278.md), [sub_140389D84](sub_140389D84.md)
 
 ## Notes
 

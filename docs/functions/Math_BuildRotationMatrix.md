@@ -21,7 +21,7 @@ Builds a 3x3 fixed-point rotation matrix (nine 16-bit values, scale 4096) from t
 
 ## Referenced by
 
-- Called by: [EffectObject_InitMotion](EffectObject_InitMotion.md), [EffectSequence_ProjectileFlight](EffectSequence_ProjectileFlight.md)
+- Called by: [EffectEmitter_Spawn](EffectEmitter_Spawn.md), [EffectObject_InitMotion](EffectObject_InitMotion.md), [EffectSequence_ProjectileFlight](EffectSequence_ProjectileFlight.md), [EventCamera_MoveTask](EventCamera_MoveTask.md)
 
 ## Notes
 

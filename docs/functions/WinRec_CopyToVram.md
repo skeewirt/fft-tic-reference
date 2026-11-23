@@ -24,7 +24,7 @@ Copies a window record's rectangle into the video page, at the point its texture
 
 ## Referenced by
 
-- Called by: [EventVarEditor_DrawPage](EventVarEditor_DrawPage.md), [PagedText_DrawPage](PagedText_DrawPage.md)
+- Called by: [EventVarEditor_DrawPage](EventVarEditor_DrawPage.md), [PagedText_DrawPage](PagedText_DrawPage.md), [sub_14036A294](sub_14036A294.md), [sub_140371550](sub_140371550.md), [sub_140373DE8](sub_140373DE8.md)
 
 ## Notes
 

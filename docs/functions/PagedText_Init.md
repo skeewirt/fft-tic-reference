@@ -27,7 +27,7 @@ Sets up a paged message window: reserves four sprite records and one window reco
 
 ## Referenced by
 
-- Called by: [Errand_FinishDayPage](Errand_FinishDayPage.md)
+- Called by: [Errand_FinishDayPage](Errand_FinishDayPage.md), [EventViewer_EntryPage](EventViewer_EntryPage.md), [sub_140376040](sub_140376040.md)
 
 ## Notes
 

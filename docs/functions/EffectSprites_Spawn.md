@@ -3,7 +3,7 @@
 - **Address:** `0x140313210`
 - **Area:** [Battle](../areas/battle.md)
 - **Prototype:** `char EffectSprites_Spawn(int group, short x)`
-- **Callers:** eight sequence kind handlers (sub_140313E10, sub_140314A74, sub_140314BA4, sub_140314CC8, sub_140314EA4, sub_140314FD4, sub_1403159EC, sub_140316160)
+- **Callers:** eight sequence kind handlers (EffectSequence_SpawnGroup16, EffectSequence_SpawnGroup10WithCue, EffectSequence_SpawnGroup6, EffectSequence_SpawnGroup7AtTile, EffectSequence_SpawnGroup8WithCue, EffectSequence_SpawnGroup5Rising, EffectSequence_SpawnGroup15, EffectSequence_SpawnGroup11)
 - **Callees:** sprite setup routine, free sprite slot allocator
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -25,7 +25,7 @@ Creates the sprites of one effect sprite group when the effect is inside the gro
 
 ## Notes
 
-Name is ours. A second spawner, sub_1403138DC, reads the same records.
+Name is ours. A second spawner, EffectSequence_HitFlashSprites, reads the same records.
 
 ## Open questions
 

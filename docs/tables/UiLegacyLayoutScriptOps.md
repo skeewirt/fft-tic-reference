@@ -17,7 +17,7 @@ Handlers of the 22 opcodes of the legacy layout script (the record language of t
 ## Behavior
 
 - V: slots with no handler are 3, 6, 7, 8 and 11; opcodes 4 and 5 both draw a cell
-- V: named handlers: window frame (0), if (1), if-else (2), draw cell (4, 5), texture page A (9), texture page B (10), blend word (12), draw number (13), layer (14), priority (15), tile grid (17), animated frame (18)
+- V: named handlers: window frame (0), if (1), if-else (2), draw cell (4, 5), texture page A (9), texture page B (10), blend word (12), draw number (13), layer (14), priority (15), tile grid (17), animated frame (18), scroll list (16), screen rectangle once (19), rectangle (20), screen rectangle (21): ClassicUi_OpScrollList, ClassicUi_OpQueueScreenRectOnce, ClassicUi_OpQueueRect, ClassicUi_OpQueueScreenRect (registry ClassicLayoutScriptOpcodesPart)
 
 ## Notes
 
@@ -25,4 +25,4 @@ Our names. Tags: V.
 
 ## Open questions
 
-- ?: opcodes 16 and 19..21 have unnamed handlers (sub_1403911B4, sub_140391AA4, sub_140391B04, sub_140391B68)
+None recorded.

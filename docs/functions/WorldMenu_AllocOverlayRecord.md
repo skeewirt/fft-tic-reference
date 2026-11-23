@@ -19,7 +19,7 @@ Takes the next 36-byte world-menu record from a fixed array, registers it and re
 
 ## Referenced by
 
-- Called by: [EventVarEditor_Open](EventVarEditor_Open.md), [PagedText_Init](PagedText_Init.md), [StatusGlossary_Open](StatusGlossary_Open.md)
+- Called by: [EventVarEditor_Open](EventVarEditor_Open.md), [PagedText_Init](PagedText_Init.md), [StatusGlossary_Open](StatusGlossary_Open.md), [WorldMap_InitLocations](WorldMap_InitLocations.md), [sub_14036A294](sub_14036A294.md), [sub_140373BB0](sub_140373BB0.md)
 
 ## Notes
 

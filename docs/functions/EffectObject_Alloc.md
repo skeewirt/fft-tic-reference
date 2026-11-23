@@ -20,7 +20,7 @@ Takes one object from a pool of 976-byte effect objects and returns its index (0
 
 ## Referenced by
 
-- Called by: [EffectSequence_HitFlashSprites](EffectSequence_HitFlashSprites.md), [EffectSequence_SpawnGroup14Ring](EffectSequence_SpawnGroup14Ring.md), [EffectSequence_SpawnGroup3Cluster](EffectSequence_SpawnGroup3Cluster.md), [EffectSequence_SpawnGroup4PerUnit](EffectSequence_SpawnGroup4PerUnit.md)
+- Called by: [EffectSequence_HitFlashSprites](EffectSequence_HitFlashSprites.md), [EffectSequence_SpawnGroup14Ring](EffectSequence_SpawnGroup14Ring.md), [EffectSequence_SpawnGroup3Cluster](EffectSequence_SpawnGroup3Cluster.md), [EffectSequence_SpawnGroup4PerUnit](EffectSequence_SpawnGroup4PerUnit.md), [sub_140315B10](sub_140315B10.md)
 
 ## Notes
 

@@ -3,7 +3,7 @@
 - **Address:** `0x140344B68`
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `bool Tavern_HasNewEntries(...)`
-- **Callers:** sub_1402D0EE0, sub_1402D50E4, sub_140345FE4
+- **Callers:** WorldMap_ScreenInput, sub_1402D50E4, sub_140345FE4
 - **Callees:** TavernRumour_IsAvailable, sub_1401DF5B4
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

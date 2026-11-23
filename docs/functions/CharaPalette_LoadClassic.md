@@ -4,7 +4,7 @@
 - **Area:** [Unit rendering](../areas/unit-rendering.md)
 - **Prototype:** `void *CharaPalette_LoadClassic(int shape, uint16_t *pal)`
 - **Callers:** CharaRender_BuildAtlasTexture
-- **Callees:** GameData_ReadSectors, CharShape_ApplyClut, `sub_1402F3888` (scratch alloc), `sub_1402F3A04` (free)
+- **Callees:** GameData_ReadSectors, CharShape_ApplyClut, `ResourcePool_AllocBlocks` (scratch alloc), `sub_1402F3A04` (free)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -23,7 +23,7 @@ Fills a 256-colour palette (16 palettes of 16 colours) for a sprite shape from t
 
 ## State touched
 
-- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [CharShape_ApplyClut](CharShape_ApplyClut.md)
+- Calls: [GameData_ReadSectors](GameData_ReadSectors.md), [CharShape_ApplyClut](CharShape_ApplyClut.md), [ResourcePool_AllocBlocks](ResourcePool_AllocBlocks.md)
 - Reads: [g_LanguageInfo](../globals/g_LanguageInfo.md)
 
 ## Referenced by

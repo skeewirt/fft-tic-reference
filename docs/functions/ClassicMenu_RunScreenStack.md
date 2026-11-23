@@ -26,6 +26,7 @@ The task that runs the classic menus, world map and towns: each frame it calls t
 
 ## Referenced by
 
+- Called by: [Game_MainLoop](Game_MainLoop.md)
 - Resolves registries: [ClassicMenuControllers](../registries/ClassicMenuControllers.md)
 
 ## Notes

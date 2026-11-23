@@ -18,7 +18,7 @@ Key-repeat timing presets, one row per value of a 3-bit input option. Verdict: e
 ## Behavior
 
 - V: index masked with 7 (8 rows); the data continues past 48 bytes
-- V: sub_140246078 and sub_1402B4710: copy the row of the current option value into the input globals
+- V: ClassicMenu_RunScreenStack and sub_1402B4710: copy the row of the current option value into the input globals
 - V: EventPad_UpdateRepeat compares held-key counters with thresholds +0xFB/+0xFE/+0xFF
 
 ## Notes

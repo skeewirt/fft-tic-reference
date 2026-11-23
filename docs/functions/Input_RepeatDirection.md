@@ -22,7 +22,7 @@ Menu auto-repeat for six directional actions: returns an action bit on a fresh p
 
 ## Referenced by
 
-- Called by: [Errand_ConfirmDialogInput](Errand_ConfirmDialogInput.md), [PagedText_Step](PagedText_Step.md), [UiPage_ChoicePromptInput](UiPage_ChoicePromptInput.md)
+- Called by: [Errand_ConfirmDialogInput](Errand_ConfirmDialogInput.md), [PagedText_Step](PagedText_Step.md), [UiPage_ChoicePromptInput](UiPage_ChoicePromptInput.md), [sub_140373DE8](sub_140373DE8.md)
 
 ## Notes
 

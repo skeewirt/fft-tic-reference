@@ -4,7 +4,7 @@
 - **Area:** [Data access](../areas/data.md)
 - **Prototype:** `void TextKind25_LoadPool(void)`
 - **Callers:** sub_1402841D0, BattleLoad_StepFresh, sub_14030476C
-- **Callees:** sub_1402F3888, GameData_ReadSectors
+- **Callees:** ResourcePool_AllocBlocks, GameData_ReadSectors
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
@@ -25,7 +25,7 @@ Loads the text pool that serves text kind 25 (base 0xC800): it sizes the buffer 
 
 ## State touched
 
-- Calls: [GameData_ReadSectors](GameData_ReadSectors.md)
+- Calls: [ResourcePool_AllocBlocks](ResourcePool_AllocBlocks.md), [GameData_ReadSectors](GameData_ReadSectors.md)
 
 ## Referenced by
 

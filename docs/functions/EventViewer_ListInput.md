@@ -3,7 +3,7 @@
 - **Address:** `0x1402D22A8`
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `char EventViewer_ListInput(int *state)`
-- **Callers:** the page dispatcher sub_140246078 (table at 0x140681400, kind 29)
+- **Callers:** the page dispatcher ClassicMenu_RunScreenStack (table at 0x140681400, kind 29)
 - **Callees:** EventViewer_OpenEntry, sub_1401D80A8
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

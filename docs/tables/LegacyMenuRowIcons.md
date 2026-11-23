@@ -17,7 +17,7 @@ A run of 16 consecutive row codes followed by a table of 88 u16 cell ids: menu r
 ## Behavior
 
 - V: 0xC0 = 16 + 176 bytes; the byte part is the identity run 0x11..0x20; the word part starts at 0x140692F30
-- V: sub_14036FD50 and sub_140374484: read byte [row] and pass it to sub_1403436C0
+- V: Errand_ReportDialogueStep and sub_140374484: read byte [row] and pass it to sub_1403436C0
 - V: sub_14037C2EC reads the 88 u16 cell ids that follow (from +0x10) through sub_14031EB60
 
 ## Notes

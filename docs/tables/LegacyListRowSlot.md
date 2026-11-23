@@ -17,7 +17,7 @@ Sparse byte map from a list row code to a slot number; nearly all entries are 0.
 ## Behavior
 
 - V: 0x30 bytes up to the next object; two readers test it for zero; only five entries are non-zero
-- V: sub_140371F68 (legacy list screen task): tests table[row code] and skips the entry when it is 0 (two sites)
+- V: MenuCtl_Entry27 (legacy list screen task): tests table[row code] and skips the entry when it is 0 (two sites)
 
 ## Notes
 

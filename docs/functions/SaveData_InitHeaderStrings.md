@@ -19,6 +19,10 @@ Fills the save-data header text slots (a title, a save-slot caption and a data d
 - V: copies the three strings (including the terminator) into three buffers 0x80 bytes apart in the header block starting at 0x1408F9BF4, and zeroes `dword_142E7FADC`.
 - I: the three buffers are the strings shown for the save entry by the platform save layer (rests on the strings' wording).
 
+## Referenced by
+
+- Called by: [Game_MainLoop](Game_MainLoop.md), [sub_140245B7C](sub_140245B7C.md)
+
 ## Notes
 
 Whole body read (242 bytes). The 0x80 spacing is the difference of the three destination addresses.

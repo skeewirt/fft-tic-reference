@@ -26,7 +26,7 @@ Fills one window record from a rectangle and a texture page number, derives the 
 
 ## Referenced by
 
-- Called by: [EventVarEditor_DrawPage](EventVarEditor_DrawPage.md), [PagedText_DrawPage](PagedText_DrawPage.md)
+- Called by: [EventVarEditor_DrawPage](EventVarEditor_DrawPage.md), [PagedText_DrawPage](PagedText_DrawPage.md), [sub_14036A294](sub_14036A294.md), [sub_140371550](sub_140371550.md), [sub_140373BB0](sub_140373BB0.md)
 
 ## Notes
 

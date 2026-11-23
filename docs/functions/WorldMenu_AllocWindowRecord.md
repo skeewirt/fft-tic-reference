@@ -19,7 +19,7 @@ Takes the next 56-byte world-menu window record, registers it and returns its in
 
 ## Referenced by
 
-- Called by: [EventVarEditor_Open](EventVarEditor_Open.md), [PagedText_Init](PagedText_Init.md)
+- Called by: [Errand_SelectBoardEntry](Errand_SelectBoardEntry.md), [EventVarEditor_Open](EventVarEditor_Open.md), [PagedText_Init](PagedText_Init.md), [sub_14036A294](sub_14036A294.md), [sub_140371550](sub_140371550.md), [sub_140373BB0](sub_140373BB0.md)
 
 ## Notes
 

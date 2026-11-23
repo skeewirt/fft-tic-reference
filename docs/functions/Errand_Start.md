@@ -3,7 +3,7 @@
 - **Address:** `0x14036A7D8`
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `void Errand_Start(void)`
-- **Callers:** `sub_14036A650`, `sub_14036CC50`
+- **Callers:** `Errand_StartConfirmInput`, `ErrandUnitPick_Input`
 - **Callees:** EventVar_Read, EventVar_Write, `sub_1400DF354`
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

@@ -3,7 +3,7 @@
 - **Address:** `0x1402CCDC4`
 - **Area:** [Errands](../areas/errands.md)
 - **Prototype:** `void Errand_LoadRecord(uint16_t *out, int errandIndex)`
-- **Callers:** Errand_IsAvailable, Errand_ComputeRewards, `sub_1402ED078`, `sub_1402ED7E0`, `sub_1402EDF58`, `sub_1402EE1C8`, `sub_14036CC50`, `sub_14036E5DC`, `sub_14037131C`, `sub_140377E9C`
+- **Callers:** Errand_IsAvailable, Errand_ComputeRewards, `sub_1402ED078`, `sub_1402ED7E0`, `sub_1402EDF58`, `sub_1402EE1C8`, `ErrandUnitPick_Input`, `sub_14036E5DC`, `sub_14037131C`, `sub_140377E9C`
 - **Callees:** -
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.

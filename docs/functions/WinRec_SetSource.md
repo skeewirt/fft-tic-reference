@@ -20,6 +20,10 @@ Fills a window record's texture source fields from a packed source descriptor, a
 - V: dword 10 low word = 2 * (x & 0x3F); dword 11 low word = 2 * the third word of `src`; dword 10 high word = byte 2 of `src`; dword 11 high word = the top word of `src`. The return value is 2 * the third word.
 - I: `src` is a texture-source descriptor in 16-bit units (rests on the doubling of the x and width values, which turns 16-bit pixels into bytes).
 
+## Referenced by
+
+- Called by: [EventCmd_SetRecordOffset](EventCmd_SetRecordOffset.md)
+
 ## Notes
 
 V: whole body read. The name is ours. The sibling `WinRec_SetRect` builds the same dword 1 word from a point it derives itself.
