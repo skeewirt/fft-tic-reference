@@ -24,6 +24,7 @@ Builds the battle preview block for the action a unit is about to take: the prev
 - I: the block is the forecast/cursor preview rather than the committed action, because the callers include the preview and reaction paths.
 - ?: the meaning of the 0x165 special case; the record is fetched but the branch is not documented.
 - V (2026-11-10): the 0x165 test is on id 357 and sits at 0x140282306 (the ability word at +0x1A2 compared before the record lookup); id 357 also has a test in Battle_ResolveAction (it skips the clear of the weapon or item word), so only ability 357 gets either special case.
+- V (2026-11-23, decoded and seen live): the hand pick at 0x1402822A5: the right hand word (unit +0x20) goes to 0x1407B0764 and the left (+0x24) to 0x1407B0766; when the right word is 0xFF or not below 0x105 (the bound is 0xFF + 6, built in r14 at 0x1402822A1 and compared at 0x1402822C0 and four more times later) the left word takes its place and 0x1407B0766 becomes 0xFF. Battle_ResolveAction reads the weapon from those words, so an item id of 0x105 or more in the right hand attacks with the left hand's item or bare hands: seen with an item of id 342 in a Squire's right hand: the attack copied the bare-hand weapon record (range 1, flags 0x88, power 0) into 0x1407B07A8 and previewed 3 damage; with the compares admitting the id, the same hand used its own record (power 9) and previewed and dealt 49.
 
 ## State touched
 
