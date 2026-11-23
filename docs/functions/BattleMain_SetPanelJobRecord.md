@@ -21,6 +21,7 @@ Stores a job record (the first 92 bytes) into one of the battle main screen's tw
 
 ## Referenced by
 
+- Called by: [Battle_TimelineRefresh](Battle_TimelineRefresh.md), [Battle_UnitStatusFillAlt](Battle_UnitStatusFillAlt.md)
 - Observed behaviours: [BattlePanelJobLineShowsDashesAtLevelZero](../behaviors/BattlePanelJobLineShowsDashesAtLevelZero.md)
 
 ## Notes

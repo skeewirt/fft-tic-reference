@@ -27,6 +27,7 @@ The title agent's state machine (state byte at +88): builds the menu, runs the f
 
 ## Referenced by
 
+- Appears in flows: [TitleSceneFlow](../flows/TitleSceneFlow.md)
 - Called by: [UIAgentFFTOTitle_Tick](UIAgentFFTOTitle_Tick.md)
 
 ## Notes

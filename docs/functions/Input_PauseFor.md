@@ -18,7 +18,7 @@ Makes the input module ignore input for a time.
 
 ## Referenced by
 
-- Called by: [BgmMode_ToggleTitleLanguage](BgmMode_ToggleTitleLanguage.md), [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [Guide_QueueAutoShow](Guide_QueueAutoShow.md)
+- Called by: [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [BgmMode_ToggleTitleLanguage](BgmMode_ToggleTitleLanguage.md), [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [Guide_QueueAutoShow](Guide_QueueAutoShow.md)
 
 ## Open questions
 

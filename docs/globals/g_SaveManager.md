@@ -13,6 +13,7 @@ The save object SaveSlots_LoadFromFile takes (a pointer to the auto-slot object,
 ## Referenced by
 
 - Observed behaviours: [SettingsCloseSavesSystemFile](../behaviors/SettingsCloseSavesSystemFile.md)
+- Read by: [Boot_Update](../functions/Boot_Update.md), [Boot_UpdateVideo](../functions/Boot_UpdateVideo.md)
 
 ## Open questions
 

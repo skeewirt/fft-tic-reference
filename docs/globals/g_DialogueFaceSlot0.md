@@ -13,7 +13,7 @@ Dialogue face slot values 0..2 (0x142FF9EDC, EE0, EE4): unmapped portrait codes;
 
 ## Referenced by
 
-- Written by: [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md)
+- Written by: [Battle_UnitStatusFillAlt](../functions/Battle_UnitStatusFillAlt.md), [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md)
 
 ## Open questions
 

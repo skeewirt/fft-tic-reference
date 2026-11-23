@@ -21,7 +21,7 @@ Two flag bytes per item id 0..260, set at a new game; I: the shop 'new item' bad
 - Described by tables: [ItemNewFlags](../tables/ItemNewFlags.md)
 - Observed behaviours: [ItemIdSpace](../behaviors/ItemIdSpace.md)
 - Read by: [Battle_SnapshotLiveState](../functions/Battle_SnapshotLiveState.md), [ShopEntry_Fill](../functions/ShopEntry_Fill.md), [sub_1401AEEF0](../functions/sub_1401AEEF0.md), [sub_14028B510](../functions/sub_14028B510.md), [sub_1402CEEE8](../functions/sub_1402CEEE8.md)
-- Written by: [Battle_SnapshotLiveState](../functions/Battle_SnapshotLiveState.md), [GameState_ResetParty](../functions/GameState_ResetParty.md), [Save_BootClear](../functions/Save_BootClear.md), [sub_140197BCC](../functions/sub_140197BCC.md), [sub_14028B510](../functions/sub_14028B510.md)
+- Written by: [Battle_SnapshotLiveState](../functions/Battle_SnapshotLiveState.md), [GameState_ResetParty](../functions/GameState_ResetParty.md), [Game_MainLoop](../functions/Game_MainLoop.md), [sub_140197BCC](../functions/sub_140197BCC.md), [sub_14028B510](../functions/sub_14028B510.md)
 
 ## Notes
 

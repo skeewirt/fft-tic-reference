@@ -22,7 +22,7 @@ Frees the add-ons at +1448 / +1456 / +1464.
 
 ## Referenced by
 
-- Called by: [UIAgentFFTOSystem_StateCloseConfig](UIAgentFFTOSystem_StateCloseConfig.md)
+- Called by: [UIAgentFFTOSystem_StateCloseConfig](UIAgentFFTOSystem_StateCloseConfig.md), [sub_1401839E4](sub_1401839E4.md)
 
 ## Open questions
 

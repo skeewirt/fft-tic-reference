@@ -20,7 +20,7 @@ Activates an event sound slot: loads its sound id and the three record dwords in
 
 ## Referenced by
 
-- Called by: [sub_1401D9174](sub_1401D9174.md), [sub_14033FE00](sub_14033FE00.md)
+- Called by: [OpeningTask_7](OpeningTask_7.md), [sub_1401D9174](sub_1401D9174.md), [sub_14033FE00](sub_14033FE00.md)
 - Observed behaviours: [EventSoundGroupAndMusicSlotOperandWidths](../behaviors/EventSoundGroupAndMusicSlotOperandWidths.md), [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md)
 
 ## Notes

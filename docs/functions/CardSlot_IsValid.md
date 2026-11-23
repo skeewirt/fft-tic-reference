@@ -19,7 +19,7 @@ Tests that a slot of the cache starts with the `SC` magic: returns 0 when valid,
 
 ## Referenced by
 
-- Called by: [SaveLoadList_BuildEntries](SaveLoadList_BuildEntries.md), [Save_BootClear](Save_BootClear.md), [sub_14021BD04](sub_14021BD04.md)
+- Called by: [Game_MainLoop](Game_MainLoop.md), [SaveLoadList_BuildEntries](SaveLoadList_BuildEntries.md), [sub_14021BD04](sub_14021BD04.md)
 
 ## Notes
 

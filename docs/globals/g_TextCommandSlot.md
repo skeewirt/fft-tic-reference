@@ -17,7 +17,7 @@ The callback slot the battle text command installs: sub_140243390 is stored here
 
 ## Referenced by
 
-- Written by: [sub_140243330](../functions/sub_140243330.md)
+- Written by: [BattleTask_ActorForecastPanel](../functions/BattleTask_ActorForecastPanel.md), [sub_140243330](../functions/sub_140243330.md)
 
 ## Open questions
 

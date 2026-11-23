@@ -18,7 +18,7 @@ Draws a list of number fields (32-byte records) into a staging buffer.
 
 ## Referenced by
 
-- Called by: [LegacyTask12_Build](LegacyTask12_Build.md), [StatsPanel_Build](StatsPanel_Build.md)
+- Called by: [Battle_UnitStatusFillAlt](Battle_UnitStatusFillAlt.md), [LegacyTask12_Build](LegacyTask12_Build.md), [StatsPanel_Build](StatsPanel_Build.md)
 - Reads tables: [StatsPanelNumbers](../tables/StatsPanelNumbers.md)
 
 ## Open questions

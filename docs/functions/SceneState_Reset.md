@@ -19,6 +19,7 @@ Resets the shared scene state before a legacy scene and installs its menu node a
 
 ## Referenced by
 
+- Called by: [Game_MainLoop](Game_MainLoop.md), [TitleScene_Start](TitleScene_Start.md), [sub_1401839E4](sub_1401839E4.md)
 - Reads tables: [SceneMenuNodesADefault](../tables/SceneMenuNodesADefault.md), [SceneMenuNodesALanguage0](../tables/SceneMenuNodesALanguage0.md), [SceneMenuNodesBDefault](../tables/SceneMenuNodesBDefault.md), [SceneMenuNodesBLanguage0](../tables/SceneMenuNodesBLanguage0.md)
 
 ## Notes

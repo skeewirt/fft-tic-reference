@@ -22,6 +22,10 @@ Initialises the legacy world menu: loads its text resource and picks the screen 
 
 - Calls: [EventTasks_Init](EventTasks_Init.md), [Resource_GetSlotObject](Resource_GetSlotObject.md), [EventVar_Write](EventVar_Write.md)
 
+## Referenced by
+
+- Called by: [OpeningTask_4](OpeningTask_4.md), [TitleScene_Task](TitleScene_Task.md)
+
 ## Notes
 
 Name is ours.

@@ -19,11 +19,13 @@ Removes an add-on from its agent's list, hides it and calls its slot 5.
 ## State touched
 
 - Calls: [UIAddonFFTOConfig_OnClose](UIAddonFFTOConfig_OnClose.md)
+- Reads: [UIAgentBase.addons_begin](../structs/UIAgentBase.md#addons_begin), [UIAgentBase.addons_end](../structs/UIAgentBase.md#addons_end)
+- Writes: [UIAgentBase.addons_end](../structs/UIAgentBase.md#addons_end)
 
 ## Referenced by
 
-- Appears in flows: [GeneralOptionsOpenAndClose](../flows/GeneralOptionsOpenAndClose.md)
-- Called by: [Movie_Start](Movie_Start.md), [UIAgentFFTOSystem_FreeAddons](UIAgentFFTOSystem_FreeAddons.md)
+- Appears in flows: [GeneralOptionsOpenAndClose](../flows/GeneralOptionsOpenAndClose.md), [UIAgentLifecycle](../flows/UIAgentLifecycle.md)
+- Called by: [Boot_CloseUI](Boot_CloseUI.md), [Boot_Update](Boot_Update.md), [Movie_Start](Movie_Start.md), [OpeningTask_10](OpeningTask_10.md), [UIAgentFFTOSystem_FreeAddons](UIAgentFFTOSystem_FreeAddons.md), [UISaveLoad_StateSourcePick](UISaveLoad_StateSourcePick.md), [sub_1401839E4](sub_1401839E4.md)
 
 ## Open questions
 

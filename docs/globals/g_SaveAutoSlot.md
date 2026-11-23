@@ -17,8 +17,8 @@ The auto-slot record, one 0x9CE4-byte slot. The resume header import copies its 
 
 ## Referenced by
 
-- Read by: [sub_14021A030](../functions/sub_14021A030.md), [sub_140245B7C](../functions/sub_140245B7C.md)
-- Written by: [sub_14021849C](../functions/sub_14021849C.md), [sub_14021A030](../functions/sub_14021A030.md), [sub_140245B7C](../functions/sub_140245B7C.md)
+- Read by: [Game_MainLoop](../functions/Game_MainLoop.md), [sub_14021A030](../functions/sub_14021A030.md), [sub_140245B7C](../functions/sub_140245B7C.md)
+- Written by: [Game_MainLoop](../functions/Game_MainLoop.md), [sub_14021849C](../functions/sub_14021849C.md), [sub_14021A030](../functions/sub_14021A030.md), [sub_140245B7C](../functions/sub_140245B7C.md)
 
 ## Open questions
 

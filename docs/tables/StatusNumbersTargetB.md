@@ -17,7 +17,7 @@ Number fields of the target unit's status panel with the hit chance (variant B).
 ## Behavior
 
 - V: 8 records = 0x100
-- V: sub_14022A024: the target's six numbers plus 'pt' and 'hit' (hit chance)
+- V: BattleTask_TargetForecastPanel: the target's six numbers plus 'pt' and 'hit' (hit chance)
 
 ## Notes
 

@@ -18,7 +18,7 @@ Counts the units that stand on the deployment cells of area 0 or 1.
 
 ## State touched
 
-- Calls: [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md)
+- Calls: [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md), [Battle_FindUnitNodeAt](Battle_FindUnitNodeAt.md)
 
 ## Referenced by
 

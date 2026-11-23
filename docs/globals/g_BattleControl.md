@@ -14,6 +14,7 @@ Singleton ffto::Game::Battle::BattleControl (vtable 0x140714058); BattleControl_
 ## Referenced by
 
 - Observed behaviours: [BattleKoCountsAndGreatestContribution](../behaviors/BattleKoCountsAndGreatestContribution.md)
+- Written by: [BattleTask_ActorForecastPanel](../functions/BattleTask_ActorForecastPanel.md)
 
 ## Open questions
 

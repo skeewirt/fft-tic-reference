@@ -13,7 +13,7 @@ HD-layer face slot values (stride 4 dwords per slot); Unit_GetSpriteSetId writes
 
 ## Referenced by
 
-- Written by: [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md)
+- Written by: [Battle_UnitStatusFillAlt](../functions/Battle_UnitStatusFillAlt.md), [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md)
 
 ## Open questions
 

@@ -32,7 +32,8 @@ Per-frame update of the UI: sets the UI frame time, runs a pending cursor restar
 
 ## Referenced by
 
-- Appears in flows: [CursorGloveFrame](../flows/CursorGloveFrame.md)
+- Appears in flows: [CursorGloveFrame](../flows/CursorGloveFrame.md), [UIAgentLifecycle](../flows/UIAgentLifecycle.md)
+- Called by: [TitleScene_Start](TitleScene_Start.md)
 - Observed behaviours: [UIStateClock](../behaviors/UIStateClock.md)
 
 ## Notes

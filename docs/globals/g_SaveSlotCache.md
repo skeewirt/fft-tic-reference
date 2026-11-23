@@ -17,8 +17,8 @@ The fifty-slot image in memory: 50 records of 0x9CE4 bytes, the same bytes the P
 
 ## Referenced by
 
-- Read by: [sub_1402185A4](../functions/sub_1402185A4.md), [sub_14021A030](../functions/sub_14021A030.md), [sub_14021BD04](../functions/sub_14021BD04.md), [sub_14021C620](../functions/sub_14021C620.md)
-- Written by: [sub_1402185A4](../functions/sub_1402185A4.md), [sub_140218C04](../functions/sub_140218C04.md), [sub_14021A030](../functions/sub_14021A030.md), [sub_14021AEC0](../functions/sub_14021AEC0.md), [sub_140245C84](../functions/sub_140245C84.md)
+- Read by: [Game_MainLoop](../functions/Game_MainLoop.md), [sub_1402185A4](../functions/sub_1402185A4.md), [sub_14021A030](../functions/sub_14021A030.md), [sub_14021BD04](../functions/sub_14021BD04.md), [sub_14021C620](../functions/sub_14021C620.md)
+- Written by: [Game_MainLoop](../functions/Game_MainLoop.md), [sub_1402185A4](../functions/sub_1402185A4.md), [sub_140218C04](../functions/sub_140218C04.md), [sub_14021A030](../functions/sub_14021A030.md), [sub_14021AEC0](../functions/sub_14021AEC0.md), [sub_140245C84](../functions/sub_140245C84.md)
 
 ## Open questions
 

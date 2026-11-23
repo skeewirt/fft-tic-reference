@@ -29,7 +29,7 @@ Asks the finger cursor to appear and to restart its Loop animation. In the agent
 ## Referenced by
 
 - Appears in flows: [CursorGloveFrame](../flows/CursorGloveFrame.md)
-- Called by: [Battle_InitScene](Battle_InitScene.md), [FreeCursor_StepFromSticks](FreeCursor_StepFromSticks.md), [UIAgentCursor_PopRequest](UIAgentCursor_PopRequest.md), [UI_FrameUpdate](UI_FrameUpdate.md), [sub_140136654](sub_140136654.md)
+- Called by: [Battle_InitScene](Battle_InitScene.md), [Boot_Update](Boot_Update.md), [FreeCursor_StepFromSticks](FreeCursor_StepFromSticks.md), [UIAgentCursor_PopRequest](UIAgentCursor_PopRequest.md), [UI_FrameUpdate](UI_FrameUpdate.md), [sub_140136654](sub_140136654.md)
 
 ## Notes
 

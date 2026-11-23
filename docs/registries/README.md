@@ -2,7 +2,7 @@
 
 Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning.
 
-30 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
+34 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -10,6 +10,7 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [AbilityTypes](AbilityTypes.md) | [Ability data](../areas/ability-data.md) | The ability type nibble in the low five bits of AbilityAux flags3, with names. |
 | [AchievementNotificationTypes](AchievementNotificationTypes.md) | [UI framework](../areas/ui-framework.md) | The type number of each achievement notification class: the virtual function at +8 of the notification's vtable returns it, and the achievement classes compare it in their match functions. |
 | [BattleMsgKindBase](BattleMsgKindBase.md) | [Battle](../areas/battle.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
+| [BattleStatusPanelVariants](BattleStatusPanelVariants.md) | [Battle](../areas/battle.md) | The four variants of the alternate battle unit status panel built by `Battle_UnitStatusFillAlt`. |
 | [BattleVoiceSuppressReason](BattleVoiceSuppressReason.md) | [Battle](../areas/battle.md) | The result of BattleVoice_IsSuppressed: 0 speak, or the reason a line is not spoken. |
 | [ClassicSubtitleState](ClassicSubtitleState.md) | [UI framework](../areas/ui-framework.md) | The state names of the classic-movie subtitle window and the UIClassicSubtitles line_layout value that picks each. |
 | [CreditLineType](CreditLineType.md) | [UI framework](../areas/ui-framework.md) | The line types of UICreditRow (line_type) and the builder CreditRoll_Step calls for each. |
@@ -30,9 +31,12 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [TitleMenuEntryKinds](TitleMenuEntryKinds.md) | [UI framework](../areas/ui-framework.md) | The six kinds of row of the Enhanced title menu: the kind byte stored in each row, the text id of its label (UI table, nxd id 19) and what choosing it does. |
 | [TitleModeSelectButtons](TitleModeSelectButtons.md) | [UI framework](../areas/ui-framework.md) | The button ids of the mode select screen as `UILauncher_OnMenuAction` handles them. |
 | [UIAddonRows](UIAddonRows.md) | [UI framework](../areas/ui-framework.md) | Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `path` names the layout file a screen loads. |
+| [UIAgentSlots](UIAgentSlots.md) | [UI framework](../areas/ui-framework.md) | The 54 UI agents the manager appends at construction, in slot order: six generic agents and 48 FFTO screens. |
 | [UIAnimCurves](UIAnimCurves.md) | [UI framework](../areas/ui-framework.md) | The easing curves of UI keyframes: curve id to blend function of the position t within a key interval (UIAnim_Curve). |
 | [UIButtonGuideKeysOfGeneralOptions](UIButtonGuideKeysOfGeneralOptions.md) | [UI framework](../areas/ui-framework.md) | The guide bar keys (`UIButtonGuide` rows, UI table 33) the settings screen uses, with the text id of each sub-row; 'right' marks sub-rows drawn on the right (byte +37 `Unknown25`). |
 | [UIDialogRowsOfSettings](UIDialogRowsOfSettings.md) | [UI framework](../areas/ui-framework.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
+| [UISaveLoadDialogStates](UISaveLoadDialogStates.md) | [Save data](../areas/save-data.md) | The save/load agent's dialog block states (ids 0..2). |
+| [UISaveLoadStates](UISaveLoadStates.md) | [Save data](../areas/save-data.md) | The save/load agent's eleven states (ids 0..10). |
 | [UISoundIdsOfSettings](UISoundIdsOfSettings.md) | [UI framework](../areas/ui-framework.md) | The UI sound ids (`sub_1400F4BCC(_, id)`, UI table 0x45) the settings screen plays. |
 | [UnitEventFlagBit](UnitEventFlagBit.md) | [Unit data](../areas/unit-data.md) | The bits of the unit flag word at battle unit +504, which the battle build stores from the entry override row: one bit per flag byte (OverrideEntryData +0x8E..+0x97 and +0x99), plus bit 11 set by the equipment build. |
 | [UnitIdentityIds](UnitIdentityIds.md) | [Unit data](../areas/unit-data.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |

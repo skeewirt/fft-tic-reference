@@ -22,6 +22,10 @@ Returns the display name of a name key: the CharaName table's name, or the unit'
 
 - Calls: [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
 
+## Referenced by
+
+- Called by: [Battle_TimelineRefresh](Battle_TimelineRefresh.md), [Battle_UnitStatusFillAlt](Battle_UnitStatusFillAlt.md)
+
 ## Open questions
 
 None recorded.

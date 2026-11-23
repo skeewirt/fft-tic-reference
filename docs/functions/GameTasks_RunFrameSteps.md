@@ -27,6 +27,7 @@ Runs the game's task threads for one displayed frame: the whole per-frame step i
 
 ## Referenced by
 
+- Called by: [Boot_UpdateVideo](Boot_UpdateVideo.md)
 - Observed behaviours: [AFaultInAGameTaskFreezesTheGame](../behaviors/AFaultInAGameTaskFreezesTheGame.md), [FastForwardState](../behaviors/FastForwardState.md)
 
 ## Notes

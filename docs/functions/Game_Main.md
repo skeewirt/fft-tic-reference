@@ -29,6 +29,8 @@ The game's WinMain body: it rejects a debugger at startup, sets the working dire
 
 ## Referenced by
 
+- Appears in flows: [ApplicationLifecycle](../flows/ApplicationLifecycle.md)
+- Called by: [WinMain](WinMain.md)
 - Observed behaviours: [QuitLoopExit](../behaviors/QuitLoopExit.md)
 
 ## Notes

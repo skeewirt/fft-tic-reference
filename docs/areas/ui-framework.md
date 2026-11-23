@@ -2,9 +2,9 @@
 
 GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.
 
-Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Flows: 6, Observed behaviours: 30, Tables: 234.
+Functions: 671, Structures: 138, Globals: 8, Registries: 13, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234.
 
-## Functions (663)
+## Functions (671)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -556,10 +556,14 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [UIAddonFingerCursor_SetPose](../functions/UIAddonFingerCursor_SetPose.md) | `0x1401D35AC` | Gives the glove one of its poses: stops the bob and plays the pose's state on the Hand component. |
 | [UIAgent_AttachAddon](../functions/UIAgent_AttachAddon.md) | `0x1401D16C4` | Links a screen (add-on) to its agent and gives it an id. |
 | [UIAgent_DetachAddon](../functions/UIAgent_DetachAddon.md) | `0x1401D183C` | Removes an add-on from its agent's list, hides it and calls its slot 5. |
+| [UIAgent_IsActive](../functions/UIAgent_IsActive.md) | `0x1401D15B4` | Base virtual slot 2: true while the agent's add-on list is non-empty. |
+| [UIAgent_SetState](../functions/UIAgent_SetState.md) | `0x1401CA59C` | Changes a UI agent's state machine: runs the current handler with phase 2 (exit), stores the new state, selects the handler for that state, and runs the new handler with phase 0 (enter). |
 | [UIAgentCursor_Hide](../functions/UIAgentCursor_Hide.md) | `0x1401D2F24` | Hides the finger cursor: cancels a pending show, stops every state of the cursor widget's main component and hides the widget. |
 | [UIAgentCursor_PopRequest](../functions/UIAgentCursor_PopRequest.md) | `0x1401D2A10` | Takes the last cursor request off the agent's request stack and applies it: mode, rest offset, static flag, show or hide. |
 | [UIAgentCursor_SetStatic](../functions/UIAgentCursor_SetStatic.md) | `0x1401D2E0C` | Switches the finger cursor between its animated mode and a static mode in which it neither bobs nor glides. |
 | [UIAgentCursor_Show](../functions/UIAgentCursor_Show.md) | `0x1401D2EF4` | Asks the finger cursor to appear and to restart its Loop animation. |
+| [UIAgentFFTOSaveLoad_Ctor](../functions/UIAgentFFTOSaveLoad_Ctor.md) | `0x140182B38` | Builds the save/load UI agent: the base agent front, its vtable, two embedded state machines, five 264-byte summary slots, the embedded save-data handler and the lock and queue that carry save errors back to the screen. |
+| [UIAgentFFTOSaveLoad_Update](../functions/UIAgentFFTOSaveLoad_Update.md) | `0x140182EDC` | The agent's per-frame virtual (vtable slot 1): it advances the saving overlay, drains queued save errors, and delivers phase 1 to the current agent state handler unless a save-error prompt is up. |
 | [UIAgentFFTOSystem_Ctor](../functions/UIAgentFFTOSystem_Ctor.md) | `0x140181C94` | Constructor of the System agent (1472 bytes), entry 37 of the agent manager's array. |
 | [UIAgentFFTOSystem_FreeAddons](../functions/UIAgentFFTOSystem_FreeAddons.md) | `0x140181DD0` | Frees the add-ons at +1448 / +1456 / +1464. |
 | [UIAgentFFTOSystem_OnAddonEvent](../functions/UIAgentFFTOSystem_OnAddonEvent.md) | `0x140181ED0` | Agent vtable slot 6, the sink of its add-ons' events. |
@@ -571,6 +575,8 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [UIAgentFFTOTitle_OnAddonEvent](../functions/UIAgentFFTOTitle_OnAddonEvent.md) | `0x1401C32D0` | The agent's sink (slot 6) for the events of its three add-ons: the menu, the play mode screen and the saving screen. |
 | [UIAgentFFTOTitle_Tick](../functions/UIAgentFFTOTitle_Tick.md) | `0x1401C2D20` | Per-frame update of the title agent (vtable 0x14070A5B0 slot 1). |
 | [UIAgentFFTOTitle_Update](../functions/UIAgentFFTOTitle_Update.md) | `0x1401C2D60` | The title agent's state machine (state byte at +88): builds the menu, runs the fade-driven transitions and starts the loads the menu rows choose. |
+| [UIAgentManager_CreateAgents](../functions/UIAgentManager_CreateAgents.md) | `0x1401CF724` | The one-shot agent factory: allocates and constructs 54 UI agents in a fixed slot order, appends each pointer to the manager's agent vector and marks the manager ready. |
+| [UIAgentManager_Ctor](../functions/UIAgentManager_Ctor.md) | `0x1401CF3DC` | Builds the singleton UI agent manager: stores its module vtable and allocator objects, starts the agent, addon, font-slot and queued-event containers empty, then calls UIAgentManager_CreateAgents to fill the agent vec... |
 | [UIAnim_ApplyComponentTrack](../functions/UIAnim_ApplyComponentTrack.md) | `0x1403F7AC0` | Applies a state track aimed at the component itself (target kind 4002, property tags >= 5031) as an animated component-effect property. |
 | [UIAnim_ApplyTrack](../functions/UIAnim_ApplyTrack.md) | `0x1403F6FC0` | Converts one state track aimed at a node (target kind 4001, property tags 5001..5030) into a queued property animation on that node. |
 | [UIAnim_Curve](../functions/UIAnim_Curve.md) | `0x14040242C` | Easing curve evaluator for keyframes: maps the position t within a key interval (0 to 1) to the blend factor of that interval. |
@@ -637,6 +643,8 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [UIRender_QueueImageDraw](../functions/UIRender_QueueImageDraw.md) | `0x1403B84EC` | Appends a type-34 (image) command that carries a copy of the draw state, flagging the layer used and recording whether the draw state asks for a flag at bit 12. |
 | [UIResourceHandle_Delete](../functions/UIResourceHandle_Delete.md) | `0x1403D99C0` | Scalar deleting destructor (vtable method) of the UIResourceHandle class: resets the vtable, runs the base destructor and frees the 104-byte object when bit 0 of flags is set. |
 | [UIResourceHandle_New](../functions/UIResourceHandle_New.md) | `0x1403D9A00` | Factory: allocates a 104-byte UIResourceHandle through the allocator object at qword_143CDAA80 (+8) and constructs it. |
+| [UISaveLoad_OnEvent](../functions/UISaveLoad_OnEvent.md) | `0x1401833C4` | Maps the save/load screen's event numbers 0..8 to state changes, stored selection values and pause-style prompts. |
+| [UISaveLoad_Open](../functions/UISaveLoad_Open.md) | `0x140183580` | Opens the save/load screen: it selects the load mode, starts the screen's music transition, fades the UI to state 9, and sets the save/load agent's own state machine to state 1. |
 | [UiScript_Run](../functions/UiScript_Run.md) | `0x1403278EC` | Runs one UI script: the byte-coded layout and behaviour program of a list or panel screen. |
 | [UIState_EndTransition](../functions/UIState_EndTransition.md) | `0x1401DDA5C` | Ends the UI fade state given (fade +24 = 0). |
 | [UITable_GetRow](../functions/UITable_GetRow.md) | `0x1403DBD60` | Returns the in-memory row of an nxd table by table id and row index (null when the table or row is missing). |
@@ -672,7 +680,7 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [ZodiacStone_FillTip](../functions/ZodiacStone_FillTip.md) | `0x14016D72C` | Fills the stone's tip (icon, name, summary). |
 | [ZodiacStoneBoard_Setup](../functions/ZodiacStoneBoard_Setup.md) | `0x14016C414` | Sets up the Zodiac Stone board: for each of the 13 stones picks the row to show, plays the stone's state and sets its name. |
 
-## Structures (134)
+## Structures (138)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -789,11 +797,15 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [SpriteAnimScriptsRow](../structs/SpriteAnimScriptsRow.md) | 8 | One row of the SpriteAnimScripts table. |
 | [StringPointerRow](../structs/StringPointerRow.md) | 8 | One row of a string pointer table (ResumeKindNames, SoundPackPathPatterns, UiCoreNameKeys, DeflateErrorMessages). |
 | [UIAddonFFTOConfig](../structs/UIAddonFFTOConfig.md) | 3416 | The General Options screen object (3416 bytes, `Mem_Alloc(3416)` in 0x140182478): base `UIAddonMenuBase`, vtable 0x14070DB30 with 18 entries (RTTI locator at 0x14070DB28). |
+| [UIAddonFFTOSaveLoad](../structs/UIAddonFFTOSaveLoad.md) | 1240 | The save/load screen's list add-on (1240 bytes, allocated in agent state 3 and constructed by `sub_140184C38` at 0x140184C38): a `UIAddonMenuBase` at +0 with a second `UIFFTOMenuFunctionBase` vtable at +48. |
 | [UIAddonFFTOTitle](../structs/UIAddonFFTOTitle.md) | 240 | The title menu screen object (240 bytes, `Mem_Alloc(240)` in UIAddonFFTOTitle_Create): base `UIAddonMenuBase`, primary vtable 0x14070A4B0 and a second vtable 0x14070A460 at +48 (the `UIFFTOMenuFunctionBase` part). |
 | [UIAddonFingerCursor](../structs/UIAddonFingerCursor.md) |  | The finger cursor addon: the loaded cursor widget (ffto_finger_cursor.uib), the parts it moves, and the glide state of GUICursorHand_StepToward. |
+| [UIAgentBase](../structs/UIAgentBase.md) | 64 | The common front of every UI agent (64 bytes), built by sub_1401D14F4 (0x1401D14F4): the vtable, the UI module's allocator and the vector of attached add-ons. |
 | [UIAgentCursor](../structs/UIAgentCursor.md) |  | The cursor agent: element 1 of the addon manager's agent vector (global qword_143CD9DA8, vector at +16). |
+| [UIAgentFFTOSaveLoad](../structs/UIAgentFFTOSaveLoad.md) | 1592 | The save/load screen's UI agent (1592 bytes, vtable 0x14070DE48, slot 38 of the UI agent manager). |
 | [UIAgentFFTOSystem](../structs/UIAgentFFTOSystem.md) | 1472 | The System agent: entry 37 of the agent manager's array (`*(qword_143CD9DA8 + 16) + 37 * 8`, as Boot_Update reads it); 1472 bytes, constructor 0x140181C94, vtable 0x14070DF00. |
 | [UIAgentFFTOTitle](../structs/UIAgentFFTOTitle.md) | 1448 | The title screens' agent (1448 bytes, `Mem_Alloc(0x5A8)` in `UIAgentManager_CreateAgents` at 0x1401CFA4D; vtable 0x14070A5B0, constructor 0x1401C2AE4). |
+| [UIAgentManager](../structs/UIAgentManager.md) | 184 | The singleton UI agent manager (IDB class UIAgentModule): a 184-byte module object that owns the 54-agent vector, the addon map, the queued-event vector and the font-slot vector. |
 | [UIGadgetFFTOConfigConfirmWindow](../structs/UIGadgetFFTOConfigConfirmWindow.md) |  | The confirm window gadget of General Options (+2400; vtables 0x140712448 and 0x1407124A0): a message and up to three option buttons loaded from a UIDialog row. |
 | [UIListGadget](../structs/UIListGadget.md) |  | The row list gadget used by General Options (constructor 0x14028C458, bound by 0x14028C5C4 with tag 151 and the part name `List`). |
 | [UIManager](../structs/UIManager.md) |  | The UI manager object at Renderer.ui_manager: the shader selectors of the UI technique and the shared layer quad buffers. |
@@ -824,7 +836,7 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [g_StatusIconWord](../globals/g_StatusIconWord.md) | `0x143D1B590` | `uint16` | The packed page-and-palette word of the status/item icon the status screen last set. |
 | [g_UIChosenItemId](../globals/g_UIChosenItemId.md) | `0x143C518F0` | `uint16` | The 16-bit UI field that holds the item id the player picked in the shop list. |
 
-## Registries (12)
+## Registries (13)
 
 | Name | Summary |
 |---|---|
@@ -836,6 +848,7 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [TitleMenuEntryKinds](../registries/TitleMenuEntryKinds.md) | The six kinds of row of the Enhanced title menu: the kind byte stored in each row, the text id of its label (UI table, nxd id 19) and what choosing it does. |
 | [TitleModeSelectButtons](../registries/TitleModeSelectButtons.md) | The button ids of the mode select screen as `UILauncher_OnMenuAction` handles them. |
 | [UIAddonRows](../registries/UIAddonRows.md) | Rows of the screen table (`uiaddon.nxd`, nxd id 24) that the title screens use: each row's `path` names the layout file a screen loads. |
+| [UIAgentSlots](../registries/UIAgentSlots.md) | The 54 UI agents the manager appends at construction, in slot order: six generic agents and 48 FFTO screens. |
 | [UIAnimCurves](../registries/UIAnimCurves.md) | The easing curves of UI keyframes: curve id to blend function of the position t within a key interval (UIAnim_Curve). |
 | [UIButtonGuideKeysOfGeneralOptions](../registries/UIButtonGuideKeysOfGeneralOptions.md) | The guide bar keys (`UIButtonGuide` rows, UI table 33) the settings screen uses, with the text id of each sub-row; 'right' marks sub-rows drawn on the right (byte +37 `Unknown25`). |
 | [UIDialogRowsOfSettings](../registries/UIDialogRowsOfSettings.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
@@ -853,7 +866,7 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [TitleMenuLayout](../formats/TitleMenuLayout.md) | `.uib` | `ui/ffto/title/ffto_title_enhanced.uib` (pack 0008), the layout of the Enhanced title menu: nine components, of which `Menu` carries the row layouts the add-on plays by name. |
 | [TitleScreenLayout](../formats/TitleScreenLayout.md) | `.uib` | `ffto_title_enhanced.uib` (pack 0008): the title screen behind the menu: backdrop, logo, version, copyright and the `Menu` component with its six buttons. |
 
-## Flows (6)
+## Flows (7)
 
 | Name | Summary |
 |---|---|
@@ -863,6 +876,7 @@ Functions: 663, Structures: 134, Globals: 8, Registries: 12, File formats: 7, Fl
 | [MovieStart](../flows/MovieStart.md) | How a movie starts and ends: row read, controller flags, sound banks, subtitle window, skip rules. |
 | [ScreenAddonCreation](../flows/ScreenAddonCreation.md) | How a screen (add-on) is made and shown: allocate, construct, attach to the agent, load its layout from the screen table, then show or hide it. |
 | [TitleMenuAction](../flows/TitleMenuAction.md) | From a press on a title menu row to the action: the button event reaches the agent, which dispatches on the row's kind. |
+| [UIAgentLifecycle](../flows/UIAgentLifecycle.md) | From the manager's construction to its teardown: the 184-byte manager is built once, fills a 54-slot agent vector, attaches addons to agents, ticks them each frame, changes their states, and finally deletes every agen... |
 
 ## Observed behaviours (30)
 

@@ -22,7 +22,7 @@ Finds a running task in the second table by its tag. The event script uses it to
 
 ## Referenced by
 
-- Called by: [sub_1402F8684](sub_1402F8684.md), [sub_1403015A4](sub_1403015A4.md), [sub_140338A28](sub_140338A28.md), [sub_1403980AC](sub_1403980AC.md)
+- Called by: [Battle_UnitStatusFillAlt](Battle_UnitStatusFillAlt.md), [sub_1402F8684](sub_1402F8684.md), [sub_1403015A4](sub_1403015A4.md), [sub_140338A28](sub_140338A28.md), [sub_1403980AC](sub_1403980AC.md)
 - Called by event opcodes: [0xDB](../opcodes/README.md), [0xE3](../opcodes/README.md)
 
 ## Notes

@@ -28,7 +28,7 @@ Starts the playback of a movie from its MovieData row: picks the file, the sound
 ## Referenced by
 
 - Appears in flows: [MovieStart](../flows/MovieStart.md)
-- Called by: [sub_1402561D0](sub_1402561D0.md)
+- Called by: [Boot_UpdateVideo](Boot_UpdateVideo.md)
 - Observed behaviours: [MovieSkipKinds](../behaviors/MovieSkipKinds.md)
 
 ## Notes

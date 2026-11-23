@@ -24,6 +24,7 @@ Fills the effect line of the unit status panel (the panel beside the action prev
 
 ## Referenced by
 
+- Called by: [Battle_UnitStatusFillAlt](Battle_UnitStatusFillAlt.md)
 - Observed behaviours: [HitLabelsAndThePanelEffectLineAreSeparateLists](../behaviors/HitLabelsAndThePanelEffectLineAreSeparateLists.md)
 
 ## Notes

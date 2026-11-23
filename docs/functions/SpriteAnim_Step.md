@@ -19,6 +19,7 @@ Advances one opening / title sprite animation by a tick and queues the cells of 
 
 ## Referenced by
 
+- Called by: [SceneLoop_Run](SceneLoop_Run.md)
 - Reads tables: [OpeningSpriteLists](../tables/OpeningSpriteLists.md), [SpriteAnimScripts](../tables/SpriteAnimScripts.md)
 
 ## Open questions

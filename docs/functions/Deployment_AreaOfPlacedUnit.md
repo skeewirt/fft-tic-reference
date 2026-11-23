@@ -19,7 +19,7 @@ Returns the deployment area (0 or 1) that placed party entry n stands in, or -1.
 
 ## State touched
 
-- Calls: [SceneObject_FindByUnitIndex](SceneObject_FindByUnitIndex.md), [SceneVar_Read](SceneVar_Read.md), [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md)
+- Calls: [SceneObject_FindByUnitIndex](SceneObject_FindByUnitIndex.md), [SceneVar_Read](SceneVar_Read.md), [Deployment_LoadAreaPlacement](Deployment_LoadAreaPlacement.md), [Battle_FindUnitNodeAt](Battle_FindUnitNodeAt.md)
 
 ## Referenced by
 

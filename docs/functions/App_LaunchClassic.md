@@ -18,6 +18,7 @@ Starts the Classic executable and ends this one.
 
 ## Referenced by
 
+- Called by: [Boot_Update](Boot_Update.md)
 - Observed behaviours: [QuitRequest](../behaviors/QuitRequest.md)
 
 ## Notes

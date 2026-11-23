@@ -10,6 +10,10 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 Head of the scene object list (next pointer at +0). Walked by SceneObject_FindByUnitIndex; rebuilt from the in-use flags when a battle capture is restored.
 
+## Referenced by
+
+- Read by: [Battle_FindUnitNodeAt](../functions/Battle_FindUnitNodeAt.md)
+
 ## Open questions
 
 None recorded.

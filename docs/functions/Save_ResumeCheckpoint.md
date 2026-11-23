@@ -30,6 +30,7 @@ After a slot load, decides whether the auto-slot checkpoint is a plain world-map
 
 ## Referenced by
 
+- Called by: [sub_1401839E4](sub_1401839E4.md)
 - Observed behaviours: [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md)
 
 ## Notes

@@ -2,7 +2,7 @@
 
 Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents.
 
-673 records. Format of a record: [kinds/table.json](../../kinds/table.json). Data: [data/tables.jsonl](../../data/tables.jsonl).
+674 records. Format of a record: [kinds/table.json](../../kinds/table.json). Data: [data/tables.jsonl](../../data/tables.jsonl).
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
@@ -571,6 +571,7 @@ Where the game keeps its data tables, NXD files and the fixed tables inside the 
 | [SceneSlotPermutations](SceneSlotPermutations.md) | Executable |  | 24 rows of 16 bytes | The 24 permutations of the four slots 0..3, walked by a sprite effect update to pick a slot order. |
 | [SceneSpriteToFace](SceneSpriteToFace.md) | Executable |  | 160 rows of 4 bytes | Face number of each scene sprite id, read by the sprite-id-to-shape function and five inline copies of it. |
 | [SceneTaskSlots](SceneTaskSlots.md) | Executable (filled at run time) |  | 1512 entries of 1 byte | Nine scene-task data records of 0xA8 bytes, parsed from u16 token streams during the battle map setup and captured in a kind-1 snapshot. |
+| [SceneTaskTable](SceneTaskTable.md) | Executable (constant) |  | 16 entries of 8 bytes (scene task ids 0..15) | The 16-entry table of scene task handlers that the two scene loops call once per frame. |
 | [SceneUnitSlots](SceneUnitSlots.md) | Executable (filled at run time) |  | 16 records of SceneUnitSlot | The 16 scene-unit records (stride 0x548); the in-use dword is 8 bytes before each. |
 | [ScreenTaskSets](ScreenTaskSets.md) | Executable |  | 9 rows of 64 bytes | The window tasks started together for each legacy screen set (four handlers, their slot numbers, their expected tags). |
 | [ScriptedActorPresets](ScriptedActorPresets.md) | Executable |  | 6 rows of 8 bytes | Scripted unit presets of one scene: a null-terminated list of 6 record pointers copied into the sprite palette and pose tables. |

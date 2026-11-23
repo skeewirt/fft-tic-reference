@@ -18,7 +18,7 @@ Draws the tile cursor marker over the unit at the cursor tile.
 
 ## State touched
 
-- Calls: [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
+- Calls: [Battle_FindUnitNodeAt](Battle_FindUnitNodeAt.md), [NxdRegistry_Find](NxdRegistry_Find.md), [NxdTable_GetRowById](NxdTable_GetRowById.md), [NxdEntry_GetRow](NxdEntry_GetRow.md)
 
 ## Notes
 

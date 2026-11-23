@@ -2,16 +2,20 @@
 
 Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters.
 
-30 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
+41 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
 | [AbilityLifecycle](AbilityLifecycle.md) | [Ability data](../areas/ability-data.md) | The order in which the game reads an ability, from the skillset row that offers it to the presentation and the save: where it comes from for a unit, the menus and lists, choosing and targeting, the action request and ... |
+| [ApplicationLifecycle](ApplicationLifecycle.md) | [Application and startup](../areas/app-startup.md) | The order from process entry to the first scene. |
 | [AutoSaveRead](AutoSaveRead.md) | [Save data](../areas/save-data.md) | How a resume entry reaches the game: the reader queues one request per entry name, a single read kick mounts the container, and the delivery function hands each entry to its object, where the header is validated and t... |
 | [AutoSaveWrite](AutoSaveWrite.md) | [Save data](../areas/save-data.md) | Where a resume entry comes from and when it is written: the per-frame flush turns dirty group buffers into named entries, stamps each with a CRC, and one write kick sends the whole container. |
 | [BattleMessageBanner](BattleMessageBanner.md) | [Battle](../areas/battle.md) | How a message descriptor becomes text in the battle's centre banner: a battle handler calls the banner function, which resolves the descriptor to a message id and a template, fills the format arguments, sets the text ... |
 | [BattleResumeRestoresTheLooks](BattleResumeRestoresTheLooks.md) | [Graphics](../areas/graphics.md) | How a battle resumed from a payload gets its looks back: the setup clears the pool's sprite bytes, the payload fills the snapshot region, and Battle_RestoreSceneVars copies the units, the load queue and the 15 pool re... |
+| [BattleTimelineCameraFlow](BattleTimelineCameraFlow.md) | [Battle](../areas/battle.md) | The four-step camera sequence of the battle timeline's focus screen. |
 | [BattleVoiceLine](BattleVoiceLine.md) | [Battle](../areas/battle.md) | How a battle event becomes a spoken voice cue: suppress test, status gate, chance roll, replacement, play or queue. |
+| [BootStateMachine](BootStateMachine.md) | [Application and startup](../areas/app-startup.md) | The boot dispatcher's states 0..4 and the 5..7 hand-over codes. |
+| [BootToGameThread](BootToGameThread.md) | [Application and startup](../areas/app-startup.md) | The hand-over from boot to the game's task threads: boot state 2 creates 17 task threads, installs the game-thread entry in the task-0 command slot, then stops the boot dispatcher. |
 | [ChronicleEventReplay](ChronicleEventReplay.md) | [UI framework](../areas/ui-framework.md) | What happens when the player replays an entry of the Chronicle Events list: from the action to the event running. |
 | [CrystalAbilityLearning](CrystalAbilityLearning.md) | [Battle](../areas/battle.md) | A unit that stops on a Crystal or Chest unit's tile triggers a roll of the abilities the dead unit had learned in jobs the picker has unlocked, a window where a player-controlled unit chooses between learning them and... |
 | [CursorGloveFrame](CursorGloveFrame.md) | [UI framework](../areas/ui-framework.md) | What happens to the finger cursor's glove in one UI frame, in order: its Loop clock advances, scrubs the Hand's Loop, the Hand's IconHand position is sampled as an integer, and the cursor reference node glides toward ... |
@@ -29,10 +33,17 @@ Ordered sequences across functions and state: what happens in which order (a fra
 | [MovieStart](MovieStart.md) | [UI framework](../areas/ui-framework.md) | How a movie starts and ends: row read, controller flags, sound banks, subtitle window, skip rules. |
 | [NxdMultiKeyLookup](NxdMultiKeyLookup.md) | [Data access](../areas/data.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](NxdTableLoad.md) | [Data access](../areas/data.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
+| [OpeningStages](OpeningStages.md) | [Application and startup](../areas/app-startup.md) | How the opening's later stages advance. |
+| [OpeningToTitle](OpeningToTitle.md) | [Application and startup](../areas/app-startup.md) | The opening's route to the title and back. |
+| [OpeningTransitionTasks](OpeningTransitionTasks.md) | [Application and startup](../areas/app-startup.md) | The hand-off tasks between the front end's three loops. |
 | [PartyMenuFaceChain](PartyMenuFaceChain.md) | [Graphics](../areas/graphics.md) | How a party unit's face reaches a menu with enhanced graphics: the save record's marker and job give a look index, the index a portrait code, the code a byte and a colour, the byte a face number through the face table... |
 | [SaveFrameStep](SaveFrameStep.md) | [Save data](../areas/save-data.md) | How a manual save or load reaches the file: the save screen changes a command, and one frame step does the work once per frame, blocking that frame while the container is read or written. |
+| [SaveLoadScreenFlow](SaveLoadScreenFlow.md) | [Save data](../areas/save-data.md) | The save/load screen's ordered path. |
+| [SceneTaskDispatch](SceneTaskDispatch.md) | [Application and startup](../areas/app-startup.md) | How the opening and title scenes advance. |
 | [ScreenAddonCreation](ScreenAddonCreation.md) | [UI framework](../areas/ui-framework.md) | How a screen (add-on) is made and shown: allocate, construct, attach to the agent, load its layout from the screen table, then show or hide it. |
 | [ScriptedBattleUnitsFromEntries](ScriptedBattleUnitsFromEntries.md) | [Job data](../areas/job-data.md) | How a scripted battle gets its units: the battle key picks 16 entries, the OverrideEntryData rows of the key overwrite them in place, and battle unit i is built from entry i with row i. |
 | [StatusLabelOverAHitUnit](StatusLabelOverAHitUnit.md) | [Battle](../areas/battle.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 | [TitleMenuAction](TitleMenuAction.md) | [UI framework](../areas/ui-framework.md) | From a press on a title menu row to the action: the button event reaches the agent, which dispatches on the row's kind. |
+| [TitleSceneFlow](TitleSceneFlow.md) | [Application and startup](../areas/app-startup.md) | How the Enhanced title scene advances from the scene reset to a menu hand-off. |
+| [UIAgentLifecycle](UIAgentLifecycle.md) | [UI framework](../areas/ui-framework.md) | From the manager's construction to its teardown: the 184-byte manager is built once, fills a 54-slot agent vector, attaches addons to agents, ticks them each frame, changes their states, and finally deletes every agen... |
 | [UiLayerComposite](UiLayerComposite.md) | [Graphics](../areas/graphics.md) | One frame of UI, layer by layer, in the order the game does it: how a widget becomes layers, which target a layer's draws go to, when that target is cleared, what runs on it, and how it is blended onto the frame. |

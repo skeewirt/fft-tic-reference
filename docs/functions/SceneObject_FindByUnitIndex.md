@@ -18,7 +18,7 @@ Walks the scene object list and returns the object whose battle unit record has 
 
 ## Referenced by
 
-- Called by: [BattleFormation_DrawUnits](BattleFormation_DrawUnits.md), [BattleUnit_SetStatusVisual](BattleUnit_SetStatusVisual.md), [Deployment_AreaOfPlacedUnit](Deployment_AreaOfPlacedUnit.md), [UnitPanel_FillEffectLine](UnitPanel_FillEffectLine.md), [sub_1401EA2F0](sub_1401EA2F0.md)
+- Called by: [BattleFormation_DrawUnits](BattleFormation_DrawUnits.md), [BattleTask_ActorForecastPanel](BattleTask_ActorForecastPanel.md), [BattleUnit_SetStatusVisual](BattleUnit_SetStatusVisual.md), [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [Deployment_AreaOfPlacedUnit](Deployment_AreaOfPlacedUnit.md), [UnitPanel_FillEffectLine](UnitPanel_FillEffectLine.md), [sub_1401EA2F0](sub_1401EA2F0.md)
 - Observed behaviours: [SceneUnitShapeIsTheQueueWord](../behaviors/SceneUnitShapeIsTheQueueWord.md)
 
 ## Open questions

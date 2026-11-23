@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flows: 6, Observed behaviours: 79, Tables: 89.
+Functions: 400, Structures: 70, Globals: 50, Registries: 3, File formats: 1, Flows: 7, Observed behaviours: 79, Tables: 89.
 
-## Functions (394)
+## Functions (400)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -26,6 +26,7 @@ Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [Battle_AwardUnitJp](../functions/Battle_AwardUnitJp.md) | `0x14028338C` | Awards job JP to a battle unit after an action: it validates the unit, resolves its job index and JP amount, applies the award and reports the amount. |
 | [Battle_BuildRosterTeam](../functions/Battle_BuildRosterTeam.md) | `0x140270CE4` | Fills the live 21-slot battle unit table (`g_BattleUnitTable`, `0x141853CE0`, stride 512) from a 5-entry spawn list, one team at a time. |
 | [Battle_CommandTask](../functions/Battle_CommandTask.md) | `0x140202B08` | The per-frame player battle command task: advances the turn engine, claims the active unit, and puts up the command menu (Move / Abilities / Wait / Status) or hands the unit to the AI. |
+| [Battle_FindUnitNodeAt](../functions/Battle_FindUnitNodeAt.md) | `0x140260824` | Returns the scene object for a unit standing at a tile coordinate, preferring the current actor when several objects match. |
 | [Battle_Init](../functions/Battle_Init.md) | `0x14020EF10` | Allocates and resets the battle singletons when a battle starts: BattleControl, post-battle calculator, a 3008-byte battle object, the map-view camera manager, markers and the command menu. |
 | [Battle_InitScene](../functions/Battle_InitScene.md) | `0x1402C8818` | The battle scene initialiser started by event opcode 0x78 mode 7: it builds the battle UI, places the units and their markers, shows the cursor and waits for the battle to end. |
 | [Battle_IsTileOccupied](../functions/Battle_IsTileOccupied.md) | `0x140282A7C` | Tests a map tile for the targeting cursor: bounds, terrain passability, the unit standing there and the large-monster exception for jobs 94..96. |
@@ -59,16 +60,19 @@ Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [Battle_StatusRefresh](../functions/Battle_StatusRefresh.md) | `0x14030CA00` | Applies the pending status clears of a unit and recomputes the effective 40-bit status set. |
 | [Battle_StatusResolve](../functions/Battle_StatusResolve.md) | `0x14030C87C` | Applies the pending status adds and removes of one battle unit: filters them, clears, sets, then settles the effects that depend on the new set. |
 | [Battle_TimelineBuildList](../functions/Battle_TimelineBuildList.md) | `0x1402333E8` | Builds the 40-entry timeline list for the UI and overlays the acting unit's current command preview. |
+| [Battle_TimelineFocusCamera](../functions/Battle_TimelineFocusCamera.md) | `0x140209738` | One pass of the battle timeline's camera-focus step. |
 | [Battle_TimelineRefresh](../functions/Battle_TimelineRefresh.md) | `0x140215E54` | Refreshes the Combat Timeline panel: builds the forecast, copies it into `g_TurnList`, and fills the visible rows (portrait, name, HP/MP, CT) and the scroll position. |
 | [Battle_TurnEngine](../functions/Battle_TurnEngine.md) | `0x14030F030` | The battle turn state machine: ticks CT, picks the next unit, starts and finishes turns, and resolves charged actions. |
 | [Battle_TurnStep](../functions/Battle_TurnStep.md) | `0x1402029DC` | Runs one step of the turn engine on the player path and dispatches the returned action code to the scene/UI. |
-| [Battle_UnitStatusFill](../functions/Battle_UnitStatusFill.md) | `0x1402158F4` | Fills the battle status panel's view record (and the addon's cached fields) from the live unit table. |
+| [Battle_UnitStatusFill](../functions/Battle_UnitStatusFill.md) | `0x1402158F4` | Fills the battle status panel's view record (and the addon's cached fields) from the live unit table, for one slot. |
+| [Battle_UnitStatusFillAlt](../functions/Battle_UnitStatusFillAlt.md) | `0x140228778` | Builds and animates one of four variants of the battle unit status panel: it fills the panel's attribute record, places its sprite cells, draws ten number fields into two staging buffers, copies them into Vram, and re... |
 | [BattleAct_BuildResult](../functions/BattleAct_BuildResult.md) | `0x140281CE8` | Resolves the unit's queued action against its targets and fills the scene object's result record (obj +0x1A8): target list, flags and the effect word +0x14 the presentation is keyed by. |
 | [BattleAct_NoEffectStep](../functions/BattleAct_NoEffectStep.md) | `0x140206758` | Applies the resolved action to every target and starts each target's hit motion: the step that turns the formula results into HP, MP and status changes and visible hits. |
 | [BattleAct_SetupEffect](../functions/BattleAct_SetupEffect.md) | `0x1402060F4` | Selects the visual effect for an ability: builds the list of units on screen, reads the ability's charge byte from `g_AbilityAnim`, combines it with the ability element and calls the effect-number selector. |
 | [BattleAct_Step](../functions/BattleAct_Step.md) | `0x140206A0C` | The scene step that executes the acting object's action: builds the result, sets the effect word and chooses the presentation path. |
 | [BattleAction_ApplyRequest](../functions/BattleAction_ApplyRequest.md) | `0x140281434` | Wrapper that takes a request whose first byte is a unit slot, points at that unit action block, and applies the request; on success in the normal battle state it also refreshes the unit action. |
 | [BattleAction_BuildUnitRequest](../functions/BattleAction_BuildUnitRequest.md) | `0x140283280` | Writes a command and action word into a unit action block, optionally marks the ring, and applies the request through the common wrapper. |
+| [BattleAction_ConfirmCommand](../functions/BattleAction_ConfirmCommand.md) | `0x140203620` | Chooses one of the three command-confirm handlers for the unit under the cursor and records the cursor unit's id. |
 | [BattleAction_GetRangeInfo](../functions/BattleAction_GetRangeInfo.md) | `0x140281C24` | Chooses how an action acquires its range and area: the item path for the item-like command kinds and the ability record path otherwise, filling the caller flags and returning the range result. |
 | [BattleAction_RunScript](../functions/BattleAction_RunScript.md) | `0x140234B3C` | The driver task for the battle presentation programs: reads the current script id from scene block 1, starts up to four sub-tasks defined by that script's 64-byte record, waits for them and repeats, then ends. |
 | [BattleAction_StartScript](../functions/BattleAction_StartScript.md) | `0x140234A94` | Starts one of the seven battle presentation programs (the "scene script" table) and records the acting unit and target for the tasks that program starts. |
@@ -108,7 +112,9 @@ Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [BattleRange_MarkTileInBand](../functions/BattleRange_MarkTileInBand.md) | `0x14027F1D4` | Sets mark byte 0 = 1 for a map tile, separately in each layer, when that layer's target height is inside [max(lo, 0), hi]. |
 | [BattleRange_MarkWeaponReach](../functions/BattleRange_MarkWeaponReach.md) | `0x14027EFC0` | Marks in the range-mark array the tiles one unit's weapon reaches from its tile: picks the weapon, seeds the unit's tile and runs one of three shape routines chosen by the weapon's flag byte. |
 | [BattleRange_SpreadDiamond](../functions/BattleRange_SpreadDiamond.md) | `0x14027EBF8` | Spreads the seeded marks outward one tile per pass for range passes, so every tile within Manhattan distance range of a seed gets a non-zero mark byte 0; heights are not looked at. |
-| [BattleTask_Slot13Entry](../functions/BattleTask_Slot13Entry.md) | `0x140229D24` | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state and runs the battle event/message runner that ends the task. |
+| [BattleTask_ActorForecastPanel](../functions/BattleTask_ActorForecastPanel.md) | `0x140229DD4` | Scene task entry for the battle status panel's acting-unit variant B: refreshes the shared status work area, runs the acting unit's pending secondary action, pre-seeds the panel's projected HP/MP and tail-calls Battle... |
+| [BattleTask_Slot13Entry](../functions/BattleTask_Slot13Entry.md) | `0x140229D24` | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state, seeds the panel counters and hands the slot to the mode-0 (actor-side) variant of the alternate battle unit st... |
+| [BattleTask_TargetForecastPanel](../functions/BattleTask_TargetForecastPanel.md) | `0x14022A024` | Scene task entry for the battle status panel's target variant B: waits for the acting-unit panel task, refreshes the target's layout, projects the target's HP/MP from the pending result and tail-calls Battle_UnitStatu... |
 | [BattleUnit_BuildCursorRecord](../functions/BattleUnit_BuildCursorRecord.md) | `0x140281248` | Builds the seven-byte cursor record a unit contributes to the targeting display: slot and flags, level, terrain height and the tile the cursor should sit on. |
 | [BattleUnit_RevealOnField](../functions/BattleUnit_RevealOnField.md) | `0x1402718CC` | Puts a battle unit record that is off the field onto it, without building anything: the record must already exist. |
 | [BattleUnit_SetStatusVisual](../functions/BattleUnit_SetStatusVisual.md) | `0x1401FB064` | Sets or clears a status's visual bits on the unit's scene object: the tint / pose word or the sprite-change word. |
@@ -287,7 +293,7 @@ Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [sub_140214610](../functions/sub_140214610.md) | `0x140214610` | Runs the betrayal announcement of a unit and clears its betrayal flag. |
 | [sub_140217630](../functions/sub_140217630.md) | `0x140217630` | For a party unit given by its save index, builds the unit's battle command byte list on a scratch unit and answers the first command whose list holds a usable entry (the twin of sub_14030E010, which builds the live me... |
 | [sub_140217A7C](../functions/sub_140217A7C.md) | `0x140217A7C` | Builds the battle signal list of the statuses a pending action result applies (the same list UnitPanel_SetSignalList builds for the unit panel) and returns its length. |
-| [sub_140226E44](../functions/sub_140226E44.md) | `0x140226E44` | Refreshes the battle unit panel when an item is selected, checking the item's record category and then its weapon sub-record to decide what the panel shows. |
+| [sub_140226E44](../functions/sub_140226E44.md) | `0x140226E44` | Refills the two shared stat blocks that the battle unit panels read, one from the actor slot and one from the target slot of the current preview pair. |
 | [sub_14022EFF4](../functions/sub_14022EFF4.md) | `0x14022EFF4` | Refreshes a battle help panel from the currently selected 16-bit word. |
 | [sub_140233588](../functions/sub_140233588.md) | `0x140233588` | A battle scene task that shows a message with three arguments and a kind-3 message entry. |
 | [sub_1402371F8](../functions/sub_1402371F8.md) | `0x1402371F8` | Builds the rows of the battle command page and pushes each row's label and state into the list widget. |
@@ -533,11 +539,12 @@ Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 | [xmmword_141876E90](../globals/xmmword_141876E90.md) | `0x141876E90` | `EquipPanelBlock` | The field equip screens' 64-byte copy of the selected party record bytes +0x30..+0x6F; its hand words at +0x24 are a raw copy of g_PartyUnits +0x54..+0x5C. |
 | [xmmword_141D3B880](../globals/xmmword_141D3B880.md) | `0x141D3B880` | `EquipPanelBlock` | The battle module's copy of the same 64-byte record slice (+0x30..+0x6F), with its five hand words at +0x24; read by the battle panel sub_140399A64. |
 
-## Registries (2)
+## Registries (3)
 
 | Name | Summary |
 |---|---|
 | [BattleMsgKindBase](../registries/BattleMsgKindBase.md) | The message-id base per descriptor kind for class 0 subtype 2: id = 1000 x kind + (word & 0x7FF). |
+| [BattleStatusPanelVariants](../registries/BattleStatusPanelVariants.md) | The four variants of the alternate battle unit status panel built by `Battle_UnitStatusFillAlt`. |
 | [BattleVoiceSuppressReason](../registries/BattleVoiceSuppressReason.md) | The result of BattleVoice_IsSuppressed: 0 speak, or the reason a line is not spoken. |
 
 ## File formats (1)
@@ -546,11 +553,12 @@ Functions: 394, Structures: 70, Globals: 50, Registries: 2, File formats: 1, Flo
 |---|---|---|
 | [EffectSoundTracks](../formats/EffectSoundTracks.md) |  | An effect file names its sounds in three places: three sound tracks in section 7 say when, a slot list in section 6 says which value, and section 8 gives the cue base. |
 
-## Flows (6)
+## Flows (7)
 
 | Name | Summary |
 |---|---|
 | [BattleMessageBanner](../flows/BattleMessageBanner.md) | How a message descriptor becomes text in the battle's centre banner: a battle handler calls the banner function, which resolves the descriptor to a message id and a template, fills the format arguments, sets the text ... |
+| [BattleTimelineCameraFlow](../flows/BattleTimelineCameraFlow.md) | The four-step camera sequence of the battle timeline's focus screen. |
 | [BattleVoiceLine](../flows/BattleVoiceLine.md) | How a battle event becomes a spoken voice cue: suppress test, status gate, chance roll, replacement, play or queue. |
 | [CrystalAbilityLearning](../flows/CrystalAbilityLearning.md) | A unit that stops on a Crystal or Chest unit's tile triggers a roll of the abilities the dead unit had learned in jobs the picker has unlocked, a window where a player-controlled unit chooses between learning them and... |
 | [EquipPanelBlockFill](../flows/EquipPanelBlockFill.md) | How the five hand words travel from a unit record to the two panel blocks and what the two flag-aware panels do with them. |

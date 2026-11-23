@@ -20,6 +20,7 @@ Pointer to the caster's own result block of the action being resolved: a static 
 ## Referenced by
 
 - Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md)
+- Read by: [BattleTask_ActorForecastPanel](../functions/BattleTask_ActorForecastPanel.md)
 - Written by: [Battle_ResolveAction](../functions/Battle_ResolveAction.md), [Formula_DrainHP](../functions/Formula_DrainHP.md), [Formula_DrainMP](../functions/Formula_DrainMP.md)
 
 ## Notes

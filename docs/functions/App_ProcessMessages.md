@@ -28,6 +28,7 @@ Drains up to ten Win32 messages per call. Returns 1 while the application should
 
 ## Referenced by
 
+- Appears in flows: [ApplicationLifecycle](../flows/ApplicationLifecycle.md), [BootToGameThread](../flows/BootToGameThread.md)
 - Called by: [Game_Main](Game_Main.md)
 
 ## Notes

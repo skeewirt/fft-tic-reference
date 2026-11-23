@@ -21,7 +21,7 @@ Resets the event's parameter slots and empties the event sound entry list.
 
 ## Referenced by
 
-- Called by: [Music_StartSceneTracks](Music_StartSceneTracks.md)
+- Called by: [Game_MainLoop](Game_MainLoop.md), [Music_StartSceneTracks](Music_StartSceneTracks.md), [OpeningTask_7](OpeningTask_7.md), [SceneLoop_RunAlt](SceneLoop_RunAlt.md), [Scene_Init](Scene_Init.md)
 
 ## Open questions
 

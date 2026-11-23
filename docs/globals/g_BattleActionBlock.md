@@ -20,7 +20,7 @@ Pointer to the result block of the current action on its target: unit +0x1BE of 
 ## Referenced by
 
 - Observed behaviours: [FormulaHandlerContract](../behaviors/FormulaHandlerContract.md)
-- Read by: [sub_14030AFEC](../functions/sub_14030AFEC.md)
+- Read by: [BattleTask_ActorForecastPanel](../functions/BattleTask_ActorForecastPanel.md), [BattleTask_TargetForecastPanel](../functions/BattleTask_TargetForecastPanel.md), [sub_14030AFEC](../functions/sub_14030AFEC.md)
 - Written by: [sub_14030AFEC](../functions/sub_14030AFEC.md)
 
 ## Open questions

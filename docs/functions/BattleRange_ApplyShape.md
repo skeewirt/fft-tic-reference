@@ -31,8 +31,8 @@ Applies the range shape and the effect area of an action to the cursor mask: it 
 
 ## Referenced by
 
-- Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
-- Called by: [BattleAction_GetRangeInfo](BattleAction_GetRangeInfo.md)
+- Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md), [BattleTimelineCameraFlow](../flows/BattleTimelineCameraFlow.md)
+- Called by: [BattleAction_GetRangeInfo](BattleAction_GetRangeInfo.md), [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md)
 
 ## Notes
 

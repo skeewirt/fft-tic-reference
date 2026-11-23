@@ -20,7 +20,7 @@ Allocates and builds the title menu add-on (the screen of uiaddon row 244) and a
 
 ## Referenced by
 
-- Called by: [UITitle_ShowMenu](UITitle_ShowMenu.md)
+- Called by: [TitleScene_Update](TitleScene_Update.md), [UITitle_ShowMenu](UITitle_ShowMenu.md)
 
 ## Notes
 

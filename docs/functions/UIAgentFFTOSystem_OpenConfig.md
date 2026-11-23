@@ -24,6 +24,7 @@ Makes the General Options add-on and starts the agent's open state.
 ## Referenced by
 
 - Appears in flows: [GeneralOptionsOpenAndClose](../flows/GeneralOptionsOpenAndClose.md)
+- Called by: [Boot_Update](Boot_Update.md)
 
 ## Open questions
 

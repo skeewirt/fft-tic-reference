@@ -17,6 +17,10 @@ Stores an event parameter record: -996, 100 * level / 127 and b into xmmword_140
 - V: when qword_1418623A8 is set it stores -996, 100 * level / 127 and b into xmmword_140D3A910 and level into dword_1418623B8.
 - I: part of the event's sound and parameter slots; EventControl_PausedTick calls it with 0 on a skip unless the EventId skip_no_reset byte is set (the test is in the caller).
 
+## Referenced by
+
+- Called by: [OpeningTask_4](OpeningTask_4.md), [OpeningTask_5](OpeningTask_5.md), [OpeningTask_6](OpeningTask_6.md), [OpeningTask_7](OpeningTask_7.md)
+
 ## Open questions
 
 ? what the three stored values drive.

@@ -19,7 +19,7 @@ Carries out the row the player chose on the title menu.
 
 ## Referenced by
 
-- Appears in flows: [TitleMenuAction](../flows/TitleMenuAction.md)
+- Appears in flows: [TitleMenuAction](../flows/TitleMenuAction.md), [TitleSceneFlow](../flows/TitleSceneFlow.md)
 - Called by: [UIAgentFFTOTitle_OnAddonEvent](UIAgentFFTOTitle_OnAddonEvent.md)
 
 ## Notes

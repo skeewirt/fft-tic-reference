@@ -17,7 +17,8 @@ The save-data request object the slot, settings and PNG code queues work on. The
 
 ## Referenced by
 
-- Read by: [sub_1401E7EF8](../functions/sub_1401E7EF8.md), [sub_1402083B4](../functions/sub_1402083B4.md), [sub_1402561D0](../functions/sub_1402561D0.md)
+- Read by: [Boot_Update](../functions/Boot_Update.md), [Boot_UpdateVideo](../functions/Boot_UpdateVideo.md), [UIAgentFFTOSaveLoad_Ctor](../functions/UIAgentFFTOSaveLoad_Ctor.md), [sub_1401E7EF8](../functions/sub_1401E7EF8.md), [sub_1402083B4](../functions/sub_1402083B4.md)
+- Written by: [UIAgentFFTOSaveLoad_Ctor](../functions/UIAgentFFTOSaveLoad_Ctor.md)
 
 ## Open questions
 

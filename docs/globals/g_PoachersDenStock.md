@@ -20,7 +20,7 @@ Poachers' Den stock: one count per item id 0..260 (PoachersDen_AddStock adds to 
 - Described by tables: [PoachersDenStock](../tables/PoachersDenStock.md)
 - Observed behaviours: [ItemIdSpace](../behaviors/ItemIdSpace.md)
 - Read by: [Battle_SnapshotLiveState](../functions/Battle_SnapshotLiveState.md), [PoachersDen_AddStock](../functions/PoachersDen_AddStock.md), [Shop_BuildItemList](../functions/Shop_BuildItemList.md), [sub_1401AEEF0](../functions/sub_1401AEEF0.md), [sub_1402CEEE8](../functions/sub_1402CEEE8.md)
-- Written by: [Battle_SnapshotLiveState](../functions/Battle_SnapshotLiveState.md), [GameState_ResetParty](../functions/GameState_ResetParty.md), [PoachersDen_AddStock](../functions/PoachersDen_AddStock.md), [Save_BootClear](../functions/Save_BootClear.md)
+- Written by: [Battle_SnapshotLiveState](../functions/Battle_SnapshotLiveState.md), [GameState_ResetParty](../functions/GameState_ResetParty.md), [Game_MainLoop](../functions/Game_MainLoop.md), [PoachersDen_AddStock](../functions/PoachersDen_AddStock.md)
 
 ## Notes
 

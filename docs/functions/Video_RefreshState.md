@@ -21,6 +21,10 @@ Re-applies the video state (mode flags, viewport, aspect factor) after a mode ch
 - Reads: [g_Application](../globals/g_Application.md), [g_UnitImageAspectOn](../globals/g_UnitImageAspectOn.md)
 - Writes: [g_UnitImageAspectX](../globals/g_UnitImageAspectX.md)
 
+## Referenced by
+
+- Called by: [Boot_SetState](Boot_SetState.md)
+
 ## Notes
 
 Only the head of this function was read (?).

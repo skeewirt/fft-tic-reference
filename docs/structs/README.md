@@ -2,7 +2,7 @@
 
 Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.
 
-535 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
+539 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
 
 | Name | Size (bytes) | Area | Summary |
 |---|---|---|---|
@@ -512,11 +512,15 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [TriggerConditionArgCount](TriggerConditionArgCount.md) | 1 | [Event system](../areas/event-system.md) | One row of the TriggerConditionArgCounts table. |
 | [TrigSample](TrigSample.md) | 4 | [Math](../areas/math.md) | One row of the CosineTable table. |
 | [UIAddonFFTOConfig](UIAddonFFTOConfig.md) | 3416 | [UI framework](../areas/ui-framework.md) | The General Options screen object (3416 bytes, `Mem_Alloc(3416)` in 0x140182478): base `UIAddonMenuBase`, vtable 0x14070DB30 with 18 entries (RTTI locator at 0x14070DB28). |
+| [UIAddonFFTOSaveLoad](UIAddonFFTOSaveLoad.md) | 1240 | [UI framework](../areas/ui-framework.md) | The save/load screen's list add-on (1240 bytes, allocated in agent state 3 and constructed by `sub_140184C38` at 0x140184C38): a `UIAddonMenuBase` at +0 with a second `UIFFTOMenuFunctionBase` vtable at +48. |
 | [UIAddonFFTOTitle](UIAddonFFTOTitle.md) | 240 | [UI framework](../areas/ui-framework.md) | The title menu screen object (240 bytes, `Mem_Alloc(240)` in UIAddonFFTOTitle_Create): base `UIAddonMenuBase`, primary vtable 0x14070A4B0 and a second vtable 0x14070A460 at +48 (the `UIFFTOMenuFunctionBase` part). |
 | [UIAddonFingerCursor](UIAddonFingerCursor.md) |  | [UI framework](../areas/ui-framework.md) | The finger cursor addon: the loaded cursor widget (ffto_finger_cursor.uib), the parts it moves, and the glide state of GUICursorHand_StepToward. |
+| [UIAgentBase](UIAgentBase.md) | 64 | [UI framework](../areas/ui-framework.md) | The common front of every UI agent (64 bytes), built by sub_1401D14F4 (0x1401D14F4): the vtable, the UI module's allocator and the vector of attached add-ons. |
 | [UIAgentCursor](UIAgentCursor.md) |  | [UI framework](../areas/ui-framework.md) | The cursor agent: element 1 of the addon manager's agent vector (global qword_143CD9DA8, vector at +16). |
+| [UIAgentFFTOSaveLoad](UIAgentFFTOSaveLoad.md) | 1592 | [UI framework](../areas/ui-framework.md) | The save/load screen's UI agent (1592 bytes, vtable 0x14070DE48, slot 38 of the UI agent manager). |
 | [UIAgentFFTOSystem](UIAgentFFTOSystem.md) | 1472 | [UI framework](../areas/ui-framework.md) | The System agent: entry 37 of the agent manager's array (`*(qword_143CD9DA8 + 16) + 37 * 8`, as Boot_Update reads it); 1472 bytes, constructor 0x140181C94, vtable 0x14070DF00. |
 | [UIAgentFFTOTitle](UIAgentFFTOTitle.md) | 1448 | [UI framework](../areas/ui-framework.md) | The title screens' agent (1448 bytes, `Mem_Alloc(0x5A8)` in `UIAgentManager_CreateAgents` at 0x1401CFA4D; vtable 0x14070A5B0, constructor 0x1401C2AE4). |
+| [UIAgentManager](UIAgentManager.md) | 184 | [UI framework](../areas/ui-framework.md) | The singleton UI agent manager (IDB class UIAgentModule): a 184-byte module object that owns the 54-agent vector, the addon map, the queued-event vector and the font-slot vector. |
 | [UIGadgetFFTOConfigConfirmWindow](UIGadgetFFTOConfigConfirmWindow.md) |  | [UI framework](../areas/ui-framework.md) | The confirm window gadget of General Options (+2400; vtables 0x140712448 and 0x1407124A0): a message and up to three option buttons loaded from a UIDialog row. |
 | [UIListGadget](UIListGadget.md) |  | [UI framework](../areas/ui-framework.md) | The row list gadget used by General Options (constructor 0x14028C458, bound by 0x14028C5C4 with tag 151 and the part name `List`). |
 | [UIManager](UIManager.md) |  | [UI framework](../areas/ui-framework.md) | The UI manager object at Renderer.ui_manager: the shader selectors of the UI technique and the shared layer quad buffers. |

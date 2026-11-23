@@ -17,7 +17,8 @@ The battle state word the battle state machine switches on. State 3 runs the com
 
 ## Referenced by
 
-- Read by: [sub_14020261C](../functions/sub_14020261C.md), [sub_140206CE8](../functions/sub_140206CE8.md), [sub_140210AF0](../functions/sub_140210AF0.md)
+- Read by: [Battle_TimelineFocusCamera](../functions/Battle_TimelineFocusCamera.md), [Battle_UnitStatusFillAlt](../functions/Battle_UnitStatusFillAlt.md), [Game_MainLoop](../functions/Game_MainLoop.md), [sub_14020261C](../functions/sub_14020261C.md), [sub_140206CE8](../functions/sub_140206CE8.md), [sub_140210AF0](../functions/sub_140210AF0.md)
+- Written by: [Game_MainLoop](../functions/Game_MainLoop.md), [TitleScene_Start](../functions/TitleScene_Start.md)
 
 ## Open questions
 

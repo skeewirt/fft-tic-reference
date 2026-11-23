@@ -18,7 +18,7 @@ Creates the second add-on of `UITitle_ShowMenu`: the play mode screen (uiaddon r
 
 ## Referenced by
 
-- Called by: [UITitle_ShowMenu](UITitle_ShowMenu.md)
+- Called by: [TitleScene_Update](TitleScene_Update.md), [UITitle_ShowMenu](UITitle_ShowMenu.md)
 
 ## Open questions
 

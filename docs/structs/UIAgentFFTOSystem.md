@@ -14,7 +14,10 @@ The System agent: entry 37 of the agent manager's array (`*(qword_143CD9DA8 + 16
 
 | Offset | Field | Type | Conf | Meaning |
 |---|---|---|---|---|
-| <a id="state"></a>`0x48` | state | `int32` | V | The state machine (UIAgent_SetState 0x1401CA59C: the old state's handler with 2, the new one's with 0; each frame with 1). |
+| <a id="state_owner"></a>`0x48` | state_owner | `void *` | V | Owner pointer of the 32-byte state control block at +0x48 (handler +0x50, selector +0x58, state +0x60). |
+| <a id="state_handler"></a>`0x50` | state_handler | `void *` | V | The current state handler; UIAgent_SetState updates it after the selector returns. |
+| <a id="state_selector"></a>`0x58` | state_selector | `void *` | V | The state selector; called with the new state id, returns the handler. |
+| <a id="state"></a>`0x60` | state | `int32` | V | The state id (control block +0x18, agent +0x60); UIAgent_SetState writes it. |
 | <a id="system_menu_addon"></a>`0x5A8` | system_menu_addon | `UIAddon *` | V | The system menu add-on. |
 | <a id="config_addon"></a>`0x5B0` | config_addon | `UIAddonFFTOConfig *` | V | The General Options add-on. |
 | <a id="third_addon"></a>`0x5B8` | third_addon | `UIAddon *` | ? | A third add-on; its use was not read. |

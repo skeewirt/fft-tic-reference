@@ -35,6 +35,7 @@ One iteration of the game's application loop: frame pacing, the debug/capture ga
 
 ## Referenced by
 
+- Appears in flows: [ApplicationLifecycle](../flows/ApplicationLifecycle.md)
 - Called by: [Game_Main](Game_Main.md)
 - Observed behaviours: [QuitLoopExit](../behaviors/QuitLoopExit.md), [QuitRequest](../behaviors/QuitRequest.md)
 

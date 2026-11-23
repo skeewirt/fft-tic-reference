@@ -2,9 +2,9 @@
 
 The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.
 
-Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed behaviours: 6, Tables: 10.
+Functions: 143, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flows: 4, Observed behaviours: 6, Tables: 10.
 
-## Functions (139)
+## Functions (143)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -21,7 +21,6 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [ConfigVolume_Serialize](../functions/ConfigVolume_Serialize.md) | `0x1400C48FC` | Describes the volume settings: overall, music, sound effects, voice and movie volume, and the visual-effect switch. |
 | [FieldSchema_LoadFromNode](../functions/FieldSchema_LoadFromNode.md) | `0x1400B059C` | The load half of the field-schema walker: for each descriptor of a schema it looks a node up by name and decodes it into the record. |
 | [FieldSchema_Run](../functions/FieldSchema_Run.md) | `0x1400B024C` | The generic walker behind the game's save and config records: it takes a table of field descriptors and turns one in-memory record into a tree of named value nodes (or, for the other direction, fills a record from suc... |
-| [Save_BootClear](../functions/Save_BootClear.md) | `0x1402D3FA0` | The boot-time save clear: it fills the save cache and the auto slot with the empty pattern, resets the save manager and the auto-slot header, and starts the reload state machine. |
 | [Save_ResumeCheckpoint](../functions/Save_ResumeCheckpoint.md) | `0x1402D03D8` | After a slot load, decides whether the auto-slot checkpoint is a plain world-map one: only then it copies the checkpoint into the save work block and unpacks it to the live records. |
 | [SaveAnimUnit_Serialize](../functions/SaveAnimUnit_Serialize.md) | `0x1400B7970` | Describes one animated unit's state: animation work id, unit id, colour and colour offset, flags and animation sequence. |
 | [SaveBattleCamera_Serialize](../functions/SaveBattleCamera_Serialize.md) | `0x1400C24CC` | Describes the battle camera reserve record. |
@@ -48,8 +47,11 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [SaveKeyNew_Serialize](../functions/SaveKeyNew_Serialize.md) | `0x1400C1CBC` | Describes a keyed entry with new and arrival flags. |
 | [SaveLatestKey_Serialize](../functions/SaveLatestKey_Serialize.md) | `0x1400C1F7C` | Describes the latest-key marker. |
 | [SaveLibrary_Serialize](../functions/SaveLibrary_Serialize.md) | `0x1400C2020` | Describes the library menu state: zodiac stones, books, journal, glossary, world situation and the unlock flag. |
-| [SaveLoadList_BuildEntries](../functions/SaveLoadList_BuildEntries.md) | `0x140185D1C` | Builds the ENHANCED save/load list: one 240-byte entry per cache slot whose magic is `SC`, then sorts the entry vector. |
+| [SaveLoadList_BuildAutoEntries](../functions/SaveLoadList_BuildAutoEntries.md) | `0x1401859A8` | Rebuilds vector B, the auto-row list of the save/load add-on, from the agent's five 264-byte resume descriptors. |
+| [SaveLoadList_BuildEntries](../functions/SaveLoadList_BuildEntries.md) | `0x140185D1C` | Builds vector A, the row list the screen shows for the current tab: the tab-specific extra rows, one 240-byte row per selected cache slot, then a sort of the pointer array. |
+| [SaveLoadList_ClearAutoEntries](../functions/SaveLoadList_ClearAutoEntries.md) | `0x140185CB0` | Releases every row of vector B, the auto-row list, and resets the vector's end pointer. |
 | [SaveLoadList_FillItem](../functions/SaveLoadList_FillItem.md) | `0x1401864A4` | Fills one save/load list item from an entry: slot number, level, location, next event, date, play time, clear / auto marks, and registers the four preview sprites. |
+| [SaveLoadList_Refresh](../functions/SaveLoadList_Refresh.md) | `0x140187BD4` | Rebuilds the list for the current tab and presents either the rows or the empty-state text. |
 | [SaveMarkerTown_Serialize](../functions/SaveMarkerTown_Serialize.md) | `0x1400C0698` | Describes the marker town record. |
 | [SaveMenuNewA_Serialize](../functions/SaveMenuNewA_Serialize.md) | `0x1400BFEC8` | Describes one menu's new-entry marker (`menu_new`). |
 | [SaveMenuNewB_Serialize](../functions/SaveMenuNewB_Serialize.md) | `0x1400C00D0` | Describes another menu's new-entry flags (`menu_new`). |
@@ -121,9 +123,9 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [sub_1400C4690](../functions/sub_1400C4690.md) | `0x1400C4690` | The resume-order state machine: it walks the three-point ring at boot, requests each point's parts and keeps the newest three points in order. |
 | [sub_1400C480C](../functions/sub_1400C480C.md) | `0x1400C480C` | The world-map save step: it flushes any ready resume record and, only when something was queued, kicks the autosave container write. |
 | [sub_1400C6008](../functions/sub_1400C6008.md) | `0x1400C6008` | Fills a 50-slot save image with the empty-slot pattern, so a missing or rejected file reads as 50 empty slots instead of stale bytes. |
-| [sub_140183658](../functions/sub_140183658.md) | `0x140183658` | The world-map screen's update callback, in two modes: build and show the map panel, or trigger the world-map save. |
+| [sub_140183658](../functions/sub_140183658.md) | `0x140183658` | Agent state 1 of the save/load screen: it creates and shows the saving overlay and loads its layout, queues the screen-entry autosave, and waits for the save queue and the overlay before moving to state 2. |
 | [sub_14018373C](../functions/sub_14018373C.md) | `0x14018373C` | The load screen's resume-header table: it builds the small object that holds one summary per resume point and fills one entry from each delivered resume payload. |
-| [sub_1401839E4](../functions/sub_1401839E4.md) | `0x1401839E4` | The load-confirmation handler: it takes the selected slot, asks for its resume parts, loads the slot into the live state and, when the slot was saved in a battle, starts the resume path instead of a plain load. |
+| [sub_1401839E4](../functions/sub_1401839E4.md) | `0x1401839E4` | Agent state 5 of the save/load screen: the load handler. |
 | [sub_140183C38](../functions/sub_140183C38.md) | `0x140183C38` | The save-confirmation handler: it writes the chosen slot from live state, then updates the screen and plays the confirmation cue. |
 | [sub_140183DD4](../functions/sub_140183DD4.md) | `0x140183DD4` | Deletes one manual save slot: it fills the slot's 40,164-byte work copy with the empty pattern, copies it into the cache and marks the cache dirty. |
 | [sub_14018403C](../functions/sub_14018403C.md) | `0x14018403C` | The load-screen setup callback: in mode 0 it reads the whole manual-save container, and in mode 1 it advances the screen when there is something to show. |
@@ -131,7 +133,7 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [sub_140217EF8](../functions/sub_140217EF8.md) | `0x140217EF8` | Builds one resume payload in scratch memory: header, work copy or battle snapshot, and the YOX image page. |
 | [sub_1402181EC](../functions/sub_1402181EC.md) | `0x1402181EC` | Materialises a resume payload: it copies the body back into the live buffers, restores the control words and inflates the image page. |
 | [sub_14021849C](../functions/sub_14021849C.md) | `0x14021849C` | Validates a resume payload's header and copies its summary fields into the auto slot. |
-| [sub_1402185A4](../functions/sub_1402185A4.md) | `0x1402185A4` | The save frame step: it runs one of store, load or image-to-cache per frame, according to the manager's command. |
+| [sub_1402185A4](../functions/sub_1402185A4.md) | `0x1402185A4` | The save frame step: it runs one of store, load or image-to-cache per frame, according to the command word of the save manager object (`qword_140D405B8`). |
 | [sub_140218728](../functions/sub_140218728.md) | `0x140218728` | Loads all fifty slots into the caller's buffer, through the PNG path or the legacy per-slot files. |
 | [sub_140218C04](../functions/sub_140218C04.md) | `0x140218C04` | Copies a freshly loaded flat image into the slot cache. |
 | [sub_14021A030](../functions/sub_14021A030.md) | `0x14021A030` | The classic save/load menu: it lists the slots, maps slot 0 to the auto slot, and runs the save or load step. |
@@ -139,7 +141,7 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [sub_14021BD04](../functions/sub_14021BD04.md) | `0x14021BD04` | Builds the classic save menu's slot list, one title card per valid slot. |
 | [sub_14021C620](../functions/sub_14021C620.md) | `0x14021C620` | The classic load menu: it reads the chosen card, imports the header and materialises the run. |
 | [sub_140245B7C](../functions/sub_140245B7C.md) | `0x140245B7C` | Maps classic list slot 0 to the auto slot record and moves the 0x9CE4 bytes between them. |
-| [sub_140245C84](../functions/sub_140245C84.md) | `0x140245C84` | Clears every stored slot to the empty-slot pattern. |
+| [sub_140245C84](../functions/sub_140245C84.md) | `0x140245C84` | The save-cache clear as a three-step poll: the first call requests the flush, clears the slot cache and reports busy; the next call reports busy again; a later call reports ready. |
 | [sub_140246014](../functions/sub_140246014.md) | `0x140246014` | Moves the 0x9CE4-byte slot record between the work copy and the checkpoint copy: a non-zero second argument copies the checkpoint back into the work copy; zero builds the work copy from the party and stores it in the ... |
 | [sub_140257074](../functions/sub_140257074.md) | `0x140257074` | Builds the capture handler object and installs the autosave writer stub in it. |
 | [sub_140257354](../functions/sub_140257354.md) | `0x140257354` | The single resume entry point: it reads the part selector, imports the header and hands over to the materialiser. |
@@ -147,6 +149,8 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [sub_1402CEEE8](../functions/sub_1402CEEE8.md) | `0x1402CEEE8` | The checkpoint writer: it builds a fresh work copy of the party, stores it in the checkpoint copy, and then overwrites the checkpoint copy's unit area and many other fields with the live state, so the checkpoint holds... |
 | [sub_1402CF768](../functions/sub_1402CF768.md) | `0x1402CF768` | The reverse of the slot-record builder: it takes the work copy and writes its sections back into live state, including the ten item order lists. |
 | [sub_140327004](../functions/sub_140327004.md) | `0x140327004` | Moves the ten item order lists between a work record and the live arrays, in either direction. |
+| [UISaveLoad_StateEnter](../functions/UISaveLoad_StateEnter.md) | `0x1401838F0` | Agent state 4 of the save/load screen: the hand-off from the loaded save index to the live list. |
+| [UISaveLoad_StateSourcePick](../functions/UISaveLoad_StateSourcePick.md) | `0x140183B78` | Agent state 8 of the save/load screen: the pick that hands a chosen save slot back to the caller. |
 
 ## Structures (13)
 
@@ -179,6 +183,13 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [g_SaveWorkCurrent](../globals/g_SaveWorkCurrent.md) | `0x142C81C80` | `uint8[40164]` | The live work copy of the running game, one 0x9CE4-byte slot record. |
 | [g_SaveYoxPage](../globals/g_SaveYoxPage.md) | `0x142FF9F90` | `uint8[1048576]` | The 1 MB 16-bit image page carried after a battle snapshot. |
 
+## Registries (2)
+
+| Name | Summary |
+|---|---|
+| [UISaveLoadDialogStates](../registries/UISaveLoadDialogStates.md) | The save/load agent's dialog block states (ids 0..2). |
+| [UISaveLoadStates](../registries/UISaveLoadStates.md) | The save/load agent's eleven states (ids 0..10). |
+
 ## File formats (4)
 
 | Name | Extension | Summary |
@@ -188,13 +199,14 @@ Functions: 139, Structures: 13, Globals: 8, File formats: 4, Flows: 3, Observed 
 | [ResumeEntry](../formats/ResumeEntry.md) | `.sav` | One entry of `autoenhanced.png`: a 16-byte entry header, a 340-byte payload header, then a body that is either the 40,164-byte save work copy (kind 0, the world and main form) or a 668,112-byte battle snapshot followe... |
 | [SavePngContainer](../formats/SavePngContainer.md) | `.png` | A game save file: an ordinary PNG whose private `ffTo` chunk carries a `UMIF` container. |
 
-## Flows (3)
+## Flows (4)
 
 | Name | Summary |
 |---|---|
 | [AutoSaveRead](../flows/AutoSaveRead.md) | How a resume entry reaches the game: the reader queues one request per entry name, a single read kick mounts the container, and the delivery function hands each entry to its object, where the header is validated and t... |
 | [AutoSaveWrite](../flows/AutoSaveWrite.md) | Where a resume entry comes from and when it is written: the per-frame flush turns dirty group buffers into named entries, stamps each with a CRC, and one write kick sends the whole container. |
 | [SaveFrameStep](../flows/SaveFrameStep.md) | How a manual save or load reaches the file: the save screen changes a command, and one frame step does the work once per frame, blocking that frame while the container is read or written. |
+| [SaveLoadScreenFlow](../flows/SaveLoadScreenFlow.md) | The save/load screen's ordered path. |
 
 ## Observed behaviours (6)
 

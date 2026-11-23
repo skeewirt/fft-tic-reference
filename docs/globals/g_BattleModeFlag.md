@@ -14,6 +14,7 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 ## Referenced by
 
 - Read by: [MapRow_SelectVariation](../functions/MapRow_SelectVariation.md)
+- Written by: [Game_MainLoop](../functions/Game_MainLoop.md)
 
 ## Open questions
 

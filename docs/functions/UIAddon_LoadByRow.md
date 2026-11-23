@@ -19,7 +19,7 @@ Loads a screen's layout: row of UI table 24 (`uiaddon.nxd`), whose `path` names 
 ## Referenced by
 
 - Appears in flows: [ScreenAddonCreation](../flows/ScreenAddonCreation.md)
-- Called by: [Guide_OpenWindow](Guide_OpenWindow.md)
+- Called by: [Boot_Update](Boot_Update.md), [Guide_OpenWindow](Guide_OpenWindow.md), [TitleScene_Update](TitleScene_Update.md), [UISaveLoad_StateEnter](UISaveLoad_StateEnter.md), [sub_140183658](sub_140183658.md)
 - Resolves registries: [UIAddonRows](../registries/UIAddonRows.md)
 
 ## Notes

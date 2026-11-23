@@ -23,6 +23,8 @@ Loads the opening message textures and selects the language's sprite list for th
 
 ## Referenced by
 
+- Appears in flows: [OpeningStages](../flows/OpeningStages.md)
+- Called by: [OpeningMenu_Task](OpeningMenu_Task.md), [OpeningTask_12](OpeningTask_12.md)
 - Reads tables: [OpeningSpriteLists](../tables/OpeningSpriteLists.md), [OpeningStepMaps](../tables/OpeningStepMaps.md)
 
 ## Open questions

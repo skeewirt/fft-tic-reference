@@ -20,11 +20,12 @@ Per-frame handler of the boot movie: ends it on the skip rules and copies the de
 
 ## State touched
 
-- Calls: [Input_TestAction](Input_TestAction.md)
+- Calls: [Input_TestAction](Input_TestAction.md), [Boot_SetState](Boot_SetState.md)
 
 ## Referenced by
 
-- Appears in flows: [MovieStart](../flows/MovieStart.md)
+- Appears in flows: [BootStateMachine](../flows/BootStateMachine.md), [MovieStart](../flows/MovieStart.md)
+- Called by: [Boot_Frame](Boot_Frame.md)
 - Observed behaviours: [MovieSkipKinds](../behaviors/MovieSkipKinds.md)
 
 ## Notes

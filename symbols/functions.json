@@ -833,6 +833,23 @@
       },
       "doc": "docs/functions/BattleAction_BuildUnitRequest.md"
     },
+    "BattleAction_ConfirmCommand": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:70ae52a923a2c8103be5740bdd35131bedabfe19cda8ece64fcc36d6a6726855",
+            "insn_count": 30,
+            "mnemonics": "sha256:a978819d823dfc745a5e8be1dcec6e77da22f25a20283bfb841e2be0ef04e378",
+            "size": 112
+          },
+          "rva": "0x203620",
+          "size": 112
+        }
+      },
+      "doc": "docs/functions/BattleAction_ConfirmCommand.md"
+    },
     "BattleAction_GetRangeInfo": {
       "area": "battle",
       "builds": {
@@ -1683,6 +1700,23 @@
       },
       "doc": "docs/functions/BattleRange_SpreadDiamond.md"
     },
+    "BattleTask_ActorForecastPanel": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 7,
+            "calls": "sha256:bc1d45be28c4f1565fa637fd523168457ebfdb2a880d0e6e160882df73e56c8a",
+            "insn_count": 48,
+            "mnemonics": "sha256:67edd4a22fdc985f6b7b4817715da33cb90cf690b1920f51a0559455854a9b61",
+            "size": 589
+          },
+          "rva": "0x229dd4",
+          "size": 589
+        }
+      },
+      "doc": "docs/functions/BattleTask_ActorForecastPanel.md"
+    },
     "BattleTask_Slot13Entry": {
       "area": "battle",
       "builds": {
@@ -1699,6 +1733,23 @@
         }
       },
       "doc": "docs/functions/BattleTask_Slot13Entry.md"
+    },
+    "BattleTask_TargetForecastPanel": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:f4449e1279631b15fd46763a59537e5f3630205f759d6045631c6d3a6bffc915",
+            "insn_count": 48,
+            "mnemonics": "sha256:785b40f06a70d81be70eb94f0c4ead6c10cc166065faaea31a91b766f448face",
+            "size": 376
+          },
+          "rva": "0x22a024",
+          "size": 376
+        }
+      },
+      "doc": "docs/functions/BattleTask_TargetForecastPanel.md"
     },
     "BattleUnit_BuildCursorRecord": {
       "area": "battle",
@@ -2141,6 +2192,23 @@
         }
       },
       "doc": "docs/functions/Battle_CommandTask.md"
+    },
+    "Battle_FindUnitNodeAt": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:9afe45a07b6eabeeee270b8f531d24d48fdc66925be58525a5b6239915783a1c",
+            "size": 211
+          },
+          "rva": "0x260824",
+          "size": 211
+        }
+      },
+      "doc": "docs/functions/Battle_FindUnitNodeAt.md"
     },
     "Battle_GetEntryBlock": {
       "area": "unit-data",
@@ -2839,6 +2907,23 @@
       },
       "doc": "docs/functions/Battle_TimelineBuildList.md"
     },
+    "Battle_TimelineFocusCamera": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 34,
+            "calls": "sha256:77f86ef1aac2b5ff059a2b7c177fe3a64ab39eefb848497533505848fab3f4e8",
+            "insn_count": 48,
+            "mnemonics": "sha256:09eac2459e2229ba8206f8091ebe26a156d8dbb8cc25dcbf4081416f8b15e463",
+            "size": 2055
+          },
+          "rva": "0x209738",
+          "size": 2055
+        }
+      },
+      "doc": "docs/functions/Battle_TimelineFocusCamera.md"
+    },
     "Battle_TimelineRefresh": {
       "area": "battle",
       "builds": {
@@ -2906,6 +2991,23 @@
         }
       },
       "doc": "docs/functions/Battle_UnitStatusFill.md"
+    },
+    "Battle_UnitStatusFillAlt": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 25,
+            "calls": "sha256:c535cd002cdb25f5289c39110fc14b6e2163195d130e301d155bb015c799367d",
+            "insn_count": 48,
+            "mnemonics": "sha256:3fb1c6eef28f933a5b34558894a48e62117571801ebab68ea79f7f87b6d7d598",
+            "size": 5546
+          },
+          "rva": "0x228778",
+          "size": 5546
+        }
+      },
+      "doc": "docs/functions/Battle_UnitStatusFillAlt.md"
     },
     "BgmMode_BuildLists": {
       "area": "ui-framework",
@@ -3111,6 +3213,40 @@
       },
       "doc": "docs/functions/Book_ShowGuide.md"
     },
+    "Boot_CloseUI": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:ead6ce9337ad9d182c91ed4f1041044b68e2e342da5b6fc5ed0f5982a8117610",
+            "insn_count": 39,
+            "mnemonics": "sha256:c5d4b95c0382aff0de579fb67b0cbcc89a68588814efc2edc4134c9348b6c173",
+            "size": 160
+          },
+          "rva": "0x1de0c4",
+          "size": 160
+        }
+      },
+      "doc": "docs/functions/Boot_CloseUI.md"
+    },
+    "Boot_Frame": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 19,
+            "calls": "sha256:4700dd9e3607541ed51dbe4417e58480b2a0a9a58ec148727c86f8c6ad69b383",
+            "insn_count": 48,
+            "mnemonics": "sha256:c4d17da707457fe32868581bd474af6cd75d3b85e7b47e2615fc79ed003fbf78",
+            "size": 619
+          },
+          "rva": "0xb5a7c",
+          "size": 619
+        }
+      },
+      "doc": "docs/functions/Boot_Frame.md"
+    },
     "Boot_MovieFrame": {
       "area": "ui-framework",
       "builds": {
@@ -3127,6 +3263,74 @@
         }
       },
       "doc": "docs/functions/Boot_MovieFrame.md"
+    },
+    "Boot_SetState": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:42a4c24560b593999840301c72ea81d8dc3a1cc10103606803054f5a87cfbe0e",
+            "insn_count": 48,
+            "mnemonics": "sha256:b500a65aea55afc9de8a02af83dfb0806f450539f926dc21f9b1309bbec209f6",
+            "size": 514
+          },
+          "rva": "0x1e79a0",
+          "size": 514
+        }
+      },
+      "doc": "docs/functions/Boot_SetState.md"
+    },
+    "Boot_StartThreads": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:8fea4fd5e0505e2991668ee3564081d6f40391bf690b0edeadc8259730ad56e4",
+            "insn_count": 48,
+            "mnemonics": "sha256:a3b9c2cc57236cdc1515f214ea42171ce3c01f6acce9e04de38e017ca550cdfd",
+            "size": 385
+          },
+          "rva": "0x256ef0",
+          "size": 385
+        }
+      },
+      "doc": "docs/functions/Boot_StartThreads.md"
+    },
+    "Boot_Update": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 19,
+            "calls": "sha256:4a1b8ef9ac2b63197ece611094ec7ebdba2cf8caa70dec4ffe7678f631d07473",
+            "insn_count": 48,
+            "mnemonics": "sha256:b4c81ed05103fd873b99309b3f59ad5b4d4824be8bf6a8ab3611894cfe5b815c",
+            "size": 1401
+          },
+          "rva": "0x1de164",
+          "size": 1401
+        }
+      },
+      "doc": "docs/functions/Boot_Update.md"
+    },
+    "Boot_UpdateVideo": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 20,
+            "calls": "sha256:5feb8231fcd169c6417eb2402f87394ba983afa97eaf18b0f262b74ab2f7e75e",
+            "insn_count": 48,
+            "mnemonics": "sha256:63e86165dfbfa4eb97e91684134a972542839bd4582f22e80ee4ffa8d02ac89c",
+            "size": 760
+          },
+          "rva": "0x2561d0",
+          "size": 760
+        }
+      },
+      "doc": "docs/functions/Boot_UpdateVideo.md"
     },
     "ButtonIcon_Draw": {
       "area": "ui-framework",
@@ -15334,6 +15538,23 @@
       },
       "doc": "docs/functions/GameTasks_RunFrameSteps.md"
     },
+    "Game_LoopReset": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:ae61bbf1f20cdc6c950381aaa80be332dc8a4228d4ba9a19819e4cf701605b35",
+            "insn_count": 38,
+            "mnemonics": "sha256:a477adc736518a827530432f0614e2308a99858ef14c0361b315168baaecb18e",
+            "size": 201
+          },
+          "rva": "0x283fcc",
+          "size": 201
+        }
+      },
+      "doc": "docs/functions/Game_LoopReset.md"
+    },
     "Game_Main": {
       "area": "app-startup",
       "builds": {
@@ -15350,6 +15571,57 @@
         }
       },
       "doc": "docs/functions/Game_Main.md"
+    },
+    "Game_MainLoop": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 45,
+            "calls": "sha256:ccf55458d22a8689c7f40730a38752d709e18c4a0dea004a563b13880d0ef5d3",
+            "insn_count": 48,
+            "mnemonics": "sha256:83f0214351cf43fe4103362bc296ac56c216d20078d6ca913f84cf9a47c107e1",
+            "size": 2697
+          },
+          "rva": "0x2d3fa0",
+          "size": 2697
+        }
+      },
+      "doc": "docs/functions/Game_MainLoop.md"
+    },
+    "Game_MainLoopReset": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:44ee579c1220cbff07318b7f03a86cae0b812ccbf23c4eefd7c104c55b76a902",
+            "insn_count": 3,
+            "mnemonics": "sha256:df0029aeb1b147ea8dbc65d043e711f7bc10e6141fc09daebb3c16540280b895",
+            "size": 15
+          },
+          "rva": "0x2d4a2c",
+          "size": 15
+        }
+      },
+      "doc": "docs/functions/Game_MainLoopReset.md"
+    },
+    "Game_ThreadMain": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:1e038f9cebc7068a1ae0a23a1938e55f9277e4e01f3f410f1b895dc38a12e2f1",
+            "insn_count": 8,
+            "mnemonics": "sha256:9198aebf4c241aa8f5ca7491d1ea68dd8220879dcfc66fe80073ad7b3979c3b4",
+            "size": 44
+          },
+          "rva": "0x348658",
+          "size": 44
+        }
+      },
+      "doc": "docs/functions/Game_ThreadMain.md"
     },
     "GaussianKernel_Build": {
       "area": "graphics",
@@ -20621,6 +20893,261 @@
       },
       "doc": "docs/functions/NxdTable_OnReady.md"
     },
+    "OpeningMenu_Task": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 20,
+            "calls": "sha256:a049dede1cbf0c4f887722f0c9b51f3e74262918f4ad8e8f8235ca78b88add1d",
+            "insn_count": 48,
+            "mnemonics": "sha256:e15ee1a3581d2d44e447f94b413fcef31fb8edda3d99e256e5b14a3aa6f0a668",
+            "size": 1828
+          },
+          "rva": "0x2f0124",
+          "size": 1828
+        }
+      },
+      "doc": "docs/functions/OpeningMenu_Task.md"
+    },
+    "OpeningScene_Resume": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 4,
+            "mnemonics": "sha256:6bf8521e9d54572f7233dc2ffa0cdecaa9164fec442cd9a950caa9921eb7d41e",
+            "size": 25
+          },
+          "rva": "0x2f0848",
+          "size": 25
+        }
+      },
+      "doc": "docs/functions/OpeningScene_Resume.md"
+    },
+    "OpeningScene_Start": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:ee9954ec0172688eae68d306af2a543f177f11822c229b02922176749565aa00",
+            "insn_count": 48,
+            "mnemonics": "sha256:03c6f6ac161fb6617023026e8a18cd63ac408bb244e8027b157d7fc4575377eb",
+            "size": 243
+          },
+          "rva": "0x2eff6c",
+          "size": 243
+        }
+      },
+      "doc": "docs/functions/OpeningScene_Start.md"
+    },
+    "OpeningSubmenu_Task": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:a192b84920c0f7f021b952c9c13580651498bc6d363e06684d86fa36265067a2",
+            "insn_count": 48,
+            "mnemonics": "sha256:407fce417dc9dacd5c7c261dbf4542de698ba95252523ac1d1ae7b353994d17e",
+            "size": 515
+          },
+          "rva": "0x37d998",
+          "size": 515
+        }
+      },
+      "doc": "docs/functions/OpeningSubmenu_Task.md"
+    },
+    "OpeningTask_0": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:7eba6e50b23198461a3ac2571a966e8e19fc9738bc9b8a8c3847988a260cce88",
+            "insn_count": 8,
+            "mnemonics": "sha256:1dd6e08c0df2f134e9c166364595e2879ca30c31142fe36696bb004c90980891",
+            "size": 36
+          },
+          "rva": "0x2f0060",
+          "size": 36
+        }
+      },
+      "doc": "docs/functions/OpeningTask_0.md"
+    },
+    "OpeningTask_1": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 18,
+            "mnemonics": "sha256:cac778be8453041538f8b9431fff3c9b3b63d5aaa34264e2a0dab5c7c8d49d17",
+            "size": 77
+          },
+          "rva": "0x2f00d4",
+          "size": 77
+        }
+      },
+      "doc": "docs/functions/OpeningTask_1.md"
+    },
+    "OpeningTask_10": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:daaa0d4eca1fd0f1322290c0f021974b59d0c971b1812183906a10e79fbf91ad",
+            "insn_count": 48,
+            "mnemonics": "sha256:e72b7377bf726f439f4983572a632fe4bdd30c0813eb5083bd0c0855bfc844f0",
+            "size": 355
+          },
+          "rva": "0x37f1f0",
+          "size": 355
+        }
+      },
+      "doc": "docs/functions/OpeningTask_10.md"
+    },
+    "OpeningTask_12": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:1b6020ea3c1a851213628bfd56f370a923c332e278eeca3a5fdc91f3ea1b09de",
+            "insn_count": 48,
+            "mnemonics": "sha256:8bb143214606d4761d89b19bce9af19f6cceb5409c25e58d65e3a2ab73c1cb1d",
+            "size": 375
+          },
+          "rva": "0x37f398",
+          "size": 375
+        }
+      },
+      "doc": "docs/functions/OpeningTask_12.md"
+    },
+    "OpeningTask_4": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 16,
+            "calls": "sha256:6f29a4315eb5a4d4f5994b54a486f315a3aad5e0acf017c552bd6ca095af419b",
+            "insn_count": 48,
+            "mnemonics": "sha256:fbd693c6daf701321f6fa993a04583acd1f44492e11c81859ecaedc7fb61a242",
+            "size": 837
+          },
+          "rva": "0x37dea0",
+          "size": 837
+        }
+      },
+      "doc": "docs/functions/OpeningTask_4.md"
+    },
+    "OpeningTask_5": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:4f33ddfc7f67d159ace2820c623b6ae5ad9118d81ae6580629fbd6326e18cce8",
+            "insn_count": 48,
+            "mnemonics": "sha256:735e287848bc61852eee467c7f5900efd8afa429f79fef7e936e4adf0c5c3f9c",
+            "size": 785
+          },
+          "rva": "0x37e83c",
+          "size": 785
+        }
+      },
+      "doc": "docs/functions/OpeningTask_5.md"
+    },
+    "OpeningTask_6": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 12,
+            "calls": "sha256:94d85f75ad5a2415ec55dfca37e6e2182f5915e0916917430517faa564f3c902",
+            "insn_count": 48,
+            "mnemonics": "sha256:d6862372ddc16e50afbf3ce0d6fcc0df5f95e8821ade459b261d45e9afdc552a",
+            "size": 945
+          },
+          "rva": "0x37edd4",
+          "size": 945
+        }
+      },
+      "doc": "docs/functions/OpeningTask_6.md"
+    },
+    "OpeningTask_7": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 14,
+            "calls": "sha256:4296e0644dc6074782b822f0ffbb4ce2372d0f5aa425b52c9b5ed35ce383195e",
+            "insn_count": 48,
+            "mnemonics": "sha256:967cbf532139cb0e6f9c56305bbb03e70ca23025eedf655c8374f32ddd8abc8b",
+            "size": 887
+          },
+          "rva": "0x332704",
+          "size": 887
+        }
+      },
+      "doc": "docs/functions/OpeningTask_7.md"
+    },
+    "OpeningTask_8": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 46,
+            "mnemonics": "sha256:9d0783f1dc9972f4642949d463e9c3c4e6c8676b1aee71fd35b682416c903e58",
+            "size": 204
+          },
+          "rva": "0x332a7c",
+          "size": 204
+        }
+      },
+      "doc": "docs/functions/OpeningTask_8.md"
+    },
+    "OpeningTask_9": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:3b421c0d1ad4d4f461e64d08b1d1b084871375eb7601be8c9f36f4f38d1d8bd0",
+            "insn_count": 20,
+            "mnemonics": "sha256:5dbfaee3f9e0cb142cc82545177a30c208369dac729f44ce0e289d7dcfdd2344",
+            "size": 104
+          },
+          "rva": "0x37f188",
+          "size": 104
+        }
+      },
+      "doc": "docs/functions/OpeningTask_9.md"
+    },
+    "Opening_EndToTitle": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:34b1bdaaaa5a2c9fe855c1e210818b0986c53ab20dde4a694c1fd5b243e581cd",
+            "insn_count": 29,
+            "mnemonics": "sha256:68458dce49230a0d734e24b422bfff837e893c4733e366ce3c3851070c9173bb",
+            "size": 133
+          },
+          "rva": "0x37de18",
+          "size": 133
+        }
+      },
+      "doc": "docs/functions/Opening_EndToTitle.md"
+    },
     "Opening_LoadMessageSprites": {
       "area": "ui-framework",
       "builds": {
@@ -22865,6 +23392,23 @@
       },
       "doc": "docs/functions/SaveLibrary_Serialize.md"
     },
+    "SaveLoadList_BuildAutoEntries": {
+      "area": "save-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:cdf97a3b105c57cbd91bf6de6841038dc6ef4ba8b19f7befd3490f926d0ca196",
+            "insn_count": 48,
+            "mnemonics": "sha256:512d4c8445a025476b23a1324de8ea9e4d83336d38b4b197dfbbbd223a31b203",
+            "size": 775
+          },
+          "rva": "0x1859a8",
+          "size": 775
+        }
+      },
+      "doc": "docs/functions/SaveLoadList_BuildAutoEntries.md"
+    },
     "SaveLoadList_BuildEntries": {
       "area": "save-data",
       "builds": {
@@ -22882,6 +23426,23 @@
       },
       "doc": "docs/functions/SaveLoadList_BuildEntries.md"
     },
+    "SaveLoadList_ClearAutoEntries": {
+      "area": "save-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:1f36929489edd505c76817cd3346fd424b131ff5c123fd9af89f54381b12338a",
+            "insn_count": 27,
+            "mnemonics": "sha256:83141c7040fa422e928b35e4516d495205091cb337573145db7180cab9a4b740",
+            "size": 107
+          },
+          "rva": "0x185cb0",
+          "size": 107
+        }
+      },
+      "doc": "docs/functions/SaveLoadList_ClearAutoEntries.md"
+    },
     "SaveLoadList_FillItem": {
       "area": "save-data",
       "builds": {
@@ -22898,6 +23459,23 @@
         }
       },
       "doc": "docs/functions/SaveLoadList_FillItem.md"
+    },
+    "SaveLoadList_Refresh": {
+      "area": "save-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:b52bf76c08b770b6b8e50b285b741b5b73b12d81ccfb4b82f5c68dc0df412984",
+            "insn_count": 48,
+            "mnemonics": "sha256:5188c20fdb7cdc22acb359d95bb6210fc84da00bfcb15df83b3a5339f635970e",
+            "size": 249
+          },
+          "rva": "0x187bd4",
+          "size": 249
+        }
+      },
+      "doc": "docs/functions/SaveLoadList_Refresh.md"
     },
     "SaveMarkerTown_Serialize": {
       "area": "save-data",
@@ -23511,23 +24089,6 @@
       },
       "doc": "docs/functions/SaveWorld_Serialize.md"
     },
-    "Save_BootClear": {
-      "area": "save-data",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 45,
-            "calls": "sha256:ccf55458d22a8689c7f40730a38752d709e18c4a0dea004a563b13880d0ef5d3",
-            "insn_count": 48,
-            "mnemonics": "sha256:83f0214351cf43fe4103362bc296ac56c216d20078d6ca913f84cf9a47c107e1",
-            "size": 2697
-          },
-          "rva": "0x2d3fa0",
-          "size": 2697
-        }
-      },
-      "doc": "docs/functions/Save_BootClear.md"
-    },
     "Save_ResumeCheckpoint": {
       "area": "save-data",
       "builds": {
@@ -23646,6 +24207,40 @@
         }
       },
       "doc": "docs/functions/SceneGroup_SetFlag04.md"
+    },
+    "SceneLoop_Run": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 12,
+            "calls": "sha256:2bdedc704ff02f79df6ee260cd6578a1e01f9ebb9edf5e2b9c32144bdafe2439",
+            "insn_count": 48,
+            "mnemonics": "sha256:c6539daa29c90862a2da8305ec6c8ebbca72b88f4cda73605fc61f4f0748c36a",
+            "size": 588
+          },
+          "rva": "0x331c14",
+          "size": 588
+        }
+      },
+      "doc": "docs/functions/SceneLoop_Run.md"
+    },
+    "SceneLoop_RunAlt": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 14,
+            "calls": "sha256:11d06e57d633f12fdb786d352999e761a7b34e40386f7641fbbcb6883c350176",
+            "insn_count": 48,
+            "mnemonics": "sha256:54b00c20758c690a4d01d36345116d02518fa399b2d6071a8f7adbb3c075c862",
+            "size": 568
+          },
+          "rva": "0x39dce8",
+          "size": 568
+        }
+      },
+      "doc": "docs/functions/SceneLoop_RunAlt.md"
     },
     "SceneMsgTask_Run": {
       "area": "event-system",
@@ -24581,6 +25176,23 @@
         }
       },
       "doc": "docs/functions/SceneVar_Write.md"
+    },
+    "Scene_Init": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:043bdd40b49198a6604c9ee86a0cf0defdb6f81baa7e068b4d5cb27290815006",
+            "insn_count": 38,
+            "mnemonics": "sha256:367bb9e639ee3aad69af8b3750003d3661e3a6b5d78065f6e806f51257f7edec",
+            "size": 210
+          },
+          "rva": "0x37f510",
+          "size": 210
+        }
+      },
+      "doc": "docs/functions/Scene_Init.md"
     },
     "Scene_StartMusic": {
       "area": "event-system",
@@ -26197,6 +26809,91 @@
       },
       "doc": "docs/functions/TitleMenu_StampInput.md"
     },
+    "TitleScene_DemoReturn": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:9d5aaa0f56bda201f6bacc589bfc492cd168ede197f5e283cade753730301ca0",
+            "insn_count": 15,
+            "mnemonics": "sha256:8f30767d9f015e985771bcf4a357b1b88b46ce142b77e8c00402dfa4065d213e",
+            "size": 67
+          },
+          "rva": "0x37f354",
+          "size": 67
+        }
+      },
+      "doc": "docs/functions/TitleScene_DemoReturn.md"
+    },
+    "TitleScene_NewGameHandoff": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:57ed960a087e596f5c1093750cbbb47e965f0885cb776f3337bffcd57fba8c9b",
+            "insn_count": 9,
+            "mnemonics": "sha256:50d7b725cb4565b2df0cd2bf42642b952d91dad54c9180cfe26e35f089ae466e",
+            "size": 49
+          },
+          "rva": "0x2f0c14",
+          "size": 49
+        }
+      },
+      "doc": "docs/functions/TitleScene_NewGameHandoff.md"
+    },
+    "TitleScene_Start": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 7,
+            "calls": "sha256:9e19e927547717cf6e766de365b9235bdc4c546802d0426098c8ac27e70716e3",
+            "insn_count": 48,
+            "mnemonics": "sha256:1ec775a4caad20385193a4565677d344118474deec6a421f5ba35c0bc69a2367",
+            "size": 223
+          },
+          "rva": "0x2f0864",
+          "size": 223
+        }
+      },
+      "doc": "docs/functions/TitleScene_Start.md"
+    },
+    "TitleScene_Task": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:eba7d52b1a5382631ac678e9bbe7befb338338cc2d46819958c7acc839483051",
+            "insn_count": 48,
+            "mnemonics": "sha256:a63c5dce22d6bae71211ab0d5d5691a1d22542efd10f9d7fc04616a808dd1906",
+            "size": 547
+          },
+          "rva": "0x2f0944",
+          "size": 547
+        }
+      },
+      "doc": "docs/functions/TitleScene_Task.md"
+    },
+    "TitleScene_Update": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 13,
+            "calls": "sha256:29b07051e97c22b66d2679ba6b4a759cf0a4a233cb60e5a3a96563a376e06b8f",
+            "insn_count": 48,
+            "mnemonics": "sha256:5a24100bb225a3e4d4b5ef4096bcde150779aaebc81a7d4d2adbaeda4fe55b5c",
+            "size": 936
+          },
+          "rva": "0x1de744",
+          "size": 936
+        }
+      },
+      "doc": "docs/functions/TitleScene_Update.md"
+    },
     "TopLevelExceptionFilter": {
       "area": "app-startup",
       "builds": {
@@ -26843,6 +27540,40 @@
       },
       "doc": "docs/functions/UIAgentCursor_Show.md"
     },
+    "UIAgentFFTOSaveLoad_Ctor": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:447a08474addb9f94461cfdc2897374a771dc3854ba22b2eac1e6a0a97eefbbe",
+            "insn_count": 48,
+            "mnemonics": "sha256:9098f49e5b4afc45b490372e3eef45d8476eb0c5b75a9bdf18b516943a79c74e",
+            "size": 457
+          },
+          "rva": "0x182b38",
+          "size": 457
+        }
+      },
+      "doc": "docs/functions/UIAgentFFTOSaveLoad_Ctor.md"
+    },
+    "UIAgentFFTOSaveLoad_Update": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:96cd4390d928ab741d5e61262e2a85444303b86686646e00cae388006de2dfbc",
+            "insn_count": 21,
+            "mnemonics": "sha256:66f97f1a6752d67f909b213861149aa5e0d7a87ae1749e4af4c89fa3df552eac",
+            "size": 84
+          },
+          "rva": "0x182edc",
+          "size": 84
+        }
+      },
+      "doc": "docs/functions/UIAgentFFTOSaveLoad_Update.md"
+    },
     "UIAgentFFTOSystem_Ctor": {
       "area": "ui-framework",
       "builds": {
@@ -27030,6 +27761,40 @@
       },
       "doc": "docs/functions/UIAgentFFTOTitle_Update.md"
     },
+    "UIAgentManager_CreateAgents": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:7578c364640b2bf38979909c4b2ab0612398118465d2dee7e4d6eaa1c6812577",
+            "insn_count": 48,
+            "mnemonics": "sha256:d7ffac1230517d7de964248f1d7b6d85608d634ad26d60c368441586b9f1a331",
+            "size": 6568
+          },
+          "rva": "0x1cf724",
+          "size": 6568
+        }
+      },
+      "doc": "docs/functions/UIAgentManager_CreateAgents.md"
+    },
+    "UIAgentManager_Ctor": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:ab69f81b2e7baca557c7bae47759430ed8e2ce19f9bffb794acb937466c8c4ca",
+            "insn_count": 48,
+            "mnemonics": "sha256:729aa283f94179950a63f4511d3bf3e19137153e4f34c4884593d981752c4e2e",
+            "size": 255
+          },
+          "rva": "0x1cf3dc",
+          "size": 255
+        }
+      },
+      "doc": "docs/functions/UIAgentManager_Ctor.md"
+    },
     "UIAgent_AttachAddon": {
       "area": "ui-framework",
       "builds": {
@@ -27063,6 +27828,40 @@
         }
       },
       "doc": "docs/functions/UIAgent_DetachAddon.md"
+    },
+    "UIAgent_IsActive": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 4,
+            "mnemonics": "sha256:46cc6b85c2cf4fc332e7fb4746bbb105358694d9feaf2f11f6db80aad4badd4f",
+            "size": 12
+          },
+          "rva": "0x1d15b4",
+          "size": 12
+        }
+      },
+      "doc": "docs/functions/UIAgent_IsActive.md"
+    },
+    "UIAgent_SetState": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 20,
+            "mnemonics": "sha256:5feaa6fe319cbd002134801cf59e1b0eb255ffc060b3a2c4dbd4c04f010ad63f",
+            "size": 61
+          },
+          "rva": "0x1ca59c",
+          "size": 61
+        }
+      },
+      "doc": "docs/functions/UIAgent_SetState.md"
     },
     "UIAnim_ApplyComponentTrack": {
       "area": "ui-framework",
@@ -28594,6 +29393,74 @@
       },
       "doc": "docs/functions/UIResourceHandle_New.md"
     },
+    "UISaveLoad_OnEvent": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:1526cc103a3baf1ed5b538440e8b30121013b6c4a9d943f7e56ec42531327954",
+            "insn_count": 48,
+            "mnemonics": "sha256:904c7463749a258e4194a8be4296d00a3c5b685d2bcaeefb7a327f8930023240",
+            "size": 243
+          },
+          "rva": "0x1833c4",
+          "size": 243
+        }
+      },
+      "doc": "docs/functions/UISaveLoad_OnEvent.md"
+    },
+    "UISaveLoad_Open": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:e526f69db14d4f084397def998c5d58d89dd0cab12f842c8e8a50d7f8a081a42",
+            "insn_count": 26,
+            "mnemonics": "sha256:bd03a1cc98f4e80d13cfe8ac506f4346d2d572d7d8f336c5db08f2b0b0c7043f",
+            "size": 102
+          },
+          "rva": "0x183580",
+          "size": 102
+        }
+      },
+      "doc": "docs/functions/UISaveLoad_Open.md"
+    },
+    "UISaveLoad_StateEnter": {
+      "area": "save-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 7,
+            "calls": "sha256:f686ff37f8f3aad8100095f2351f74cc27a7beea9e3aee1ef22e18c62494b061",
+            "insn_count": 48,
+            "mnemonics": "sha256:39b3ea14ec2015011fc33c4a7d94870f76c57d607556cec9a1cca59bd005e0ee",
+            "size": 244
+          },
+          "rva": "0x1838f0",
+          "size": 244
+        }
+      },
+      "doc": "docs/functions/UISaveLoad_StateEnter.md"
+    },
+    "UISaveLoad_StateSourcePick": {
+      "area": "save-data",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:fb694fb13f9ac80893e92a9d8ab328125cfad634cfc1cf4b1b44704d75634005",
+            "insn_count": 48,
+            "mnemonics": "sha256:2a63124673c67c39aa2c030db728cc16a98f9a9088e07d681058e7292f8a21ca",
+            "size": 190
+          },
+          "rva": "0x183b78",
+          "size": 190
+        }
+      },
+      "doc": "docs/functions/UISaveLoad_StateSourcePick.md"
+    },
     "UIState_EndTransition": {
       "area": "ui-framework",
       "builds": {
@@ -30123,6 +30990,23 @@
         }
       },
       "doc": "docs/functions/VramPage_CopyRect.md"
+    },
+    "WinMain": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:2c736ef490b8d9cfa4a70d5980c76fafcbcaf60367fc53469788083d25e24baa",
+            "insn_count": 48,
+            "mnemonics": "sha256:644ad0bca7fb82b997cc8404fbcac030c2739c84d39140bd9bdfd54c9eba989e",
+            "size": 215
+          },
+          "rva": "0x10e70",
+          "size": 215
+        }
+      },
+      "doc": "docs/functions/WinMain.md"
     },
     "WindowPattern_Build": {
       "area": "ui-framework",
@@ -34067,23 +34951,6 @@
         }
       },
       "doc": "docs/functions/sub_140248E08.md"
-    },
-    "sub_1402561D0": {
-      "area": "app-startup",
-      "builds": {
-        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
-          "fingerprint": {
-            "call_count": 20,
-            "calls": "sha256:5feb8231fcd169c6417eb2402f87394ba983afa97eaf18b0f262b74ab2f7e75e",
-            "insn_count": 48,
-            "mnemonics": "sha256:63e86165dfbfa4eb97e91684134a972542839bd4582f22e80ee4ffa8d02ac89c",
-            "size": 760
-          },
-          "rva": "0x2561d0",
-          "size": 760
-        }
-      },
-      "doc": "docs/functions/sub_1402561D0.md"
     },
     "sub_140257074": {
       "area": "save-data",

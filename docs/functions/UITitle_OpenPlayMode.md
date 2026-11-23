@@ -19,6 +19,7 @@ Kind 0 (New Game): starts UI state 19 and agent state 2, after which the agent h
 ## Referenced by
 
 - Appears in flows: [TitleMenuAction](../flows/TitleMenuAction.md)
+- Called by: [TitleScene_Update](TitleScene_Update.md)
 
 ## Notes
 

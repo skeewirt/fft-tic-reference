@@ -18,7 +18,7 @@ Plays the list's Show state.
 
 ## Referenced by
 
-- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md)
+- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md), [SaveLoadList_Refresh](SaveLoadList_Refresh.md)
 
 ## Open questions
 

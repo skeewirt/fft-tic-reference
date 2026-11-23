@@ -14,7 +14,7 @@ Graphics level; Unit_GetSpriteSetId's save-record branch and the battle palette 
 ## Referenced by
 
 - Appears in flows: [PartyMenuFaceChain](../flows/PartyMenuFaceChain.md)
-- Read by: [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md)
+- Read by: [Battle_UnitStatusFillAlt](../functions/Battle_UnitStatusFillAlt.md), [Unit_GetSpriteSetId](../functions/Unit_GetSpriteSetId.md)
 
 ## Open questions
 

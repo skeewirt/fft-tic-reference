@@ -17,7 +17,7 @@ Number fields of the acting unit's status panel (variant B, no AT). Verdict: des
 ## Behavior
 
 - V: 6 records
-- V: sub_140229DD4: HP, max HP, MP, max MP, CT, max CT of the acting unit
+- V: BattleTask_ActorForecastPanel: HP, max HP, MP, max MP, CT, max CT of the acting unit
 
 ## Notes
 

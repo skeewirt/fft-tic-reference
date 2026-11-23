@@ -28,6 +28,7 @@ Builds the 40-entry timeline list for the UI and overlays the acting unit's curr
 
 ## Referenced by
 
+- Appears in flows: [BattleTimelineCameraFlow](../flows/BattleTimelineCameraFlow.md)
 - Called by: [Battle_TimelineRefresh](Battle_TimelineRefresh.md)
 
 ## Notes

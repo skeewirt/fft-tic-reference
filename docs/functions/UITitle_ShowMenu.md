@@ -21,6 +21,10 @@ Creates the title agent's three add-ons and builds the menu.
 
 - Calls: [UIAddonFFTOTitle_Create](UIAddonFFTOTitle_Create.md), [UIAddonFFTOTitlePlaymode_Create](UIAddonFFTOTitlePlaymode_Create.md), [TitleMenu_Build](TitleMenu_Build.md)
 
+## Referenced by
+
+- Called by: [OpeningScene_Start](OpeningScene_Start.md), [TitleScene_Start](TitleScene_Start.md), [TitleScene_Update](TitleScene_Update.md)
+
 ## Open questions
 
 None recorded.

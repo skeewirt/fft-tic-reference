@@ -3,7 +3,7 @@
 - **Address:** `0x1402F7D1C`
 - **Area:** [Event system](../areas/event-system.md)
 - **Prototype:** `int64_t SceneCallback_Dispatch(int64_t mode, int64_t arg)`
-- **Callers:** 17 routines (25 call sites): EventScript_Run (4), sub_140234990 (3), sub_14024138C (3), sub_1402C538C (2), and about 13 others such as sub_140229DD4, sub_14022EFF4, sub_140234360, sub_14023987C, sub_140241080, sub_140241BD0, sub_140243330, sub_140243364, sub_1402FC484, sub_1403006B8 and sub_14032437C. Two of the callers, sub_14033D4C0 and the routine named NaptrDnsRecordConvert_1 in the IDB, are outside the event code.
+- **Callers:** 17 routines (25 call sites): EventScript_Run (4), sub_140234990 (3), sub_14024138C (3), sub_1402C538C (2), and about 13 others such as BattleTask_ActorForecastPanel, sub_14022EFF4, sub_140234360, sub_14023987C, sub_140241080, sub_140241BD0, sub_140243330, sub_140243364, sub_1402FC484, sub_1403006B8 and sub_14032437C. Two of the callers, sub_14033D4C0 and the routine named NaptrDnsRecordConvert_1 in the IDB, are outside the event code.
 - **Callees:** qword_140D40940 (indirect call through the pointer the caller set)
 
 Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
@@ -23,7 +23,7 @@ Calls the callback in the global function pointer `qword_140D40940` for modes 0 
 
 ## Referenced by
 
-- Called by: [EventPanel_QueueAndWait](EventPanel_QueueAndWait.md), [EventPanel_ShowTask](EventPanel_ShowTask.md), [EventScript_SkipTick](EventScript_SkipTick.md), [EventUnitStatus_DispatchActiveIcons](EventUnitStatus_DispatchActiveIcons.md), [EventUnitStatus_SetBit](EventUnitStatus_SetBit.md), [Music_StartSceneTracks](Music_StartSceneTracks.md), [Scene_StartMusic](Scene_StartMusic.md), [sub_14024138C](sub_14024138C.md)
+- Called by: [BattleTask_ActorForecastPanel](BattleTask_ActorForecastPanel.md), [EventPanel_QueueAndWait](EventPanel_QueueAndWait.md), [EventPanel_ShowTask](EventPanel_ShowTask.md), [EventScript_SkipTick](EventScript_SkipTick.md), [EventUnitStatus_DispatchActiveIcons](EventUnitStatus_DispatchActiveIcons.md), [EventUnitStatus_SetBit](EventUnitStatus_SetBit.md), [Music_StartSceneTracks](Music_StartSceneTracks.md), [Scene_StartMusic](Scene_StartMusic.md), [sub_14024138C](sub_14024138C.md)
 - Called by event opcodes: [0x28](../opcodes/README.md), [0x44](../opcodes/README.md), [0x45](../opcodes/README.md), [0x87](../opcodes/README.md)
 
 ## Notes

@@ -29,6 +29,11 @@ The title screens' agent (1448 bytes, `Mem_Alloc(0x5A8)` in `UIAgentManager_Crea
 
 - V: UITitle_ShowMenu creates the three add-ons (0x1401CB9B4, 0x1401CBA60, 0x1401CA6C4).
 
+## Referenced by
+
+- Read by: [TitleScene_Update](../functions/TitleScene_Update.md)
+- Written by: [TitleScene_Update](../functions/TitleScene_Update.md)
+
 ## Notes
 
 Functions: UIAgentFFTOTitle_Update, UIAgentFFTOTitle_OnAddonEvent, UITitle_ShowMenu.
