@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-274 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+275 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -237,6 +237,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [StockJobRowData](StockJobRowData.md) | stock job-related table rows | Facts about the stock job rows of job.en, generaljob and jobtype: unused rows still carry numbers, the generic jobs map to texture part indices, and Ramza's jobs share the Squire's job type. |
 | [StoryChoiceBalloon](StoryChoiceBalloon.md) | story scenes: a dialogue balloon with several selectable lines | A choice balloon is an ordinary message whose text contains the control code 0xFB (options start on this line) and 0xFC (run the choice). |
 | [StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences](StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences.md) | engine (tavern list pages, story event list) | A list of replayable story events has 78 entries: 64 plain ones that read event variables 444 to 507 and 14 special ones that read 427 to 440 (only 430, 433 and 440 can be listed); a listed entry is a 16-bit text refe... |
+| [StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads](StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads.md) | engine (story progress) | Event variable 110 holds the story's progress step. |
 | [TavernErrandsOpenAtSituationCounter450](TavernErrandsOpenAtSituationCounter450.md) | engine | The tavern's errand row is open only when UserSituation 3220 holds: situation counter 0 (the dword at g_UserSituation +24, or +104 with the bank bit) is at least 450, which event opcode 0xE9 raises with the story. |
 | [TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable](TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable.md) | engine (tavern rumours) | The tavern's Rumors list holds the nxd Gossip rows whose ids pass an availability test: ids 0..63 are walked; an id is listed when its Gossip row exists, its condition is met, and either its Gossip flag is set or the ... |
 | [TexelWeights8Bit](TexelWeights8Bit.md) | GPU (the test machine's GPU and driver) | Bilinear filtering weights are the sub-texel fraction rounded to 1/256 (8 bits), not exact: the filtered colour of a texel pair at fraction f uses round(f * 256) / 256. |

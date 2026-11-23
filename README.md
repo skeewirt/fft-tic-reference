@@ -2,7 +2,7 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-4352 records in 12 kinds; 2298 functions.
+4353 records in 12 kinds; 2298 functions.
 
 ## By kind
 
@@ -18,7 +18,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Render targets](docs/render-targets/README.md) | 8 | GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame. |
 | [File formats](docs/formats/README.md) | 20 | Layouts of the game's file formats (described, never copied): headers, records, string pools. |
 | [Flows](docs/flows/README.md) | 30 | Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters. |
-| [Observed behaviours](docs/behaviors/README.md) | 274 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
+| [Observed behaviours](docs/behaviors/README.md) | 275 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
 | [Tables](docs/tables/README.md) | 673 | Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents. |
 
 ## By area
@@ -32,7 +32,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Display](docs/areas/display.md) | Functions: 3, Structures: 5, Tables: 5 |
 | [Errands](docs/areas/errands.md) | Functions: 29, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11 |
 | [Event commands](docs/areas/event-commands.md) | Functions: 57 |
-| [Event system](docs/areas/event-system.md) | Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 20, Tables: 29 |
+| [Event system](docs/areas/event-system.md) | Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 21, Tables: 29 |
 | [Battle formulas](docs/areas/formulas.md) | Functions: 151, Observed behaviours: 1 |
 | [Graphics](docs/areas/graphics.md) | Functions: 186, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 54, Tables: 48 |
 | [Input](docs/areas/input.md) | Functions: 23, Structures: 12, Globals: 1, Registries: 2, Flows: 1, Observed behaviours: 1, Tables: 9 |

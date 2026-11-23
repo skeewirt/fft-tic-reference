@@ -2,7 +2,7 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 20, Tables: 29.
+Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 21, Tables: 29.
 
 ## Functions (204)
 
@@ -262,7 +262,7 @@ Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 |---|---|---|
 | [SoundBankSab](../formats/SoundBankSab.md) |  | sound/common/sound.sab (0006.pac, 78 MB, stored uncompressed): a SEAD sound bank ('sabf' version 2) whose 690 sounds are the ids SoundCue_Play accepts (0..0x2B1); the audio is CRI HCA, not encrypted. |
 
-## Observed behaviours (20)
+## Observed behaviours (21)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -281,6 +281,7 @@ Functions: 204, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [SoundCuesAreRemappedBeforeTheyPlay](../behaviors/SoundCuesAreRemappedBeforeTheyPlay.md) | engine | Every sound cue goes through SoundCue_Play, which first remaps it with IdRemap_Lookup (table g_IdRemapPairs, 406 rows of 7 from/to pairs) and drops any result above 0x2B1. |
 | [StoryChoiceBalloon](../behaviors/StoryChoiceBalloon.md) | story scenes: a dialogue balloon with several selectable lines | A choice balloon is an ordinary message whose text contains the control code 0xFB (options start on this line) and 0xFC (run the choice). |
 | [StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences](../behaviors/StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences.md) | engine (tavern list pages, story event list) | A list of replayable story events has 78 entries: 64 plain ones that read event variables 444 to 507 and 14 special ones that read 427 to 440 (only 430, 433 and 440 can be listed); a listed entry is a 16-bit text refe... |
+| [StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads](../behaviors/StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads.md) | engine (story progress) | Event variable 110 holds the story's progress step. |
 | [TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable](../behaviors/TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable.md) | engine (tavern rumours) | The tavern's Rumors list holds the nxd Gossip rows whose ids pass an availability test: ids 0..63 are walked; an id is listed when its Gossip row exists, its condition is met, and either its Gossip flag is set or the ... |
 | [TodaysCalendarDateIsHeldInEventVariables46And47](../behaviors/TodaysCalendarDateIsHeldInEventVariables46And47.md) | engine (calendar) | The calendar's current month and day are event variables 46 (month 1..12) and 47 (day). |
 | [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md) | engine (calendar counters) | Outside the two counting loops, the 64 counter bytes are moved only by sequences of four 16-byte moves: the save pack and unpack, the checkpoint writer and reader, the battle capture's errand-state copy in both direct... |
