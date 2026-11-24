@@ -2,7 +2,7 @@
 
 Item records and categories, and the shops.
 
-Functions: 106, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 12, Tables: 33.
+Functions: 106, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 13, Tables: 33.
 
 ## Functions (106)
 
@@ -196,7 +196,7 @@ Functions: 106, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed b
 | [EquipSessionFlagFlow](../flows/EquipSessionFlagFlow.md) | The Outfitter/equip session: build candidates, buy or apply a slot word with bit 15, then commit (strip the bit, charge the price, save) or cancel (restore the override). |
 | [ItemMenuListLifecycle](../flows/ItemMenuListLifecycle.md) | Where a shop or equip list word is written, reordered and read: one producer fills g_MenuList for the screen, the saved-order filter rewrites it right after a mode-1 build, and seven functions read single words back, ... |
 
-## Observed behaviours (12)
+## Observed behaviours (13)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -208,6 +208,7 @@ Functions: 106, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed b
 | [ItemMenuListWordMarkOverlapsLargeIds](../behaviors/ItemMenuListWordMarkOverlapsLargeIds.md) | engine (shop and equip list) | A shop or equip list word holds the item id in its low bits and the 'cannot equip' mark in bit 14; an item id can be up to 15 bits wide, so for an id of 16,384 and above the id's own bit 14 and the mark are the same bit. |
 | [ItemRowGrammarBytesAndGates](../behaviors/ItemRowGrammarBytesAndGates.md) | engine (item rows) | Item row bytes +0x18..+0x1B are the four grammar bytes of the counted-noun record; +0x2C gates the 'item owned' story condition and the flagged state of the sell list row. |
 | [MenuListFlagFlow](../behaviors/MenuListFlagFlow.md) | g_MenuList and the three list kinds that reuse it (shop, equip, ability), plus the job list | The two high bits of the 16-bit list words are per-list-kind state, not part of the id: bit 14 is cannot-equip / cannot-learn / current, bit 15 is not written to g_MenuList at all but marks the equip-candidate buffers. |
+| [OptimalFittingBuysTheCandidatesMarkedWithBit15](../behaviors/OptimalFittingBuysTheCandidatesMarkedWithBit15.md) | engine (Outfitter Fitting, the Optimal Fitting button) | Optimal Fitting takes five candidate words from sub_140287D9C, which sets bit 15 on every candidate that is neither the unit's current item nor its stored original; the button's loop buys a marked candidate (price add... |
 | [OrderInsideItemGroup](../behaviors/OrderInsideItemGroup.md) | the order of item ids inside one menu group (the item menu, the equip screen and the shop list) | Three rules decide the order, in this priority: the saved order list is the order, membership maintenance inserts a newly owned id at the front and removes a lost one, and an explicit sort replaces the order with a fi... |
 | [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](../behaviors/OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md) | engine (Outfitter preview) | The Outfitter preview builder, the equip-clear price step and the equip commit each reduce a party hand word to an item id with an AND that must strip the session flag (bit 15); an AND whose mask keeps bit 15 turns th... |
 | [PoachListSortOrders](../behaviors/PoachListSortOrders.md) | engine (poacher screens) | The poacher lists are sorted by one of two insertion sorts: by the PoachItem sort_name string, or by the sort_order byte; the list labels use a notice form by two other columns. |

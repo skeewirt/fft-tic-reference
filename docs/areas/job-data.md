@@ -2,7 +2,7 @@
 
 Job table accessors, job records, skillsets, learning and job icon paths.
 
-Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed behaviours: 28, Tables: 15.
+Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed behaviours: 29, Tables: 15.
 
 ## Functions (38)
 
@@ -86,10 +86,11 @@ Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 |---|---|
 | [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md) | How a scripted battle gets its units: the battle key picks 16 entries, the OverrideEntryData rows of the key overwrite them in place, and battle unit i is built from entry i with row i. |
 
-## Observed behaviours (28)
+## Observed behaviours (29)
 
 | Name | Scope | Summary |
 |---|---|---|
+| [AJobTypeAbove124HasCardsButNoPartyFlag](../behaviors/AJobTypeAbove124HasCardsButNoPartyFlag.md) | engine (job types, job cards) | A Job row's job type is a 32-bit key of the JobType table, whose row names the Icon rows of the male and female job card. |
 | [BattleAbilityListReadsLearnedBitsThroughAPointerPastTheGroup](../behaviors/BattleAbilityListReadsLearnedBitsThroughAPointerPastTheGroup.md) | engine (battle ability list) | The battle's usable-ability list builder reads the three learned bytes of a job group from a battle record with the group number in one address register and the record pointer plus twice the group in the other, so for... |
 | [BattleActionJpFormulaAndSpillover](../behaviors/BattleActionJpFormulaAndSpillover.md) | engine (battle JP award) | JP for an action is 8 + 2 x the job level of the acting unit's current job + the unit's level / 4, scaled by an event percentage and by JP Boost; every other unit of the battle gets a quarter of that base amount in th... |
 | [BattleCommandHeaderTakesTheUnitsJobByte](../behaviors/BattleCommandHeaderTakesTheUnitsJobByte.md) | engine (battle Abilities list) | The header of the battle Abilities list (the job name and icon above the commands) is a job record built by sub_140335140: for the unit's own job command it takes the battle unit's job byte (+3); for a secondary comma... |

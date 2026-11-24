@@ -2,7 +2,7 @@
 
 Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes.
 
-2577 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
+2578 records. Format of a record: [kinds/function.json](../../kinds/function.json). Data: [data/functions.jsonl](../../data/functions.jsonl).
 
 | Name | Address | Area | Purpose |
 |---|---|---|---|
@@ -155,6 +155,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [BattleRange_MarkTileInBand](BattleRange_MarkTileInBand.md) | `0x14027F1D4` | [Battle](../areas/battle.md) | Sets mark byte 0 = 1 for a map tile, separately in each layer, when that layer's target height is inside [max(lo, 0), hi]. |
 | [BattleRange_MarkWeaponReach](BattleRange_MarkWeaponReach.md) | `0x14027EFC0` | [Battle](../areas/battle.md) | Marks in the range-mark array the tiles one unit's weapon reaches from its tile: picks the weapon, seeds the unit's tile and runs one of three shape routines chosen by the weapon's flag byte. |
 | [BattleRange_SpreadDiamond](BattleRange_SpreadDiamond.md) | `0x14027EBF8` | [Battle](../areas/battle.md) | Spreads the seeded marks outward one tile per pass for range passes, so every tile within Manhattan distance range of a seed gets a non-zero mark byte 0; heights are not looked at. |
+| [BattleResult_RaiseActionExp](BattleResult_RaiseActionExp.md) | `0x14030C110` | [Battle](../areas/battle.md) | Sets the EXP the acting unit earns for the action in play, from one target: the level difference plus a base, kept only when it is larger than what an earlier target gave. |
 | [BattleTask_ActorForecastPanel](BattleTask_ActorForecastPanel.md) | `0x140229DD4` | [Battle](../areas/battle.md) | Scene task entry for the battle status panel's acting-unit variant B: refreshes the shared status work area, runs the acting unit's pending secondary action, pre-seeds the panel's projected HP/MP and tail-calls Battle... |
 | [BattleTask_Slot13Entry](BattleTask_Slot13Entry.md) | `0x140229D24` | [Battle](../areas/battle.md) | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state, seeds the panel counters and hands the slot to the mode-0 (actor-side) variant of the alternate battle unit st... |
 | [BattleTask_TargetForecastPanel](BattleTask_TargetForecastPanel.md) | `0x14022A024` | [Battle](../areas/battle.md) | Scene task entry for the battle status panel's target variant B: waits for the acting-unit panel task, refreshes the target's layout, projects the target's HP/MP from the pending result and tail-calls Battle_UnitStatu... |
@@ -1794,7 +1795,7 @@ Code: one page per function of the game executable: what it does, whom it calls,
 | [sub_140131688](sub_140131688.md) | `0x140131688` | [Job tree](../areas/job-tree.md) | Handles the info / help button (action 0x7E = 126) in the job-list panel: shows a message popup for the cursor cell or emits an addon event. |
 | [sub_140131734](sub_140131734.md) | `0x140131734` | [Job tree](../areas/job-tree.md) | Handles action 0x8E (142) on a cell that has the flag byte at [148 * cell + p + 8974]: shows the info popup 37 when the cell state is 2, else sets out[0] = 1410 and plays the refusal sound. |
 | [sub_1401319FC](sub_1401319FC.md) | `0x1401319FC` | [Job tree](../areas/job-tree.md) | Plays the Show / Hide animation of the sub-widget at p+4912 (the tab strip at p+4896) and, when showing, initialises its cursor. |
-| [sub_1401321FC](sub_1401321FC.md) | `0x1401321FC` | [Job list and unlock](../areas/job-list.md) | Refreshes the job-tree panel's job rows: it walks the GeneralJob prerequisite lists, maps each job id to its index and writes the panel's name, icon and prerequisite text. |
+| [sub_1401321FC](sub_1401321FC.md) | `0x1401321FC` | [Job list and unlock](../areas/job-list.md) | Fills the "Level Requirements for <job>" window of the Change Job grid: one row per job the selected cell's job requires, with that job's icon and name, the required level and the unit's current level (or "Locked"). |
 | [sub_140132B34](sub_140132B34.md) | `0x140132B34` | [Job tree](../areas/job-tree.md) | Copies the current cell's data into a 124-byte preview record and calls sub_1402A7474 (update the detail view for that cell). |
 | [sub_140132CF4](sub_140132CF4.md) | `0x140132CF4` | [Job tree](../areas/job-tree.md) | Posts command 123 to the addon's owner with argument 1024 or 1025 depending on sub_1400FCE48 (busy gate). |
 | [sub_140132D6C](sub_140132D6C.md) | `0x140132D6C` | [Job tree](../areas/job-tree.md) | Refreshes the sprite palette state of all 19 cells after the cursor / mode changed. |

@@ -22,7 +22,7 @@ Looks up the Job row, then the JobType table (id 0xC8) row, and stores an icon i
 ## Referenced by
 
 - Called by: [JobChange_FillUnitEntry](JobChange_FillUnitEntry.md), [sub_1402C185C](sub_1402C185C.md)
-- Observed behaviours: [JobCardComesFromTheJobTypeRow](../behaviors/JobCardComesFromTheJobTypeRow.md), [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md), [UnreadColumnsOfJobAbilityStatusTables](../behaviors/UnreadColumnsOfJobAbilityStatusTables.md)
+- Observed behaviours: [AJobTypeAbove124HasCardsButNoPartyFlag](../behaviors/AJobTypeAbove124HasCardsButNoPartyFlag.md), [JobCardComesFromTheJobTypeRow](../behaviors/JobCardComesFromTheJobTypeRow.md), [UnitFaceFromSpriteNumber](../behaviors/UnitFaceFromSpriteNumber.md), [UnreadColumnsOfJobAbilityStatusTables](../behaviors/UnreadColumnsOfJobAbilityStatusTables.md)
 
 ## Notes
 

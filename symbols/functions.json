@@ -1768,6 +1768,23 @@
       },
       "doc": "docs/functions/BattleRange_SpreadDiamond.md"
     },
+    "BattleResult_RaiseActionExp": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 44,
+            "mnemonics": "sha256:104621f424db551f3049e058a7748eece87761c13729488daf35a6ff34575bea",
+            "size": 177
+          },
+          "rva": "0x30c110",
+          "size": 177
+        }
+      },
+      "doc": "docs/functions/BattleResult_RaiseActionExp.md"
+    },
     "BattleTask_ActorForecastPanel": {
       "area": "battle",
       "builds": {

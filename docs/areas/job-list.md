@@ -26,7 +26,7 @@ Functions: 21, Structures: 2.
 | [JobScreen_ShowPopup](../functions/JobScreen_ShowPopup.md) | `0x1402BB5D4` | Thin wrapper that opens a message popup: forwards to sub_14031E94C, sets a screen flag and starts popup SoundCue_Play(a2 - 1). |
 | [JobScreen_UpdateState](../functions/JobScreen_UpdateState.md) | `0x140368B4C` | Per-frame state machine of the job screen (states 1400..1412): reads the job-change list cursor, picks the job from g_RuntimeJobList, shows its ability page, runs the job change and the preview animation. |
 | [Party_GetUnitJobId](../functions/Party_GetUnitJobId.md) | `0x1402863E4` | Returns the job id of a party member, normalising the generic-unit marker values. |
-| [sub_1401321FC](../functions/sub_1401321FC.md) | `0x1401321FC` | Refreshes the job-tree panel's job rows: it walks the GeneralJob prerequisite lists, maps each job id to its index and writes the panel's name, icon and prerequisite text. |
+| [sub_1401321FC](../functions/sub_1401321FC.md) | `0x1401321FC` | Fills the "Level Requirements for <job>" window of the Change Job grid: one row per job the selected cell's job requires, with that job's icon and name, the required level and the unit's current level (or "Locked"). |
 | [Unit_BuildJobUnlockMask](../functions/Unit_BuildJobUnlockMask.md) | `0x140348684` | Builds the 24-bit job-unlock mask for a unit. |
 | [Unit_CollectJobSkillsets](../functions/Unit_CollectJobSkillsets.md) | `0x1402866E4` | Builds the secondary-skillset choice list of a party unit: the skillset byte of every job the unit can take, except its own job and three excluded ids, terminated by 0xFFFF. Returns the count. |
 

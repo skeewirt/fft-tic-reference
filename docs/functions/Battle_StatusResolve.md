@@ -29,7 +29,7 @@ Applies the pending status adds and removes of one battle unit: filters them, cl
 ## Referenced by
 
 - Called by: [Battle_ApplyActionResult](Battle_ApplyActionResult.md), [sub_140271AC0](sub_140271AC0.md)
-- Observed behaviours: [StatusBitWritersAndTheRemovalPath](../behaviors/StatusBitWritersAndTheRemovalPath.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md)
+- Observed behaviours: [AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget](../behaviors/AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget.md), [StatusBitWritersAndTheRemovalPath](../behaviors/StatusBitWritersAndTheRemovalPath.md), [StatusLoopsInflictCopyAndBattleTableLifetime](../behaviors/StatusLoopsInflictCopyAndBattleTableLifetime.md), [StatusesAreFortyBitSetsInEightRegions](../behaviors/StatusesAreFortyBitSetsInEightRegions.md)
 
 ## Notes
 

@@ -30,7 +30,7 @@ Awards job JP to a battle unit after an action: it validates the unit, resolves 
 
 ## Referenced by
 
-- Observed behaviours: [BattleActionJpFormulaAndSpillover](../behaviors/BattleActionJpFormulaAndSpillover.md)
+- Observed behaviours: [AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget](../behaviors/AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget.md), [BattleActionJpFormulaAndSpillover](../behaviors/BattleActionJpFormulaAndSpillover.md)
 
 ## Notes
 

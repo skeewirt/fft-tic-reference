@@ -20,7 +20,7 @@ New-game reset that initialises byte_1411A7490: 125 per-jobtype flags (at +21) t
 ## Referenced by
 
 - Called by: [GameState_ResetParty](GameState_ResetParty.md)
-- Observed behaviours: [UnreadColumnsOfJobAbilityStatusTables](../behaviors/UnreadColumnsOfJobAbilityStatusTables.md)
+- Observed behaviours: [AJobTypeAbove124HasCardsButNoPartyFlag](../behaviors/AJobTypeAbove124HasCardsButNoPartyFlag.md), [UnreadColumnsOfJobAbilityStatusTables](../behaviors/UnreadColumnsOfJobAbilityStatusTables.md)
 - Reads tables: [NxdDataGeneralJob](../tables/NxdDataGeneralJob.md), [UnitJobFlags](../tables/UnitJobFlags.md)
 
 ## Notes

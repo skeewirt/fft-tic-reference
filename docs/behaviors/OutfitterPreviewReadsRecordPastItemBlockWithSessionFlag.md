@@ -23,7 +23,7 @@ The Outfitter preview builder, the equip-clear price step and the equip commit e
 
 ## Notes
 
-The census of the other equip-session masks (0x1402D59CB, 0x1402D5F3D, 0x1402D60F3, 0x1402D6A50, 0x1402D6B1E, 0x1402D72F3, 0x1402D7314, 0x1402D7392, 0x14028B67F): I, each reads a word without the flag or an id that is never flagged. The equip-change function sub_1402D7280 refuses a word with bit 14 set (test at 0x1402D72A0) and its callers pass a plain id; the cancel (sub_1402D5B6C) and commit decide 'session word or plain id' by comparing the word with 0x4000, which a plain id of 16,384 or more also passes.
+The census of the other equip-session masks (0x1402D59CB, 0x1402D60F3, 0x1402D72F3, 0x1402D7314, 0x1402D7392, 0x14028B67F): I, each reads a word without the flag or an id that is never flagged. Three more were wrongly in that list until 2026-11-24: 0x1402D5F3D, 0x1402D6A50 and 0x1402D6B1E mask a marked candidate or a pending hand word (behaviour OptimalFittingBuysTheCandidatesMarkedWithBit15). The equip-change function sub_1402D7280 refuses a word with bit 14 set (test at 0x1402D72A0) and its callers pass a plain id; the cancel (sub_1402D5B6C) and commit decide 'session word or plain id' by comparing the word with 0x4000, which a plain id of 16,384 or more also passes.
 
 ## Open questions
 

@@ -28,7 +28,7 @@ Adds JP to one job of a battle unit: current JP and total JP (both capped at 999
 ## Referenced by
 
 - Called by: [Battle_AwardActorJp](Battle_AwardActorJp.md), [Battle_AwardUnitJp](Battle_AwardUnitJp.md)
-- Observed behaviours: [BattleActionJpFormulaAndSpillover](../behaviors/BattleActionJpFormulaAndSpillover.md), [BattleJpGoesToTheJobOfTheUnitsByteNotItsClass](../behaviors/BattleJpGoesToTheJobOfTheUnitsByteNotItsClass.md)
+- Observed behaviours: [AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget](../behaviors/AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget.md), [BattleActionJpFormulaAndSpillover](../behaviors/BattleActionJpFormulaAndSpillover.md), [BattleJpGoesToTheJobOfTheUnitsByteNotItsClass](../behaviors/BattleJpGoesToTheJobOfTheUnitsByteNotItsClass.md)
 
 ## Open questions
 

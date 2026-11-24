@@ -27,7 +27,7 @@ One equipment slot of a party unit: the item id in bits 0..9 and bit 15 as the O
 
 ## Referenced by
 
-- Observed behaviours: [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](../behaviors/OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md)
+- Observed behaviours: [OptimalFittingBuysTheCandidatesMarkedWithBit15](../behaviors/OptimalFittingBuysTheCandidatesMarkedWithBit15.md), [OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag](../behaviors/OutfitterPreviewReadsRecordPastItemBlockWithSessionFlag.md)
 
 ## Notes
 

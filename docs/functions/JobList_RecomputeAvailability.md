@@ -26,7 +26,7 @@ Recomputes the party-wide job-availability flags from each unit's job levels and
 
 ## Referenced by
 
-- Observed behaviours: [UnlockMaskStreamRunsIntoLearnedBitsPastIndex23](../behaviors/UnlockMaskStreamRunsIntoLearnedBitsPastIndex23.md)
+- Observed behaviours: [AJobTypeAbove124HasCardsButNoPartyFlag](../behaviors/AJobTypeAbove124HasCardsButNoPartyFlag.md), [UnlockMaskStreamRunsIntoLearnedBitsPastIndex23](../behaviors/UnlockMaskStreamRunsIntoLearnedBitsPastIndex23.md)
 - Reads tables: [UnitJobFlags](../tables/UnitJobFlags.md), [UnitSaveSlots](../tables/UnitSaveSlots.md)
 
 ## Notes

@@ -16,6 +16,10 @@ Copies the message arguments from a vector {allocator, begin, end, capacity}.
 
 - V: each argument is 264 bytes: text `char[256]`, then its type at +256 (4 text, 1 number).
 
+## Referenced by
+
+- Called by: [sub_1401321FC](sub_1401321FC.md)
+
 ## Open questions
 
 None recorded.

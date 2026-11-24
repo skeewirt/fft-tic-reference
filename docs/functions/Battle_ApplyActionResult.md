@@ -52,7 +52,7 @@ changes, EXP/level changes, status sets/clears and the death check. This is the 
 
 - Appears in flows: [AbilityLifecycle](../flows/AbilityLifecycle.md)
 - Called by: [BattleAct_NoEffectStep](BattleAct_NoEffectStep.md), [Battle_ActorResultLevels](Battle_ActorResultLevels.md), [sub_14020435C](sub_14020435C.md), [sub_14020BFD4](sub_14020BFD4.md)
-- Observed behaviours: [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md)
+- Observed behaviours: [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md), [AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget](../behaviors/AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget.md), [PoisonAndRegenActAtTheEndOfTheUnitsTurn](../behaviors/PoisonAndRegenActAtTheEndOfTheUnitsTurn.md)
 
 ## Notes
 

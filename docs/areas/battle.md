@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 426, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89.
+Functions: 427, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flows: 7, Observed behaviours: 81, Tables: 89.
 
-## Functions (426)
+## Functions (427)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -113,6 +113,7 @@ Functions: 426, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flo
 | [BattleRange_MarkTileInBand](../functions/BattleRange_MarkTileInBand.md) | `0x14027F1D4` | Sets mark byte 0 = 1 for a map tile, separately in each layer, when that layer's target height is inside [max(lo, 0), hi]. |
 | [BattleRange_MarkWeaponReach](../functions/BattleRange_MarkWeaponReach.md) | `0x14027EFC0` | Marks in the range-mark array the tiles one unit's weapon reaches from its tile: picks the weapon, seeds the unit's tile and runs one of three shape routines chosen by the weapon's flag byte. |
 | [BattleRange_SpreadDiamond](../functions/BattleRange_SpreadDiamond.md) | `0x14027EBF8` | Spreads the seeded marks outward one tile per pass for range passes, so every tile within Manhattan distance range of a seed gets a non-zero mark byte 0; heights are not looked at. |
+| [BattleResult_RaiseActionExp](../functions/BattleResult_RaiseActionExp.md) | `0x14030C110` | Sets the EXP the acting unit earns for the action in play, from one target: the level difference plus a base, kept only when it is larger than what an earlier target gave. |
 | [BattleTask_ActorForecastPanel](../functions/BattleTask_ActorForecastPanel.md) | `0x140229DD4` | Scene task entry for the battle status panel's acting-unit variant B: refreshes the shared status work area, runs the acting unit's pending secondary action, pre-seeds the panel's projected HP/MP and tail-calls Battle... |
 | [BattleTask_Slot13Entry](../functions/BattleTask_Slot13Entry.md) | `0x140229D24` | One battle scene task, started as slot 13 by the battle program records 2, 3 and 6: refreshes scene state, seeds the panel counters and hands the slot to the mode-0 (actor-side) variant of the alternate battle unit st... |
 | [BattleTask_TargetForecastPanel](../functions/BattleTask_TargetForecastPanel.md) | `0x14022A024` | Scene task entry for the battle status panel's target variant B: waits for the acting-unit panel task, refreshes the target's layout, projects the target's HP/MP from the pending result and tail-calls Battle_UnitStatu... |
@@ -593,7 +594,7 @@ Functions: 426, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flo
 | [MapRendererBuildPath](../flows/MapRendererBuildPath.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |
 | [StatusLabelOverAHitUnit](../flows/StatusLabelOverAHitUnit.md) | How a status an action added or removed is shown over the hit unit (the styled name with its icon): the unit's label task queues one BattleSignal id per status from the result block's two 40-bit sets, then pops and dr... |
 
-## Observed behaviours (80)
+## Observed behaviours (81)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -602,6 +603,7 @@ Functions: 426, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flo
 | [AFailedMeshLoadSkipsEveryLaterRendererStep](../behaviors/AFailedMeshLoadSkipsEveryLaterRendererStep.md) | engine (map renderer) | When MapMesh_Load returns anything but 0 (missing file, oversize, wrong header, ids 15 and 33) the texture, system-texture and anim steps are not run and the mesh set's loaded-id field stays at none; the map block's t... |
 | [AfterDamageReactionChain](../behaviors/AfterDamageReactionChain.md) | engine (battle action result) | At the end of Battle_ApplyActionResult the unit held in g_BattleActingUnit is tested for passive reactions in a fixed order; the first one present goes to a Brave-roll helper, and the reaction executor then handles on... |
 | [AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable](../behaviors/AiJudgesStatusesThroughTheFortyBitSetsAndAValueTable.md) | engine | An AI-controlled unit weighs statuses in two places, both limited to the 40 statuses of the five status bytes: the test of whether an action is worth trying on a unit compares the action's status bytes (from its infli... |
+| [AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget](../behaviors/AnActionEarnsExpAndJpOnlyWhenItChangedItsTarget.md) | engine | The acting unit's EXP for an action is set while each target's result is applied: Battle_ApplyActionResult passes 'did this target change' to BattleResult_RaiseActionExp, which keeps the largest EXP amount in a global... |
 | [AttackWeaponReach](../behaviors/AttackWeaponReach.md) | battle: the tiles the Attack command can target, from the equipped weapon or bare hands | Which tiles a unit's basic Attack can target: one weapon is chosen, its flag byte picks one of four shapes (strike, lunge, direct, arc), heights are compared in half-steps, the unit's own tile and some flagged tiles a... |
 | [BattleCommandMenuCarriesSetsAsBytes](../behaviors/BattleCommandMenuCarriesSetsAsBytes.md) | engine | The battle command menu works with skillset ids as single bytes at every step: the unit's two set bytes, the byte lists the menu builders write, the kind array, the AI's command table and the command byte of the 20-by... |
 | [BattleEffectsAreOneFilePerNumber](../behaviors/BattleEffectsAreOneFilePerNumber.md) | engine | A battle effect is one self-contained file per effect number (0..511): EffectFile_GetTrackRow gives its pack file and size, the loader reads it into one shared buffer and the effect runs from offsets inside the file. |
