@@ -27,7 +27,7 @@ Runs the job-change preview: builds scratch sprite/palette buffers and drives th
 ## Referenced by
 
 - Called by: [JobScreen_UpdateState](JobScreen_UpdateState.md)
-- Reads tables: [AbilityEventPairs](../tables/AbilityEventPairs.md)
+- Reads tables: [UnitMarkerPersonVariables](../tables/UnitMarkerPersonVariables.md)
 
 ## Open questions
 

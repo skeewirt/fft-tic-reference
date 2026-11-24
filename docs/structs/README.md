@@ -10,7 +10,6 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [AbilityAnimRow](AbilityAnimRow.md) | 3 | [Ability data](../areas/ability-data.md) | Battle presentation of one ability. |
 | [AbilityAuxRow](AbilityAuxRow.md) | 8 | [Ability data](../areas/ability-data.md) | One auxiliary ability record. |
 | [AbilityEffectNumberRow](AbilityEffectNumberRow.md) | 2 | [Ability data](../areas/ability-data.md) | Effect word of one ability. |
-| [AbilityEventPair](AbilityEventPair.md) | 4 | [Job data](../areas/job-data.md) | One row of the AbilityEventPairs table. |
 | [AbilityKind1Row](AbilityKind1Row.md) | 1 | [Ability data](../areas/ability-data.md) | Item id of an Item-command ability. |
 | [AbilityKind2Row](AbilityKind2Row.md) | 1 | [Ability data](../areas/ability-data.md) | Item type of a Throw ability. |
 | [AbilityKind3Row](AbilityKind3Row.md) | 2 | [Ability data](../areas/ability-data.md) | Jump reach. |
@@ -534,6 +533,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [UnitEditorRange](UnitEditorRange.md) | 8 | [UI framework](../areas/ui-framework.md) | One row of the UnitEditorRanges tables. |
 | [UnitEditorWidget](UnitEditorWidget.md) | 24 | [UI framework](../areas/ui-framework.md) | One row of the UnitEditorWidgets tables. |
 | [UnitJobFlagsBlock](UnitJobFlagsBlock.md) | 146 | [Job data](../areas/job-data.md) | The job flag block (g_UnitJobFlags). |
+| [UnitMarkerPersonVariable](UnitMarkerPersonVariable.md) | 4 | [Job data](../areas/job-data.md) | One row of the UnitMarkerPersonVariables table. |
 | [UnitSaveRecord](UnitSaveRecord.md) | 600 | [Unit data](../areas/unit-data.md) | A unit as the save keeps it (54 records at g_UnitSaveData; copied whole into the save slot at +1304 + 600 n). |
 | [UnitSpritePosePackRow](UnitSpritePosePackRow.md) | 2 | [Graphics](../areas/graphics.md) | One row of the UnitSpritePosePack table. |
 | [UnitWorkRecord](UnitWorkRecord.md) | 512 | [Unit data](../areas/unit-data.md) | The working copy of a unit: the 21 battle units (g_BattleUnits) and temporary copies for previews and the job screens. |

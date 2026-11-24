@@ -12,7 +12,6 @@ Where the game keeps its data tables, NXD files and the fixed tables inside the 
 | [AbilityAnim](AbilityAnim.md) | Executable |  | 454 rows of 3 bytes | Battle presentation of each ability: charge type, execution motion and text selector. |
 | [AbilityAux](AbilityAux.md) | Executable |  | 512 rows of 8 bytes | The per-ability auxiliary records: classic JP cost, learn percent and two flag fields. |
 | [AbilityEffectNumbers](AbilityEffectNumbers.md) | Executable |  | 454 rows of 2 bytes | Battle effect number and flag of each ability. |
-| [AbilityEventPairs](AbilityEventPairs.md) | Executable |  | 15 rows of 4 bytes | Pairs (key, event variable) that mark achievements when the job screen learns something; the object starts 0x30 earlier and also holds an unreferenced 16-byte list and a vtable. |
 | [AbilityKind1_ItemByAbility](AbilityKind1_ItemByAbility.md) | Executable |  | 14 rows of 1 byte | Item-command table: ability 368 + i maps to one item id; the only table that pairs an Item-command ability with its item. |
 | [AbilityKind2_ThrowCategory](AbilityKind2_ThrowCategory.md) | Executable |  | 12 rows of 1 byte | Throw table: ability 382 + i maps to one equip category; an item is throwable when its category matches a row of one of the unit throw abilities. |
 | [AbilityKind3_JumpReach](AbilityKind3_JumpReach.md) | Executable |  | 12 rows of 2 bytes | Horizontal and vertical reach of each Jump ability. |
@@ -655,6 +654,7 @@ Where the game keeps its data tables, NXD files and the fixed tables inside the 
 | [UnitEquipOverride](UnitEquipOverride.md) | Executable (filled at run time) |  |  | Five override equipment words per unit, ten bytes per unit index: when the pair is non-zero the equip pickers use it in place of the unit record's own hand words. |
 | [UnitJobFlags](UnitJobFlags.md) | Executable (filled at run time) |  | 1 block of 146 bytes (21 + 125 flag bytes) | The job flag block: 21 per-job "new" flags and 125 per-job-type disable flags. |
 | [UnitLookPoolIndex](UnitLookPoolIndex.md) | Executable (filled at run time) |  | 21 entries of 4 bytes | Look pool index of each battle unit by its unit index (+444): written by SceneUnit_BuildFromQueueEntry when it builds the unit's scene unit, read back by it on the resume path (load mode 1) and by sub_1401D46B0; insid... |
+| [UnitMarkerPersonVariables](UnitMarkerPersonVariables.md) | Executable |  | 15 rows of 4 bytes | Fifteen pairs of (unit marker, person variable): the marker is the unit key of the CharaName table kept in the party record, the variable is the entry of that person (960 + position) in the event variable space. |
 | [UnitPageNumberFieldsA](UnitPageNumberFieldsA.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Number fields of the second unit page, first panel. |
 | [UnitPageNumberFieldsB](UnitPageNumberFieldsB.md) | Executable (initialised data) |  | 15 rows of 32 bytes | Number fields of the second unit page, second panel. |
 | [UnitPanelCellsLanguage0](UnitPanelCellsLanguage0.md) | Executable (initialised data) |  | 18 rows of 12 bytes | Sprite cells of the unit status page, language 0 (18 cells). |

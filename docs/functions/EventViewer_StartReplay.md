@@ -26,6 +26,7 @@ Starts the replay of an event from the Chronicle.
 
 - Appears in flows: [ChronicleEventReplay](../flows/ChronicleEventReplay.md)
 - Called by: [JournalPanel_Tick](JournalPanel_Tick.md)
+- Observed behaviours: [EventVariableWriteLock](../behaviors/EventVariableWriteLock.md)
 
 ## Open questions
 

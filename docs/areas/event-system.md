@@ -2,7 +2,7 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 220, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 22, Tables: 29.
+Functions: 220, Structures: 28, Globals: 5, Registries: 2, File formats: 1, Observed behaviours: 23, Tables: 29.
 
 ## Functions (220)
 
@@ -272,19 +272,27 @@ Functions: 220, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [g_ScreenFade](../globals/g_ScreenFade.md) | `0x142FF9E08` | `uint64` | The fade and skip state: the low dword is the fade alpha, the high dword the skip state (0 none, 1 requested, 2 skipping). |
 | [g_SkipRequestSource](../globals/g_SkipRequestSource.md) | `0x142FF9EF4` | `uint64` | The skip-request source: its high dword is copied into the fade/skip state by the event runner. |
 
+## Registries (2)
+
+| Name | Summary |
+|---|---|
+| [EventVariableRanges](../registries/EventVariableRanges.md) | The runs of event variable ids that mirror a game table: the id is a base plus the row key of that table, and the value is a flag or a small state. |
+| [EventVariables](../registries/EventVariables.md) | The event variable space: 1024 ids that the event scripts, the world map, the menus and the battle loader read and write through one accessor. |
+
 ## File formats (1)
 
 | Name | Extension | Summary |
 |---|---|---|
 | [SoundBankSab](../formats/SoundBankSab.md) |  | sound/common/sound.sab (0006.pac, 78 MB, stored uncompressed): a SEAD sound bank ('sabf' version 2) whose 690 sounds are the ids SoundCue_Play accepts (0..0x2B1); the audio is CRI HCA, not encrypted. |
 
-## Observed behaviours (22)
+## Observed behaviours (23)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [EntryRowMarksEventSkipOnce](../behaviors/EntryRowMarksEventSkipOnce.md) | engine (event skip) | An entry override row can mark its battle's events as skippable only once: the interpreter checks bytes +0x93, +0x94 and +0x95 of the battle's first row along with the EventId skip-once byte. |
 | [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md) | engine (event script load, EventId table) | When the current event changes and skipping is enabled, EventScript_LoadCurrent looks up the EventId row (data table 156) of the event number and reads its byte +32 without testing the lookup result: an event number w... |
 | [EventSoundGroupAndMusicSlotOperandWidths](../behaviors/EventSoundGroupAndMusicSlotOperandWidths.md) | engine (event sound commands) | The event sound group number reaches the player as a byte of a command record (class 44), as the replay of that byte from a word of the command state, or as the value of event variable 93 (a 32-bit cell); the music sl... |
+| [EventVariableWriteLock](../behaviors/EventVariableWriteLock.md) | event variables | The rule that decides whether a store into the event variable space is kept. |
 | [MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero](../behaviors/MusicCommandWordHasEighteenOperandsAndSixOfThemOnlyWriteZeroOrTestNonzero.md) | engine (event command state) | The 16-bit word at 0x14186246A (the music id and slot of the command state) is addressed by eighteen instructions in seven functions; six of them only clear it or test it for nonzero, twelve read the id or the slot or... |
 | [MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath](../behaviors/MusicIdTravelsAsAByteInTheScriptPathAndAsADwordInTheTransitionPath.md) | engine (music requests) | The music sound id (1-based; the file is `sound/music/music_%05u.sab` of id minus one) reaches the music player by four routes with different widths: a command byte, a 16-bit state word shared with the slot number, a ... |
 | [MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord](../behaviors/MusicParameterOfTheAudioQueueIsASmallConstantOrTheCommandWord.md) | engine (audio command queue, kind 1) | Every stock producer of a kind 1 (play music) entry of the audio command queue passes either a small constant or the 16-bit command word of the command state; no stock parameter has a bit above 0x2FF set, so bits 12 a... |

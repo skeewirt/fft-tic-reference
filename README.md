@@ -2,7 +2,7 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-4674 records in 12 kinds; 2577 functions.
+4677 records in 12 kinds; 2577 functions.
 
 ## By kind
 
@@ -12,13 +12,13 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
 | [Structures](docs/structs/README.md) | 542 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
 | [Globals](docs/globals/README.md) | 229 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
-| [Registries](docs/registries/README.md) | 44 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
+| [Registries](docs/registries/README.md) | 46 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
 | [Shaders](docs/shaders/README.md) | 9 | GPU shader programs from the game's technique files: stage, interface, bindings and what they compute (in words; no bytecode). |
 | [Shader programs](docs/programs/README.md) | 4 | Engine shader programs: a selector and program index resolved to its vertex and pixel shader, and the passes that use it. |
 | [Render targets](docs/render-targets/README.md) | 8 | GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame. |
 | [File formats](docs/formats/README.md) | 20 | Layouts of the game's file formats (described, never copied): headers, records, string pools. |
 | [Flows](docs/flows/README.md) | 42 | Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters. |
-| [Observed behaviours](docs/behaviors/README.md) | 283 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
+| [Observed behaviours](docs/behaviors/README.md) | 284 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
 | [Tables](docs/tables/README.md) | 674 | Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents. |
 
 ## By area
@@ -32,7 +32,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Display](docs/areas/display.md) | Functions: 3, Structures: 5, Tables: 5 |
 | [Errands](docs/areas/errands.md) | Functions: 30, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11 |
 | [Event commands](docs/areas/event-commands.md) | Functions: 57 |
-| [Event system](docs/areas/event-system.md) | Functions: 220, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 22, Tables: 29 |
+| [Event system](docs/areas/event-system.md) | Functions: 220, Structures: 28, Globals: 5, Registries: 2, File formats: 1, Observed behaviours: 23, Tables: 29 |
 | [Battle formulas](docs/areas/formulas.md) | Functions: 153, Observed behaviours: 1 |
 | [Graphics](docs/areas/graphics.md) | Functions: 200, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 55, Tables: 48 |
 | [Input](docs/areas/input.md) | Functions: 24, Structures: 12, Globals: 1, Registries: 3, Flows: 1, Observed behaviours: 1, Tables: 9 |

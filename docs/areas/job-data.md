@@ -51,7 +51,6 @@ Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
-| [AbilityEventPair](../structs/AbilityEventPair.md) | 4 | One row of the AbilityEventPairs table. |
 | [CommandKindRow](../structs/CommandKindRow.md) | 1 | One byte per skillset id. |
 | [JobChangeListAddon](../structs/JobChangeListAddon.md) | 19024 | The Change Job list screen object (the list addon, reached as [[[root]+0x10]+0x58]+0x78 and as field 15 of the screen object): 19 cell records of 148 bytes, 19 cell gadgets of 256 bytes, and the cursor state; every ar... |
 | [JobMasteryIdRow](../structs/JobMasteryIdRow.md) | 4 | One job id. |
@@ -66,6 +65,7 @@ Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 | [RuntimeJobListEntry](../structs/RuntimeJobListEntry.md) | 2 | One entry of the Change Job list as built by the game. |
 | [SkillsetRow](../structs/SkillsetRow.md) | 25 | One 25-byte skillset: three bytes of ability bit-9 flags followed by 22 low ability id bytes. |
 | [UnitJobFlagsBlock](../structs/UnitJobFlagsBlock.md) | 146 | The job flag block (g_UnitJobFlags). |
+| [UnitMarkerPersonVariable](../structs/UnitMarkerPersonVariable.md) | 4 | One row of the UnitMarkerPersonVariables table. |
 
 ## Globals (2)
 
@@ -123,7 +123,6 @@ Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 
 | Name | Storage | NXD table id | Rows | Summary |
 |---|---|---|---|---|
-| [AbilityEventPairs](../tables/AbilityEventPairs.md) | Executable |  | 15 rows of 4 bytes | Pairs (key, event variable) that mark achievements when the job screen learns something; the object starts 0x30 earlier and also holds an unreferenced 16-byte list and a vtable. |
 | [CommandKind](../tables/CommandKind.md) | Executable |  | 256 rows of 1 byte | The command kind of each skillset id: the battle range and action builders switch on it to decide how the skillset acts. |
 | [Job](../tables/Job.md) | NXD file | 46 |  | The job rows (the Job-en table), read through JobTable_GetRow. |
 | [JobCommand](../tables/JobCommand.md) | NXD file | 41 |  | The job command rows (the JobCommand-en table), read through JobCommandTable_GetRow. |
@@ -138,3 +137,4 @@ Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed beh
 | [SkillsetTableMonster](../tables/SkillsetTableMonster.md) | Executable |  | 48 rows of 5 bytes | Monster skillsets: four ability slots per set. |
 | [SkillsetTableSpecial](../tables/SkillsetTableSpecial.md) | Executable |  | 3 rows of 25 bytes | Three further skillsets in the same layout as SkillsetTable, selected by Skillset_GetAbility for the ids above the monster range. |
 | [UnitJobFlags](../tables/UnitJobFlags.md) | Executable (filled at run time) |  | 1 block of 146 bytes (21 + 125 flag bytes) | The job flag block: 21 per-job "new" flags and 125 per-job-type disable flags. |
+| [UnitMarkerPersonVariables](../tables/UnitMarkerPersonVariables.md) | Executable |  | 15 rows of 4 bytes | Fifteen pairs of (unit marker, person variable): the marker is the unit key of the CharaName table kept in the party record, the variable is the entry of that person (960 + position) in the event variable space. |

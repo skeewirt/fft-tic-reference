@@ -2,7 +2,7 @@
 
 Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning.
 
-44 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
+46 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -18,6 +18,8 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [ClassicSubtitleState](ClassicSubtitleState.md) | [UI framework](../areas/ui-framework.md) | The state names of the classic-movie subtitle window and the UIClassicSubtitles line_layout value that picks each. |
 | [CreditLineType](CreditLineType.md) | [UI framework](../areas/ui-framework.md) | The line types of UICreditRow (line_type) and the builder CreditRoll_Step calls for each. |
 | [EffectSequenceHandlers](EffectSequenceHandlers.md) | [Battle](../areas/battle.md) | The 23 sequence kind handlers of the battle effect sequence: the kind byte at +3 of an effect sequence entry indexes this pointer table, and EffectSequence_Run calls the handler once per frame with the entry as the cu... |
+| [EventVariableRanges](EventVariableRanges.md) | [Event system](../areas/event-system.md) | The runs of event variable ids that mirror a game table: the id is a base plus the row key of that table, and the value is a flag or a small state. |
+| [EventVariables](EventVariables.md) | [Event system](../areas/event-system.md) | The event variable space: 1024 ids that the event scripts, the world map, the menus and the battle loader read and write through one accessor. |
 | [GuideIconGlyph](GuideIconGlyph.md) | [UI framework](../areas/ui-framework.md) | The guide icon numbers (UIButtonGuide guide_icon / guide_icon_2) and the glyph GuideIcon_ToGlyph draws for them. |
 | [InputContext](InputContext.md) | [Input](../areas/input.md) | The input contexts an action row can belong to: the row's mask against the module's context mask. |
 | [ItemCategories](ItemCategories.md) | [Items and shops](../areas/items.md) | The item categories: the stock first-id thresholds of Item_FindCategoryIndex, the record kind of each category (which sub-record table it has) and the menu group sub_1402890C0 gives it. |

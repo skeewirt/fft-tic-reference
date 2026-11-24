@@ -30,6 +30,8 @@ The event variable arithmetic unit: applies one operation to the destination var
 ## Referenced by
 
 - Called by: [EventVar_Read](EventVar_Read.md), [EventVar_Write](EventVar_Write.md)
+- Observed behaviours: [EventVariableWriteLock](../behaviors/EventVariableWriteLock.md)
+- Resolves registries: [EventVariables](../registries/EventVariables.md)
 
 ## Notes
 

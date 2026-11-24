@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-283 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+284 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -88,6 +88,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md) | engine (event script load, EventId table) | When the current event changes and skipping is enabled, EventScript_LoadCurrent looks up the EventId row (data table 156) of the event number and reads its byte +32 without testing the lookup result: an event number w... |
 | [EventSoundGroupAndMusicSlotOperandWidths](EventSoundGroupAndMusicSlotOperandWidths.md) | engine (event sound commands) | The event sound group number reaches the player as a byte of a command record (class 44), as the replay of that byte from a word of the command state, or as the value of event variable 93 (a 32-bit cell); the music sl... |
 | [EventUnitFaceOfAScenarioRecord](EventUnitFaceOfAScenarioRecord.md) | engine (turn panel portrait) | A scenario setup record can name one event unit and a portrait code: the turn panel shows that unit's small face with the code instead of the face of its look. |
+| [EventVariableWriteLock](EventVariableWriteLock.md) | event variables | The rule that decides whether a store into the event variable space is kept. |
 | [FaceLookupInlineCopiesDisagreeAboveCode159](FaceLookupInlineCopiesDisagreeAboveCode159.md) | engine (portrait face numbers) | The face-number lookup exists as SpriteId_ToShape and ten inline copies; for codes above 0x9F five of the copies answer differently from the function, so one table row cannot stand for all of them. |
 | [FaceNumberCapsClipRawCodesToo](FaceNumberCapsClipRawCodesToo.md) | engine (portrait face numbers) | Sixteen readers cap the face number at 0xCD (205): the twelve caps below and the four readers of the HD face table g_FaceG2dEntryByFace. |
 | [FastForwardState](FastForwardState.md) | battle, event scripts (story scenes, battle dialogue) and the world map, enhanced edition | How the fast-forward hold and the dialogue auto-advance toggle become state, how to read 'fast-forward is active now' from memory with no input, what gates a hold, and what the state changes. |

@@ -28,6 +28,7 @@ The second task group's event variable arithmetic unit. The event interpreter ca
 
 - Called by: [EventScript_Run](EventScript_Run.md), [SceneVar_Read](SceneVar_Read.md), [SceneVar_Write](SceneVar_Write.md)
 - Called by event opcodes: [0xB0](../opcodes/README.md), [0xB1](../opcodes/README.md), [0xB2](../opcodes/README.md), [0xB3](../opcodes/README.md), [0xB4](../opcodes/README.md), [0xB5](../opcodes/README.md), [0xB6](../opcodes/README.md), [0xB7](../opcodes/README.md), [0xB8](../opcodes/README.md), [0xB9](../opcodes/README.md), [0xBA](../opcodes/README.md), [0xBB](../opcodes/README.md), [0xBC](../opcodes/README.md), [0xBD](../opcodes/README.md), [0xBE](../opcodes/README.md)
+- Resolves registries: [EventVariables](../registries/EventVariables.md)
 
 ## Notes
 

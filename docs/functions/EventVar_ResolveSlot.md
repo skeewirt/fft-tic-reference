@@ -27,6 +27,7 @@ Maps an event variable index to the address of the dword in the store that holds
 ## Referenced by
 
 - Called by: [EventVar_Alu](EventVar_Alu.md)
+- Resolves registries: [EventVariables](../registries/EventVariables.md)
 
 ## Notes
 
