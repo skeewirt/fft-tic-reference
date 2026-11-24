@@ -2,7 +2,7 @@
 
 Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.
 
-541 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
+542 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
 
 | Name | Size (bytes) | Area | Summary |
 |---|---|---|---|
@@ -497,6 +497,7 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [SpriteMotionByKindRow](SpriteMotionByKindRow.md) | 1 | [Graphics](../areas/graphics.md) | One row of SpriteMotionByKind. |
 | [SpritePaletteLimit](SpritePaletteLimit.md) | 1 | [Unit rendering](../areas/unit-rendering.md) | One row of the SpritePaletteLimits table. |
 | [SpritePieceTemplate](SpritePieceTemplate.md) | 24 | [Event system](../areas/event-system.md) | One row of the WorldMapSpritePieceTemplates table. |
+| [StartupConfig](StartupConfig.md) | 280 | [Application and startup](../areas/app-startup.md) | The 280-byte block that Game_Main fills from the process arguments and the startup parser, then Application_Initialize copies into the application object at +1200. |
 | [StatusIconFlagMaskRow](StatusIconFlagMaskRow.md) | 4 | [Battle](../areas/battle.md) | One row of BattleStatusIconFlagMasks. |
 | [StatusPanelFrameLine](StatusPanelFrameLine.md) | 7 | [Battle](../areas/battle.md) | One row of the StatusPanelFrameLines table. |
 | [StatusPropertyRow](StatusPropertyRow.md) | 16 | [Battle](../areas/battle.md) | Properties of one status. |

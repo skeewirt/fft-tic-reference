@@ -2,7 +2,7 @@
 
 Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters.
 
-41 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
+42 records. Format of a record: [kinds/flow.json](../../kinds/flow.json). Data: [data/flows.jsonl](../../data/flows.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -27,6 +27,7 @@ Ordered sequences across functions and state: what happens in which order (a fra
 | [ItemMenuListLifecycle](ItemMenuListLifecycle.md) | [Items and shops](../areas/items.md) | Where a shop or equip list word is written, reordered and read: one producer fills g_MenuList for the screen, the saved-order filter rewrites it right after a mode-1 build, and seven functions read single words back, ... |
 | [ItemNameToScreen](ItemNameToScreen.md) | [Data access](../areas/data.md) | How an item id becomes a name on screen, by two independent routes: the 0x3800 text id (a pool id decoded by sub_140226208, carried in a 2-byte list cell or a 32-bit message argument) and the Item-en row lookup (ItemT... |
 | [JobScreenFrame](JobScreenFrame.md) | [Job tree](../areas/job-tree.md) | How the Job Tree gets input and a chance to run code each frame: the party-menu scene's frame function runs the current screen's update through a function table, the job screen's update runs the screen dispatch, and t... |
+| [LaunchSwitchesFromArgumentsToReaders](LaunchSwitchesFromArgumentsToReaders.md) | [Application and startup](../areas/app-startup.md) | How the process arguments become behaviour: the startup parser fills the startup block, the application object keeps a copy, the memory, window, splash and DirectStorage steps read their bytes, a second parser reads t... |
 | [LayerDropShadow](LayerDropShadow.md) | [Graphics](../areas/graphics.md) | The drop shadow of a UI layer, end to end (decoded and reproduced from mid-frame GPU captures). |
 | [LayerGlowHalfSize](LayerGlowHalfSize.md) | [Graphics](../areas/graphics.md) | The glow of a UI layer with a blur radius from 3.2 to 6.4 (the Job Tree selection ring: radius 4.0), stage by stage, each stage reproduced from a mid-frame GPU capture (2026-10-30). |
 | [MapRendererBuildPath](MapRendererBuildPath.md) | [Battle](../areas/battle.md) | How the Enhanced renderer builds the terrain of a battle map: from the map id to the requests for the mesh, the textures and the anim, and which data table rows steer each step. |

@@ -2,7 +2,7 @@
 
 Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning.
 
-43 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
+44 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -24,6 +24,7 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [ItemClassNumbers](ItemClassNumbers.md) | [Items and shops](../areas/items.md) | The item class numbers (item class n is allowed to a job when bit 7 - n % 8 of byte n / 8 of its exe.job equip_flags is set; the class is the equip_category of the item's exe.item row) with their names. |
 | [JobIdSpace](JobIdSpace.md) | [Job data](../areas/job-data.md) | What a job id (the byte in save record +2 and work record +3) means to the code, and the job index the per-job arrays use for it. |
 | [KeyBindingFlag](KeyBindingFlag.md) | [Input](../areas/input.md) | The flag bits of a keyboard binding dword of an action row (low 16 bits = key code), set by InputRows_ApplyKeyBindings from the UIKeyAssign flag bytes. |
+| [LaunchSwitches](LaunchSwitches.md) | [Application and startup](../areas/app-startup.md) | The command-line switches the executable recognises: 23 startup switches read by Startup_ParseLaunchSwitches and 10 display-settings switches read by Startup_ParseDisplaySwitches. |
 | [LayerPassKeys](LayerPassKeys.md) | [Graphics](../areas/graphics.md) | The pass constants OR-ed into the 64-bit sort key of the layer commands. |
 | [LegacyWorldMainMenuRows](LegacyWorldMainMenuRows.md) | [UI framework](../areas/ui-framework.md) | The rows of node 4 of the old world menu (the old main world menu): row -> next node -> what it opens. |
 | [LegacyWorldMenuNodes](LegacyWorldMenuNodes.md) | [UI framework](../areas/ui-framework.md) | The node tree of the old world menu: four tables of 21 node records of 88 bytes, one per text language (tbl_LegacyWorldMenuStateLang0 0x14080CAB0, Lang1 0x14080D1F0, Lang3 0x14080D930, Lang2 0x14080E070). |

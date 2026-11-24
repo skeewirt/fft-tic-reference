@@ -36,7 +36,7 @@ Changes the boot state. It runs the exit actions of the current state, stores th
 
 ## Referenced by
 
-- Called by: [Boot_Frame](Boot_Frame.md), [Boot_MovieFrame](Boot_MovieFrame.md), [Boot_UpdateVideo](Boot_UpdateVideo.md)
+- Called by: [Boot_EnterState4](Boot_EnterState4.md), [Boot_Frame](Boot_Frame.md), [Boot_MovieFrame](Boot_MovieFrame.md), [Boot_UpdateVideo](Boot_UpdateVideo.md)
 
 ## Notes
 

@@ -21,6 +21,10 @@ Installs the top-level unhandled-exception filter and the startup diagnostic sta
 - V: installs `Handler` with `set_invalid_parameter_handler` and calls `sub_1405DA7FC(0, 1)`.
 - V: returns 0. The caller is `sub_14002DEFC` (application initialization), reached from `faith::Framework::Application_vfunc_1`.
 
+## Referenced by
+
+- Called by: [Application_InitPlatformServices](Application_InitPlatformServices.md)
+
 ## Notes
 
 The filter it installs is TopLevelExceptionFilter, the function that shows the localized 'the application will close' dialog. The self-debug call is part of the startup anti-debug/diagnostic setup; it is not needed for the game to run.

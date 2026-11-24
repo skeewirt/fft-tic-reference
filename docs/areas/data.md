@@ -2,7 +2,7 @@
 
 NXD table accessors, the table registry and other game-data lookups.
 
-Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 13, Tables: 116.
+Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 14, Tables: 116.
 
 ## Functions (60)
 
@@ -219,12 +219,13 @@ Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flow
 | [NxdMultiKeyLookup](../flows/NxdMultiKeyLookup.md) | How a reader finds a row of a double or triple keyed table, and which parts of the file each path reads. |
 | [NxdTableLoad](../flows/NxdTableLoad.md) | How one nxd table goes from a root.nxl line to rows a reader can look up. |
 
-## Observed behaviours (13)
+## Observed behaviours (14)
 
 | Name | Scope | Summary |
 |---|---|---|
 | [CharShapeRowsANewLookNeeds](../behaviors/CharShapeRowsANewLookNeeds.md) | engine (sprite rows in the NXD data) | The CharShape rows (NXD table 174, keyed by look number) end at key 158 and twelve functions look a look up there. |
 | [CountedNounTagRecord](../behaviors/CountedNounTagRecord.md) | engine (UI text tags) | How the four counted-noun tag builders use the four grammar bytes of a text tag record. |
+| [DebugSceneTablesShipStripped](../behaviors/DebugSceneTablesShipStripped.md) | engine data (debug scene selection) | The game data carries a set of debug scene-selection tables whose rows are stripped to a key and a flag: the scene picker, its map list, two background tables, a sound-id list, a graphics-id list, a game-flow table an... |
 | [FirstDwordOfTableRowsIsNeverRead](../behaviors/FirstDwordOfTableRowsIsNeverRead.md) | engine (nxd table access) | No shared code reads the first dword of a table row; a row is found through the key / offset index record, so the value there decides nothing. |
 | [HdSheetAndClassicPaletteLoading](../behaviors/HdSheetAndClassicPaletteLoading.md) | engine (sprite sheets and palettes) | How a sprite number becomes a sheet and a palette: a g2d entry pair through the HD table and the pack's unchecked index table, and a palette from the classic file named in the classic table. |
 | [JobNameAndHelpTextTags](../behaviors/JobNameAndHelpTextTags.md) | engine (UI text tags) | The text tags 'jobname' and 'jobhelp' print a Job row's name or help text; each takes a key and a variant, and a variant whose string is empty falls back to the other. |

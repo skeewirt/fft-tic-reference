@@ -391,6 +391,40 @@
       },
       "doc": "docs/functions/App_RunFrame.md"
     },
+    "Application_InitPlatformServices": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 29,
+            "calls": "sha256:6df6b73493b328066214f71f1b5c9fb73ff59584227911e456fefa794da8e652",
+            "insn_count": 48,
+            "mnemonics": "sha256:67ca5362eb08a2c99f86642768fbf6e20ea7b22385ed211d5cb8898ecd1fc6f5",
+            "size": 1568
+          },
+          "rva": "0x2defc",
+          "size": 1568
+        }
+      },
+      "doc": "docs/functions/Application_InitPlatformServices.md"
+    },
+    "Application_Initialize": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 26,
+            "calls": "sha256:44392f41e73617f86027e10f5f47bf799d60d62a624d22c2c8307d9312242541",
+            "insn_count": 48,
+            "mnemonics": "sha256:c0c0264e22b2568957d967f27a9c7002864f604a0de2e9d079f943b24e219569",
+            "size": 937
+          },
+          "rva": "0x296bc",
+          "size": 937
+        }
+      },
+      "doc": "docs/functions/Application_Initialize.md"
+    },
     "AtlasShelf_Alloc": {
       "area": "graphics",
       "builds": {
@@ -3332,6 +3366,23 @@
       },
       "doc": "docs/functions/Boot_CloseUI.md"
     },
+    "Boot_EnterState4": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:48bae8eb6f3593f49b25a68a8ccc7145e6ce987ef88ceb44ab8782ea0cfae606",
+            "insn_count": 17,
+            "mnemonics": "sha256:b60e96b3890f68adf3aa787fc6aad8fca65b8e74604b8bc0cefd7c46cb4ecb2b",
+            "size": 73
+          },
+          "rva": "0x1e7c0c",
+          "size": 73
+        }
+      },
+      "doc": "docs/functions/Boot_EnterState4.md"
+    },
     "Boot_Frame": {
       "area": "app-startup",
       "builds": {
@@ -3433,6 +3484,40 @@
         }
       },
       "doc": "docs/functions/Boot_UpdateVideo.md"
+    },
+    "BuildReport_InitAll": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:e6ce879e676e7ff2d2092cf8846e9a0d0d069321206e105622567f43fea82163",
+            "insn_count": 14,
+            "mnemonics": "sha256:30dc7af9d70e6505a49289a8487bf3c8f172edfc63f5985f102db62708ce2b7b",
+            "size": 54
+          },
+          "rva": "0xd844",
+          "size": 54
+        }
+      },
+      "doc": "docs/functions/BuildReport_InitAll.md"
+    },
+    "BuildReport_ReadEnvironment": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:6a77da9c87dc9f95b1973a54763a85cc9de60a230629f112984bdcec8065dcf1",
+            "insn_count": 48,
+            "mnemonics": "sha256:3bf8071905ae0b10168f2ef08fbf66a5ce56603c26bc8cef9da938b7d568dc7e",
+            "size": 637
+          },
+          "rva": "0xb1aa4",
+          "size": 637
+        }
+      },
+      "doc": "docs/functions/BuildReport_ReadEnvironment.md"
     },
     "ButtonIcon_Draw": {
       "area": "ui-framework",
@@ -4998,6 +5083,23 @@
       },
       "doc": "docs/functions/ClassicUi_RunLayoutScript.md"
     },
+    "Classic_BuildLaunchArguments": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:6198f682d482e8c66ffbce19ffc30a2d0ef05a4d7833ac8939d1a74f991b4913",
+            "insn_count": 48,
+            "mnemonics": "sha256:fd438fa9fd206356eeb4f3f80dd01ab197c8ebc3ab88ad83eb480870b60c4f59",
+            "size": 762
+          },
+          "rva": "0x1e6354",
+          "size": 762
+        }
+      },
+      "doc": "docs/functions/Classic_BuildLaunchArguments.md"
+    },
     "ClutBank_CopyRow": {
       "area": "graphics",
       "builds": {
@@ -5984,6 +6086,40 @@
       },
       "doc": "docs/functions/DepthStencilDesc_FromWord.md"
     },
+    "DirectStorage_ConfigureManager": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 9,
+            "calls": "sha256:36bea548593f43def52b8ceea21016125ad95f702bbc87bb3d3f1dbbded32e7d",
+            "insn_count": 48,
+            "mnemonics": "sha256:b46c2743b01949c8409a7effc7bcc429c093901555ac830c43e4a6677fdb1698",
+            "size": 744
+          },
+          "rva": "0x6fa94",
+          "size": 744
+        }
+      },
+      "doc": "docs/functions/DirectStorage_ConfigureManager.md"
+    },
+    "DirectStorage_InitDevice": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:f4df6c51655c25956a854b7e2801902c9f195215d3b953d7ea3f62d8ce0d37a1",
+            "insn_count": 48,
+            "mnemonics": "sha256:6419cd4e694b31712594d12eb02a2e1d164087c3ad12a60fed927ebee39e3b91",
+            "size": 388
+          },
+          "rva": "0x6b578",
+          "size": 388
+        }
+      },
+      "doc": "docs/functions/DirectStorage_InitDevice.md"
+    },
     "DrawCmd_PrintNumber": {
       "area": "graphics",
       "builds": {
@@ -6000,6 +6136,23 @@
         }
       },
       "doc": "docs/functions/DrawCmd_PrintNumber.md"
+    },
+    "DrawMode_BuildShaderTable": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:536e9f951c02db5fe3a026f4bca1988f2857aaae8b2932642feb560f4f50c822",
+            "size": 792
+          },
+          "rva": "0x3cecfc",
+          "size": 792
+        }
+      },
+      "doc": "docs/functions/DrawMode_BuildShaderTable.md"
     },
     "DspDesc_CallBackend0": {
       "area": "event-system",
@@ -17238,6 +17391,23 @@
       },
       "doc": "docs/functions/GameTasks_RunFrameSteps.md"
     },
+    "GameWindow_FillCreateParams": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 11,
+            "calls": "sha256:1ee4f0db21a75af439474516ef05751e65090f105e8cdb476bf97771e0b91fe8",
+            "insn_count": 48,
+            "mnemonics": "sha256:a985ab78773f8b1b8032011e630616aadfaf35310c3f4ddc8aa3d1fe908041fa",
+            "size": 835
+          },
+          "rva": "0x10750",
+          "size": 835
+        }
+      },
+      "doc": "docs/functions/GameWindow_FillCreateParams.md"
+    },
     "Game_LoopReset": {
       "area": "app-startup",
       "builds": {
@@ -21997,6 +22167,40 @@
         }
       },
       "doc": "docs/functions/Mem_Free.md"
+    },
+    "Memory_GetAvailableBytes": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:fe109bad25006d0ea1757e5a57e83507fae20e80e3f0b153f77cf4ba2f4d8a9c",
+            "insn_count": 32,
+            "mnemonics": "sha256:86d1ed017e7a10e097a9575965b40d14a6e15904d12b2b4368c14f6eb25a57cc",
+            "size": 131
+          },
+          "rva": "0x18a2c",
+          "size": 131
+        }
+      },
+      "doc": "docs/functions/Memory_GetAvailableBytes.md"
+    },
+    "Memory_InitAllocators": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 11,
+            "calls": "sha256:afcb953d30e330dbbf520c015d0c2bfcd5b91c014ac05c032a2063c3f6bdc96d",
+            "insn_count": 48,
+            "mnemonics": "sha256:d76a0313841fbe42fffa683aeb2bef1a8eaaca71bccd99139e51d6fb8ebcb6cb",
+            "size": 441
+          },
+          "rva": "0x112f4",
+          "size": 441
+        }
+      },
+      "doc": "docs/functions/Memory_InitAllocators.md"
     },
     "MenuCtl_Entry17": {
       "area": "ui-framework",
@@ -27812,6 +28016,23 @@
       },
       "doc": "docs/functions/SettlementEvent_EvaluateConditions.md"
     },
+    "ShaderManager_RegisterBuiltinShaders": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:e787a4d6f8f2cf8a78195e7231cfcc47597fe217a9c95344b2db73a6590babfd",
+            "size": 2100
+          },
+          "rva": "0x3cd018",
+          "size": 2100
+        }
+      },
+      "doc": "docs/functions/ShaderManager_RegisterBuiltinShaders.md"
+    },
     "ShaderProgram_ApplyState": {
       "area": "graphics",
       "builds": {
@@ -27862,6 +28083,23 @@
         }
       },
       "doc": "docs/functions/ShaderSelector_SetDigit.md"
+    },
+    "Shader_GetStateOverrides": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 48,
+            "mnemonics": "sha256:0d00296a1bca4786caded2ca41c0b0f8f2e232c0f08c057ff0ff36094117ac66",
+            "size": 164
+          },
+          "rva": "0x3cfa94",
+          "size": 164
+        }
+      },
+      "doc": "docs/functions/Shader_GetStateOverrides.md"
     },
     "ShopEntry_Fill": {
       "area": "items",
@@ -28152,6 +28390,23 @@
       },
       "doc": "docs/functions/SortieScreen_ShowAreaBoxes.md"
     },
+    "SoundCommand_ProcessQueue": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 23,
+            "calls": "sha256:8c002a8fca2933f13dc011cb47b35a0cc3cbbbcaacd339e6e2aa56bcb57be5d1",
+            "insn_count": 48,
+            "mnemonics": "sha256:94fea0370cc4e80da8e6dcaeef4154dc3a8d7d15f25b9ea8c164c0dd11c239bc",
+            "size": 5756
+          },
+          "rva": "0x501f50",
+          "size": 5756
+        }
+      },
+      "doc": "docs/functions/SoundCommand_ProcessQueue.md"
+    },
     "SoundCue_Play": {
       "area": "event-system",
       "builds": {
@@ -28185,6 +28440,23 @@
         }
       },
       "doc": "docs/functions/Sound_PlayNovelSe.md"
+    },
+    "Splash_CreateWindow": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 12,
+            "calls": "sha256:2b382d858a128208375cb284928f41ebca1306f5c878eee3914a680db3ff80a9",
+            "insn_count": 48,
+            "mnemonics": "sha256:c22742bc4f6d20cdf63d925b201d81bbebabc5dced54ba8176c2f88c1a408f88",
+            "size": 479
+          },
+          "rva": "0x2edc8",
+          "size": 479
+        }
+      },
+      "doc": "docs/functions/Splash_CreateWindow.md"
     },
     "SpriteAnim_Step": {
       "area": "ui-framework",
@@ -28287,6 +28559,57 @@
         }
       },
       "doc": "docs/functions/Startup_InstallExceptionHandling.md"
+    },
+    "Startup_MatchLaunchSwitch": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 37,
+            "mnemonics": "sha256:a4643913f7c791ffb630ac7365b618d7ceb6f5b03438c772492a9a58e48cdffb",
+            "size": 110
+          },
+          "rva": "0x2c634",
+          "size": 110
+        }
+      },
+      "doc": "docs/functions/Startup_MatchLaunchSwitch.md"
+    },
+    "Startup_ParseDisplaySwitches": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:3c16e507866ed13e0e65bf9e2217a5e9130a0a5e5d246ac72b7dc068ffef34f9",
+            "insn_count": 48,
+            "mnemonics": "sha256:4618b0f9120cbf114d7d3dcb2efaf8baba06f1b977eda324f3d6aeeea94f4d13",
+            "size": 1187
+          },
+          "rva": "0x1e6650",
+          "size": 1187
+        }
+      },
+      "doc": "docs/functions/Startup_ParseDisplaySwitches.md"
+    },
+    "Startup_ParseLaunchSwitches": {
+      "area": "app-startup",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:8823d6f0c01ac88051bc72acc8523e84aea8e280acfce910d1226167cff95c75",
+            "insn_count": 48,
+            "mnemonics": "sha256:2acd7cf387ab5ff15b564f77c2f386d9f7533aa6873acded87df3bb2ef274c69",
+            "size": 839
+          },
+          "rva": "0x2c2ec",
+          "size": 839
+        }
+      },
+      "doc": "docs/functions/Startup_ParseLaunchSwitches.md"
     },
     "Startup_SetDataDirectory": {
       "area": "app-startup",
