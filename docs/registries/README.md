@@ -2,7 +2,7 @@
 
 Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning.
 
-39 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
+43 records. Format of a record: [kinds/registry.json](../../kinds/registry.json). Data: [data/registries.jsonl](../../data/registries.jsonl).
 
 | Name | Area | Summary |
 |---|---|---|
@@ -25,6 +25,9 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [JobIdSpace](JobIdSpace.md) | [Job data](../areas/job-data.md) | What a job id (the byte in save record +2 and work record +3) means to the code, and the job index the per-job arrays use for it. |
 | [KeyBindingFlag](KeyBindingFlag.md) | [Input](../areas/input.md) | The flag bits of a keyboard binding dword of an action row (low 16 bits = key code), set by InputRows_ApplyKeyBindings from the UIKeyAssign flag bytes. |
 | [LayerPassKeys](LayerPassKeys.md) | [Graphics](../areas/graphics.md) | The pass constants OR-ed into the 64-bit sort key of the layer commands. |
+| [LegacyWorldMainMenuRows](LegacyWorldMainMenuRows.md) | [UI framework](../areas/ui-framework.md) | The rows of node 4 of the old world menu (the old main world menu): row -> next node -> what it opens. |
+| [LegacyWorldMenuNodes](LegacyWorldMenuNodes.md) | [UI framework](../areas/ui-framework.md) | The node tree of the old world menu: four tables of 21 node records of 88 bytes, one per text language (tbl_LegacyWorldMenuStateLang0 0x14080CAB0, Lang1 0x14080D1F0, Lang3 0x14080D930, Lang2 0x14080E070). |
+| [LocationsListInputActions](LocationsListInputActions.md) | [Input](../areas/input.md) | The input actions (rows of the game's input action table) that the Locations list and the old menu number entries read, with their keyboard keys from the table. |
 | [MovieControllerFlag](MovieControllerFlag.md) | [UI framework](../areas/ui-framework.md) | The movie controller flag bits Movie_Start sets from the MovieData row (MovieController +24). |
 | [NewUnitStartRows](NewUnitStartRows.md) | [Unit data](../areas/unit-data.md) | The four start rows that Unit_RollStartingStats reads: base and random span of the five stat accumulators in whole raw units, and the seven starting equipment words; a new unit's row is its kind (gender), never its job. |
 | [SamplerSlots](SamplerSlots.md) | [Graphics](../areas/graphics.md) | The sampler names of the render device (31 live) and their slot ids. |
@@ -45,3 +48,4 @@ Name-to-id tables the engine builds at runtime (sampler, texture and constant-bu
 | [UISoundIdsOfSettings](UISoundIdsOfSettings.md) | [UI framework](../areas/ui-framework.md) | The UI sound ids (`sub_1400F4BCC(_, id)`, UI table 0x45) the settings screen plays. |
 | [UnitEventFlagBit](UnitEventFlagBit.md) | [Unit data](../areas/unit-data.md) | The bits of the unit flag word at battle unit +504, which the battle build stores from the entry override row: one bit per flag byte (OverrideEntryData +0x8E..+0x97 and +0x99), plus bit 11 set by the equipment build. |
 | [UnitIdentityIds](UnitIdentityIds.md) | [Unit data](../areas/unit-data.md) | A unit is identified by its marker (save record +0, the character template), not by its job (+2): the job changes, the marker stays. |
+| [WorldMapAgentStates](WorldMapAgentStates.md) | [UI framework](../areas/ui-framework.md) | States of the world map UI agent (agent 20, state dword +228) set by WorldMapAgent_SetState: which of its addons each state shows and the footer guide it sets. |

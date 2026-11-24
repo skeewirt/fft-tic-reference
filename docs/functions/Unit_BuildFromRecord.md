@@ -28,7 +28,7 @@ Builds a unit work record from a spawn record: applies the record, sets up job s
 ## Referenced by
 
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
-- Called by: [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md)
+- Called by: [Battle_PlaceEntryUnits](Battle_PlaceEntryUnits.md), [Party_RebuildFromBattleEntry](Party_RebuildFromBattleEntry.md)
 - Observed behaviours: [PreplacedUnitsStartWithOneByteItems](../behaviors/PreplacedUnitsStartWithOneByteItems.md)
 
 ## Notes

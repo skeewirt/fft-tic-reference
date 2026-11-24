@@ -26,8 +26,8 @@ Opens the event variable editor: creates its window and pushes kind 11.
 
 ## Notes
 
-It lists event variables and lets a value be changed.
+It lists event variables and lets a value be changed. Its original opener (read in the functions named, not in this body) was row 8 of the old main world menu: node 15 runs LegacyWorldMenu_RequestEventVarEditor, which sets word_143749F38 = 1; LegacyWorldMenu_FrameStep turns it into mask 0x800000 of 0x141D32E14 and ClassicMenu_HubStep calls this function (0x14080D008, 0x14080D748, 0x14080DE88 and 0x14080E5C8 are the +48 task fields of node 15 in the four language tables, whose records start at 0x14080CFD8, 0x14080D718, 0x14080DE58 and 0x14080E598).
 
 ## Open questions
 
-? whether play starts it: mask 0x800000 of 0x141D32E14 is set only by sub_1402B4710 when word_143749F38 is 1; that word is set only by the event-task entry sub_1402B3D1C, which four data records reference (0x14080D008, 0x14080D748, 0x14080DE88, 0x14080E5C8). Whether play starts that task is unknown.
+? whether play can still reach it: the old main world menu's task confirms only its roster row (LegacyWorldMainMenuRows).

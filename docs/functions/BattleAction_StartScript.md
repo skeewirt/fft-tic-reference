@@ -33,7 +33,7 @@ unit and target for the tasks that program starts.
 ## Referenced by
 
 - Appears in flows: [BattleTimelineCameraFlow](../flows/BattleTimelineCameraFlow.md)
-- Called by: [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [sub_14020327C](sub_14020327C.md), [sub_140203450](sub_140203450.md)
+- Called by: [BattleUnitEditor_SceneTask](BattleUnitEditor_SceneTask.md), [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [sub_14020327C](sub_14020327C.md), [sub_140203450](sub_140203450.md)
 
 ## Notes
 

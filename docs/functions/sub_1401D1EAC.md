@@ -23,7 +23,7 @@ Deactivates the addon's root widget (a+24) through sub_1403F93F8.
 ## Referenced by
 
 - Appears in flows: [ScreenAddonCreation](../flows/ScreenAddonCreation.md)
-- Called by: [EventSubquestPanel_Run](EventSubquestPanel_Run.md), [EventUnitObject_ApplyId](EventUnitObject_ApplyId.md), [JobTree_OnFocusChange](JobTree_OnFocusChange.md), [UITitle_ShowPlayMode](UITitle_ShowPlayMode.md), [sub_140134B54](sub_140134B54.md), [sub_1402D67C8](sub_1402D67C8.md), [sub_14036AC74](sub_14036AC74.md)
+- Called by: [EventSubquestPanel_Run](EventSubquestPanel_Run.md), [EventUnitObject_ApplyId](EventUnitObject_ApplyId.md), [JobTree_OnFocusChange](JobTree_OnFocusChange.md), [UITitle_ShowPlayMode](UITitle_ShowPlayMode.md), [WorldMapAgent_SetState](WorldMapAgent_SetState.md), [sub_140134B54](sub_140134B54.md), [sub_1402D67C8](sub_1402D67C8.md), [sub_14036AC74](sub_14036AC74.md)
 
 ## Notes
 

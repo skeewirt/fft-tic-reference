@@ -18,7 +18,7 @@ Shows or hides the guide bar (calls the guide agent's 0x14013C740).
 
 ## Referenced by
 
-- Called by: [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [BgmMode_ToggleTitleLanguage](BgmMode_ToggleTitleLanguage.md), [Book_ShowGuide](Book_ShowGuide.md), [Boot_Update](Boot_Update.md), [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [Errand_ProfitEndStep](Errand_ProfitEndStep.md), [JournalScreen_OnAction](JournalScreen_OnAction.md), [TavernMenu_OnCommand](TavernMenu_OnCommand.md), [TitleScene_Update](TitleScene_Update.md), [UIAddonFFTOConfig_BindNodes](UIAddonFFTOConfig_BindNodes.md), [sub_14013F71C](sub_14013F71C.md)
+- Called by: [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [BgmMode_ToggleTitleLanguage](BgmMode_ToggleTitleLanguage.md), [Book_ShowGuide](Book_ShowGuide.md), [Boot_Update](Boot_Update.md), [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [Errand_ProfitEndStep](Errand_ProfitEndStep.md), [JournalScreen_OnAction](JournalScreen_OnAction.md), [TavernMenu_OnCommand](TavernMenu_OnCommand.md), [TitleScene_Update](TitleScene_Update.md), [UIAddonFFTOConfig_BindNodes](UIAddonFFTOConfig_BindNodes.md), [WorldMapAgent_SetState](WorldMapAgent_SetState.md), [sub_14013F71C](sub_14013F71C.md)
 - Observed behaviours: [GuideBarLayout](../behaviors/GuideBarLayout.md)
 
 ## Open questions

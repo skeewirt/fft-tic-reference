@@ -24,7 +24,7 @@ The 16 spawn entries (40 bytes each, 640 bytes) of the current battle inside the
 ## Referenced by
 
 - Appears in flows: [ScriptedBattleUnitsFromEntries](../flows/ScriptedBattleUnitsFromEntries.md)
-- Called by: [Battle_BuildEntryUnits](Battle_BuildEntryUnits.md)
+- Called by: [Battle_BuildEntryUnits](Battle_BuildEntryUnits.md), [Party_RebuildFromBattleEntry](Party_RebuildFromBattleEntry.md)
 - Observed behaviours: [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md), [StockBattleEntryListsHoldAtMostSixteenUnits](../behaviors/StockBattleEntryListsHoldAtMostSixteenUnits.md)
 
 ## Notes

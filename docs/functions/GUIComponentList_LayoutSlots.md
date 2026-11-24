@@ -25,6 +25,10 @@ Places the recycled slot nodes of a list for the current scroll offset, re-binds
 - Calls: [GUIComponentList_FindSlotNode](GUIComponentList_FindSlotNode.md), [GUINode_SetPosition](GUINode_SetPosition.md), [GUIWidget_FindComponentCached](GUIWidget_FindComponentCached.md), [GUICore_IsFocusTarget](GUICore_IsFocusTarget.md), [GUICore_SetFocusComponent](GUICore_SetFocusComponent.md), [GUICore_IsCursorTarget](GUICore_IsCursorTarget.md), [GUICore_SetCursorTarget](GUICore_SetCursorTarget.md), [GUINode_StopState](GUINode_StopState.md), [GUINode_PlayStateAtFrame](GUINode_PlayStateAtFrame.md), [GUIOwners_PostEvent](GUIOwners_PostEvent.md)
 - Reads: [g_GUICore](../globals/g_GUICore.md), [g_UINameTable](../globals/g_UINameTable.md)
 
+## Referenced by
+
+- Called by: [WorldMapBaseList_SelectTab](WorldMapBaseList_SelectTab.md)
+
 ## Notes
 
 The name is ours (IDB: sub_14040CB60). Takeaway for hover / focus on a list: slots are recycled; when the scroll moves a slot to a new item, its focus, cursor and Active / CursorOver / FocusIn states are forced back to the idle pose in the same frame. A model of hover that keys on a slot node (not on the item) will see the highlight jump.

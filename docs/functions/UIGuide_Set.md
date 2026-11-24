@@ -22,7 +22,7 @@ Sets the guide bar's key and sub-row mask.
 
 ## Referenced by
 
-- Called by: [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [ConfigMenu_UpdateFooter](ConfigMenu_UpdateFooter.md), [JournalScreen_OnAction](JournalScreen_OnAction.md)
+- Called by: [Battle_TimelineFocusCamera](Battle_TimelineFocusCamera.md), [ConfigMenu_UpdateFooter](ConfigMenu_UpdateFooter.md), [JournalScreen_OnAction](JournalScreen_OnAction.md), [WorldMapAgent_SetState](WorldMapAgent_SetState.md)
 - Observed behaviours: [GuideBarLayout](../behaviors/GuideBarLayout.md)
 
 ## Open questions

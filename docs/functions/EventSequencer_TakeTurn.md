@@ -24,6 +24,10 @@ Waits for the shared sequencer to be free, claims it by writing the caller's tag
 
 - Calls: [SceneTask_WaitFrame](SceneTask_WaitFrame.md), [SceneTask_Terminate](SceneTask_Terminate.md)
 
+## Referenced by
+
+- Called by: [BattleUnitEditor_SceneTask](BattleUnitEditor_SceneTask.md)
+
 ## Notes
 
 The tag is the number written to dword_140D408B8; the routine does not test the claim again after the first wait. Tag 12 is the 0x7D panel, tag 6 the 0x76 record task and tag 13 the 0x91 handler.

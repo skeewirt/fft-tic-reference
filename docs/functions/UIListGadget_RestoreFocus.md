@@ -18,7 +18,7 @@ Focuses the list's cursor row again.
 
 ## Referenced by
 
-- Called by: [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [UIListGadget_OnInput](UIListGadget_OnInput.md)
+- Called by: [ConfigMenu_OnDefaultsConfirm](ConfigMenu_OnDefaultsConfirm.md), [UIListGadget_ClassicInput](UIListGadget_ClassicInput.md), [UIListGadget_OnInput](UIListGadget_OnInput.md)
 
 ## Open questions
 

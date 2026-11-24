@@ -24,6 +24,7 @@ Mouse wheel or right stick scrolls a component list by whole rows, independent o
 
 ## Referenced by
 
+- Called by: [UIListGadget_ClassicInput](UIListGadget_ClassicInput.md)
 - Observed behaviours: [JobTreeViewControl](../behaviors/JobTreeViewControl.md)
 
 ## Notes

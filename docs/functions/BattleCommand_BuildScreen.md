@@ -12,6 +12,8 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 Builds the battle command/ability screen: the unit panels, the job record, the ability list entries and the equip detail panel the player navigates during a turn.
 
+The name is too narrow (kept because other records refer to it): this is the generic cell-list task of the event-side classic menus, the event-task copy of the scene task sub_14022F868. It finds the running node record in the 156-pointer menu descriptor array at g_CharaRenderMgr +6256 (V) and serves action lists as well as the world map's Locations list (menu descriptor 154): the tab clamp to 0..2 at 0x1402E6F48, WorldMapBaseList_SelectTab at 0x1402E6FAF and WorldMapAgent_LocationsListBlocked at 0x1402E7225 (V). It is also the task of node 9 of the old world menu (LegacyWorldMenuNodes) and is jumped to from LegacyMenu_BuildLocationList and LegacyMenu_LoadRowList (V).
+
 ## Behavior
 
 - V: the screen state is indexed by the active unit slot and copied from the battle object at 0x14378D620 with a stride of 0x470.
@@ -31,7 +33,7 @@ Builds the battle command/ability screen: the unit panels, the job record, the a
 ## Referenced by
 
 - Called by: [BattleCommand_BuildMenu](BattleCommand_BuildMenu.md), [LegacyMenu_LoadRowList](LegacyMenu_LoadRowList.md)
-- Observed behaviours: [BattlePanelsNameTheJobByte](../behaviors/BattlePanelsNameTheJobByte.md)
+- Observed behaviours: [BattlePanelsNameTheJobByte](../behaviors/BattlePanelsNameTheJobByte.md), [LocationsListTabIndex](../behaviors/LocationsListTabIndex.md)
 
 ## Notes
 

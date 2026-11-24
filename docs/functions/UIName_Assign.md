@@ -23,7 +23,7 @@ Copy-assignment of an interned name handle: takes a reference on src's entry, dr
 
 ## Referenced by
 
-- Called by: [FaceWidget_SetFace](FaceWidget_SetFace.md), [GUIComponentProps_Copy](GUIComponentProps_Copy.md), [GUIComponent_LoadProps](GUIComponent_LoadProps.md), [GUINode_NewState](GUINode_NewState.md), [GuideEntry_Fill](GuideEntry_Fill.md), [GuideSlot_DrawButtons](GuideSlot_DrawButtons.md), [SortieScreen_SetArea0Face](SortieScreen_SetArea0Face.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [sub_1401560D0](sub_1401560D0.md)
+- Called by: [FaceWidget_SetFace](FaceWidget_SetFace.md), [GUIComponentProps_Copy](GUIComponentProps_Copy.md), [GUIComponent_LoadProps](GUIComponent_LoadProps.md), [GUINode_NewState](GUINode_NewState.md), [GuideEntry_Fill](GuideEntry_Fill.md), [GuideSlot_DrawButtons](GuideSlot_DrawButtons.md), [SortieScreen_SetArea0Face](SortieScreen_SetArea0Face.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [WorldMapBaseList_DrawRow](WorldMapBaseList_DrawRow.md), [sub_1401560D0](sub_1401560D0.md)
 
 ## Notes
 

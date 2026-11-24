@@ -18,7 +18,7 @@ Sets the row count, scrolls to the top and redraws.
 
 ## Referenced by
 
-- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md), [ConfigMenu_ShowTab](ConfigMenu_ShowTab.md)
+- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md), [ConfigMenu_ShowTab](ConfigMenu_ShowTab.md), [WorldMapBaseList_ClearRecords](WorldMapBaseList_ClearRecords.md), [WorldMapBaseList_SelectTab](WorldMapBaseList_SelectTab.md)
 
 ## Open questions
 

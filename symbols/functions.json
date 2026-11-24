@@ -1785,6 +1785,57 @@
       },
       "doc": "docs/functions/BattleTask_TargetForecastPanel.md"
     },
+    "BattleUnitEditor_EventTask": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:9c7bc6ce8ab77252e49b76318a822eef343d349eefd09de77c5d5937ffdffe4c",
+            "insn_count": 41,
+            "mnemonics": "sha256:638ed5c3676b72ce155c5ff693ae9735be2ba4302435c2a3130f60fa5bd1577a",
+            "size": 193
+          },
+          "rva": "0x2e9de0",
+          "size": 193
+        }
+      },
+      "doc": "docs/functions/BattleUnitEditor_EventTask.md"
+    },
+    "BattleUnitEditor_Run": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:813883202ad873bbe482235a368ca9d4f5025677e0e9fe6a63d684ff5ad9a712",
+            "insn_count": 48,
+            "mnemonics": "sha256:b92eeee097ed6d1e446160775aa8469e72353fc68635c1b73b976744704f0965",
+            "size": 3687
+          },
+          "rva": "0x33be88",
+          "size": 3687
+        }
+      },
+      "doc": "docs/functions/BattleUnitEditor_Run.md"
+    },
+    "BattleUnitEditor_SceneTask": {
+      "area": "battle",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:900d47e01a15c7bcb126752762957b32c2520321ed78acfec15e4462152dd111",
+            "insn_count": 41,
+            "mnemonics": "sha256:638ed5c3676b72ce155c5ff693ae9735be2ba4302435c2a3130f60fa5bd1577a",
+            "size": 193
+          },
+          "rva": "0x233da0",
+          "size": 193
+        }
+      },
+      "doc": "docs/functions/BattleUnitEditor_SceneTask.md"
+    },
     "BattleUnit_BuildCursorRecord": {
       "area": "battle",
       "builds": {
@@ -4538,6 +4589,23 @@
         }
       },
       "doc": "docs/functions/ClassicMenu_LoadPageArtPack.md"
+    },
+    "ClassicMenu_OpenNumberEntry": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:a40125651262c2da280472a951d26c77dd9c2a47703e4aa35bec301a5dd13afb",
+            "insn_count": 48,
+            "mnemonics": "sha256:9ac29688c3caf4c32e2284346096e743b8413f5acd373ac86e454e8cb4a07b4f",
+            "size": 476
+          },
+          "rva": "0x379f8c",
+          "size": 476
+        }
+      },
+      "doc": "docs/functions/ClassicMenu_OpenNumberEntry.md"
     },
     "ClassicMenu_PopTownMenu": {
       "area": "ui-framework",
@@ -9247,6 +9315,40 @@
         }
       },
       "doc": "docs/functions/EventMapTitle_SweepTask.md"
+    },
+    "EventMenu_NodeListTask": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 21,
+            "calls": "sha256:e236c4b505c66ae76ed81abcecb6a3ee97f6bbf4b1a198f21af32808e3df8336",
+            "insn_count": 48,
+            "mnemonics": "sha256:27c00cf3673aaf071929700b0f61572c5a91c8bb6ca2ee2c0344066ccf3b7f7e",
+            "size": 9265
+          },
+          "rva": "0x2e38e4",
+          "size": 9265
+        }
+      },
+      "doc": "docs/functions/EventMenu_NodeListTask.md"
+    },
+    "EventMenu_WaitThenListTask": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:93d00692fdf48b4393bccfcd9ee63598398806af598dfb166aa65e99bd66e068",
+            "insn_count": 18,
+            "mnemonics": "sha256:69b5d745a10c4db51ebeaa0dc7672e6041465eb36f27f407ab7f730098bdbe06",
+            "size": 74
+          },
+          "rva": "0x2e9a1c",
+          "size": 74
+        }
+      },
+      "doc": "docs/functions/EventMenu_WaitThenListTask.md"
     },
     "EventMessage_Scripted": {
       "area": "event-system",
@@ -16133,6 +16235,40 @@
       },
       "doc": "docs/functions/GUISwitch_SetOn.md"
     },
+    "GUITabButton_Deselect": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:9899082e2ecb7f51390490a7e7add0d84c635186c512d75ae25616df63b63932",
+            "insn_count": 48,
+            "mnemonics": "sha256:53bc666a6910d1bc68024654ae46c4f9e2ea97ea62aa7cb18643616a3279bcec",
+            "size": 415
+          },
+          "rva": "0x40b128",
+          "size": 415
+        }
+      },
+      "doc": "docs/functions/GUITabButton_Deselect.md"
+    },
+    "GUITabButton_Select": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 12,
+            "calls": "sha256:71d61065d01969ab5d45db9937668d480943af87c6b9ed66a16bbfb6857ad3a1",
+            "insn_count": 48,
+            "mnemonics": "sha256:9b966ac4ef79cecb0fb750e7c1e827550b68f20439410e7a155cdb3e6d692b1b",
+            "size": 574
+          },
+          "rva": "0x40aee8",
+          "size": 574
+        }
+      },
+      "doc": "docs/functions/GUITabButton_Select.md"
+    },
     "GUITextBoardComponent_Update": {
       "area": "ui-framework",
       "builds": {
@@ -20485,6 +20621,23 @@
       },
       "doc": "docs/functions/LegacyMenu_BuildLocationList.md"
     },
+    "LegacyMenu_ConfirmRow": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 3,
+            "calls": "sha256:8eb2e7d0bf10c1120a4ec4a1705dc2139323e7ee43acd602c25aed6b9d1c4806",
+            "insn_count": 48,
+            "mnemonics": "sha256:37477d5b6731e233fc8db9f6074beca1d1a476a47790a7e6bce50ff8de4d4593",
+            "size": 480
+          },
+          "rva": "0x2e2704",
+          "size": 480
+        }
+      },
+      "doc": "docs/functions/LegacyMenu_ConfirmRow.md"
+    },
     "LegacyMenu_InitWorld": {
       "area": "ui-framework",
       "builds": {
@@ -20518,6 +20671,23 @@
         }
       },
       "doc": "docs/functions/LegacyMenu_LoadRowList.md"
+    },
+    "LegacyMenu_NumberEntryTask": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 17,
+            "calls": "sha256:58a484a29648fc16f58caa448686ef6aa82f3f4c92a765675afe8c1ac71a6f3d",
+            "insn_count": 48,
+            "mnemonics": "sha256:1fd23d374b9e7b0ddc9e441ac6fece3e3ee3990f6e8a1ae2b73f343f26dcbba9",
+            "size": 1463
+          },
+          "rva": "0x360e58",
+          "size": 1463
+        }
+      },
+      "doc": "docs/functions/LegacyMenu_NumberEntryTask.md"
     },
     "LegacyMenu_PickLocation": {
       "area": "ui-framework",
@@ -20620,6 +20790,159 @@
         }
       },
       "doc": "docs/functions/LegacyTask12_Build.md"
+    },
+    "LegacyWorldMenu_FrameStep": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 12,
+            "calls": "sha256:395fefe4b50bc8d0ac4bae44d33fe1c000f5b9388bdbc55196da5552088903e0",
+            "insn_count": 48,
+            "mnemonics": "sha256:86be8f871cfe11085cc6d28492b2e3e66c1729ebf752c0d9fabb256586e67000",
+            "size": 1721
+          },
+          "rva": "0x2b4710",
+          "size": 1721
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_FrameStep.md"
+    },
+    "LegacyWorldMenu_MainMenuTask": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 15,
+            "calls": "sha256:a3a90857ae7fc42d6f9726e3dba6b7a9cc01fe27bc5adba4cd79fcfd9cae7be4",
+            "insn_count": 48,
+            "mnemonics": "sha256:f3b0254fc827d0bb26502f70df9bcb7a9b7a3c803ddc7652ae208bd92be0ada7",
+            "size": 575
+          },
+          "rva": "0x2b50a4",
+          "size": 575
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_MainMenuTask.md"
+    },
+    "LegacyWorldMenu_OpenNode": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:03150bbcc84d06ed127ffa0b68fb30759b1b229bc1ab55575dc88da996c92d5b",
+            "insn_count": 48,
+            "mnemonics": "sha256:000ac1c0063f0998c536c052defc2f2d736e6247b70c2048788e664317307129",
+            "size": 319
+          },
+          "rva": "0x2b4dcc",
+          "size": 319
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_OpenNode.md"
+    },
+    "LegacyWorldMenu_RequestEventVarEditor": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 22,
+            "mnemonics": "sha256:3cc52c8b1e26c04a0d65b10b61b2ec74f814408369ecd31337080a7413458529",
+            "size": 97
+          },
+          "rva": "0x2b3d1c",
+          "size": 97
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_RequestEventVarEditor.md"
+    },
+    "LegacyWorldMenu_RequestPartyLoader": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 22,
+            "mnemonics": "sha256:3cc52c8b1e26c04a0d65b10b61b2ec74f814408369ecd31337080a7413458529",
+            "size": 97
+          },
+          "rva": "0x2b3cb8",
+          "size": 97
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_RequestPartyLoader.md"
+    },
+    "LegacyWorldMenu_RequestRoster": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 22,
+            "mnemonics": "sha256:3cc52c8b1e26c04a0d65b10b61b2ec74f814408369ecd31337080a7413458529",
+            "size": 97
+          },
+          "rva": "0x2b3d80",
+          "size": 97
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_RequestRoster.md"
+    },
+    "LegacyWorldMenu_StartTestBattle": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:7faa8da6d10986569a9372498bf7d7620c9e4d9e10e2451cfd7391d0e9498a68",
+            "insn_count": 24,
+            "mnemonics": "sha256:f11e2c45f31fee703a4fb0e7b64b76bb1d17fd6ec7a22790e23bf9c39b18a0fc",
+            "size": 97
+          },
+          "rva": "0x2b3fd4",
+          "size": 97
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_StartTestBattle.md"
+    },
+    "LegacyWorldMenu_StepRosterRequest": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 11,
+            "calls": "sha256:b143104c026a8548c1d5a939e47f82864d84cfa013ad2dce1fe0b54f19063166",
+            "insn_count": 48,
+            "mnemonics": "sha256:1dfe1ec8eca522653a34c864c013186ab3087aba317b515948f090f13b49216f",
+            "size": 548
+          },
+          "rva": "0x2b4038",
+          "size": 548
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_StepRosterRequest.md"
+    },
+    "LegacyWorldMenu_StepRow4Request": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:f44f00df2a028a59d11f1b5102306e712098181e9cfc54d76d1ef507ae99a3b4",
+            "insn_count": 48,
+            "mnemonics": "sha256:278fd35213360f2dd4d4e19bbd2dbc55fa7bd83a0ff49f8abaeff4227c83a26f",
+            "size": 584
+          },
+          "rva": "0x2b425c",
+          "size": 584
+        }
+      },
+      "doc": "docs/functions/LegacyWorldMenu_StepRow4Request.md"
     },
     "ListScroll_HandleStick": {
       "area": "ui-framework",
@@ -23443,6 +23766,23 @@
       },
       "doc": "docs/functions/PanelScreen_InitVram.md"
     },
+    "PartyLoader_OpenPrompt": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:7332a4d7f4183a5898c536a64fbb9a3910f581bc0a492d567245b716abdd3945",
+            "insn_count": 34,
+            "mnemonics": "sha256:fd27a4b85a9d8306688f81b453e5ad9b7b341180cb7539cfb31b5d223fd07f74",
+            "size": 172
+          },
+          "rva": "0x34637c",
+          "size": 172
+        }
+      },
+      "doc": "docs/functions/PartyLoader_OpenPrompt.md"
+    },
     "PartyUnit_BuildJobRecord": {
       "area": "graphics",
       "builds": {
@@ -23680,6 +24020,23 @@
         }
       },
       "doc": "docs/functions/Party_GetUnitJobId.md"
+    },
+    "Party_RebuildFromBattleEntry": {
+      "area": "event-system",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 8,
+            "calls": "sha256:8a84bc87622a7d6e56572db961cab5dfd9755544aff4afe16757f3ee4c5a9408",
+            "insn_count": 48,
+            "mnemonics": "sha256:2e0880acf330a99d7cb9aba3c920dad7b1af609c9032656719e8b88a356337f5",
+            "size": 252
+          },
+          "rva": "0x2841d0",
+          "size": 252
+        }
+      },
+      "doc": "docs/functions/Party_RebuildFromBattleEntry.md"
     },
     "Party_ReturnHandItems": {
       "area": "unit-data",
@@ -31008,6 +31365,23 @@
       },
       "doc": "docs/functions/UIListGadget_Bind.md"
     },
+    "UIListGadget_ClassicInput": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:b7e150d0fce181af90e1455b0fce289491223f6cc9b933fbf19d1c2d3dd9d32b",
+            "insn_count": 48,
+            "mnemonics": "sha256:6218f5e0cdf3dfecbcecdb0fb0a7709078ee111f28941f53b4c95b6353b4495d",
+            "size": 542
+          },
+          "rva": "0x28e290",
+          "size": 542
+        }
+      },
+      "doc": "docs/functions/UIListGadget_ClassicInput.md"
+    },
     "UIListGadget_Ctor": {
       "area": "ui-framework",
       "builds": {
@@ -31381,6 +31755,23 @@
         }
       },
       "doc": "docs/functions/UIPosFollow_Snap.md"
+    },
+    "UIRadioButtonMenu_AddItem": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 21,
+            "mnemonics": "sha256:68ca54aebfe9f1aa56ecf4720f61976a7e09321ee8f90fd4464bdc8dab1b63c7",
+            "size": 66
+          },
+          "rva": "0x2ad750",
+          "size": 66
+        }
+      },
+      "doc": "docs/functions/UIRadioButtonMenu_AddItem.md"
     },
     "UIRender_AccumulateQuadBounds": {
       "area": "graphics",
@@ -33847,6 +34238,227 @@
       },
       "doc": "docs/functions/WorldEncounter_StartBattle.md"
     },
+    "WorldMapAgent_CreateAddons": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 10,
+            "calls": "sha256:d7db15e65224bad6f876387c21b4539ca08ea8e903f29a2ec518bad396ef24a4",
+            "insn_count": 48,
+            "mnemonics": "sha256:dd95c93b52cd3bedfe9ca88de10bf91fc7d6f1beb1fcfe316178093b064549d7",
+            "size": 959
+          },
+          "rva": "0x1570c8",
+          "size": 959
+        }
+      },
+      "doc": "docs/functions/WorldMapAgent_CreateAddons.md"
+    },
+    "WorldMapAgent_IsMapShown": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 13,
+            "mnemonics": "sha256:c4a4ceec64253dda5fad35331b5df56823f9076528c1d43e7981a269f82ed03a",
+            "size": 37
+          },
+          "rva": "0x157bbc",
+          "size": 37
+        }
+      },
+      "doc": "docs/functions/WorldMapAgent_IsMapShown.md"
+    },
+    "WorldMapAgent_LocationsListBlocked": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:c39d056c1cb397195fe47f971aa1e530d265cfb9b63d0c320894ba1322a79aac",
+            "insn_count": 25,
+            "mnemonics": "sha256:1ffaa922680d118cd261e55f60b2e460a4f6326960a06a91af00e71c6a4a4520",
+            "size": 73
+          },
+          "rva": "0x157be4",
+          "size": 73
+        }
+      },
+      "doc": "docs/functions/WorldMapAgent_LocationsListBlocked.md"
+    },
+    "WorldMapAgent_SetState": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 12,
+            "calls": "sha256:fd4a17eaaa28b33bd7a285dace605132dfdd9ceed6830e5b93f1266273550915",
+            "insn_count": 48,
+            "mnemonics": "sha256:45ec331c93408e8a01d51a18d772d0c9107463f0ccec1b42a27e767627fed1ae",
+            "size": 853
+          },
+          "rva": "0x157864",
+          "size": 853
+        }
+      },
+      "doc": "docs/functions/WorldMapAgent_SetState.md"
+    },
+    "WorldMapBaseList_CanTakeInput": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 7,
+            "mnemonics": "sha256:833c3e11fbd4f50258b05f8c600fbade7b67abbe5e7d83c66ee20a2ef534716b",
+            "size": 15
+          },
+          "rva": "0x1603c4",
+          "size": 15
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_CanTakeInput.md"
+    },
+    "WorldMapBaseList_ClearRecords": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 1,
+            "calls": "sha256:0ddb00a7b97c0c8380f454970efcc61fee6401b4ffb5317405bea5b8af813e58",
+            "insn_count": 15,
+            "mnemonics": "sha256:8cb6ad5afe5ded226a61c42e1ac406c99d4fc3da4c075952b26ed3a08fa620be",
+            "size": 58
+          },
+          "rva": "0x1603d4",
+          "size": 58
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_ClearRecords.md"
+    },
+    "WorldMapBaseList_Construct": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 6,
+            "calls": "sha256:aaf8ceda838569a154856c04a13ec93ce819e033b591e398ad67a367e2a8b981",
+            "insn_count": 48,
+            "mnemonics": "sha256:e0796c12ac0d20429a84471643b97b893d67a4968743bc66f19a46196a7df503",
+            "size": 378
+          },
+          "rva": "0x15f480",
+          "size": 378
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_Construct.md"
+    },
+    "WorldMapBaseList_DeletingDestruct": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 2,
+            "calls": "sha256:d59e94467a960ca2ea781a9e82d40c0fb65bfb95bbcefa3d85fa66f7d662a23a",
+            "insn_count": 16,
+            "mnemonics": "sha256:a3877a364e5d2a9eeb0b6611f81101cfa63ed013138e8a0d5a51bddf107bf6b2",
+            "size": 52
+          },
+          "rva": "0x15f5fc",
+          "size": 52
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_DeletingDestruct.md"
+    },
+    "WorldMapBaseList_Destruct": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 4,
+            "calls": "sha256:271f777f9a49519bf356ca6f90d11c253e6cad8237901ba415921df0b94041b6",
+            "insn_count": 48,
+            "mnemonics": "sha256:49785d6690e6df837b73529a6a42e89d69b305c13c57c2becefef9551d242eb1",
+            "size": 253
+          },
+          "rva": "0x15f630",
+          "size": 253
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_Destruct.md"
+    },
+    "WorldMapBaseList_DrawRow": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 15,
+            "calls": "sha256:aaf0f078552aa5c394d3fb6dd9cf86d8939e0e78bcd7ac08ff4dcae9a604d32e",
+            "insn_count": 48,
+            "mnemonics": "sha256:f1a0394fdb53a759ef4bc7a0c1cf257b16bb2b02df7f770cb6551653060282f7",
+            "size": 893
+          },
+          "rva": "0x160410",
+          "size": 893
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_DrawRow.md"
+    },
+    "WorldMapBaseList_OnEvent": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 6,
+            "calls": "sha256:44e2eed27985e610e8c531f9b0bc0a65709722644eca9d28e216d53d58887b4f",
+            "insn_count": 48,
+            "mnemonics": "sha256:2f511d2262a8633f2ab1c46b8250378cf5119689601c8a51aef82d42d3ae6a1c",
+            "size": 294
+          },
+          "rva": "0x16029c",
+          "size": 294
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_OnEvent.md"
+    },
+    "WorldMapBaseList_RecordAt": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 0,
+            "calls": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "insn_count": 20,
+            "mnemonics": "sha256:c48611984e682ad7258ea55115f91dda54ad7ae3fe370451545d3f20bcd61d33",
+            "size": 68
+          },
+          "rva": "0x160790",
+          "size": 68
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_RecordAt.md"
+    },
+    "WorldMapBaseList_SelectTab": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 16,
+            "calls": "sha256:ed4fbd2923e2c0e5c73dfffaa02874f6797b491b0cd8dc3ef4e593acd7c5eeb4",
+            "insn_count": 48,
+            "mnemonics": "sha256:447a60350d6eda7868646880ec7e57ae570645670198825f093f8047be6cb952",
+            "size": 900
+          },
+          "rva": "0x160be0",
+          "size": 900
+        }
+      },
+      "doc": "docs/functions/WorldMapBaseList_SelectTab.md"
+    },
     "WorldMapBaseScreen_Open": {
       "area": "ui-framework",
       "builds": {
@@ -34101,6 +34713,23 @@
         }
       },
       "doc": "docs/functions/WorldMap_InitLocations.md"
+    },
+    "WorldMap_OpenLocationsList": {
+      "area": "ui-framework",
+      "builds": {
+        "sha256:937233f7fe76182a665c487c8802f5cec6662ddd09967e87cd09fb146fc6b5d5": {
+          "fingerprint": {
+            "call_count": 5,
+            "calls": "sha256:b30818110e723da2a56c4d8390f684562e4918b71eaab77a9aa8ad3ec20dcf16",
+            "insn_count": 46,
+            "mnemonics": "sha256:294d3b89fc0361e343c75a1d120740bf6846d0c6d5416d879d01b20020300696",
+            "size": 246
+          },
+          "rva": "0x36d21c",
+          "size": 246
+        }
+      },
+      "doc": "docs/functions/WorldMap_OpenLocationsList.md"
     },
     "WorldMap_ScreenInput": {
       "area": "ui-framework",

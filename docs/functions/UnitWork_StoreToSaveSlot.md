@@ -24,7 +24,7 @@ Writes a work record back into a save record: the unit's slot (a new slot for a 
 
 ## Referenced by
 
-- Called by: [sub_1402C60E4](sub_1402C60E4.md)
+- Called by: [Party_RebuildFromBattleEntry](Party_RebuildFromBattleEntry.md), [sub_1402C60E4](sub_1402C60E4.md)
 
 ## Notes
 

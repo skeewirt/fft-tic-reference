@@ -18,7 +18,7 @@ True while a 'Show', 'Slide_left' or 'Slide_right' state is running on the gadge
 
 ## Referenced by
 
-- Called by: [UIAddonFFTOConfig_OnInput](UIAddonFFTOConfig_OnInput.md)
+- Called by: [UIAddonFFTOConfig_OnInput](UIAddonFFTOConfig_OnInput.md), [UIListGadget_ClassicInput](UIListGadget_ClassicInput.md)
 - Observed behaviours: [ListGadgetInputPath](../behaviors/ListGadgetInputPath.md)
 
 ## Open questions

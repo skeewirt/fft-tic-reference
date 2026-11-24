@@ -16,6 +16,10 @@ Constructor of the row list gadget (General Options +1744).
 
 - V: +24 holds the list component and +96 the cursor row.
 
+## Referenced by
+
+- Called by: [WorldMapAgent_CreateAddons](WorldMapAgent_CreateAddons.md), [WorldMapBaseList_Construct](WorldMapBaseList_Construct.md)
+
 ## Notes
 
 Struct: UIListGadget.

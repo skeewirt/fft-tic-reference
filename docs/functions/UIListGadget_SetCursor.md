@@ -18,7 +18,7 @@ Moves the cursor to a row and focuses the row.
 
 ## Referenced by
 
-- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md)
+- Called by: [BgmMode_OnTabButton](BgmMode_OnTabButton.md), [UIListGadget_ClassicInput](UIListGadget_ClassicInput.md), [WorldMapBaseList_SelectTab](WorldMapBaseList_SelectTab.md)
 
 ## Open questions
 

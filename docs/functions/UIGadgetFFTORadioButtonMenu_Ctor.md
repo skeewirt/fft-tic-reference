@@ -19,6 +19,10 @@ Constructs the 304-byte radio-button menu gadget used by the battle command page
 - V: `+288` word (changed/pending bytes) = 0 (`0x1402AD5E0`), `+290` byte (hover pending) = 0 (`0x1402AD5EB`).
 - V: registers the gadget with the UI gadget module `qword_143CDA380`.
 
+## Referenced by
+
+- Called by: [WorldMapBaseList_Construct](WorldMapBaseList_Construct.md)
+
 ## Notes
 
 In `UIAddonFFTOBattleCommand` the gadget sits at addon `+840`, so its fields are addon `+856` (count), `+864` (entries), **`+1120` (selected)**, `+1124` (hover), `+1128` / `+1130` (flags), `+1136` (page/command id). The Legate's live read confirmed `+1120` as the visible command row (0 Move, 1 Abilities, 2 Wait, 3 Status).

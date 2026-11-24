@@ -17,6 +17,7 @@ Input step of the number entry above the event variable list (table index 48): c
 - V: confirm calls EventVar_Write(variable, word_140D498D4), where the variable is record dword 1; cancel writes nothing.
 - I: the word 0x140D498D4 is the number held by the number-entry widget.
 - V: after the close it pops and, when a value was written, redraws the list page of the screen below.
+- V (EventVar_Write and EventVar_Alu, read): the write is not raw: a negative value keeps only its low byte, variable 44 is capped at 99,999,999, an id of 1024 or more traps, a destination of 960 or more is stored only while its value is below 12, and while variable 508 is nonzero only 0..43, 112..143, 508..511 and a fixed set within 48..102 change.
 
 ## State touched
 

@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-277 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+279 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -140,6 +140,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [LayerCompositeOrder](LayerCompositeOrder.md) | the order of layers and of draws on the frame | Layers are composited in the order the game's draw traversal opened them, but only layers whose rectangles overlap are ordered against each other: each layer gets an order number that is one more than the creation ind... |
 | [LayerContentDrawnIntoCleared8BitTarget](LayerContentDrawnIntoCleared8BitTarget.md) | every layer's own draws | Store 1: a layer's UI draws go into the layer content target (RT 26, RGBA8 UNORM, 1280 x 720) inside the layer's atlas rectangle, which starts cleared to (0, 0, 0, 0), with the fixed-function blend ONE / INV_SRC_ALPHA... |
 | [ListGadgetInputPath](ListGadgetInputPath.md) | why a list cursor moves only when the screen calls the list input | A list gadget's cursor moves by pad or keyboard only when the screen's input handler calls the list's own input; the Left / Right branches of the settings screen return before that call. |
+| [LocationsListTabIndex](LocationsListTabIndex.md) | engine (world map Locations list) | The Locations list's current tab is a dword at +1840 of the list addon: three tabs, 0..2, each with its own record list. |
 | [LookPoolOfFifteenIsWiredIntoFixedSlots](LookPoolOfFifteenIsWiredIntoFixedSlots.md) | engine (battle look pool size) | The look pool's 15 records are not a constant that a same-length change can raise: the record block is followed at once by the scene-unit slots, each pool index owns fixed GPU upload positions or buffers, the HD sheet... |
 | [LookSitesUseTheSaveRecordNotTheSlot](LookSitesUseTheSaveRecordNotTheSlot.md) | engine (portraits and faces) | The six portrait readers compute the look from the unit's marker, job byte and sex each time through six copies of one 211-word table; none of them reads the battle slot, and they are separate from the battle sprite p... |
 | [LookSlotsAlreadyInTheGame](LookSlotsAlreadyInTheGame.md) | engine (battle sprite loading) | The battle loader already assigns small per-battle slots to looks: a 16-entry queue, 15 look pool records shared by equal sprite numbers, 16 scene-unit records and 10 HD sheet entries. |
@@ -242,6 +243,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads](StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads.md) | engine (story progress) | Event variable 110 holds the story's progress step. |
 | [TavernErrandsOpenAtSituationCounter450](TavernErrandsOpenAtSituationCounter450.md) | engine | The tavern's errand row is open only when UserSituation 3220 holds: situation counter 0 (the dword at g_UserSituation +24, or +104 with the bank bit) is at least 450, which event opcode 0xE9 raises with the story. |
 | [TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable](TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable.md) | engine (tavern rumours) | The tavern's Rumors list holds the nxd Gossip rows whose ids pass an availability test: ids 0..63 are walked; an id is listed when its Gossip row exists, its condition is met, and either its Gossip flag is set or the ... |
+| [TestBattleModeVariable510](TestBattleModeVariable510.md) | engine (battle set-up) | Variable 510 marks a test battle started from the old world menu's map number entry; several battle set-up steps read it and take a shortened path. |
 | [TexelWeights8Bit](TexelWeights8Bit.md) | GPU (the test machine's GPU and driver) | Bilinear filtering weights are the sub-texel fraction rounded to 1/256 (8 bits), not exact: the filtered colour of a texel pair at fraction f uses round(f * 256) / 256. |
 | [TextFillPassDrawnAsOneShape](TextFillPassDrawnAsOneShape.md) | UI text (SDF font runs: the screen title, the job name tag, the level boards) | A text run's fill pass reaches its target as one shape: the fill glyphs are drawn without blending under a depth test (LESS_EQUAL, depth = 1 - the distance at the pixel centre), so where neighbouring glyph quads overl... |
 | [TextLanguage](TextLanguage.md) | the text language: where it comes from, where it is read, how the text files are chosen | How the game picks and applies its text language. |

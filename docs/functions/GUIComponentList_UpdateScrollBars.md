@@ -23,6 +23,10 @@ Gives the horizontal and vertical scroll bars their ranges from the item count a
 
 - Calls: [GUIComponentList_GetHScroll](GUIComponentList_GetHScroll.md), [GUIComponentList_GetVScroll](GUIComponentList_GetVScroll.md)
 
+## Referenced by
+
+- Called by: [WorldMapBaseList_SelectTab](WorldMapBaseList_SelectTab.md)
+
 ## Notes
 
 The name is ours (IDB: sub_14040CA50). Writes the bar's +652 / +656 / +660 directly (V), which is what ScrollBar_SetPosition's sheet calls 'the wrong layout for this class' for raw writes from the outside: this function is the class's own way of doing it. bar+416 here toggles the bar's visibility (the same byte other sheets call 'loaded / enabled').

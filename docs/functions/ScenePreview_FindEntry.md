@@ -22,7 +22,7 @@ Finds a preview-unit record by a one-byte key and reports how it was found throu
 
 ## Referenced by
 
-- Called by: [EventRef_ResolveSlot](EventRef_ResolveSlot.md), [EventRef_ResolveSlotForMessage](EventRef_ResolveSlotForMessage.md), [EventUnitBlock_RunTask](EventUnitBlock_RunTask.md), [EventUnitStatus_RunMembers](EventUnitStatus_RunMembers.md), [sub_1402C60E4](sub_1402C60E4.md)
+- Called by: [BattleUnitEditor_Run](BattleUnitEditor_Run.md), [EventRef_ResolveSlot](EventRef_ResolveSlot.md), [EventRef_ResolveSlotForMessage](EventRef_ResolveSlotForMessage.md), [EventUnitBlock_RunTask](EventUnitBlock_RunTask.md), [EventUnitStatus_RunMembers](EventUnitStatus_RunMembers.md), [sub_1402C60E4](sub_1402C60E4.md)
 - Called by event opcodes: [0x45](../opcodes/README.md)
 
 ## Notes

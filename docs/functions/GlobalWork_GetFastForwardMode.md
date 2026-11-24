@@ -26,7 +26,7 @@ Returns the fast-forward mode of the current frame after the 'Fast-forward' sett
 
 ## Referenced by
 
-- Called by: [BattleControl_FrameUpdate](BattleControl_FrameUpdate.md), [BattleVoice_RollAndPlay](BattleVoice_RollAndPlay.md), [EventControl_CarryToNextEvent](EventControl_CarryToNextEvent.md), [EventControl_IsAutoAdvancing](EventControl_IsAutoAdvancing.md), [EventControl_RunningTick](EventControl_RunningTick.md), [EventControl_UpdateGuide](EventControl_UpdateGuide.md), [GlobalWork_GetSpeedMultiplier](GlobalWork_GetSpeedMultiplier.md), [WorldMap_UpdateFastForward](WorldMap_UpdateFastForward.md)
+- Called by: [BattleControl_FrameUpdate](BattleControl_FrameUpdate.md), [BattleVoice_RollAndPlay](BattleVoice_RollAndPlay.md), [EventControl_CarryToNextEvent](EventControl_CarryToNextEvent.md), [EventControl_IsAutoAdvancing](EventControl_IsAutoAdvancing.md), [EventControl_RunningTick](EventControl_RunningTick.md), [EventControl_UpdateGuide](EventControl_UpdateGuide.md), [GlobalWork_GetSpeedMultiplier](GlobalWork_GetSpeedMultiplier.md), [WorldMapAgent_SetState](WorldMapAgent_SetState.md), [WorldMap_UpdateFastForward](WorldMap_UpdateFastForward.md)
 - Observed behaviours: [FastForwardState](../behaviors/FastForwardState.md)
 
 ## Notes

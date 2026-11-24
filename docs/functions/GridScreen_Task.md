@@ -20,7 +20,7 @@ Task of the legacy grid screen screen: a grid of five columns of unit portraits 
 
 ## Referenced by
 
-- Observed behaviours: [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md)
+- Observed behaviours: [ScenarioRamzaRequiredRule](../behaviors/ScenarioRamzaRequiredRule.md), [TestBattleModeVariable510](../behaviors/TestBattleModeVariable510.md)
 - Reads tables: [GridArrowCells](../tables/GridArrowCells.md), [GridMenuNodesDefault](../tables/GridMenuNodesDefault.md), [GridMenuNodesLanguage0](../tables/GridMenuNodesLanguage0.md)
 
 ## Notes

@@ -25,7 +25,7 @@ Plays a sound cue on the first free sound channel of 13..19: remaps the cue with
 
 ## Referenced by
 
-- Called by: [EffectScript_OpRunTimeline](EffectScript_OpRunTimeline.md), [EffectSequence_SpawnGroup10WithCue](EffectSequence_SpawnGroup10WithCue.md), [EffectSequence_SpawnGroup14Ring](EffectSequence_SpawnGroup14Ring.md), [EffectSequence_SpawnGroup8WithCue](EffectSequence_SpawnGroup8WithCue.md), [EquipSprite_BuildPieces](EquipSprite_BuildPieces.md), [EventChannel_BindStepTask](EventChannel_BindStepTask.md), [EventCmd_AllocSlot](EventCmd_AllocSlot.md), [JobScreen_ShowPopup](JobScreen_ShowPopup.md), [sub_1400F4BCC](sub_1400F4BCC.md), [sub_140269554](sub_140269554.md)
+- Called by: [EffectScript_OpRunTimeline](EffectScript_OpRunTimeline.md), [EffectSequence_SpawnGroup10WithCue](EffectSequence_SpawnGroup10WithCue.md), [EffectSequence_SpawnGroup14Ring](EffectSequence_SpawnGroup14Ring.md), [EffectSequence_SpawnGroup8WithCue](EffectSequence_SpawnGroup8WithCue.md), [EquipSprite_BuildPieces](EquipSprite_BuildPieces.md), [EventChannel_BindStepTask](EventChannel_BindStepTask.md), [EventCmd_AllocSlot](EventCmd_AllocSlot.md), [JobScreen_ShowPopup](JobScreen_ShowPopup.md), [LegacyWorldMenu_FrameStep](LegacyWorldMenu_FrameStep.md), [sub_1400F4BCC](sub_1400F4BCC.md), [sub_140269554](sub_140269554.md)
 - Observed behaviours: [SoundCuesAreRemappedBeforeTheyPlay](../behaviors/SoundCuesAreRemappedBeforeTheyPlay.md)
 - Reads file formats: [EffectSoundTracks](../formats/EffectSoundTracks.md), [SoundBankSab](../formats/SoundBankSab.md)
 

@@ -2,9 +2,9 @@
 
 The event variable store, the cooperative task and thread scheduler, the event interpreter with its script loader and scanners, the dialogue, sprite, colour and camera tasks, and the helpers the event opcodes share.
 
-Functions: 217, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 21, Tables: 29.
+Functions: 220, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 22, Tables: 29.
 
-## Functions (217)
+## Functions (220)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -48,6 +48,8 @@ Functions: 217, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [EventMapTitle_DrawSweep](../functions/EventMapTitle_DrawSweep.md) | `0x140302318` | Builds four 184-byte map-title draw records for one sweep value into a 736-byte buffer and links them into the draw list; the layout argument (0 or 1) chooses the record variant and the link order. |
 | [EventMapTitle_LoadTexture](../functions/EventMapTitle_LoadTexture.md) | `0x140302B68` | Loads the map-title texture file chosen by scene variable 51 (maptitle_%03d.tex) into a 10,240-byte buffer, unless the enhanced-build test says it is not needed; the 0x91 handler calls it before starting the sweep task. |
 | [EventMapTitle_SweepTask](../functions/EventMapTitle_SweepTask.md) | `0x14030299C` | The task started by event opcode 0x91: runs three sweeps of a 0-to-255 value over frames (up, hold at 255, sweep again with the second layout), one draw and one frame per value, using the operand 3 step, and ends earl... |
+| [EventMenu_NodeListTask](../functions/EventMenu_NodeListTask.md) | `0x1402E38E4` | The generic list task of the event-side menu nodes: draws the node's window and title text, then loops on input until the node closes. |
+| [EventMenu_WaitThenListTask](../functions/EventMenu_WaitThenListTask.md) | `0x1402E9A1C` | Task of nodes 10 and 56 of the event menu node tables: waits until the battle is idle, then runs the generic node list task. |
 | [EventMessage_Scripted](../functions/EventMessage_Scripted.md) | `0x1402DB09C` | The dialogue-window task used by the first task table: it shows a scripted event message, pages through the text and waits for the player. |
 | [EventMessage_Task](../functions/EventMessage_Task.md) | `0x1402238C4` | The dialogue-window task: it shows an event message in a speech window, pages through the text and waits for the player. |
 | [EventMode_DispatchTask](../functions/EventMode_DispatchTask.md) | `0x14023354C` | The task started by event opcode 0x78: clears a global and hands the task's mode and argument to the mode dispatcher, which starts one of several helper tasks. |
@@ -126,6 +128,7 @@ Functions: 217, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [IdRemap_Lookup](../functions/IdRemap_Lookup.md) | `0x1402BA9C8` | Remaps an id above 0xA7 through the 406-row table `g_IdRemapPairs` (7 pairs of two dwords per row, 56 bytes); returns the replacement, or the id itself when it is not in the table. |
 | [Music_StartSceneTracks](../functions/Music_StartSceneTracks.md) | `0x140234990` | Starts a scene's music: resets the event slots, loads the two tracks into music slots 1 and 2, then starts slot 1. |
 | [MusicSlot_FetchRecord](../functions/MusicSlot_FetchRecord.md) | `0x1402B1F08` | Activates an event sound slot: loads its sound id and the three record dwords into the music state. |
+| [Party_RebuildFromBattleEntry](../functions/Party_RebuildFromBattleEntry.md) | `0x1402841D0` | Replaces the whole party roster with the units of a battle entry: every roster record is emptied, then up to 16 units are built from the entry's unit rows. |
 | [ScenarioSetup_ApplyRecord](../functions/ScenarioSetup_ApplyRecord.md) | `0x1402FB7C8` | At a scene start, applies the scenario setup record of the scene's event to the scene variables and rebuilds the per-event word table; in the mid-event refresh it only re-reads two scene bytes through the event's link. |
 | [Scene_StartMusic](../functions/Scene_StartMusic.md) | `0x1402FC484` | At a scene start, keeps the running music when the scene's track is the one already playing, otherwise starts the scene's tracks. |
 | [SceneCallback_Dispatch](../functions/SceneCallback_Dispatch.md) | `0x1402F7D1C` | Calls the callback in the global function pointer `qword_140D40940` for modes 0 to 6. |
@@ -275,7 +278,7 @@ Functions: 217, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 |---|---|---|
 | [SoundBankSab](../formats/SoundBankSab.md) |  | sound/common/sound.sab (0006.pac, 78 MB, stored uncompressed): a SEAD sound bank ('sabf' version 2) whose 690 sounds are the ids SoundCue_Play accepts (0..0x2B1); the audio is CRI HCA, not encrypted. |
 
-## Observed behaviours (21)
+## Observed behaviours (22)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -296,6 +299,7 @@ Functions: 217, Structures: 28, Globals: 5, File formats: 1, Observed behaviours
 | [StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences](../behaviors/StoryEventListBuildsASharedBoardArrayFromBitVariablesAndHoldsTextReferences.md) | engine (tavern list pages, story event list) | A list of replayable story events has 78 entries: 64 plain ones that read event variables 444 to 507 and 14 special ones that read 427 to 440 (only 430, 433 and 440 can be listed); a listed entry is a 16-bit text refe... |
 | [StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads](../behaviors/StoryProgressEventVariable110DecidesWhichStoryBattleAWorldMapSiteLoads.md) | engine (story progress) | Event variable 110 holds the story's progress step. |
 | [TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable](../behaviors/TavernRumoursListGossipRowsByIdTownMaskAndUnlockVariable.md) | engine (tavern rumours) | The tavern's Rumors list holds the nxd Gossip rows whose ids pass an availability test: ids 0..63 are walked; an id is listed when its Gossip row exists, its condition is met, and either its Gossip flag is set or the ... |
+| [TestBattleModeVariable510](../behaviors/TestBattleModeVariable510.md) | engine (battle set-up) | Variable 510 marks a test battle started from the old world menu's map number entry; several battle set-up steps read it and take a shortened path. |
 | [TodaysCalendarDateIsHeldInEventVariables46And47](../behaviors/TodaysCalendarDateIsHeldInEventVariables46And47.md) | engine (calendar) | The calendar's current month and day are event variables 46 (month 1..12) and 47 (day). |
 | [TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences](../behaviors/TrackedDateCountersAreCopiedBySixteenByteMovesInFiveSequences.md) | engine (calendar counters) | Outside the two counting loops, the 64 counter bytes are moved only by sequences of four 16-byte moves: the save pack and unpack, the checkpoint writer and reader, the battle capture's errand-state copy in both direct... |
 | [TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage](../behaviors/TrackedDateCountersAreCountedByTwoFunctionsAndShownByTheLevelListPage.md) | engine (calendar counters, second tavern list) | Each of 64 tracked date slots owns one counter byte (cap 99) in a 64-byte block; the daily calendar tick and the jump by N days count a slot when its date is reached; the page of the second tavern list prints the coun... |

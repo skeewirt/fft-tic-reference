@@ -13,8 +13,8 @@ Confidence tags: **V** decoded, **M** measured, **I** inferred, **?** unknown.
 
 ## Referenced by
 
-- Read by: [Battle_BuildEntryUnits](../functions/Battle_BuildEntryUnits.md), [Battle_GetEntryBlock](../functions/Battle_GetEntryBlock.md)
-- Written by: [Battle_RestoreSceneVars](../functions/Battle_RestoreSceneVars.md)
+- Read by: [Battle_BuildEntryUnits](../functions/Battle_BuildEntryUnits.md), [Battle_GetEntryBlock](../functions/Battle_GetEntryBlock.md), [Party_RebuildFromBattleEntry](../functions/Party_RebuildFromBattleEntry.md)
+- Written by: [Battle_RestoreSceneVars](../functions/Battle_RestoreSceneVars.md), [Party_RebuildFromBattleEntry](../functions/Party_RebuildFromBattleEntry.md)
 
 ## Open questions
 

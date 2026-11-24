@@ -16,6 +16,10 @@ Finds the component reference node (kind 12) of the widget that points at a give
 
 - V: iterates the node pointer vector w+160..+168; a node qualifies when node+52 == 12 and its name pair matches the component's: (node+208, id node+216) with (comp+280, id comp+288), and (node+224, id node+232) with (comp+504, id comp+512); a pair matches by interned id when both ids are non-zero, otherwise by C string compare. Returns the first match or 0.
 
+## Referenced by
+
+- Called by: [GUITabButton_Deselect](GUITabButton_Deselect.md), [GUITabButton_Select](GUITabButton_Select.md)
+
 ## Notes
 
 The name is ours (IDB: sub_1403FA768). Mirrors GUIComponentRef_Draw, which looks a component up with the same pair (ref+208, ref+224).

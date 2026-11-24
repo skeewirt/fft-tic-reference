@@ -2,7 +2,7 @@
 
 Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field.
 
-540 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
+541 records. Format of a record: [kinds/struct.json](../../kinds/struct.json). Data: [data/structs.jsonl](../../data/structs.jsonl).
 
 | Name | Size (bytes) | Area | Summary |
 |---|---|---|---|
@@ -544,5 +544,6 @@ Runtime records: objects and blocks the game keeps in memory, field by field, wi
 | [WindowGroupStartRow](WindowGroupStartRow.md) | 1 | [UI framework](../areas/ui-framework.md) | One row of UiLegacyWindowGroupStartsLang0. |
 | [WindowGrowStep](WindowGrowStep.md) | 1 | [UI framework](../areas/ui-framework.md) | One row of the WindowGrowSteps table. |
 | [WindowPatternWord](WindowPatternWord.md) | 2 | [UI framework](../areas/ui-framework.md) | One row of the WindowPatternTiles table. |
+| [WorldMapBaseList](WorldMapBaseList.md) | 1856 | [UI framework](../areas/ui-framework.md) | The Locations list addon of the world map (X on the map): addon +80 of the world map agent, made once by WorldMapAgent_CreateAddons from UI addon row 133. |
 | [WorldMapLocationRecord](WorldMapLocationRecord.md) | 64 | [UI framework](../areas/ui-framework.md) | One 64-byte record per world-map location that the location-list builder accepts (location ids 0..46): what is on offer there and its state at the current story progress. |
 | [WorldMapRoad](WorldMapRoad.md) | 8 | [Event system](../areas/event-system.md) | One row of the WorldMapRoads table. |

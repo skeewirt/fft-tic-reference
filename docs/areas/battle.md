@@ -2,9 +2,9 @@
 
 Battle logic outside the formulas: AI decisions and evaluation, action checks, ranges and targets, action resolution and execution, the turn engine (charge time, turn order, the timeline), the live unit table, status effects, the battle command menu and presentation, the ability and item lists, and the results and learning after a battle.
 
-Functions: 423, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89.
+Functions: 426, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89.
 
-## Functions (423)
+## Functions (426)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -119,6 +119,9 @@ Functions: 423, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flo
 | [BattleUnit_BuildCursorRecord](../functions/BattleUnit_BuildCursorRecord.md) | `0x140281248` | Builds the seven-byte cursor record a unit contributes to the targeting display: slot and flags, level, terrain height and the tile the cursor should sit on. |
 | [BattleUnit_RevealOnField](../functions/BattleUnit_RevealOnField.md) | `0x1402718CC` | Puts a battle unit record that is off the field onto it, without building anything: the record must already exist. |
 | [BattleUnit_SetStatusVisual](../functions/BattleUnit_SetStatusVisual.md) | `0x1401FB064` | Sets or clears a status's visual bits on the unit's scene object: the tint / pose word or the sprite-change word. |
+| [BattleUnitEditor_EventTask](../functions/BattleUnitEditor_EventTask.md) | `0x1402E9DE0` | Event task wrapper of the battle unit editor: node 44 of the event menu node table tbl_EventMenuNodesLanguage0. |
+| [BattleUnitEditor_Run](../functions/BattleUnitEditor_Run.md) | `0x14033BE88` | The battle unit editor: a field grid over one battle unit whose values are stepped with the direction keys between per-field limits; actions 45 / 46 switch units. |
+| [BattleUnitEditor_SceneTask](../functions/BattleUnitEditor_SceneTask.md) | `0x140233DA0` | Scene task wrapper of the battle unit editor: node 44 of the scene menu node table tbl_UiMenuNodesLang0. |
 | [BattleVoice_AssignPatterns](../functions/BattleVoice_AssignPatterns.md) | `0x1401EDB88` | Gives a battle unit's voice controller its pattern, from the unit's job and name key. |
 | [BattleVoice_AssignSharedPattern](../functions/BattleVoice_AssignSharedPattern.md) | `0x1401ED240` | Sets the pattern of one shared voice controller. |
 | [BattleVoice_IsSuppressed](../functions/BattleVoice_IsSuppressed.md) | `0x1401ED4E0` | Decides by sides whether a battle voice line is spoken: 0 speak, or a reason 1..5 to suppress (CharacterBattleVoiceController virtual, slot 5). |

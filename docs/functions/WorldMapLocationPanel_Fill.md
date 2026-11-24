@@ -22,6 +22,10 @@ Fills the world-map location info panel from a location record.
 
 - Calls: [UserSituation_IsMet](UserSituation_IsMet.md), [GUINode_PlayState](GUINode_PlayState.md)
 
+## Referenced by
+
+- Called by: [WorldMapBaseList_OnEvent](WorldMapBaseList_OnEvent.md)
+
 ## Notes
 
 The record is WorldMapLocationRecord, built by sub_14036E5DC.

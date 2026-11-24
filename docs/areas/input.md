@@ -2,7 +2,7 @@
 
 Pointer polling and input state.
 
-Functions: 24, Structures: 12, Globals: 1, Registries: 2, Flows: 1, Observed behaviours: 1, Tables: 9.
+Functions: 24, Structures: 12, Globals: 1, Registries: 3, Flows: 1, Observed behaviours: 1, Tables: 9.
 
 ## Functions (24)
 
@@ -56,12 +56,13 @@ Functions: 24, Structures: 12, Globals: 1, Registries: 2, Flows: 1, Observed beh
 |---|---|---|---|
 | [g_InputModule](../globals/g_InputModule.md) | `0x143CD9EE8` | `void *` | The UI input module: a copy of the device state at +8, 256 action rows of 48 bytes at +1360 (record InputActionRow), the context mask at +13720. |
 
-## Registries (2)
+## Registries (3)
 
 | Name | Summary |
 |---|---|
 | [InputContext](../registries/InputContext.md) | The input contexts an action row can belong to: the row's mask against the module's context mask. |
 | [KeyBindingFlag](../registries/KeyBindingFlag.md) | The flag bits of a keyboard binding dword of an action row (low 16 bits = key code), set by InputRows_ApplyKeyBindings from the UIKeyAssign flag bytes. |
+| [LocationsListInputActions](../registries/LocationsListInputActions.md) | The input actions (rows of the game's input action table) that the Locations list and the old menu number entries read, with their keyboard keys from the table. |
 
 ## Flows (1)
 

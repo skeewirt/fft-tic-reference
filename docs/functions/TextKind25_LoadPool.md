@@ -29,7 +29,7 @@ Loads the text pool that serves text kind 25 (base 0xC800): it sizes the buffer 
 
 ## Referenced by
 
-- Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [sub_14030476C](sub_14030476C.md)
+- Called by: [BattleLoad_StepFresh](BattleLoad_StepFresh.md), [Party_RebuildFromBattleEntry](Party_RebuildFromBattleEntry.md), [sub_14030476C](sub_14030476C.md)
 - Observed behaviours: [BattleEntryDataIsFiveFilesByKey](../behaviors/BattleEntryDataIsFiveFilesByKey.md)
 
 ## Notes

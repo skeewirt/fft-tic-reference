@@ -23,7 +23,7 @@ The entry point that shows a guide automatically when the game reaches its momen
 
 ## Referenced by
 
-- Called by: [UISaveLoad_StateEnter](UISaveLoad_StateEnter.md)
+- Called by: [EventMenu_NodeListTask](EventMenu_NodeListTask.md), [UISaveLoad_StateEnter](UISaveLoad_StateEnter.md)
 - Observed behaviours: [GuideListsAndAutoShowRule](../behaviors/GuideListsAndAutoShowRule.md)
 
 ## Open questions

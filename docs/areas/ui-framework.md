@@ -2,9 +2,9 @@
 
 GUI nodes, text/font rendering, widgets, input, hit testing and the UI render/command pipeline.
 
-Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234.
+Functions: 813, Structures: 139, Globals: 8, Registries: 20, File formats: 7, Flows: 7, Observed behaviours: 31, Tables: 234.
 
-## Functions (782)
+## Functions (813)
 
 | Name | Address | Purpose |
 |---|---|---|
@@ -62,6 +62,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [ClassicListPage_BuildRangeList](../functions/ClassicListPage_BuildRangeList.md) | `0x14037B8FC` | Builds the list of entry ids of the current category of a legacy list page and hands it to the list drawer. |
 | [ClassicMenu_HubStep](../functions/ClassicMenu_HubStep.md) | `0x14036D314` | Step of the controller that sits under the other screens (table index 1): after a screen closes it decides, from flag masks of the state dword, which screen opens next. |
 | [ClassicMenu_LoadPageArtPack](../functions/ClassicMenu_LoadPageArtPack.md) | `0x140343770` | Loads the art pack of a legacy menu page (0..5) into the shared menu texture buffer. |
+| [ClassicMenu_OpenNumberEntry](../functions/ClassicMenu_OpenNumberEntry.md) | `0x140379F8C` | Opens the classic number entry window: a range packed in one dword, an optional caption text, and a value word the window edits (word 0x140D498D4). |
 | [ClassicMenu_PopTownMenu](../functions/ClassicMenu_PopTownMenu.md) | `0x140345EFC` | Pops a menu screen and lowers the window counters for the windows it opened. |
 | [ClassicMenu_RunScreenStack](../functions/ClassicMenu_RunScreenStack.md) | `0x140246078` | The task that runs the classic menus, world map and towns: each frame it calls the input step of the screen on top of a stack of controllers. |
 | [ClassicMenu_ScreenWipeStep](../functions/ClassicMenu_ScreenWipeStep.md) | `0x1402CC42C` | Step of a screen wipe (table index 35): a frame-counted fade and slide of the picture layers, with a phase in the record. |
@@ -320,6 +321,8 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [GUISlotVec32_Insert](../functions/GUISlotVec32_Insert.md) | `0x1403EE918` | The 32-byte-record twin of GUISlotVec16_Insert (used for the kind-2 texture-part vector). |
 | [GUISwitch_SetOff](../functions/GUISwitch_SetOff.md) | `0x14040ABDC` | Sets a switch node off: plays its state and posts event 22 (constant at 0x140723390). |
 | [GUISwitch_SetOn](../functions/GUISwitch_SetOn.md) | `0x14040AB40` | Sets a switch node on: plays its state and posts event 21. |
+| [GUITabButton_Deselect](../functions/GUITabButton_Deselect.md) | `0x14040B128` | Deselects a tab label component. |
+| [GUITabButton_Select](../functions/GUITabButton_Select.md) | `0x14040AEE8` | Selects a tab label component and deselects every sibling tab label under the same parent node. |
 | [GUIText_DecodeUtf8](../functions/GUIText_DecodeUtf8.md) | `0x1403D8510` | Decodes one UTF-8 sequence (up to the old 6-byte form) into a code point and returns the pointer after it; the text layout's character reader. |
 | [GUIText_Expand](../functions/GUIText_Expand.md) | `0x1403F0B10` | Runs the text formatter (qword_143CD9C00) over text with the argument vector (264-byte records) into out; returns 1 on success. |
 | [GUITextBoard_CacheAuthoredBox](../functions/GUITextBoard_CacheAuthoredBox.md) | `0x14040E59C` | Once per component, snapshots the text node's authored rectangle and the component's authored size, the baseline GUITextBoardComponent_Update uses when it refits the board around the text. |
@@ -408,8 +411,10 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [Launcher_DrawStartPage](../functions/Launcher_DrawStartPage.md) | `0x1401BBDD0` | Draws the guide page that carries the Start button. |
 | [Launcher_FillControls](../functions/Launcher_FillControls.md) | `0x1401BBB30` | Fills the controls list of the launcher guide. |
 | [LegacyMenu_BuildLocationList](../functions/LegacyMenu_BuildLocationList.md) | `0x1402B276C` | Builds the legacy location menu's list of unlocked world map locations. |
+| [LegacyMenu_ConfirmRow](../functions/LegacyMenu_ConfirmRow.md) | `0x1402E2704` | Confirm step of an old menu node: on the confirm action it follows the node's row list and starts the next node's task, or closes levels. |
 | [LegacyMenu_InitWorld](../functions/LegacyMenu_InitWorld.md) | `0x1402B2EB0` | Initialises the legacy world menu: loads its text resource and picks the screen state block of the current text language. |
 | [LegacyMenu_LoadRowList](../functions/LegacyMenu_LoadRowList.md) | `0x1402B29D8` | Loads the row id list of the legacy menu named by the screen block into the live row array and starts the menu command screen. |
+| [LegacyMenu_NumberEntryTask](../functions/LegacyMenu_NumberEntryTask.md) | `0x140360E58` | Task of node 16 (row 7 of the old main world menu): a number entry window whose confirm calls the range record's function. |
 | [LegacyMenu_PickLocation](../functions/LegacyMenu_PickLocation.md) | `0x1402B28B0` | Confirms the highlighted location of the legacy location menu. |
 | [LegacyMenu_StoreRow](../functions/LegacyMenu_StoreRow.md) | `0x1402378C8` | Stores the row chosen in the current legacy menu into the acting unit's row memory, for the menus that remember it. |
 | [LegacyMenuTasks_Run](../functions/LegacyMenuTasks_Run.md) | `0x1402B4570` | Task body of the legacy menu panes: keeps three pane tasks in step with the menu state. |
@@ -417,6 +422,15 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [LegacyOptions_Open](../functions/LegacyOptions_Open.md) | `0x140364D2C` | Opens the legacy options screen: unpacks the option word into the 12 live choices. |
 | [LegacyOptions_RowTask](../functions/LegacyOptions_RowTask.md) | `0x140365F34` | Task that edits one option row of the legacy options screen and packs the choices back. |
 | [LegacyTask12_Build](../functions/LegacyTask12_Build.md) | `0x14039A518` | Scene task 12: builds the plates and number fields of a battle-side panel from per-language cell lists. |
+| [LegacyWorldMenu_FrameStep](../functions/LegacyWorldMenu_FrameStep.md) | `0x1402B4710` | Per-frame step of the old world menu: builds the repeated input, blocks it while a request is pending, runs the request sequences and turns the request words into state bits of the classic menu state dword 0x141D32E14. |
+| [LegacyWorldMenu_MainMenuTask](../functions/LegacyWorldMenu_MainMenuTask.md) | `0x1402B50A4` | Task of nodes 3 and 4 of the old world menu (node 4 = the old main world menu). |
+| [LegacyWorldMenu_OpenNode](../functions/LegacyWorldMenu_OpenNode.md) | `0x1402B4DCC` | Opens a node of the old world menu as the root task: picks the node table of the text language and starts the node's task in event task slot 8. |
+| [LegacyWorldMenu_RequestEventVarEditor](../functions/LegacyWorldMenu_RequestEventVarEditor.md) | `0x1402B3D1C` | Task of node 15 (row 8 of the old main world menu): sets the event variable editor request word and ends. |
+| [LegacyWorldMenu_RequestPartyLoader](../functions/LegacyWorldMenu_RequestPartyLoader.md) | `0x1402B3CB8` | Task of node 17 (row 9 of the old main world menu): sets the party loader request word and ends. |
+| [LegacyWorldMenu_RequestRoster](../functions/LegacyWorldMenu_RequestRoster.md) | `0x1402B3D80` | Task of node 7 (row 1 of the old main world menu): sets the roster request word and ends. |
+| [LegacyWorldMenu_StartTestBattle](../functions/LegacyWorldMenu_StartTestBattle.md) | `0x1402B3FD4` | Starts a test battle on the map number entered in node 16: sets the test-battle variable 510 and the map number, then ends the task. |
+| [LegacyWorldMenu_StepRosterRequest](../functions/LegacyWorldMenu_StepRosterRequest.md) | `0x1402B4038` | Runs the roster request of the old world menu (request word 0x143749F28, set by row 1 of node 4) as a counted sequence: fade out, run the roster, reopen the menu node, fade back. |
+| [LegacyWorldMenu_StepRow4Request](../functions/LegacyWorldMenu_StepRow4Request.md) | `0x1402B425C` | Runs the request of row 4 of the old main world menu (word 0x143749F30) as a counted sequence around a call of sub_14021A030(1). |
 | [ListScroll_HandleStick](../functions/ListScroll_HandleStick.md) | `0x14028E5D0` | Mouse wheel or right stick scrolls a component list by whole rows, independent of the cursor. |
 | [ListScroll_Step](../functions/ListScroll_Step.md) | `0x14028E720` | Scrolls a component list vertically by rows x row height, then re-homes the focus when the focused item left the view. |
 | [LoreDictionary_BuildList](../functions/LoreDictionary_BuildList.md) | `0x1401E412C` | Builds the glossary list of one category. |
@@ -459,7 +473,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [MenuCtl_Entry45](../functions/MenuCtl_Entry45.md) | `0x140319860` | Step of a list of 8 flagged entries opened from index 43 (table index 45): confirm marks the entry as seen and starts the event numbered for it. |
 | [MenuCtl_Entry50](../functions/MenuCtl_Entry50.md) | `0x1402D18D0` | Short step of a controller that closes itself once its window is done (table index 50). |
 | [MenuCtl_Entry51](../functions/MenuCtl_Entry51.md) | `0x1403462A4` | Step of a screen that runs the paged text widget under a window with a pending close mask (table index 51). |
-| [MenuCtl_Entry52](../functions/MenuCtl_Entry52.md) | `0x140346428` | Yes or no step with a result (table index 52): confirm applies the number held in word 0x140D498D4 when it is below 512. |
+| [MenuCtl_Entry52](../functions/MenuCtl_Entry52.md) | `0x140346428` | Confirm step of the party loader (table index 52): while the number entry runs it waits for confirm or cancel; a confirm with the entered number below 512 rebuilds the party from that battle entry. |
 | [MenuCtl_Entry53](../functions/MenuCtl_Entry53.md) | `0x1402D1ABC` | Step of a controller that walks through a chain of pages (table index 53), moving forward or backward with the record's direction. |
 | [MenuCtl_Entry54](../functions/MenuCtl_Entry54.md) | `0x1402D1DA8` | Step of a one-shot window controller (table index 54): a state dword starts a window action, then it pops. |
 | [MenuCtl_ListCursorStep](../functions/MenuCtl_ListCursorStep.md) | `0x140378B88` | Moves the cursor of a vertical list screen by one row on an up or down press. |
@@ -481,6 +495,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [PagedText_Step](../functions/PagedText_Step.md) | `0x14037A3F0` | Per-frame input of a paged message window: confirm turns to the next page, cancel closes it, and holding action 57 scrolls the text line by line. |
 | [PagedText_WaitAndClose](../functions/PagedText_WaitAndClose.md) | `0x14036D870` | Step of a screen that only runs the paged text widget until it finishes (table index 2). |
 | [PanelScreen_InitVram](../functions/PanelScreen_InitVram.md) | `0x14033D88C` | Uploads the palette and strips of the second panel screen to VRAM. |
+| [PartyLoader_OpenPrompt](../functions/PartyLoader_OpenPrompt.md) | `0x14034637C` | Opens the party loader of the old world menu: a number entry 0..999 with caption text 47142, and the kind 52 screen that applies it. |
 | [RangeOverlay_BuildRowMasks](../functions/RangeOverlay_BuildRowMasks.md) | `0x140389B50` | Builds the 18 row words of the range overlay diamond for a given distance. |
 | [ScenePresetOverrides_Apply](../functions/ScenePresetOverrides_Apply.md) | `0x140348038` | Copies the sprite palette and pose entries named by the current scene's preset list into the live sprite tables. |
 | [ScreenReopen_Step](../functions/ScreenReopen_Step.md) | `0x1403797F8` | Step of a short controller (table index 49) that waits a few frames, then re-opens the screen whose kind is in its first dword. |
@@ -510,8 +525,8 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [sub_1400F6148](../functions/sub_1400F6148.md) | `0x1400F6148` | Three-way (-1 / 0 / 1) animation switch for a node with two named states (default A = qword_143CDA2A0+5240 / +4600 pair, B = +5256 / +4616 pair): plays one, stops the other, and sets node+416 accordingly. |
 | [sub_1400F69BC](../functions/sub_1400F69BC.md) | `0x1400F69BC` | Looks up the button icon / name string for a control action id: the icon a key / pad rebinding table gives for (actionId, slot), else the default one from UI table 25. |
 | [sub_1400F6B5C](../functions/sub_1400F6B5C.md) | `0x1400F6B5C` | Resolves a button id through an Nxd table (qword_143CDA2C0, found by NxdRegistry_Find index 35) and returns one of four glyph ids according to the player's pad layout (byte at qword_143CD9EE8 + 13726). |
-| [sub_1400F6D58](../functions/sub_1400F6D58.md) | `0x1400F6D58` | Steps a cursor value by one with wrap-around when the 'vertical' direction pair is pressed (actions 35 / 36, masks 0x8000 / 0x2000), via sub_1400F6FA0. |
-| [sub_1400F6DD4](../functions/sub_1400F6DD4.md) | `0x1400F6DD4` | Same as sub_1400F6D58 but for the other direction pair (actions 33 / 34, masks 0x1000 / 0x4000) via sub_1400F704C. |
+| [sub_1400F6D58](../functions/sub_1400F6D58.md) | `0x1400F6D58` | Steps a cursor value by one with wrap-around when the Left / Right pair is pressed (actions 35 / 36, masks 0x8000 / 0x2000; the input action table names them menu_left / menu_right, keys A / Left arrow and D / Right a... |
+| [sub_1400F6DD4](../functions/sub_1400F6DD4.md) | `0x1400F6DD4` | Same as sub_1400F6D58 but for the Up / Down pair (actions 33 / 34, masks 0x1000 / 0x4000) via sub_1400F704C. |
 | [sub_1400F6FA0](../functions/sub_1400F6FA0.md) | `0x1400F6FA0` | Reads the second direction pair (actions 35 = -1 and 36 = +1, masks 0x8000 and 0x2000): reports a step and whether it may wrap. |
 | [sub_1400F704C](../functions/sub_1400F704C.md) | `0x1400F704C` | First direction pair: actions 33 = -1 (mask 0x1000 = 4096) and 34 = +1 (mask 0x4000), same protocol as sub_1400F6FA0. |
 | [sub_1400F7378](../functions/sub_1400F7378.md) | `0x1400F7378` | Fills one button-guide entry of a panel: from row (tableKey, rowKey) of UI table 33 sets the IconButton part's label key and the Title text id. |
@@ -690,6 +705,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [UIImageNode_Draw](../functions/UIImageNode_Draw.md) | `0x1403E9C48` | Draws one Image node: resolves its texture part, builds the node's colour, flips and draw state, then calls the draw routine its fill type selects. |
 | [UILauncher_OnMenuAction](../functions/UILauncher_OnMenuAction.md) | `0x1401B924C` | The mode select screen's button handler. |
 | [UIListGadget_Bind](../functions/UIListGadget_Bind.md) | `0x14028C5C4` | Binds a list gadget to its node. |
+| [UIListGadget_ClassicInput](../functions/UIListGadget_ClassicInput.md) | `0x14028E290` | Input of a list gadget for the classic list tasks: stick scroll, row step with repeat and page jumps; returns 1 when the cursor moved. |
 | [UIListGadget_Ctor](../functions/UIListGadget_Ctor.md) | `0x14028C458` | Constructor of the row list gadget (General Options +1744). |
 | [UIListGadget_IsAnimating](../functions/UIListGadget_IsAnimating.md) | `0x14028D44C` | True while a 'Show', 'Slide_left' or 'Slide_right' state is running on the gadget's node +16, its list +24 or a visible slot component. |
 | [UIListGadget_OnInput](../functions/UIListGadget_OnInput.md) | `0x14028E188` | Input of a list gadget: up / down / left / right moves of the cursor. |
@@ -714,6 +730,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [UIPartRef_GetTextureSize](../functions/UIPartRef_GetTextureSize.md) | `0x1403DCA04` | Writes the pixel width and height of the texture a part reference points at (1 x 1 when it has none); the divisor that turns texel rectangles into UVs. |
 | [UIPosFollow_SetTarget](../functions/UIPosFollow_SetTarget.md) | `0x1402AB394` | Starts a position follow: target = base offset (f+40 / f+44) + pos (x, y); records the follower node's current position as the start. |
 | [UIPosFollow_Snap](../functions/UIPosFollow_Snap.md) | `0x1402AB3F0` | Finishes a position follow at once: puts the follower node at the target (int casts) and makes current = target. |
+| [UIRadioButtonMenu_AddItem](../functions/UIRadioButtonMenu_AddItem.md) | `0x1402AD750` | Adds a node to a radio button menu and registers the menu's id as one of the node's owners. |
 | [UIRender_AppendCommand](../functions/UIRender_AppendCommand.md) | `0x1403B83FC` | Appends a type-32 command to the calling thread's UIContext, tagged with the current layer; also marks the layer used. |
 | [UIRender_ApplyDrawState](../functions/UIRender_ApplyDrawState.md) | `0x1403AE1A0` | Programs the graphics pipeline from a draw state: shader permutation, blend/raster bits, texture, samplers and the cSDF constant buffer. |
 | [UIRender_ClearLayerFlags](../functions/UIRender_ClearLayerFlags.md) | `0x1403B8574` | When a2 == 0, resets the per-frame bookkeeping of all 512 layer records and the active layer counter. |
@@ -764,7 +781,21 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [WindowPattern_Build](../functions/WindowPattern_Build.md) | `0x140332330` | Builds the pixel pattern of a legacy window frame row by row and, in mode 2, uploads it to VRAM. |
 | [WindowPattern_FillRow](../functions/WindowPattern_FillRow.md) | `0x1403324F8` | Fills one row of a window frame pattern from a six-word template. |
 | [WindowRect_AnimateCurve](../functions/WindowRect_AnimateCurve.md) | `0x1402DDFE8` | Opens or closes a window by moving two rectangles along one of the five animation step lists. |
+| [WorldMap_OpenLocationsList](../functions/WorldMap_OpenLocationsList.md) | `0x14036D21C` | Opens the world map's Locations list: starts the old location node (or the old main menu node when a roster request waits), has the world map agent show the list, and pushes the hub controller. |
 | [WorldMap_ScreenInput](../functions/WorldMap_ScreenInput.md) | `0x1402D0EE0` | Input step of the world map screen (table index 0): moves between locations, opens a town menu or starts an encounter. |
+| [WorldMapAgent_CreateAddons](../functions/WorldMapAgent_CreateAddons.md) | `0x1401570C8` | Creates the five addons of the world map agent (UI agent 20) and loads each from its UI addon row. |
+| [WorldMapAgent_IsMapShown](../functions/WorldMapAgent_IsMapShown.md) | `0x140157BBC` | True when the world map agent's main map addon exists and is shown (or the agent is in state 9). |
+| [WorldMapAgent_LocationsListBlocked](../functions/WorldMapAgent_LocationsListBlocked.md) | `0x140157BE4` | Tells the list tasks that a confirm on the Locations list must be ignored: the list cannot take input or has no record under the cursor. |
+| [WorldMapAgent_SetState](../functions/WorldMapAgent_SetState.md) | `0x140157864` | Sets the world map agent's state (+228): shows and hides its addons, notifies every addon of the change and sets the footer guide. |
+| [WorldMapBaseList_CanTakeInput](../functions/WorldMapBaseList_CanTakeInput.md) | `0x1401603C4` | Vtable slot 3 of the Locations list addon (struct WorldMapBaseList): true when neither busy byte +42 nor +43 is set. |
+| [WorldMapBaseList_ClearRecords](../functions/WorldMapBaseList_ClearRecords.md) | `0x1401603D4` | Vtable slot 25 of the Locations list addon (struct WorldMapBaseList) (the agent's state-change notice): empties the three record vectors unless the new state is 3. |
+| [WorldMapBaseList_Construct](../functions/WorldMapBaseList_Construct.md) | `0x14015F480` | Constructor of the Locations list addon (struct WorldMapBaseList). |
+| [WorldMapBaseList_DeletingDestruct](../functions/WorldMapBaseList_DeletingDestruct.md) | `0x14015F5FC` | Vtable slot 0 of the Locations list addon (struct WorldMapBaseList): destructs and, with flag bit 1, frees the 1,856 bytes. |
+| [WorldMapBaseList_Destruct](../functions/WorldMapBaseList_Destruct.md) | `0x14015F630` | Destructor of the Locations list addon (struct WorldMapBaseList). |
+| [WorldMapBaseList_DrawRow](../functions/WorldMapBaseList_DrawRow.md) | `0x140160410` | Draws one row of the Locations list addon (struct WorldMapBaseList) from a location record: name, icon and the marks. |
+| [WorldMapBaseList_OnEvent](../functions/WorldMapBaseList_OnEvent.md) | `0x14016029C` | Vtable slot 2 of the Locations list addon (struct WorldMapBaseList): draws rows, fills the info panel when the cursor moves and tracks the hover flags. |
+| [WorldMapBaseList_RecordAt](../functions/WorldMapBaseList_RecordAt.md) | `0x140160790` | Returns the 64-byte location record at an index of the current tab of the Locations list addon (struct WorldMapBaseList), or null. |
+| [WorldMapBaseList_SelectTab](../functions/WorldMapBaseList_SelectTab.md) | `0x140160BE0` | Selects a tab of the Locations list addon (struct WorldMapBaseList): highlights its label, sets the list count from that tab's records, puts the cursor on the current location and swaps the info panels. |
 | [WorldMapBaseScreen_Open](../functions/WorldMapBaseScreen_Open.md) | `0x1401582D0` | Opens a location's own world-map screen file. |
 | [WorldMapLocationPanel_Fill](../functions/WorldMapLocationPanel_Fill.md) | `0x1401607D4` | Fills the world-map location info panel from a location record. |
 | [WorldMapLocationPanel_Init](../functions/WorldMapLocationPanel_Init.md) | `0x14015F730` | Binds the location panel's nodes (worldmap_base_info.uib) once: the list, the tab buttons, the field and town info, and one node per item category. |
@@ -791,7 +822,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [ZodiacStone_FillTip](../functions/ZodiacStone_FillTip.md) | `0x14016D72C` | Fills the stone's tip (icon, name, summary). |
 | [ZodiacStoneBoard_Setup](../functions/ZodiacStoneBoard_Setup.md) | `0x14016C414` | Sets up the Zodiac Stone board: for each of the 13 stones picks the row to show, plays the stone's state and sets its name. |
 
-## Structures (138)
+## Structures (139)
 
 | Name | Size (bytes) | Summary |
 |---|---|---|
@@ -932,6 +963,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [WindowGroupStartRow](../structs/WindowGroupStartRow.md) | 1 | One row of UiLegacyWindowGroupStartsLang0. |
 | [WindowGrowStep](../structs/WindowGrowStep.md) | 1 | One row of the WindowGrowSteps table. |
 | [WindowPatternWord](../structs/WindowPatternWord.md) | 2 | One row of the WindowPatternTiles table. |
+| [WorldMapBaseList](../structs/WorldMapBaseList.md) | 1856 | The Locations list addon of the world map (X on the map): addon +80 of the world map agent, made once by WorldMapAgent_CreateAddons from UI addon row 133. |
 | [WorldMapLocationRecord](../structs/WorldMapLocationRecord.md) | 64 | One 64-byte record per world-map location that the location-list builder accepts (location ids 0..46): what is on offer there and its state at the current story progress. |
 
 ## Globals (8)
@@ -947,7 +979,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [g_StatusIconWord](../globals/g_StatusIconWord.md) | `0x143D1B590` | `uint16` | The packed page-and-palette word of the status/item icon the status screen last set. |
 | [g_UIChosenItemId](../globals/g_UIChosenItemId.md) | `0x143C518F0` | `uint16` | The 16-bit UI field that holds the item id the player picked in the shop list. |
 
-## Registries (17)
+## Registries (20)
 
 | Name | Summary |
 |---|---|
@@ -958,6 +990,8 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [ClassicSubtitleState](../registries/ClassicSubtitleState.md) | The state names of the classic-movie subtitle window and the UIClassicSubtitles line_layout value that picks each. |
 | [CreditLineType](../registries/CreditLineType.md) | The line types of UICreditRow (line_type) and the builder CreditRoll_Step calls for each. |
 | [GuideIconGlyph](../registries/GuideIconGlyph.md) | The guide icon numbers (UIButtonGuide guide_icon / guide_icon_2) and the glyph GuideIcon_ToGlyph draws for them. |
+| [LegacyWorldMainMenuRows](../registries/LegacyWorldMainMenuRows.md) | The rows of node 4 of the old world menu (the old main world menu): row -> next node -> what it opens. |
+| [LegacyWorldMenuNodes](../registries/LegacyWorldMenuNodes.md) | The node tree of the old world menu: four tables of 21 node records of 88 bytes, one per text language (tbl_LegacyWorldMenuStateLang0 0x14080CAB0, Lang1 0x14080D1F0, Lang3 0x14080D930, Lang2 0x14080E070). |
 | [MovieControllerFlag](../registries/MovieControllerFlag.md) | The movie controller flag bits Movie_Start sets from the MovieData row (MovieController +24). |
 | [TitleMenuEntryKinds](../registries/TitleMenuEntryKinds.md) | The six kinds of row of the Enhanced title menu: the kind byte stored in each row, the text id of its label (UI table, nxd id 19) and what choosing it does. |
 | [TitleModeSelectButtons](../registries/TitleModeSelectButtons.md) | The button ids of the mode select screen as `UILauncher_OnMenuAction` handles them. |
@@ -968,6 +1002,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [UIDialogRowsOfSettings](../registries/UIDialogRowsOfSettings.md) | The UIDialog rows (nxd 34, `UITable_GetRow(34, row)`) the settings screens and neighbours use, and the UI texts they quote. |
 | [UiScriptOpcodes](../registries/UiScriptOpcodes.md) | The 29-slot handler table (image address 0x1406838F0) that UiScript_Run indexes with the opcode byte of each record; the conditional handlers also index it for the records they govern. |
 | [UISoundIdsOfSettings](../registries/UISoundIdsOfSettings.md) | The UI sound ids (`sub_1400F4BCC(_, id)`, UI table 0x45) the settings screen plays. |
+| [WorldMapAgentStates](../registries/WorldMapAgentStates.md) | States of the world map UI agent (agent 20, state dword +228) set by WorldMapAgent_SetState: which of its addons each state shows and the footer guide it sets. |
 
 ## File formats (7)
 
@@ -993,7 +1028,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [TitleMenuAction](../flows/TitleMenuAction.md) | From a press on a title menu row to the action: the button event reaches the agent, which dispatches on the row's kind. |
 | [UIAgentLifecycle](../flows/UIAgentLifecycle.md) | From the manager's construction to its teardown: the 184-byte manager is built once, fills a 54-slot agent vector, attaches addons to agents, ticks them each frame, changes their states, and finally deletes every agen... |
 
-## Observed behaviours (30)
+## Observed behaviours (31)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -1012,6 +1047,7 @@ Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Fl
 | [JobsEquipmentShopScreens](../behaviors/JobsEquipmentShopScreens.md) | Units > Status, Jobs, equipment list, Outfitter (Buy) | Screen identities, cell layouts and the memory handles (job byte, item id, gil) of the world map management screens, as seen live. |
 | [JobTreeLayerList](../behaviors/JobTreeLayerList.md) | the layer slots of a UI frame and, for the Job Tree screen, which component opens each one and how its float rectangle is made | A UI layer is not tied to a component by any pointer: the layer records hold no component link (only the mask component of a masked layer is stored). |
 | [ListGadgetInputPath](../behaviors/ListGadgetInputPath.md) | why a list cursor moves only when the screen calls the list input | A list gadget's cursor moves by pad or keyboard only when the screen's input handler calls the list's own input; the Left / Right branches of the settings screen return before that call. |
+| [LocationsListTabIndex](../behaviors/LocationsListTabIndex.md) | engine (world map Locations list) | The Locations list's current tab is a dword at +1840 of the list addon: three tabs, 0..2, each with its own record list. |
 | [MovieSkipKinds](../behaviors/MovieSkipKinds.md) | engine (movies) | Classic movies and the first four movies end on one press; the enhanced story movies open the pause window, from which they can be skipped. |
 | [SettingsCloseSavesSystemFile](../behaviors/SettingsCloseSavesSystemFile.md) | what closing the settings screen writes | Closing the settings screen requests a settings save, and the save rewrites the SYSTEM save file with the settings and the save manager's bytes +656..+895, among them the game-cleared byte. |
 | [TextNodeDrawGate](../behaviors/TextNodeDrawGate.md) | UI text nodes (GUITextNode_Draw) | GUITextNode_Draw returns before drawing unless a byte at node +0xCC is non-zero, a byte at +0x91 is zero, the string size at +0xE8 is non-zero and a font-table / font-set lookup returns true. |

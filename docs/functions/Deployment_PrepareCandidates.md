@@ -24,7 +24,7 @@ Battle setup step that builds the deployment candidate list from the roster and,
 
 ## Referenced by
 
-- Observed behaviours: [DeploymentRowsOfEachBattle](../behaviors/DeploymentRowsOfEachBattle.md)
+- Observed behaviours: [DeploymentRowsOfEachBattle](../behaviors/DeploymentRowsOfEachBattle.md), [TestBattleModeVariable510](../behaviors/TestBattleModeVariable510.md)
 
 ## Notes
 

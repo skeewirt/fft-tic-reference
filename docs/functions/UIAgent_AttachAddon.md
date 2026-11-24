@@ -25,7 +25,7 @@ Links a screen (add-on) to its agent and gives it an id.
 ## Referenced by
 
 - Appears in flows: [ScreenAddonCreation](../flows/ScreenAddonCreation.md), [UIAgentLifecycle](../flows/UIAgentLifecycle.md)
-- Called by: [Boot_Update](Boot_Update.md), [TitleScene_Update](TitleScene_Update.md), [UIAgentFFTOSystem_OpenConfig](UIAgentFFTOSystem_OpenConfig.md)
+- Called by: [Boot_Update](Boot_Update.md), [TitleScene_Update](TitleScene_Update.md), [UIAgentFFTOSystem_OpenConfig](UIAgentFFTOSystem_OpenConfig.md), [WorldMapAgent_CreateAddons](WorldMapAgent_CreateAddons.md)
 
 ## Notes
 

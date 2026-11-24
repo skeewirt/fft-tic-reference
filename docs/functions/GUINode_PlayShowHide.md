@@ -26,7 +26,7 @@ Plays a node's Show or Hide animation (default state names 'Show' and 'Hide'): s
 
 ## Referenced by
 
-- Called by: [JobList_ApplyCellRecord](JobList_ApplyCellRecord.md), [TavernRumourPage_Show](TavernRumourPage_Show.md), [sub_1402A20A4](sub_1402A20A4.md)
+- Called by: [JobList_ApplyCellRecord](JobList_ApplyCellRecord.md), [TavernRumourPage_Show](TavernRumourPage_Show.md), [WorldMapAgent_SetState](WorldMapAgent_SetState.md), [WorldMapBaseList_DrawRow](WorldMapBaseList_DrawRow.md), [WorldMapBaseList_SelectTab](WorldMapBaseList_SelectTab.md), [sub_1402A20A4](sub_1402A20A4.md)
 
 ## Notes
 

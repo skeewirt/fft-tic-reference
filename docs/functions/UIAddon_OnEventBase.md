@@ -24,7 +24,7 @@ Base event handler every add-on's own handler calls first.
 
 ## Referenced by
 
-- Called by: [UIAddonFFTOConfig_OnEvent](UIAddonFFTOConfig_OnEvent.md)
+- Called by: [UIAddonFFTOConfig_OnEvent](UIAddonFFTOConfig_OnEvent.md), [WorldMapBaseList_OnEvent](WorldMapBaseList_OnEvent.md)
 - Observed behaviours: [TitleBackdropAndInputFlag](../behaviors/TitleBackdropAndInputFlag.md), [UIAddonBaseEventRouting](../behaviors/UIAddonBaseEventRouting.md)
 
 ## Open questions

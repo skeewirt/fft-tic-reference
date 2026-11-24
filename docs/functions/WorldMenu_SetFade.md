@@ -20,7 +20,7 @@ Requests a UI fade state and then sets the world-menu mode word.
 
 ## Referenced by
 
-- Called by: [EventViewer_EntryPage](EventViewer_EntryPage.md), [JournalPanel_Tick](JournalPanel_Tick.md), [Tavern_TopInput](Tavern_TopInput.md), [sub_140372F9C](sub_140372F9C.md)
+- Called by: [EventViewer_EntryPage](EventViewer_EntryPage.md), [JournalPanel_Tick](JournalPanel_Tick.md), [LegacyWorldMenu_FrameStep](LegacyWorldMenu_FrameStep.md), [LegacyWorldMenu_StepRosterRequest](LegacyWorldMenu_StepRosterRequest.md), [LegacyWorldMenu_StepRow4Request](LegacyWorldMenu_StepRow4Request.md), [Tavern_TopInput](Tavern_TopInput.md), [sub_140372F9C](sub_140372F9C.md)
 
 ## Notes
 

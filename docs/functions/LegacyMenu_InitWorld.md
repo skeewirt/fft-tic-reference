@@ -25,6 +25,7 @@ Initialises the legacy world menu: loads its text resource and picks the screen 
 ## Referenced by
 
 - Called by: [OpeningTask_4](OpeningTask_4.md), [TitleScene_Task](TitleScene_Task.md)
+- Observed behaviours: [TestBattleModeVariable510](../behaviors/TestBattleModeVariable510.md)
 
 ## Notes
 

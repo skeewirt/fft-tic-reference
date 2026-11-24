@@ -26,7 +26,7 @@ Makes sure the widget owns a texture slot group called `name` (a UI texture atla
 
 ## Referenced by
 
-- Called by: [FaceWidget_SetFace](FaceWidget_SetFace.md), [SortieScreen_SetArea0Face](SortieScreen_SetArea0Face.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [sub_1401560D0](sub_1401560D0.md)
+- Called by: [FaceWidget_SetFace](FaceWidget_SetFace.md), [SortieScreen_SetArea0Face](SortieScreen_SetArea0Face.md), [StatusScreen_SetEntry](StatusScreen_SetEntry.md), [WorldMapBaseList_DrawRow](WorldMapBaseList_DrawRow.md), [sub_1401560D0](sub_1401560D0.md)
 
 ## Notes
 

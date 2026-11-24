@@ -23,7 +23,7 @@ Builds a UITextureParts path (that scheme followed by the row's text) from one r
 
 ## Referenced by
 
-- Called by: [FaceTexture_FormatName](FaceTexture_FormatName.md)
+- Called by: [FaceTexture_FormatName](FaceTexture_FormatName.md), [WorldMapBaseList_DrawRow](WorldMapBaseList_DrawRow.md)
 
 ## Notes
 

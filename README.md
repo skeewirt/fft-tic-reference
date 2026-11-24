@@ -2,23 +2,23 @@
 
 Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS: The Ivalice Chronicles** (`FFT_enhanced.exe`): functions, runtime structures, globals, registries, shaders, render targets, file formats, flows and observed behaviours, every fact tagged by how it was established.
 
-4604 records in 12 kinds; 2521 functions.
+4648 records in 12 kinds; 2558 functions.
 
 ## By kind
 
 | Kind | Records | What it covers |
 |---|---|---|
-| [Functions](docs/functions/README.md) | 2521 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
+| [Functions](docs/functions/README.md) | 2558 | Code: one page per function of the game executable: what it does, whom it calls, and the state it reads and writes. |
 | [Event opcodes](docs/opcodes/README.md) | 242 | The event script language: one flat data record per opcode (format: docs/guides/opcodes-format.md). Index page only; the records are the documentation. |
-| [Structures](docs/structs/README.md) | 540 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
+| [Structures](docs/structs/README.md) | 541 | Runtime records: objects and blocks the game keeps in memory, field by field, with who writes and who reads each field. |
 | [Globals](docs/globals/README.md) | 229 | Global variables and singletons at fixed addresses of the current build (build-aware RVAs in symbols/globals.json). |
-| [Registries](docs/registries/README.md) | 39 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
+| [Registries](docs/registries/README.md) | 43 | Name-to-id tables the engine builds at runtime (sampler, texture and constant-buffer slots, ...): every entry with its id, its value and its meaning. |
 | [Shaders](docs/shaders/README.md) | 9 | GPU shader programs from the game's technique files: stage, interface, bindings and what they compute (in words; no bytecode). |
 | [Shader programs](docs/programs/README.md) | 4 | Engine shader programs: a selector and program index resolved to its vertex and pixel shader, and the passes that use it. |
 | [Render targets](docs/render-targets/README.md) | 8 | GPU surfaces the renderer keeps by index: size, format and what each one holds at which point of the frame. |
 | [File formats](docs/formats/README.md) | 20 | Layouts of the game's file formats (described, never copied): headers, records, string pools. |
 | [Flows](docs/flows/README.md) | 41 | Ordered sequences across functions and state: what happens in which order (a frame, a render pass, a load), and why the order matters. |
-| [Observed behaviours](docs/behaviors/README.md) | 277 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
+| [Observed behaviours](docs/behaviors/README.md) | 279 | Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence. |
 | [Tables](docs/tables/README.md) | 674 | Where the game keeps its data tables, NXD files and the fixed tables inside the executable: what each holds, how it is keyed, how big its rows are, and which code reads it. Describes the tables; it does not reproduce their contents. |
 
 ## By area
@@ -27,15 +27,15 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 |---|---|
 | [Ability data](docs/areas/ability-data.md) | Functions: 6, Structures: 12, Registries: 2, Flows: 1, Observed behaviours: 7, Tables: 14 |
 | [Application and startup](docs/areas/app-startup.md) | Functions: 52, Structures: 3, Globals: 2, Flows: 8, Observed behaviours: 5, Tables: 3 |
-| [Battle](docs/areas/battle.md) | Functions: 423, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89 |
+| [Battle](docs/areas/battle.md) | Functions: 426, Structures: 71, Globals: 50, Registries: 4, File formats: 1, Flows: 7, Observed behaviours: 80, Tables: 89 |
 | [Data access](docs/areas/data.md) | Functions: 60, Structures: 112, Globals: 2, Registries: 3, File formats: 5, Flows: 3, Observed behaviours: 13, Tables: 116 |
 | [Display](docs/areas/display.md) | Functions: 3, Structures: 5, Tables: 5 |
 | [Errands](docs/areas/errands.md) | Functions: 30, Structures: 10, Globals: 2, Observed behaviours: 3, Tables: 11 |
 | [Event commands](docs/areas/event-commands.md) | Functions: 57 |
-| [Event system](docs/areas/event-system.md) | Functions: 217, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 21, Tables: 29 |
+| [Event system](docs/areas/event-system.md) | Functions: 220, Structures: 28, Globals: 5, File formats: 1, Observed behaviours: 22, Tables: 29 |
 | [Battle formulas](docs/areas/formulas.md) | Functions: 153, Observed behaviours: 1 |
 | [Graphics](docs/areas/graphics.md) | Functions: 200, Structures: 53, Globals: 14, Registries: 3, Shaders: 9, Shader programs: 4, Render targets: 8, File formats: 2, Flows: 6, Observed behaviours: 54, Tables: 48 |
-| [Input](docs/areas/input.md) | Functions: 24, Structures: 12, Globals: 1, Registries: 2, Flows: 1, Observed behaviours: 1, Tables: 9 |
+| [Input](docs/areas/input.md) | Functions: 24, Structures: 12, Globals: 1, Registries: 3, Flows: 1, Observed behaviours: 1, Tables: 9 |
 | [Items and shops](docs/areas/items.md) | Functions: 106, Structures: 28, Globals: 29, Registries: 2, Flows: 2, Observed behaviours: 12, Tables: 33 |
 | [Job data](docs/areas/job-data.md) | Functions: 38, Structures: 15, Globals: 2, Registries: 1, Flows: 1, Observed behaviours: 28, Tables: 15 |
 | [Job list and unlock](docs/areas/job-list.md) | Functions: 21, Structures: 2 |
@@ -43,7 +43,7 @@ Reverse-engineering reference for the Steam remaster of **FINAL FANTASY TACTICS:
 | [Math](docs/areas/math.md) | Functions: 7, Structures: 5, Tables: 6 |
 | [Resource](docs/areas/resource.md) | Functions: 37, Structures: 7, Observed behaviours: 1, Tables: 15 |
 | [Save data](docs/areas/save-data.md) | Functions: 145, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flows: 4, Observed behaviours: 6, Tables: 10 |
-| [UI framework](docs/areas/ui-framework.md) | Functions: 782, Structures: 138, Globals: 8, Registries: 17, File formats: 7, Flows: 7, Observed behaviours: 30, Tables: 234 |
+| [UI framework](docs/areas/ui-framework.md) | Functions: 813, Structures: 139, Globals: 8, Registries: 20, File formats: 7, Flows: 7, Observed behaviours: 31, Tables: 234 |
 | [Unit data](docs/areas/unit-data.md) | Functions: 76, Structures: 4, Globals: 6, Registries: 3, Observed behaviours: 7, Tables: 1 |
 | [Unit rendering](docs/areas/unit-rendering.md) | Functions: 39, Structures: 18, Observed behaviours: 1, Tables: 20 |
 

@@ -22,7 +22,7 @@ The component currently showing item `item`, or null when that item is not in th
 
 ## Referenced by
 
-- Called by: [BgmMode_DrawRow](BgmMode_DrawRow.md), [BgmMode_PlaySelected](BgmMode_PlaySelected.md), [StatusScreen_DrawLists](StatusScreen_DrawLists.md), [sub_14022F868](sub_14022F868.md), [sub_140338060](sub_140338060.md)
+- Called by: [BgmMode_DrawRow](BgmMode_DrawRow.md), [BgmMode_PlaySelected](BgmMode_PlaySelected.md), [StatusScreen_DrawLists](StatusScreen_DrawLists.md), [WorldMapBaseList_OnEvent](WorldMapBaseList_OnEvent.md), [sub_14022F868](sub_14022F868.md), [sub_140338060](sub_140338060.md)
 
 ## Notes
 

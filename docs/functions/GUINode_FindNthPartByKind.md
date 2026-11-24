@@ -19,7 +19,7 @@ Returns the index-th (0-based) descendant part of the given kind in depth-first 
 
 ## Referenced by
 
-- Called by: [ComponentEffects_Collect](ComponentEffects_Collect.md), [sub_1401332A0](sub_1401332A0.md), [sub_1403456D4](sub_1403456D4.md)
+- Called by: [ComponentEffects_Collect](ComponentEffects_Collect.md), [GUITabButton_Deselect](GUITabButton_Deselect.md), [GUITabButton_Select](GUITabButton_Select.md), [sub_1401332A0](sub_1401332A0.md), [sub_1403456D4](sub_1403456D4.md)
 
 ## Notes
 

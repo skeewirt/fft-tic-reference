@@ -25,7 +25,7 @@ Returns the text of a PlaceName row (table 85) by its key, or the empty string.
 
 ## Referenced by
 
-- Called by: [MapTitle_SetFromMapId](MapTitle_SetFromMapId.md)
+- Called by: [MapTitle_SetFromMapId](MapTitle_SetFromMapId.md), [WorldMapBaseList_DrawRow](WorldMapBaseList_DrawRow.md)
 - Observed behaviours: [MapRowPlaceNameKeys](../behaviors/MapRowPlaceNameKeys.md)
 
 ## Notes
