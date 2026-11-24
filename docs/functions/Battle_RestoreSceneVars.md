@@ -33,7 +33,7 @@ Puts a saved battle's scene state back from the battle snapshot region: seven sc
 
 - Appears in flows: [BattleResumeRestoresTheLooks](../flows/BattleResumeRestoresTheLooks.md)
 - Called by: [sub_140210AF0](sub_140210AF0.md)
-- Observed behaviours: [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md), [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md), [TheBattleCaptureCopiesFixedCounts](../behaviors/TheBattleCaptureCopiesFixedCounts.md)
+- Observed behaviours: [EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping](../behaviors/EventIdRowOfTheCurrentEventIsReadWithoutANullTestWhenSkipping.md), [LookPoolOfFifteenIsWiredIntoFixedSlots](../behaviors/LookPoolOfFifteenIsWiredIntoFixedSlots.md), [ResumeLoadsTheLookStateTwice](../behaviors/ResumeLoadsTheLookStateTwice.md), [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md), [RetryClearsTheItemStoresThenRestoresTheBattleSnapshot](../behaviors/RetryClearsTheItemStoresThenRestoresTheBattleSnapshot.md), [SlotIndexCarriersAreBytesAndFiveBits](../behaviors/SlotIndexCarriersAreBytesAndFiveBits.md), [TheBattleCaptureCopiesFixedCounts](../behaviors/TheBattleCaptureCopiesFixedCounts.md)
 
 ## Notes
 

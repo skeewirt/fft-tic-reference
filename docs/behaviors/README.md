@@ -2,7 +2,7 @@
 
 Behaviour of the engine, driver or GPU that no single function owns (conversion rules, ordering effects, inherited state), with the evidence.
 
-284 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
+285 records. Format of a record: [kinds/behavior.json](../../kinds/behavior.json). Data: [data/behaviors.jsonl](../../data/behaviors.jsonl).
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -203,6 +203,7 @@ Behaviour of the engine, driver or GPU that no single function owns (conversion 
 | [RecordBytesTheGameNeverReads](RecordBytesTheGameNeverReads.md) | engine (fixed tables in the executable) | Bytes and bits of several fixed tables that no function of the game reads, found by listing every code reference to each table, so the stored values decide nothing. |
 | [ResumedBattleRestoresUnitRecordsWithoutUnpack](ResumedBattleRestoresUnitRecordsWithoutUnpack.md) | resuming a battle from an autosave: where the live unit records come from | A battle resumed from an autosave gets its live unit records (g_UnitSaveData) from the battle snapshot region through Battle_RestoreSceneVars, and SaveWork_UnpackToLive does not run for it: the resume entry unpacks on... |
 | [ResumeLoadsTheLookStateTwice](ResumeLoadsTheLookStateTwice.md) | engine (battle resume) | A battle resumed from a payload copies the payload twice around the scene-variable restore, builds no scene unit but restores the scene-unit records whole, and rebuilds existing scene units from the restored slot and ... |
+| [RetryClearsTheItemStoresThenRestoresTheBattleSnapshot](RetryClearsTheItemStoresThenRestoresTheBattleSnapshot.md) | Change Formation and Retry in a battle: where the party's item counts come from | A Retry first clears the item stores with GameState_ResetParty and then writes them back from the battle snapshot taken when the battle began (Battle_SnapshotLiveState, direction 1). |
 | [RumourNewFlagsAreIndexedByTheLowByteOfTheId](RumourNewFlagsAreIndexedByTheLowByteOfTheId.md) | engine (tavern rumours) | Every reader and the writer of the rumour new flags guards the index with a test of the LOW BYTE of the id (taken as a signed byte, it must be 0..63, and that byte is the index), so an id whose low byte is 0..63 index... |
 | [RumourReadWritesEventVariables](RumourReadWritesEventVariables.md) | engine (tavern) | Reading a rumour that has a counter raises the counter once and then writes the event variables listed in its row; the variable number 102 is a prefix, not a variable. |
 | [RuntimeJobListCanLiveInAnyBlockWithinReach](RuntimeJobListCanLiveInAnyBlockWithinReach.md) | engine (runtime job list) | Every reference to g_RuntimeJobList is a 32-bit displacement (four rip-relative `lea`, six reads through the image base plus a sign-extended index), the list is in the zero-filled tail of the data section and no data ... |

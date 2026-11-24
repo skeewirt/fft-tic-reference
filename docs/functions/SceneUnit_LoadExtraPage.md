@@ -20,6 +20,7 @@ Gives a scene unit one of the two extra sprite pages for its second-sheet frames
 - V: caller sub_14026CAA4 (per frame) looks for a page whose owner's low 5 bits are the unit's; with none it takes a free page (owner 255).
 - V (seen live 2026-11-17): a resumed battle restores slot 16 from the save (g_HdSheetEntryBySlot 13..28 come from the payload), so it names the second sheet of the unit that last used page 0 while every page owner reads 255.
 - V (seen live 2026-11-17): the sprite byte decides the second sheet: a scene unit whose byte read 0 left slot 16 as it was (another unit's entry), and the HD layer drew that unit's second-sheet pieces in its colours.
+- V (seen live 2026-11-24): a scene unit of sprite 50 (HD entry 910) whose byte read 0 took extra page 0 for a casting pose in a resumed battle while slot 16 held 1069, the second sheet of sprite 134 (HD entry 1068): the pose drew as a block of that sheet's pieces for the whole cast, and slot 16 still read 1069 afterwards. With the byte at 50 the same cast drew the unit's own frames. Sprite 0 has HD entry -1, so the three stores are skipped; with slot 16 at -1 instead, nothing is drawn for the pose.
 
 ## State touched
 

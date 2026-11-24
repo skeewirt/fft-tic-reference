@@ -2,7 +2,7 @@
 
 The schema layer for save and config records: the generic descriptor walker, the schemas for the save file and its sections, and the config file.
 
-Functions: 145, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flows: 4, Observed behaviours: 6, Tables: 10.
+Functions: 145, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flows: 4, Observed behaviours: 7, Tables: 10.
 
 ## Functions (145)
 
@@ -210,7 +210,7 @@ Functions: 145, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flow
 | [SaveFrameStep](../flows/SaveFrameStep.md) | How a manual save or load reaches the file: the save screen changes a command, and one frame step does the work once per frame, blocking that frame while the container is read or written. |
 | [SaveLoadScreenFlow](../flows/SaveLoadScreenFlow.md) | The save/load screen's ordered path. |
 
-## Observed behaviours (6)
+## Observed behaviours (7)
 
 | Name | Scope | Summary |
 |---|---|---|
@@ -219,6 +219,7 @@ Functions: 145, Structures: 13, Globals: 8, Registries: 2, File formats: 4, Flow
 | [BattleRetriesRestoreTheirOwnCapture](../behaviors/BattleRetriesRestoreTheirOwnCapture.md) | the battle System Menu's Retry choices | Both Retry choices rebuild the battle from a battle capture, not from the battle as it stands: 'Change Formation and Retry' restores a capture taken after the battle's own units were built and before any party unit jo... |
 | [CheckpointCopyHoldsTheLiveUnitRecords](../behaviors/CheckpointCopyHoldsTheLiveUnitRecords.md) | the checkpoint copy of the slot record (g_SaveCheckpointCopy) | The checkpoint writer packs the party into the work copy, copies the work copy to the checkpoint copy, and then overwrites the checkpoint copy's unit area with the live unit records. |
 | [ResumedBattleRestoresUnitRecordsWithoutUnpack](../behaviors/ResumedBattleRestoresUnitRecordsWithoutUnpack.md) | resuming a battle from an autosave: where the live unit records come from | A battle resumed from an autosave gets its live unit records (g_UnitSaveData) from the battle snapshot region through Battle_RestoreSceneVars, and SaveWork_UnpackToLive does not run for it: the resume entry unpacks on... |
+| [RetryClearsTheItemStoresThenRestoresTheBattleSnapshot](../behaviors/RetryClearsTheItemStoresThenRestoresTheBattleSnapshot.md) | Change Formation and Retry in a battle: where the party's item counts come from | A Retry first clears the item stores with GameState_ResetParty and then writes them back from the battle snapshot taken when the battle began (Battle_SnapshotLiveState, direction 1). |
 | [SaveCardJobIsTheLeadersPartyJobWordLowByte](../behaviors/SaveCardJobIsTheLeadersPartyJobWordLowByte.md) | a manual save's slot card | The slot card's job byte (slot image +274) is the low byte of the leader's 16-bit party job word: SaveWork_PackFromParty picks the first party unit whose marker (+114) is 1..3 and passes its word +36 to SaveWork_PackF... |
 
 ## Tables (10)

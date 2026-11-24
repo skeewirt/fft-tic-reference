@@ -31,6 +31,7 @@ Adds a signed delta to the owned count of one item id and returns the new count,
 ## Referenced by
 
 - Called by: [ClassicItemUsePage_Run](ClassicItemUsePage_Run.md), [Inventory_BuildEquipList](Inventory_BuildEquipList.md), [Item_CountTotal](Item_CountTotal.md), [JobChange_FillUnitEntry](JobChange_FillUnitEntry.md), [Party_ReturnHandItems](Party_ReturnHandItems.md), [sub_1402875A4](sub_1402875A4.md), [sub_140288590](sub_140288590.md), [sub_1402888E8](sub_1402888E8.md), [sub_14028916C](sub_14028916C.md), [sub_1402D65D4](sub_1402D65D4.md), [sub_1403331F8](sub_1403331F8.md), [sub_140334A48](sub_140334A48.md), [sub_1403358FC](sub_1403358FC.md), [sub_140336664](sub_140336664.md), [sub_14036B71C](sub_14036B71C.md), [sub_140396D08](sub_140396D08.md)
+- Observed behaviours: [RetryClearsTheItemStoresThenRestoresTheBattleSnapshot](../behaviors/RetryClearsTheItemStoresThenRestoresTheBattleSnapshot.md)
 
 ## Notes
 

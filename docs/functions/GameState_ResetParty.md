@@ -31,7 +31,7 @@ Resets the party-wide item state for a new game or a partial reset: the roster m
 
 ## Referenced by
 
-- Observed behaviours: [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md)
+- Observed behaviours: [MoveFindTakenBitsAreFourPerMapInA128ByteArray](../behaviors/MoveFindTakenBitsAreFourPerMapInA128ByteArray.md), [RetryClearsTheItemStoresThenRestoresTheBattleSnapshot](../behaviors/RetryClearsTheItemStoresThenRestoresTheBattleSnapshot.md)
 
 ## Notes
 
