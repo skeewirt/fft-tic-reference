@@ -19,6 +19,7 @@ The unhandled-exception filter installed by Startup_InstallExceptionHandling. It
 - V: when `qword_143CD9B40` is non-null, calls `sub_14007EB7C` with the selected message.
 - V: leaves the critical section, decrements the counter and returns 1 (EXCEPTION_EXECUTE_HANDLER), which ends the process.
 - V: no direct caller; it is installed as a callback with SetUnhandledExceptionFilter.
+- V (seen live 2026-11-25): an access violation on a thread started at an invalid address (0x10) reached this filter; the faulting thread then waited in a system module called by `sub_14007EB7C` (its return address there is 0x14007EBCD; a user wait: the dialog) while every other thread ran on and the game window kept responding. The game was minimized, so the dialog was not seen, and no crash dump was written while it waited: the process ends only once the dialog is answered.
 
 ## State touched
 
